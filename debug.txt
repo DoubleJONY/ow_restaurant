@@ -1,0 +1,24 @@
+rule("test code")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Button Held(Host Player, Button(Ultimate)) == True;
+	}
+
+	actions
+	{
+		If(Is Button Held(Host Player, Button(Melee)));
+			Abort If(!Global.isOpen);
+			Global.systemScore += 100;
+			Small Message(All Players(All Teams), Custom String("테스트 +100%"));
+		Else;
+			Host Player.dollar += 100000;
+			Small Message(Host Player, Custom String("테스트 +$100000"));
+		End;
+	}
+}
