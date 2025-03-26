@@ -1308,13 +1308,13 @@ rule("Dummy: Spawn")
 			Skip(5);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				" [{0}]:  {1} Purchase - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("Storage"), Custom String("Random Item"))
+				" [{0}]:  Purchase {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("Storage"), Custom String("Random Item"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[True][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(3);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				" [{0}]:  {1} Upgrade - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("Fryer"), Custom String("Pot"), Custom String("Grill"), Custom String("Pan"))
+				" [{0}]:  Upgrade {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("Fryer"), Custom String("Pot"), Custom String("Grill"), Custom String("Pan"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[2][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(1);
