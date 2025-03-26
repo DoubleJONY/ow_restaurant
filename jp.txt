@@ -14,6 +14,7 @@ variables
 		10: itemCooker
 		11: checkingIndex
 		12: normal
+        13: storageData
 		14: createItemData
 		15: creatingItemIndex
 		16: cookingIndex
@@ -31,6 +32,7 @@ variables
 		28: POT_RESULT
 		29: PAN_NEEDED
 		30: PAN_RESULT
+		31: STORAGE_POSITION
 		32: IMPACT_RESULT
 		33: MIXING_RECIPE
 		34: MIXING_RESULT
@@ -98,10 +100,11 @@ variables
 		96: reservedOrder
 		97: playerProgress
 		98: stageScore
+		99: storageLevel
 		100: itemPrevPosition
 		101: CUTTING_POSITION
 		102: phaseNeeded
-		103: COOKWARE_NAME
+		103: PERK_LIST
 		104: itemDurability
 		105: itemNormal
 		106: loadNext
@@ -125,6 +128,7 @@ variables
 		124: scbRank
 		125: scbSurved
 		126: MELT_LIST
+        127: storageIndex
 
 	player:
 		0: controlingIndex
@@ -147,7 +151,7 @@ variables
 		17: tableText
 		18: dollar
 		20: durability
-		21: selectedUpgade
+		21: selectedUpgrade
 		22: knifeText
 		23: knifeCode
 		24: shaftEffect
@@ -163,6 +167,11 @@ variables
 		34: scbSurved
 		35: scbMissed
 		36: scbDollar
+		37: itemPerk
+		38: itemPerkDurability
+        39: itemPerkText
+        40: playerEffectStatus
+        41: perkIndex
 }
 
 subroutines
@@ -183,6 +192,8 @@ subroutines
 	13: loadProgress
 	14: gameSummary
 	15: knifeHud
+    16: purchaseUpgrade
+    17: perkHud
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -270,16 +281,19 @@ rule("Global: Setting")
 		Global.grillingPower = 1;
 		Global.potPower = 0;
 		Global.panPower = 1;
+        Global.storageLevel = -1;
 		Global.POT_POSITION = Array(Vector(228.192, 2.200, 160.310), Vector(229.009, 2.200, 160.853));
 		Global.FRIDGE_POSITION = Array(Vector(232.349, 2.850, 162.947), Vector(233.665, 2.850, 163.795), Vector(234.967, 2.850, 164.652),
 			Vector(232.349, 1.750, 162.947), Vector(233.665, 1.750, 163.795), Vector(234.967, 1.750, 164.652));
 		Global.CUTTING_POSITION = Array(Vector(231.369, 2, 166.183), Vector(222.109, 2, 156.602));
-		Global.currentUpgrade = -1;
+		Global.STORAGE_POSITION = Array(Vector(222.149, 2.045, 159.937), Vector(222.431, 2.045, 160.111), Vector(222.723, 2.045, 160.292), Vector(222.986, 2.045, 160.456), Vector(225.983, 2.045, 162.307), Vector(226.276, 2.045, 162.492), Vector(226.536, 2.045, 162.668), Vector(226.827, 2.045, 162.861));
+		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
+        Global.currentUpgrade = -1;
 		Global.stage = Workshop Setting Integer(Custom String("設定"), Custom String("開始ステージ"), 1, 1, 13, 1) - True;
 		Global.permissionText = Array(Array(Custom String("シェフ"), Custom String("ホール·スタッフ"), Custom String("見習い生"), Custom String(
 			"ヘッドシェフ")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 役職変更", Input Binding String(Button(
-			Ultimate))), Global.selectPlayer + Vector(0, 2, 0), 0.900, Do Not Clip, Visible To Position and String, Color(Red),
+			Melee))), Global.selectPlayer + Vector(0, 2, 0), 0.900, Do Not Clip, Visible To Position and String, Color(Red),
 			Visible Never);
 		Create HUD Text(First Of(True), Null, Null, Custom String(
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, 3, Null, Null, Null, None,
@@ -287,7 +301,7 @@ rule("Global: Setting")
 		Create In-World Text(Local Player.controlingIndex == -1 ? Null : Local Player, Custom String("×"), Eye Position(Local Player)
 			+ Update Every Frame(Facing Direction Of(Local Player)) * 5, 3, Do Not Clip, Visible To and Position, Color(Red),
 			Default Visibility);
-		Create In-World Text(Players Within Radius(Vector(228.504, 2, 160.663), 10, Team 1, Off), Global.COOKWARE_NAME[1], Vector(228.504,
+		Create In-World Text(Players Within Radius(Vector(228.504, 2, 160.663), 10, Team 1, Off), Custom String("鍋"), Vector(228.504,
 			2.750, 160.663), 3, Do Not Clip, Visible To, Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(228.192, 2.200, 160.310), 10, Team 1, Off), Custom String("{0}秒",
 			Global.potTime[False]), Vector(228.192, 2.200, 160.310), 2, Do Not Clip, Visible To String and Color,
@@ -299,22 +313,22 @@ rule("Global: Setting")
 			Visible To);
 		Create Effect(Global.potTime[True] ? All Players(All Teams) : Null, Cloud, Color(White), Global.POT_POSITION[True], 0.400,
 			Visible To);
-		Create In-World Text(Players Within Radius(Vector(223.583, 2, 157.286), 10, Team 1, Off), Global.COOKWARE_NAME[2], Vector(223.583,
+		Create In-World Text(Players Within Radius(Vector(223.583, 2, 157.286), 10, Team 1, Off), Custom String("グリル"), Vector(223.583,
 			3, 157.286), 3, Do Not Clip, Visible To, Color(Orange), Default Visibility);
 		Create Effect(Players Within Radius(Vector(222.641, 2, 155.415), 4, All Teams, Off), Smoke Sound, Null, Vector(222.641, 2,
 			155.415), 200, Visible To);
-		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Global.COOKWARE_NAME[3], Vector(224.926,
+		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("フライパン"), Vector(224.926,
 			2.750, 158.167), 3, Do Not Clip, Visible To, Color(Red), Default Visibility);
-		Create In-World Text(Players Within Radius(Vector(233.778, 2, 167.685), 10, Team 1, Off), Global.COOKWARE_NAME[5], Vector(233.778,
+		Create In-World Text(Players Within Radius(Vector(233.778, 2, 167.685), 10, Team 1, Off), Custom String("流し台"), Vector(233.778,
 			3, 167.685), 3, Do Not Clip, Visible To, Color(Aqua), Default Visibility);
-		Create In-World Text(Players Within Radius(Vector(233.690, 2, 163.772), 10, Team 1, Off), Global.COOKWARE_NAME[6], Vector(233.690,
+		Create In-World Text(Players Within Radius(Vector(233.690, 2, 163.772), 10, Team 1, Off), Custom String("冷蔵庫"), Vector(233.690,
 			3.500, 163.772), 3, Do Not Clip, Visible To, Color(Sky Blue), Default Visibility);
 		Create HUD Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
 			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  水を流す  ", Input Binding String(
 			Button(Interact))), Null, Custom String("\r\n"), Top, 6, Color(Aqua), Null, Null, Visible To and String, Default Visibility);
-		Create In-World Text(Players Within Radius(Vector(231.369, 2, 166.183), 10, Team 1, Off), Global.COOKWARE_NAME[4], Vector(231.369,
+		Create In-World Text(Players Within Radius(Vector(231.369, 2, 166.183), 10, Team 1, Off), Custom String("まな板"), Vector(231.369,
 			3, 166.183), 3, Do Not Clip, Visible To, Color(Lime Green), Default Visibility);
-		Create In-World Text(Players Within Radius(Vector(222.109, 2, 156.602), 10, Team 1, Off), Global.COOKWARE_NAME[4], Vector(222.109,
+		Create In-World Text(Players Within Radius(Vector(222.109, 2, 156.602), 10, Team 1, Off), Custom String("まな板"), Vector(222.109,
 			3, 156.602), 3, Do Not Clip, Visible To, Color(Lime Green), Default Visibility);
 		Create HUD Text(Filtered Array(All Players(Team 1), Min(Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
 			Current Array Element) * 1.500, Vector(231.369, 2, 166.183)), Distance Between(Eye Position(Current Array Element)
@@ -322,7 +336,7 @@ rule("Global: Setting")
 			Local Player.knifeCode + True ? Custom String("〔{0}〕:  スライス  ", Input Binding String(Button(Interact))) : Custom String(
 			"  キッチンナイフなし  "), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
 			Null, Visible To String and Color, Default Visibility);
-		Create In-World Text(Players Within Radius(Vector(224.552, 2, 161.294), 10, Team 1, Off), Global.COOKWARE_NAME[0], Vector(224.552,
+		Create In-World Text(Players Within Radius(Vector(224.552, 2, 161.294), 10, Team 1, Off), Custom String("フライヤー"), Vector(224.552,
 			3, 161.294), 3, Do Not Clip, Visible To, Color(Yellow), Default Visibility);
 		Create Effect(Players Within Radius(Vector(224.552, 2, 161.294), 2.500, All Teams, Off), Energy Sound, Null, Vector(224.552, 2,
 			161.294), 40, Visible To);
@@ -339,10 +353,10 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"レストラン - v250324\r\nワークショップコード : 4ND1P\r\nScore : {0}\r\nHigh Score : OwN(3798)\r\n私の役職 : {1}", Global.totalScore,
+			"レストラン - v250327\r\nワークショップコード : 4ND1P\r\nScore : {0}\r\nHigh Score : OwN(3798)\r\n私の役職 : {1}", Global.totalScore,
 			Global.permissionText[0][Local Player.permission]), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 製作中のスペシャルナイフ:{1}つ", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives), Custom String(
-			"{0} 鍋:{1}% / フライヤー:{2}%", Hero Icon String(Hero(Mei)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
+			"{0} 鍋:{1}% / フライヤー:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
 			"{0} フライパン:{1}% / グリル:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
 			Custom String("{0} 移動速度:{1}% / 時間:{2}秒", Hero Icon String(Hero(Juno)), Local Player.playerSpeed, Global.stageTime)), Right, -1,
 			Custom Color(46, 190, 54, 255), Color(Orange), Color(White), String, Default Visibility);
@@ -416,6 +430,23 @@ rule("Global: Setting")
 			Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.STAGE_CODE[Global.stage]];
 			Global.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);
+            Global.storageLevel = 7;
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[0][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[0][0] ? Global.ITEM_NAME[Global.storageData[0][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[0][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[0][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[1][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[1][0] ? Global.ITEM_NAME[Global.storageData[1][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[1][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[1][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[2][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[2][0] ? Global.ITEM_NAME[Global.storageData[2][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[2][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[2][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[3][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[3][0] ? Global.ITEM_NAME[Global.storageData[3][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[3][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[3][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[4][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[4][0] ? Global.ITEM_NAME[Global.storageData[4][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[4][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[4][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[5][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[5][0] ? Global.ITEM_NAME[Global.storageData[5][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[5][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[5][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[6][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[6][0] ? Global.ITEM_NAME[Global.storageData[6][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[6][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[6][0]],
+                Default Visibility);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[7][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[7][0] ? Global.ITEM_NAME[Global.storageData[7][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[7][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[7][0]],
+                Default Visibility);
 		Else;
 			Start Rule(startStage, Do Nothing);
 		End;
@@ -496,6 +527,7 @@ rule("Player: Spawn")
 		Event Player.controlingIndex = -1;
 		Event Player.durability = 100;
 		Event Player.playerSpeed = 90;
+        Event Player.itemPerk = -1;
 		Wait Until(Has Spawned(Event Player), 9999);
 		Disable Nameplates(All Players(Team 1), All Players(Team 1));
 		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("設定"), Custom String("プレイヤー基本役職"),
@@ -527,19 +559,18 @@ rule("Player: Spawn")
 			Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 0, 255),
 			Default Visibility);
 		Event Player.tableText[3] = Last Text ID;
-		Create In-World Text(Event Player, Custom String("レストラン"), Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(
-			Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 30), 4, Do Not Clip, Visible To Position String and Color, Custom Color(
-			Array(140, 110, 255, 255, 255, 60)[Global.difficulty], Array(255, 180, 225, 120, 50, 255)[Global.difficulty], Array(180, 255,
-			120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
+		Create In-World Text(Event Player, Custom String("レストラン"), Vector(222.559, 5.100, 164.417) + Direction From Angles((
+			Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 30), 4, Do Not Clip, Visible To Position String and Color,
+			Custom Color(Array(140, 110, 255, 255, 255, 60)[Global.difficulty], Array(255, 180, 225, 120, 50, 255)[Global.difficulty],
+			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
 		Create In-World Text(Event Player, Global.stageMode == 0 ? Custom String("Classic") : Global.stageMode == 1 ? Custom String("料理する!") : Custom String("ハイパーフュージョン!"), Vector(222.559,
 			5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 33.500), 1.500,
 			Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
-		Create In-World Text(Event Player, Custom String(
-			"GummyBear#11798\r\nMod : 변기클라우드#3523\r\nEnglish Version : HTNZ3"), Vector(222.559, 5.100, 164.417)
-			+ Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 38.500), 1, Do Not Clip,
-			Visible To Position String and Color, Color(White), Default Visibility);
+		Create In-World Text(Event Player, Custom String("GummyBear#11798\r\nMod : 변기클라우드#3523\r\nEnglish Version : HTNZ3"), Vector(
+			222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 38.500),
+			1, Do Not Clip, Visible To Position String and Color, Color(White), Default Visibility);
 		Event Player.tableText[6] = Last Text ID;
 		Teleport(Event Player, Vector(206.991, 1, 188.239));
 		Wait(True, Ignore Condition);
@@ -598,16 +629,29 @@ rule("Player: Control item")
 			Event Player.controlingIndex = Index Of Array Value(Global.FRIDGE_POSITION, First Of(Sorted Array(Filtered Array(
 				Global.FRIDGE_POSITION, Distance Between(Current Array Element, Event Player.handPosition) < 1), Distance Between(
 				Event Player.handPosition, Current Array Element))));
-			Abort If(Event Player.controlingIndex == -1);
-			If(!Global.fridgeCode[Event Player.controlingIndex]);
-				Event Player.controlingIndex = -1;
-				Abort;
+			If(Event Player.controlingIndex != -1 && Global.fridgeCode[Event Player.controlingIndex]);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+                Global.createItemData = Array(Global.FRIDGE_POSITION[Event Player.controlingIndex], Vector(False, False, False),
+                    Global.fridgeCode[Event Player.controlingIndex], Null);
+                Call Subroutine(createItem);
+                Event Player.controlingIndex = Global.creatingItemIndex;
+            Else;
+                Event Player.controlingIndex = Index Of Array Value(Global.STORAGE_POSITION, First Of(Sorted Array(Filtered Array(
+                    Global.STORAGE_POSITION, Distance Between(Current Array Element, Event Player.handPosition) < 1), Distance Between(
+                    Event Player.handPosition, Current Array Element))));
+                If(Event Player.controlingIndex != -1 && Global.storageData[Event Player.controlingIndex][0]);
+                    Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+                    Global.createItemData = Array(Global.STORAGE_POSITION[Event Player.controlingIndex], Vector(False, False, False),
+                        Global.storageData[Event Player.controlingIndex][0], Global.storageData[Event Player.controlingIndex][1]);
+                    Call Subroutine(createItem);
+                    Global.itemProgress[Global.creatingItemIndex] = Global.storageData[Event Player.controlingIndex][2];
+                    Global.storageData[Event Player.controlingIndex] = Array(False, False, False);
+                    Event Player.controlingIndex = Global.creatingItemIndex;
+                Else;
+                    Event Player.controlingIndex = -1;
+                    Abort;
+                End;
 			End;
-			Abort If(Event Player.permission == 1 || Event Player.permission == 2);
-			Global.createItemData = Array(Global.FRIDGE_POSITION[Event Player.controlingIndex], Vector(False, False, False),
-				Global.fridgeCode[Event Player.controlingIndex], Null);
-			Call Subroutine(createItem);
-			Event Player.controlingIndex = Global.creatingItemIndex;
 		End;
 		Global.itemControled[Event Player.controlingIndex] = True;
 		Global.itemLastControl[Event Player.controlingIndex] = Event Player;
@@ -616,10 +660,14 @@ rule("Player: Control item")
 			Default Visibility);
 		Event Player.tableText[True] = Last Text ID;
 		If(Array Contains(Global.KNIFE, Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  装備する  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
-		Else If(Event Player.knifeCode == 3);
+        Else If(Array Contains(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]));
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
+			Event Player.tableText[False] = Last Text ID;
+		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
 			Create HUD Text(Event Player, Custom String("〔{0}〕:  スライス  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
@@ -724,7 +772,7 @@ rule("Player: Interact")
 							End;
 							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
 							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
-							If(Event Player.durability <= False);
+							If(Event Player.durability <= 0);
 								Event Player.knifeCode = -1;
 								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
 									100);
@@ -749,7 +797,7 @@ rule("Player: Interact")
 					End;
 				End;
 				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
-				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.500, Ignore Condition);
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
 					< 1.500);
 				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
@@ -770,54 +818,38 @@ rule("Player: Interact")
 				End;
 			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(217.370, 2, 172.520)) < 1.500);
-				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgade] > Event Player.dollar);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
 					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
 					Small Message(Event Player, Custom String("  $ お金が足りません。"));
 					Wait(True, Ignore Condition);
 				Else;
-					Event Player.dollar -= Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgade];
-					Event Player.scbScore += Round To Integer(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgade] / 20, Down);
+					Event Player.dollar -= Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade];
+					Event Player.scbScore += Round To Integer(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] / 20, Down);
 					If(Global.currentUpgrade);
-						Small Message(All Players(All Teams), Custom String("  {2}{0}{1}",
-							Global.UPGRADE_NAME[Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgade]],
-							Local Player == Event Player ? Custom String(" -${0}", Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgade])
-							: Custom String(""), Hero Icon String(Hero Of(Event Player))));
-						Skip(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgade] * 3);
-						Global.fryingPower += 0.250;
-						Global.upgradePrice[True] = Array(Global.upgradePrice[True][False] + Random Integer(150, 200), Global.upgradePrice[True][True]);
-						Skip(14);
-						Global.potPower += 1;
-						Global.upgradePrice[True] = Array(Global.upgradePrice[True][False], Global.upgradePrice[True][True] + Random Integer(200, 300));
-						Skip(11);
-						Global.grillingPower += 0.250;
-						Global.upgradePrice[2] = Array(Global.upgradePrice[2][False] + Random Integer(150, 200), Global.upgradePrice[2][True]);
-						Skip(8);
-						Global.panPower += 0.250;
-						Global.upgradePrice[2] = Array(Global.upgradePrice[2][False], Global.upgradePrice[2][True] + Random Integer(150, 200));
-						Skip(5);
-						Event Player.playerSpeed += 10;
-						Global.upgradePrice[3] = Array(Global.upgradePrice[3][False] + Random Integer(25, 75), Global.upgradePrice[3][True]);
-						Skip(2);
-						Global.stageTime += 5;
-						Global.upgradePrice[3] = Array(Global.upgradePrice[3][False], Global.upgradePrice[3][True] + Random Integer(50, 100));
+						Call Subroutine(purchaseUpgrade);
 					Else;
-						If(Event Player.selectedUpgade == 1);
-							Small Message(Event Player, Custom String("  ランダムスペシャルキッチンナイフオーダー -${0}", Global.upgradePrice[Global.currentUpgrade][1]));
-							Global.orderedKnives += True;
+                        If(Event Player.selectedUpgrade == 2);
+							Small Message(Event Player, Custom String("  伝説包丁ガチャ -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
+							Small Message(Event Player, Custom String("  次は商人が包丁を持ってくるよ。 "));
+							Global.orderedKnives[1] += True;
+						Else If(Event Player.selectedUpgrade == 1);
+							Small Message(Event Player, Custom String("  特製包丁ガチャ -${0}", Global.upgradePrice[Global.currentUpgrade][1]));
+							Small Message(Event Player, Custom String("  次は商人が包丁を持ってくるよ。 "));
+							Global.orderedKnives[0] += True;
 						Else;
 							Abort If(Global.itemCount == 32);
 							Small Message(Event Player, Custom String("  {0} 購入 -${1}",
-								Global.ITEM_NAME[Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgade]],
-								Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgade]));
+								Global.ITEM_NAME[Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade]],
+								Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade]));
 							Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-								-70)) * 0.100, Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgade], 100);
+								-70)) * 0.100, Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade], 100);
 							Call Subroutine(createItem);
 						End;
 					End;
 					Set Move Speed(Event Player, Event Player.playerSpeed);
 					All Players(Team 2).customerStatus = 1;
 					Play Effect(All Players(All Teams), Buff Impact Sound, Null, Vector(217.370, 2, 172.520), 100);
-					Play Effect(All Players(All Teams), Good Pickup Effect, Global.upgradeColor[Event Player.selectedUpgade], Vector(217.370, 2,
+					Play Effect(All Players(All Teams), Good Pickup Effect, Global.upgradeColor[Event Player.selectedUpgrade], Vector(217.370, 2,
 						172.520), 2);
 					Call Subroutine(saveProgress);
 				End;
@@ -899,7 +931,25 @@ rule("Player: Interact")
 			Global.itemCode[Event Player.controlingIndex] = -1;
 			Global.itemCount -= 1;
 			Wait(0.500, Ignore Condition);
-		Else If(Event Player.knifeCode == 3);
+        Else If(Array Contains(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]));
+			If(Event Player.itemPerk + True);
+				Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
+					Global.PERK_LIST[Event Player.itemPerk], Event Player.itemPerkDurability);
+				Call Subroutine(createItem);
+			End;
+			Event Player.itemPerk = Index Of Array Value(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]);
+			Event Player.itemPerkDurability = Global.itemDurability[Event Player.controlingIndex];
+			Destroy HUD Text(Event Player.itemPerkText);
+			Call Subroutine(perkHud);
+			Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Null, Eye Position(Event Player), 100);
+			Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
+			Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
+			Wait(0.016, Ignore Condition);
+			Global.itemPosition[Event Player.controlingIndex] = Down;
+			Global.itemCode[Event Player.controlingIndex] = -1;
+			Global.itemCount -= 1;
+			Wait(0.500, Ignore Condition);
+		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
 			Abort If(Event Player.permission == 1 || Event Player.permission == 2);
 			Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
 			While(Is Button Held(Event Player, Button(Interact)));
@@ -931,7 +981,7 @@ rule("Player: Interact")
 				End;
 				Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
 				Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
-				If(Event Player.durability <= False);
+				If(Event Player.durability <= 0);
 					Event Player.knifeCode = -1;
 					Play Effect(Event Player, Bastion Tank Cannon Explosion Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)
 						* 1.500, 100);
@@ -984,16 +1034,26 @@ rule("Player: Reload button")
 		Abort If(Event Player.controlingIndex + True);
 		If(Global.currentUpgrade + True && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(
 			217.370, 2, 172.520)) < 1.500);
-			Event Player.selectedUpgade = (Event Player.selectedUpgade + True) % Count Of(Global.upgradePrice[Global.currentUpgrade]);
-		Else If(Event Player.knifeCode + True);
-			Wait(True, Abort When False);
-			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
-				Global.KNIFE[Event Player.knifeCode], Event Player.durability);
-			Call Subroutine(createItem);
-			Destroy HUD Text(Event Player.knifeText);
-			Event Player.knifeCode = -1;
-			Call Subroutine(saveProgress);
-		End;
+			Event Player.selectedUpgrade = (Event Player.selectedUpgrade + True) % Count Of(Global.upgradePrice[Global.currentUpgrade]);
+		Else;
+            If(Event Player.itemPerk + True);
+                Wait(True, Abort When False);
+                Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
+                    Global.PERK_LIST[Event Player.itemPerk], Event Player.itemPerkDurability);
+                Call Subroutine(createItem);
+                Destroy HUD Text(Event Player.itemPerkText);
+                Event Player.itemPerk = -1;
+                Call Subroutine(saveProgress);
+            Else If(Event Player.knifeCode + True);
+                Wait(True, Abort When False);
+                Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
+                    Global.KNIFE[Event Player.knifeCode], Event Player.durability);
+                Call Subroutine(createItem);
+                Destroy HUD Text(Event Player.knifeText);
+                Event Player.knifeCode = -1;
+                Call Subroutine(saveProgress);
+            End;
+        End;
 		Abort If(Custom String("{0}", Event Player) != Custom String("변기클라우드"));
 		Wait(True, Abort When False);
 		Small Message(Event Player, Custom String("keep press to outdate warning"));
@@ -1001,6 +1061,147 @@ rule("Player: Reload button")
 		Create HUD Text(All Players(All Teams), Icon String(Warning), Custom String("アップデート 必要! - コード : 4ND1P"), Custom String("バグ修正や追加アップデートを適用するには\r\n上記のコードを使ってゲームを再読み込みしてください。"), Top,
 							2.5, Color(Red), Color(Yellow), Color(White), Visible To and String,
 							Default Visibility);
+	}
+}
+
+rule("Player: Secondary fire button")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Secondary Fire)) == True;
+        Event Player.itemPerk == 4;
+        Event Player.controlingIndex == -1;
+	}
+
+	actions
+	{
+        Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 0.01);
+        Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 1.500, 50);
+        Event Player.controlingIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
+			Distance Between(Current Array Element, Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500)
+			< 1.500 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Eye Position(Event Player)
+			+ Facing Direction Of(Event Player) * 1.500))));
+		If(Event Player.controlingIndex != -1);
+            Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
+            Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
+            Wait(0.016, Ignore Condition);
+            Global.itemPosition[Event Player.controlingIndex] = Down;
+            Global.itemVelocity[Event Player.controlingIndex] = Null;
+            Global.itemCode[Event Player.controlingIndex] = -1;
+            Global.itemCount -= True;
+        End;
+        Event Player.controlingIndex = -1;
+        Event Player.itemPerkDurability -= 0.1;
+        If(Event Player.itemPerkDurability <= 0);
+            Event Player.itemPerk = -1;
+            Destroy HUD Text(Event Player.itemPerkText);
+        End;
+        Wait(0.050, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule("Player: Ultimate button")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Ultimate)) == True;
+        Event Player.itemPerk != -1;
+	}
+
+	actions
+	{
+        If(Event Player.itemPerk == 0);
+            Small Message(Event Player, Custom String("  20秒間、移動速度アップ!  "));
+            Destroy HUD Text(Event Player.itemPerkText);
+            Event Player.itemPerk = -1;
+            Set Move Speed(Event Player, 200);
+            Play Effect(All Players(All Teams), Good Explosion, Color(Green), Eye Position(Event Player), 2);
+            Play Effect(Event Player, Ana Biotic Grenade Increased Healing Sound, Null, Eye Position(Event Player), 100);
+            Wait(20, Ignore Condition);
+            Set Move Speed(Event Player, Event Player.playerSpeed);
+        Else If(Event Player.itemPerk == 1);
+            Big Message(All Players(All Teams), Custom String("  ?? : 俺は早いぜ。 "));
+            Destroy HUD Text(Event Player.itemPerkText);
+            Event Player.itemPerk = -1;
+            Set Move Speed(All Players(Team 1), 200);
+            Set Move Speed(Event Player, 400);
+            Event Player.durability = Event Player.durability * 100;
+            Play Effect(All Players(All Teams), Good Explosion, Color(Violet), Eye Position(Event Player), 2);
+            Play Effect(All Players(All Teams), Ana Biotic Grenade Increased Healing Sound, Color(Green), Eye Position(Event Player), 2);
+            Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), Event Player, 1, Visible To Position and Radius);
+            Event Player.playerEffectStatus = Last Created Entity;
+            Wait(0.800, Ignore Condition);
+            Set Slow Motion(50);
+            Wait(15, Ignore Condition);
+            Destroy Effect(Event Player.playerEffectStatus);
+            Set Slow Motion(100);
+            For Player Variable(Event Player, perkIndex, False, 6, True);
+                Set Move Speed(All Players(Team 1)[Event Player.perkIndex], All Players(Team 1)[Event Player.perkIndex].playerSpeed);
+            End;
+            Event Player.durability = Event Player.durability / 100;
+        Else If(Event Player.itemPerk == 3);
+            If(Event Player.controlingIndex != -1);
+                Play Effect(All Players(All Teams), Good Explosion, Color(Yellow), Global.itemPosition[Event Player.controlingIndex], 2);
+                Play Effect(All Players(All Teams), Heal Target Active Effect, Null, Global.itemPosition[Event Player.controlingIndex], 2);
+                Global.itemProgress[Event Player.controlingIndex] = 0;
+                Event Player.itemPerkDurability -= 10;
+                If(Event Player.itemPerkDurability <= 0);
+                    Destroy HUD Text(Event Player.itemPerkText);
+                    Event Player.itemPerk = -1;
+                End;
+            End;
+        Else If(Event Player.itemPerk == 7);
+            If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360), Global.itemCode[Event Player.controlingIndex]));
+                Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Global.itemPosition[Event Player.controlingIndex], 2);
+                Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 2);
+                Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
+                    Global.itemCode[Event Player.controlingIndex], Global.itemDurability[Event Player.controlingIndex]);
+                Call Subroutine(createItem);
+                Event Player.itemPerkDurability -= 20;
+                If(Event Player.itemPerkDurability <= 0);
+                    Destroy HUD Text(Event Player.itemPerkText);
+                    Event Player.itemPerk = -1;
+                End;
+            End;
+        Else If(Event Player.itemPerk == 8);
+            If(Event Player.controlingIndex != -1);
+                Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
+                Play Effect(All Players(All Teams), Reinhardt Fire Strike Target Impact Sound, Null, Global.itemPosition[Event Player.controlingIndex], 100);
+                If(Global.itemStatus[Event Player.controlingIndex] == 3);
+					Global.itemProgress[Event Player.controlingIndex] += 1;
+				Else;
+					Global.itemStatus[Event Player.controlingIndex] = 3;
+					Global.itemProgress[Event Player.controlingIndex] = 1;
+				End;
+				If(Global.itemProgress[Event Player.controlingIndex] >= Global.GRILLING_NEEDED[Global.itemCode[Event Player.controlingIndex]]);
+					Global.itemCode[Event Player.controlingIndex] = Global.GRILLING_RESULT[Global.itemCode[Event Player.controlingIndex]];
+					Global.itemProgress[Event Player.controlingIndex] = Null;
+					Play Effect(All Players(All Teams), Ashe Dynamite Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 50);
+					Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Global.itemPosition[Event Player.controlingIndex], 0.500);
+					Modify Global Variable At Index(itemCooker, Event Player.controlingIndex, Append To Array, Global.itemLastControl[Event Player.controlingIndex]);
+				End;
+                Event Player.itemPerkDurability -= 1;
+                If(Event Player.itemPerkDurability <= 0);
+                    Destroy HUD Text(Event Player.itemPerkText);
+                    Event Player.itemPerk = -1;
+                End;
+            End;
+        End;	
 	}
 }
 
@@ -1074,44 +1275,51 @@ rule("Dummy: Spawn")
 			Stop Facing(Event Player);
 			Communicate(Event Player, Hello);
 			Global.currentUpgrade = Event Player.cookingIndex;
-			If(!Event Player.cookingIndex && Global.orderedKnives);
-				Small Message(All Players(All Teams), Custom String("  {0} : 注文したナイフを持ってきた！!", Hero Icon String(Hero(Torbjörn))));
-				While(Global.orderedKnives);
+			If(!Event Player.cookingIndex && (Global.orderedKnives[0] || Global.orderedKnives[1]));
+				Small Message(All Players(All Teams), Custom String("  {0} : 注文したナイフを持ってきた！", Hero Icon String(Hero(Torbjörn))));
+				While(Global.orderedKnives[0]);
 					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 						-70)) * 0.100, Random Integer(62, 65), 100);
 					Call Subroutine(createItem);
-					Global.orderedKnives -= True;
+					Global.orderedKnives[0] -= True;
+					Wait(0.100, Ignore Condition);
+				End;
+				While(Global.orderedKnives[1]);
+					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+						-70)) * 0.100, Random Value In Array(Array(265, 62, 63, 64, 65, 62, 63, 64, 65, 62, 63, 64, 65, 265, 265, 265, 265, 265, 265, 265, 265, 354, 265, 265, 265, 265, 61, 61, 61, 61, 61, 61)), 100);
+					Call Subroutine(createItem);
+					Global.orderedKnives[1] -= True;
 					Wait(0.100, Ignore Condition);
 				End;
 			End;
-			All Players(All Teams).selectedUpgade = False;
-			Global.upgradeColor = Array(Array(Color(Green), Color(Turquoise)), Array(Color(Yellow), Color(Purple)), Array(Color(Orange), Color(
+			All Players(All Teams).selectedUpgrade = False;
+			Global.upgradeColor = Array(Array(Color(Green), Color(Turquoise), Color(Violet)), Array(Color(Sky Blue), Color(Rose)), Array(Color(Yellow), Color(Purple), Color(Orange), Color(
 				Red)), Array(Color(Sky Blue), Color(Violet)))[Event Player.cookingIndex];
 			Skip(Event Player.cookingIndex * 2);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
 				"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("{0} 購入",
-				Global.ITEM_NAME[Global.KNIFE[1]]), Custom String("ランダム スペシャル キッチン ナイフ 注文"))[Local Player.selectedUpgade], First Of(
-				Global.upgradePrice)[Local Player.selectedUpgade]), Vector(217.370, 1.500, 172.520), 3, Do Not Clip,
-				Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgade], Default Visibility);
+				Global.ITEM_NAME[Global.KNIFE[1]]), Custom String("特製包丁ガチャ"), Custom String("伝説包丁ガチャ"))[Local Player.selectedUpgrade], First Of(Global.upgradePrice)
+				[Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3, Do Not Clip, Visible To Position String and Color,
+				Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(5);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("フライヤー"), Custom String("鍋"))
-				[Local Player.selectedUpgade], Global.upgradePrice[True][Local Player.selectedUpgade]), Vector(217.370, 1.500, 172.520), 3,
-				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgade], Default Visibility);
+				"〔{0}〕:  {1} 購入 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("保存用バット"), Custom String("ランダムアイテム"))
+				[Local Player.selectedUpgrade], Global.upgradePrice[True][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
+				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(3);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("グリル"), Custom String("フライパン"))
-				[Local Player.selectedUpgade], Global.upgradePrice[2][Local Player.selectedUpgade]), Vector(217.370, 1.500, 172.520), 3,
-				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgade], Default Visibility);
+				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("フライヤー"), Custom String("鍋"), Custom String("グリル"), Custom String("フライパン"))
+				[Local Player.selectedUpgrade], Global.upgradePrice[2][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
+				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(1);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} アップ - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("私のスピード"), Custom String("チームの営業タイム"))
-				[Local Player.selectedUpgade], Global.upgradePrice[3][Local Player.selectedUpgade]), Vector(217.370, 1.500, 172.520), 3,
-				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgade], Default Visibility);
+				"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("私のスピードアップ"), Custom String("チームの営業タイムアップ"))
+				[Local Player.selectedUpgrade], Global.upgradePrice[3][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
+				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Event Player.playerText = Last Text ID;
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element), Vector(217.370, 2,
 				172.520)) < 3), Custom String("〔{0}〕 : 項目変更", Input Binding String(Button(Reload))), Event Player, 2.500, Do Not Clip,
@@ -1131,7 +1339,7 @@ rule("Dummy: Spawn")
 			End;
 			Communicate(Event Player, Goodbye);
 			Global.currentUpgrade = -1;
-			All Players(Team 1).selectedUpgade = -1;
+			All Players(Team 1).selectedUpgrade = -1;
 			Destroy HUD Text(Event Player.playerText);
 			Destroy In-World Text(Event Player.tableText);
 			Destroy Effect(Event Player.customerEffect);
@@ -1329,8 +1537,7 @@ rule("Dummy: Spawn")
 								Global.systemScore += 20;
 								All Players(Team 1).score += 3;
 								Small Message(All Players(All Teams), Custom String("  ファンタスティックなサービング! +20%"));
-								Create HUD Text(All Players(All Teams), Custom String(" #{0} : ファンタスティックなサービング! ", Event Player.tableIndex + True), Null,
-									Custom String(
+								Create HUD Text(All Players(All Teams), Custom String(" #{0} : ファンタスティックなサービング! ", Event Player.tableIndex + True), Null, Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
 								Event Player.dollar = Hero Of(Event Player) == Hero(Hanzo) || Hero Of(Event Player) == Hero(D.Va);
@@ -1499,13 +1706,13 @@ rule("Global subroutine: Data init")
 			Custom String("A/F/F/F/G/C/M/G/C/M/W/W/M/M/B/W/W/W/F/O/O/S/S/S/W/F/F/W/S/F/M/M/W/W/Y/Y/M/F/F/M/F/M/M/F/F/F/{0}",
 			Custom String("F/F/F/F/F/F/F/F/F/F/F/P/C/P/C/S/P/P/P/P/P/P/S/C/C/W/W/W/W/P/P/P/Y/F/M/G/N/N/W/W/W/F/F/N/A/Q/{0}",
 			Custom String("X/X/P/M/P/M/P/M/P/M/M/M/M/A/X/P/Y/P/Y/W/W/Y/S/R/P/F/S/S/P/P/R/F/S/N/S/X/P/N/X/P/N/X/X/P/X/X/{0}",
-			Custom String("P/X/W/N/N/P/X/S/S/N/Y/S/S/P/S/M/M/M/S/S/S/S/S/S/S/S/S/R/R/R"
+			Custom String("P/X/W/N/N/P/X/S/S/N/Y/S/S/P/S/M/M/M/S/S/S/S/S/S/S/S/S/R/R/R/L/Z/Z/U/Y/T/U/U/Z/R"
 			)))))))), Custom String(
 			"/")), Array(Color(Black), Color(Red), Custom Color(180, 100, False, 255), Color(Yellow), Color(White), Color(Lime Green),
 			Color(Green), Custom Color(255, 200, 100, 255), Color(Turquoise), Custom Color(100, 60, False, 255), Custom Color(255, 65,
 			False, 255), Custom Color(255, 255, 190, 255), Custom Color(False, 125, False, 255), Color(Orange), Custom Color(246, 86, 86,
-			255), Custom Color(250, 150, 70, 255), Color(Sky Blue), Custom Color(255, 192, 243, 255), Custom Color(255, 108, 141, 255), Custom Color(255, 239, 104, 255))[Index Of Array Value(String Split(Custom String(
-			"D/R/M/Y/W/L/G/H/T/S/C/F/V/O/A/P/B/N/Q/X"), Custom String("/")), Current Array Element)]);
+			255), Custom Color(250, 150, 70, 255), Color(Sky Blue), Custom Color(255, 192, 243, 255), Custom Color(255, 108, 141, 255), Custom Color(255, 239, 104, 255), Color(Violet), Color(Rose))[Index Of Array Value(String Split(Custom String(
+			"D/R/M/Y/W/L/G/H/T/S/C/F/V/O/A/P/B/N/Q/X/Z/U"), Custom String("/")), Current Array Element)]);
 		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/スライス牛肉/ステーキ/チョップステーキ/ジャガイモ/スライスジャガイモ/フライドポテト/焼きジャガイモ/{0}",
 			Custom String("蒸しジャガイモ/マッシュポテト/炒めジャガイモ/パスタ/ゆでパスタ/トマト/スライスしたトマト/焼きトマト")), Custom String("/")), Append To Array(String Split(
 			Custom String("トマトソース/クリームソース/チーズ/スライスチーズ/とろけたチーズ/ロゼソース/チーズポテト/トマトパスタ/{0}", Custom String(
@@ -1565,7 +1772,10 @@ rule("Global subroutine: Data init")
 			Append To Array(String Split(Custom String(
 			"チョコパンケーキ+スクランブルエッグ/チョコチョコパンケーキ/チョコチョコパンケーキ+ベーコン/{0}", Custom String(
 			"チョコチョコパンケーキ+スクランブルエッグ/イチゴパンケーキ/イチゴパンケーキ+ベーコン/イチゴパンケーキ+スクランブルエッグ")), Custom String("/")),
-			Empty Array))))))))))))))))))))))))));
+			Append To Array(String Split(Custom String(
+			"エナジードリンク/怪しいドリンク/ヘッドシェフの包丁/ジャンプブーツ/調味料パック/掃除機/ダッシュブーツ/{0}", Custom String(
+			"まな板帰還スペル/料理複製スペル/ガストーチ")), Custom String("/")),
+			Empty Array)))))))))))))))))))))))))));
 		Global.ITEM_SCORE = Mapped Array(String Split(Custom String(
 			"0/0/0/3/3/0/0/4/0/0/3/0/0/0/0/0/0/0/0/0/0/0/0/3/4/4/6/6/5/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
 			Custom String(
@@ -1577,17 +1787,17 @@ rule("Global subroutine: Data init")
 			Custom String("6/3/3/4/5/0/0/0/1/3/3/3/1/5/5/1/3/5/3/4/3/5/7/0/5/4/7/5/0/0/3/0/5/7/0/0/0/0/3/3{0}",
 			Custom String("/4/0/0/5/0/0/0/0/0/0/0/0/0/3/4/5/7/5/7/5/4/5/0/0/0/0/3/6/6/0/0/3/0/0/0/0/0/0/0/0{0}",
 			Custom String("/0/0/0/0/0/6/5/6/5/6/5/6/5/0/0/0/0/0/0/0/4/4/1/1/1/1/1/1/0/0/0/0/0/0/0/2/0/3/3/3{0}",
-			Custom String("/3/0/0/0/0/0/0/0/0/0/0/3/3/3/3/3/3/4/4/0/0/0/0/0/3/4/4/3/4/4/4/5/5/5/6/6/4/5/5")))))))), Custom String("/")), Index Of Array Value(String Split(
+			Custom String("/3/0/0/0/0/0/0/0/0/0/0/3/3/3/3/3/3/4/4/0/0/0/0/0/3/4/4/3/4/4/4/5/5/5/6/6/4/5/5/0/0/0/0/0/0/0/0/0/0")))))))), Custom String("/")), Index Of Array Value(String Split(
 			Custom String("0/1/2/3/4/5/6/7/8/9"), Custom String("/")), Current Array Element) * 5);
-		Global.CUTTING_NEEDED = Array(99, 5, 5, 99, 99, 5, 99, 99, 99, 3, 99, 99, 99, 99, 5, 99, 99, 99, 99, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 99, 99, 1, 9, 9, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 1, 1, 5, 99, 7, 99, 7, 99, 99, 99, 99, 99, 99, 99, 99, 1, 3, 3, 99, 3, 99, 99, 2, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 99, 99, 5, 7, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 3, 5, 3, 5, 99, 99, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99);
-		Global.CUTTING_RESULT = Array(FALSE, 2, 154, FALSE, FALSE, 6, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 15, FALSE, FALSE, FALSE, FALSE, 20, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 34, FALSE, FALSE, FALSE, Array(38, 39), 140, 140, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 67, 68, FALSE, 70, 71, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 102, 103, FALSE, 108, FALSE, 112, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(116, 116), 227, Array(229, 229), FALSE, Array(235, 235), FALSE, FALSE, 124, 138, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 143, 144, FALSE, FALSE, FALSE, 148, 151, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 158, FALSE, 160, 161, FALSE, FALSE, FALSE, 166, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(208, 208), FALSE, 197, FALSE, Array(199, 199), 200, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(231, 231), FALSE, FALSE, FALSE, FALSE, FALSE, Array(237, 237), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 267, FALSE, 269, 270, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 301, 302, 306, 304, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-		Global.GRILLING_NEEDED = Array(99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 5, 2, 3, 3, 5, 5, 5, 5, 5, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 99, 99, 99, 99, 5, 4, 3, 6, 5, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 3, 5, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
-		Global.GRILLING_RESULT = Array(FALSE, 3, 4, FALSE, FALSE, 8, 11, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 16, FALSE, FALSE, FALSE, FALSE, 21, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 32, FALSE, 35, 36, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 80, FALSE, FALSE, 94, 91, 91, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 137, 123, FALSE, 138, FALSE, FALSE, 126, 132, 133, 134, 135, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 144, 145, FALSE, FALSE, FALSE, 149, 150, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 162, 165, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 203, 203, FALSE, FALSE, FALSE, FALSE, FALSE, 207, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 271, FALSE, FALSE, FALSE, FALSE, 274, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-		Global.FRYING_NEEDED = Array(99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2, 2, 5, 5, 5, 2, 5, 5, 5, 5, 5, 2, 2, 2, 5, 5, 55, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 99, 99, 99, 99, 7, 5, 4, 5, 5, 5, 4, 3, 3, 3, 3, 3, 3, 3, 5, 7, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
-		Global.FRYING_RESULT = Array(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 7, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 92, FALSE, FALSE, 95, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 90, 85, 84, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 291, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 163, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 204, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 196, 223, FALSE, 220, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 292, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-		Global.POT_TIME = Array(FALSE, 5, FALSE, FALSE, FALSE, 5, 3, FALSE, FALSE, FALSE, FALSE, FALSE, 7, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 7, 3, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, 3, FALSE, FALSE, FALSE, 4, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 7, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, 5, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, 5, 5, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, 5, 7, 7, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-		Global.POT_RESULT = Array(FALSE, 139, FALSE, FALSE, FALSE, 9, 9, FALSE, FALSE, FALSE, FALSE, FALSE, 13, FALSE, FALSE, 17, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 93, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 17, FALSE, 101, FALSE, FALSE, FALSE, 111, FALSE, FALSE, FALSE, 111, FALSE, FALSE, FALSE, 194, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 164, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 191, 192, 193, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 201, 201, 202, FALSE, FALSE, FALSE, FALSE, 206, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 257, FALSE, FALSE, FALSE, FALSE, FALSE, 255, FALSE, FALSE, FALSE, FALSE, FALSE, 256, 243, 244, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 275, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-		Global.PAN_NEEDED = Array(99, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 5, 2, 5, 3, 5, 5, 5, 5, 5, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 99, 99, 99, 99, 5, 5, 5, 6, 5, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 3, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
+		Global.CUTTING_NEEDED = Array(99, 5, 5, 99, 99, 5, 99, 99, 99, 3, 99, 99, 99, 99, 5, 99, 99, 99, 99, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 99, 99, 1, 9, 9, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 1, 1, 5, 99, 7, 99, 7, 99, 99, 99, 99, 99, 99, 99, 99, 1, 3, 3, 99, 3, 99, 99, 2, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 99, 99, 5, 7, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 3, 5, 3, 5, 99, 99, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99);
+		Global.CUTTING_RESULT = Array(FALSE, 2, 154, FALSE, FALSE, 6, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 15, FALSE, FALSE, FALSE, FALSE, 20, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 34, FALSE, FALSE, FALSE, Array(38, 39), 140, 140, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 67, 68, FALSE, 70, 71, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 102, 103, FALSE, 108, FALSE, 112, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(116, 116), 227, Array(229, 229), FALSE, Array(235, 235), FALSE, FALSE, 124, 138, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 143, 144, FALSE, FALSE, FALSE, 148, 151, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 158, FALSE, 160, 161, FALSE, FALSE, FALSE, 166, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(208, 208), FALSE, 197, FALSE, Array(199, 199), 200, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(231, 231), FALSE, FALSE, FALSE, FALSE, FALSE, Array(237, 237), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 267, FALSE, 269, 270, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 301, 302, 306, 304, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.GRILLING_NEEDED = Array(99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 5, 2, 3, 3, 5, 5, 5, 5, 5, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 5, 4, 3, 6, 5, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 3, 5, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+		Global.GRILLING_RESULT = Array(FALSE, 3, 4, FALSE, FALSE, 8, 11, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 16, FALSE, FALSE, FALSE, FALSE, 21, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 32, FALSE, 35, 36, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 80, FALSE, FALSE, 94, 91, 91, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 137, 123, FALSE, 138, FALSE, FALSE, 126, 132, 133, 134, 135, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 144, 145, FALSE, FALSE, FALSE, 149, 150, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 162, 165, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 203, 203, FALSE, FALSE, FALSE, FALSE, FALSE, 207, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 271, FALSE, FALSE, FALSE, FALSE, 274, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.FRYING_NEEDED = Array(99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2, 2, 5, 5, 5, 2, 5, 5, 5, 5, 5, 2, 2, 2, 5, 5, 55, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 7, 5, 4, 5, 5, 5, 4, 3, 3, 3, 3, 3, 3, 3, 5, 7, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+		Global.FRYING_RESULT = Array(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 7, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 92, FALSE, FALSE, 95, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 90, 85, 84, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 291, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 163, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 204, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 196, 223, FALSE, 220, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 292, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.POT_TIME = Array(FALSE, 5, FALSE, FALSE, FALSE, 5, 3, FALSE, FALSE, FALSE, FALSE, FALSE, 7, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 7, 3, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, 3, FALSE, FALSE, FALSE, 4, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 7, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, 5, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, 5, 5, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, 5, 7, 7, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 5, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.POT_RESULT = Array(FALSE, 139, FALSE, FALSE, FALSE, 9, 9, FALSE, FALSE, FALSE, FALSE, FALSE, 13, FALSE, FALSE, 17, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 93, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 17, FALSE, 101, FALSE, FALSE, FALSE, 111, FALSE, FALSE, FALSE, 111, FALSE, FALSE, FALSE, 194, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 164, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 191, 192, 193, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 201, 201, 202, FALSE, FALSE, FALSE, FALSE, 206, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 257, FALSE, FALSE, FALSE, FALSE, FALSE, 255, FALSE, FALSE, FALSE, FALSE, FALSE, 256, 243, 244, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 275, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.PAN_NEEDED = Array(99, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 5, 2, 5, 3, 5, 5, 5, 5, 5, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 5, 5, 5, 6, 5, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 3, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
 	}
 }
 
@@ -1601,8 +1811,8 @@ rule("Global subroutine: Data init2")
 
 	actions
 	{
-		Global.PAN_RESULT = Array(FALSE, 3, 4, FALSE, FALSE, 8, 11, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 16, FALSE, FALSE, FALSE, FALSE, 21, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 32, FALSE, 35, 36, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 94, 91, 91, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 89, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 109, FALSE, FALSE, FALSE, 110, FALSE, 136, FALSE, FALSE, 21, FALSE, FALSE, FALSE, 120, FALSE, FALSE, FALSE, 137, 123, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 145, 145, FALSE, FALSE, 149, 150, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 156, FALSE, FALSE, FALSE, 162, 165, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 188, 189, 190, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 195, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 335, 264, FALSE, FALSE, FALSE, FALSE, 271, 272, 272, FALSE, FALSE, 274, FALSE, FALSE, 277, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 336, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-		Global.IMPACT_RESULT = Array(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 98, 98, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 103, 103, FALSE, 108, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 115, 117, 118, 119, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 151, 151, FALSE, FALSE, FALSE, FALSE, FALSE, 31, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 211, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 230, FALSE, FALSE, FALSE, FALSE, FALSE, 236, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 276, 293, 294, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 306, FALSE, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.PAN_RESULT = Array(FALSE, 3, 4, FALSE, FALSE, 8, 11, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 16, FALSE, FALSE, FALSE, FALSE, 21, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 32, FALSE, 35, 36, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 94, 91, 91, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 89, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 109, FALSE, FALSE, FALSE, 110, FALSE, 136, FALSE, FALSE, 21, FALSE, FALSE, FALSE, 120, FALSE, FALSE, FALSE, 137, 123, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 145, 145, FALSE, FALSE, 149, 150, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 156, FALSE, FALSE, FALSE, 162, 165, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 188, 189, 190, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 195, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 335, 264, FALSE, FALSE, FALSE, FALSE, 271, 272, 272, FALSE, FALSE, 274, FALSE, FALSE, 277, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 336, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.IMPACT_RESULT = Array(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 98, 98, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 103, 103, FALSE, 108, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 115, 117, 118, 119, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 151, 151, FALSE, FALSE, FALSE, FALSE, FALSE, 31, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 211, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 230, FALSE, FALSE, FALSE, FALSE, FALSE, 236, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 276, 293, 294, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 306, FALSE, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
 		Global.RAW_MIX = Array(21025, 21026, 6127, 6129, 7021, 13017, 13018, 13022, 13030, 13029, 15038, 15040, 15041, 15043, 15044, 15046,
 			15048, 15051, 17018, 17119, 18021, 20038, 20040, 20042, 20043, 20045, 20046, 20049, 20052, 32038, 32041, 32042, 32043, 32047,
 			32048, 32049, 32053, 34038, 34040, 34041, 34042, 34044, 34045, 34047, 34050, 39040, 39044, 39049, 39053, 39052, 39054, 66072,
@@ -1668,25 +1878,23 @@ rule("Global subroutine: Data init2")
 			Hanzo), Hero(Roadhog), Hero(Mercy)), Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)), Array(Hero(Roadhog), Hero(Mercy), Hero(
 			Tracer)), Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)), Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))), Array(
 			Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), Array(Hero(
-			Soldier: 76), Hero(Tracer), Hero(Mercy)), Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), Array(
-			Hero(Hazard), Hero(Roadhog)), Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)),
-			Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), Array(Hero(D.Va),
-			Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(
-			Zarya)), Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), Array(Hero(
-			Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mauga)), Array(Hero(D.Va), Hero(
-			Moira), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va))),
-			Array(
-			Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), Array(Hero(
-			Soldier: 76), Hero(Tracer), Hero(Mercy)), Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), Array(
-			Hero(Hazard), Hero(Roadhog)), Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)),
-			Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), Array(Hero(D.Va),
-			Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(
-			Zarya)), Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), Array(Hero(
-			Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mauga)), Array(Hero(D.Va), Hero(
-			Moira), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va)))
-			)[Global.stageMode];
+			Tracer), Hero(Tracer), Hero(Mercy)), Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), Array(Hero(
+			Hazard), Hero(Roadhog)), Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)), Array(Hero(Mauga), Hero(Roadhog),
+			Hero(Zarya)), Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), Array(Hero(D.Va), Hero(Soldier: 76), Hero(
+			Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), Array(Hero(
+			D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), Array(Hero(Moira), Hero(Soldier: 76),
+			Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mauga)), Array(Hero(D.Va), Hero(Moira), Hero(Moira), Hero(
+			Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va))), Array(Array(Hero(Soldier: 76), Hero(Soldier: 76),
+			Hero(Roadhog)), Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), Array(
+			Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), Array(Hero(Hazard), Hero(Roadhog)), Array(Hero(Hazard),
+			Hero(Bastion), Hero(Bastion), Hero(Zarya)), Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), Array(Hero(Mauga), Hero(Mercy),
+			Hero(Mercy), Hero(Hazard)), Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
+			Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(
+			Tracer), Hero(Tracer), Hero(Tracer)), Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(
+			Soldier: 76), Hero(Mauga)), Array(Hero(D.Va), Hero(Moira), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya),
+			Hero(Zarya), Hero(D.Va))))[Global.stageMode];
 		Global.STAGE_CODE = Array(Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1),
-			Array(4), Array(3), Array(1), Array(4), Array(1)),
+			Array(4), Array(3), Array(1), Array(4), Array(1)), 
 			Array(Array(0), Array(2), Array(6), Array(9), Array(3), Array(10), Array(1), Array(7), 
 			Array(Random Value In Array(Array(0, 1, 2, 3, 6, 9, 10))),
 			Array(Random Integer(0, 10)), 
@@ -1707,16 +1915,15 @@ rule("Global subroutine: Data init2")
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 10), Array(8, 9, 10))),
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10))),
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
-				)
-			)[Global.stageMode];
-		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム/パンケーキ"), Custom String("/"));
-		Global.upgradePrice = Array(Array(50, 250), Array(100, 100), Array(100, 100), Array(100, 100));
-		Global.UPGRADE_CODE = Array(Array(265, -1), Array(0, 1), Array(2, 3), Array(4, 5));
-		Global.KNIFE = Array(61, 265, 62, 63, 64, 65);
-		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200);
-		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100);
-		Global.COOKWARE_NAME = String Split(Custom String("フライヤー/鍋/グリル/フライパン/まな板/流し台/冷蔵庫"), Custom String("/"));
-		Global.UPGRADE_NAME = String Split(Custom String("プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
+				))[Global.stageMode];
+		Global.STAGE_NAME = String Split(Custom String("스테이크&파스타/수제 버거/치킨/피자/만두/달걀&밥/생선&밥/국수/타코/아이스크림/핫케이크"), Custom String("/"));
+		Global.upgradePrice = Array(Array(50, 250, 300), Array(100, 200), Array(100, 100, 100, 100), Array(100, 100));
+		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
+		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
+        Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
+		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
+		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.010);
+		Global.UPGRADE_NAME = String Split(Custom String("저장고 구매/무작위 아이템 구매/フライヤー 강화/鍋 강화/グリル 강화/フライパン 강화/개인 이동 속도 증가/팀 영업 시간 증가"), Custom String("/"));
 	}
 }
 
@@ -2047,27 +2254,43 @@ rule("Global subroutine: Item physics")
 								Destroy In-World Text(Global.itemText[Global.checkingIndex]);
 								Global.itemCount -= True;
 							End;
-						Else If(Global.POT_RESULT[Global.itemCode[Global.checkingIndex]]);
-							Global.potIndex = Index Of Array Value(Global.POT_POSITION, First Of(Filtered Array(Global.POT_POSITION, Distance Between(
-								Current Array Element, Global.itemPosition[Global.checkingIndex]) < 0.500)));
-							If(Global.potIndex != -1 && !Global.potTime[Global.potIndex]);
-								Global.potData[Global.potIndex] = Global.POT_RESULT[Global.itemCode[Global.checkingIndex]];
-								Global.potTime[Global.potIndex] = Max(Global.POT_TIME[Global.itemCode[Global.checkingIndex]] - Global.potPower, True);
-								Global.potData[Global.potIndex + 2] = Append To Array(Global.itemCooker[Global.checkingIndex],
-									Global.itemLastControl[Global.checkingIndex]);
-								Global.itemPosition[Global.checkingIndex] = Vector(False, False, False);
-								Global.itemCode[Global.checkingIndex] = -1;
-								Destroy Effect(Global.itemEffect[Global.checkingIndex]);
-								Destroy In-World Text(Global.itemText[Global.checkingIndex]);
-								Global.itemCount -= True;
-								If(Global.potIndex);
-									Start Rule(pot1, Restart Rule);
-								Else;
-									Start Rule(pot0, Restart Rule);
-								End;
-								Continue;
-							End;
-						End;
+                        Else;
+                            If(Global.POT_RESULT[Global.itemCode[Global.checkingIndex]]);
+                                Global.potIndex = Index Of Array Value(Global.POT_POSITION, First Of(Filtered Array(Global.POT_POSITION, Distance Between(
+                                    Current Array Element, Global.itemPosition[Global.checkingIndex]) < 0.500)));
+                                If(Global.potIndex != -1 && !Global.potTime[Global.potIndex]);
+                                    Global.potData[Global.potIndex] = Global.POT_RESULT[Global.itemCode[Global.checkingIndex]];
+                                    Global.potTime[Global.potIndex] = Max(Global.POT_TIME[Global.itemCode[Global.checkingIndex]] - Global.potPower, True);
+                                    Global.potData[Global.potIndex + 2] = Append To Array(Global.itemCooker[Global.checkingIndex],
+                                        Global.itemLastControl[Global.checkingIndex]);
+                                    Global.itemPosition[Global.checkingIndex] = Vector(False, False, False);
+                                    Global.itemCode[Global.checkingIndex] = -1;
+                                    Destroy Effect(Global.itemEffect[Global.checkingIndex]);
+                                    Destroy In-World Text(Global.itemText[Global.checkingIndex]);
+                                    Global.itemCount -= True;
+                                    If(Global.potIndex);
+                                        Start Rule(pot1, Restart Rule);
+                                    Else;
+                                        Start Rule(pot0, Restart Rule);
+                                    End;
+                                    Continue;
+                                End;
+                            End;
+                            If(Global.storageLevel > -1 && Global.itemCode[Global.checkingIndex] != False && Global.itemControled[Global.checkingIndex] == False);
+                                Global.storageIndex = Index Of Array Value(Global.STORAGE_POSITION, First Of(Filtered Array(Global.STORAGE_POSITION, Distance Between(
+                                    Current Array Element, Global.itemPosition[Global.checkingIndex]) < 0.200)));
+                                If(Global.storageIndex != -1 && Global.storageIndex <= Global.storageLevel && Global.storageData[Global.storageIndex][0] == False);
+                                    Global.storageData[Global.storageIndex] = Array(Global.itemCode[Global.checkingIndex], Global.itemDurability[Global.checkingIndex], Global.itemProgress[Global.checkingIndex]);
+                                    Global.itemPosition[Global.checkingIndex] = Vector(False, False, False);
+                                    Global.itemCode[Global.checkingIndex] = -1;
+                                    Destroy Effect(Global.itemEffect[Global.checkingIndex]);
+                                    Destroy In-World Text(Global.itemText[Global.checkingIndex]);
+                                    Global.itemCount -= True;
+                                    Play Effect(All Players(All Teams), Sombra Translocating Sound, Null, Global.STORAGE_POSITION[Global.storageIndex], 80);
+                                    Continue;
+                                End;
+                            End; 
+                        End;
 					End;
 					Global.normal = Ray Cast Hit Normal(Global.itemPosition[Global.checkingIndex],
 						Global.itemPosition[Global.checkingIndex] + Global.itemVelocity[Global.checkingIndex], Null, Null, False);
@@ -2407,7 +2630,7 @@ rule("Host Player: Set Permission")
 
 	conditions
 	{
-		Is Button Held(Host Player, Button(Ultimate)) == True;
+		Is Button Held(Host Player, Button(Melee)) == True;
 	}
 
 	actions
@@ -2415,7 +2638,10 @@ rule("Host Player: Set Permission")
 		If(Global.difficulty == 4);
 			All Players(Team 1).permission = 0;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Random Integer(62, 65), 100);
+				-70)) * 0.100, Random Value In Array(Global.KNIFE), 100);
+			Call Subroutine(createItem);
+            Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+				-70)) * 0.100, Random Value In Array(Global.PERK_LIST), 100);
 			Call Subroutine(createItem);
 		Else If(Global.difficulty != 4 && Global.selectPlayer != Null);
 			Global.selectPlayer.permission = (Global.selectPlayer.permission + True) % 3;
@@ -2448,6 +2674,11 @@ rule("Global subroutine: Knife Hud")
 				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
 				255 - Event Player.durability * 1.860, Event Player.durability * 2.550, Event Player.durability * 0.870, 255), Null, Null,
 				String and Color, Default Visibility);
+        Else If(Event Player.knifeCode == 6);
+			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
+				Event Player.durability * 1.760, 0, Event Player.durability * 2.500, 255), Null, Null,
+				String and Color, Default Visibility);
 		Else;
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
 				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
@@ -2455,6 +2686,184 @@ rule("Global subroutine: Knife Hud")
 				String and Color, Default Visibility);
 		End;
 		Event Player.knifeText = Last Text ID;
+	}
+}
+
+rule("Global subroutine: Perk Hud")
+{
+	event
+	{
+		Subroutine;
+		perkHud;
+	}
+
+	actions
+	{
+        If(Event Player.itemPerk == 0);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Roadhog), Button(Secondary Fire)), Custom String("{0}", Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 1);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Ana), Button(Ultimate)), Custom String("{0}", Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 2);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Baptiste), Button(Crouch)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Jump))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 3);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Ashe), Button(Ability 2)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 4);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Sigma), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Secondary Fire))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 5);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Reinhardt), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ability 1))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 6);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Kiriko), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ability 1))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        Else If(Event Player.itemPerk == 7);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Baptiste), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+		Else If(Event Player.itemPerk == 8);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Torbjörn), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+        End;
+		Event Player.itemPerkText = Last Text ID;
+	}
+}
+
+rule("Player: Ability 1")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Ability 1)) == True;
+	}
+
+	actions
+	{
+        If(Event Player.itemPerk == 5);
+            Apply Impulse(Event Player, Forward, 15, To Player, Cancel Contrary Motion);
+            Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Event Player, 1);
+            Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 20);
+            Event Player.itemPerkDurability -= 3;
+            If(Event Player.itemPerkDurability <= 0);
+                Event Player.itemPerk = -1;
+                Destroy HUD Text(Event Player.itemPerkText);
+            End;
+        Else If(Event Player.itemPerk == 6);
+            Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
+            Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
+            Teleport(Event Player, Vector(231.369, 2.5, 166.183));
+            Set Facing(Event Player, Direction Towards(Vector(231.369, 2.5, 166.183), Vector(233.665, 2.100, 163.795)), To World);
+            Wait(0.016, Ignore Condition);
+            Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
+            Event Player.itemPerkDurability -= 5;
+            If(Event Player.itemPerkDurability <= 0);
+                Event Player.itemPerk = -1;
+                Destroy HUD Text(Event Player.itemPerkText);
+            End;
+        End;
+	}
+}
+
+rule("Player: Double Jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is In Air(Event Player) == True;
+	}
+
+	actions
+	{
+        If(Event Player.itemPerk == 2);
+            Wait Until(Is Button Held(Event Player, Button(Jump)) != True && Is In Air(Event Player) == True, 99999);
+            Wait Until(Is Button Held(Event Player, Button(Jump)) == True || Is In Air(Event Player) == False, 99999);
+            Abort If Condition Is False;
+            If(Hero Of(Event Player) != Hero(Juno) || Hero Of(Event Player) != Hero(Genji));
+                Apply Impulse(Event Player, Up, 10, To World, Cancel Contrary Motion);
+                Play Effect(All Players(All Teams), Ring Explosion, Color(Yellow), Event Player, 1);
+                Play Effect(All Players(All Teams), Moira Fade Reappear Sound, Null, Event Player, 20);
+            End;
+            Event Player.itemPerkDurability -= 1;
+            If(Event Player.itemPerkDurability <= 0);
+                Event Player.itemPerk = -1;
+                Destroy HUD Text(Event Player.itemPerkText);
+            End;
+        Else;
+            Disallow Button(Event Player, Button(Jump));
+            Wait Until(Is In Air(Event Player) == False, 99999);
+            Allow Button(Event Player, Button(Jump));
+        End;
+	}
+}
+
+rule("Global subroutine: Purchase Upgrade")
+{
+	event
+	{
+		Subroutine;
+		purchaseUpgrade;
+	}
+
+	actions
+	{
+		Small Message(All Players(All Teams), Custom String("  {2}{0}{1}",
+            Global.UPGRADE_NAME[Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade]],
+            Local Player == Event Player ? Custom String(" -${0}", Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade])
+            : Custom String(""), Hero Icon String(Hero Of(Event Player))));
+        If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 0);
+            Global.storageLevel += True;
+            Wait(0.016, Ignore Condition);
+            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[Global.storageLevel][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[Evaluate Once(Global.storageLevel)][0] ? Global.ITEM_NAME[Global.storageData[Evaluate Once(Global.storageLevel)][0]] : Custom String("空")), Evaluate Once(Global.STORAGE_POSITION[Global.storageLevel][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[Evaluate Once(Global.storageLevel)][0]],
+                Default Visibility);
+            Global.upgradePrice[1] = Array(Global.upgradePrice[1][0] + Random Integer(150, 300), Global.upgradePrice[1][1]);
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
+            Abort If(Global.itemCount == 32);
+            Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+                -70)) * 0.100, Random Value In Array(Array(352, 352, 352, 352, 352, 353, 355, 355, 355, 355, 355, 356, 356, 356, 356, 356, 357, 357, 357, 357, 357, 358, 358, 358, 359, 359, 360, 361, 361)), 100);
+            Call Subroutine(createItem);
+            Global.upgradePrice[1] = Array(Global.upgradePrice[1][0], Global.upgradePrice[1][1]);
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 2);
+            Global.fryingPower += 0.250;
+            Global.upgradePrice[2] = Array(Global.upgradePrice[2][0] + Random Integer(100, 150), Global.upgradePrice[2][1], Global.upgradePrice[2][2], Global.upgradePrice[2][3]);
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 3);
+            Global.potPower += 1;
+            Global.upgradePrice[2] = Array(Global.upgradePrice[2][0], Global.upgradePrice[2][1] + Random Integer(200, 300), Global.upgradePrice[2][2], Global.upgradePrice[2][3]);
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 4);
+            Global.grillingPower += 0.250;
+            Global.upgradePrice[2] = Array(Global.upgradePrice[2][0], Global.upgradePrice[2][1], Global.upgradePrice[2][2] + Random Integer(100, 150), Global.upgradePrice[2][3]);
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 5);
+            Global.panPower += 0.250;
+            Global.upgradePrice[2] = Array(Global.upgradePrice[2][0], Global.upgradePrice[2][1], Global.upgradePrice[2][2], Global.upgradePrice[2][3] + Random Integer(100, 150));
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 6);
+            Event Player.playerSpeed += 10;
+            Global.upgradePrice[3] = Array(Global.upgradePrice[3][False] + Random Integer(25, 75), Global.upgradePrice[3][1]);
+        Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 7);
+            Global.stageTime += 5;
+            Global.upgradePrice[3] = Array(Global.upgradePrice[3][False], Global.upgradePrice[3][True] + Random Integer(25, 75));
+        End;
 	}
 }
 
@@ -2477,7 +2886,8 @@ rule("Global subroutine: Save Progress")
 						[Global.progressIndex].playerSpeed, All Players(Team 1)[Global.progressIndex].scbCooked, All Players(Team 1)
 						[Global.progressIndex].scbCutted, All Players(Team 1)[Global.progressIndex].scbSurved, All Players(Team 1)
 						[Global.progressIndex].scbMissed, All Players(Team 1)[Global.progressIndex].scbDollar, All Players(Team 1)
-						[Global.progressIndex].knifeCode, All Players(Team 1)[Global.progressIndex].durability, All Players(Team 1)[Global.progressIndex].scbScore);
+						[Global.progressIndex].knifeCode, All Players(Team 1)[Global.progressIndex].durability, All Players(Team 1)[Global.progressIndex].scbScore,
+                        All Players(Team 1)[Global.progressIndex].itemPerk, All Players(Team 1)[Global.progressIndex].itemPerkDurability);
 					Global.isContainProgress = True;
 					Break;
 				End;
@@ -2488,7 +2898,8 @@ rule("Global subroutine: Save Progress")
 					[Global.progressIndex].permission), All Players(Team 1)[Global.progressIndex].playerSpeed, All Players(Team 1)[Global.progressIndex].scbCooked, All Players(Team 1)
 						[Global.progressIndex].scbCutted, All Players(Team 1)[Global.progressIndex].scbSurved, All Players(Team 1)
 						[Global.progressIndex].scbMissed, All Players(Team 1)[Global.progressIndex].scbDollar, All Players(Team 1)
-						[Global.progressIndex].knifeCode, All Players(Team 1)[Global.progressIndex].durability, All Players(Team 1)[Global.progressIndex].scbScore));
+						[Global.progressIndex].knifeCode, All Players(Team 1)[Global.progressIndex].durability, All Players(Team 1)[Global.progressIndex].scbScore,
+                        All Players(Team 1)[Global.progressIndex].itemPerk, All Players(Team 1)[Global.progressIndex].itemPerkDurability));
 			End;
 		End;
 	}
@@ -2517,6 +2928,8 @@ rule("Global subroutine: Load Progress")
 				Event Player.knifeCode = Global.playerProgress[Global.progressIndex2][9];
 				Event Player.durability = Global.playerProgress[Global.progressIndex2][10];
 				Event Player.scbScore = Global.playerProgress[Global.progressIndex2][11];
+                Event Player.itemPerk = Global.playerProgress[Global.progressIndex2][12];
+                Event Player.itemPerkDurability = Global.playerProgress[Global.progressIndex2][13];
 				If(Event Player.playerSpeed == Null || Event Player.playerSpeed == False);
 					Event Player.playerSpeed = 90;
 				End;
