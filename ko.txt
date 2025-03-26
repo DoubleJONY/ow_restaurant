@@ -1896,7 +1896,7 @@ rule("Global subroutine: Data init2")
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
 				))[Global.stageMode];
 		Global.STAGE_NAME = String Split(Custom String("스테이크&파스타/수제 버거/치킨/피자/만두/달걀&밥/생선&밥/국수/타코/아이스크림/핫케이크"), Custom String("/"));
-		Global.upgradePrice = Array(Array(50, 250, 300), Array(100, 200), Array(100, 100, 100, 100), Array(100, 100));
+		Global.upgradePrice = Array(Array(50, 250, 300), Array(100, 100), Array(100, 100, 100, 100), Array(100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
         Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);

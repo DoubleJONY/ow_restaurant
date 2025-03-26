@@ -1946,7 +1946,7 @@ rule("Global subroutine: Data init2")
 				))[Global.stageMode];
 		Global.STAGE_NAME = String Split(Custom String(
 				"Steak&Pasta/Burgeria/Fried Chicken/Pizzeria/Dumpling/Korean RiceFood/Japanese RiceFood/Korean Noodles/Taqueria/Ice Cream/Pancake"), Custom String("/"));
-		Global.upgradePrice = Array(Array(50, 250, 300), Array(100, 200), Array(100, 100, 100, 100), Array(100, 100));
+		Global.upgradePrice = Array(Array(50, 250, 300), Array(100, 100), Array(100, 100, 100, 100), Array(100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
 		Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
