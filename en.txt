@@ -832,11 +832,11 @@ rule("Player: Interact")
 						Call Subroutine(purchaseUpgrade);
 					Else;
 						If(Event Player.selectedUpgrade == 2);
-							Small Message(Event Player, Custom String("  Legendary Knife Random Box -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
+							Small Message(Event Player, Custom String("  Order Legendary Knife Random Box -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
 							Small Message(Event Player, Custom String("  Knife will be delivered when he came back  "));
 							Global.orderedKnives[1] += True;
 						Else If(Event Player.selectedUpgrade == 1);
-							Small Message(Event Player, Custom String("  Special Knife Random Box -${0}", Global.upgradePrice[Global.currentUpgrade][1]));
+							Small Message(Event Player, Custom String("  Order Special Knife Random Box -${0}", Global.upgradePrice[Global.currentUpgrade][1]));
 							Small Message(Event Player, Custom String("  Knife will be delivered when he came back  "));
 							Global.orderedKnives[0] += True;
 						Else;
