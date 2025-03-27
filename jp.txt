@@ -916,7 +916,7 @@ rule("Player: Interact")
 					Start Rule(callCustomer, Restart Rule);
 				End;
 			End;
-		Else If(Array Contains(Global.KNIFE, Global.itemCode[Event Player.controlingIndex]));
+		Else If(Array Contains(Global.KNIFE, Global.itemCode[Event Player.controlingIndex]) && Event Player.durability <= 100);
 			If(Event Player.knifeCode + True);
 				Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
 					Global.KNIFE[Event Player.knifeCode], Event Player.durability);
@@ -1957,7 +1957,7 @@ rule("Global subroutine: Data init2")
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
         Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
-		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
+		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 3);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.010);
 		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
 	}
