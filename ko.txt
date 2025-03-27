@@ -448,6 +448,9 @@ rule("Global: Setting")
             Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[7][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[7][0] ? Global.ITEM_NAME[Global.storageData[7][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[7][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[7][0]],
                 Default Visibility);
 		Else;
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+				-70)) * 0.100, 357, 100);
+			Call Subroutine(createItem);
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
@@ -927,11 +930,12 @@ rule("Player: Interact")
 			Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Null, Eye Position(Event Player), 100);
 			Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
 			Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
-			Wait(0.016, Ignore Condition);
 			Global.itemPosition[Event Player.controlingIndex] = Down;
 			Global.itemCode[Event Player.controlingIndex] = -1;
 			Global.itemCount -= 1;
-			Wait(0.500, Ignore Condition);
+			Wait(0.016, Ignore Condition);
+			Call Subroutine(saveProgress);
+			Wait(1.000, Ignore Condition);
         Else If(Array Contains(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]));
 			If(Event Player.itemPerk + True);
 				Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
@@ -949,7 +953,8 @@ rule("Player: Interact")
 			Global.itemPosition[Event Player.controlingIndex] = Down;
 			Global.itemCode[Event Player.controlingIndex] = -1;
 			Global.itemCount -= 1;
-			Wait(0.500, Ignore Condition);
+			Call Subroutine(saveProgress);
+			Wait(1.000, Ignore Condition);
 		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
 			Abort If(Event Player.permission == 1 || Event Player.permission == 2);
 			Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
@@ -1044,16 +1049,15 @@ rule("Player: Reload button")
                 Call Subroutine(createItem);
                 Destroy HUD Text(Event Player.itemPerkText);
                 Event Player.itemPerk = -1;
-                Call Subroutine(saveProgress);
-            Else If(Event Player.knifeCode + True);
+            Else If(Event Player.knifeCode + True && Event Player.durability <= 100);
                 Wait(True, Abort When False);
                 Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
                     Global.KNIFE[Event Player.knifeCode], Event Player.durability);
                 Call Subroutine(createItem);
                 Destroy HUD Text(Event Player.knifeText);
                 Event Player.knifeCode = -1;
-                Call Subroutine(saveProgress);
             End;
+			Call Subroutine(saveProgress);
         End;
 		Abort If(Custom String("{0}", Event Player) != Custom String("변기클라우드"));
 		Wait(True, Abort When False);
@@ -1077,34 +1081,64 @@ rule("Player: Secondary fire button")
 	conditions
 	{
 		Is Button Held(Event Player, Button(Secondary Fire)) == True;
-        Event Player.itemPerk == 4;
         Event Player.controlingIndex == -1;
 	}
 
 	actions
 	{
-        Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 0.01);
-        Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 1.500, 50);
-        Event Player.controlingIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
+		Event Player.controlingIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
 			Distance Between(Current Array Element, Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500)
 			< 1.500 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Eye Position(Event Player)
 			+ Facing Direction Of(Event Player) * 1.500))));
-		If(Event Player.controlingIndex != -1);
-            Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
-            Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
-            Wait(0.016, Ignore Condition);
-            Global.itemPosition[Event Player.controlingIndex] = Down;
-            Global.itemVelocity[Event Player.controlingIndex] = Null;
-            Global.itemCode[Event Player.controlingIndex] = -1;
-            Global.itemCount -= True;
-        End;
-        Event Player.controlingIndex = -1;
-        Event Player.itemPerkDurability -= 0.1;
-        If(Event Player.itemPerkDurability <= 0);
-            Event Player.itemPerk = -1;
-            Destroy HUD Text(Event Player.itemPerkText);
-        End;
-        Wait(0.050, Ignore Condition);
+		If(Event Player.itemPerk == 4);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 0.01);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Global.itemPosition[Event Player.controlingIndex], 0.01);
+			Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 1.500, 50);
+        
+			If(Event Player.controlingIndex != -1);
+				Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
+				Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
+				Wait(0.016, Ignore Condition);
+				Global.itemPosition[Event Player.controlingIndex] = Down;
+				Global.itemVelocity[Event Player.controlingIndex] = Null;
+				Global.itemCode[Event Player.controlingIndex] = -1;
+				Global.itemCount -= True;
+			End;
+			Event Player.controlingIndex = -1;
+			Event Player.itemPerkDurability -= 0.1;
+			If(Event Player.itemPerkDurability <= 0);
+				Event Player.itemPerk = -1;
+				Destroy HUD Text(Event Player.itemPerkText);
+			End;
+		Else If(Event Player.itemPerk == 8);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 1);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
+			Play Effect(All Players(All Teams), Reinhardt Fire Strike Target Impact Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 100);
+            If(Event Player.controlingIndex != -1);
+                If(Global.itemStatus[Event Player.controlingIndex] == 3);
+					Global.itemProgress[Event Player.controlingIndex] += 1;
+				Else;
+					Global.itemStatus[Event Player.controlingIndex] = 3;
+					Global.itemProgress[Event Player.controlingIndex] = 1;
+				End;
+				If(Global.itemProgress[Event Player.controlingIndex] >= Global.GRILLING_NEEDED[Global.itemCode[Event Player.controlingIndex]]);
+					Global.itemCode[Event Player.controlingIndex] = Global.GRILLING_RESULT[Global.itemCode[Event Player.controlingIndex]];
+					Global.itemProgress[Event Player.controlingIndex] = Null;
+					Play Effect(All Players(All Teams), Ashe Dynamite Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 50);
+					Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Global.itemPosition[Event Player.controlingIndex], 0.500);
+					Global.itemVelocity[Event Player.controlingIndex] += Direction From Angles(False, Random Integer(False, 360)) * 0.005 + Vector(False, 0.075, False);
+					Modify Global Variable At Index(itemCooker, Event Player.controlingIndex, Append To Array, Global.itemLastControl[Event Player.controlingIndex]);
+				End;
+            End;
+			Event Player.controlingIndex = -1;
+			Event Player.itemPerkDurability -= 1;
+			If(Event Player.itemPerkDurability <= 0);
+				Destroy HUD Text(Event Player.itemPerkText);
+				Event Player.itemPerk = -1;
+			End;
+			Wait(0.300, Ignore Condition);
+		End;
+		Wait(0.050, Ignore Condition);
         Loop If Condition Is True;
     }
 }
@@ -1173,30 +1207,9 @@ rule("Player: Ultimate button")
                 Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
                     Global.itemCode[Event Player.controlingIndex], Global.itemDurability[Event Player.controlingIndex]);
                 Call Subroutine(createItem);
+				Global.itemStatus[Global.creatingItemIndex] = Global.itemStatus[Event Player.controlingIndex];
+				Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
                 Event Player.itemPerkDurability -= 20;
-                If(Event Player.itemPerkDurability <= 0);
-                    Destroy HUD Text(Event Player.itemPerkText);
-                    Event Player.itemPerk = -1;
-                End;
-            End;
-        Else If(Event Player.itemPerk == 8);
-            If(Event Player.controlingIndex != -1);
-                Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
-                Play Effect(All Players(All Teams), Reinhardt Fire Strike Target Impact Sound, Null, Global.itemPosition[Event Player.controlingIndex], 100);
-                If(Global.itemStatus[Event Player.controlingIndex] == 3);
-					Global.itemProgress[Event Player.controlingIndex] += 1;
-				Else;
-					Global.itemStatus[Event Player.controlingIndex] = 3;
-					Global.itemProgress[Event Player.controlingIndex] = 1;
-				End;
-				If(Global.itemProgress[Event Player.controlingIndex] >= Global.GRILLING_NEEDED[Global.itemCode[Event Player.controlingIndex]]);
-					Global.itemCode[Event Player.controlingIndex] = Global.GRILLING_RESULT[Global.itemCode[Event Player.controlingIndex]];
-					Global.itemProgress[Event Player.controlingIndex] = Null;
-					Play Effect(All Players(All Teams), Ashe Dynamite Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 50);
-					Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Global.itemPosition[Event Player.controlingIndex], 0.500);
-					Modify Global Variable At Index(itemCooker, Event Player.controlingIndex, Append To Array, Global.itemLastControl[Event Player.controlingIndex]);
-				End;
-                Event Player.itemPerkDurability -= 1;
                 If(Event Player.itemPerkDurability <= 0);
                     Destroy HUD Text(Event Player.itemPerkText);
                     Event Player.itemPerk = -1;
@@ -2712,7 +2725,7 @@ rule("Global subroutine: Perk Hud")
                 String and Color, Default Visibility);
 		Else If(Event Player.itemPerk == 8);
             Create HUD Text(Event Player, Ability Icon String(Hero(Torbjörn), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("〔{0}〕", Input Binding String(Button(Secondary Fire))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
                 String and Color, Default Visibility);
         End;
 		Event Player.itemPerkText = Last Text ID;
