@@ -1988,6 +1988,10 @@ rule("Global subroutine: Start stage")
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.STAGE_CODE[Global.stage][Global.loadingMenu]]);
 		End;
 		Global.loadingMenu = Randomized Array(Global.currentMenu);
+		If(Global.difficulty == 0 && Global.stage == 0 && Global.stageMode == 1);
+			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76));
+			Global.loadingMenu = Array(3, 4, 7, 8, 10, 25, 24);
+		End;
 		Global.currentMenuHaz = Empty Array;
 		For Global Variable(loadingMenuHaz, False, Count Of(Global.STAGE_CODE[Global.stage]), True);
 			Modify Global Variable(currentMenuHaz, Append To Array,
