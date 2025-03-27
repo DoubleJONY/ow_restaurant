@@ -1087,7 +1087,6 @@ rule("Player: Secondary fire button")
 	}
 
 	actions
-	actions
 	{
 		Event Player.controlingIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
 			Distance Between(Current Array Element, Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500)
