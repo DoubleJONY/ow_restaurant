@@ -351,6 +351,22 @@ rule("Global: Setting")
 		Create In-World Text(Players Within Radius(Vector(214.447, 2, 155.251), 15, Team 1, Off), Custom String("〔{0}〕: 영웅 변경",
 			Input Binding String(Button(Interact))), Vector(214.447, 2, 155.251), 3, Do Not Clip, Visible To String and Color, Color(Rose),
 			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[0][0] ? Global.ITEM_NAME[Global.storageData[0][0]] : Global.storageLevel >= 0 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[0][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[1]), 4, Team 1, Off), Custom String("{0}", Global.storageData[1][0] ? Global.ITEM_NAME[Global.storageData[1][0]] : Global.storageLevel >= 1 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[1]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[1][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[2]), 4, Team 1, Off), Custom String("{0}", Global.storageData[2][0] ? Global.ITEM_NAME[Global.storageData[2][0]] : Global.storageLevel >= 2 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[2]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[2][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[3]), 4, Team 1, Off), Custom String("{0}", Global.storageData[3][0] ? Global.ITEM_NAME[Global.storageData[3][0]] : Global.storageLevel >= 3 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[3]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[3][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[4]), 4, Team 1, Off), Custom String("{0}", Global.storageData[4][0] ? Global.ITEM_NAME[Global.storageData[4][0]] : Global.storageLevel >= 4 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[4]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[4][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[5]), 4, Team 1, Off), Custom String("{0}", Global.storageData[5][0] ? Global.ITEM_NAME[Global.storageData[5][0]] : Global.storageLevel >= 5 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[5]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[5][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[6]), 4, Team 1, Off), Custom String("{0}", Global.storageData[6][0] ? Global.ITEM_NAME[Global.storageData[6][0]] : Global.storageLevel >= 6 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[6]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[6][0]],
+			Default Visibility);
+		Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[7]), 4, Team 1, Off), Custom String("{0}", Global.storageData[7][0] ? Global.ITEM_NAME[Global.storageData[7][0]] : Global.storageLevel >= 7 ? Custom String("비어 있음") : Custom String(" ")), Evaluate Once(Global.STORAGE_POSITION[7]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[7][0]],
+			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"레스토랑 - v250327\r\n워크샵 코드 : SPXXM\r\nScore : {0}\r\nHigh Score : JOSEON(12479)\r\n내 직책 : {1}", Global.totalScore,
@@ -431,22 +447,6 @@ rule("Global: Setting")
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.STAGE_CODE[Global.stage]];
 			Global.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);
             Global.storageLevel = 7;
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[0][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[0][0] ? Global.ITEM_NAME[Global.storageData[0][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[0][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[0][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[1][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[1][0] ? Global.ITEM_NAME[Global.storageData[1][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[1][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[1][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[2][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[2][0] ? Global.ITEM_NAME[Global.storageData[2][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[2][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[2][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[3][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[3][0] ? Global.ITEM_NAME[Global.storageData[3][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[3][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[3][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[4][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[4][0] ? Global.ITEM_NAME[Global.storageData[4][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[4][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[4][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[5][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[5][0] ? Global.ITEM_NAME[Global.storageData[5][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[5][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[5][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[6][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[6][0] ? Global.ITEM_NAME[Global.storageData[6][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[6][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[6][0]],
-                Default Visibility);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[7][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[7][0] ? Global.ITEM_NAME[Global.storageData[7][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[7][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[7][0]],
-                Default Visibility);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 				-70)) * 0.100, 357, 100);
@@ -2832,8 +2832,6 @@ rule("Global subroutine: Purchase Upgrade")
         If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 0);
             Global.storageLevel += True;
             Wait(0.016, Ignore Condition);
-            Create In-World Text(Players Within Radius(Evaluate Once(Global.STORAGE_POSITION[Global.storageLevel][0]), 4, Team 1, Off), Custom String("{0}", Global.storageData[Evaluate Once(Global.storageLevel)][0] ? Global.ITEM_NAME[Global.storageData[Evaluate Once(Global.storageLevel)][0]] : Custom String("비어 있음")), Evaluate Once(Global.STORAGE_POSITION[Global.storageLevel][0]), 0.900, Do Not Clip, Visible To String and Color, Global.ITEM_COLOR[Global.storageData[Evaluate Once(Global.storageLevel)][0]],
-                Default Visibility);
             Global.upgradePrice[1] = Array(Global.upgradePrice[1][0] + Random Integer(150, 300), Global.upgradePrice[1][1]);
         Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
             Abort If(Global.itemCount == 32);
