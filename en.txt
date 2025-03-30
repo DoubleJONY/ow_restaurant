@@ -172,6 +172,8 @@ variables
 		39: itemPerkText
 		40: playerEffectStatus
 		41: perkIndex
+		42: noticeText
+		43: isShowNotice
 }
 
 subroutines
@@ -194,6 +196,7 @@ subroutines
 	15: knifeHud
 	16: purchaseUpgrade
 	17: perkHud
+	18: showNotice
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -369,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"Restaurant - v250327\r\nWorkshop Code : HTNZ3\r\nScore : {0}\r\nHigh Score : Draco(4689)\r\nMy Role : {1}", Global.totalScore,
+			"Restaurant - v250330\r\nWorkshop Code : HTNZ3\r\nScore : {0}\r\nHigh Score : RotemGang(5151)\r\nMy Role : {1}", Global.totalScore,
 			Global.permissionText[0][Local Player.permission]), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} Special Knife:{1}", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives), Custom String(
 				"{0} Pot:{1}% / Fryer:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)),
@@ -603,6 +606,32 @@ rule("Player: Spawn")
 		Event Player.altNamePlate = Last Text ID;
 		Call Subroutine(loadProgress);
 		Call Subroutine(knifeHud);
+		Call Subroutine(perkHud);
+		Call Subroutine(showNotice);
+	}
+}
+
+rule("Player: showNotice")
+{
+	event
+	{
+		Subroutine;
+		showNotice;
+	}
+
+	actions
+	{
+		Event Player.isShowNotice = True;
+		Create In-World Text(Event Player.isShowNotice ? Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off) : Null, 
+		Custom String("{0} v250330 Release Note\r\n\r\nOrder Legendary Knife Random Box Price Changed -  300 > 250\r\nFix Item HUD when rejoin", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
+		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
+			Color(White), Default Visibility);
+		Event Player.noticeText[0] = Last Text ID;
+		Create In-World Text(Event Player.isShowNotice ? Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off) : Null, 
+		Custom String("[{0}] : Dismiss ", Input Binding String(Button(Interact))), 
+		Vector(213.2373, 1.2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
+			Color(White), Default Visibility);
+		Event Player.noticeText[1] = Last Text ID;
 	}
 }
 
@@ -898,6 +927,12 @@ rule("Player: Interact")
 				Small Message(All Players(All Teams), Custom String("  Only Head Chef Can Skip Preparation Time "));
 				Communicate(Event Player, Press the Attack);
 				Wait(0.75, Ignore Condition);
+			Else If(Event Player.isShowNotice && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(213.2373, 1, 178.7080)) < 3);
+				For Player Variable(Event Player, isShowNotice, 0, Count Of(Event Player.noticeText), 1);
+					Destroy In-World Text(Event Player.noticeText[Event Player.isShowNotice]);
+				End;
+				Event Player.isShowNotice = False;
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty == 4);
 				If(Global.isPracticeOpen);
@@ -1982,7 +2017,7 @@ rule("Global subroutine: Data init2")
 				))[Global.stageMode];
 		Global.STAGE_NAME = String Split(Custom String(
 				"Steak&Pasta/Burgeria/Fried Chicken/Pizzeria/Dumpling/Korean RiceFood/Japanese RiceFood/Korean Noodles/Taqueria/Ice Cream/Pancake"), Custom String("/"));
-		Global.upgradePrice = Array(Array(50, 250, 300), Array(100, 100), Array(100, 100, 100, 100), Array(100, 100));
+		Global.upgradePrice = Array(Array(50, 250, 250), Array(100, 100), Array(100, 100, 100, 100), Array(100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
 		Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
@@ -2740,23 +2775,26 @@ rule("Global subroutine: Knife Hud")
 				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
 				255 - Event Player.durability * 0.950, Event Player.durability * 2.320, Event Player.durability * 0.270, 255), Null, Null,
 				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
 		Else If(Event Player.knifeCode == 1);
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
 				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
 				255 - Event Player.durability * 1.860, Event Player.durability * 2.550, Event Player.durability * 0.870, 255), Null, Null,
 				String and Color, Default Visibility);
-		Else If(Event Player.knifeCode == 6);
+			Event Player.knifeText = Last Text ID;
+        Else If(Event Player.knifeCode == 6);
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
 				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
 				Event Player.durability * 1.760, 0, Event Player.durability * 2.500, 255), Null, Null,
 				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
 		Else;
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
 				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
 				255 - Event Player.durability * 2.250, Event Player.durability * 2.300, Event Player.durability * 1.510, 255), Null, Null,
 				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
 		End;
-		Event Player.knifeText = Last Text ID;
 	}
 }
 
@@ -2770,44 +2808,52 @@ rule("Global subroutine: Perk Hud")
 
 	actions
 	{
-		If(Event Player.itemPerk == 0);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Roadhog), Button(Secondary Fire)), Custom String("{0}", Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 1);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Ana), Button(Ultimate)), Custom String("{0}", Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 2);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Baptiste), Button(Crouch)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Jump))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 3);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Ashe), Button(Ability 2)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 4);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Sigma), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Secondary Fire))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 5);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Reinhardt), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Ability 1))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 6);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Kiriko), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Ability 1))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		Else If(Event Player.itemPerk == 7);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Baptiste), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
+        If(Event Player.itemPerk == 0);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Roadhog), Button(Secondary Fire)), Custom String("{0}", Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 1);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Ana), Button(Ultimate)), Custom String("{0}", Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 2);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Baptiste), Button(Crouch)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Jump))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 3);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Ashe), Button(Ability 2)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 4);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Sigma), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Secondary Fire))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 5);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Reinhardt), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Ability 1))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 6);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Kiriko), Button(Ability 1)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Ability 1))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        Else If(Event Player.itemPerk == 7);
+            Create HUD Text(Event Player, Ability Icon String(Hero(Baptiste), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Ultimate))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
 		Else If(Event Player.itemPerk == 8);
-			Create HUD Text(Event Player, Ability Icon String(Hero(Torbjörn), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("  [{0}]", Input Binding String(Button(Secondary Fire))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-				String and Color, Default Visibility);
-		End;
-		Event Player.itemPerkText = Last Text ID;
+            Create HUD Text(Event Player, Ability Icon String(Hero(Torbjörn), Button(Ultimate)), Custom String("{1}-{0}%", Round To Integer(Event Player.itemPerkDurability, Up), Evaluate Once(
+                Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), Custom String("[{0}]", Input Binding String(Button(Secondary Fire))), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
+                String and Color, Default Visibility);
+			Event Player.itemPerkText = Last Text ID;
+        End;
 	}
 }
 
@@ -2911,7 +2957,7 @@ rule("Global subroutine: Purchase Upgrade")
 		Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
 			Abort If(Global.itemCount == 32);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Random Value In Array(Array(352, 352, 352, 352, 352, 353, 355, 355, 355, 355, 355, 356, 356, 356, 356, 356, 357, 357, 357, 357, 357, 358, 358, 358, 359, 359, 360, 361, 361)), 100);
+                -70)) * 0.100, Random Value In Array(Array(352, 352, 352, 352, 352, 353, 355, 355, 355, 355, 355, 356, 356, 356, 356, 356, 357, 357, 358, 358, 358, 359, 359, 360, 361, 361)), 100);
 			Call Subroutine(createItem);
 			Global.upgradePrice[1] = Array(Global.upgradePrice[1][0], Global.upgradePrice[1][1]);
 		Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 2);
@@ -3052,14 +3098,14 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.totalScore > 4689);
+		If(Global.totalScore > 5151);
 			Create In-World Text(All Players(Team 1), Custom String("New Record!! Capture this screen and send it to discord:toileka"), Vector(
 				210.140, Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1,
 				Do Not Clip, Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
 				Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
 			Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Else;
-			Create In-World Text(All Players(Team 1), Custom String("High Score: [{0}]", Custom String("Draco's Team : 4689")), Vector(210.140,
+			Create In-World Text(All Players(Team 1), Custom String("High Score: [{0}]", Custom String("RotemGang : 5151")), Vector(210.140,
 				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
 		End;
