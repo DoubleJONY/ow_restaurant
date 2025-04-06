@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"レストラン - v250405\r\nワークショップコード : 4ND1P\r\nScore : {0}\r\nHigh Score : OwN(3798)\r\n私の役職 : {1}", Global.totalScore,
+			"レストラン - v250406\r\nワークショップコード : 4ND1P\r\nScore : {0}\r\nHigh Score : OwN(3798)\r\n私の役職 : {1}", Global.totalScore,
 			Global.permissionText[0][Local Player.permission]), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 製作中のスペシャルナイフ:{1}つ", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives), Custom String(
 			"{0} 鍋:{1}% / フライヤー:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
@@ -620,7 +620,8 @@ rule("Player: showNotice")
 	{
 		Event Player.isShowNotice = True;
 		Create In-World Text(Event Player.isShowNotice ? Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off) : Null, 
-		Custom String("{0} v250405 パッチノート\r\n\r\n一部の料理とメニューのバランスがささやかに調整されました", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
+		Custom String("{0} v250406 パッチノート\r\n\r\n保存用バットのアップグレード価格の上昇幅が100ウォンに変更されました\r\n{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2))
+		, Custom String("一部のテキストが表示されない不具合を修正しました")), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Event Player.noticeText[0] = Last Text ID;
@@ -1235,7 +1236,7 @@ rule("Player: Ultimate button")
                 End;
             End;
         Else If(Event Player.itemPerk == 7);
-            If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360), Global.itemCode[Event Player.controlingIndex]));
+            If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361), Global.itemCode[Event Player.controlingIndex]));
                 Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Global.itemPosition[Event Player.controlingIndex], 2);
                 Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 2);
                 Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
@@ -1836,7 +1837,7 @@ rule("Global subroutine: Data init")
 			"オレンジパフェ+イチゴ/バナナパフェ+チョコ+オレンジ/バナナパフェ+チョコ+イチゴ/オレンジパフェ+チョコ+イチゴ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"バナナパフェ+オレンジ+イチゴ/ミルクシェイク/イチゴバナナシェイク/イチゴシェイク/オレンジシェイク/バナナシェイク/{0}", Custom String(
-			"チョコシェイク/チョコバナナ/贅沢パフェ/メープルシロップ/チョコシロップ/チョコ生地/卵パン/チョコパン/パンケーキ")), Custom String("/")),
+			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵パン/チョコパン/パンケーキ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"パンケーキ+ベーコン/パンケーキ+スクランブルエッグ/チョコシロップパンケーキ/チョコシロップパンケーキ+ベーコン/{0}", Custom String(
 			"チョコシロップパンケーキ+スクランブルエッグ/チョコパンケーキ/チョコパンケーキ+ベーコン")), Custom String("/")),
@@ -2924,7 +2925,7 @@ rule("Global subroutine: Purchase Upgrade")
         If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 0);
             Global.storageLevel += True;
             Wait(0.016, Ignore Condition);
-            Global.upgradePrice[1] = Array(Global.upgradePrice[1][0] + Random Integer(150, 300), Global.upgradePrice[1][1]);
+            Global.upgradePrice[1] = Array(Global.storageLevel > 7 ? 9999 : Global.upgradePrice[1][0] + 100, Global.upgradePrice[1][1]);
         Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
             Abort If(Global.itemCount == 32);
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -3098,7 +3099,7 @@ rule("Global subroutine: Scoreboard")
 		For Global Variable(cookingIndex, False, 6, True);
 			All Players(Team 1)[Global.cookingIndex].scbScore += All Players(Team 1)[Global.cookingIndex].scbCooked + All Players(Team 1)[Global.cookingIndex].scbSurved - (All Players(Team 1)[Global.cookingIndex].scbMissed * 5);
 		End;
-		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("個人総収入 : 〔{0}〕\r\個人活躍スコア : 〔{1}〕", Local Player.scbDollar, Local Player.scbScore),
+		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕", Local Player.scbDollar, Local Player.scbScore),
 			Vector(207.140, 3, 183.430), 2, Do Not Clip, Visible To Position String and Color, Custom Color(255, 255, Sine From Radians(
 			Total Time Elapsed * 8) * 105 + 150, 255), Default Visibility);
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("成功した営業 : 〔{0}〕",

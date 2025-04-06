@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"레스토랑 - v250405\r\n워크샵 코드 : SPXXM\r\nScore : {0}\r\nHigh Score : JOSEON(12479)\r\n내 직책 : {1}", Global.totalScore,
+			"레스토랑 - v250406\r\n워크샵 코드 : SPXXM\r\nScore : {0}\r\nHigh Score : JOSEON(12479)\r\n내 직책 : {1}", Global.totalScore,
 			Global.permissionText[0][Local Player.permission]), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 제작 중인 특수 칼:{1}개", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[0] + Global.orderedKnives[1]), Custom String(
 			"{0} 솥:{1}% / 튀김:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
@@ -626,7 +626,7 @@ rule("Player: showNotice")
 			Color(Yellow), Default Visibility);
 		Event Player.noticeText[0] = Last Text ID;
 		Create In-World Text(Event Player.isShowNotice ? Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off) : Null, 
-		Custom String("{0} v250405 패치노트\r\n\r\n일부 요리와 메뉴 밸런스가 소소하게 수정되었습니다", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
+		Custom String("{0} v250406 패치노트\r\n\r\n저장고의 업그레이드 가격 인상폭이 100원으로 변경되었습니다\r\n일부 로직 안정성이 개선되었습니다", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Event Player.noticeText[1] = Last Text ID;
@@ -1241,7 +1241,7 @@ rule("Player: Ultimate button")
                 End;
             End;
         Else If(Event Player.itemPerk == 7);
-            If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360), Global.itemCode[Event Player.controlingIndex]));
+            If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361), Global.itemCode[Event Player.controlingIndex]));
                 Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Global.itemPosition[Event Player.controlingIndex], 2);
                 Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 2);
                 Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
@@ -1803,7 +1803,7 @@ rule("Global subroutine: Data init")
 			"바나나 파르페+오렌지/바나나 파르페+딸기/오렌지 파르페+딸기/바나나 파르페+초콜릿+오렌지/바나나 파르페+초콜릿+딸기/오렌지 파르페+{0}", Custom String(
 			"초콜릿+딸기/바나나 파르페+오렌지+딸기/밀크 셰이크/딸기바나나셰이크/딸기 셰이크/오렌지 셰이크/바나나 셰이크/초코 셰이크/초코바나나")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"럭셔리 파르페/메이플 시럽/초코시럽/초코 반죽/계란빵/초코빵/핫케이크/핫케이크+베이컨/핫케이크+스크램블에그/초코시럽핫케이크/초코시{0}", Custom String(
+			"디럭스 파르페/메이플 시럽/초코시럽/초코 반죽/계란빵/초코빵/핫케이크/핫케이크+베이컨/핫케이크+스크램블에그/초코시럽핫케이크/초코시{0}", Custom String(
 			"럽핫케이크+베이컨/초코시럽핫케이크+스크램블에그/초코핫케이크/초코핫케이크+베이컨/초코핫케이크+스크램블에그/초코초코핫케이크")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"초코초코핫케이크+베이컨/초코초코핫케이크+스크램블에그/딸기핫케이크/딸기핫케이크+베이컨/딸기핫케이크+스크램블에그/{0}", Custom String(
@@ -2884,7 +2884,7 @@ rule("Global subroutine: Purchase Upgrade")
         If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 0);
             Global.storageLevel += True;
             Wait(0.016, Ignore Condition);
-            Global.upgradePrice[1] = Array(Global.upgradePrice[1][0] + Random Integer(150, 300), Global.upgradePrice[1][1]);
+            Global.upgradePrice[1] = Array(Global.storageLevel > 7 ? 9999 : Global.upgradePrice[1][0] + 100, Global.upgradePrice[1][1]);
         Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
             Abort If(Global.itemCount == 32);
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,

@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"Restaurant - v250405\r\nWorkshop Code : HTNZ3\r\nScore : {0}\r\nHigh Score : Hentuui(5297)\r\nMy Role : {1}", Global.totalScore,
+			"Restaurant - v250406\r\nWorkshop Code : HTNZ3\r\nScore : {0}\r\nHigh Score : Hentuui(5297)\r\nMy Role : {1}", Global.totalScore,
 			Global.permissionText[0][Local Player.permission]), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} Special Knife:{1}", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives), Custom String(
 				"{0} Pot:{1}% / Fryer:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)),
@@ -623,7 +623,8 @@ rule("Player: showNotice")
 	{
 		Event Player.isShowNotice = True;
 		Create In-World Text(Event Player.isShowNotice ? Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off) : Null, 
-		Custom String("{0} v250405 Release Note\r\n\r\nSome foods and menu balances have been slightly adjusted.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
+		Custom String("{0} v250406 Release Note\r\n\r\nThe upgrade cost increase for the storage has been changed to {1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2))
+		, Custom String("100 coins\r\nFixed an issue where some text was not displaying")), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Event Player.noticeText[0] = Last Text ID;
@@ -1238,7 +1239,7 @@ rule("Player: Ultimate button")
 				End;
 			End;
 		Else If(Event Player.itemPerk == 7);
-			If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360), Global.itemCode[Event Player.controlingIndex]));
+			If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361), Global.itemCode[Event Player.controlingIndex]));
 				Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Global.itemPosition[Event Player.controlingIndex], 2);
 				Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 2);
 				Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
@@ -1867,7 +1868,7 @@ rule("Global subroutine: Data init")
 			"Banana Parfait+Chocolate+Orange/Banana Parfait+Chocolate+Strawberry/Orange Parfait+Chocolate+Strawberry/Banana {0}", Custom String(
 			"Parfait+Orange+Strawberry/Milkshake/Strawberry Banana Shake/Strawberry Shake/Orange Shake/Banana Shake/Chocolate Shake")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"Chocolate Banana/Luxury Parfait/Maple Syrup/Chocolate Syrup/Chocolate Batter/Egg Bread/Chocolate Bread/Pancake/Pancake+Bac{0}", Custom String(
+			"Chocolate Banana/Deluxe Parfait/Maple Syrup/Chocolate Syrup/Chocolate Batter/Egg Bread/Chocolate Bread/Pancake/Pancake+Bac{0}", Custom String(
 			"on/Pancake+Scrambled Eggs/Chocolate Syrup Pancake/Chocolate Syrup Pancake+Bacon/Chocolate Syrup Pancake+Scrambled Eggs")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"Chocolate Pancake/Chocolate Pancake+Bacon/Chocolate Pancake+Scrambled Eggs/Choco-Choco Pancake/Choco-Choco Pancake+Bacon/{0}", Custom String(
@@ -2024,7 +2025,7 @@ rule("Global subroutine: Data init2")
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 3);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.010);
 		Global.UPGRADE_NAME = String Split(Custom String(
-			"Purchase Storage/Purchase Item/Upgrade Fryer/Upgrade Pot/Upgrade Grill/Upgrade Pan/Increase Personal Movement Speed/Increase Team Time Limit"),
+			"Purchase Storage/Purchase Item/Upgrade Fryer/Upgrade Pot/Upgrade Grill/Upgrade Pan/Increase Personal Movement Speed/{0}", Custom String("Increase Team Time Limit")),
 			Custom String("/"));
 	}
 }
@@ -2954,7 +2955,7 @@ rule("Global subroutine: Purchase Upgrade")
 		If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 0);
 			Global.storageLevel += True;
 			Wait(0.016, Ignore Condition);
-			Global.upgradePrice[1] = Array(Global.upgradePrice[1][0] + Random Integer(150, 300), Global.upgradePrice[1][1]);
+			Global.upgradePrice[1] = Array(Global.storageLevel > 7 ? 9999 : Global.upgradePrice[1][0] + 100, Global.upgradePrice[1][1]);
 		Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
 			Abort If(Global.itemCount == 32);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
