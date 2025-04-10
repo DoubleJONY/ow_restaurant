@@ -3177,31 +3177,31 @@ rule("Global subroutine: Scoreboard")
 				Global.permissionText[1][All Players(Team 1)[0].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[1]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[1])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[1]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[1].scbDollar, All Players(Team 1)[1].scbScore,
+				[1].permission], All Players(Team 1)[1]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[1].scbDollar, All Players(Team 1)[1].scbScore,
 				All Players(Team 1)[1].scbCooked), Custom String("サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕", All Players(Team 1)[1].scbSurved,
 				All Players(Team 1)[1].scbMissed)), All Players(Team 1)[1], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[1].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[2]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[2])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[2]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[2].scbDollar, All Players(Team 1)[2].scbScore,
+				[2].permission], All Players(Team 1)[2]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[2].scbDollar, All Players(Team 1)[2].scbScore,
 				All Players(Team 1)[2].scbCooked), Custom String("サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕", All Players(Team 1)[2].scbSurved,
 				All Players(Team 1)[2].scbMissed)), All Players(Team 1)[2], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[2].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[3]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[3])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[3]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[3].scbDollar, All Players(Team 1)[3].scbScore,
+				[3].permission], All Players(Team 1)[3]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[3].scbDollar, All Players(Team 1)[3].scbScore,
 				All Players(Team 1)[3].scbCooked), Custom String("サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕", All Players(Team 1)[3].scbSurved,
 				All Players(Team 1)[3].scbMissed)), All Players(Team 1)[3], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[3].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[4]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[4])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[4]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[4].scbDollar, All Players(Team 1)[4].scbScore,
+				[4].permission], All Players(Team 1)[4]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[4].scbDollar, All Players(Team 1)[4].scbScore,
 				All Players(Team 1)[4].scbCooked), Custom String("サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕", All Players(Team 1)[4].scbSurved,
 				All Players(Team 1)[4].scbMissed)), All Players(Team 1)[4], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[4].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[5]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[5])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[5]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[5].scbDollar, All Players(Team 1)[5].scbScore,
+				[5].permission], All Players(Team 1)[5]), Custom String("個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕", All Players(Team 1)[5].scbDollar, All Players(Team 1)[5].scbScore,
 				All Players(Team 1)[5].scbCooked), Custom String("サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕", All Players(Team 1)[5].scbSurved,
 				All Players(Team 1)[5].scbMissed)), All Players(Team 1)[5], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[5].permission], Default Visibility);

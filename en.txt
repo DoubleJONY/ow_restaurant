@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"Restaurant - v250406\r\nWorkshop Code : HTNZ3\r\nScore : {0}\r\nHigh Score : Hentuui(5297)\r\nMy Role : {1}", Global.totalScore,
+			"Restaurant - v250406\r\nWorkshop Code : HTNZ3\r\nScore : {0}\r\nHigh Score : RotemGang&AsDeath(6504)\r\nMy Role : {1}", Global.totalScore,
 			Global.permissionText[0][Local Player.permission]), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} Special Knife:{1}", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives), Custom String(
 				"{0} Pot:{1}% / Fryer:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)),
@@ -3100,14 +3100,14 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.totalScore > 5297);
+		If(Global.totalScore > 6504);
 			Create In-World Text(All Players(Team 1), Custom String("New Record!! Capture this screen and send it to discord:toileka"), Vector(
 				210.140, Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1,
 				Do Not Clip, Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
 				Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
 			Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Else;
-			Create In-World Text(All Players(Team 1), Custom String("High Score: [{0}]", Custom String("Hentuui : 5297")), Vector(210.140,
+			Create In-World Text(All Players(Team 1), Custom String("High Score: [{0}]", Custom String("RotemGang&AsDeath : 6504")), Vector(210.140,
 				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
 		End;
@@ -3207,31 +3207,31 @@ rule("Global subroutine: Scoreboard")
 				Global.permissionText[1][All Players(Team 1)[0].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[1]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[1])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[1]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[1].scbDollar, All Players(Team 1)[1].scbScore,
+				[1].permission], All Players(Team 1)[1]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[1].scbDollar, All Players(Team 1)[1].scbScore,
 				All Players(Team 1)[1].scbCooked), Custom String("Serving Success : [{0}]\r\nServing Mistake : [{1}]", All Players(Team 1)[1].scbSurved,
 				All Players(Team 1)[1].scbMissed)), All Players(Team 1)[1], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[1].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[2]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[2])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[2]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[2].scbDollar, All Players(Team 1)[2].scbScore,
+				[2].permission], All Players(Team 1)[2]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[2].scbDollar, All Players(Team 1)[2].scbScore,
 				All Players(Team 1)[2].scbCooked), Custom String("Serving Success : [{0}]\r\nServing Mistake : [{1}]", All Players(Team 1)[2].scbSurved,
 				All Players(Team 1)[2].scbMissed)), All Players(Team 1)[2], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[2].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[3]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[3])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[3]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[3].scbDollar, All Players(Team 1)[3].scbScore,
+				[3].permission], All Players(Team 1)[3]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[3].scbDollar, All Players(Team 1)[3].scbScore,
 				All Players(Team 1)[3].scbCooked), Custom String("Serving Success : [{0}]\r\nServing Mistake : [{1}]", All Players(Team 1)[3].scbSurved,
 				All Players(Team 1)[3].scbMissed)), All Players(Team 1)[3], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[3].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[4]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[4])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[4]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[4].scbDollar, All Players(Team 1)[4].scbScore,
+				[4].permission], All Players(Team 1)[4]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[4].scbDollar, All Players(Team 1)[4].scbScore,
 				All Players(Team 1)[4].scbCooked), Custom String("Serving Success : [{0}]\r\nServing Mistake : [{1}]", All Players(Team 1)[4].scbSurved,
 				All Players(Team 1)[4].scbMissed)), All Players(Team 1)[4], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[4].permission], Default Visibility);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[5]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[5])), Global.permissionText[0][All Players(Team 1)
-				[0].permission], All Players(Team 1)[5]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[5].scbDollar, All Players(Team 1)[5].scbScore,
+				[5].permission], All Players(Team 1)[5]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[5].scbDollar, All Players(Team 1)[5].scbScore,
 				All Players(Team 1)[5].scbCooked), Custom String("Serving Success : [{0}]\r\nServing Mistake : [{1}]", All Players(Team 1)[5].scbSurved,
 				All Players(Team 1)[5].scbMissed)), All Players(Team 1)[5], 1, Do Not Clip, Visible To Position String and Color,
 				Global.permissionText[1][All Players(Team 1)[5].permission], Default Visibility);
