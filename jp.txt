@@ -3142,22 +3142,22 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 8000 : 3500)));
+		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
 			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 6000 : 3000));
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7500 : 4500));
 			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 4000 : 2000));
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
 			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★☆☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2000 : 1000));
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
 			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
