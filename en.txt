@@ -392,7 +392,7 @@ rule("Global: Setting")
 					Custom String("Complete the Journeyman with the all menu."),
 					Custom String("Challenge to Hell's Kitchen Chef!"))[Global.stageMode]),
 				Local Player == Host Player ? Custom String("[{0}]: Rotate Mode", Input Binding String(Button(Reload)),
-				Input Binding String(Button(Jump))) : Custom String(" Please wait for the host to decide the difficulty"), Top, -998, Custom Color(Array(255, 140, 110,
+				Input Binding String(Button(Jump))) : Custom String(" Please wait for the host to decide the mode"), Top, -998, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
 			Global.globalText[1] = Last Text ID;
@@ -1587,7 +1587,7 @@ rule("Dummy: Spawn")
 						Else;
 							If(Event Player.customerStatus != -1);
 								Event Player.knifeText.score -= 5;
-								Event Player.controlingIndex = Array(Custom String("Timeout!"), Null, Custom String("{0}Incorrect Serving!",
+								Event Player.controlingIndex = Array(Custom String("Timeout!"), Null, Custom String("{0}'s Incorrect Serving!",
 									Event Player.knifeText), Custom String("Watch the Order!"))[Event Player.customerStatus];
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
 									Event Player.controlingIndex), Null, Custom String(
