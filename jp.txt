@@ -1543,6 +1543,7 @@ rule("Dummy: Spawn")
 				End;
 				Wait(0.100, Ignore Condition);
 				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[0] == 11) || Hero Of(Event Player) == Hero(LifeWeaver));
+					Event Player.orderTimeOut += 20;
 					For Player Variable(Event Player, handPosition, False, Hero Of(Event Player) == Hero(Zarya) ? 3 : 1, True);
 						If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]) > 1);
 							For Player Variable(Event Player, additionalMaterialIndex, False, Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]), True);
@@ -2133,7 +2134,7 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
 				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
 				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Hazard), Hero(Roadhog)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
 				Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)), 
 				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
 				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
@@ -2150,7 +2151,7 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
 				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
 				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Hazard), Hero(Roadhog)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
 				Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)), 
 				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
 				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
@@ -2681,7 +2682,12 @@ rule("Global subroutine: Despawn item")
 					Play Effect(All Players(All Teams), Ring Explosion, Color(Sky Blue),
 					Global.itemPosition[Global.despawnIndex], 1);
 				End;
-				Global.itemDespawn[Global.despawnIndex] += Array Contains(Global.MELT_LIST, Global.itemCode[Global.despawnIndex]) ? 20 : True;
+				Global.itemDespawn[Global.despawnIndex] += 
+					Array Contains(Global.MELT_LIST, Global.itemCode[Global.despawnIndex]) ? 20 : 
+					Global.itemCode[Global.despawnIndex] == False ? 2 : 
+					(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[0] == 11)) 
+					&& Array Contains(Global.ADDITIONAL_MATERIAL_LIST, Global.itemCode[Global.despawnIndex]) ? 0.5 : 
+					True;
 				If(Global.itemDespawn[Global.despawnIndex] > Global.despawnTime);
 					Destroy Effect(Global.itemEffect[Global.despawnIndex]);
 					Destroy In-World Text(Global.itemText[Global.despawnIndex]);
