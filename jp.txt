@@ -173,6 +173,7 @@ variables
         41: perkIndex
 		42: progressIndex
 		43: additionalMaterialIndex
+		44: isController
 }
 
 subroutines
@@ -553,6 +554,7 @@ rule("Player: Spawn")
 		Event Player.durability = 100;
 		Event Player.playerSpeed = 90;
         Event Player.itemPerk = -1;
+		Event Player.isController = False;
 		Wait Until(Has Spawned(Event Player), 9999);
 		Disable Nameplates(All Players(Team 1), All Players(Team 1));
 		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("設定"), Custom String("プレイヤー基本役職"),
@@ -1275,6 +1277,34 @@ rule("Player: Ultimate button")
 	}
 }
 
+rule("Player: Authorize Controller")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Melee)) == True;
+		Event Player.isController == False;
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("  むんげ（潰す）動作をボタンに置き換えるには、スティックを前方にゆっくり動かしてください！ "));
+		Wait Until(Z Component Of(Throttle Of(Event Player)) < 0.800 && 
+			Z Component Of(Throttle Of(Event Player)) > 0.200, 3);
+		If(Z Component Of(Throttle Of(Event Player)) < 0.800 && Z Component Of(Throttle Of(Event Player)) > 0.200);
+			Event Player.isController = True;
+			Small Message(Event Player, Custom String("  これで[{0}]キーで材料を潰すことができます！ ", Input Binding String(Button(Melee))));
+		End;
+		Wait(3, Ignore Condition);
+	}
+}
+
 rule("Player: Melee button")
 {
 	event
@@ -1288,6 +1318,7 @@ rule("Player: Melee button")
 	{
 		Is Button Held(Event Player, Button(Melee)) == True;
         Event Player.controlingIndex == -1;
+		Event Player.isController == True;
 	}
 
 	actions

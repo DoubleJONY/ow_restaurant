@@ -18,7 +18,7 @@ rule("test code")
 			Small Message(All Players(All Teams), Custom String("테스트 +100%"));
 		Else If(Is Button Held(Host Player, Button(Ability 2)));
 			Global.stage = 14;
-			Create HUD Text(All Players(All Teams), Server Load Average, Null, Null,
+			Create HUD Text(All Players(All Teams), Server Load Average, Throttle Of(Host Player), Null,
 						Top, 2.5, Color(Yellow), Color(Yellow), Color(Yellow), Visible To String and Color, Default Visibility);
         Else;
 			Host Player.dollar += 100000;
