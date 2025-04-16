@@ -2210,7 +2210,7 @@ rule("Global subroutine: Data init3")
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10), Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)), 
-			Array(Array(0), Array(2), Array(9), Array(5), Array(3), Array(6), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
+			Array(Array(0), Array(2), Array(9), Array(1), Array(3), Array(6), Array(4), Array(5), Array(8), Array(7), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
 				Array(Random Integer(0, 11)), 
 				Random Value In Array(Array(Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10)))),
