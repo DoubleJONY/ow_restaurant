@@ -478,7 +478,10 @@ rule("Global: Setting")
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
 		Custom String("{0} v250424\r\n\r\nAdd S++ Rank.(5500 / 11500){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
-		Custom String("\r\nNow controller users can use the [{0}] key to activate the smash after authentication.", Input Binding String(Button(Melee)))), 
+		Custom String("\r\nUpgrade Merchants now appear in a fixed order.{0}{1}", 
+		Custom String("{0}{1}", Hero Icon String(Hero(Mei)), Hero Icon String(Hero(Juno))), 
+		Custom String("{0}{1}", Hero Icon String(Hero(Junkrat)), Hero Icon String(Hero(Torbjörn)))
+		)), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 }
@@ -2461,7 +2464,7 @@ rule("Global subroutine: Start stage")
 		Global.globalText[2] = Last Text ID;
 		Modify Global Variable(upgradeList, Remove From Array By Index, False);
 		If(!Count Of(Global.upgradeList));
-			Global.upgradeList = Randomized Array(Array(Hero(Torbjörn), Hero(Mei), Hero(Junkrat), Hero(Juno)));
+			Global.upgradeList = Array(Hero(Mei), Hero(Juno), Hero(Junkrat), Hero(Torbjörn));
 		End;
 		If(Count Of(Global.STAGE_CODE[Global.stage]) && (!Global.isBonusStage || Global.failCount == 0));
 			Create Dummy Bot(First Of(Global.upgradeList), Team 2, 17, Vector(196.268, True, 194.391), Null);
