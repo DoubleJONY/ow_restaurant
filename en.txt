@@ -292,7 +292,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
 		Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5028, Custom String("Moira")), Array(3597, Custom String("Moira")), Array(3322, Custom String("Moira")));
+		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5287, Custom String("Biscuits0507")), Array(3597, Custom String("Moira")), Array(3724, Custom String("RotemGang&AsDeath")));
 		Global.permissionText = Array(Array(Custom String("Chef"), Custom String("Waiting Staff"), Custom String("Apprentice"),
 			Custom String("Head Chef")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("[{0}] - Change Role", Input Binding String(Button(
@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v250418\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v250424\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -471,13 +471,13 @@ rule("Global: Setting")
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
-		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
+		Create In-World Text(Null, 
 		Custom String("{0} Notice\r\n\r\nOur Discord server is now open\r\nCheck out recipes, events, {1}", Icon String(Fire), 
 		Custom String("and more in the community and share your high score\r\nhttps://discord.gg/ow-restaurant")), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250418\r\n\r\nSome recipes have been revised{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250424\r\n\r\nAdd S++ Rank.(5500 / 11500){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\nNow controller users can use the [{0}] key to activate the smash after authentication.", Input Binding String(Button(Melee)))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
@@ -1999,7 +1999,7 @@ rule("Global subroutine: Data init")
 			"Cabbage/Sliced Cabbage/Steak with Sauce/Pork+Steak Sauce/Spare Ribs/Aged Pork Belly/Onion+Mushroom")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"Onion+Cabbage/Mushroom+Cabbage/Onion+Mushroom+Cabbage/Vegetable Broth/Shabu-Shabu/Chinese Hotpot/Clam/{0}", Custom String(
-			"Stir-fried Clams/Pineapple/Sliced Pineapple/Pizza+Pineapple/Hawaiian Pizza/B+Chicken/Chicken Burger")), Custom String("/")),
+			"Stir-fried Clams/Pineapple/Sliced Pineapple/Pizza+Pineapple/Pineapple Pizza/B+Chicken/Chicken Burger")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"Sliced Beef+Sweet&Spicy Sauce/Sweet&Spicy Bulgogi/Grilled Soy Sauce Rice Ball/Rice Noodles/Boiled Rice Noodles/{0}", Custom String(
 			"Stir-fried Chicken/Chicken+Onion/Lamb+Onion/Mint Choco Parfait/Mint Choco Shake/Mint Syrup/Glutinous Rice")), Custom String("/")),
@@ -3387,7 +3387,12 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
+		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
+			Create In-World Text(All Players(Team 1), Custom String("Rank: [S++]"), Vector(210.140, Sine From Degrees(Min(
+				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+				Default Visibility);
+		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
 			Create In-World Text(All Players(Team 1), Custom String("Rank: [S+]"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),

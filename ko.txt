@@ -292,7 +292,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
         Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(5417, Custom String("JOSEON")), Array(0, Custom String("없음")), Array(4408, Custom String("JOSEON")));
+		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(5604, Custom String("JOSEON")), Array(0, Custom String("없음")), Array(4408, Custom String("JOSEON")));
 		Global.permissionText = Array(Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생"), Custom String("헤드셰프")),
 			Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 직책 변경", Input Binding String(Button(
@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250418\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"레스토랑(SPXXM) v250424\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -471,12 +471,12 @@ rule("Global: Setting")
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
-		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
+		Create In-World Text(Null, 
 		Custom String("{0} 이벤트\r\n\r\n레스토랑 대회를 개최합니다! 1등 상금 40만원+@ / 총 상금 72만원+@\r\n자세한 정보는 아래 디스코드에서 확인하세요!\r\n{1}", Icon String(Fire), Custom String("\r\nhttps://discord.gg/ow-restaurant")), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250418\r\n\r\n일부 레시피가 수정되었습니다{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250424\r\n\r\n★★★★★★ 랭크가 추가되었습니다.(5500 / 11500){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\n이제 컨트롤러 사용자는 인증 후 [{0}] 키를 사용하여 뭉개기 기능을 사용할 수 있습니다", Input Binding String(Button(Melee)))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
@@ -1926,7 +1926,7 @@ rule("Global subroutine: Data init")
 			"도넛/초코도넛/양고기/썬 양고기/다진 양고기/양고기 구이/구운 썬 양고기/스테이크 소스/버섯/썬 버섯/구운 버섯/배추/썬 배추/{0}", Custom String(
 			"스테이크+소스/돼지고기+스테이크 소스/폭립/숙성 삼겹살/양파+버섯/양파+배추/버섯+배추/양파+버섯+배추/야채 육수")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"샤브샤브/훠궈/조개/볶은 조개/파인애플/썬 파인애플/피자+파인애플/하와이안 피자/빵+치킨/치킨버거/썬 소고기+양념소스/{0}", Custom String(
+			"샤브샤브/훠궈/조개/볶은 조개/파인애플/썬 파인애플/피자+파인애플/파인애플 피자/빵+치킨/치킨버거/썬 소고기+양념소스/{0}", Custom String(
 			"양념 불고기/구운 간장 주먹밥/쌀국수 면/삶은 쌀국수 면/볶은 닭/닭+양파/양고기+양파/민트초코파르페/민트초코셰이크")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"민트 시럽/찹쌀/호떡 반죽/호떡/쌀국수/치킨 타코(밀)/양고기 타코(밀)/봉골레 파스타/크림 치킨/딸기탕후루/파+두+당+새/{0}", Custom String(
@@ -3304,7 +3304,12 @@ rule("Global subroutine: Scoreboard")
 			Vector(214.140, 1, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Color(Sky Blue), Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
+		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
+			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+				Default Visibility);
+		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),

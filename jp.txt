@@ -292,7 +292,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
         Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("練習モード")), Array(0, Custom String("None")), Array(0, Custom String("None")), Array(0, Custom String("None")));
+		Global.totalScore = Array(Array(0, Custom String("練習モード")), Array(5272, Custom String("Biscuits0507")), Array(0, Custom String("None")), Array(0, Custom String("None")));
 		Global.permissionText = Array(Array(Custom String("シェフ"), Custom String("ホール·スタッフ"), Custom String("見習い生"), Custom String(
 			"ヘッドシェフ")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 役職変更", Input Binding String(Button(
@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250418\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v250424\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -471,13 +471,13 @@ rule("Global: Setting")
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
-		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
+		Create In-World Text(Null, 
 		Custom String("{0} Notice\r\n\r\nディスコードサーバーがオープンしました\r\nコミュニティでレシピやイベン{1}", Icon String(Fire), 
 		Custom String("トなどの情報をチェックして、あなたのハイスコアをシェアしましょう\r\nhttps://discord.gg/ow-restaurant")), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250418\r\n\r\n料理研究家が提供する一部のレシピが修正されました{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250424\r\n\r\n★★★★★★ランクが追加されました(5500 / 11500){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\nこれで、コントローラー利用者は認証後に[{0}]キーで潰し機能を利用できるようになりました", Input Binding String(Button(Melee)))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
@@ -1972,7 +1972,7 @@ rule("Global subroutine: Data init")
 			"白菜/スライス白菜/ステーキ＋ソース/豚肉＋ステーキソース/スペアリブ/熟成ポークバラ/玉ねぎ＋マッシュルーム")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"玉ねぎ＋白菜/マッシュルーム＋白菜/玉ねぎ＋マッシュルーム＋白菜/野菜出汁/しゃぶしゃぶ/中華火鍋/貝/炒めた貝/{0}", Custom String(
-			"パイナップル/スライスパイナップル/ピザ＋パイナップル/ハワイアンピザ/パン＋チキン")), Custom String("/")),
+			"パイナップル/スライスパイナップル/ピザ＋パイナップル/パイナップルピザ/パン＋チキン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"チキンバーガー/スライス牛肉＋ヤンニョムソース/ヤンニョムプルコギ/焼きおにぎり/ライスヌードル/ゆでライスヌードル/{0}", Custom String(
 			"炒めた鶏肉/チキン＋玉ねぎ/ラム肉＋玉ねぎ/ミントチョコパフェ/ミントチョコシェイク/ミントシロップ/もち米")), Custom String("/")),
@@ -3374,7 +3374,12 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
+		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
+			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+				Default Visibility);
+		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
 			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
