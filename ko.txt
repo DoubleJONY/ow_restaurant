@@ -292,7 +292,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
         Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(5604, Custom String("JOSEON")), Array(0, Custom String("없음")), Array(4408, Custom String("JOSEON")));
+		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(5885, Custom String("JOSEON")), Array(0, Custom String("없음")), Array(4408, Custom String("JOSEON")));
 		Global.permissionText = Array(Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생"), Custom String("헤드셰프")),
 			Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 직책 변경", Input Binding String(Button(
@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250424\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"레스토랑(SPXXM) v250427\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -476,7 +476,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250424\r\n\r\n★★★★★★ 랭크가 추가되었습니다.(5500 / 11500){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250427\r\n\r\n7성 랭크가 추가되었습니다.(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\n이제 상인이 정해진 순서{0}{1}로 등장합니다.", 
 		Custom String("{0}{1}", Hero Icon String(Hero(Mei)), Hero Icon String(Hero(Juno))), 
 		Custom String("{0}{1}", Hero Icon String(Hero(Junkrat)), Hero Icon String(Hero(Torbjörn)))
@@ -3307,33 +3307,55 @@ rule("Global subroutine: Scoreboard")
 			Vector(214.140, 1, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Color(Sky Blue), Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
+		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)));
+			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+				Default Visibility);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
+		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
 		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7500 : 4500));
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★☆☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-		Else;
+		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
 			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
+				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+				Default Visibility);
+		Else;
+			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔☆☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
