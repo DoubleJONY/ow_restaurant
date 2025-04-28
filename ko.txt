@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250427\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"레스토랑(SPXXM) v250429\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -476,7 +476,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250427\r\n\r\n7성 랭크가 추가되었습니다.(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250429\r\n\r\n7성 랭크가 추가되었습니다.(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\n이제 상인이 정해진 순서{0}{1}로 등장합니다.", 
 		Custom String("{0}{1}", Hero Icon String(Hero(Mei)), Hero Icon String(Hero(Juno))), 
 		Custom String("{0}{1}", Hero Icon String(Hero(Junkrat)), Hero Icon String(Hero(Torbjörn)))
@@ -1929,7 +1929,7 @@ rule("Global subroutine: Data init")
 			"도넛/초코도넛/양고기/썬 양고기/다진 양고기/양고기 구이/구운 썬 양고기/스테이크 소스/버섯/썬 버섯/구운 버섯/배추/썬 배추/{0}", Custom String(
 			"스테이크+소스/돼지고기+스테이크 소스/폭립/숙성 삼겹살/양파+버섯/양파+배추/버섯+배추/양파+버섯+배추/야채 육수")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"샤브샤브/훠궈/조개/볶은 조개/파인애플/썬 파인애플/피자+파인애플/파인애플 피자/빵+치킨/치킨버거/썬 소고기+양념소스/{0}", Custom String(
+			"샤브샤브/훠궈/조개/볶은 조개/파인애플/썬 파인애플/피자+파인애플/파인애플 피자/빵+치킨/치킨 버거/썬 소고기+양념소스/{0}", Custom String(
 			"양념 불고기/구운 간장 주먹밥/쌀국수 면/삶은 쌀국수 면/볶은 닭/닭+양파/양고기+양파/민트초코파르페/민트초코셰이크")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"민트 시럽/찹쌀/호떡 반죽/호떡/쌀국수/치킨 타코(밀)/양고기 타코(밀)/봉골레 파스타/크림 치킨/딸기탕후루/파+두+당+새/{0}", Custom String(
@@ -1942,7 +1942,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"0/0/0/0/0/0/0/5/5/5/0/3/3/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/7/0/0/0/0/0/7/7/7/7/4/0/0/0/0/5/0/0/0/0/7{0}",
 			Custom String(
-			"/0/0/0/0/0/5/7/0/0/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/6/6/5/6/{0}",
+			"/0/0/0/0/0/5/7/0/0/3/0/0/0/0/0/3/0/3/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/6/6/5/6/{0}",
 			Custom String("6/3/3/4/5/0/0/0/1/3/3/3/1/5/5/1/3/5/3/4/3/5/7/0/5/4/7/5/0/0/3/0/5/7/0/0/0/0/3/3{0}",
 			Custom String("/4/0/0/5/0/0/0/0/0/0/0/0/0/3/4/5/7/5/7/5/4/5/0/0/0/0/3/6/6/0/0/3/0/0/0/0/0/0/0/0{0}",
 			Custom String("/0/0/0/0/0/6/5/6/5/6/5/6/5/0/0/0/0/0/0/0/4/4/1/1/1/1/1/1/0/0/0/0/0/0/0/2/0/3/3/3{0}",
@@ -2051,6 +2051,14 @@ rule("Global subroutine: Data init2")
 			Array(407),
 			Array(89)
 		);
+		Global.STAGE_NAME = String Split(Custom String("스테이크&파스타/수제 버거/치킨/피자/만두/달걀&밥/생선&밥/국수/타코/아이스크림/핫케이크/정육식당"), Custom String("/"));
+		Global.upgradePrice = Array(Array(50, 200, 200), Array(100, 50), Array(100, 100, 100, 100), Array(100, 100));
+		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
+		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
+        Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
+		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
+		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
+		Global.UPGRADE_NAME = String Split(Custom String("저장고 구매/무작위 아이템 구매/튀김기 강화/솥 강화/그릴 강화/팬 강화/개인 이동 속도 증가/팀 영업 시간 증가"), Custom String("/"));
 	}
 }
 
@@ -2155,14 +2163,6 @@ rule("Global subroutine: Data init3")
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
 				)
 			)[Global.stageMode];
-		Global.STAGE_NAME = String Split(Custom String("스테이크&파스타/수제 버거/치킨/피자/만두/달걀&밥/생선&밥/국수/타코/아이스크림/핫케이크/정육식당"), Custom String("/"));
-		Global.upgradePrice = Array(Array(50, 200, 200), Array(100, 50), Array(100, 100, 100, 100), Array(100, 100));
-		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
-		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
-        Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
-		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
-		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
-		Global.UPGRADE_NAME = String Split(Custom String("저장고 구매/무작위 아이템 구매/튀김기 강화/솥 강화/그릴 강화/팬 강화/개인 이동 속도 증가/팀 영업 시간 증가"), Custom String("/"));
 	}
 }
 

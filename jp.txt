@@ -372,7 +372,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250427\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v250429\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -477,7 +477,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250427\r\n\r\n7スターランクが追加されました(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250429\r\n\r\n7スターランクが追加されました(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\n商人があらかじめ決められた順番{0}{1}で登場するようになりました", 
 		Custom String("{0}{1}", Hero Icon String(Hero(Mei)), Hero Icon String(Hero(Juno))), 
 		Custom String("{0}{1}", Hero Icon String(Hero(Junkrat)), Hero Icon String(Hero(Torbjörn)))
@@ -2008,7 +2008,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"0/0/0/0/0/0/0/5/5/5/0/3/3/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/7/0/0/0/0/0/7/7/7/7/4/0/0/0/0/5/0/0/0/0/7{0}",
 			Custom String(
-			"/0/0/0/0/0/5/7/0/0/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/6/6/5/6/{0}",
+			"/0/0/0/0/0/5/7/0/0/3/0/0/0/0/0/3/0/3/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/6/6/5/6/{0}",
 			Custom String("6/3/3/4/5/0/0/0/1/3/3/3/1/5/5/1/3/5/3/4/3/5/7/0/5/4/7/5/0/0/3/0/5/7/0/0/0/0/3/3{0}",
 			Custom String("/4/0/0/5/0/0/0/0/0/0/0/0/0/3/4/5/7/5/7/5/4/5/0/0/0/0/3/6/6/0/0/3/0/0/0/0/0/0/0/0{0}",
 			Custom String("/0/0/0/0/0/6/5/6/5/6/5/6/5/0/0/0/0/0/0/0/4/4/1/1/1/1/1/1/0/0/0/0/0/0/0/2/0/3/3/3{0}",
@@ -2119,6 +2119,15 @@ rule("Global subroutine: Data init2")
 			Array(407),
 			Array(89)
 		);
+		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム{0}",
+				Custom String("/パンケーキ/肉屋食堂")), Custom String("/"));
+		Global.upgradePrice = Array(Array(50, 200, 200), Array(100, 50), Array(100, 100, 100, 100), Array(100, 100));
+		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
+		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
+        Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
+		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
+		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
+		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
 	}
 }
 
@@ -2223,15 +2232,6 @@ rule("Global subroutine: Data init3")
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
 				)
 			)[Global.stageMode];
-		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム{0}",
-				Custom String("/パンケーキ/肉屋食堂")), Custom String("/"));
-		Global.upgradePrice = Array(Array(50, 200, 200), Array(100, 50), Array(100, 100, 100, 100), Array(100, 100));
-		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
-		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
-        Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361);
-		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
-		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
-		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
 	}
 }
 
