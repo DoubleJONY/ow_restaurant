@@ -372,12 +372,12 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v250429\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
-				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
+			"Restaurant(HTNZ3) v250506\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"Score : {0}\r\nHigh Score : {2}\r\nMy Role : {1}", Global.totalScore[0],
-			Global.permissionText[0][Local Player.permission], Custom String("{0}({1})", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
+			"Score : {0}{2}\r\nMy Role : {1}", Global.totalScore[0],
+			Global.permissionText[0][Local Player.permission], Global.stageMode != 4 ? Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0]) : Custom String("")), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} Special Knife:{1}", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[0] + Global.orderedKnives[1]), Custom String(
 				"{0} Pot:{1}% / Fryer:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)),
 				Custom String("{0} Pan:{1}% / Grill:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
@@ -389,23 +389,24 @@ rule("Global: Setting")
 		Start Rule(itemCooking, Do Nothing);
 		Start Rule(despawnItem, Do Nothing);
 		Global.stageMode = Workshop Setting Combo(Custom String("Settings"), Custom String("Mode"), 0, Array(Custom String("Practice"),
-			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"), Custom String("Host Select")), 0);
-		If(Global.stageMode == 4);
+			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"), Custom String("Custom Course"), Custom String("Host Select")), 0);
+		If(Global.stageMode == 5);
 			Set Status(Host Player, Null, Rooted, 9999);
 			Create HUD Text(All Players(Team 1), Null, Null, Custom String(
 				"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, -999, Null, Null, Null, Visible To,
 				Default Visibility);
 			Global.globalText[0] = Last Text ID;
 			Create HUD Text(All Players(Team 1), Custom String(" [ {0} ] ", Array(Custom String("Practice"),
-			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"))[Global.stageMode]), 
+			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"), Custom String("Custom Course"))[Global.stageMode]), 
 				Custom String("{0}", Array(
 					Custom String("A sandbox mode where you can freely practice your skills."),
 					Custom String("Complete the Apperentice with 5 menu items."),
 					Custom String("Complete the Journeyman with the all menu."),
-					Custom String("Challenge to Hell's Kitchen Chef!"))[Global.stageMode]),
+					Custom String("Challenge to Hell's Kitchen Chef!"),
+					Custom String("Set up your own course meal in the workshop settings."))[Global.stageMode]),
 				Local Player == Host Player ? Custom String("[{0}]: Rotate Mode", Input Binding String(Button(Reload)),
 				Input Binding String(Button(Jump))) : Custom String(" Please wait for the host to decide the mode"), Top, -998, Custom Color(Array(255, 140, 110,
-				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
+				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
 			Global.globalText[1] = Last Text ID;
 			Create HUD Text(All Players(Team 1), Null, Null, Custom String(
@@ -415,8 +416,9 @@ rule("Global: Setting")
 			Global.stageMode = 0;
 			Call Subroutine(selectMode);
 		End;
-		Global.difficulty = Array(4, 0, 1, 1)[Global.stageMode];
-		Global.storageLevel = Array(7, 3, 3, -1)[Global.stageMode];
+		Global.difficulty = Array(4, 0, 1, 1, Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String(
+			"Difficulty"), 0, Array(Custom String("Apperentice"), Custom String("Journeyman"), Custom String("Proffesional"), Custom String("Hell's Kitchen")), 0))[Global.stageMode];
+		Global.storageLevel = Array(7, 3, 3, -1, -1)[Global.stageMode];
 		Call Subroutine(dataInit3);
 		Global.scbRank = Empty Array;
 		Global.customerCallTime = Array(16, 12, 8, 4, 16)[Global.difficulty];
@@ -477,13 +479,10 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250429\r\n\r\nAdd SSS Rank.(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
-		Custom String("\r\nUpgrade Merchants now appear in a fixed order.{0}{1}", 
-		Custom String("{0}{1}", Hero Icon String(Hero(Mei)), Hero Icon String(Hero(Juno))), 
-		Custom String("{0}{1}", Hero Icon String(Hero(Junkrat)), Hero Icon String(Hero(Torbjörn)))
-		)), 
+		Custom String("{0} v250506\r\n\r\nFix some incorrect foods score.\r\nAdd Custom Course mode.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("\r\nIn the workshop settings, you can configure custom difficulty and menus.")), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Color(White), Default Visibility);
+			Color(Violet), Default Visibility);
 }
 }
 
@@ -599,7 +598,7 @@ rule("Player: Spawn")
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
 		Create In-World Text(Event Player, Array(Custom String("Practice"),
-			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"))[Global.stageMode], Vector(222.559,
+			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"), Custom String("Custom Course"))[Global.stageMode], Vector(222.559,
 			5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 33.500), 1.500,
 			Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
@@ -1137,7 +1136,6 @@ rule("Player: Secondary fire button")
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 0.01);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Global.itemPosition[Event Player.controlingIndex], 0.01);
 			Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 1.500, 50);
-        
 			If(Event Player.controlingIndex != -1);
 				Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
 				Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
@@ -1148,7 +1146,7 @@ rule("Player: Secondary fire button")
 				Global.itemCount -= True;
 			End;
 			Event Player.controlingIndex = -1;
-			Event Player.itemPerkDurability -= 0.1;
+			Event Player.itemPerkDurability -= 0.5;
 			If(Event Player.itemPerkDurability <= 0);
 				Event Player.itemPerk = -1;
 				Destroy HUD Text(Event Player.itemPerkText);
@@ -2024,7 +2022,7 @@ rule("Global subroutine: Data init")
 			Custom String("6/3/3/4/5/0/0/0/1/3/3/3/1/5/5/1/3/5/3/4/3/5/7/0/5/4/7/5/0/0/3/0/5/7/0/0/0/0/3/3{0}",
 			Custom String("/4/0/0/5/0/0/0/0/0/0/0/0/0/3/4/5/7/5/7/5/4/5/0/0/0/0/3/6/6/0/0/3/0/0/0/0/0/0/0/0{0}",
 			Custom String("/0/0/0/0/0/6/5/6/5/6/5/6/5/0/0/0/0/0/0/0/4/4/1/1/1/1/1/1/0/0/0/0/0/0/0/2/0/3/3/3{0}",
-			Custom String("/3/0/0/0/0/0/0/0/0/0/0/3/3/3/3/3/3/4/4/0/0/0/0/0/3/4/4/3/4/4/4/5/5/5/6/6/4/5/5/0({0}",
+			Custom String("/3/0/0/0/0/0/0/0/0/0/0/3/3/3/3/3/3/4/4/0/0/0/0/0/3/4/4/3/4/4/4/5/5/5/6/6/4/5/5{0}",
 			Custom String("/0/0/0/0/0/0/0/0/0/0/4/5/0/0/0/7/7/0/0/0/2/0/0/7/0/7/7/0/0/0/0/0/7/7/0/0/0/0/0{0}",
 			Custom String("/7/0/7/0/7/7/0/0/2/0/0/7/7/0/0/0/7/7/7/7/7/7/7/0/0/7/7/7/0")))))))))), Custom String("/")), Index Of Array Value(String Split(
 			Custom String("0/1/2/3/4/5/6/7/8/9"), Custom String("/")), Current Array Element) * 5);
@@ -2130,7 +2128,7 @@ rule("Global subroutine: Data init2")
 			Array(89)
 		);
 		Global.STAGE_NAME = String Split(Custom String(
-				"Steak&Pasta/Burgeria/Fried Chicken/Pizzeria/Dumpling/Korean RiceFood/Japanese RiceFood/Korean Noodles/Taqueria/Ice Cream{0}",
+				"Steak&Pasta/Burgeria/Fried Chicken/Pizzeria/Dumpling/Korean Rice Dish/Japanese Rice Dish/Korean Noodles/Taqueria/Ice Cream{0}",
 				Custom String("/Pancake/Butcher Restaurant")), Custom String("/"));
 		Global.upgradePrice = Array(Array(50, 200, 200), Array(100, 50), Array(100, 100, 100, 100), Array(100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1), Array(2, 3, 4, 5), Array(6, 7));
@@ -2221,6 +2219,18 @@ rule("Global subroutine: Data init3")
 				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
 				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
 				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver), Hero(LifeWeaver))
+			), 
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
+				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Mauga), Hero(Bastion), Hero(Bastion), Hero(Bastion), Hero(LifeWeaver)), 
+				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
+				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10), Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)),
@@ -2243,8 +2253,60 @@ rule("Global subroutine: Data init3")
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
-				)
-			)[Global.stageMode];
+				),
+			Array(
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 1"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 1)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 2"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 2)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 3"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 3)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 4"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 4)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 5"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 5)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 6"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 6)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 7"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 7)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 8"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 8)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 9"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 9)),
+				Array(Workshop Setting Combo(Custom String("Settings - Custom Course"), Custom String("Stage 10"), 0, Array(
+					Custom String("Steak&Pasta"), Custom String("Burgeria"), Custom String("Fried Chicken"), Custom String("Pizzeria"), Custom String("Dumpling"),
+					Custom String("Korean Rice Dish"), Custom String("Japanese Rice Dish"), Custom String("Korean Noodles"), Custom String("Taqueria"), Custom String("Ice Cream"),
+					Custom String("Pancake"), Custom String("Butcher Restaurant")
+				), 10))
+			)
+		)[Global.stageMode];
 	}
 }
 
@@ -2304,7 +2366,7 @@ rule("Global subroutine: Start stage")
 		End;
 		Create HUD Text(All Players(All Teams), Custom String(" {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}", Custom String(
 				"{0}{2}stage {1}", Array(Custom String("Apperentice"), Custom String("Journeyman"), Custom String("Proffesional"),
-				Custom String("Hell's Kitchen"))[Global.difficulty], Global.stage + True, Global.isBonusStage ? Custom String("\r\n Bonus ")
+				Custom String("Hell's Kitchen"))[Global.difficulty], Custom String("{0} / {1}", Global.stage + True, Count Of(Global.STAGE_CODE)), Global.isBonusStage ? Custom String("\r\n Bonus ")
 				: Custom String(" - ")), Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("Fusion")
 				: Global.STAGE_NAME[Global.STAGE_CODE[Global.stage]], Global.scoringIndex), Null, Custom String(
 				"\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -2911,7 +2973,7 @@ rule("Host Player: Select Mode")
 	{
 		Wait Until(Is Button Held(Host Player, Button(Reload)) || Is Button Held(Host Player, Button(Jump)), 99999);
 		If(Is Button Held(Host Player, Button(Reload)));
-			Global.stageMode = (Global.stageMode + True) % 4;
+			Global.stageMode = (Global.stageMode + True) % 5;
 			Wait Until(!Is Button Held(Host Player, Button(Reload)), 99999);
 			Loop;
 		End;
@@ -3328,16 +3390,18 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.totalScore[0] > Global.totalScore[Global.stageMode][0]);
-			Create In-World Text(All Players(Team 1), Custom String("New Record!! Capture this screen and submit to https://discord.gg/ow-restaurant"), Vector(
-				210.140, Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1,
-				Do Not Clip, Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
-				Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
-			Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
-		Else;
-			Create In-World Text(All Players(Team 1), Custom String("High Score: [{0}]", Custom String("{0} : {1}", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Vector(210.140,
-				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
+		If(Global.stageMode != 4);
+			If(Global.totalScore[0] > Global.totalScore[Global.stageMode][0]);
+				Create In-World Text(All Players(Team 1), Custom String("New Record!! Capture this screen and submit to https://discord.gg/ow-restaurant"), Vector(
+					210.140, Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1,
+					Do Not Clip, Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
+					Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
+				Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
+			Else;
+				Create In-World Text(All Players(Team 1), Custom String("High Score: [{0}]", Custom String("{0} : {1}", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Vector(210.140,
+					Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
+			End;
 		End;
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("{0} [{2}]\r\n  {1}", Hero Icon String(Hero Of(
 			Local Player)), Local Player, Global.permissionText[0][Local Player.permission]), Vector(207.140, Sine From Degrees(Min(
@@ -3346,7 +3410,7 @@ rule("Global subroutine: Scoreboard")
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]",
 			Evaluate Once(Custom String("{0}h{1}m{2}s", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(Custom String("Practice"),
-			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Apperentice"),
+			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"), Custom String("Custom Course"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Apperentice"),
 			Custom String("Journeyman"), Custom String("Proffesional"), Custom String("Hell's Kitchen"))[Global.difficulty],
 			Global.isVictory ? Custom String("Clear!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140, Sine From Degrees(
 			Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
@@ -3390,58 +3454,60 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [SSS]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
-		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [S++]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
-		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [S+]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [S]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [A]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [B]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [C]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else;
-			Create In-World Text(All Players(Team 1), Custom String("Rank: [F]"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
+		If(Global.stageMode != 4);
+			If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [SSS]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
+			Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [S++]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
+			Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [S+]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [S]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [A]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [B]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [C]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else;
+				Create In-World Text(All Players(Team 1), Custom String("Rank: [F]"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			End;
 		End;
 		Destroy All Dummy Bots;
 		Wait(10, Ignore Condition);

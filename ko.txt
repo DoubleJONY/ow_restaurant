@@ -372,12 +372,12 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250429\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
-				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
+			"레스토랑(SPXXM) v250501\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
-			"Score : {0}\r\nHigh Score : {2}\r\n내 직책 : {1}", Global.totalScore[0],
-			Global.permissionText[0][Local Player.permission], Custom String("{0}({1})", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
+			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[0],
+			Global.permissionText[0][Local Player.permission], Global.stageMode != 4 ? Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0]) : Custom String("")), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 제작 중인 특수 칼:{1}개", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[0] + Global.orderedKnives[1]), Custom String(
 			"{0} 솥:{1}% / 튀김:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
 			"{0} 팬:{1}% / 그릴:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100), Custom String(
@@ -389,23 +389,24 @@ rule("Global: Setting")
 		Start Rule(itemCooking, Do Nothing);
 		Start Rule(despawnItem, Do Nothing);
 		Global.stageMode = Workshop Setting Combo(Custom String("설정"), Custom String("요리 모드"), 0, Array(Custom String("연습 모드"),
-			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"), Custom String("방장이 선택")), 0);
-		If(Global.stageMode == 4);
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"), Custom String("커스텀 코스"), Custom String("방장이 선택")), 0);
+		If(Global.stageMode == 5);
 			Set Status(Host Player, Null, Rooted, 9999);
 			Create HUD Text(All Players(Team 1), Null, Null, Custom String(
 				"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, -999, Null, Null, Null, Visible To,
 				Default Visibility);
 			Global.globalText[0] = Last Text ID;
 			Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("연습 모드"),
-			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"))[Global.stageMode]), 
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"), Custom String("커스텀 코스"))[Global.stageMode]), 
 				Custom String("{0}", Array(
 					Custom String("자유롭게 연습할 수 있는 샌드박스 모드 입니다"), 
 					Custom String("5개의 메뉴가 등장하는 수습 난이도를 클리어하세요"), 
 					Custom String("모든 메뉴가 등장하는 숙련 난이도를 클리어하세요"), 
-					Custom String("Hell's Kitchen 클리어에 도전하세요"))[Global.stageMode]),
+					Custom String("Hell's Kitchen 클리어에 도전하세요"),
+					Custom String("워크샵 설정에서 나만의 코스 요리를 세팅하세요"))[Global.stageMode]),
 				Local Player == Host Player ? Custom String("[{0}]: 모드 변경", Input Binding String(Button(Reload)),
 				Input Binding String(Button(Jump))) : Custom String(" 방장이 모드를 결정하는 중입니다"), Top, -998, Custom Color(Array(255, 140, 110,
-				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
+				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
 			Global.globalText[1] = Last Text ID;
 			Create HUD Text(All Players(Team 1), Null, Null, Custom String(
@@ -415,8 +416,9 @@ rule("Global: Setting")
 			Global.stageMode = 0;
 			Call Subroutine(selectMode);
 		End;
-		Global.difficulty = Array(4, 0, 1, 1)[Global.stageMode];
-		Global.storageLevel = Array(7, 3, 3, -1)[Global.stageMode];
+		Global.difficulty = Array(4, 0, 1, 1, Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String(
+			"난이도"), 0, Array(Custom String("수습"), Custom String("숙련"), Custom String("전문"), Custom String("Hell's Kitchen")), 0))[Global.stageMode];
+		Global.storageLevel = Array(7, 3, 3, -1, -1)[Global.stageMode];
 		Call Subroutine(dataInit3);
 		Global.scbRank = Empty Array;
 		Global.customerCallTime = Array(16, 12, 8, 4, 16)[Global.difficulty];
@@ -476,13 +478,10 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250429\r\n\r\n7성 랭크가 추가되었습니다.(6000 / 13000){1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
-		Custom String("\r\n이제 상인이 정해진 순서{0}{1}로 등장합니다.", 
-		Custom String("{0}{1}", Hero Icon String(Hero(Mei)), Hero Icon String(Hero(Juno))), 
-		Custom String("{0}{1}", Hero Icon String(Hero(Junkrat)), Hero Icon String(Hero(Torbjörn)))
-		)), 
+		Custom String("{0} v250501\r\n\r\n커스텀 코스 모드가 추가되었습니다.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("\r\n워크샵 설정에서 커스텀 난이도와 메뉴를 설정할 수 있습니다.")), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Color(White), Default Visibility);
+			Color(Violet), Default Visibility);
 	}
 }
 
@@ -597,8 +596,8 @@ rule("Player: Spawn")
 			Custom Color(Array(140, 110, 255, 255, 255, 60)[Global.difficulty], Array(255, 180, 225, 120, 50, 255)[Global.difficulty],
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
-		Create In-World Text(Event Player, Custom String("{0}", Array(Custom String("연습 모드"),
-			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"))[Global.stageMode]), Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+		Create In-World Text(Event Player, Array(Custom String("연습 모드"),
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"), Custom String("커스텀 코스"))[Global.stageMode], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange),
 			Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
@@ -1135,7 +1134,6 @@ rule("Player: Secondary fire button")
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 0.01);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Global.itemPosition[Event Player.controlingIndex], 0.01);
 			Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 1.500, 50);
-        
 			If(Event Player.controlingIndex != -1);
 				Destroy Effect(Global.itemEffect[Event Player.controlingIndex]);
 				Destroy In-World Text(Global.itemText[Event Player.controlingIndex]);
@@ -1146,7 +1144,7 @@ rule("Player: Secondary fire button")
 				Global.itemCount -= True;
 			End;
 			Event Player.controlingIndex = -1;
-			Event Player.itemPerkDurability -= 0.1;
+			Event Player.itemPerkDurability -= 0.5;
 			If(Event Player.itemPerkDurability <= 0);
 				Event Player.itemPerk = -1;
 				Destroy HUD Text(Event Player.itemPerkText);
@@ -2139,6 +2137,18 @@ rule("Global subroutine: Data init3")
 				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
 				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
 				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver), Hero(LifeWeaver))
+			), 
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
+				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Mauga), Hero(Bastion), Hero(Bastion), Hero(Bastion), Hero(LifeWeaver)), 
+				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
+				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10), Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)),
@@ -2161,8 +2171,60 @@ rule("Global subroutine: Data init3")
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
-				)
-			)[Global.stageMode];
+				),
+			Array(
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 1"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 1)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 2"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 2)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 3"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 3)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 4"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 4)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 5"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 5)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 6"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 6)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 7"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 7)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 8"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 8)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 9"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 9)),
+				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 10"), 0, Array(
+					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
+					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
+					Custom String("핫케이크"), Custom String("정육식당")
+				), 10))
+			)
+		)[Global.stageMode];
 	}
 }
 
@@ -2222,7 +2284,7 @@ rule("Global subroutine: Start stage")
 		End;
 		Create HUD Text(All Players(All Teams), Custom String(" {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}", Custom String(
 			"{0}{2}stage {1}", Array(Custom String("수습 난이도"), Custom String("숙련 난이도"), Custom String("전문 난이도"), Custom String(
-			"Hell's Kitchen"))[Global.difficulty], Global.stage + True, Global.isBonusStage ? Custom String("\r\n Bonus ") : Custom String(
+			"Hell's Kitchen"))[Global.difficulty], Custom String("{0} / {1}", Global.stage + True, Count Of(Global.STAGE_CODE)), Global.isBonusStage ? Custom String("\r\n Bonus ") : Custom String(
 			" - ")), Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전")
 			: Global.STAGE_NAME[Global.STAGE_CODE[Global.stage]], Global.scoringIndex), Null, Custom String(
 			"\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -2829,7 +2891,7 @@ rule("Host Player: Select Mode")
 	{
 		Wait Until(Is Button Held(Host Player, Button(Reload)) || Is Button Held(Host Player, Button(Jump)), 99999);
 		If(Is Button Held(Host Player, Button(Reload)));
-			Global.stageMode = (Global.stageMode + True) % 4;
+			Global.stageMode = (Global.stageMode + True) % 5;
 			Wait Until(!Is Button Held(Host Player, Button(Reload)), 99999);
 			Loop;
 		End;
@@ -3246,16 +3308,18 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.totalScore[0] > Global.totalScore[Global.stageMode][0]);
-			Create In-World Text(All Players(Team 1), Custom String("최고 기록 갱신!! 이 화면을 캡처하여 https://discord.gg/ow-restaurant 로 보내주세요"), Vector(210.140,
-				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
-				Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
-			Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
-		Else;
-			Create In-World Text(All Players(Team 1), Custom String("최고 기록 : 〔{0}〕", Custom String("{0} : {1}", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Vector(210.140,
-				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
+		If(Global.stageMode != 4);
+			If(Global.totalScore[0] > Global.totalScore[Global.stageMode][0]);
+				Create In-World Text(All Players(Team 1), Custom String("최고 기록 갱신!! 이 화면을 캡처하여 https://discord.gg/ow-restaurant 로 보내주세요"), Vector(210.140,
+					Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
+					Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
+				Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
+			Else;
+				Create In-World Text(All Players(Team 1), Custom String("최고 기록 : 〔{0}〕", Custom String("{0} : {1}", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Vector(210.140,
+					Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
+			End;
 		End;
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("{0} 〔{2}〕\r\n  {1}", Hero Icon String(Hero Of(
 			Local Player)), Local Player, Global.permissionText[0][Local Player.permission]), Vector(207.140, Sine From Degrees(Min(
@@ -3264,7 +3328,7 @@ rule("Global subroutine: Scoreboard")
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕",
 			Evaluate Once(Custom String("{0}시간{1}분{2}초", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(Custom String("연습 모드"),
-			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("수습 난이도"),
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("마스터쿡 챌린지"), Custom String("커스텀 코스"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("수습 난이도"),
 			Custom String("숙련 난이도"), Custom String("전문 난이도"), Custom String("Hell's Kitchen"))[Global.difficulty],
 			Global.isVictory ? Custom String("클리어!") : Custom String("Stage {0} 에서 실패", Global.stage + 1))), Vector(214.140,
 			Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
@@ -3307,58 +3371,60 @@ rule("Global subroutine: Scoreboard")
 			Vector(214.140, 1, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Color(Sky Blue), Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
-		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
-		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else;
-			Create In-World Text(All Players(Team 1), Custom String("평가 : 〔☆☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
+		If(Global.stageMode != 4);
+			If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
+			Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
+				Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
+			Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★★☆〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★★☆☆〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★★☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔★☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			Else;
+				Create In-World Text(All Players(Team 1), Custom String("평가 : 〔☆☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
+					Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
+					Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
+					Default Visibility);
+			End;
 		End;
 		Destroy All Dummy Bots;
 		Wait(10, Ignore Condition);
