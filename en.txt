@@ -1952,7 +1952,7 @@ rule("Global subroutine: Data init")
 			"Vegetable Dumpling/Steamed Kimchi Dumpling/Steamed Meat Dumpling/Steamed Rice")), Custom String("/")), Append To Array(
 			String Split(Custom String("Fried Rice/Pork Cutlet/Sliced Pork Cutlet/Fish/Sliced Fish/Minced Fish/Steamed {0}", Custom String(
 			"Fish/Steamed Fish Cake/Grilled Fish/Fried Fish/Sliced Fish+Soy Sauce")), Custom String("/")), Append To Array(String Split(
-			Custom String("Fish Soy Sauce Steamed Dish/Soy Sauce Grilled Fish/Small Steamed Rice/Sushi/Sushi {0}", Custom String(
+			Custom String("Soy Sauce Steamed Fish/Soy Sauce Grilled Fish/Small Steamed Rice/Sushi/Sushi {0}", Custom String(
 			"2pcs/Rice Ball/Soy Sauce Rice Ball/Steamed Fish Rice Bowl")), Custom String("/")), Append To Array(String Split(Custom String(
 			"Pork Cutlet+Rice Bowl/Pork Cutlet+Egg Rice bowl/Sliced Boiled Chicken/Boiled Chicken+Rice/Scrambled Egg {0}", Custom String(
 			"Rice Bowl/Boiled Chicken+Egg Rice Bowl/Fish Cutlet/Sliced Pork+Powder")), Custom String("/")), Append To Array(String Split(Custom String(
