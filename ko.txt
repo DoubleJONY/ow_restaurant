@@ -124,6 +124,7 @@ variables
 		120: WEAVER_MENU_LIST
 		121: currentMenuWeaver
 		122: isBonusStage
+		123: hintText
 		124: scbRank
 		125: scbSurved
 		126: MELT_LIST
@@ -174,6 +175,7 @@ variables
 		42: progressIndex
 		43: additionalMaterialIndex
 		44: isController
+		45: hintText
 }
 
 subroutines
@@ -197,6 +199,7 @@ subroutines
     16: purchaseUpgrade
     17: perkHud
 	18: dataInit3
+	19: setHint
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -372,7 +375,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250514\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"레스토랑(SPXXM) v250522\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -430,6 +433,7 @@ rule("Global: Setting")
 		Global.despawnTime = Array(30, 25, 20, 15, 60)[Global.difficulty];
 		Global.additionalScore = Array(Null, 5, 10, 15)[Global.difficulty];
 		Global.stageTime = Array(300, 240, 180, 180)[Global.difficulty];
+		Global.hintText = Array(Custom String(""));
 		Create Effect(All Players(Team 1), Sphere, Global.isOpen ? Color(Red) : Color(Lime Green), Vector(227.287, 2.050, 167.679), 0.250,
 			Visible To and Color);
 		Create In-World Text(Players Within Radius(Vector(227.287, 2.050, 167.679), 5, Team 1, Off), Custom String("영업 개시"), Vector(227.287, 2.050, 167.679), 2, Do Not Clip, Visible To and Color,
@@ -478,7 +482,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250514\r\n\r\n이제 날카로운 칼 + 휴대용 칼 로 헤드셰프의 칼을 제작할 수 있습니다.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250522\r\n\r\n이제 날카로운 칼 + 휴대용 칼 로 헤드셰프의 칼을 제작할 수 있습니다.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\n저장고와 여러 아이템의 밸런스가 수정되었습니다.")), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
@@ -1580,18 +1584,23 @@ rule("Dummy: Spawn")
 				Event Player.shaftEffect = Last Created Entity;
 				Create In-World Text(Players Within Radius(Evaluate Once(Global.TABLE_POSITION[Event Player.tableIndex]), 15, All Teams, Off),
 					Custom String("#{1} - {0}초", Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed)
-					- Total Time Elapsed, Up), Evaluate Once(Event Player.tableIndex + True)), Global.TABLE_POSITION[Event Player.tableIndex] + Up,
+					- Total Time Elapsed, Up) - 1, Evaluate Once(Event Player.tableIndex + True)), Global.TABLE_POSITION[Event Player.tableIndex] + Up,
 					2, Do Not Clip, Visible To and String, Event Player.playerColor, Default Visibility);
 				Event Player.tableText = Last Text ID;
 				Event Player.score += Global.ITEM_SCORE[Global.tableOrderCode[Event Player.tableIndex]];
+				Event Player.hintText = First Of(Global.hintText);
+				Modify Global Variable(hintText, Remove From Array By Index, False);
+				If(Global.hintText == Empty Array);
+					Global.hintText = Array(Custom String(""));
+				End;
 				If(Hero Of(Event Player) == Hero(Zarya));
 					Event Player.score = 20 + Min(Event Player.score * 3, 50);
 					While(Event Player.orderCount < 3);
 						Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} {2}/3 ", Event Player.tableIndex + True,
-							Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Event Player.orderCount)), Null, Custom String(
+							Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Event Player.orderCount)), Event Player.hintText, Custom String(
 							"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-							Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up)), Left,
-							Event Player.orderedTime * 0.001, Event Player.playerColor, Null, Event Player.playerColor, Visible To and String,
+							Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
+							Event Player.orderedTime * 0.001, Event Player.playerColor, Color(Yellow), Event Player.playerColor, Visible To and String,
 							Default Visibility);
 						Event Player.playerText = Last Text ID;
 						Event Player.lastOrderTime = Total Time Elapsed;
@@ -1685,10 +1694,10 @@ rule("Dummy: Spawn")
 					Break;
 				Else;
 					Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
-						Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Null, Custom String(
+						Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Event Player.hintText, Custom String(
 						"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-						Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up)), Left,
-						Total Time Elapsed * 0.001, Event Player.playerColor, Null, Event Player.playerColor, Visible To and String,
+						Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
+						Total Time Elapsed * 0.001, Event Player.playerColor, Color(Yellow), Event Player.playerColor, Visible To and String,
 						Default Visibility);
 					Event Player.playerText = Last Text ID;
 					Wait Until(Event Player.customerStatus != False || Global.isVipAngry, Event Player.orderTimeOut);
@@ -2254,9 +2263,9 @@ rule("Global subroutine: Start stage")
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.STAGE_CODE[Global.stage][Global.loadingMenu]]);
 		End;
 		Global.loadingMenu = Randomized Array(Global.currentMenu);
-		If(Global.difficulty == 0 && Global.stage == 0 && Global.stageMode == 1);
-			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76));
-			Global.loadingMenu = Array(3, 4, 7, 8, 10, 25, 24);
+		Global.hintText = Array(Custom String(""));
+		If(Global.difficulty == 0 && Global.stageMode == 1 && Workshop Setting Toggle(Custom String("설정"), Custom String("캐주얼 다이닝 튜토리얼 표시"), False, 3));
+			Call Subroutine(setHint);
 		End;
 		Global.currentMenuHaz = Empty Array;
 		For Global Variable(loadingMenuHaz, False, Count Of(Global.STAGE_CODE[Global.stage]), True);
@@ -3268,6 +3277,77 @@ rule("Global subroutine: Load Progress")
 				Event Player.itemPerk, 
 				Event Player.itemPerkDurability
 			));
+	}
+}
+
+rule("Global subroutine: Set Hint Text")
+{
+	event
+	{
+		Subroutine;
+		setHint;
+	}
+
+	actions
+	{
+		If(Global.stage == 0);
+			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
+			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
+			Global.hintText = Array(
+				Custom String("냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요."),
+				Custom String("재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요."),
+				Custom String("재료의 손질과 각기 다른 조리기구의 활용으로 다양한 요리를 만들 수 있습니다.\r\n감자를 통째로 구우면 구운 감자가 되고..."),
+				Custom String("감자를 썰어서 팬에 올리면 볶은 감자가 되고..."),
+				Custom String("썬 감자를 튀김기에 올리면 감자튀김이 되는 식입니다.\r\n어떤 느낌인지 감이 오셨나요?"),
+				Custom String("어떤 재료는 강하게 내려치면 변하기도 합니다.\r\n감자를 솥에 쪄서 찐 감자를 관성을 이용해 바닥에 던져보세요."),
+				Custom String("또한 일부 재료는 합칠 수 있습니다.\r\n삶은 파스타와 크림 소스를 맞대어 합쳐보세요."),
+				Custom String("토마토는 썰어서 솥에 찌면 토마토 소스를 만들 수 있지만..\r\n써는 대신 내려치면 더 빠르게 뭉갠 토마토로 만들 수 있습니다."),
+				Custom String("손님에 따라 다른 특성들도 있습니다.\r\n대식가의 경우에는 점수를 더 많이 주지만 음식을 2번 서빙해야 합니다."),
+				Custom String("다양한 레시피들의 조합법을 마스터하고 클리어에 도전하세요.\r\n행운을 빕니다!")
+			);
+		Else If(Global.stage == 1);
+			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
+			Global.hintText = Array(
+				Custom String("썬 닭고기 + 튀김가루 > 튀김기"),
+				Custom String("닭고기 + 튀김가루 > 튀김기"),
+				Custom String("조각낸 닭고기 + 튀김가루 > 튀김기"),
+				Custom String("모든 양념은 후라이드 치킨에 추가할 수 있습니다.\r\n간장 + 물엿"),
+				Custom String("고추장 + 물엿"),
+				Custom String("고추장 + 간장 + 물엿"),
+				Custom String("썬 파 + 간장 소스"),
+				Custom String("튀긴 조각 닭 + 양념 소스 > 팬에 볶기")
+			);
+		Else If(Global.stage == 2);
+			Global.loadingMenu = Array(126, 7);
+			Global.hintText = Array(
+				Custom String("밀가루를 피자 도우가 될 때 까지 내려치세요.\r\n피자 도우 + 토마토 소스 + 피자 치즈 > 그릴에 굽기")
+			);
+		Else If(Global.stage == 3);
+			Global.currentCustomer = Array(Hero(Tracer), Hero(Bastion), Hero(Bastion));
+			Global.hintText = Array(
+				Custom String(""),
+				Custom String("조심하세요! 자신보다 늦게 온 손님을 먼저 서빙하면 실패하는 손님 유형이 있습니다."),
+				Custom String("이런 손님들은 주문서 순서대로 서빙하는걸 추천합니다.")
+			);
+		Else If(Global.stage == 4);
+			Global.currentCustomer = Array(Hero(Hanzo), Hero(Tracer));
+			Global.hintText = Array(
+				Custom String("음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.")
+			);
+		Else If(Global.stage == 5);
+			Global.currentCustomer = Array(Hero(Zarya), Hero(Bastion));
+			Global.hintText = Array(
+				Custom String("푸드 파이터는 3개의 음식을 서빙해야 합니다.")
+			);
+		Else If(Global.stage == 6);
+			Global.currentCustomer = Array(Hero(Hanzo), Hero(Mercy));
+			Global.hintText = Array(
+				Custom String(""),
+				Custom String("예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!")
+			);
+		Else;
+			Global.hintText = Array(Custom String(""));
+		End;
 	}
 }
 

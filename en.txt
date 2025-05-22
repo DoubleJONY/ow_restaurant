@@ -124,6 +124,7 @@ variables
 		120: WEAVER_MENU_LIST
 		121: currentMenuWeaver
 		122: isBonusStage
+		123: hintText
 		124: scbRank
 		125: scbSurved
 		126: MELT_LIST
@@ -174,6 +175,7 @@ variables
 		42: progressIndex
 		43: additionalMaterialIndex
 		44: isController
+		45: hintText
 }
 
 subroutines
@@ -197,6 +199,7 @@ subroutines
 	16: purchaseUpgrade
 	17: perkHud
 	18: dataInit3
+	19: setHint
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -372,7 +375,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v250514\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v250522\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -430,6 +433,7 @@ rule("Global: Setting")
 		Global.despawnTime = Array(30, 25, 20, 15, 60)[Global.difficulty];
 		Global.additionalScore = Array(Null, 5, 10, 15)[Global.difficulty];
 		Global.stageTime = Array(300, 240, 180, 180)[Global.difficulty];
+		Global.hintText = Array(Custom String(""));
 		Create Effect(All Players(Team 1), Sphere, Global.isOpen ? Color(Red) : Color(Lime Green), Vector(227.287, 2.050, 167.679), 0.250,
 			Visible To and Color);
 		Create In-World Text(Players Within Radius(Vector(227.287, 2.050, 167.679), 5, Team 1, Off), Custom String("OPEN"), Vector(227.287, 2.050, 167.679), 2, Do Not Clip, Visible To and Color,
@@ -479,7 +483,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250514\r\n\r\nYou can now craft Headchef’s Knife with the Sharp Knife and Portable Knife.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250522\r\n\r\nYou can now craft Headchef’s Knife with the Sharp Knife and Portable Knife.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\nBalance adjustments have been made to Storage and various items.")), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
@@ -1607,18 +1611,23 @@ rule("Dummy: Spawn")
 				Event Player.shaftEffect = Last Created Entity;
 				Create In-World Text(Players Within Radius(Evaluate Once(Global.TABLE_POSITION[Event Player.tableIndex]), 15, All Teams, Off),
 					Custom String("#{1} - {0}s", Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed)
-					- Total Time Elapsed, Up), Evaluate Once(Event Player.tableIndex + True)), Global.TABLE_POSITION[Event Player.tableIndex] + Up,
+					- Total Time Elapsed, Up) - 1, Evaluate Once(Event Player.tableIndex + True)), Global.TABLE_POSITION[Event Player.tableIndex] + Up,
 					2, Do Not Clip, Visible To and String, Event Player.playerColor, Default Visibility);
 				Event Player.tableText = Last Text ID;
 				Event Player.score += Global.ITEM_SCORE[Global.tableOrderCode[Event Player.tableIndex]];
+				Event Player.hintText = First Of(Global.hintText);
+				Modify Global Variable(hintText, Remove From Array By Index, False);
+				If(Global.hintText == Empty Array);
+					Global.hintText = Array(Custom String(""));
+				End;
 				If(Hero Of(Event Player) == Hero(Zarya));
 					Event Player.score = 20 + Min(Event Player.score * 3, 50);
 					While(Event Player.orderCount < 3);
 						Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} {2}/3 ", Event Player.tableIndex + True,
-							Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Event Player.orderCount)), Null, Custom String(
+							Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Event Player.orderCount)), Event Player.hintText, Custom String(
 							"  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-							Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up)), Left,
-							Event Player.orderedTime * 0.001, Event Player.playerColor, Null, Event Player.playerColor, Visible To and String,
+							Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
+							Event Player.orderedTime * 0.001, Event Player.playerColor, Color(Yellow), Event Player.playerColor, Visible To and String,
 							Default Visibility);
 						Event Player.playerText = Last Text ID;
 						Event Player.lastOrderTime = Total Time Elapsed;
@@ -1712,10 +1721,10 @@ rule("Dummy: Spawn")
 					Break;
 				Else;
 					Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
-						Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Null, Custom String(
+						Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Event Player.hintText, Custom String(
 						"  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-						Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up)), Left,
-						Total Time Elapsed * 0.001, Event Player.playerColor, Null, Event Player.playerColor, Visible To and String,
+						Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
+						Total Time Elapsed * 0.001, Event Player.playerColor, Color(Yellow), Event Player.playerColor, Visible To and String,
 						Default Visibility);
 					Event Player.playerText = Last Text ID;
 					Wait Until(Event Player.customerStatus != False || Global.isVipAngry, Event Player.orderTimeOut);
@@ -2336,9 +2345,9 @@ rule("Global subroutine: Start stage")
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.STAGE_CODE[Global.stage][Global.loadingMenu]]);
 		End;
 		Global.loadingMenu = Randomized Array(Global.currentMenu);
-		If(Global.difficulty == 0 && Global.stage == 0 && Global.stageMode == 1);
-			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76));
-			Global.loadingMenu = Array(3, 4, 7, 8, 10, 25, 24);
+		Global.hintText = Array(Custom String(""));
+		If(Global.difficulty == 0 && Global.stageMode == 1 && Workshop Setting Toggle(Custom String("Settings"), Custom String("Show Casual Dining Tutorial"), False, 3));
+			Call Subroutine(setHint);
 		End;
 		Global.currentMenuHaz = Empty Array;
 		For Global Variable(loadingMenuHaz, False, Count Of(Global.STAGE_CODE[Global.stage]), True);
@@ -3350,6 +3359,77 @@ rule("Global subroutine: Load Progress")
 				Event Player.itemPerk, 
 				Event Player.itemPerkDurability
 			));
+	}
+}
+
+rule("Global subroutine: Set Hint Text")
+{
+	event
+	{
+		Subroutine;
+		setHint;
+	}
+
+	actions
+	{
+		If(Global.stage == 0);
+			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
+			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
+			Global.hintText = Array(
+				Custom String("Cook using ingredients from the refrigerator and serve them!\r\nPan-fry or grill the beef and bring it to the customer at the left #table number."),
+				Custom String("You can slice or chop ingredients on the cutting board to create different dishes.\r\nPan-fry or grill the sliced beef."),
+				Custom String("By preparing ingredients and using different cooking tools, you can make various dishes.\r\nYou can grill a whole potato.."),
+				Custom String("or you can slice the potato and put it in a pan.."),
+				Custom String("or you can put the sliced potatoes into the fryer. Are you getting it?"),
+				Custom String("Some ingredients change when struck hard.\r\nSteam potatoes in a pot, then throw the steamed potatoes to the floor using inertia."),
+				Custom String("Also, some ingredients can be combined.\r\nTry joining boiled pasta with cream sauce."),
+				Custom String("You can dice tomatoes and steam them in a pot to make tomato sauce...\r\nBut if you smash them instead of slicing, you can make crushed tomatoes faster."),
+				Custom String("There are different characteristics per customer.\r\nFor Big Fat Customers, you earn more points but must serve the food twice."),
+				Custom String("Master the combinations of various recipes and challenge the clear.\r\nGood luck!")
+			);
+		Else If(Global.stage == 1);
+			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
+			Global.hintText = Array(
+				Custom String("Sliced Chicken + Frying Powder > Fryer"),
+				Custom String("Chicken + Frying Powder > Fryer"),
+				Custom String("Chicken Pieces + Frying Powder > Fryer"),
+				Custom String("All seasonings can be added to Fried Chicken.\r\nSoy Sauce + Corn Syrup"),
+				Custom String("Red pepper + Corn Syrup"),
+				Custom String("Red pepper + Soy Sauce + Corn Syrup"),
+				Custom String("Sliced Green Onion + Soy Sauce"),
+				Custom String("Chicken Nugget + Sweet&Spicy Sauce > Pan Fry")
+			);
+		Else If(Global.stage == 2);
+			Global.loadingMenu = Array(126, 7);
+			Global.hintText = Array(
+				Custom String("Throw the flour until it becomes pizza dough.\r\nPizza Dough + Tomato Sauce + Pizza Cheese > Grill")
+			);
+		Else If(Global.stage == 3);
+			Global.currentCustomer = Array(Hero(Tracer), Hero(Bastion), Hero(Bastion));
+			Global.hintText = Array(
+				Custom String(""),
+				Custom String("Careful! There are customer types that will fail if you serve a later-arriving customer first."),
+				Custom String("For these customers, we recommend serving in the order of the order slips.")
+			);
+		Else If(Global.stage == 4);
+			Global.currentCustomer = Array(Hero(Hanzo), Hero(Tracer));
+			Global.hintText = Array(
+				Custom String("A good review from the Food Critic will attract more guests.")
+			);
+		Else If(Global.stage == 5);
+			Global.currentCustomer = Array(Hero(Zarya), Hero(Bastion));
+			Global.hintText = Array(
+				Custom String("Competitive Eaters must serve three dishes.")
+			);
+		Else If(Global.stage == 6);
+			Global.currentCustomer = Array(Hero(Hanzo), Hero(Mercy));
+			Global.hintText = Array(
+				Custom String(""),
+				Custom String("Reserved Customers place their orders before entering.\r\nPay close attention to and remember the reservation message that briefly appears in the center!")
+			);
+		Else;
+			Global.hintText = Array(Custom String(""));
+		End;
 	}
 }
 
