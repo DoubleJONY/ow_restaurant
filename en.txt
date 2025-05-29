@@ -176,6 +176,9 @@ variables
 		43: additionalMaterialIndex
 		44: isController
 		45: hintText
+		46: svbFindIndex
+		47: svbTableIndex
+		48: svbPathIndex
 }
 
 subroutines
@@ -235,6 +238,7 @@ rule("Global: Setting")
 		Global.customerPosition = Empty Array;
 		Global.customerIndex = Empty Array;
 		Global.playerProgress = Empty Array;
+		Global.tableOrderCode = Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
 		Global.TABLE_PATH = Array(Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(208.989, True, 195.792),
 			Vector(212.385, True, 190.614), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(222.009, True, 184.971),
 			Vector(223.481, True, 182.685), Vector(222.079, True, 181.774), Vector(219.244, True, 189.250), Vector(221.141, True, 190.510),
@@ -278,7 +282,80 @@ rule("Global: Setting")
 			Vector(199.438, True, 176.441), Vector(193.083, True, 186.114)), Array(Vector(200.948, True, 197.385), Vector(204.298, True,
 			192.378), Vector(209.089, True, 195.609), Vector(212.482, True, 190.428), Vector(211.361, True, 184.273), Vector(217.183, True,
 			172.578), Vector(209.024, True, 182.535), Vector(202.871, True, 184.017), Vector(199.540, True, 189.047), Vector(204.295, True,
-			192.378), Vector(200.916, True, 197.370)));
+			192.378), Vector(200.916, True, 197.370)),
+				Array (
+					Vector(226.255, True, 170.245),
+					Vector(219.825, True, 180.305),
+					Vector(226.255, True, 170.245),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(226.255, True, 170.245),
+					Vector(221.945, True, 176.905),
+					Vector(226.255, True, 170.245),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(226.255, True, 170.245),
+					Vector(223.975, True, 173.655),
+					Vector(226.255, True, 170.245),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(214.565, True, 176.645),
+					Vector(216.505, True, 178.285),
+					Vector(214.565, True, 176.645),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(216.615, True, 173.465),
+					Vector(218.785, True, 174.915),
+					Vector(216.615, True, 173.465),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(218.815, True, 170.035),
+					Vector(221.025, True, 171.555),
+					Vector(218.815, True, 170.035),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(214.565, True, 176.645),
+					Vector(212.245, True, 175.335),
+					Vector(214.565, True, 176.645),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(216.615, True, 173.465),
+					Vector(214.385, True, 172.025),
+					Vector(216.615, True, 173.465),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(218.815, True, 170.035),
+					Vector(216.605, True, 168.605),
+					Vector(218.815, True, 170.035),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(215.505, True, 162.955),
+					Vector(208.865, True, 173.165),
+					Vector(215.505, True, 162.955),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(215.505, True, 162.955),
+					Vector(211.035, True, 169.815),
+					Vector(215.505, True, 162.955),
+					Vector(220.86, True, 166.95)
+				),
+				Array (
+					Vector(215.505, True, 162.955),
+					Vector(213.235, True, 166.495),
+					Vector(215.505, True, 162.955),
+					Vector(220.86, True, 166.95)
+				)
+			);
 		Global.TABLE_POSITION = Array(Vector(221.112, 2, 181.216), Vector(223.297, 2, 177.848), Vector(225.495, 2, 174.507), Vector(
 			217.763, 2, 179.027), Vector(219.955, 2, 175.671), Vector(222.138, 2, 172.319), Vector(211.069, 2, 174.658), Vector(213.244, 2,
 			171.301), Vector(215.431, 2, 167.950), Vector(207.710, 2, 172.466), Vector(209.900, 2, 169.116), Vector(212.074, 2, 165.771));
@@ -295,7 +372,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
 		Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5431, Custom String("Biscuits0507")), Array(4081, Custom String("Moira")), Array(3777, Custom String("Moira")));
+		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5431, Custom String("Biscuits0507")), Array(4082, Custom String("SizzlingGunz")), Array(3777, Custom String("Moira")));
 		Global.permissionText = Array(Array(Custom String("Chef"), Custom String("Waiting Staff"), Custom String("Apprentice"),
 			Custom String("Head Chef")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("[{0}] - Change Role", Input Binding String(Button(
@@ -1863,6 +1940,7 @@ rule("Dummy: Spawn")
 			End;
 			Modify Global Variable(customerIndex, Remove From Array By Value, Event Player.tableIndex);
 			Global.tableFilled[Event Player.tableIndex] = False;
+			Global.tableOrderCode[Event Player.tableIndex] = -1;
 		End;
 		While(Event Player.customerPath != Empty Array);
 			Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
@@ -3360,6 +3438,112 @@ rule("Global subroutine: Load Progress")
 				Event Player.itemPerkDurability
 			));
 	}
+}
+
+rule("Player routine: serveBot")
+{
+    event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		Wrecking Ball;
+	}
+
+    actions
+    {
+		Start Scaling Player(Event Player, 0.5, True);
+		Start Modifying Hero Voice Lines(Event Player, 10, True);
+		Start Forcing Dummy Bot Name(Event Player, Custom String("ServingBall"));
+		Wait(0.5, Ignore Condition);
+		Teleport(Event Player, Vector(220.86, 10.40, 166.95));
+		Clear Status(Event Player, Rooted);
+		Set Move Speed(Event Player, 100);
+		Create In-World Text(Has Spawned(Event Player) ? All Players(All Teams) : Null, Custom String("{0}{1}\r\n{2}", Hero Icon String(Hero Of(Event Player)),
+			Global.permissionText[0][1], Custom String("ServingBall")), Event Player, 1, Do Not Clip,
+			Visible To Position String and Color, Global.permissionText[1][1], Default Visibility);
+		Wait(0.016, Ignore Condition);
+		Set Facing(Event Player, Direction Towards(Vector(220.86, 1.00, 166.95), Vector(222.08, 0.48, 165.06)), To World);
+		Communicate(Event Player, Hello);
+        Wait Until(Global.isOpen == True, 9999);
+        While(Global.isOpen);
+			Event Player.svbFindIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
+			Distance Between(Current Array Element, Position Of(Event Player))
+			< 3.000 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Position Of(Event Player)))));
+			Wait(0.016, Ignore Condition);
+			Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Event Player.svbFindIndex != -1 ? Global.itemPosition[Event Player.svbFindIndex] : Vector(222.08, 2.48, 165.06)), 300, To World, None);
+            If(Event Player.svbFindIndex != Empty Array);
+				Wait(0.250, Ignore Condition);
+                Start Holding Button(Event Player, Button(Primary Fire));
+				Wait(0.250, Ignore Condition);
+				If(Event Player.controlingIndex != -1);
+					If(Array Contains(Global.tableOrderCode, Global.itemCode[Event Player.controlingIndex]));
+						Event Player.svbTableIndex = Index Of Array Value(Global.tableOrderCode, Global.itemCode[Event Player.controlingIndex]);
+						Event Player.customerPath = Global.TABLE_PATH[Event Player.svbTableIndex + 13];
+						Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
+						For Player Variable(Event Player, svbPathIndex, False, 2, True);
+							Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
+								To World, Replace existing throttle, None);
+							Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath) + Vector(0, 1, 0)), 300, To World, None);
+							Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / 5.500,
+								Ignore Condition);
+							Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
+							If(!Global.isOpen);
+								Stop Throttle In Direction(Event Player);
+								Stop Holding Button(Event Player, Button(Primary Fire));
+								Clear Status(Event Player, Phased Out);
+								Set Status(Event Player, Null, Hacked, 3);
+								Wait(0.016, Ignore Condition);
+								Set Status(Event Player, Null, Phased Out, 9999);
+								Wait(3, Ignore Condition);
+								Destroy Dummy Bot(Team 1, Slot Of(Event Player));
+								Abort;
+							End;
+						End;
+						Stop Throttle In Direction(Event Player);
+						Start Facing(Event Player, Direction Towards(Position Of(Event Player), Global.TABLE_POSITION[Event Player.svbTableIndex]), 300, To World, None);
+						Wait(0.500, Ignore Condition);
+						Stop Holding Button(Event Player, Button(Primary Fire));
+						Wait(0.500, Ignore Condition);
+						For Player Variable(Event Player, svbPathIndex, 2, 4, True);
+							Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
+								To World, Replace existing throttle, None);
+							Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
+							Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / 5.500,
+								Ignore Condition);
+							Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
+							If(!Global.isOpen);
+								Stop Throttle In Direction(Event Player);
+								Stop Holding Button(Event Player, Button(Primary Fire));
+								Clear Status(Event Player, Phased Out);
+								Set Status(Event Player, Null, Hacked, 3);
+								Wait(0.016, Ignore Condition);
+								Set Status(Event Player, Null, Phased Out, 9999);
+								Wait(3, Ignore Condition);
+								Destroy Dummy Bot(Team 1, Slot Of(Event Player));
+								Abort;
+							End;
+						End;
+						Stop Throttle In Direction(Event Player);
+					Else;
+						Wait(0.016, Ignore Condition);
+						Stop Holding Button(Event Player, Button(Primary Fire));
+						Wait(0.032, Ignore Condition);
+						Global.itemVelocity[Event Player.svbFindIndex] += Facing Direction Of(Event Player) * 0.130;
+					End;
+				End;
+                Stop Holding Button(Event Player, Button(Primary Fire));
+            End;
+            Wait(0.700, Ignore Condition);
+        End;
+		Stop Throttle In Direction(Event Player);
+		Stop Holding Button(Event Player, Button(Primary Fire));
+		Clear Status(Event Player, Phased Out);
+		Set Status(Event Player, Null, Hacked, 3);
+		Wait(0.016, Ignore Condition);
+		Set Status(Event Player, Null, Phased Out, 9999);
+		Wait(3, Ignore Condition);
+		Destroy Dummy Bot(Team 1, Slot Of(Event Player));
+    }
 }
 
 rule("Global subroutine: Set Hint Text")
