@@ -454,7 +454,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v250601\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v250602\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -509,7 +509,7 @@ rule("Global: Setting")
 			[Global.difficulty];
 		Global.despawnTime = Array(30, 25, 20, 15, 60)[Global.difficulty];
 		Global.additionalScore = Array(Null, 5, 10, 15)[Global.difficulty];
-		Global.stageTime = Array(300, 240, 180, 180)[Global.difficulty];
+		Global.stageTime = Array(300, 300, 180, 180)[Global.difficulty];
 		Global.hintText = Array(Custom String(""));
 		Create Effect(All Players(Team 1), Sphere, Global.isOpen ? Color(Red) : Color(Lime Green), Vector(227.287, 2.050, 167.679), 0.250,
 			Visible To and Color);
@@ -554,16 +554,15 @@ rule("Global: Setting")
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
-		Create In-World Text(Null, 
-		Custom String("{0} Notice\r\n\r\nOur Discord server is now open\r\nCheck out recipes, events, {1}", Icon String(Fire), 
-		Custom String("and more in the community and share your high score\r\nhttps://discord.gg/ow-restaurant")), 
+		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
+		Custom String("{0} Notice\r\n\r\nDue to script size constraints,\r\nthe Custom Course mode has unfortunately been removed :(", Icon String(Fire)), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Color(Yellow), Default Visibility);
+			Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250601\r\n\r\nSeveral new items including the ServingBall have been added.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
-		Custom String("\r\nSeveral new menus for the Culinary Researcher have been added.")), 
+		Custom String("{0} v250602\r\n\r\nSeveral new items including the {2}ServingBall have been added.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("\r\nSeveral new menus for the {0}Culinary Researcher have been added.", Hero Icon String(Hero(LifeWeaver))), Hero Icon String(Hero(Wrecking Ball))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Color(White), Default Visibility);
+			Color(Orange), Default Visibility);
 }
 }
 
@@ -1446,33 +1445,13 @@ rule("Player: Melee button")
 			< 1.500 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Eye Position(Event Player)
 			+ Facing Direction Of(Event Player) * 1.500))));
 		If(Event Player.controlingIndex != -1);
-			If(Global.IMPACT_RESULT[Global.itemCode[Event Player.controlingIndex]]);
-				If(Global.itemStatus[Event Player.controlingIndex] == 5);
-						Global.itemProgress[Event Player.controlingIndex] += 1;
-					Else;
-						Global.itemStatus[Event Player.controlingIndex] = 5;
-						Global.itemProgress[Event Player.controlingIndex] = 1;
-					End;
-				End;
-				If(Global.itemProgress[Event Player.controlingIndex] >= 2);
-					If(Count Of(Global.IMPACT_RESULT[Global.itemCode[Event Player.controlingIndex]]) == False);
-						Modify Global Variable At Index(itemCooker, Event Player.controlingIndex, Append To Array, Global.itemLastControl[Event Player.controlingIndex]);
-						Global.itemCode[Event Player.controlingIndex] = Global.IMPACT_RESULT[Global.itemCode[Event Player.controlingIndex]];
-						Global.itemProgress[Event Player.controlingIndex] = Null;
-						Play Effect(All Players(All Teams), Bad Explosion, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]],
-							Global.itemPosition[Event Player.controlingIndex], True);
-						Play Effect(All Players(All Teams), Junkrat Frag Launcher Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 75);
-						Global.itemVelocity[Event Player.controlingIndex] += Direction From Angles(False, Random Integer(False, 360)) * 0.005 + Vector(False, 0.045, False);
-					End;
-				End;
-			End;
 			Play Effect(All Players(All Teams), Bad Explosion, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]],
 				Global.itemPosition[Event Player.controlingIndex], 0.5);
 			Play Effect(All Players(All Teams), Junkrat Frag Launcher Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 45);
-			Global.itemVelocity[Event Player.controlingIndex] += Direction From Angles(False, Random Integer(False, 360)) * 0.005 + Vector(False, 0.085, False);
+			Global.itemVelocity[Event Player.controlingIndex] += Direction From Angles(False, Random Integer(False, 360)) * 0.115 - Vector(False, 0.245, False);
 			Event Player.controlingIndex = -1;
 		End;
-		Wait(0.500, Ignore Condition);
+		Wait(1.000, Ignore Condition);
     }
 }
 
@@ -2229,7 +2208,7 @@ rule("Global subroutine: Data init2")
 			Modify Global Variable At Index(MIXING_RESULT, Round To Integer(Global.RAW_MIX[Global.checkingIndex] / 1000, Down),
 				Append To Array, Global.RAW_RESULT[Global.checkingIndex]);
 		End;
-		Global.MENU_LIST = Array(Array(3, 4, 7, 10, 23, 24, 25, 26, 28, 27, 438), Array(7, 23, 55, 56, 57, 58, 59, 60), Array(84, 85, 86, 87, 88,
+		Global.MENU_LIST = Array(Array(3, 4, 7, 10, 23, 24, 25, 26, 28, 27), Array(7, 23, 55, 56, 57, 58, 59, 60), Array(84, 85, 86, 87, 88,
 			89, 90, 96), Array(7, 23, 126, 132, 133, 134, 135), Array(193, 188, 189, 190, 191, 192), Array(105, 106, 107, 146, 152, 153,
 			194, 101, 103, 109, 110, 111, 156, 218), Array(196, 202, 203, 209, 210, 211, 213, 214, 215, 219, 220, 223, 226), Array(193,
 			246, 247, 248, 249, 250, 251, 259, 260, 261, 264, 111), Array(278, 279, 280, 281, 282, 283, 284, 285, 293, 294),
@@ -3455,15 +3434,23 @@ rule("Player routine: serveBot")
 			Global.permissionText[0][1], Custom String("ServingBall")), Event Player, 1, Do Not Clip,
 			Visible To Position String and Color, Global.permissionText[1][1], Default Visibility);
 		Wait(0.016, Ignore Condition);
-		Set Facing(Event Player, Direction Towards(Vector(220.86, 1.00, 166.95), Vector(222.08, 0.48, 165.06)), To World);
-		Communicate(Event Player, Hello);
+		Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Eye Position(Closest Player To(Event Player, Team 1))), 100, To World,
+			Direction and Turn Rate);
+		Wait(1.5, Ignore Condition);
         Wait Until(Global.isOpen == True, 9999);
         While(Global.isOpen && Count Of(Filtered Array(All Players(Team 1), !Is Dummy Bot(Current Array Element))) < 6);
+			Set Move Speed(Event Player, 100);
 			Event Player.svbFindIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
 			Distance Between(Current Array Element, Position Of(Event Player))
 			< 3.000 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Position Of(Event Player)))));
 			Wait(0.016, Ignore Condition);
 			Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Event Player.svbFindIndex != -1 ? Global.itemPosition[Event Player.svbFindIndex] : Vector(222.08, 2.48, 165.06)), 300, To World, None);
+			If(Distance Between(Position Of(Event Player), Vector(220.86, 1.00, 166.95)) > 3.000);
+				Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), Vector(220.86, 1.00, 166.95)), True,
+				To World, Replace existing throttle, None);
+				Wait(Distance Between(Position Of(Event Player), Vector(220.86, 1.00, 166.95)) / 5.500, Ignore Condition);
+			End;
+			Stop Throttle In Direction(Event Player);
             If(Event Player.svbFindIndex != Empty Array);
 				Wait(0.250, Ignore Condition);
                 Start Holding Button(Event Player, Button(Primary Fire));
