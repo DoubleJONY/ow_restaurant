@@ -179,6 +179,7 @@ variables
 		46: svbFindIndex
 		47: svbTableIndex
 		48: svbPathIndex
+		49: tipsProb
 }
 
 subroutines
@@ -205,6 +206,7 @@ subroutines
 	19: setHint
 	20: destroyItem
 	21: destroyServeBot
+	22: dropTips
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -549,7 +551,11 @@ rule("Global: Setting")
 			Global.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Array(357, 357, 434, 434, 434)[Global.stageMode], 100, Null);
+				-70)) * 0.100, 357, 100, Null);
+			Call Subroutine(createItem);
+			Wait(0.100, Ignore Condition);
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+				-70)) * 0.100, 434, 100, Null);
 			Call Subroutine(createItem);
 			Start Rule(startStage, Do Nothing);
 		End;
@@ -784,13 +790,13 @@ rule("Player: Control item")
 			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
-		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  スライス  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
-				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
-			Event Player.tableText[False] = Last Text ID;
 		Else If(432 == Global.itemCode[Event Player.controlingIndex]);
 			Create HUD Text(Event Player, Custom String("〔{0}〕:  GET  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Yellow), Null, Null, String, Default Visibility);
+			Event Player.tableText[False] = Last Text ID;
+		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  スライス  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		End;
 		While(Is Button Held(Event Player, Button(Primary Fire)) && Distance Between(Global.itemPosition[Event Player.controlingIndex],
@@ -1722,14 +1728,17 @@ rule("Dummy: Spawn")
 						End;
 						If(Event Player.customerStatus == 1 || Event Player.customerStatus == 4);
 							Event Player.orderCount += True;
+							Event Player.tipsProb = 5;
 							If(Event Player.customerStatus == 4);
 								All Players(Team 1).score += 1;
 								Global.systemScore += 5;
 								Small Message(All Players(All Teams), Custom String("  完成度の高い料理! +5%"));
 								Global.scbSurved[2] += 1;
+								Event Player.tipsProb = 10;
 							Else;
 								Global.scbSurved[3] += 1;
 							End;
+							Call Subroutine(dropTips);
 							All Players(Team 1).score += 1;
 							Create HUD Text(All Players(All Teams), Custom String(" #{0} : サービング成功! {1}/3 ", Event Player.tableIndex + True,
 								Event Player.orderCount), Null, Custom String(
@@ -1818,6 +1827,7 @@ rule("Dummy: Spawn")
 					Modify Global Variable(customerIndex, Remove From Array By Index, Event Player.controlingIndex);
 					If(Global.isOpen);
 						If(Event Player.customerStatus == 1 || Event Player.customerStatus == 4);
+							Event Player.tipsProb = Hero Of(Event Player) == Hero(Moira) ? 30 : Hero Of(Event Player) == Hero(D.Va) ? 15 : 0;
 							If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.180 && Event Player.customerStatus == 4);
 								Global.systemScore += 20;
 								All Players(Team 1).score += 3;
@@ -1827,6 +1837,7 @@ rule("Dummy: Spawn")
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
 								Event Player.dollar = Hero Of(Event Player) == Hero(Hanzo) || Hero Of(Event Player) == Hero(D.Va);
 								Global.scbSurved[0] += 1;
+								Event Player.tipsProb += 20;
 							Else If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.250);
 								Global.systemScore += 10;
 								All Players(Team 1).score += 2;
@@ -1836,6 +1847,7 @@ rule("Dummy: Spawn")
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
 								Event Player.dollar = Hero Of(Event Player) == Hero(Hanzo) || Hero Of(Event Player) == Hero(D.Va);
 								Global.scbSurved[1] += 1;
+								Event Player.tipsProb += 10;
 							Else If(Event Player.customerStatus == 4);
 								Global.systemScore += 5;
 								All Players(Team 1).score += 2;
@@ -1845,6 +1857,7 @@ rule("Dummy: Spawn")
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
 								Event Player.dollar = Hero Of(Event Player) == Hero(Hanzo) || Hero Of(Event Player) == Hero(D.Va);
 								Global.scbSurved[2] += 1;
+								Event Player.tipsProb += 5;
 							Else;
 								All Players(Team 1).score += 1;
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : サービング成功! ", Event Player.tableIndex + True), Null, Custom String(
@@ -1852,6 +1865,7 @@ rule("Dummy: Spawn")
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
 								Global.scbSurved[3] += 1;
 							End;
+							Call Subroutine(dropTips);
 							Global.scbSurved[4] += 1;
 							Event Player.playerText = Last Text ID;
 							Create Effect(All Players(All Teams), Sphere, Global.ITEM_COLOR[Global.tableOrderCode[Event Player.tableIndex]],
@@ -1963,6 +1977,23 @@ rule("Dummy: Spawn")
 			End;
 		End;
 		Destroy Dummy Bot(Team 2, Slot Of(Event Player));
+	}
+}
+
+rule("drop tips") {
+	event
+	{
+		subroutine;
+		dropTips;
+	}
+
+	actions
+	{
+		If(Random Integer(1, 100) <= Event Player.tipsProb);
+			Global.createItemData = Array(Position Of(Event Player), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+				-70)) * 0.100, 432, 100, Null);
+			Call Subroutine(createItem);
+		End;
 	}
 }
 
