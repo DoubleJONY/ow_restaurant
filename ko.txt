@@ -376,7 +376,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
         Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(5903, Custom String("JOSEON")), Array(4387, Custom String("JOSEON")), Array(7650, Custom String("JOSEON")));
+		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(6077, Custom String("JOSEON")), Array(5991, Custom String("JOSEON")), Array(10473, Custom String("JOSEON")));
 		Global.permissionText = Array(Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생"), Custom String("헤드셰프")),
 			Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 직책 변경", Input Binding String(Button(

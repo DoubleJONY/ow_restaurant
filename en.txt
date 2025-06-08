@@ -376,7 +376,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
 		Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5431, Custom String("Biscuits0507")), Array(4082, Custom String("SizzlingGunz")), Array(3777, Custom String("Moira")));
+		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5506, Custom String("SizzlingGunz")), Array(4082, Custom String("SizzlingGunz")), Array(3777, Custom String("Moira")));
 		Global.permissionText = Array(Array(Custom String("Chef"), Custom String("Waiting Staff"), Custom String("Apprentice"),
 			Custom String("Head Chef")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("[{0}] - Change Role", Input Binding String(Button(
