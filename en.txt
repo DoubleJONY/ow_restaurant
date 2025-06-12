@@ -2096,7 +2096,7 @@ rule("Global subroutine: Data init")
 			"(3|4)/Raw Thin Noodles/Broth/Kimchi Broth/Boiled Broth/Boiled Kimchi Broth")), Custom String("/")), Append To Array(
 			String Split(Custom String("Black Bean Sauce/Hand-Torn Noodle Soup/Kimchi Hand-Torn {0}", Custom String(
 			"Noodle Soup/Noodle Soup/Kimchi Noodle Soup/Thin Noodle Soup")), Custom String("/")), Append To Array(String Split(
-			Custom String("Kimchi Thin Noodle Soup/Black Bean Noodle Soup/Sliced Tofu+Kimchi/Stir-fried {0}", Custom String(
+			Custom String("Kimchi Thin Noodle Soup/Black Bean Noodle/Sliced Tofu+Kimchi/Stir-fried {0}", Custom String(
 			"Tofu+Kimchi/Boiled Noodles/Boiled Thin Noodles")), Custom String("/")), Append To Array(String Split(Custom String(
 			"Boiled Hand-Torn Noodles/Rice Cake/Rice Cake Soup/Dumpling Soup/Rice {0}", Custom String(
 			"Cake Dumpling Soup/Egg Batter/Meat Batter/Meatball/Kitchen Knife")), Custom String("/")),
