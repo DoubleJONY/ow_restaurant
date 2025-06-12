@@ -207,6 +207,7 @@ subroutines
 	20: destroyItem
 	21: destroyServeBot
 	22: dropTips
+	23: destroyPerk
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -456,7 +457,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250604\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v250612\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -473,20 +474,21 @@ rule("Global: Setting")
 		Start Rule(itemCooking, Do Nothing);
 		Start Rule(despawnItem, Do Nothing);
 		Global.stageMode = Workshop Setting Combo(Custom String("設定"), Custom String("調理モード"), 0, Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"), Custom String("ホストが選択")), 0);
-		If(Global.stageMode == 4);
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"), Custom String("カスタムコース"), Custom String("ホストが選択")), 0);
+		If(Global.stageMode == 5);
 			Set Status(Host Player, Null, Rooted, 9999);
 			Create HUD Text(All Players(Team 1), Null, Null, Custom String(
 				"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, -999, Null, Null, Null, Visible To,
 				Default Visibility);
 			Global.globalText[0] = Last Text ID;
 			Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode]), 
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"), Custom String("カスタムコース"))[Global.stageMode]), 
 				Custom String("{0}", Array(
 					Custom String("スキルを自由に磨ける練習専用モードです"),
 					Custom String("5つのメニューが登場する入門レベルをクリアしましょう"),
 					Custom String("すべてのメニューが登場する熟練レベルをクリアしましょう"),
-					Custom String("Hell's Kitchenの過酷な試練に挑め"))[Global.stageMode]),
+					Custom String("Hell's Kitchenの過酷な試練に挑め"),
+					Custom String("ワークショップの設定で、自分だけのコース料理を設定してください"))[Global.stageMode]),
 				Local Player == Host Player ? Custom String("[{0}]: モード変更", Input Binding String(Button(Reload)),
 				Input Binding String(Button(Jump))) : Custom String(" ホストがレベル決定中です"), Top, -998, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
@@ -499,8 +501,9 @@ rule("Global: Setting")
 			Global.stageMode = 0;
 			Call Subroutine(selectMode);
 		End;
-		Global.difficulty = Array(4, 0, 1, 1)[Global.stageMode];
-		Global.storageLevel = Array(7, 3, 3, -1, -1)[Global.stageMode];
+		Global.difficulty = Array(4, 0, 1, 1, Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String(
+			"レベル"), 0, Array(Custom String("入門"), Custom String("熟練"), Custom String("プロ"), Custom String("Hell's Kitchen")), 0))[Global.stageMode];
+		Global.storageLevel = Array(7, 3, 3, -1, 3)[Global.stageMode];
 		Call Subroutine(dataInit3);
 		Global.scbRank = Empty Array;
 		Global.customerCallTime = Array(16, 12, 8, 4, 16)[Global.difficulty];
@@ -551,7 +554,7 @@ rule("Global: Setting")
 			Global.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, 357, 100, Null);
+				-70)) * 0.100, Array(354, 357, 357, 360, 64)[Global.stageMode], 100, Null);
 			Call Subroutine(createItem);
 			Wait(0.100, Ignore Condition);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -561,11 +564,11 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} Notice\r\n\r\nスクリプトの容量の問題により、カスタムコースモードがやむを得ず削除されました :(", Icon String(Fire)), 
+		Custom String("{0} Notice\r\n\r\nカスタムコースモードが復活しました！", Icon String(Fire)), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250604\r\n\r\n{2}サービングボールを含む複数の新アイテムが追加されました。{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250612\r\n\r\n{2}サービングボールを含む複数の新アイテムが追加されました。{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 				Custom String("\r\n{0}料理研究家の新しいメニューがいくつか追加されました。", Hero Icon String(Hero(LifeWeaver))), Hero Icon String(Hero(Wrecking Ball))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Orange), Default Visibility);
@@ -685,7 +688,7 @@ rule("Player: Spawn")
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
 		Create In-World Text(Event Player, Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode], Vector(222.559,
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"), Custom String("カスタムコース"))[Global.stageMode], Vector(222.559,
 			5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 33.500), 1.500,
 			Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
@@ -1146,6 +1149,23 @@ rule("Player subroutine: destroy item")
 	}
 }
 
+rule("Player subroutine: destroy perk")
+{
+	event
+	{
+		Subroutine;
+		destroyPerk;
+	}
+
+	actions
+	{
+		If(Event Player.itemPerkDurability <= 0);
+			Event Player.itemPerk = -1;
+			Destroy HUD Text(Event Player.itemPerkText);
+		End;
+	}
+}
+
 rule("Player: Reload button")
 {
 	event
@@ -1242,10 +1262,7 @@ rule("Player: Secondary fire button")
 			End;
 			Event Player.controlingIndex = -1;
 			Event Player.itemPerkDurability -= 0.5;
-			If(Event Player.itemPerkDurability <= 0);
-				Event Player.itemPerk = -1;
-				Destroy HUD Text(Event Player.itemPerkText);
-			End;
+			Call Subroutine(destroyPerk);
 		Else If(Event Player.itemPerk == 8);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 1);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
@@ -1268,10 +1285,7 @@ rule("Player: Secondary fire button")
             End;
 			Event Player.controlingIndex = -1;
 			Event Player.itemPerkDurability -= 1;
-			If(Event Player.itemPerkDurability <= 0);
-				Destroy HUD Text(Event Player.itemPerkText);
-				Event Player.itemPerk = -1;
-			End;
+			Call Subroutine(destroyPerk);
 			Wait(0.300, Ignore Condition);
 		End;
 		Wait(0.050, Ignore Condition);
@@ -1331,10 +1345,7 @@ rule("Player: Ultimate button")
                 Play Effect(All Players(All Teams), Heal Target Active Effect, Null, Global.itemPosition[Event Player.controlingIndex], 2);
                 Global.itemProgress[Event Player.controlingIndex] = 0;
                 Event Player.itemPerkDurability -= 5;
-                If(Event Player.itemPerkDurability <= 0);
-                    Destroy HUD Text(Event Player.itemPerkText);
-                    Event Player.itemPerk = -1;
-                End;
+                Call Subroutine(destroyPerk);
             End;
         Else If(Event Player.itemPerk == 7);
             If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 432, 433, 434), Global.itemCode[Event Player.controlingIndex]));
@@ -1346,10 +1357,7 @@ rule("Player: Ultimate button")
 				Global.itemStatus[Global.creatingItemIndex] = Global.itemStatus[Event Player.controlingIndex];
 				Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
                 Event Player.itemPerkDurability -= 20;
-                If(Event Player.itemPerkDurability <= 0);
-                    Destroy HUD Text(Event Player.itemPerkText);
-                    Event Player.itemPerk = -1;
-                End;
+                Call Subroutine(destroyPerk);
             End;
         Else If(Event Player.itemPerk == 8);
             If(Event Player.controlingIndex != -1);
@@ -1369,10 +1377,7 @@ rule("Player: Ultimate button")
 					Modify Global Variable At Index(itemCooker, Event Player.controlingIndex, Append To Array, Global.itemLastControl[Event Player.controlingIndex]);
 				End;
                 Event Player.itemPerkDurability -= 1;
-                If(Event Player.itemPerkDurability <= 0);
-                    Destroy HUD Text(Event Player.itemPerkText);
-                    Event Player.itemPerk = -1;
-                End;
+                Call Subroutine(destroyPerk);
             End;
 		Else If(Event Player.itemPerk == 9);
 			Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Event Player, 2);
@@ -2282,20 +2287,7 @@ rule("Global subroutine: Data init3")
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(Zarya), Hero(Mauga), Hero(Mercy), Hero(Hazard), Hero(LifeWeaver)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
+				Array(Hero(LifeWeaver), Hero(LifeWeaver))
 			),
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
@@ -2345,9 +2337,19 @@ rule("Global subroutine: Data init3")
 				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
 				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
 				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver), Hero(LifeWeaver))
+			), 
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
+				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
+				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10), Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)),
+			Array(Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(6), Array(2), Array(1), Array(6), Array(3), Array(1), Array(6), Array(1)), 
 			Array(Array(0), Array(2), Array(9), Array(6), Array(3), Array(5), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
@@ -2367,7 +2369,49 @@ rule("Global subroutine: Data init3")
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
-				)
+			),
+			Array(
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 1"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 1)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 2"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 2)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 3"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 3)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 4"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 4)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 5"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 5)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 6"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 6)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 7"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 7)),
+				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 8"), 0, Array(
+					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
+					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
+					Custom String("パンケーキ"), Custom String("肉屋食堂")
+				), 8))
+			)
 		)[Global.stageMode];
 	}
 }
@@ -2941,8 +2985,8 @@ rule("Global subroutine: Call customer")
 				End;
 			End;
 			Wait Until(Global.loadNext > 0, Count Of(Filtered Array(Global.tableFilled, Current Array Element)) + Global.customerCallTime);
-			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 1)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
-			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(6, 8, 8, 10, 1)[Global.difficulty], 999);
+			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 2)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
+			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(6, 8, 8, 10, 2)[Global.difficulty], 999);
 			If(Global.loadNext);
 				Global.loadNext -= True;
 			End;
@@ -3036,7 +3080,7 @@ rule("Host Player: Select Mode")
 	{
 		Wait Until(Is Button Held(Host Player, Button(Reload)) || Is Button Held(Host Player, Button(Jump)), 99999);
 		If(Is Button Held(Host Player, Button(Reload)));
-			Global.stageMode = (Global.stageMode + True) % 4;
+			Global.stageMode = (Global.stageMode + True) % 5;
 			Wait Until(!Is Button Held(Host Player, Button(Reload)), 99999);
 			Loop;
 		End;
@@ -3207,10 +3251,7 @@ rule("Player: Ability 1")
             Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Event Player, 1);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 20);
             Event Player.itemPerkDurability -= 3;
-            If(Event Player.itemPerkDurability <= 0);
-                Event Player.itemPerk = -1;
-                Destroy HUD Text(Event Player.itemPerkText);
-            End;
+            Call Subroutine(destroyPerk);
         Else If(Event Player.itemPerk == 6);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
@@ -3219,10 +3260,7 @@ rule("Player: Ability 1")
             Wait(0.016, Ignore Condition);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
             Event Player.itemPerkDurability -= 5;
-            If(Event Player.itemPerkDurability <= 0);
-                Event Player.itemPerk = -1;
-                Destroy HUD Text(Event Player.itemPerkText);
-            End;
+            Call Subroutine(destroyPerk);
         End;
 	}
 }
@@ -3253,10 +3291,7 @@ rule("Player: Double Jump")
                 Play Effect(All Players(All Teams), Moira Fade Reappear Sound, Null, Event Player, 20);
             End;
             Event Player.itemPerkDurability -= 1;
-            If(Event Player.itemPerkDurability <= 0);
-                Event Player.itemPerk = -1;
-                Destroy HUD Text(Event Player.itemPerkText);
-            End;
+            Call Subroutine(destroyPerk);
         Else;
             Disallow Button(Event Player, Button(Jump));
             Wait Until(Is In Air(Event Player) == False, 99999);
@@ -3560,7 +3595,7 @@ rule("Global subroutine: Set Hint Text")
 			Global.hintText = Array(
 				Custom String("スライスした鶏肉 + 天ぷら粉 > フライヤー"),
 				Custom String("鶏肉 + 天ぷら粉 > フライヤー"),
-				Custom String("カットした鶏肉 + 天ぷら粉 > フライヤー"),
+				Custom String("刻んだ鶏肉 + 天ぷら粉 > フライヤー"),
 				Custom String("すべての調味料はフライドチキンに追加できます。\r\n醤油 + 水飴"),
 				Custom String("コチュジャン + 水飴"),
 				Custom String("コチュジャン + 醤油 + 水飴"),
@@ -3660,7 +3695,7 @@ rule("Global subroutine: Scoreboard")
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("タイム : 〔{0}〕\r\nモード: 〔{1}〕\r\n結果: 〔{2}〕",
 			Evaluate Once(Custom String("{0}時間{1}分{2}秒", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("入門レベル"),
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"), Custom String("カスタムコース"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("入門レベル"),
 			Custom String("熟練レベル"), Custom String("プロレベル"), Custom String("Hell's Kitchen"))[Global.difficulty],
 			Global.isVictory ? Custom String("クリア!") : Custom String("Stage {0} で失敗", Global.stage + 1))), Vector(214.140,
 			Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,

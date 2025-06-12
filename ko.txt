@@ -207,6 +207,7 @@ subroutines
 	20: destroyItem
 	21: destroyServeBot
 	22: dropTips
+	23: destroyPerk
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -456,7 +457,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250604\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"레스토랑(SPXXM) v250612\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -502,7 +503,7 @@ rule("Global: Setting")
 		End;
 		Global.difficulty = Array(4, 0, 1, 1, Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String(
 			"난이도"), 0, Array(Custom String("수습"), Custom String("숙련"), Custom String("전문"), Custom String("Hell's Kitchen")), 0))[Global.stageMode];
-		Global.storageLevel = Array(7, 3, 3, -1, -1)[Global.stageMode];
+		Global.storageLevel = Array(7, 3, 3, -1, 3)[Global.stageMode];
 		Call Subroutine(dataInit3);
 		Global.scbRank = Empty Array;
 		Global.customerCallTime = Array(16, 12, 8, 4, 16)[Global.difficulty];
@@ -553,7 +554,7 @@ rule("Global: Setting")
 			Global.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, 357, 100, Null);
+				-70)) * 0.100, Array(354, 357, 357, 360, 64)[Global.stageMode], 100, Null);
 			Call Subroutine(createItem);
 			Wait(0.100, Ignore Condition);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -567,7 +568,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Yellow), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250604\r\n\r\n{2}서빙볼을 포함한 여러 신규 아이템이 추가되었습니다.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250612\r\n\r\n{2}서빙볼을 포함한 여러 신규 아이템이 추가되었습니다.{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 		Custom String("\r\n{0}요리 연구가의 여러 신규 메뉴가 추가되었습니다.", Hero Icon String(Hero(LifeWeaver))), Hero Icon String(Hero(Wrecking Ball))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Orange), Default Visibility);
@@ -1148,6 +1149,23 @@ rule("Player subroutine: destroy item")
 	}
 }
 
+rule("Player subroutine: destroy perk")
+{
+	event
+	{
+		Subroutine;
+		destroyPerk;
+	}
+
+	actions
+	{
+		If(Event Player.itemPerkDurability <= 0);
+			Event Player.itemPerk = -1;
+			Destroy HUD Text(Event Player.itemPerkText);
+		End;
+	}
+}
+
 rule("Player: Reload button")
 {
 	event
@@ -1244,10 +1262,7 @@ rule("Player: Secondary fire button")
 			End;
 			Event Player.controlingIndex = -1;
 			Event Player.itemPerkDurability -= 0.5;
-			If(Event Player.itemPerkDurability <= 0);
-				Event Player.itemPerk = -1;
-				Destroy HUD Text(Event Player.itemPerkText);
-			End;
+			Call Subroutine(destroyPerk);
 		Else If(Event Player.itemPerk == 8);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 1);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
@@ -1270,10 +1285,7 @@ rule("Player: Secondary fire button")
             End;
 			Event Player.controlingIndex = -1;
 			Event Player.itemPerkDurability -= 1;
-			If(Event Player.itemPerkDurability <= 0);
-				Destroy HUD Text(Event Player.itemPerkText);
-				Event Player.itemPerk = -1;
-			End;
+			Call Subroutine(destroyPerk);
 			Wait(0.300, Ignore Condition);
 		End;
 		Wait(0.050, Ignore Condition);
@@ -1333,10 +1345,7 @@ rule("Player: Ultimate button")
                 Play Effect(All Players(All Teams), Heal Target Active Effect, Null, Global.itemPosition[Event Player.controlingIndex], 2);
                 Global.itemProgress[Event Player.controlingIndex] = 0;
                 Event Player.itemPerkDurability -= 5;
-                If(Event Player.itemPerkDurability <= 0);
-                    Destroy HUD Text(Event Player.itemPerkText);
-                    Event Player.itemPerk = -1;
-                End;
+                Call Subroutine(destroyPerk);
             End;
         Else If(Event Player.itemPerk == 7);
             If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 432, 433, 434), Global.itemCode[Event Player.controlingIndex]));
@@ -1348,10 +1357,7 @@ rule("Player: Ultimate button")
 				Global.itemStatus[Global.creatingItemIndex] = Global.itemStatus[Event Player.controlingIndex];
 				Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
                 Event Player.itemPerkDurability -= 20;
-                If(Event Player.itemPerkDurability <= 0);
-                    Destroy HUD Text(Event Player.itemPerkText);
-                    Event Player.itemPerk = -1;
-                End;
+                Call Subroutine(destroyPerk);
             End;
 		Else If(Event Player.itemPerk == 9);
 			Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Event Player, 2);
@@ -2227,20 +2233,7 @@ rule("Global subroutine: Data init3")
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(Zarya), Hero(Mauga), Hero(Mercy), Hero(Hazard), Hero(LifeWeaver)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
+				Array(Hero(LifeWeaver), Hero(LifeWeaver))
 			),
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
@@ -2294,17 +2287,15 @@ rule("Global subroutine: Data init3")
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
 				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
 				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
 				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
 				Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Mauga), Hero(Bastion), Hero(Bastion), Hero(Bastion), Hero(LifeWeaver)), 
 				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
 				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10), Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)),
+			Array(Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)), 
 			Array(Array(0), Array(2), Array(9), Array(5), Array(3), Array(6), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
@@ -2318,7 +2309,7 @@ rule("Global subroutine: Data init3")
 					Array(Random Integer(0, 5)),
 					Array(Random Integer(6, 11)), 
 					Array(Random Integer(0, 5)),
-					Array(Random Integer(6, 10)),  
+					Array(Random Integer(6, 101)),  
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))),
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
@@ -2365,17 +2356,7 @@ rule("Global subroutine: Data init3")
 					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
 					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
 					Custom String("핫케이크"), Custom String("정육식당")
-				), 8)),
-				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 9"), 0, Array(
-					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
-					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
-					Custom String("핫케이크"), Custom String("정육식당")
-				), 9)),
-				Array(Workshop Setting Combo(Custom String("설정 - 커스텀 코스"), Custom String("스테이지 10"), 0, Array(
-					Custom String("스테이크&파스타"), Custom String("수제 버거"), Custom String("치킨"), Custom String("피자"), Custom String("만두"),
-					Custom String("달걀&밥"), Custom String("생선&밥"), Custom String("국수"), Custom String("타코"), Custom String("아이스크림"),
-					Custom String("핫케이크"), Custom String("정육식당")
-				), 10))
+				), 8))
 			)
 		)[Global.stageMode];
 	}
@@ -2950,8 +2931,8 @@ rule("Global subroutine: Call customer")
 				End;
 			End;
 			Wait Until(Global.loadNext > 0, Count Of(Filtered Array(Global.tableFilled, Current Array Element)) + Global.customerCallTime);
-			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 1)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
-			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(6, 8, 8, 10, 1)[Global.difficulty], 999);
+			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 2)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
+			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(6, 8, 8, 10, 2)[Global.difficulty], 999);
 			If(Global.loadNext);
 				Global.loadNext -= True;
 			End;
@@ -3216,10 +3197,7 @@ rule("Player: Ability 1")
             Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Event Player, 1);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 20);
             Event Player.itemPerkDurability -= 3;
-            If(Event Player.itemPerkDurability <= 0);
-                Event Player.itemPerk = -1;
-                Destroy HUD Text(Event Player.itemPerkText);
-            End;
+            Call Subroutine(destroyPerk);
         Else If(Event Player.itemPerk == 6);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
@@ -3228,10 +3206,7 @@ rule("Player: Ability 1")
             Wait(0.016, Ignore Condition);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
             Event Player.itemPerkDurability -= 5;
-            If(Event Player.itemPerkDurability <= 0);
-                Event Player.itemPerk = -1;
-                Destroy HUD Text(Event Player.itemPerkText);
-            End;
+            Call Subroutine(destroyPerk);
         End;
 	}
 }
@@ -3262,10 +3237,7 @@ rule("Player: Double Jump")
                 Play Effect(All Players(All Teams), Moira Fade Reappear Sound, Null, Event Player, 20);
             End;
             Event Player.itemPerkDurability -= 1;
-            If(Event Player.itemPerkDurability <= 0);
-                Event Player.itemPerk = -1;
-                Destroy HUD Text(Event Player.itemPerkText);
-            End;
+            Call Subroutine(destroyPerk);
         Else;
             Disallow Button(Event Player, Button(Jump));
             Wait Until(Is In Air(Event Player) == False, 99999);
