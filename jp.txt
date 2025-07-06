@@ -421,7 +421,7 @@ rule("Global: Setting")
 		Create HUD Text(Filtered Array(All Players(Team 1), Min(Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
 			Current Array Element) * 1.500, Vector(231.369, 2, 166.183)), Distance Between(Eye Position(Current Array Element)
 			+ Facing Direction Of(Current Array Element) * 1.500, Vector(222.109, 2, 156.602))) < 1.500),
-			Local Player.knifeCode + True ? Custom String("〔{0}〕:  スライス  ", Input Binding String(Button(Interact))) : Custom String(
+			Local Player.knifeCode + True ? Custom String("〔{0}〕:  薄切り  ", Input Binding String(Button(Interact))) : Custom String(
 			"  キッチンナイフなし  "), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
 			Null, Visible To String and Color, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(224.552, 2, 161.294), 10, Team 1, Off), Custom String("フライヤー"), Vector(224.552,
@@ -457,7 +457,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250612\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v250706\r\ndiscord.gg/ow-restaurant\r\ndelta-kor's recipe : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -568,7 +568,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250612\r\n\r\n{2}サービングボールを含む複数の新アイテムが追加されました。{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+		Custom String("{0} v250706\r\n\r\n{2}サービングボールを含む複数の新アイテムが追加されました。{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
 				Custom String("\r\n{0}料理研究家の新しいメニューがいくつか追加されました。", Hero Icon String(Hero(LifeWeaver))), Hero Icon String(Hero(Wrecking Ball))), 
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Orange), Default Visibility);
@@ -798,7 +798,7 @@ rule("Player: Control item")
 				Top, 4, Color(Yellow), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  スライス  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  切る  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		End;
@@ -2038,43 +2038,43 @@ rule("Global subroutine: Data init")
 			False, 255), Custom Color(255, 255, 190, 255), Custom Color(False, 125, False, 255), Color(Orange), Custom Color(246, 86, 86,
 			255), Custom Color(250, 150, 70, 255), Color(Sky Blue), Custom Color(255, 192, 243, 255), Custom Color(255, 108, 141, 255), Custom Color(255, 239, 104, 255), Color(Violet), Color(Rose), Color(Gray), Custom Color(96, 255, 181, 255), Color(Purple))[Index Of Array Value(String Split(Custom String(
 			"D/R/M/Y/W/L/G/H/T/S/C/F/V/O/A/P/B/N/Q/X/Z/U/E/J/K"), Custom String("/")), Current Array Element)]);
-		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/スライス牛肉/ステーキ/チョップステーキ/ジャガイモ/スライスジャガイモ/フライドポテト/焼きジャガイモ/{0}",
-			Custom String("蒸しジャガイモ/マッシュポテト/炒めジャガイモ/パスタ/ゆでパスタ/トマト/スライスしたトマト/焼きトマト")), Custom String("/")), Append To Array(String Split(
-			Custom String("トマトソース/クリームソース/チーズ/スライスチーズ/とろけたチーズ/ロゼソース/チーズポテト/トマトパスタ/{0}", Custom String(
+		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/薄切り牛肉/ステーキ/チョップステーキ/ジャガイモ/薄切りジャガイモ/フライドポテト/焼きジャガイモ/{0}",
+			Custom String("蒸しジャガイモ/マッシュポテト/炒めジャガイモ/パスタ/ゆでパスタ/トマト/薄切りトマト/焼きトマト")), Custom String("/")), Append To Array(String Split(
+			Custom String("トマトソース/クリームソース/チーズ/薄切りチーズ/とろけたチーズ/ロゼソース/チーズポテト/トマトパスタ/{0}", Custom String(
 			"クリームパスタ/ロゼパスタ/ロゼチーズパスタ/クリームチーズパスタ/クリームチーズソース/ロゼチーズソース")), Custom String("/")), Append To Array(String Split(Custom String(
-			"生パティ/焼いたパティ/レタス/スライスしたレタス/焼いたレタス/炒めたレタス/ハンバーガーバン/下バンズ/{0}", Custom String(
+			"生パティ/焼いたパティ/レタス/薄切りレタス/焼いたレタス/炒めたレタス/ハンバーガーバン/下バンズ/{0}", Custom String(
 			"上バンズ/パン＋パティ/パン＋チーズ/パン＋トマト/パン＋レタス/パン＋パティ＋チーズ/パン＋パティ＋トマト")), Custom String("/")), Append To Array(String Split(Custom String(
 			"パン＋パティ＋レタス/パン＋チーズ＋トマト/パン＋チーズ＋レタス/パン＋トマト＋レタス/パン＋パティ＋チーズ＋トマト/{0}", Custom String(
 			"パン＋パティ＋チーズ＋レタス/パン＋パティ＋トマト＋レタス/パン＋チーズ＋トマト＋レタス")), Custom String("/")), Append To Array(String Split(Custom String(
 			"パン＋パティ＋チーズ＋トマト＋レタス/ミートバーガー/チーズミートバーガー/ベジバーガー/チーズベジバーガー/{0}", Custom String(
-			"デラックスバーガー/チーズデラックスバーガー/安物のナイフ/補助ナイフ/携帯ナイフ/鋭いナイフ/ゲンジの脇差/鶏肉/スライス鶏肉")), Custom String("/")), Append To Array(String Split(
-			Custom String("刻んだ鶏肉/ネギ/スライスしたネギ/刻ん切りネギ/天ぷら粉/コチュジャン/醤油/水飴/コチュジャンソース/{0}", Custom String(
-			"醤油ソース/醤油ネギソース/ヤンニョムソース/焼いた鶏肉/鶏肉＋天ぷら粉/スライス鶏肉＋天ぷら粉")), Custom String("/")), Append To Array(String Split(Custom String(
-			"刻んだ鶏肉＋天ぷら粉/から揚げ/フライドチキン/ヤンニョムチキン/コチュジャンチキン/醤油チキン/{0}", Custom String(
+			"デラックスバーガー/チーズデラックスバーガー/安物のナイフ/補助ナイフ/携帯ナイフ/鋭いナイフ/ゲンジの脇差/鶏肉/薄切り鶏肉")), Custom String("/")), Append To Array(String Split(
+			Custom String("角切り鶏肉/ネギ/薄切りしたネギ/刻んだ切りネギ/天ぷら粉/コチュジャン/醤油/水飴/コチュジャンソース/{0}", Custom String(
+			"醤油ソース/醤油ネギソース/ヤンニョムソース/焼いた鶏肉/鶏肉＋天ぷら粉/薄切り鶏肉＋天ぷら粉")), Custom String("/")), Append To Array(String Split(Custom String(
+			"角切り鶏肉＋天ぷら粉/から揚げ/フライドチキン/ヤンニョムチキン/コチュジャンチキン/醤油チキン/{0}", Custom String(
 			"ヤンニョムから揚げ/鶏の丸揚げ/炒めたネギ/揚げたネギ/ゆで鶏肉/焼いたネギ/天かす/醤油ネギチキン/ヤンニョム＋から揚げ")), Custom String("/")), Append To Array(String Split(
 			Custom String("潰したトマト/割れた卵/卵/ゆで卵/殻剥きゆで卵/潰したゆで卵/殻剥き卵/キムチチャーハン/卵チャーハン/{0}", Custom String(
 			"プルコギサムパプ/混ぜ卵/目玉焼き/スクランブルエッグ/茶碗蒸し/米/ピザ用チーズ/小麦粉/小麦粉生地/小さい小麦粉生地")), Custom String("/")), Append To Array(String Split(
-			Custom String("伸ばした小麦粉生地/餃子の皮/ピザ生地/小麦・トルティーヤ/ペパロニ/ベーコン/焼いたベーコン/スライスしたベーコン/{0}", Custom String(
+			Custom String("伸ばした小麦粉生地/餃子の皮/ピザ生地/小麦・トルティーヤ/ペパロニ/ベーコン/焼いたベーコン/薄切りしたベーコン/{0}", Custom String(
 			"生地＋ソース/チーズピザ/ピザベース/ピザ＋ペパロニ/ピザ＋ベーコン/ピザ＋ジャガイモ/ピザ＋ベーコン＋ジャガイモ")), Custom String("/")), Append To Array(String Split(Custom String(
-			"ペパロニピザ/ベーコンピザ/ポテトピザ/ベーコンポテトピザ/卵焼き/焼いたペパロニ/焼いたスライスベーコン/{0}", Custom String(
-			"ゆで牛肉/パン粉/千切り卵焼き/キムチ/スライスキムチ/刻んだキムチ/炒めたキムチ/卵とキムチの炒飯/豆腐")), Custom String("/")), Append To Array(String Split(Custom String(
-			"スライス豆腐/焼き豆腐/豆腐の炒め物/潰した豆腐/プルコギ丼/キムチプルコギ丼/刻んだ牛肉/スライス牛肉＋醤油/{0}", Custom String(
-			"プルコギ/春雨/スライスした春雨/ポーク/スライスポーク/刻んだポーク/焼いたポーク/揚げたポーク/ボイルドポーク/炒めたポーク/スライスボイルドポーク")), Custom String("/")), Append To Array(String Split(
+			"ペパロニピザ/ベーコンピザ/ポテトピザ/ベーコンポテトピザ/卵焼き/焼いたペパロニ/焼いた薄切りベーコン/{0}", Custom String(
+			"ゆで牛肉/パン粉/千切り卵焼き/キムチ/薄切りキムチ/刻んだキムチ/炒めたキムチ/卵とキムチの炒飯/豆腐")), Custom String("/")), Append To Array(String Split(Custom String(
+			"薄切り豆腐/焼き豆腐/豆腐の炒め物/潰した豆腐/プルコギ丼/キムチプルコギ丼/牛ひき肉/薄切り牛肉＋醤油/{0}", Custom String(
+			"プルコギ/春雨/薄切りした春雨/ポーク/薄切りポーク/ポークミンチ/焼いたポーク/揚げたポーク/ボイルドポーク/炒めたポーク/薄切りボイルドポーク")), Custom String("/")), Append To Array(String Split(
 			Custom String("ネギ＋キムチ/ネギ＋豆腐/ネギ＋春雨/ネギ＋ポーク/キムチ＋春雨/キムチ＋ポーク/豆腐＋春雨/豆腐＋ポーク/春雨＋ポーク/{0}", Custom String(
 			"ネギ＋キムチ＋春雨/ネギ＋キムチ＋ポーク/ネギ＋豆腐＋春雨/ネギ＋豆腐＋ポーク/ネギ＋春雨＋ポーク/キムチ＋春雨＋ポーク")), Custom String("/")), Append To Array(String Split(
 			Custom String("豆腐＋春雨＋ポーク/ネギ＋キムチ＋春雨＋ポーク/ネギ＋豆腐＋春雨＋ポーク/生野菜餃子/生キムチ餃子/生肉餃子/{0}", Custom String(
 			"焼き野菜餃子/焼きキムチ餃子/焼き肉餃子/蒸し野菜餃子/蒸しキムチ餃子/蒸し肉餃子/ご飯/炒飯/とんかつ")), Custom String("/")), Append To Array(String Split(Custom String(
-			"スライスとんかつ/魚/捌いた魚/魚のミンチ/蒸し魚/蒸しかまぼこ/焼き魚/揚げ魚/捌いた魚＋醤油/{0}", Custom String(
+			"薄切りとんかつ/魚/捌いた魚/魚のミンチ/蒸し魚/蒸しかまぼこ/焼き魚/揚げ魚/捌いた魚＋醤油/{0}", Custom String(
 			"煮付け/照り焼き/小盛りご飯/握り寿司/握り寿司2貫/おにぎり/醤油おにぎり/蒸し魚丼/とんかつ+ご飯")), Custom String("/")), Append To Array(String Split(Custom String(
-			"カツ丼/スライスしたゆで鶏肉/ゆで鶏肉＋ご飯/スクランブルエッグ丼/親子丼/白身魚のフライ/スライスだポーク＋天ぷら粉/{0}", Custom String(
+			"カツ丼/薄切りしたゆで鶏肉/ゆで鶏肉＋ご飯/スクランブルエッグ丼/親子丼/白身魚のフライ/薄切りだポーク＋天ぷら粉/{0}", Custom String(
 			"魚のミンチ＋天ぷら粉/揚げかまぼこ/捌いた魚＋天ぷら粉/から揚げ+ご飯/唐揚げ丼/小さなすいとん生地")), Custom String("/")), Append To Array(String Split(Custom String(
 			"すいとん生地/小麦粉の塊/伸ばした小麦粉生地/うどん麺(1|4)/うどん麺(2|4)/うどん麺(3|4)/うどん麺/薄い小麦粉の塊/{0}", Custom String(
 			"伸ばした小麦粉の紐/ラーメン麺(1|4)/ラーメン麺(2|4)/ラーメン麺(3|4)/ラーメン麺/出汁/キムチ出汁/煮出汁")), Custom String("/")), Append To Array(String Split(
 			Custom String("煮たキムチ出汁/ジャージャーソース/すいとん/鳴門巻きすいとん/うどん/鳴門巻きうどん/ラーメン/鳴門巻きラーメン/{0}", Custom String(
-			"ジャージャーメン/スライス豆腐＋キムチ/豆腐炒め＋キムチ/ゆでうどん麺/ゆでラーメン麺/ゆですいとん生地")), Custom String("/")), Append To Array(String Split(Custom String(
-			"お餅/お雑煮/すいぎょうざ/餃子+お雑煮/卵生地/{0}", Custom String("肉の生地/ミートボール/キッチンナイフ/鳴門巻き/スライス鳴門巻き")), Custom String("/")),
+			"ジャージャー麺/薄切り豆腐＋キムチ/豆腐炒め＋キムチ/ゆでうどん麺/ゆでラーメン麺/ゆですいとん生地")), Custom String("/")), Append To Array(String Split(Custom String(
+			"お雑煮用の餅/お雑煮/水餃子/餃子お雑煮/卵生地/{0}", Custom String("肉の生地/ミートボール/キッチンナイフ/鳴門巻き/薄切り鳴門巻き")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"玉ねぎ/スライス玉ねぎ/刻ん切り玉ねぎ/焼いた玉ねぎ/炒めた玉ねぎ/エビ/焼いたエビ/蒸し{0}",
+			"玉ねぎ/薄切り玉ねぎ/刻んだ玉ねぎ/焼いた玉ねぎ/炒めた玉ねぎ/エビ/焼いたエビ/蒸し{0}",
 			 Custom String("エビ/伸ばしたコーン生地/コーン・トルティーヤ/ポークタコス(小麦)/ポークタコス(コーン)")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"牛肉タコス(小麦)/牛肉タコス(コーン)/焼きエビタコス(小麦)/焼きエビタコス(コーン{0}", 
@@ -2099,15 +2099,15 @@ rule("Global subroutine: Data init")
 			"チョコチョコパンケーキ+スクランブルエッグ/イチゴパンケーキ/イチゴパンケーキ+ベーコン/イチゴパンケーキ+スクランブルエッグ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"エナジードリンク/怪しいドリンク/ヘッドシェフの包丁/ジャンプブーツ/調味料パック/掃除機/ダッシュブーツ/{0}", Custom String(
-			"まな板帰還スペル/料理複製スペル/ガストーチ/ドーナツ/チョコドーナツ/ラム肉/スライスラム肉/刻んだラム肉")), Custom String("/")),
+			"まな板帰還スペル/料理複製スペル/ガストーチ/ドーナツ/チョコドーナツ/ラム肉/薄切りラム肉/ラムひき肉")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"焼いたラム肉/焼いたスライスラム肉/ステーキソース/マッシュルーム/スライスマッシュルーム/焼きマッシュルーム/{0}", Custom String(
-			"白菜/スライス白菜/ステーキ＋ソース/豚肉＋ステーキソース/スペアリブ/熟成ポークバラ/玉ねぎ＋マッシュルーム")), Custom String("/")),
+			"焼いたラム肉/焼いた薄切りラム肉/ステーキソース/マッシュルーム/薄切りマッシュルーム/焼きマッシュルーム/{0}", Custom String(
+			"白菜/薄切り白菜/ステーキ＋ソース/豚肉＋ステーキソース/スペアリブ/熟成ポークバラ/玉ねぎ＋マッシュルーム")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"玉ねぎ＋白菜/マッシュルーム＋白菜/玉ねぎ＋マッシュルーム＋白菜/野菜出汁/しゃぶしゃぶ/中華火鍋/貝/炒めた貝/{0}", Custom String(
-			"パイナップル/スライスパイナップル/ピザ＋パイナップル/パイナップルピザ/パン＋チキン")), Custom String("/")),
+			"パイナップル/薄切りパイナップル/ピザ＋パイナップル/パイナップルピザ/パン＋チキン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"チキンバーガー/スライス牛肉＋ヤンニョムソース/ヤンニョムプルコギ/焼きおにぎり/ライスヌードル/ゆでライスヌードル/{0}", Custom String(
+			"チキンバーガー/薄切り牛肉＋ヤンニョムソース/ヤンニョムプルコギ/焼きおにぎり/ライスヌードル/ゆでライスヌードル/{0}", Custom String(
 			"炒めた鶏肉/チキン＋玉ねぎ/ラム肉＋玉ねぎ/チョコミントパフェ/チョコミントシェイク/ミントシロップ/もち米")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"ホットク生地/ホットク/ライスヌードルスープ/チキンタコス(小麦)/ラムタコス(小麦)/ヴォンゴレパスタ/クリームチキン/{0}", Custom String(
@@ -2120,7 +2120,7 @@ rule("Global subroutine: Data init")
 			"チリソース/プルダックソース/プルダック/バッファローウィング/プルコギピザ/ピザ＋プルコギ/ピザ＋エビ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"エビピザ/肉餃子+出汁/小籠包/パン＋ベーコン/パン＋パティ＋ベーコン/パン＋ベーコン＋チーズ/{0}", Custom String(
-			"パン＋パティ＋ベーコン＋チーズ/ベーコンチーズバーガー/スライスポーク＋ヤンニョムソース")), Custom String("/")),
+			"パン＋パティ＋ベーコン＋チーズ/ベーコンチーズバーガー/薄切りポーク＋ヤンニョムソース")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"ジェユクポックム/ジェユク丼/ジェユク丼＋卵/エビ+天ぷら粉/海苔/海苔＋天ぷら粉/揚げた海苔/{0}", Custom String(
 			"揚げたエビ/揚げたエビ＋海苔/天丼/軍艦巻き/フィッシュ・アンド・チップス/プルダックソース＋麺")), Custom String("/")),
@@ -3580,26 +3580,26 @@ rule("Global subroutine: Set Hint Text")
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
 				Custom String("冷蔵庫にある材料で料理して提供してください！\r\n牛肉をフライパンまたはグリルで焼き、左側の#テーブル番号の客に届けてください。"),
-				Custom String("材料はまな板で切るか刻んで別の料理が作れます。\r\nスライスした牛肉をフライパンまたはグリルで焼いてください。"),
+				Custom String("材料はまな板で切るか刻んだで別の料理が作れます。\r\n薄切りした牛肉をフライパンまたはグリルで焼いてください。"),
 				Custom String("材料の下ごしらえとさまざまな調理器具の活用で多彩な料理が作れます。\r\nじゃがいもを丸ごと焼くとベイクドポテトになり…"),
-				Custom String("じゃがいもをスライスしてフライパンに入れると炒めポテトになり…"),
-				Custom String("スライスしたじゃがいもをフライヤーに入れるとフレンチフライになります。\r\n感覚はつかめましたか？"),
+				Custom String("じゃがいもを薄切りしてフライパンに入れると炒めポテトになり…"),
+				Custom String("薄切りしたじゃがいもをフライヤーに入れるとフレンチフライになります。\r\n感覚はつかめましたか？"),
 				Custom String("ある食材は強く叩くと変化します。\r\nじゃがいもを鍋で蒸して、慣性を利用して蒸しじゃがいもを床に投げてみてください。"),
 				Custom String("また、一部の食材は組み合わせられます。\r\n茹でたパスタとクリームソースを合わせてみてください。"),
-				Custom String("トマトはスライスして鍋で蒸せばトマトソースが作れますが…\r\n切る代わりに叩くと、より素早く潰したトマトが作れます。"),
+				Custom String("トマトは薄切りして鍋で蒸せばトマトソースが作れますが…\r\n切る代わりに叩くと、より素早く潰したトマトが作れます。"),
 				Custom String("お客様にはそれぞれ異なる特性があります。\r\n大食いの場合、得点は多く得られますが、料理を2回提供する必要があります。"),
 				Custom String("さまざまなレシピの組み合わせをマスターしてクリアに挑戦してください。\r\n幸運を祈ります！")
 			);
 		Else If(Global.stage == 1);
 			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
 			Global.hintText = Array(
-				Custom String("スライスした鶏肉 + 天ぷら粉 > フライヤー"),
+				Custom String("薄切りした鶏肉 + 天ぷら粉 > フライヤー"),
 				Custom String("鶏肉 + 天ぷら粉 > フライヤー"),
-				Custom String("刻んだ鶏肉 + 天ぷら粉 > フライヤー"),
+				Custom String("角切り鶏肉 + 天ぷら粉 > フライヤー"),
 				Custom String("すべての調味料はフライドチキンに追加できます。\r\n醤油 + 水飴"),
 				Custom String("コチュジャン + 水飴"),
 				Custom String("コチュジャン + 醤油 + 水飴"),
-				Custom String("スライスしたネギ + 醤油ソース"),
+				Custom String("薄切りしたネギ + 醤油ソース"),
 				Custom String("から揚げ + ヤンニョムソース > フライパンで炒める")
 			);
 		Else If(Global.stage == 2);
