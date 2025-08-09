@@ -1283,10 +1283,10 @@ rule("Player: Secondary fire button")
 			Play Effect(All Players(All Teams), Reinhardt Fire Strike Target Impact Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 100);
             If(Event Player.controlingIndex != -1);
                 If(Global.itemStatus[Event Player.controlingIndex] == 3);
-					Global.itemProgress[Event Player.controlingIndex] += 1;
+					Global.itemProgress[Event Player.controlingIndex] += Global.superDrink == 6 ? 10 : 1;
 				Else;
 					Global.itemStatus[Event Player.controlingIndex] = 3;
-					Global.itemProgress[Event Player.controlingIndex] = 1;
+					Global.itemProgress[Event Player.controlingIndex] += Global.superDrink == 6 ? 10 : 1;
 				End;
 				If(Global.itemProgress[Event Player.controlingIndex] >= Global.GRILLING_NEEDED[Global.itemCode[Event Player.controlingIndex]]);
 					Global.itemCode[Event Player.controlingIndex] = Global.GRILLING_RESULT[Global.itemCode[Event Player.controlingIndex]];
