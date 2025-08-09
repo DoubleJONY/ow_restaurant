@@ -109,7 +109,7 @@ variables
 		105: itemNormal
 		106: loadNext
 		107: isVictory
-		108: isPracticeOpen
+		108: superDrink
 		109: HAZARD_MENU_LIST
 		110: currentMenuHaz
 		111: loadingMenuHaz
@@ -180,6 +180,7 @@ variables
 		47: svbTableIndex
 		48: svbPathIndex
 		49: tipsProb
+		50: normalDrink
 }
 
 subroutines
@@ -467,7 +468,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250726\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v250809\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -527,7 +528,7 @@ rule("Global: Setting")
 		Global.hintText = Array(Custom String(""));
 		Create Effect(All Players(Team 1), Sphere, Global.isOpen ? Color(Red) : Color(Lime Green), Vector(227.287, 2.050, 167.679), 0.250,
 			Visible To and Color);
-		Create In-World Text(Players Within Radius(Vector(227.287, 2.050, 167.679), 5, Team 1, Off), Custom String("営業開始"), Vector(227.287, 2.050, 167.679), 2, Do Not Clip, Visible To and Color,
+		Create In-World Text(Players Within Radius(Vector(227.287, 2.050, 167.679), 5, Team 1, Off), Custom String("〔{0}〕: 営業開始", Input Binding String(Button(Interact))), Vector(227.287, 2.050, 167.679), 2, Do Not Clip, Visible To Position String and Color,
 			Global.isOpen ? Color(Red) : Color(Green), Default Visibility);
 		If(Global.difficulty == 4);
 			Set Objective Description(All Players(All Teams), Custom String("練習モード"), Visible To and String);
@@ -539,7 +540,6 @@ rule("Global: Setting")
 			: Global.STAGE_NAME[Global.totalScore[0]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[0] = Global.STAGE_CODE[Global.stage];
-			Global.isPracticeOpen = False;
 			Global.isOpen = False;
 			Global.currentCustomer = Global.CUSTOMER_LIST[Global.stage];
 			Global.currentMenu = Empty Array;
@@ -561,6 +561,9 @@ rule("Global: Setting")
 			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.STAGE_CODE[Global.stage]];
 			Global.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
+				-70)) * 0.100, 357, 100, Null);
+			Call Subroutine(createItem);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 				-70)) * 0.100, Array(354, 357, 357, 360, 64)[Global.stageMode], 100, Null);
@@ -577,7 +580,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250726\r\n\r\n一部のテキスト効果が改善されました。", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} v250809\r\n\r\n一部アイテムの効果が変更されました。\r\n移動速度やテキスト表示に関する不具合を修正しました。", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -644,6 +647,10 @@ rule("Player: Spawn")
 	{
 		If(Count Of(All Players(Team 1)) > 0);
 			Set Slow Motion(100);
+			For Player Variable(Event Player, perkIndex, False, 6, True);
+                Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Event Player.perkIndex]))
+				? All Players(Team 1)[Event Player.perkIndex].playerSpeed * 0.916 : All Players(Team 1)[Event Player.perkIndex].playerSpeed);
+            End;
 		End;
 		Disallow Button(Event Player, Button(Primary Fire));
 		Disallow Button(Event Player, Button(Secondary Fire));
@@ -925,7 +932,7 @@ rule("Player: Interact")
 						Event Player.scbCutted += 1;
 					End;
 					Wait Until(!Is Button Held(Event Player, Button(Interact)),
-						Event Player.cuttingIndex == 1 && Event Player.knifeCode == 2 ? 0.300 : 0.500);
+						Event Player.normalDrink ? 0.250 : Event Player.knifeCode == 2 ? 0.400 : 0.500);
 					If(!Is Button Held(Event Player, Button(Interact)));
 						Break;
 					End;
@@ -980,7 +987,8 @@ rule("Player: Interact")
 							Call Subroutine(createItem);
 						End;
 					End;
-					Set Move Speed(Event Player, Event Player.playerSpeed);
+					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 					All Players(Team 2).customerStatus = 1;
 					Play Effect(All Players(All Teams), Buff Impact Sound, Null, Vector(217.370, 2, 172.520), 100);
 					Play Effect(All Players(All Teams), Good Pickup Effect, Global.upgradeColor[Event Player.selectedUpgrade], Vector(217.370, 2,
@@ -1033,16 +1041,14 @@ rule("Player: Interact")
 				Wait(0.75, Ignore Condition);
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty == 4);
-				If(Global.isPracticeOpen);
+				If(Global.isOpen);
 					Global.isOpen = False;
-					Global.isPracticeOpen = False;
 					Small Message(All Players(All Teams), Custom String("  一時開業終了! "));
 					Destroy HUD Text(Global.globalText[True]);
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
 					Global.isOpen = True;
-					Global.isPracticeOpen = True;
 					Small Message(All Players(All Teams), Custom String("  一時オープン！ いよいよ本番です！ "));
 					Create HUD Text(All Players(All Teams), Custom String("　　　　　注文書　　　　　"), Null, Custom String(
 						"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -1319,34 +1325,23 @@ rule("Player: Ultimate button")
 	actions
 	{
         If(Event Player.itemPerk == 0);
-            Small Message(Event Player, Custom String("  100秒間、移動速度アップ!  "));
+            Small Message(Event Player, Custom String("  100秒間、速度アップ!  "));
             Destroy HUD Text(Event Player.itemPerkText);
             Event Player.itemPerk = -1;
             Set Move Speed(Event Player, 150);
             Play Effect(All Players(All Teams), Good Explosion, Color(Green), Eye Position(Event Player), 2);
             Play Effect(Event Player, Ana Biotic Grenade Increased Healing Sound, Null, Eye Position(Event Player), 100);
+            Event Player.normalDrink = True;
             Wait(100, Ignore Condition);
-            Set Move Speed(Event Player, Event Player.playerSpeed);
+            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
+			Event Player.normalDrink = False;
         Else If(Event Player.itemPerk == 1);
-            Big Message(All Players(All Teams), Custom String("  時空が歪む! "));
-            Destroy HUD Text(Event Player.itemPerkText);
-            Event Player.itemPerk = -1;
-            Set Move Speed(All Players(Team 1), 150);
-            Set Move Speed(Event Player, 200);
-            Event Player.durability = Event Player.durability * 100;
-            Play Effect(All Players(All Teams), Good Explosion, Color(Violet), Eye Position(Event Player), 2);
-            Play Effect(All Players(All Teams), Ana Biotic Grenade Increased Healing Sound, Color(Green), Eye Position(Event Player), 2);
-            Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), Event Player, 1, Visible To Position and Radius);
-            Event Player.playerEffectStatus = Last Created Entity;
-            Wait(0.800, Ignore Condition);
-            Set Slow Motion(50);
-            Wait(20, Ignore Condition);
-            Destroy Effect(Event Player.playerEffectStatus);
-            Set Slow Motion(100);
-            For Player Variable(Event Player, perkIndex, False, 6, True);
-                Set Move Speed(All Players(Team 1)[Event Player.perkIndex], All Players(Team 1)[Event Player.perkIndex].playerSpeed);
-            End;
-            Event Player.durability = Event Player.durability / 100;
+			Destroy HUD Text(Event Player.itemPerkText);
+			Event Player.itemPerk = -1;
+			Play Effect(All Players(All Teams), Good Explosion, Color(Violet), Eye Position(Event Player), 2);
+			Play Effect(All Players(All Teams), Ana Biotic Grenade Increased Healing Sound, Color(Green), Eye Position(Event Player), 2);
+            Global.superDrink = -1;
         Else If(Event Player.itemPerk == 3);
             If(Event Player.controlingIndex != -1);
                 Play Effect(All Players(All Teams), Good Explosion, Color(Yellow), Global.itemPosition[Event Player.controlingIndex], 2);
@@ -1392,6 +1387,10 @@ rule("Player: Ultimate button")
 			Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Event Player, 2);
 			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
 				Array(420, 424, 421, 422, 423, 425, 426, 427, 428, 429, 430, 431)[Random Value In Array(Global.STAGE_CODE[Global.stage])], Global.itemDurability[Event Player.controlingIndex], Global.itemCooker[Event Player.controlingIndex]);
+			Call Subroutine(createItem);
+			Wait(0.100, Ignore Condition);
+			Call Subroutine(createItem);
+			Wait(0.100, Ignore Condition);
 			Call Subroutine(createItem);
 			Global.itemStatus[Global.creatingItemIndex] = Global.itemStatus[Event Player.controlingIndex];
 			Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
@@ -2056,7 +2055,7 @@ rule("Global subroutine: Data init")
 			"パン＋パティ＋レタス/パン＋チーズ＋トマト/パン＋チーズ＋レタス/パン＋トマト＋レタス/パン＋パティ＋チーズ＋トマト/{0}", Custom String(
 			"パン＋パティ＋チーズ＋レタス/パン＋パティ＋トマト＋レタス/パン＋チーズ＋トマト＋レタス")), Custom String("/")), Append To Array(String Split(Custom String(
 			"パン＋パティ＋チーズ＋トマト＋レタス/ミートバーガー/チーズミートバーガー/ベジバーガー/チーズベジバーガー/{0}", Custom String(
-			"デラックスバーガー/チーズデラックスバーガー/安物のナイフ/補助ナイフ/携帯ナイフ/鋭いナイフ/ゲンジの脇差/鶏肉/薄切り鶏肉")), Custom String("/")), Append To Array(String Split(
+			"デラックスバーガー/チーズデラックスバーガー/安物のナイフ/炭化鋼ナイフ/携帯ナイフ/鋭いナイフ/ゲンジの脇差/鶏肉/薄切り鶏肉")), Custom String("/")), Append To Array(String Split(
 			Custom String("角切り鶏肉/ネギ/薄切りしたネギ/刻んだ切りネギ/天ぷら粉/コチュジャン/醤油/水飴/コチュジャンソース/{0}", Custom String(
 			"醤油ソース/醤油ネギソース/ヤンニョムソース/焼いた鶏肉/鶏肉＋天ぷら粉/薄切り鶏肉＋天ぷら粉")), Custom String("/")), Append To Array(String Split(Custom String(
 			"角切り鶏肉＋天ぷら粉/から揚げ/フライドチキン/ヤンニョムチキン/コチュジャンチキン/醤油チキン/{0}", Custom String(
@@ -2268,7 +2267,7 @@ rule("Global subroutine: Data init2")
 		);
 		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム{0}",
 				Custom String("/パンケーキ/肉屋食堂")), Custom String("/"));
-		Global.upgradePrice = Array(Array(100, 250, 1000), Array(100, 50, 25), Array(100, 100, 100, 100), Array(100, 100, 100));
+		Global.upgradePrice = Array(Array(100, 250, 750), Array(100, 50, 50), Array(100, 100, 100, 100), Array(100, 100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1, 2), Array(3, 4, 5, 6), Array(7, 8, 9));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
         Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361, 433, 434);
@@ -2522,7 +2521,7 @@ rule("Global subroutine: Start stage")
 		Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 		If(Global.visibleScore < 100);
 			Global.failCount += True;
-			Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!") : Custom String("{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})",
+			Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!", Global.tx) : Custom String("{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})",
 				Global.tx, Global.failCount, Global.failEnd));
 			Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
 			Global.scbRank[3] += 1;
@@ -2544,7 +2543,7 @@ rule("Global subroutine: Start stage")
 				Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 				If(Global.visibleScore < 100);
 					Global.failCount += True;
-					Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!") : Custom String("{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})",
+					Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!", Global.tx) : Custom String("{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})",
 						Global.tx, Global.failCount, Global.failEnd));
 					Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
 					Global.scbRank[3] += 1;
@@ -3255,10 +3254,11 @@ rule("Player: Ability 1")
 	actions
 	{
         If(Event Player.itemPerk == 5);
+			Apply Impulse(Event Player, Up, 5, To World, Cancel Contrary Motion);
             Apply Impulse(Event Player, Forward, 15, To Player, Cancel Contrary Motion);
             Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Event Player, 1);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 20);
-            Event Player.itemPerkDurability -= 3;
+            Event Player.itemPerkDurability -= 2;
             Call Subroutine(destroyPerk);
         Else If(Event Player.itemPerk == 6);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
@@ -3267,7 +3267,7 @@ rule("Player: Ability 1")
             Set Facing(Event Player, Direction Towards(Vector(231.369, 2.5, 166.183), Vector(233.665, 2.100, 163.795)), To World);
             Wait(0.016, Ignore Condition);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
-            Event Player.itemPerkDurability -= 5;
+            Event Player.itemPerkDurability -= 3;
             Call Subroutine(destroyPerk);
         End;
 	}
@@ -3433,6 +3433,8 @@ rule("Global subroutine: Load Progress")
 				End;
 				If(Event Player.durability == Null || Event Player.durability == False);
 					Event Player.durability = 100;
+				Else If(Event Player.durability > 100);
+					Event Player.durability = Event Player.durability / 100;
 				End;
 				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
@@ -3456,6 +3458,50 @@ rule("Global subroutine: Load Progress")
 				Event Player.itemPerk, 
 				Event Player.itemPerkDurability
 			));
+	}
+}
+
+rule("Global routine: Super Drink!")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.superDrink == -1;
+	}
+
+	actions
+	{
+		Big Message(All Players(All Teams), Custom String("  ザ・ワールド!  "));
+		Set Move Speed(All Players(Team 1), 200);
+		For Global Variable(superDrink, False, 6, True);
+			Set Status(All Players(Team 1)[Global.superDrink], Null, Burning, 20);
+			All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability * 100;
+			Wait(0.016, Ignore Condition);
+		End;
+		Global.panPower += 10;
+		Global.fryingPower += 10;
+		Global.grillingPower += 10;
+		Global.potPower += 10;
+		Wait(0.800, Ignore Condition);
+		Set Slow Motion(50);
+		Wait(20, Ignore Condition);
+		Set Slow Motion(100);
+		For Global Variable(superDrink, False, 6, True);
+			Clear Status(All Players(Team 1)[Global.superDrink], Burning);
+			Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+				? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
+			All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 100;
+			Wait(0.016, Ignore Condition);
+		End;
+		Global.panPower -= 10;
+		Global.fryingPower -= 10;
+		Global.grillingPower -= 10;
+		Global.potPower -= 10;
+		Global.superDrink = 0;
 	}
 }
 

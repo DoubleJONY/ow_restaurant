@@ -109,7 +109,7 @@ variables
 		105: itemNormal
 		106: loadNext
 		107: isVictory
-		108: isPracticeOpen
+		108: superDrink
 		109: HAZARD_MENU_LIST
 		110: currentMenuHaz
 		111: loadingMenuHaz
@@ -521,7 +521,6 @@ rule("Global: Setting")
 			: Global.STAGE_NAME[Global.totalScore[0]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[0] = Global.STAGE_CODE[Global.stage];
-			Global.isPracticeOpen = False;
 			Global.isOpen = False;
 			Global.currentCustomer = Global.CUSTOMER_LIST[Global.stage];
 			Global.currentMenu = Empty Array;
@@ -1004,16 +1003,14 @@ rule("Player: Interact")
 				Wait(0.75, Ignore Condition);
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty == 4);
-				If(Global.isPracticeOpen);
+				If(Global.isOpen);
 					Global.isOpen = False;
-					Global.isPracticeOpen = False;
 					Small Message(All Players(All Teams), Custom String("  임시 개장 종료! "));
 					Destroy HUD Text(Global.globalText[True]);
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
 					Global.isOpen = True;
-					Global.isPracticeOpen = True;
 					Small Message(All Players(All Teams), Custom String("  임시 개장! 이제 실전입니다! "));
 					Create HUD Text(All Players(All Teams), Custom String("　　　　　주문서　　　　　"), Null, Custom String("\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 						Left, False, Color(Yellow), Null, Null, Visible To and Color, Default Visibility);
@@ -2241,7 +2238,7 @@ rule("Global subroutine: Start stage")
 		Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 		If(Global.visibleScore < 100);
 			Global.failCount += True;
-			Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>보너스 영업 실패!") : Custom String("{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})",
+			Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>보너스 영업 실패!", Global.tx) : Custom String("{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})",
 				Global.tx, Global.failCount, Global.failEnd));
 			Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
 			Global.scbRank[3] += 1;
@@ -2263,7 +2260,7 @@ rule("Global subroutine: Start stage")
 				Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 				If(Global.visibleScore < 100);
 					Global.failCount += True;
-					Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>보너스 영업 실패!") : Custom String("{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})",
+					Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>보너스 영업 실패!", Global.tx) : Custom String("{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})",
 				Global.tx, Global.failCount, Global.failEnd));
 					Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
 					Global.scbRank[3] += 1;
