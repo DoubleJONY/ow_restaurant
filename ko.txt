@@ -468,7 +468,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v250824\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"레스토랑(SPXXM) v250828\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -580,7 +580,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Orange), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250824\r\n\r\n일부 아이템 관련 버그가 수정되었습니다.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} v250828\r\n\r\n일부 아이템 관련 버그가 수정되었습니다.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -3150,7 +3150,7 @@ rule("Global subroutine: Perk Hud")
 		Abort If(Event Player.itemPerk == -1);
 		Create HUD Text(Event Player, 
 			Array(
-				Ability Icon String(Hero(Roadhog), Button(Secondary Fire)),
+				Ability Icon String(Hero(Roadhog), Button(Ability 2)),
 				Ability Icon String(Hero(Ana), Button(Ultimate)),
 				Ability Icon String(Hero(Baptiste), Button(Crouch)),
 				Ability Icon String(Hero(Ashe), Button(Ability 2)),
