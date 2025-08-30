@@ -468,7 +468,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v250828\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v250831\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -580,7 +580,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Orange), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250828\r\n\r\nBug Fixes.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} v250831\r\n\r\nBug Fixes.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 }
@@ -1428,9 +1428,9 @@ rule("Player: Authorize Controller")
 	actions
 	{
 		Small Message(Event Player, Custom String("  To substitute the smash action with a button, please slowly push the controller stick forward! "));
-		Wait Until(Z Component Of(Throttle Of(Event Player)) < 0.800 && 
+		Wait Until(Z Component Of(Throttle Of(Event Player)) < 0.730 && 
 			Z Component Of(Throttle Of(Event Player)) > 0.200, 3);
-		If(Z Component Of(Throttle Of(Event Player)) < 0.800 && Z Component Of(Throttle Of(Event Player)) > 0.200);
+		If(Z Component Of(Throttle Of(Event Player)) < 0.730 && Z Component Of(Throttle Of(Event Player)) > 0.200);
 			Event Player.isController = True;
 			Small Message(Event Player, Custom String("  Now you can smash the ingredients using the [{0}] key! ", Input Binding String(Button(Melee))));
 			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("Smash Material"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, True, Color(Gray), Color(Gray), Color(White),
