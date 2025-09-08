@@ -416,7 +416,7 @@ rule("Global: Setting")
 			3, 157.286), 3, Do Not Clip, Visible To, Color(Orange), Default Visibility);
 		Create Effect(Players Within Radius(Vector(222.641, 2, 155.415), 4, All Teams, Off), Smoke Sound, Null, Vector(222.641, 2,
 			155.415), 200, Visible To);
-		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("フライパン"), Vector(224.926,
+		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("フライバンズ"), Vector(224.926,
 			2.750, 158.167), 3, Do Not Clip, Visible To, Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(233.778, 2, 167.685), 10, Team 1, Off), Custom String("流し台"), Vector(233.778,
 			3, 167.685), 3, Do Not Clip, Visible To, Color(Aqua), Default Visibility);
@@ -468,7 +468,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250831\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v250908\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -476,7 +476,7 @@ rule("Global: Setting")
 			Global.permissionText[0][Local Player.permission], Global.stageMode != 4 ? Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0]) : Custom String("")), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 製作中のスペシャルナイフ:{1}つ", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[0] + Global.orderedKnives[1]), Custom String(
 			"{0} 鍋:{1}% / フライヤー:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
-			"{0} フライパン:{1}% / グリル:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
+			"{0} フライバンズ:{1}% / グリル:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
 			Custom String("{0} 移動速度:{1}% / 時間:{2}秒", Hero Icon String(Hero(Juno)), Local Player.playerSpeed, Global.stageTime)), Right, -1,
 			Custom Color(46, 190, 54, 255), Color(Orange), Color(White), Visible To and String, Default Visibility);
 		Wait Until(Is True For Any(All Players(Team 1), Has Spawned(Current Array Element)), 99999);
@@ -580,7 +580,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250831\r\n\r\n不具合を修正しました。", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} v250908\r\n\r\n一部のローカライズ名称を修正いたしました。\r\n練習モードでも役職が適用されるように修正いたしました。", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -1586,7 +1586,7 @@ rule("Dummy: Spawn")
 			Skip(3);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("フライヤー"), Custom String("鍋"), Custom String("グリル"), Custom String("フライパン"))
+				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("フライヤー"), Custom String("鍋"), Custom String("グリル"), Custom String("フライバンズ"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[2][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(1);
@@ -2046,20 +2046,20 @@ rule("Global subroutine: Data init")
 			False, 255), Custom Color(255, 255, 190, 255), Custom Color(False, 125, False, 255), Color(Orange), Custom Color(246, 86, 86,
 			255), Custom Color(250, 150, 70, 255), Color(Sky Blue), Custom Color(255, 192, 243, 255), Custom Color(255, 108, 141, 255), Custom Color(255, 239, 104, 255), Color(Violet), Color(Rose), Color(Gray), Custom Color(96, 255, 181, 255), Color(Purple))[Index Of Array Value(String Split(Custom String(
 			"D/R/M/Y/W/L/G/H/T/S/C/F/V/O/A/P/B/N/Q/X/Z/U/E/J/K"), Custom String("/")), Current Array Element)]);
-		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/薄切り牛肉/ステーキ/チョップステーキ/ジャガイモ/薄切りジャガイモ/フライドポテト/焼きジャガイモ/{0}",
+		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/薄切り牛肉/ステーキ/サイコロステーキ/ジャガイモ/薄切りジャガイモ/フライドポテト/焼きジャガイモ/{0}",
 			Custom String("蒸しジャガイモ/マッシュポテト/炒めジャガイモ/パスタ/ゆでパスタ/トマト/薄切りトマト/焼きトマト")), Custom String("/")), Append To Array(String Split(
-			Custom String("トマトソース/クリームソース/チーズ/薄切りチーズ/とろけたチーズ/ロゼソース/チーズポテト/トマトパスタ/{0}", Custom String(
-			"クリームパスタ/ロゼパスタ/ロゼチーズパスタ/クリームチーズパスタ/クリームチーズソース/ロゼチーズソース")), Custom String("/")), Append To Array(String Split(Custom String(
-			"生パティ/焼いたパティ/レタス/薄切りレタス/焼いたレタス/炒めたレタス/ハンバーガーバン/下バンズ/{0}", Custom String(
-			"上バンズ/パン＋パティ/パン＋チーズ/パン＋トマト/パン＋レタス/パン＋パティ＋チーズ/パン＋パティ＋トマト")), Custom String("/")), Append To Array(String Split(Custom String(
-			"パン＋パティ＋レタス/パン＋チーズ＋トマト/パン＋チーズ＋レタス/パン＋トマト＋レタス/パン＋パティ＋チーズ＋トマト/{0}", Custom String(
-			"パン＋パティ＋チーズ＋レタス/パン＋パティ＋トマト＋レタス/パン＋チーズ＋トマト＋レタス")), Custom String("/")), Append To Array(String Split(Custom String(
-			"パン＋パティ＋チーズ＋トマト＋レタス/ミートバーガー/チーズミートバーガー/ベジバーガー/チーズベジバーガー/{0}", Custom String(
+			Custom String("トマトソース/クリームソース/チーズ/薄切りチーズ/とろけたチーズ/トマトクリームソース/チーズポテト/トマトパスタ/{0}", Custom String(
+			"クリームパスタ/トマトクリームパスタ/トマトクリームチーズパスタ/クリームチーズパスタ/クリームチーズソース/トマトクリームチーズソース")), Custom String("/")), Append To Array(String Split(Custom String(
+			"生パティ/焼いたパティ/レタス/薄切りレタス/焼いたレタス/炒めたレタス/ハンバーガーバンズ/下バンズ/{0}", Custom String(
+			"上バンズ/バンズ＋パティ/バンズ＋チーズ/バンズ＋トマト/バンズ＋レタス/バンズ＋パティ＋チーズ/バンズ＋パティ＋トマト")), Custom String("/")), Append To Array(String Split(Custom String(
+			"バンズ＋パティ＋レタス/バンズ＋チーズ＋トマト/バンズ＋チーズ＋レタス/バンズ＋トマト＋レタス/バンズ＋パティ＋チーズ＋トマト/{0}", Custom String(
+			"バンズ＋パティ＋チーズ＋レタス/バンズ＋パティ＋トマト＋レタス/バンズ＋チーズ＋トマト＋レタス")), Custom String("/")), Append To Array(String Split(Custom String(
+			"バンズ＋パティ＋チーズ＋トマト＋レタス/ミートバーガー/チーズミートバーガー/ベジバーガー/チーズベジバーガー/{0}", Custom String(
 			"デラックスバーガー/チーズデラックスバーガー/安物のナイフ/炭化鋼ナイフ/携帯ナイフ/鋭いナイフ/ゲンジの脇差/鶏肉/薄切り鶏肉")), Custom String("/")), Append To Array(String Split(
 			Custom String("角切り鶏肉/ネギ/薄切りしたネギ/刻んだ切りネギ/天ぷら粉/コチュジャン/醤油/水飴/コチュジャンソース/{0}", Custom String(
 			"醤油ソース/醤油ネギソース/ヤンニョムソース/焼いた鶏肉/鶏肉＋天ぷら粉/薄切り鶏肉＋天ぷら粉")), Custom String("/")), Append To Array(String Split(Custom String(
 			"角切り鶏肉＋天ぷら粉/から揚げ/フライドチキン/ヤンニョムチキン/コチュジャンチキン/醤油チキン/{0}", Custom String(
-			"ヤンニョムから揚げ/鶏の丸揚げ/炒めたネギ/揚げたネギ/ゆで鶏肉/焼いたネギ/天かす/醤油ネギチキン/ヤンニョム＋から揚げ")), Custom String("/")), Append To Array(String Split(
+			"ヤンニョムから揚げ/鶏の丸揚げ/炒めたネギ/揚げたネギ/ゆで鶏肉/焼いたネギ/天かす/醤油ネギチキン/生ヤンニョム＋から揚げ")), Custom String("/")), Append To Array(String Split(
 			Custom String("潰したトマト/割れた卵/卵/ゆで卵/殻剥きゆで卵/潰したゆで卵/殻剥き卵/キムチチャーハン/卵チャーハン/{0}", Custom String(
 			"プルコギサムパプ/混ぜ卵/目玉焼き/スクランブルエッグ/茶碗蒸し/米/ピザ用チーズ/小麦粉/小麦粉生地/小さい小麦粉生地")), Custom String("/")), Append To Array(String Split(
 			Custom String("伸ばした小麦粉生地/餃子の皮/ピザ生地/小麦・トルティーヤ/ペパロニ/ベーコン/焼いたベーコン/薄切りしたベーコン/{0}", Custom String(
@@ -2098,13 +2098,13 @@ rule("Global subroutine: Data init")
 			"オレンジパフェ+イチゴ/バナナパフェ+チョコ+オレンジ/バナナパフェ+チョコ+イチゴ/オレンジパフェ+チョコ+イチゴ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"バナナパフェ+オレンジ+イチゴ/ミルクシェイク/イチゴバナナシェイク/イチゴシェイク/オレンジシェイク/バナナシェイク/{0}", Custom String(
-			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵パン/チョコパン/パンケーキ")), Custom String("/")),
+			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵バンズ/チョコバンズ/バンズケーキ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"パンケーキ+ベーコン/パンケーキ+スクランブルエッグ/チョコシロップパンケーキ/チョコシロップパンケーキ+ベーコン/{0}", Custom String(
-			"チョコシロップパンケーキ+スクランブルエッグ/チョコパンケーキ/チョコパンケーキ+ベーコン")), Custom String("/")),
+			"バンズケーキ+ベーコン/バンズケーキ+スクランブルエッグ/チョコシロップバンズケーキ/チョコシロップバンズケーキ+ベーコン/{0}", Custom String(
+			"チョコシロップバンズケーキ+スクランブルエッグ/チョコバンズケーキ/チョコバンズケーキ+ベーコン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"チョコパンケーキ+スクランブルエッグ/チョコチョコパンケーキ/チョコチョコパンケーキ+ベーコン/{0}", Custom String(
-			"チョコチョコパンケーキ+スクランブルエッグ/イチゴパンケーキ/イチゴパンケーキ+ベーコン/イチゴパンケーキ+スクランブルエッグ")), Custom String("/")),
+			"チョコバンズケーキ+スクランブルエッグ/チョコチョコバンズケーキ/チョコチョコバンズケーキ+ベーコン/{0}", Custom String(
+			"チョコチョコバンズケーキ+スクランブルエッグ/イチゴバンズケーキ/イチゴバンズケーキ+ベーコン/イチゴバンズケーキ+スクランブルエッグ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"エナジードリンク/怪しいドリンク/ヘッドシェフの包丁/ジャンプブーツ/調味料パック/掃除機/ダッシュブーツ/{0}", Custom String(
 			"まな板帰還スペル/料理複製スペル/ガストーチ/ドーナツ/チョコドーナツ/ラム肉/薄切りラム肉/ラムひき肉")), Custom String("/")),
@@ -2113,7 +2113,7 @@ rule("Global subroutine: Data init")
 			"白菜/薄切り白菜/ステーキ＋ソース/豚肉＋ステーキソース/スペアリブ/熟成ポークバラ/玉ねぎ＋マッシュルーム")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"玉ねぎ＋白菜/マッシュルーム＋白菜/玉ねぎ＋マッシュルーム＋白菜/野菜出汁/しゃぶしゃぶ/中華火鍋/貝/炒めた貝/{0}", Custom String(
-			"パイナップル/薄切りパイナップル/ピザ＋パイナップル/パイナップルピザ/パン＋チキン")), Custom String("/")),
+			"パイナップル/薄切りパイナップル/ピザ＋パイナップル/パイナップルピザ/バンズ＋チキン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"チキンバーガー/薄切り牛肉＋ヤンニョムソース/ヤンニョムプルコギ/焼きおにぎり/ライスヌードル/ゆでライスヌードル/{0}", Custom String(
 			"炒めた鶏肉/チキン＋玉ねぎ/ラム肉＋玉ねぎ/チョコミントパフェ/チョコミントシェイク/ミントシロップ/もち米")), Custom String("/")),
@@ -2122,13 +2122,13 @@ rule("Global subroutine: Data init")
 			"イチゴ飴がけ串/ネギ＋豆腐＋春雨＋エビ/生エビ餃子/蒸しエビ餃子/焼きエビ餃子/ボッサム/ワイン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"とろけたチーズパック/フライドチキンパック/ピザベースパック/餃子パック/パティパック/プルコギパック/{0}", Custom String(
-			"丼物パック/麺パック/タコベースパック/溶かしたチョコパック/パンセット/ミートパック/$100")), Custom String("/")),
+			"丼物パック/麺パック/タコベースパック/溶かしたチョコパック/バンズセット/ミートパック/$100")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"保存食ボックス/サービングボール/明太子/明太子クリームソース/明太子パスタ/ステーキスパゲッティ/{0}", Custom String(
 			"チリソース/プルダックソース/プルダック/バッファローウィング/プルコギピザ/ピザ＋プルコギ/ピザ＋エビ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"エビピザ/肉餃子+出汁/小籠包/パン＋ベーコン/パン＋パティ＋ベーコン/パン＋ベーコン＋チーズ/{0}", Custom String(
-			"パン＋パティ＋ベーコン＋チーズ/ベーコンチーズバーガー/薄切りポーク＋ヤンニョムソース")), Custom String("/")),
+			"エビピザ/肉餃子+出汁/小籠包/バンズ＋ベーコン/バンズ＋パティ＋ベーコン/バンズ＋ベーコン＋チーズ/{0}", Custom String(
+			"バンズ＋パティ＋ベーコン＋チーズ/ベーコンチーズバーガー/薄切りポーク＋ヤンニョムソース")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"ジェユクポックム/ジェユク丼/ジェユク丼＋卵/エビ+天ぷら粉/海苔/海苔＋天ぷら粉/揚げた海苔/{0}", Custom String(
 			"揚げたエビ/揚げたエビ＋海苔/天丼/軍艦巻き/フィッシュ・アンド・チップス/プルダックソース＋麺")), Custom String("/")),
@@ -2160,8 +2160,8 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"0/0/0/8/0/7/8/9/0/0/0/0/0/0/9/7/7/0/7/9/9/0/0/8/8"
 			))))))))))), Custom String("/")), Index Of Array Value(String Split(Custom String("0/1/2/3/4/5/6/7/8/9"), Custom String("/")), Current Array Element) * 5);
-		Global.CUTTING_NEEDED = Array(99, 5, 5, 99, 99, 5, 99, 99, 99, 3, 99, 99, 99, 99, 5, 99, 99, 99, 99, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 99, 99, 1, 9, 9, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 1, 1, 5, 99, 7, 99, 7, 99, 99, 99, 99, 99, 99, 99, 99, 1, 3, 3, 99, 3, 99, 99, 2, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 99, 99, 5, 7, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 3, 99, 99, 99, 99, 3, 3, 5, 3, 5, 99, 99, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 4, 99, 4, 99, 99, 3, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 8, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99);
-		Global.CUTTING_RESULT = Array(FALSE, 2, 154, FALSE, FALSE, 6, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 15, FALSE, FALSE, FALSE, FALSE, 20, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 34, FALSE, FALSE, FALSE, Array(38, 39), 140, 140, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 67, 68, FALSE, 70, 71, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 102, 103, FALSE, 108, FALSE, 112, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(116, 116), 227, Array(229, 229), FALSE, Array(235, 235), FALSE, FALSE, 124, 138, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 143, 144, FALSE, FALSE, FALSE, 148, 151, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 158, FALSE, 160, 161, FALSE, FALSE, FALSE, 166, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(208, 208), FALSE, 197, FALSE, Array(199, 199), 200, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(231, 231), FALSE, FALSE, FALSE, FALSE, FALSE, Array(237, 237), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 267, FALSE, 269, 270, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 293, 294, FALSE, FALSE, FALSE, FALSE, 301, 302, 306, 304, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 365, 366, FALSE, 368, FALSE, FALSE, 371, FALSE, FALSE, 374, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 389, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(21, 21), Array(85, 85), Array(127, 127), Array(186, 187), Array(32, 32), Array(156, 156), Array(215, 226), Array(255, 256), Array(286, 287), Array(303, 303), Array(335, 336), Array(1, 159), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+		Global.CUTTING_NEEDED = Array(99, 5, 5, 3, 99, 5, 99, 99, 99, 3, 99, 99, 99, 99, 5, 99, 99, 99, 99, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 99, 99, 1, 9, 9, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 1, 1, 5, 99, 7, 99, 7, 99, 99, 99, 99, 99, 99, 99, 99, 1, 3, 3, 99, 3, 99, 99, 2, 2, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 5, 99, 99, 99, 5, 7, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 99, 5, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 3, 3, 99, 99, 99, 99, 3, 3, 5, 3, 5, 99, 99, 5, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 5, 4, 99, 4, 99, 99, 3, 99, 99, 3, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 8, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99);
+		Global.CUTTING_RESULT = Array(FALSE, 2, 154, 4, FALSE, 6, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 15, FALSE, FALSE, FALSE, FALSE, 20, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 34, FALSE, FALSE, FALSE, Array(38, 39), 140, 140, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 67, 68, FALSE, 70, 71, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 102, 103, FALSE, 108, FALSE, 112, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(116, 116), 227, Array(229, 229), FALSE, Array(235, 235), FALSE, FALSE, 124, 138, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 143, 144, FALSE, FALSE, FALSE, 148, 151, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 158, FALSE, 160, 161, FALSE, FALSE, FALSE, 166, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(208, 208), FALSE, 197, FALSE, Array(199, 199), 200, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(231, 231), FALSE, FALSE, FALSE, FALSE, FALSE, Array(237, 237), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 267, FALSE, 269, 270, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 293, 294, FALSE, FALSE, FALSE, FALSE, 301, 302, 306, 304, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 365, 366, FALSE, 368, FALSE, FALSE, 371, FALSE, FALSE, 374, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 389, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(21, 21), Array(85, 85), Array(127, 127), Array(186, 187), Array(32, 32), Array(156, 156), Array(215, 226), Array(255, 256), Array(286, 287), Array(303, 303), Array(335, 336), Array(1, 159), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
 		Global.GRILLING_NEEDED = Array(99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 5, 2, 3, 3, 5, 5, 5, 5, 5, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 5, 4, 3, 6, 5, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 3, 5, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
 		Global.GRILLING_RESULT = Array(FALSE, 3, 4, FALSE, FALSE, 8, 11, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 16, FALSE, FALSE, FALSE, FALSE, 21, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 32, FALSE, 35, 36, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 80, 399, FALSE, 94, 91, 91, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 21, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 137, 123, FALSE, 138, FALSE, FALSE, 126, 132, 133, 134, 135, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 145, FALSE, FALSE, FALSE, 149, 150, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 162, 165, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 203, 203, FALSE, FALSE, FALSE, FALSE, FALSE, 207, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 396, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 271, FALSE, FALSE, FALSE, FALSE, 274, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, 303, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 367, 368, FALSE, FALSE, FALSE, FALSE, 372, 372, FALSE, FALSE, FALSE, FALSE, 377, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 391, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 443, 446, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
 		Global.FRYING_NEEDED = Array(99, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2, 2, 5, 5, 5, 2, 5, 5, 5, 5, 5, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 7, 5, 4, 5, 5, 5, 4, 3, 3, 3, 3, 3, 3, 3, 5, 7, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
@@ -2266,16 +2266,16 @@ rule("Global subroutine: Data init2")
 			Array(203, 274)
 		);
 		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム{0}",
-				Custom String("/パンケーキ/肉屋食堂")), Custom String("/"));
+				Custom String("/バンズケーキ/肉屋食堂")), Custom String("/"));
 		Global.upgradePrice = Array(Array(100, 250, 750), Array(100, 50, 50), Array(100, 100, 100, 100), Array(100, 100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1, 2), Array(3, 4, 5, 6), Array(7, 8, 9));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
         Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361, 433, 434);
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
-		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
+		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライバンズ強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
 		Global.UPGRADE_NAME = String Split(
-			Custom String("保存用バット購入/ランダムアイテム購入/保存食ボックス購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/{0}",
+			Custom String("保存用バット購入/ランダムアイテム購入/保存食ボックス購入/プライヤー強化/鍋強化/グリル強化/フライバンズ強化/{0}",
 						Custom String("個人のスピードアップ/チームの営業タイムアップ/コイン交換")),
 						Custom String("/"));
 	}
@@ -2382,42 +2382,42 @@ rule("Global subroutine: Data init3")
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 1"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 1)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 2"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 2)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 3"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 3)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 4"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 4)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 5"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 5)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 6"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 6)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 7"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 7)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 8"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("パンケーキ"), Custom String("肉屋食堂")
+					Custom String("バンズケーキ"), Custom String("肉屋食堂")
 				), 8))
 			)
 		)[Global.stageMode];
@@ -3133,18 +3133,17 @@ rule("Host Player: Set Permission")
 
 	actions
 	{
-		If(Global.difficulty == 4);
-			All Players(Team 1).permission = 0;
+		If(Global.selectPlayer != Null);
+			Global.selectPlayer.permission = (Global.selectPlayer.permission + True) % 3;
+			Small Message(All Players(All Teams), Custom String("  {0}{1} - {2} 役職変更!  ", Hero Icon String(Hero Of(Global.selectPlayer)),
+				Global.selectPlayer, Global.permissionText[0][Global.selectPlayer.permission]));
+		Else If(Global.difficulty == 4);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 				-70)) * 0.100, Random Value In Array(Global.KNIFE), 100, Null);
 			Call Subroutine(createItem);
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 				-70)) * 0.100, Random Value In Array(Global.PERK_LIST), 100, Null);
 			Call Subroutine(createItem);
-		Else If(Global.difficulty != 4 && Global.selectPlayer != Null);
-			Global.selectPlayer.permission = (Global.selectPlayer.permission + True) % 3;
-			Small Message(All Players(All Teams), Custom String("  {0}{1} - {2} 役職変更!  ", Hero Icon String(Hero Of(Global.selectPlayer)),
-				Global.selectPlayer, Global.permissionText[0][Global.selectPlayer.permission]));
 		End;
 		Global.cuttingPlayer[0] = Null;
 		Global.cuttingPlayer[1] = Null;
@@ -3633,10 +3632,10 @@ rule("Global subroutine: Set Hint Text")
 			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
-				Custom String("冷蔵庫にある材料で料理して提供してください！\r\n牛肉をフライパンまたはグリルで焼き、左側の#テーブル番号の客に届けてください。"),
-				Custom String("材料はまな板で切るか刻んだで別の料理が作れます。\r\n薄切りした牛肉をフライパンまたはグリルで焼いてください。"),
+				Custom String("冷蔵庫にある材料で料理して提供してください！\r\n牛肉をフライバンズまたはグリルで焼き、左側の#テーブル番号の客に届けてください。"),
+				Custom String("材料はまな板で切るか刻んだで別の料理が作れます。\r\n薄切りした牛肉をフライバンズまたはグリルで焼いてください。"),
 				Custom String("材料の下ごしらえとさまざまな調理器具の活用で多彩な料理が作れます。\r\nじゃがいもを丸ごと焼くとベイクドポテトになり…"),
-				Custom String("じゃがいもを薄切りしてフライパンに入れると炒めポテトになり…"),
+				Custom String("じゃがいもを薄切りしてフライバンズに入れると炒めポテトになり…"),
 				Custom String("薄切りしたじゃがいもをフライヤーに入れるとフレンチフライになります。\r\n感覚はつかめましたか？"),
 				Custom String("ある食材は強く叩くと変化します。\r\nじゃがいもを鍋で蒸して、慣性を利用して蒸しじゃがいもを床に投げてみてください。"),
 				Custom String("また、一部の食材は組み合わせられます。\r\n茹でたパスタとクリームソースを合わせてみてください。"),
@@ -3654,7 +3653,7 @@ rule("Global subroutine: Set Hint Text")
 				Custom String("コチュジャン + 水飴"),
 				Custom String("コチュジャン + 醤油 + 水飴"),
 				Custom String("薄切りしたネギ + 醤油ソース"),
-				Custom String("から揚げ + ヤンニョムソース > フライパンで炒める")
+				Custom String("から揚げ + ヤンニョムソース > フライバンズで炒める")
 			);
 		Else If(Global.stage == 2);
 			Global.loadingMenu = Array(126, 7);
