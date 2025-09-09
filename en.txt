@@ -2133,7 +2133,7 @@ rule("Global subroutine: Data init")
 			"Chocolate Pancake/Chocolate Pancake+Bacon/Chocolate Pancake+Scrambled Eggs/Double Chocolate Pancake/Double Chocolate Pancake+Bacon/{0}", Custom String(
 			"Double Chocolate Pancake+Scrambled Eggs/Strawberry Pancake/Strawberry Pancake+Bacon/Strawberry Pancake+Scrambled Eggs")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"Energy Drink/Suspicious Drinks/Headchef's Knife/Jump Boots/Seasoning Packets/Vacuum/Dash Boots/Teleport Spell/{0}", Custom String(
+			"Energy Drink/Suspicious Drinks/Head Chef's Knife/Jump Boots/Seasoning Packets/Vacuum/Dash Boots/Teleport Spell/{0}", Custom String(
 			"Food Dupe Spell/Gas Torch/Donut/Choco Donut/Lamb/Sliced Lamb")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"Minced Lamb/Lamb Roast/Grilled Sliced Lamb/Steak Sauce/Mushroom/Sliced Mushroom/Grilled Mushroom/{0}", Custom String(
