@@ -2077,7 +2077,7 @@ rule("Global subroutine: Data init")
 			"カツ丼/薄切りしたゆで鶏肉/ゆで鶏肉＋ご飯/スクランブルエッグ丼/親子丼/白身魚のフライ/薄切りだポーク＋天ぷら粉/{0}", Custom String(
 			"魚のミンチ＋天ぷら粉/揚げかまぼこ/捌いた魚＋天ぷら粉/から揚げ+ご飯/唐揚げ丼/小さなすいとん生地")), Custom String("/")), Append To Array(String Split(Custom String(
 			"すいとん生地/小麦粉の塊/伸ばした小麦粉生地/うどん麺(1|4)/うどん麺(2|4)/うどん麺(3|4)/うどん麺/薄い小麦粉の塊/{0}", Custom String(
-			"伸ばした小麦粉の紐/ラーメン麺(1|4)/ラーメン麺(2|4)/ラーメン麺(3|4)/ラーメン麺/出汁/キムチ出汁/煮出汁")), Custom String("/")), Append To Array(String Split(
+			"伸ばした小麦粉の紐/ラーメン麺(1|4)/ラーメン麺(2|4)/ラーメン麺(3|4)/ラーメン麺/出汁/キムチ出汁/煮出し")), Custom String("/")), Append To Array(String Split(
 			Custom String("煮たキムチ出汁/ジャージャーソース/すいとん/鳴門巻きすいとん/うどん/鳴門巻きうどん/ラーメン/鳴門巻きラーメン/{0}", Custom String(
 			"ジャージャー麺/薄切り豆腐＋キムチ/豆腐炒め＋キムチ/ゆでうどん麺/ゆでラーメン麺/ゆですいとん生地")), Custom String("/")), Append To Array(String Split(Custom String(
 			"お雑煮用の餅/お雑煮/水餃子/餃子お雑煮/卵生地/{0}", Custom String("肉の生地/ミートボール/キッチンナイフ/鳴門巻き/薄切り鳴門巻き")), Custom String("/")),
@@ -2088,7 +2088,7 @@ rule("Global subroutine: Data init")
 			"牛肉タコス(小麦)/牛肉タコス(コーン)/焼きエビタコス(小麦)/焼きエビタコス(コーン{0}", 
 			Custom String(")/蒸しエビタコス(小麦)/蒸しエビタコス(コーン)")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"ポーク+玉ねぎ/牛肉+玉ねぎ/炭火焼きエビ+玉ねぎ/蒸しエビ+玉ねぎ/コーン生地/{0}", 
+			"ポーク+玉ねぎ/牛肉+玉ねぎ/焼きエビ+玉ねぎ/蒸しエビ+玉ねぎ/コーン生地/{0}", 
 			Custom String("揚げた小麦粉トルティーヤ/揚げたコーントルティーヤ/ナチョス(小麦)/ナチョス(コーン)")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"ミルク/アイスクリーム/バナナ/チョコ/イチゴ/オレンジ/むきバナナ/刻んだチョコ/溶かしたチョコ/むきオレンジ/マッシュ{0}", Custom String(
@@ -2119,7 +2119,7 @@ rule("Global subroutine: Data init")
 			"炒めた鶏肉/チキン＋玉ねぎ/ラム肉＋玉ねぎ/チョコミントパフェ/チョコミントシェイク/ミントシロップ/もち米")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"ホットク生地/ホットク/ライスヌードルスープ/チキンタコス(小麦)/ラムタコス(小麦)/ヴォンゴレパスタ/クリームチキン/{0}", Custom String(
-			"イチゴ飴がけ串/ネギ＋豆腐＋春雨＋エビ/生エビ餃子/蒸しエビ餃子/焼きエビ餃子/ボッサム/ワイン")), Custom String("/")),
+			"イチゴ飴がけ串/ネギ＋豆腐＋春雨＋エビ/生エビ餃子/蒸しエビ餃子/焼きエビ餃子/ポッサム/ワイン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"とろけたチーズパック/フライドチキンパック/ピザベースパック/餃子パック/パティパック/プルコギパック/{0}", Custom String(
 			"丼物パック/麺パック/タコベースパック/溶かしたチョコパック/パンセット/ミートパック/$100")), Custom String("/")),
