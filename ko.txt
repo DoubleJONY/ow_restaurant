@@ -2053,8 +2053,8 @@ rule("Global subroutine: Data init")
 			String Split(Custom String("밀가루 소면/육수/김치 육수/끓인 육수/끓인 김치 육수/자장 소스/수제비/김치수제비/칼국수/김치칼국수/잔치국수/김치잔치국수/{0}", Custom String(
 			"자장면/썬 두부+김치/두부 볶음+김치/삶은 밀가루 중면/삶은 밀가루 소면/삶은 수제비 반죽/떡국용 떡/떡국/만둣국/떡만둣국/계란 반죽/고기 반죽/동그랑땡/고급 부엌칼")), Custom String("/")),
 			Append To Array(String Split(Custom String("회오리어묵/썬 회오리어묵/양파/썬 양파/다진 양파/구운 양파/볶은 양파/새우/구운 새우/찐 새우/핀 옥수수 반죽/옥수수 토르{0}",
-			Custom String("티야/돼지고기 타코(밀)/돼지고기 타코(옥수수)/소고기 타코(밀)/소고기 타코(옥수수)/구운 감바스 타코(밀)/구운 감바스 타코(옥수수)/찐 감바스 타코(밀)")), Custom String(
-			"/")), Append To Array(String Split(Custom String("찐 감바스 타코(옥수수)/돼지고기+양파/소고기+양파/구운 새우+양파/찐 {0}", 
+			Custom String("티야/돼지고기 타코(밀)/돼지고기 타코(옥수수)/소고기 타코(밀)/소고기 타코(옥수수)/구운 새우 타코(밀)/구운 새우 타코(옥수수)/찐 새우 타코(밀)")), Custom String(
+			"/")), Append To Array(String Split(Custom String("찐 새우 타코(옥수수)/돼지고기+양파/소고기+양파/구운 새우+양파/찐 {0}", 
 			Custom String("새우+양파/옥수수 반죽/튀긴 밀 토르티야/튀긴 옥수수 토르티야/나초(밀)/나초(옥수수)")),
 			Custom String("/")),
 			Append To Array(String Split(Custom String(
