@@ -2098,13 +2098,13 @@ rule("Global subroutine: Data init")
 			"オレンジパフェ+イチゴ/バナナパフェ+チョコ+オレンジ/バナナパフェ+チョコ+イチゴ/オレンジパフェ+チョコ+イチゴ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"バナナパフェ+オレンジ+イチゴ/ミルクシェイク/イチゴバナナシェイク/イチゴシェイク/オレンジシェイク/バナナシェイク/{0}", Custom String(
-			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵バンズ/チョコバンズ/バンズケーキ")), Custom String("/")),
+			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵バンズ/チョコバンズ/ホットケーキ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"バンズケーキ+ベーコン/バンズケーキ+スクランブルエッグ/チョコシロップバンズケーキ/チョコシロップバンズケーキ+ベーコン/{0}", Custom String(
-			"チョコシロップバンズケーキ+スクランブルエッグ/チョコバンズケーキ/チョコバンズケーキ+ベーコン")), Custom String("/")),
+			"ホットケーキ+ベーコン/ホットケーキ+スクランブルエッグ/チョコシロップホットケーキ/チョコシロップホットケーキ+ベーコン/{0}", Custom String(
+			"チョコシロップホットケーキ+スクランブルエッグ/チョコホットケーキ/チョコホットケーキ+ベーコン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"チョコバンズケーキ+スクランブルエッグ/チョコチョコバンズケーキ/チョコチョコバンズケーキ+ベーコン/{0}", Custom String(
-			"チョコチョコバンズケーキ+スクランブルエッグ/イチゴバンズケーキ/イチゴバンズケーキ+ベーコン/イチゴバンズケーキ+スクランブルエッグ")), Custom String("/")),
+			"チョコホットケーキ+スクランブルエッグ/チョコチョコホットケーキ/チョコチョコホットケーキ+ベーコン/{0}", Custom String(
+			"チョコチョコホットケーキ+スクランブルエッグ/イチゴホットケーキ/イチゴホットケーキ+ベーコン/イチゴホットケーキ+スクランブルエッグ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"エナジードリンク/怪しいドリンク/ヘッドシェフの包丁/ジャンプブーツ/調味料パック/掃除機/ダッシュブーツ/{0}", Custom String(
 			"まな板帰還スペル/料理複製スペル/ガストーチ/ドーナツ/チョコドーナツ/ラム肉/薄切りラム肉/ラムひき肉")), Custom String("/")),
@@ -2266,7 +2266,7 @@ rule("Global subroutine: Data init2")
 			Array(203, 274)
 		);
 		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム{0}",
-				Custom String("/バンズケーキ/肉屋食堂")), Custom String("/"));
+				Custom String("/ホットケーキ/肉屋食堂")), Custom String("/"));
 		Global.upgradePrice = Array(Array(100, 250, 750), Array(100, 50, 50), Array(100, 100, 100, 100), Array(100, 100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1, 2), Array(3, 4, 5, 6), Array(7, 8, 9));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
@@ -2382,42 +2382,42 @@ rule("Global subroutine: Data init3")
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 1"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 1)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 2"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 2)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 3"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 3)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 4"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 4)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 5"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 5)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 6"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 6)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 7"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 7)),
 				Array(Workshop Setting Combo(Custom String("設定 - カスタムコース"), Custom String("Stage 8"), 0, Array(
 					Custom String("ステーキ&パスタ"), Custom String("バーガー"), Custom String("フライドチキン"), Custom String("ピザ"), Custom String("餃子"),
 					Custom String("韓国風ご飯料理"), Custom String("寿司&丼物"), Custom String("麺"), Custom String("タコス"), Custom String("アイスクリーム"),
-					Custom String("バンズケーキ"), Custom String("肉屋食堂")
+					Custom String("ホットケーキ"), Custom String("肉屋食堂")
 				), 8))
 			)
 		)[Global.stageMode];
