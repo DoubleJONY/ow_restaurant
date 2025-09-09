@@ -2074,7 +2074,7 @@ rule("Global subroutine: Data init")
 			"焼き野菜餃子/焼きキムチ餃子/焼き肉餃子/蒸し野菜餃子/蒸しキムチ餃子/蒸し肉餃子/ご飯/炒飯/とんかつ")), Custom String("/")), Append To Array(String Split(Custom String(
 			"薄切りとんかつ/魚/捌いた魚/魚のミンチ/蒸し魚/蒸しかまぼこ/焼き魚/揚げ魚/捌いた魚＋醤油/{0}", Custom String(
 			"煮付け/照り焼き/小盛りご飯/握り寿司/握り寿司2貫/おにぎり/醤油おにぎり/蒸し魚丼/とんかつ+ご飯")), Custom String("/")), Append To Array(String Split(Custom String(
-			"カツ丼/薄切りしたゆで鶏肉/ゆで鶏肉＋ご飯/スクランブルエッグ丼/親子丼/白身魚のフライ/薄切りだポーク＋天ぷら粉/{0}", Custom String(
+			"カツ丼/薄切りしたゆで鶏肉/ゆで鶏肉＋ご飯/スクランブルエッグ丼/親子丼/白身魚のフライ/薄切りポーク＋天ぷら粉/{0}", Custom String(
 			"魚のミンチ＋天ぷら粉/揚げかまぼこ/捌いた魚＋天ぷら粉/から揚げ+ご飯/唐揚げ丼/小さなすいとん生地")), Custom String("/")), Append To Array(String Split(Custom String(
 			"すいとん生地/小麦粉の塊/伸ばした小麦粉生地/うどん麺(1|4)/うどん麺(2|4)/うどん麺(3|4)/うどん麺/薄い小麦粉の塊/{0}", Custom String(
 			"伸ばした小麦粉の紐/ラーメン麺(1|4)/ラーメン麺(2|4)/ラーメン麺(3|4)/ラーメン麺/出汁/キムチ出汁/煮出し")), Custom String("/")), Append To Array(String Split(
