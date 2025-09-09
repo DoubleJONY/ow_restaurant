@@ -2152,7 +2152,7 @@ rule("Global subroutine: Data init")
 			"Pizza Base Pack/Dumpling Pack/Patty Pack/Bulgogi Pack/Rice Bowl Pack/Noodle Pack")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"Taco Base Pack/Melted Chocolate Pack/Bread Set/Meat Pack/$100/Food Box/ServingBall/{0}", Custom String(
-			"Spicy Cod Roe/Spicy Cod Roe Cream Sauce/Mentaiko Pasta/Steak Pasta/Chili Sauce/Fire Chicken Sauce")), Custom String("/")),
+			"Spicy Cod Roe Sauce/Spicy Cod Roe Cream Sauce/Mentaiko Pasta/Steak Pasta/Chili Sauce/Fire Chicken Sauce")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"Fire Chicken/Buffalo Wings/Bulgogi Pizza/PB+Bulgogi/PB+Shrimp/Shrimp Pizza/{0}", Custom String(
 			"Raw Meat Dumpling+Soup/Xiaolongbao/B+Ba/B+P+Ba/B+Ba+C/B+P+Ba+C/Bacon Cheeseburger")), Custom String("/")),
