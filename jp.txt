@@ -2056,7 +2056,7 @@ rule("Global subroutine: Data init")
 			"バンズ＋パティ＋チーズ＋レタス/バンズ＋パティ＋トマト＋レタス/バンズ＋チーズ＋トマト＋レタス")), Custom String("/")), Append To Array(String Split(Custom String(
 			"バンズ＋パティ＋チーズ＋トマト＋レタス/ミートバーガー/チーズミートバーガー/ベジバーガー/チーズベジバーガー/{0}", Custom String(
 			"デラックスバーガー/チーズデラックスバーガー/安物のナイフ/炭化鋼ナイフ/携帯ナイフ/鋭いナイフ/ゲンジの脇差/鶏肉/薄切り鶏肉")), Custom String("/")), Append To Array(String Split(
-			Custom String("角切り鶏肉/ネギ/薄切りしたネギ/刻んだ切りネギ/天ぷら粉/コチュジャン/醤油/水飴/コチュジャンソース/{0}", Custom String(
+			Custom String("角切り鶏肉/ネギ/薄切りネギ/刻みネギ/天ぷら粉/コチュジャン/醤油/水飴/コチュジャンソース/{0}", Custom String(
 			"醤油ソース/醤油ネギソース/ヤンニョムソース/焼いた鶏肉/鶏肉＋天ぷら粉/薄切り鶏肉＋天ぷら粉")), Custom String("/")), Append To Array(String Split(Custom String(
 			"角切り鶏肉＋天ぷら粉/から揚げ/フライドチキン/ヤンニョムチキン/コチュジャンチキン/醤油チキン/{0}", Custom String(
 			"ヤンニョムから揚げ/鶏の丸揚げ/炒めたネギ/揚げたネギ/ゆで鶏肉/焼いたネギ/天かす/醤油ネギチキン/生ヤンニョム＋から揚げ")), Custom String("/")), Append To Array(String Split(
@@ -3652,7 +3652,7 @@ rule("Global subroutine: Set Hint Text")
 				Custom String("すべての調味料はフライドチキンに追加できます。\r\n醤油 + 水飴"),
 				Custom String("コチュジャン + 水飴"),
 				Custom String("コチュジャン + 醤油 + 水飴"),
-				Custom String("薄切りしたネギ + 醤油ソース"),
+				Custom String("薄切りネギ + 醤油ソース"),
 				Custom String("から揚げ + ヤンニョムソース > フライパンで炒める")
 			);
 		Else If(Global.stage == 2);
