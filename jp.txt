@@ -416,7 +416,7 @@ rule("Global: Setting")
 			3, 157.286), 3, Do Not Clip, Visible To, Color(Orange), Default Visibility);
 		Create Effect(Players Within Radius(Vector(222.641, 2, 155.415), 4, All Teams, Off), Smoke Sound, Null, Vector(222.641, 2,
 			155.415), 200, Visible To);
-		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("フライバンズ"), Vector(224.926,
+		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("フライパン"), Vector(224.926,
 			2.750, 158.167), 3, Do Not Clip, Visible To, Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(233.778, 2, 167.685), 10, Team 1, Off), Custom String("流し台"), Vector(233.778,
 			3, 167.685), 3, Do Not Clip, Visible To, Color(Aqua), Default Visibility);
@@ -476,7 +476,7 @@ rule("Global: Setting")
 			Global.permissionText[0][Local Player.permission], Global.stageMode != 4 ? Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0]) : Custom String("")), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 製作中のスペシャルナイフ:{1}つ", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[0] + Global.orderedKnives[1]), Custom String(
 			"{0} 鍋:{1}% / フライヤー:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
-			"{0} フライバンズ:{1}% / グリル:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
+			"{0} フライパン:{1}% / グリル:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
 			Custom String("{0} 移動速度:{1}% / 時間:{2}秒", Hero Icon String(Hero(Juno)), Local Player.playerSpeed, Global.stageTime)), Right, -1,
 			Custom Color(46, 190, 54, 255), Color(Orange), Color(White), Visible To and String, Default Visibility);
 		Wait Until(Is True For Any(All Players(Team 1), Has Spawned(Current Array Element)), 99999);
@@ -1586,7 +1586,7 @@ rule("Dummy: Spawn")
 			Skip(3);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("フライヤー"), Custom String("鍋"), Custom String("グリル"), Custom String("フライバンズ"))
+				"〔{0}〕:  {1} 強化 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("フライヤー"), Custom String("鍋"), Custom String("グリル"), Custom String("フライパン"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[2][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(1);
@@ -2098,7 +2098,7 @@ rule("Global subroutine: Data init")
 			"オレンジパフェ+イチゴ/バナナパフェ+チョコ+オレンジ/バナナパフェ+チョコ+イチゴ/オレンジパフェ+チョコ+イチゴ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"バナナパフェ+オレンジ+イチゴ/ミルクシェイク/イチゴバナナシェイク/イチゴシェイク/オレンジシェイク/バナナシェイク/{0}", Custom String(
-			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵バンズ/チョコバンズ/ホットケーキ")), Custom String("/")),
+			"チョコシェイク/チョコバナナ/デラックスパフェ/メープルシロップ/チョコシロップ/チョコ生地/卵パン/チョコパン/ホットケーキ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"ホットケーキ+ベーコン/ホットケーキ+スクランブルエッグ/チョコシロップホットケーキ/チョコシロップホットケーキ+ベーコン/{0}", Custom String(
 			"チョコシロップホットケーキ+スクランブルエッグ/チョコホットケーキ/チョコホットケーキ+ベーコン")), Custom String("/")),
@@ -2122,9 +2122,9 @@ rule("Global subroutine: Data init")
 			"イチゴ飴がけ串/ネギ＋豆腐＋春雨＋エビ/生エビ餃子/蒸しエビ餃子/焼きエビ餃子/ボッサム/ワイン")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"とろけたチーズパック/フライドチキンパック/ピザベースパック/餃子パック/パティパック/プルコギパック/{0}", Custom String(
-			"丼物パック/麺パック/タコベースパック/溶かしたチョコパック/バンズセット/ミートパック/$100")), Custom String("/")),
+			"丼物パック/麺パック/タコベースパック/溶かしたチョコパック/パンセット/ミートパック/$100")), Custom String("/")),
 			Append To Array(String Split(Custom String(
-			"保存食ボックス/サービングボール/明太子/明太子クリームソース/明太子パスタ/ステーキスパゲッティ/{0}", Custom String(
+			"保存食ボックス/サービングボール/明太子ソース/明太子クリームソース/明太子パスタ/ステーキスパゲッティ/{0}", Custom String(
 			"チリソース/プルダックソース/プルダック/バッファローウィング/プルコギピザ/ピザ＋プルコギ/ピザ＋エビ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"エビピザ/肉餃子+出汁/小籠包/バンズ＋ベーコン/バンズ＋パティ＋ベーコン/バンズ＋ベーコン＋チーズ/{0}", Custom String(
@@ -2273,9 +2273,9 @@ rule("Global subroutine: Data init2")
         Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361, 433, 434);
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
-		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライバンズ強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
+		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
 		Global.UPGRADE_NAME = String Split(
-			Custom String("保存用バット購入/ランダムアイテム購入/保存食ボックス購入/プライヤー強化/鍋強化/グリル強化/フライバンズ強化/{0}",
+			Custom String("保存用バット購入/ランダムアイテム購入/保存食ボックス購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/{0}",
 						Custom String("個人のスピードアップ/チームの営業タイムアップ/コイン交換")),
 						Custom String("/"));
 	}
@@ -3632,10 +3632,10 @@ rule("Global subroutine: Set Hint Text")
 			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
-				Custom String("冷蔵庫にある材料で料理して提供してください！\r\n牛肉をフライバンズまたはグリルで焼き、左側の#テーブル番号の客に届けてください。"),
-				Custom String("材料はまな板で切るか刻んだで別の料理が作れます。\r\n薄切りした牛肉をフライバンズまたはグリルで焼いてください。"),
+				Custom String("冷蔵庫にある材料で料理して提供してください！\r\n牛肉をフライパンまたはグリルで焼き、左側の#テーブル番号の客に届けてください。"),
+				Custom String("材料はまな板で切るか刻んだで別の料理が作れます。\r\n薄切りした牛肉をフライパンまたはグリルで焼いてください。"),
 				Custom String("材料の下ごしらえとさまざまな調理器具の活用で多彩な料理が作れます。\r\nじゃがいもを丸ごと焼くとベイクドポテトになり…"),
-				Custom String("じゃがいもを薄切りしてフライバンズに入れると炒めポテトになり…"),
+				Custom String("じゃがいもを薄切りしてフライパンに入れると炒めポテトになり…"),
 				Custom String("薄切りしたじゃがいもをフライヤーに入れるとフレンチフライになります。\r\n感覚はつかめましたか？"),
 				Custom String("ある食材は強く叩くと変化します。\r\nじゃがいもを鍋で蒸して、慣性を利用して蒸しじゃがいもを床に投げてみてください。"),
 				Custom String("また、一部の食材は組み合わせられます。\r\n茹でたパスタとクリームソースを合わせてみてください。"),
@@ -3653,7 +3653,7 @@ rule("Global subroutine: Set Hint Text")
 				Custom String("コチュジャン + 水飴"),
 				Custom String("コチュジャン + 醤油 + 水飴"),
 				Custom String("薄切りしたネギ + 醤油ソース"),
-				Custom String("から揚げ + ヤンニョムソース > フライバンズで炒める")
+				Custom String("から揚げ + ヤンニョムソース > フライパンで炒める")
 			);
 		Else If(Global.stage == 2);
 			Global.loadingMenu = Array(126, 7);
