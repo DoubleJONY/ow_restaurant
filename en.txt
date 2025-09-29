@@ -468,7 +468,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v250909\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v250929\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255, 123)[Global.stageMode], Array(50, 255, 180, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 224)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -580,7 +580,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Orange), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250909\r\n\r\nSome localized names have been updated\r\nRoles now apply in Practice Mode.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} v250929\r\n\r\nRoles now apply in Practice Mode.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -1037,20 +1037,24 @@ rule("Player: Interact")
 				Global.skipSetup = True;
 			Else If(Event Player.permission != 3 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty != 4 && Global.isOpen == False && Match Time > 3);
-				Small Message(All Players(All Teams), Custom String("  Only Head Chef Can Skip Preparation Time "));
+				Small Message(All Players(All Teams), Custom String("  {0}{1} say ready to cook! (Head Chef can skip preparation time)  ", Hero Icon String(Hero Of(Event Player)), Event Player));
 				Communicate(Event Player, Press the Attack);
 				Wait(0.75, Ignore Condition);
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty == 4);
-				If(Global.isOpen);
+				If(Event Player.permission != 3 && Global.isOpen);
+					Small Message(All Players(All Teams), Custom String("  {0}{1} want to close the service! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+					Communicate(Event Player, Ready);
+					Wait(0.75, Ignore Condition);
+				Else If(Event Player.permission == 3 && Global.isOpen);
 					Global.isOpen = False;
-					Small Message(All Players(All Teams), Custom String("  Temporary Opening Closed! "));
+					Small Message(All Players(All Teams), Custom String("  Temporary Service Closed! "));
 					Destroy HUD Text(Global.globalText[True]);
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
 					If(Event Player.permission != 3 && Global.stage == 3);
-						Small Message(All Players(All Teams), Custom String("  {0}{1} is ready to cook! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+						Small Message(All Players(All Teams), Custom String("  {0}{1} ready to cook! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
 						Wait(0.75, Ignore Condition);
 					Else If(Event Player.permission == 3 && Global.stage == 3);
@@ -1061,14 +1065,20 @@ rule("Player: Interact")
 						Communicate(All Players(Team 1), Go);
 						Restart Match;
 					Else;
-						Global.isOpen = True;
-						Small Message(All Players(All Teams), Custom String("  Temporary Opening! Customers are coming in! "));
-						Create HUD Text(All Players(All Teams), Custom String("　　　　　Order List　　　　　"), Null, Custom String(
-							"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
-							Left, False, Color(Yellow), Null, Null, Visible To and Color, Default Visibility);
-						Global.globalText[True] = Last Text ID;
-						Wait(0.016, Ignore Condition);
-						Start Rule(callCustomer, Restart Rule);
+						If(Event Player.permission == 3);
+							Global.isOpen = True;
+							Small Message(All Players(All Teams), Custom String("  Temporary Opening! Customers are coming in! "));
+							Create HUD Text(All Players(All Teams), Custom String("　　　　　Order List　　　　　"), Null, Custom String(
+								"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
+								Left, False, Color(Yellow), Null, Null, Visible To and Color, Default Visibility);
+							Global.globalText[True] = Last Text ID;
+							Wait(0.016, Ignore Condition);
+							Start Rule(callCustomer, Restart Rule);
+						Else;
+							Small Message(All Players(All Teams), Custom String("  {0}{1} want to start practicing! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+							Communicate(Event Player, Press the Attack);
+							Wait(0.75, Ignore Condition);
+						End;
 					End;
 				End;
 			End;
