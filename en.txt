@@ -1060,8 +1060,7 @@ rule("Player: Interact")
 					Else If(Event Player.permission == 3 && Global.stage == 3);
 						Small Message(All Players(All Teams), Custom String("  Game will start shortly! "));
 						Communicate(Event Player, Countdown);
-						Set Match Time(3);
-						Wait(3, Ignore Condition);
+						Wait(3.5, Ignore Condition);
 						Communicate(All Players(Team 1), Go);
 						Restart Match;
 					Else;

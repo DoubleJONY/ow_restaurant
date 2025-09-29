@@ -536,8 +536,8 @@ rule("Global: Setting")
 			Pause Match Time;
 			Create Effect(All Players(All Teams), Sphere, Color(Sky Blue), Vector(232.608, 2.750, 170.455), 0.250, Visible To);
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("〔{1}〕: 모드-{0}",
-				Global.stage == 3 ? Custom String("연습 종료") : Global.stage == 1 ? Custom String("모든 손님") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][0]), 
-				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}", Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전")
+				Global.stage == 4 ? Custom String("다른 메뉴") : Global.stage == 3 ? Custom String("연습 종료") : Global.stage == 1 ? Custom String("모든 손님") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][0]), 
+				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}", Global.stage == 4 ? Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[0]] : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전")
 			: Global.STAGE_NAME[Global.totalScore[0]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[0] = Global.STAGE_CODE[Global.stage];
@@ -1055,15 +1055,18 @@ rule("Player: Interact")
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
-					If(Event Player.permission != 3 && Global.stage == 3);
+					If(Global.stage == 4);
+						Small Message(All Players(All Teams), Custom String("  {0} 의 워크샵 코드는 {1} 입니다! ",
+							Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[0]],
+							Array(Custom String("P6ZAA"), Custom String("WM3MW"), Custom String("ST6Z6"), Custom String("8MAAN"))[Global.totalScore[0]]));
+					Else If(Event Player.permission != 3 && Global.stage == 3);
 						Small Message(All Players(All Teams), Custom String("  {0}{1} 님이 게임을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
 						Wait(0.75, Ignore Condition);
 					Else If(Event Player.permission == 3 && Global.stage == 3);
 						Small Message(All Players(All Teams), Custom String("  잠시 후 게임을 시작합니다! "));
 						Communicate(Event Player, Countdown);
-						Set Match Time(3);
-						Wait(3, Ignore Condition);
+						Wait(3.5, Ignore Condition);
 						Communicate(All Players(Team 1), Go);
 						Restart Match;
 					Else;
@@ -1223,7 +1226,7 @@ rule("Player: Reload button")
 	actions
 	{
 		If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
-					Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
 			Global.totalScore[0] = (Global.totalScore[0] + True) % Count Of(Global.FRIDGE_LIST);
 			Global.currentMenu = Empty Array;
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[0]]);
@@ -1237,6 +1240,9 @@ rule("Player: Reload button")
 					Global.WEAVER_MENU_LIST[Global.totalScore[0]]);
 			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[0]];
+		Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+			Global.totalScore[0] = (Global.totalScore[0] + True) % 4;
 		End;
 		Abort If(Event Player.controlingIndex + True);
 		If(Global.currentUpgrade + True && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(
@@ -2330,7 +2336,7 @@ rule("Global subroutine: Data init3")
 				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)), 
 			Array(Array(0), Array(2), Array(9), Array(5), Array(3), Array(6), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
