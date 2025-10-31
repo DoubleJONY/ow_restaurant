@@ -3566,7 +3566,7 @@ rule("Global subroutine: Purchase Upgrade")
 		Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 2);
 			Abort If(Global.itemCount == 32);
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-                -70)) * 0.100, Random Value In Array(Array(355, 355, 355, 355, 358, 358, 359)), 100, Null);
+                -70)) * 0.100, Random Value In Array(Array(355, 355, 355, 355, 355, 358, 358, 358, 359)), 100, Null);
             Call Subroutine(createItem);
             Global.upgradePrice[1] = Array(Global.upgradePrice[1][0], Global.upgradePrice[1][1], Global.upgradePrice[1][2]);
         Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 3);
