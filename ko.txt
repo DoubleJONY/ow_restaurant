@@ -1174,11 +1174,11 @@ rule("Player: Interact")
 						Call Subroutine(purchaseUpgrade);
 					Else;
 						If(Event Player.selectedUpgrade == 2);
-							Small Message(Event Player, Custom String("  전설 칼 뽑기 -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
+							Small Message(Event Player, Custom String("  전설 칼 주문 -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
 							Small Message(Event Player, Custom String("  다음번에 상인이 칼을 가져올 것 입니다  "));
 							Global.orderedKnives[1] += True;
 						Else If(Event Player.selectedUpgrade == 1);
-							Small Message(Event Player, Custom String("  특수 칼 주문 -${0}", Global.upgradePrice[Global.currentUpgrade][1]));
+							Small Message(Event Player, Custom String("  특수 칼 뽑기 -${0}", Global.upgradePrice[Global.currentUpgrade][1]));
 							Small Message(Event Player, Custom String("  다음번에 상인이 칼을 가져올 것 입니다  "));
 							Global.orderedKnives[0] += True;
 						Else;
