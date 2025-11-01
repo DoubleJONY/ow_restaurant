@@ -2154,8 +2154,8 @@ rule("Dummy: Spawn")
 									Small Message(All Players(All Teams), Custom String("  VIP 서빙 성공! +{0}%", Event Player.score));
 									All Players(Team 1).score += 20;
 								Else If(Hero Of(Event Player) == Hero(Kiriko));
-									Small Message(All Players(All Teams), Custom String("  여우신령 서빙 성공! "));
-									Global.totalScore[0] += 50;
+									Small Message(All Players(All Teams), Custom String("  보너스 점수 +50 "));
+									Global.totalScore[0] += Global.difficulty != 4 ? 50 : 0;
 								Else;
 									Small Message(All Players(All Teams), Custom String("  서빙 성공! +{0}%", Event Player.score));
 								End;
@@ -2528,7 +2528,7 @@ rule("Global subroutine: Data init3")
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
+				Array(Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(LifeWeaver)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
 			Array(
