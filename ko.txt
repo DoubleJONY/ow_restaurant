@@ -260,7 +260,7 @@ rule("Global: Setting")
 		Global.customerPosition = Empty Array;
 		Global.customerIndex = Empty Array;
 		Global.playerProgress = Empty Array;
-		Global.tableOrderCode = Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+		Global.tableOrderCode = Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
 		Global.TABLE_PATH = Array(
 			Array(
 				Vector(200.987, True, 197.362),
@@ -940,6 +940,7 @@ rule("Player: Spawn")
 		Call Subroutine(loadProgress);
 		Call Subroutine(knifeHud);
 		Call Subroutine(perkHud);
+		Call Subroutine(footHud);
 		Start Rule(saveProgress, Do Nothing);
 	}
 }
@@ -2576,7 +2577,7 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
 				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Freja), Hero(Freja), Hero(LifeWeaver), Hero(Freja), Hero(Freja)), 
+				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)), 
 				Array(Hero(Moira), Hero(Sombra), Hero(Tracer), Hero(Sombra), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
 				Array(Hero(D.Va), Hero(Sombra), Hero(Moira), Hero(Freja), Hero(Kiriko), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
 			))[Global.stageMode];
