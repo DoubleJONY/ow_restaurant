@@ -1771,7 +1771,6 @@ rule("Dummy: Spawn")
 			End;
 			Stop Throttle In Direction(Event Player);
 			Stop Facing(Event Player);
-			Communicate(Event Player, Hello);
 			Global.currentUpgrade = Event Player.cookingIndex;
 			If(!Event Player.cookingIndex && (Global.orderedKnives[0] || Global.orderedKnives[1]));
 				Small Message(All Players(All Teams), Custom String("  {0} : 주문한 칼 가지고 왔다네!", Hero Icon String(Hero(Torbjörn))));
@@ -1840,10 +1839,8 @@ rule("Dummy: Spawn")
 				End;
 				If(Event Player.customerStatus);
 					Event Player.customerStatus = Null;
-					Communicate(Event Player, Thanks);
 				End;
 			End;
-			Communicate(Event Player, Goodbye);
 			Global.currentUpgrade = -1;
 			All Players(Team 1).selectedUpgrade = -1;
 			Destroy HUD Text(Event Player.playerText);
@@ -1905,7 +1902,6 @@ rule("Dummy: Spawn")
 			End;
 			Stop Throttle In Direction(Event Player);
 			Stop Facing(Event Player);
-			Communicate(Event Player, Hello);
 			Event Player.customerStatus = Null;
 			While(True);
 				If(Hero Of(Event Player) == Hero(LifeWeaver));
@@ -2041,7 +2037,6 @@ rule("Dummy: Spawn")
 					Destroy Effect(Event Player.shaftEffect);
 					Destroy In-World Text(Event Player.tableText);
 					If(Event Player.orderCount == 3);
-						Communicate(Event Player, Thanks);
 						Modify Player Variable(Event Player, score, Max, 10);
 						Global.systemScore += Event Player.score;
 						Global.stageScore += Event Player.score;
@@ -2131,7 +2126,6 @@ rule("Dummy: Spawn")
 								Event Player.durability = False;
 							Else;
 								Modify Player Variable(Event Player, score, Max, 10);
-								Communicate(Event Player, Thanks);
 								Global.systemScore += Event Player.score;
 								Global.stageScore += Event Player.score;
 								If(Hero Of(Event Player) == Hero(Moira));
