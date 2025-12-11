@@ -665,7 +665,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v251129\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v251202\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -776,7 +776,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(208, 70, 86, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v251129\r\n\r\nNew Customer Types\r\n  {1}Solo Diner: Prefers the corner seats on 2F!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Freja)),
+		Custom String("{0} v251202\r\n\r\nNew Customer Types\r\n  {1}Solo Diner: Prefers the corner seats on 2F!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Freja)),
 		Custom String("  {0} Foxy Customer: Don't miss the surprise bonus this guest brings!\r\n{1}", Hero Icon String(Hero(Kiriko)),
 		Custom String("  {0} Suspicious Customer: INTERNAL SERVER ERROR", Hero Icon String(Hero(Sombra))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -4032,16 +4032,16 @@ rule("Global subroutine: Scoreboard")
 		Teleport(All Players(Team 1)[5], Vector(212.340, 2.400, 185.510));
 		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
 		Wait(1.800, Ignore Condition);
-		Create In-World Text(All Players(Team 1), Custom String("Rank: [SSS]", Global.totalScore[False]), Vector(210.140, Sine From Degrees(Min(
-			Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 18) * 5.750, 183.430), 3, Do Not Clip,
+		Create In-World Text(All Players(Team 1), Custom String("Final Score: [{0}]", Global.totalScore[False]), Vector(210.140,
+			Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 18) * 5.750, 183.430), 3, Do Not Clip,
 			Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 0, 255),
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
 		If(Global.totalScore[False] > Global.totalScore[Global.stageMode][False]);
-			Create In-World Text(All Players(Team 1), Custom String("New Record!! Capture this screen and submit to https://ow-restaurant.com/en"), Vector(210.140,
-				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
+			Create In-World Text(All Players(Team 1), Custom String("New Record!! Capture this screen and submit to https://ow-restaurant.com/en"), Vector(
+				210.140, Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1,
+				Do Not Clip, Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150,
 				Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
 			Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Else;
@@ -4058,63 +4058,64 @@ rule("Global subroutine: Scoreboard")
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(Custom String("Practice"),
 			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Apperentice"),
 			Custom String("Journeyman"), Custom String("Proffesional"), Custom String("Hell's Kitchen"))[Global.difficulty],
-			Global.isVictory ? Custom String("Complete!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140,
-			Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
+			Global.isVictory ? Custom String("Clear!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140, Sine From Degrees(
+			Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
 			Visible To Position String and Color, Custom Color(Array(140, 110, 255, 255, 255)[Global.difficulty], Array(255, 180, 225, 120,
 			50)[Global.difficulty], Array(180, 255, 120, 120, 145)[Global.difficulty], 255), Default Visibility);
 		Wait(6, Ignore Condition);
 		For Global Variable(cookingIndex, False, 6, True);
 			All Players(Team 1)[Global.cookingIndex].scbScore += All Players(Team 1)[Global.cookingIndex].scbCooked + All Players(Team 1)[Global.cookingIndex].scbSurved - (All Players(Team 1)[Global.cookingIndex].scbMissed * 5);
 		End;
-		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]", Local Player.scbDollar, Local Player.scbScore),
-			Vector(207.140, 3, 183.430), 2, Do Not Clip, Visible To Position String and Color, Custom Color(255, 255, Sine From Radians(
-			Total Time Elapsed * 8) * 105 + 150, 255), Default Visibility);
+		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Total Personal Income: [{0}]\r\nContribution Score: [{1}]",
+			Local Player.scbDollar, Local Player.scbScore), Vector(207.140, 3, 183.430), 2, Do Not Clip, Visible To Position String and Color, Custom Color(255,
+			255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255), Default Visibility);
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Success: [{0}]",
 			Global.scbRank[False] + Global.scbRank[True] + Global.scbRank[2]), Vector(214.140, 3.800, 185.430), 2, Do Not Clip,
 			Visible To Position String and Color, Color(Lime Green), Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Cooking Mastery: [{0}]\r\nChopped: [{1}]",
-			Local Player.scbCooked, Local Player.scbCutted), Vector(207.140, 2.200, 183.430), 1.500, Do Not Clip,
+			Local Player.scbCooked, Local Player.scbCutted), Vector(207.140, 2.400, 183.430), 1.500, Do Not Clip,
 			Visible To Position String and Color, Custom Color(255, 255, 255, 255), Default Visibility);
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String(
-			"A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]", Global.scbRank[False], Global.scbRank[True], Global.scbRank[3]), Vector(
-			214.140, 2.900, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Custom Color(0, 220, 0, 255),
-			Default Visibility);
+			"A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]", Global.scbRank[False], Global.scbRank[True],
+			Global.scbRank[3]), Vector(214.140, 2.900, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Custom Color(0,
+			220, 0, 255), Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]", Local Player.scbSurved), Vector(
-			207.140, 2.000, 183.430), 1.500, Do Not Clip, Visible To Position String and Color, Custom Color(255, 255, 255, 255),
-			Default Visibility);
-		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]",
-			Global.scbSurved[4], Global.scbSurved[5]), Vector(214.140, 1.900, 185.430), 2, Do Not Clip,
-			Visible To Position String and Color, Color(Rose), Default Visibility);
-		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
-		Wait(0.500, Ignore Condition);
-		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]", Local Player.scbMissed), Vector(
-			207.140, 1.800, 183.430), 1.500, Do Not Clip, Visible To Position String and Color, Custom Color(255, 255, 255, 255),
-			Default Visibility);
+		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Serving Success: [{0}]",
+			Local Player.scbSurved), Vector(207.140, 2.200, 183.430), 1.500, Do Not Clip, Visible To Position String and Color,
+			Custom Color(255, 255, 255, 255), Default Visibility);
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String(
-			"A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]", Global.scbSurved[False], Global.scbSurved[True], Global.scbSurved[2]),
-			Vector(214.140, 1, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Color(Sky Blue), Default Visibility);
+			"Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]", Global.scbSurved[4], Global.scbSurved[5]), Vector(214.140,
+			1.900, 185.430), 2, Do Not Clip, Visible To Position String and Color, Color(Rose), Default Visibility);
+		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
+		Wait(0.500, Ignore Condition);
+		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Serving Mistake: [{0}]",
+			Local Player.scbMissed), Vector(207.140, 2.000, 183.430), 1.500, Do Not Clip, Visible To Position String and Color,
+			Custom Color(255, 255, 255, 255), Default Visibility);
+		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String(
+			"A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]", Global.scbSurved[False], Global.scbSurved[True],
+			Global.scbSurved[2]), Vector(214.140, 1, 185.430), 1.500, Do Not Clip, Visible To Position String and Color, Color(Sky Blue),
+			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
 		Create In-World Text(All Players(Team 1), 
 		Global.isVictory && (Global.totalScore[False] > (Global.stageMode == 3 ? 13000 : 6000)) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") :
+			Custom String("Rank: [SSS]") :
 		Global.isVictory && (Global.totalScore[False] > (Global.stageMode == 3 ? 11500 : 5500)) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") :
+			Custom String("Rank: [S++]") :
 		Global.isVictory && (Global.totalScore[False] > (Global.stageMode == 3 ? 10000 : 5000)) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") : 
+			Custom String("Rank: [S+]") : 
 		Global.totalScore[False] > (Global.stageMode == 3 ? 8500 : 4500) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") :
+			Custom String("Rank: [S]") :
 		Global.totalScore[False] > (Global.stageMode == 3 ? 7000 : 4000) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") :
+			Custom String("Rank: [A]") :
 		Global.totalScore[False] > (Global.stageMode == 3 ? 5000 : 3000) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") :
+			Custom String("Rank: [B]") :
 		Global.totalScore[False] > (Global.stageMode == 3 ? 2500 : 1500) ?
-			Custom String("M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}") :
-		Custom String("Master the combinations of various recipes and challenge the clear.\r\nGood luck!")
+			Custom String("Rank: [C]") :
+		Custom String("Rank: [F]")
 		, Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
