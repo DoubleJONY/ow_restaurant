@@ -1,0 +1,226 @@
+cafe_en_korean	en_txt
+연습 모드	Practice
+없음	None
+없음	None
+없음	None
+요리사	Chef
+수습생	Apprentice
+헤드셰프	Head Chef
+홀 서버	Waiting Staff
+[{0}] - 직책 변경	[{0}] - Change Role
+솥	Pot
+{0}초	{0}s
+{0}초	{0}s
+오븐	Oven
+팬	Pan
+제빙기	Ice Maker
+싱크대	Sink
+냉장고	Fridge
+[{0}]:  물 내리기  	  [{0}]:  Flush  
+도마	Cutting Board
+[{0}]:  썰기  	  [{0}]:  Chop  
+  칼이 없습니다  	  No Knife Available  
+튀김기	Fryer
+[{0}]: 영웅 변경	[{0}]: Change Hero
+비어 있음	Empty
+비어 있음	Empty
+비어 있음	Empty
+비어 있음	Empty
+비어 있음	Empty
+비어 있음	Empty
+비어 있음	Empty
+비어 있음	Empty
+레스토랑(WM3MW) v251115\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(TEMPCODE) v251202\r\ndiscord&recipes : ow-restaurant.com/en
+Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}
+{0} 제작 중인 특수 칼:{1}개	{0} Special Knife:{1}
+{0} 솥:{1}% / 튀김&제빙:{2}%	{0} Pot:{1}% / Fryer&Ice:{2}%
+{0} 팬:{1}% / 오븐:{2}%	{0} Pan:{1}% / Oven:{2}%
+{0} 이속:{1}% / 시간:{2}초	{0} Speed:{1}% / Time:{2}s
+설정	Settings
+요리 모드	Mode
+연습 모드	Practice
+캐주얼 다이닝	Casual Dining
+파인 다이닝	Fine Dining
+마스터쿡 챌린지	MasterChef Challenge
+방장이 선택	Host Select
+연습 모드	Practice
+캐주얼 다이닝	Casual Dining
+파인 다이닝	Fine Dining
+마스터쿡 챌린지	MasterChef Challenge
+자유롭게 연습할 수 있는 샌드박스 모드 입니다	Apperentice
+5개의 메뉴가 등장하는 수습 난이도를 클리어하세요	Complete the Journeyman with the all menu.
+모든 메뉴가 등장하는 숙련 난이도를 클리어하세요	Complete the Apperentice with 5 menu items.
+Hell's Kitchen 클리어에 도전하세요	Challenge to Hell's Kitchen Chef!
+[{0}]: 모드 변경	[{0}]: Rotate Mode
+ 방장이 모드를 결정하는 중입니다	 Please wait for the host to decide the mode
+[{0}]: 영업 개시	
+연습 모드	Practice Mode
+[{1}]: 모드-{0}	[{1}]: Mode-{0}
+다른 메뉴	Other Menus
+연습 종료	End Practice
+모든 손님	All
+변기클라우드-모듬회밥	Joseon-Global Cuisine(KR)
+Joseon-쿡제요리	Joseon-Cafe&Dessert(KR)
+Joseon-3호점	Joseon-Global Cuisine(KR)(old)
+Gummybear-오리지널	Gummybear-Original(KR)
+퓨전	Fusion
+설정	Settings
+플레이어 기본 직책	Default Player Role
+요리사	Chef
+홀 서버	Waiting Staff
+수습생	Apprentice
+[{0}] 로 시작	[{0}] to Start
+레 스 토 랑	Restaurant
+레스토랑 - 카페!	Cafe&Dessert
+Joseon#31496 : WM3MW\r\nGummyBear#11798\r\n변기클라우드#3523	Joseon#31496 : TEMPCODE\r\nGummyBear#11798\r\n변기클라우드#3523
+[{0}]:  칼 장착  	  [{0}]:  Equip Knife  
+[{0}]:  아이템 장착  	  [{0}]:  Eqiup Item  
+[{0}]:  줍기  	  [{0}]:  Pick Up  
+[{0}]:  썰기  	  [{0}]:  Chop  
+  $ 돈이 부족합니다	  $ Not Enough Money 
+  전설 칼 주문 -${0}	  Order Legendary Knife -${0}
+  다음번에 상인이 칼을 가져올 것 입니다  	  Knife will be delivered when he came back  
+  특수 칼 뽑기 -${0}	  Order Special Knife Random Box -${0}
+  다음번에 상인이 칼을 가져올 것 입니다  	  Knife will be delivered when he came back  
+  {0} 구매 -${1}	  Purchase {0} -${1}
+  준비 시간을 생략합니다! 	  Skipping Preparation Time! 
+  {0}{1} 준비 완료! (헤드셰프만 준비시간을 생략할 수 있습니다)  	  {0}{1} say ready to cook! (Head Chef can skip preparation time)  
+ {0}{1} 님이 연습을 중지하자고 합니다! 	  {0}{1} want to close the service! 
+  임시 개장 종료! 	  Temporary Service Closed! 
+  {0} 의 워크샵 코드는 {1} 입니다! 	  {0} Workshop code is {1}! 
+변기클라우드-모듬회밥	변기클라우드-Overwatchcooked!
+Joseon-쿡제요리	Joseon-Global Cuisine
+Joseon-3호점	Joseon-Global Cuisine(KR)(old)
+Gummybear-오리지널	Gummybear-Original(KR)
+  {0}{1} 님이 게임을 시작하자고 합니다! 	  {0}{1} ready to cook! 
+  잠시 후 게임을 시작합니다! 	  Game will start shortly! 
+  임시 개장! 이제 실전입니다! 	  Temporary Opening! Customers are coming in! 
+　　　　　주문서　　　　　	　　　　　Order List　　　　　
+ {0}{1} 님이 연습을 시작하자고 합니다! 	  {0}{1} want to start practicing! 
+  길게 누르면 모든 아이템을 내려놓습니다 	  Hold to drop items 
+업데이트 필요! - 코드 : WM3MW	This game is Outdated! - Code : TEMPCODE
+버그 수정 및 추가 업데이트를 적용하려면\r\n위의 코드로 게임을 다시 불러와주세요!	Please re-import code above\r\nto apply bug fixes and additional updates.
+  100초간 속도 증가!  	  Increase Speed for 100 seconds! 
+  {1}{0}이(가) 서빙볼을 소환했습니다! 	  {1}{0} has summoned a ServingBall! 
+재료 뭉개기	Smash Material
+  당신이 이제 헤드셰프 입니다!  	  You are Now Head Chef!  
+부엌칼 상인/아이템 상인/업그레이드/업그레이드	Knife Merchant/Item Merchant/Upgrade/Upgrade
+  {0} : 주문한 칼 가지고 왔다네!	  {0} : I've brought the ordered knife!
+  {0} : 무료 아이템을 나눠드릴게요!	  {0} : Free items for you!
+{0} 구매	Purchase {0}
+특수 칼 뽑기	Order Special Knife Random Box
+전설 칼 주문	Order Legendary Knife
+[{0}]:  {1} 구매 - ${2}  	  [{0}]:  Purchase {1} - ${2}  
+저장고	Storage
+무작위 도구	Random Item
+무작위 신발	Random Boots
+[{0}]:  {1} 강화 - ${2}  	  [{0}]:  Upgrade {1} - ${2}  
+튀김기	Fryer
+솥	Pot
+오븐	Oven
+팬	Pan
+내 이동 속도 증가	Increase My Movement Speed
+팀 영업 시간 증가	Increase Team Time Limit
+동전 교환	Coin Exchange
+[{0}] : 항목 변경	  [{0}] : Change Select
+평범한 손님/대식가/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/포악한 손님/엘버피 VVIP/요리연구가/{0}	Regular Customer/Big Fat Customer/Picky Customer/Impatient Customer/Competitive Eater/Reserved {0}
+혼밥 손님/수상한 손님/여우같은 손님	Customer/Food Critic/Mukbang YouTuber/Weirdo Customer/Savage Customer/elBuffi VVIP/Culinary Researcher/{0}
+#{1} - {0}초	#{1} - {0}s
+  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  완성도 있는 요리! +5%	  A well-prepared dish! +5%
+ #{0} : 서빙 성공! {1}/3 	 #{0} : Served! {1}/3 
+  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  서빙 성공! +{0}%	  Served! +{0}%
+  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  환상적인 서빙! +20%	  A-mei-zing Served! +20%
+ #{0} : 환상적인 서빙! 	 #{0} : A-mei-zing Served! 
+  신속한 서빙! +10%	  Swift Served! +10%
+ #{0} : 신속한 서빙! 	 #{0} : Swift Served! 
+  완성도 있는 요리! +5%	  A well-prepared dish! +5%
+ #{0} : 서빙 성공! 	 #{0} : Served! 
+ #{0} : 서빙 성공! 	 #{0} : Served! 
+VVIP 서빙 성공!	VVIP Serving Success!
+  VVIP 서빙 성공! +{0}%	  Successful Served to VVIP! +{0}%
+  VIP 서빙 성공! +{0}%	  Successful Served to VIP! +{0}%
+  보너스 점수 +50 	  A well-prepared dish! +5%
+  서빙 성공! +{0}%	  Served! +{0}%
+  {0}{1}의 입소문! 	  {0}{1} say ready to cook! (Head Chef can skip preparation time)  
+시간 초과!	Timeout!
+{0}의 잘못된 서빙!	{0}'s Incorrect Serving!
+순서 조심!	Watch the Order!
+커피/빙수/초코&쿠키/도넛/밀크티/마카롱/스무디/빵/브런치/아이스크림/파이&타르트/주스&에이드	Coffee/Bingsu(Shaved Ice)/Choco&Cookie/Donut/Tea/Macaron/Smoothie/Bread/Brunch/Ice Cream/Pie&Tart/Juice&Fizz
+저장고 구매/무작위 도구 구매/무작위 신발 구매/튀김기&제빙기 강화/솥 강화/오븐 강화/팬 강화/개인 이동 속도 증가/{0}	Purchase Storage/Purchase Random Item/Purchase Random Boots/Upgrade Fryer/Upgrade Pot/Upgrade Grill/{0}
+팀 영업 시간 증가/동전 교환	Upgrade Pan/Increase Personal Movement Speed/Increase Team Time Limit/Exchange Coins
+영업 준비	Prepare for Service
+ {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}	 {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}
+수습 난이도	Apperentice
+숙련 난이도	Journeyman
+전문 난이도	Proffesional
+퓨전	Fusion
+영업 시작!	Open for Service!
+　　　　　주문서　　　　　	　　　　　Order List　　　　　
+{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!
+{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})
+몰려오는 손님!	More Incoming Customers!
+{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!
+{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})
+전직원 보너스!	Bonus For All Staff!
+영업 완료!	Good Service!
+{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!
+  급여 +${0}	  +${0}
+전직원 보너스!	Bonus For All Staff!
+영업 완료!	Good Service!
+몰려오는 손님!	More Incoming Customers!
+성공적인 영업!	Successful Service!
+{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!
+  급여 +${0}	  +${0}
+중간 점수 : {0}	Current Score: {0}
+난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!
+  {0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	  Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!
+  {0}{1} - {2} 직책 변경!  	  {0}{1} - {2}  
+  돌아오셨군요! 이전 데이터를 불러왔습니다!  	  Welcome Back! Your progress is restored!  
+서빙볼	ServingBall
+서빙볼	ServingBall
+레스토랑 - 카페! : [{0}]	Restaurant-Cafe&Dessert : [{0}]
+최고 기록 갱신!! 이 화면을 캡처하여 https://ow-restaurant.com 로 보내주세요	New Record!! Capture this screen and submit to https://ow-restaurant.com/en
+최고 기록 : [{0}]	High Score: [{0}]
+시간 : [{0}]\r\n모드: [{1}]\r\n결과: [{2}]	Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]
+{0}시간{1}분{2}초	{0}h{1}m{2}s
+연습 모드	Practice
+캐주얼 다이닝	Casual Dining
+파인 다이닝	MasterChef Challenge
+마스터쿡 챌린지	Fine Dining
+수습 난이도	Journeyman
+숙련 난이도	Proffesional
+전문 난이도	Hell's Kitchen
+클리어!	Complete!
+Stage {0} 에서 실패	Stage {0}
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]	Total Personal Income: [{0}]\r\nContribution Score: [{1}]
+성공한 영업 : [{0}]	Success: [{0}]
+요리에 기여함 : [{0}]\r\n칼질한 횟수 : [{1}]	Cooking Mastery: [{0}]\r\nChopped: [{1}]
+환상적인 영업 : [{0}]\r\n성공적인 영업 : [{1}]\r\n실패한 영업 : [{2}]	A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]
+서빙 성공 : [{0}]	Serving Success: [{0}]
+전체 서빙 성공 : [{0}]\r\n전체 서빙 실패 : [{1}]	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]
+서빙 실수 : [{0}]	Serving Mistake: [{0}]
+환상적인 서빙 : [{0}]\r\n신속한 서빙 : [{1}]\r\n완성도 있는 요리 : [{2}]	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]
+평가 : [★★★★★★★]	Rank: [SSS]
+평가 : [★★★★★★]	Rank: [A]
+평가 : [★★★★★]	Rank: [S]
+평가 : [★★★★☆]	Rank: [C]
+평가 : [★★★☆☆]	Rank: [F]
+평가 : [★★☆☆☆]	Rank: [B]
+평가 : [★☆☆☆☆]	Rank: [S+]
+평가 : [☆☆☆☆☆]	Rank: [S++]
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]\r\n요리에 기여함 : [{2}]	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+서빙 성공 : [{0}]\r\n서빙 실수 : [{1}]	Serving Success : [{0}]\r\nServing Mistake : [{1}]
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]\r\n요리에 기여함 : [{2}]	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+서빙 성공 : [{0}]\r\n서빙 실수 : [{1}]	Serving Success : [{0}]\r\nServing Mistake : [{1}]
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]\r\n요리에 기여함 : [{2}]	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+서빙 성공 : [{0}]\r\n서빙 실수 : [{1}]	Serving Success : [{0}]\r\nServing Mistake : [{1}]
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]\r\n요리에 기여함 : [{2}]	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+서빙 성공 : [{0}]\r\n서빙 실수 : [{1}]	Serving Success : [{0}]\r\nServing Mistake : [{1}]
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]\r\n요리에 기여함 : [{2}]	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+서빙 성공 : [{0}]\r\n서빙 실수 : [{1}]	Serving Success : [{0}]\r\nServing Mistake : [{1}]
+개인 총 수입 : [{0}]\r\n개인 활약 점수 : [{1}]\r\n요리에 기여함 : [{2}]	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+서빙 성공 : [{0}]\r\n서빙 실수 : [{1}]	Serving Success : [{0}]\r\nServing Mistake : [{1}]
+  시공간이 뒤틀립니다!  	  ZA WARUDO!  

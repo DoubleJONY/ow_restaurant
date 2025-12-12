@@ -1,0 +1,180 @@
+Append To Array(String Split(Custom String(
+"Burnt Food/Butter Knife/Carbon-Steel Knife/Portable Knife/Sharp Knife/Genji's Dagger/Kitchen Knife/{0}"
+, Custom String(
+"Head Chef's Knife/Energy Drink/Suspicious Drinks/Jump Boots/Seasoning Packets/Vacuum"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Dash Boots/Teleport Spell/Food Dupe Spell/Gas Torch/ServingBall/$100/Water/{0}"
+, Custom String(
+"Ice/Coffee Beans/Ground Coffee/Espresso/Americano/Iced Americano/Milk"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Steamed Milk/Latte/Iced Latte/Vanilla Syrup/Vanilla Latte/Iced Vanilla Latte/Caramel Syrup/{0}"
+, Custom String(
+"Caramel Macchiato/Iced Caramel Macchiato/Chocolate Syrup/Mocha/Iced Mocha/Coffee Frappe"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Frozen Milk/Shaved Ice Base/Sweet Red Beans/Red Bean Shaved Ice/Soybean Powder/Injeolmi Shaved Ice/{0}"
+, Custom String(
+"Red Bean Injeolmi Shaved Ice/Strawberry/Sliced Strawberry/Strawberry Shaved Ice"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Chocolate Shaved Ice/Strawberry Chocolate Shaved Ice/Green Tea Powder/Green Tea Shaved Ice/{0}"
+, Custom String(
+"Green Tea Red Bean Shaved Ice/Green Tea Chocolate Shaved Ice/Chocolate/Chocolate Chips"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Melted Chocolate/Chocolate Milk/Mint Syrup/Mint Chocolate Milk/Cookie Dough/Cookie/Chocolate Chip Cookie Dough/{0}"
+, Custom String(
+"Chocolate Chip Cookie/Chocolate Cookie Dough/Chocolate Cookie/Almond/Sliced Almonds"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Roasted Almonds/Almond Chocolate/Whole Almond Cookie Dough/Whole Almond Cookie/Almond Cookie Dough/{0}"
+, Custom String(
+"Almond Cookie/Almond Choco Chip Cookie Dough/Almond Choco Chip Cookie/Iced Chocolate"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Chocolate Frappe/Iced Mint Chocolate/Mint Chocolate Frappe/Stretched Bread Dough/Bagel Dough/Bagel/Sugar/{0}"
+, Custom String(
+"Melted Sugar/Hotteok Batter/Hotteok/Donut/Sugar Donut/Glazed Donut/Mashed Strawberry"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Strawberry+Sugar/Strawberry Jam/Strawberry Jam Donut/Choco Donut/Whipped Cream/Whipped Cream Donut/{0}"
+, Custom String(
+"Strawberry Cream/Strawberry Cream Donut/Chocolate Cream/Chocolate Cream Donut"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Green Tea Cream/Green Tea Cream Donut/Tea Leaves/Tea Leaves+Water/Green Tea/Oolong Tea Leaves/{0}"
+, Custom String(
+"Oolong Tea Leaves+Water/Oolong Tea/Brewed Tea Leaves/Black Tea Leaves"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Black Tea Leaves+Water/Black Tea/Herbs/Dried Herbs/Herbs+Water/Herbal Tea/Iced Tea/{0}"
+, Custom String(
+"Milk+Sugar/Boiled Water/Brown Sugar Pearls/Milk Tea/Green Tea Milk Tea/Oolong Milk Tea"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Herbal Milk Tea/Tapioca Pearls/Cooked Tapioca Pearls/Bubble Tea/Green Tea Bubble Tea/Oolong Bubble Tea/{0}"
+, Custom String(
+"Herbal Bubble Tea/Sugar Water/Sugar Syrup/Brown Sugar Milk Tea/Brown Sugar Bubble Tea"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Almond Flour/Egg/Peeled Egg/Egg White/Egg Yolk/Mixed Egg/Butter/{0}"
+, Custom String(
+"Mashed Butter/Custard Cream/Pudding/Crème Brûlée/Butter Filling/Green Tea Filling"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Black Tea Powder/Earl Grey Filling/Egg White+Sugar/Meringue/Meringue Cookie/Macaron Batter/Macaron Shells/{0}"
+, Custom String(
+"Macaron/Green Tea Macaron/Earl Grey Macaron/Soufflé Batter/Soufflé Pancake/Creamed Butter"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Butter+Egg Yolk/Egg Cookie Dough/Egg Cookie/Frozen Strawberry/Strawberry Juice/Blueberry/Frozen Blueberry/{0}"
+, Custom String(
+"Blueberry Juice/Mango/Sliced Mango/Frozen Mango/Mango Juice/Banana/Peeled Banana"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Frozen Banana/Yogurt Powder/Yogurt+Milk/Strawberry+Milk/Strawberry Smoothie/Blueberry+Milk/Blueberry Smoothie/{0}"
+, Custom String(
+"Mango+Milk/Mango Smoothie/Banana+Milk/Strawberry+Banana+Milk/Strawberry Banana Smoothie"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Mango+Banana+Milk/Mango Banana Smoothie/Strawberry+Blueberry+Milk/Mixed Berry Smoothie/Strawberry+Yogurt/{0}"
+, Custom String(
+"Strawberry Yogurt Smoothie/Blueberry+Yogurt/Blueberry Yogurt Smoothie/Mango+Yogurt"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Mango Yogurt Smoothie/Strawberry+Banana+Yogurt/Strawberry Banana Yogurt Smoothie/Mango+Banana+Yogurt/{0}"
+, Custom String(
+"Mango Banana Yogurt Smoothie/Strawberry+Blueberry+Yogurt/Mixed Berry Yogurt Smoothie"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Yogurt Ice Cream/Strawberry Yogurt Ice Cream/Blueberry Yogurt Ice Cream/Mango Yogurt Ice Cream/Banana+Yogurt/{0}"
+, Custom String(
+"Banana Yogurt Ice Cream/Bread Dough/Tomato/Sliced Tomato/Mashed Tomato/Tomato Sauce/Cheese"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Sliced Cheese/Muffin/Egg Bread/Cheese+Dough/Cheese Bread/Cheese Pancake/Tomato+Dough/{0}"
+, Custom String(
+"Tomato+Cheese+Dough/Pizza Bread/Pizza Pancake/Sweet Red Bean+Dough/Sweet Red Bean Bread"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Sweet Bean Pancake/Custard Cream+Dough/Cream Bread/Custard Pancake/Chocolate Chips+Dough/Choco Chip Bread/{0}"
+, Custom String(
+"Chocolate Pancake/Chocolate Batter/Chocolate Bread/Condensed Milk/Condensed Milk Latte"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Iced Condensed Milk Latte/Condensed Milk Red Bean Shaved Ice/Red Bean Butter Bun/Red Bean Butter Dough/{0}"
+, Custom String(
+"Red Bean Butter Pancake/Vanilla Cream/Chocolate Cookie+Vanilla Cream/Oreo/Cinnamon Powder"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Cinnamon Cookie Dough/Cinnamon Cookie/Mango Shaved Ice/Cream Donut/Taro Powder/Taro Milk Tea/Taro Bubble Tea/{0}"
+, Custom String(
+"Chocolate Milk Tea/Chocolate Bubble Tea/Blueberry+Sugar/Blueberry Jam/Blueberry Filling"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Blueberry Macaron/Strawberry Filling/Strawberry Macaron/Cream Cheese/Cream Cheese Filling/Cream Cheese Macaron/{0}"
+, Custom String(
+"Caramel Pudding/Melon/Sliced Melon/Melon Shaved Ice/Coffee Cubes/Coffee Cube Latte"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Iced Tea (Extra Shot)/Marshmallow/Marshmallow+Choco Cookie Dough/Marshmallow Choco Cookie/{0}"
+, Custom String(
+"Marshmallow+Cookie Dough/Marshmallow Cookie/Blueberry Jam Donut/Yogurt Cream"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Yogurt Cream Donut/Glutinous Rice Flour/Glutinous Rice Dough/Glutinous Rice Donut/Chocolate Yogurt Ice Cream/{0}"
+, Custom String(
+"Frozen Melon/Melon+Milk/Melon Smoothie/Melon+Yogurt+Milk/Melon Yogurt Smoothie"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Frozen Grapes/Red Bean+Injeolmi+Dough/Injeolmi Red Bean Pancake/Fried Bread/Twisted Donut/Cream Cheese Donut/{0}"
+, Custom String(
+"Cream Cheese Bagel/Walnut/Walnut+Red Bean+Dough/Walnut Cake/Tea Leaves+Milk+Sugar"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Oolong Tea Leaves+Milk+Sugar/Black Tea Leaves+Milk+Sugar/Dried Herbs+Milk+Sugar/Cinnamon Sugar/Churros/{0}"
+, Custom String(
+"Cheese+Glutinous Rice Dough/Cheese Ball/Bacon/Fried Egg/Scrambled Eggs/Omelette"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Grilled Bacon/Bacon & Eggs/Boiled Egg/Strawberry Jam Bagel/Strawberry Jam Muffin/Muffin+Bacon/Muffin+Egg/{0}"
+, Custom String(
+"Muffin+Cheese/Muffin+Bacon+Egg/Muffin+Bacon+Cheese/Muffin+Egg+Cheese"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Muffin+Bacon+Egg+Cheese/Bacon Egg Muffin/Egg Muffin/Bacon Muffin/Scrambled Eggs+Cheese/Cheese Omelette/{0}"
+, Custom String(
+"Strawberry Soufflé Pancake/Strawberry Cream Cheese Bagel/Blueberry Soufflé Pancake"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Blueberry Bagel Dough/Blueberry Bagel/Ice Cream/Strawberry Ice Cream/Chocolate Ice Cream/Green Tea Ice Cream/{0}"
+, Custom String(
+"Vanilla Ice Cream/Milkshake/Strawberry Shake/Chocolate Shake/Green Tea Shake/Vanilla Shake"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Mint Chocolate Ice Cream/Mint Chocolate Shake/Blueberry Parfait/Banana Parfait/Mango Parfait/Melon Parfait/{0}"
+, Custom String(
+"Freeze Gun/Ice Water/Pie Dough/Tart Dough/Apple/Sliced Apple/Raw Walnut Pie"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Walnut Pie/Raw Strawberry Pie/Strawberry Pie/Raw Apple Pie/Apple Pie/Raw Blueberry Pie/Blueberry Pie/{0}"
+, Custom String(
+"Raw Walnut Tart/Walnut Tart/Raw Egg Tart/Egg Tart/Baked Tart Shell/Strawberry Tart"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Apple Tart/Blueberry Tart/Mixed Berry Tart/Mango Tart/Chocolate Tart/Raw Cream Cheese Tart/Cream Cheese Tart/{0}"
+, Custom String(
+"Sparkling Water/Lemon/Sliced Lemon/Lemon Juice/Grapefruit/Sliced Grapefruit"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Grapefruit Juice/Lemon+Water/Lemon Tea/Grapefruit+Water/Grapefruit Tea/Apple+Water/Apple Tea/{0}"
+, Custom String(
+"Apple Juice/Apple Fizz/Lemon Fizz/Grapefruit Fizz/Strawberry Fizz/Blueberry Fizz"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Mango Fizz/{0}"
+, Custom String(
+""
+)), Custom String("/")),

@@ -4058,7 +4058,7 @@ rule("Global subroutine: Scoreboard")
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(Custom String("Practice"),
 			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Apperentice"),
 			Custom String("Journeyman"), Custom String("Proffesional"), Custom String("Hell's Kitchen"))[Global.difficulty],
-			Global.isVictory ? Custom String("Clear!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140, Sine From Degrees(
+			Global.isVictory ? Custom String("Complete!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140, Sine From Degrees(
 			Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
 			Visible To Position String and Color, Custom Color(Array(140, 110, 255, 255, 255)[Global.difficulty], Array(255, 180, 225, 120,
 			50)[Global.difficulty], Array(180, 255, 120, 120, 145)[Global.difficulty], 255), Default Visibility);

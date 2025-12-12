@@ -1,0 +1,195 @@
+Append To Array(String Split(Custom String(
+"Burnt Food/Butter Knife/Carbon-Steel Knife/Portable Knife/Sharp Knife/Genji's Dagger/Kitchen Knife/{0}"
+, Custom String(
+"Head Chef's Knife/Energy Drink/Suspicious Drinks/Jump Boots/Seasoning Packets/Vacuum"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Dash Boots/Teleport Spell/Food Dupe Spell/Gas Torch/ServingBall/$100/Raw Rice/{0}"
+, Custom String(
+"Steamed Rice/Red Pepper Paste/Sweet Soy Sauce/Sweet&Spicy Sauce/Broth/Boiled Broth/Beef"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Steak/Sliced Beef/Grilled Beef/Minced Beef/Stir-fried Beef/Boiled Beef/Sliced Boiled Beef/{0}"
+, Custom String(
+"Beef+Broth/Beef Short Rib Soup/Pork/Char-grilled Pork Trotters/Sliced Pork/Grilled Pork"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Minced Pork/Stir-fried Pork/Boiled Pork/Sliced Boiled Pork/Rice Soup/Beef Rice Soup/Pork Rice Soup/{0}"
+, Custom String(
+"Pork Belly Rice Bowl/Beef+Soy Sauce/Beef Bulgogi/Pork+Soy Sauce/Pork Bulgogi"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Bulgogi Rice Bowl/Pork+Sweet&Spicy Sauce/Marinated Pork/Spicy Pork/Spicy Pork Rice Bowl/Small Steamed Rice/{0}"
+, Custom String(
+"Rice Ball/Soy Sauce Rice/Tuna/Sliced Tuna/Tuna Sashimi/Tuna Sushi/Soy Sauce Marinated Tuna"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Tuna Rice Bowl/Eel/Sliced Eel/Grilled Eel/Eel+Soy Sauce/Sweet&Spicy Grilled Eel/Eel Sushi/{0}"
+, Custom String(
+"Eel Rice Bowl/Egg/Boiled Egg/Peeled Egg/Fried Egg/Mixed Egg/Scrambled Egg"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Steamed Egg/Rolled Omelette/Egg Sushi/Egg & Eel Rice Bowl/Salmon/Sliced Salmon/Salmon Sashimi/{0}"
+, Custom String(
+"Salmon Sushi/Soy Sauce Marinated Salmon/Salmon Rice Bowl/Soy Sauce Egg Rice/Rice Dough"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Rolled Rice Dough/Rice Paper/Soaked Rice Paper/Rice Noodles/Boiled Rice Noodles/Rice Noodle Soup/Vegetables/{0}"
+, Custom String(
+"Sliced Vegetables/Minced Vegetables/Pork+Vegetables/Raw Meat Spring Roll"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Fried Meat Spring Roll/Shrimp/Grilled Shrimp/Boiled Shrimp/Shrimp+Vegetables/Raw Shrimp Spring Roll/{0}"
+, Custom String(
+"Fried Shrimp Spring Roll/Fresh Spring Roll Base/Vegetable Fresh Spring Roll"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Pork+Fresh Spring Roll/Meat Fresh Spring Roll/Shrimp+Fresh Spring Roll/Shrimp Fresh Spring Roll/{0}"
+, Custom String(
+"Shrimp Rice Noodle Soup/Rice Noodles+Soy Sauce/Noodles+Soy Sauce+Vegetables"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Noodles+Soy Sauce+Shrimp/Noodles+Soy Sauce+Pork/Vegetable Pad Thai/Shrimp Pad Thai/Bún chả/Stir-fried Rice/{0}"
+, Custom String(
+"Fried Rice/Pilaf/Curry Powder/Curry/Curry Rice/Chicken/Char-grilled Whole Chicken"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Boiled Chicken/Sliced Chicken/Grilled Chicken/Sliced Boiled Chicken/Chopped Chicken/Stir-fried Chicken/{0}"
+, Custom String(
+"Curry+Chicken/Tandoori Chicken/Chickpeas/Boiled Chickpeas/Chicken Pilaf/Chickpea Curry"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Bean Rice/Chickpea Pilaf/Lamb/Lamb Roast/Sliced Lamb/Stir-fried Lamb/Lamb Pilaf/{0}"
+, Custom String(
+"Lamb Curry/Chicken Curry/Curry+Cooked Rice/Curry Pilaf/Cooked Rice/Broth+Cooked Rice"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Risotto/Pasta/Boiled Pasta/Meat Sauce+Pasta/Tomato/Grilled Tomato/Sliced Tomato/{0}"
+, Custom String(
+"Mashed Tomato/Tomato Sauce/Cream Sauce/Creamy Tomato Sauce/Shrimp+Broth+Cooked Rice"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Shrimp Risotto/Tomato+Cooked Rice/Tomato Risotto/Cream+Cooked Rice/Cream Risotto/Creamy Tomato+Cooked Rice/{0}"
+, Custom String(
+"Creamy Tomato Risotto/Shrimp+Tomato+Cooked Rice/Shrimp Tomato Risotto"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Shrimp+Cream+Cooked Rice/Shrimp Cream Risotto/Shrimp+Creamy Tomato+Cooked Rice/Shrimp Creamy Tomato Risotto/{0}"
+, Custom String(
+"Shrimp+Pasta/Shrimp Pasta/Tomato+Pasta/Tomato Pasta/Cream+Pasta/Cream Pasta"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Creamy Tomato+Pasta/Creamy Tomato Pasta/Shrimp+Tomato+Pasta/Shrimp Tomato Pasta/Shrimp+Cream+Pasta/{0}"
+, Custom String(
+"Shrimp Cream Pasta/Shrimp+Creamy Tomato+Pasta/Shrimp Creamy Tomato Pasta/Cheese"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Sliced Cheese/Melted Cheese/Donjang Sauce/Grilled Pork Intestines/Raw Sausage/Smoked Sausage/Grilled Sausage/{0}"
+, Custom String(
+"Boiled Sausage/Bread/Bread Pieces/Breadcrumbs/Potato/Grilled Potato/Steamed Potato"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Sliced Potato/Stir-fried Potato/French Fries/Boiled Potato/Mashed Potato/Hash Browns/Potato Dough/{0}"
+, Custom String(
+"Potato Pancake/Pickled Cabbage/Hot Dog/Cheese Hot Dog/Fondue/Cheese Fries"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Cheese Potato Pancake/Pork Trotters+Potato/Pork Trotters+Pickled Cabbage/Pork Trotters Set/Sausage+Potato/{0}"
+, Custom String(
+"Sausage+Pickled Cabbage/Sausage Platter/Potato Salad/Raw Cutlet/Cutlet/Raw Meatball"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Meatball/Wine/Tomato Stew Base/Cream Stew Base/Wine Stew Base/Tomato+Beef/Tomato Beef Stew/{0}"
+, Custom String(
+"Cream+Beef/Cream Beef Stew/Wine+Beef/Beef Stew/Tomato+Chicken/Tomato Chicken Stew"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Cream+Chicken/Cream Chicken Stew/Wine+Chicken/Chicken Stew/Meat Sauce/Steak Sauce/Mulled Wine/{0}"
+, Custom String(
+"Pie Dough/Tart Dough/Beef+Pie Dough/PD+Beef+PD/Raw Meat Pie/Meat Pie/Sugar"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Apple/Sliced Apple/Apple+Sugar/Stewed Apples/Apple Jam/Steak+Pastry Dough/Raw Beef Wellington/{0}"
+, Custom String(
+"Beef Wellington/Beef+Egg/Batter/Raw Scotch Egg/Scotch Egg/Apple+Pie Dough/PD+Apple+PD"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Raw Apple Pie/Apple Pie/Raw Apple Tart/Apple Tart/Raw Apple Jam Tart/Apple Jam Tart/Seaweed/{0}"
+, Custom String(
+"Seaweed+Rice/Seaweed+Rice+Bulgogi/Bulgogi Kimbap/Seaweed+Rice+Spicy Pork/Spicy Pork Kimbap"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Seasoned Raw Beef/Cooking Wine/Galbi Marinade/Beef+Galbi Marinade/Beef Short Ribs/Pork+Galbi Marinade/{0}"
+, Custom String(
+"Pork Ribs/Tuna Gunkan Sushi/Raw Shrimp Sushi/Shrimp Sushi/Onigiri/Vegetable Broth"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Tom Yum Goong/Tom Yum Goong Noodle Soup/Beef Rice Noodle Soup/Chicken Rice Noodle Soup/Tomato Stew/Cream Stew/{0}"
+, Custom String(
+"Stir-fried Vegetables/Egg White/Egg Yolk/Egg White+Sugar/Meringue/Meringue Cookie"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Soufflé Batter/Soufflé Pancake/Frying Mix/Sliced Chicken+Frying Mix/Fried Chicken/Chopped Chicken+Frying Mix/{0}"
+, Custom String(
+"Chicken Nugget/Raw Patty/Cooked Patty/B+P/B+C/B+P+C/B+Chicken"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"B+Chicken+C/Hamburger/Cheeseburger/Chicken Burger/Chicken Cheeseburger/Raw Cheese Stick/Cheese Stick/{0}"
+, Custom String(
+"Meat Sauce Pasta/Vegetable Sandwich/Shrimp Sandwich/Meat Sandwich/Shrimp Pilaf/Beef Pilaf"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Chili Sauce/Vindaloo Curry/Shrimp Curry/Clam/Clams+Pasta/Vongole Pasta/Clams+Broth+Cooked Rice/{0}"
+, Custom String(
+"Vongole Risotto/Wine+Cooked Rice/Wine Risotto/Chocolate/Melted Chocolate/Chocolate Fondue"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Curry+Tomato/Curried Sausage/Glass Noodles/Sliced Glass Noodles/Glass Noodles+Pork/Raw Blood Sausage/{0}"
+, Custom String(
+"Blood Sausage/Okra/Sliced Okra/Tomato+Okra/Tomato Okra Stew/Tomato+Okra+Beef"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Tomato Okra Beef Stew/Tomato+Lamb/Tomato Lamb Stew/Wine+Lamb/Lamb Stew/Sardine/Sliced Sardine/{0}"
+, Custom String(
+"Sardine+Pie Dough/PD+Sardine+PD/Raw Sardine Pie/Sardine Pie/Walnut Filling/Raw Walnut Pie"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Walnut Pie/Raw Walnut Tart/Walnut Tart/Pie and Mash/B+Bulgogi/Bulgogi Burger/Buffalo Wings/{0}"
+, Custom String(
+"Sweet&Spicy Chicken/Raw Shrimp Patty/Shrimp Patty/B+Shrimp/Shrimp Burger/Melted Sugar"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Whole Apple Tanghulu/Chopped Chocolate/Chocolate Syrup/Toasted Bread/Bread Pieces+Sugar/Bread Rusk/Sugar Toast/{0}"
+, Custom String(
+"Apple Tanghulu/Egg+Bread/Egg Bread/French Toast/Apple Jam Toast/Choco Apple"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Chocolate Toast/Strawberry/Mashed Strawberry/Strawberry+Sugar/Strawberry Jam/Strawberry Tanghulu/Choco Berry/{0}"
+, Custom String(
+"Strawberry Jam Toast/Milk/Strawberry Milk/Chocolate Milk/Banana/Peeled Banana"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Chocolate Banana/Banana Choco Toast/Doubanjiang/Stir-fried Doubanjiang/Lamb Skewers/Spicy Vegetable Broth/{0}"
+, Custom String(
+"Mild Lamb Hotpot/Spicy Lamb Hotpot/Mild Pork Hotpot/Spicy Pork Hotpot/Soy-braised Pork"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Soy-grilled Pork/Doubanjiang Marinade/Vegetables+Doubanjiang/Doubanjiang Stir-fried Vegetables/{0}"
+, Custom String(
+"Lamb+Doubanjiang/Doubanjiang Stir-fried Lamb/Pork+Doubanjiang/Doubanjiang Stir-fried Pork"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Mild Beef Hotpot/Spicy Beef Hotpot/Beef+Doubanjiang/Doubanjiang Stir-fried Beef/Shrimp+Doubanjiang/{0}"
+, Custom String(
+"Doubanjiang Stir-fried Shrimp/Tortilla/Tortilla Pieces/Nachos/Taco Base/Beef Taco"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Pork Taco/Lamb Taco/Boiled Lamb/Sliced Boiled Lamb/Boiled Beef Taco/Boiled Pork Taco/Boiled Lamb Taco/{0}"
+, Custom String(
+"Beef Taco+Cheese/Beef Quesadilla/Pork Taco+Cheese/Pork Quesadilla/Lamb Taco+Cheese"
+)), Custom String("/")),
+Append To Array(String Split(Custom String(
+"Lamb Quesadilla/Cheese Nachos/Gambas Taco/Chicken Taco/Chicken Taco+Cheese/Chicken Quesadilla/{0}"
+, Custom String(
+""
+)), Custom String("/")),

@@ -1,0 +1,422 @@
+______________________________________________________________________________________________________________________________〼
+______________________________________________________________________________________________________________________________ࡀ
+______________________________________________________________________________________________________________________________〼
+Practice
+SizzlingGunz
+SizzlingGunz
+Moira
+Chef
+Waiting Staff
+Apprentice
+Head Chef
+[{0}] - Change Role
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+×
+Pot
+{0}s
+{0}s
+Grill
+Pan
+Sink
+Fridge
+  [{0}]:  Flush  
+\r\n
+Cutting Board
+Cutting Board
+  [{0}]:  Chop  
+  No Knife Available  
+\r\n
+Fryer
+[{0}]: Change Hero
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+{0}
+Empty
+ 
+Restaurant(HTNZ3) v251202\r\ndiscord&recipes : ow-restaurant.com/en
+ ${0} 
+Score : {0}{2}\r\nMy Role : {1}
+\r\nHigh Score : {0}({1})
+
+{0}\r\n{1}\r\n{2}
+{0}\r\n{1}
+{0} Special Knife:{1}
+{0} Pot:{1}% / Fryer:{2}%
+{0} Pan:{1}% / Grill:{2}%
+{0} Speed:{1}% / Time:{2}s
+Settings
+Mode
+Practice
+Casual Dining
+Fine Dining
+MasterChef Challenge
+Host Select
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+ [ {0} ] 
+Practice
+Casual Dining
+Fine Dining
+MasterChef Challenge
+{0}
+A sandbox mode where you can freely practice your skills.
+Complete the Apperentice with 5 menu items.
+Complete the Journeyman with the all menu.
+Challenge to Hell's Kitchen Chef!
+[{0}]: Rotate Mode
+ Please wait for the host to decide the mode
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+
+[{0}]: OPEN
+Practice Mode
+{0}\r\n{1}
+[{1}]: Mode-{0}
+Other Menus
+End Practice
+All
+[{1}]: {0}
+Joseon-Global Cuisine(KR)
+Joseon-Cafe&Dessert(KR)
+Joseon-Global Cuisine(KR)(old)
+Gummybear-Original(KR)
+Fusion
+{0} v251202\r\n\r\nNew Customer Types\r\n  {1}Solo Diner: Prefers the corner seats on 2F!\r\n{2}
+  {0} Foxy Customer: Don't miss the surprise bonus this guest brings!\r\n{1}
+  {0} Suspicious Customer: INTERNAL SERVER ERROR
+{0} Item Balance Updates\r\n\r\n  Tool-type and movement-type items can now be equipped separately.\r\n{1}
+  Item Purchase: Options for tool items and movement items are separated.\r\n{0}
+  Teleport Spell: Use while holding a dish to warp straight to the customer table.\r\n{0}
+  Jump Boots: Jump higher, and some mobility skills are available when equipped.\r\n{0}
+  Order Legendary Knife: Now appears with a 100% chance.\r\n
+Settings
+Default Player Role
+Chef
+Waiting Staff
+Apprentice
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+[{0}] to Start
+Restaurant
+Practice
+Casual Dining
+Fine Dining
+MasterChef Challenge
+GummyBear#11798\r\nMod : 변기클라우드#3523\r\n한국어 : SPXXM / 日本語 : 4ND1P
+{0}{1}\r\n{2}
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+  [{0}]:  Equip Knife  
+\r\n
+  [{0}]:  Eqiup Item  
+\r\n
+  [{0}]:  Pick Up  
+\r\n
+  [{0}]:  Chop  
+\r\n
+  $ Not Enough Money 
+  Order Legendary Knife -${0}
+  Knife will be delivered when he came back  
+  Order Special Knife Random Box -${0}
+  Knife will be delivered when he came back  
+  Purchase {0} -${1}
+  Skipping Preparation Time! 
+  {0}{1} say ready to cook! (Head Chef can skip preparation time)  
+  {0}{1} want to close the service! 
+  Temporary Service Closed! 
+  {0} Workshop code is {1}! 
+Joseon-Global Cuisine(KR)
+Joseon-Cafe&Dessert(KR)
+Joseon-Global Cuisine(KR)(old)
+Gummybear-Original(KR)
+P6ZAA
+WM3MW
+ST6Z6
+8MAAN
+  {0}{1} ready to cook! 
+  Game will start shortly! 
+  Temporary Opening! Customers are coming in! 
+　　　　　Order List　　　　　
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  {0}{1} want to start practicing! 
+  Hold to drop items 
+{0}
+변기클라우드
+keep press to outdate warning
+This game is Outdated! - Code : HTNZ3
+Please re-import code above\r\nto apply bug fixes and additional updates.
+  Increase Speed for 100 seconds! 
+  {1}{0} has summoned a ServingBall! 
+  To substitute the smash action with a button, please slowly push the controller stick forward! 
+  Now you can smash the ingredients using the [{0}] key! 
+Smash Material
+[{0}]
+  You are Now Head Chef!  
+Knife Merchant/Upgrade/Upgrade/Upgrade
+/
+  {0} : I've brought the ordered knife!
+  {0} : Free items for you!
+  [{0}]:  {1} - ${2}  
+Purchase {0}
+Order Special Knife Random Box
+Order Legendary Knife
+  [{0}]:  Purchase {1} - ${2}  
+Storage
+Random Item
+Random Boots
+  [{0}]:  Upgrade {1} - ${2}  
+Fryer
+Pot
+Grill
+Pan
+  [{0}]:  {1} - ${2}  
+Increase My Movement Speed
+Increase Team Time Limit
+Coin Exchange
+  [{0}] : Change Select
+Regular Customer/Big Fat Customer/Picky Customer/Impatient Customer/Competitive Eater/Reserved {0}
+Customer/Food Critic/Mukbang YouTuber/Weirdo Customer/Savage Customer/elBuffi VVIP/Culinary Researcher/{0}
+Solo Diner/Suspicious Customer/Foxy Customer
+/
+#{1} - {0}s
+
+ #{0} : {1} {2}/3 
+  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  A well-prepared dish! +5%
+ #{0} : Served! {1}/3 
+  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  Served! +{0}%
+ #{0} : {1} 
+???
+  {0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  A-mei-zing Served! +20%
+ #{0} : A-mei-zing Served! 
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  Swift Served! +10%
+ #{0} : Swift Served! 
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  A well-prepared dish! +5%
+ #{0} : Served! 
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ #{0} : Served! 
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+VVIP Serving Success!
+  Successful Served to VVIP! +{0}%
+  Successful Served to VIP! +{0}%
+  A well-prepared dish! +5%
+  Served! +{0}%
+  {0}{1} say ready to cook! (Head Chef can skip preparation time)  
+Timeout!
+{0}'s Incorrect Serving!
+Watch the Order!
+ #{0} : {1} 
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+  {0}{1}
+ -{0}%
+
+D/R/R/M/M/Y/Y/Y/Y/Y/Y/Y/W/W/R/R/R/R/W/Y/Y/Y/O/O/R/W/O/O/W/W/O/R/M/L/L/G/G/H/H/H/H/H/H/H/H/H/{0}
+H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/L/T/T/T/T/W/W/W/G/G/G/W/R/S/Y/R/S/S/C/M/F/F/F/M/M/C/R/S/C/M/V/{0}
+V/W/V/Y/S/C/R/F/F/F/Y/Y/Y/C/Y/S/Y/Y/Y/Y/W/Y/F/F/F/F/F/F/F/R/A/M/A/F/H/F/F/F/F/F/R/A/Y/P/Y/R/{0}
+M/M/H/Y/C/C/C/C/C/W/W/W/W/W/S/R/R/S/S/O/O/A/A/A/M/M/W/M/W/C/G/O/A/C/C/O/A/A/C/C/G/A/A/C/A/C/{0}
+A/F/F/F/G/C/M/G/C/M/W/W/M/M/B/W/W/W/F/O/O/S/S/S/W/F/F/W/S/F/M/M/W/W/Y/Y/M/F/F/M/F/M/M/F/F/F/{0}
+F/F/F/F/F/F/F/F/F/F/F/P/C/P/C/S/P/C/P/C/P/C/S/C/C/W/W/W/W/P/P/P/Y/F/M/G/N/N/W/W/W/F/F/N/A/Q/{0}
+X/X/P/M/P/M/P/M/P/M/M/M/M/A/X/P/Y/P/Y/W/W/Y/S/R/P/F/S/S/P/P/R/F/S/N/S/X/P/N/X/P/N/X/X/P/X/X/{0}
+P/X/W/N/N/P/X/S/S/N/Y/S/S/P/S/M/M/M/S/S/S/S/S/S/S/S/S/R/R/R/L/Z/Z/U/Y/T/U/U/Z/R/P/S/R/R/R/M/{0}
+M/S/F/F/P/L/L/S/S/S/S/F/F/F/F/P/P/P/E/F/Y/Y/F/X/H/H/C/C/S/W/W/M/M/M/J/J/J/S/F/P/P/P/P/F/W/C/{0}
+N/N/Q/A/F/K/Y/M/F/F/M/S/F/W/F/S/F/R/Y/Y/Z/A/N/N/M/R/R/R/R/S/F/F/P/F/P/H/H/H/H/H/C/C/C/C/F/V/{0}
+F/H/H/H/H/V/H/C/C/P/Y/F/F/V/C
+/
+D/R/M/Y/W/L/G/H/T/S/C/F/V/O/A/P/B/N/Q/X/Z/U/E/J/K
+/
+/
+0/0/0/3/3/0/0/4/3/0/3/0/0/0/0/0/0/0/0/0/0/0/0/3/4/4/6/6/5/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}
+0/0/0/0/0/0/0/0/0/0/3/4/4/5/6/6/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/3/4/4/4/5/{0}
+4/0/0/0/0/0/5/0/0/0/0/0/0/0/0/5/5/5/0/3/3/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/7/0/0/0/0/0/7/7/7/{0}
+7/4/0/0/0/0/5/0/0/0/0/7/0/0/0/0/0/5/7/0/0/3/0/0/0/0/0/3/0/3/3/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}
+0/0/0/0/0/0/0/0/5/6/6/5/6/6/3/3/4/5/0/0/0/1/3/3/3/1/5/5/1/3/5/3/4/3/5/7/0/5/4/7/5/0/0/3/0/{0}
+5/7/0/0/0/0/3/3/4/0/0/5/0/0/0/0/0/0/0/0/0/3/4/5/7/5/7/5/4/5/0/0/0/0/3/6/6/0/0/3/0/0/0/0/0/{0}
+0/0/0/0/3/0/0/0/6/5/6/5/6/5/6/5/0/0/0/0/0/0/0/4/4/1/1/1/1/1/1/0/0/0/0/0/0/0/2/0/3/3/3/3/0/{0}
+0/0/0/0/0/0/0/0/0/3/3/3/3/3/3/4/4/0/0/0/0/0/3/4/4/3/4/4/4/5/5/5/6/6/4/5/5/0/0/0/0/0/0/0/0/{0}
+0/0/4/5/0/0/0/7/7/0/0/0/2/0/0/7/0/7/7/0/0/0/0/0/7/7/0/0/0/0/0/7/0/7/0/7/7/0/0/2/0/0/7/7/0/{0}
+0/0/7/7/7/7/7/7/7/0/0/7/7/7/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/7/7/0/0/7/7/9/0/0/7/0/7/0/{0}
+0/0/0/8/0/7/8/9/0/0/0/0/0/0/9/7/7/0/7/9/9/0/0/8/8
+/
+0/1/2/3/4/5/6/7/8/9
+/
+Steak&Pasta/Burgeria/Fried Chicken/Pizzeria/Dumpling/Korean Rice Dish/Japanese Rice Dish/Korean Noodles/Taqueria/Ice Cream{0}
+/Pancake/Butcher Restaurant
+/
+Purchase Storage/Purchase Random Item/Purchase Random Boots/Upgrade Fryer/Upgrade Pot/Upgrade Grill/{0}
+Upgrade Pan/Increase Personal Movement Speed/Increase Team Time Limit/Exchange Coins
+/
+
+Settings
+Show Casual Dining Tutorial
+Prepare for Service
+
+ {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}
+{0}{2}stage {1}
+Apperentice
+Journeyman
+Proffesional
+Hell's Kitchen
+{0} / {1}
+\r\n Bonus 
+ - 
+Fusion
+\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+Open for Service!
+{0}%
+　　　　　Order List　　　　　
+\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+Stage {0}
+{0}fgC80013FF>Bonus Service Failed!
+{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})
+More Incoming Customers!
+{0}fgC80013FF>Bonus Service Failed!
+{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})
+Bonus For All Staff!
+Good Service!
+{0}fgFF3291FF>A-mei-zing Service!
+  +${0}
+Bonus For All Staff!
+Good Service!
+More Incoming Customers!
+Successful Service!
+{0}fgFF3291FF>A-mei-zing Service!
+  +${0}
+\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Current Score: {0}
+Now getting harder! Good Luck!
+  Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!
+  {0}{1} - {2}  
+ {1} - {0}% 
+\r\n
+ {1} - {0}% 
+\r\n
+ {1} - {0}% 
+\r\n
+ {1} - {0}% 
+\r\n
+{1}{0}
+
+-{0}%
+[{0}]
+{1}{0}
+-{0}%
+[{0}]
+  {2}{0}{1}
+ -${0}
+
+{0}
+{0}
+{0}
+  Welcome Back! Your progress is restored!  
+{0}
+  ZA WARUDO!  
+ServingBall
+{0}{1}\r\n{2}
+ServingBall
+Cook using ingredients from the Fridge and serve them!\r\nPan-fry or grill the beef and bring it to the #table.
+You can slice or chop ingredients on the cutting board to create different dishes.\r\nPan-fry or grill the sliced beef.
+By preparing ingredients and using different cooking tools, you can make various dishes.\r\nYou can grill a whole potato.
+or you can slice the potato and put it in a pan.
+or you can put the sliced potatoes into the fryer.
+Some ingredients can smash to ground.\r\nSteam potatoes in a pot, then throw the steamed potatoes to the ground.
+Also, some ingredients can be merged.\r\nTry merging boiled pasta and cream sauce.
+You can slice tomatoes and steam them in a pot to make tomato sauce.\r\nBut you can smash them instead of slicing.
+There are different characteristics per customer.\r\nFor Big Fat Customers, you earn more points but must serve the food twice.
+Master various recipes and challenge the complete game.\r\nGood luck!
+Sliced Chicken + Frying Mix > Fryer
+Chicken + Frying Mix > Fryer
+Chopped Chicken + Frying Mix > Fryer
+All sauces can be merge to Fried Chicken.\r\nSoy Sauce + Corn Syrup
+Red pepper + Corn Syrup
+Red pepper + Soy Sauce + Corn Syrup
+Sliced Green Onion + Soy Sauce
+Chicken Nugget + Sweet&Spicy Sauce > Pan Fry
+Throw the flour until it becomes pizza dough.\r\nPizza Dough + Tomato Sauce + Pizza Cheese > Grill
+
+Careful: some customers fail if you serve later arrivals first.
+Serve these in order of the slips.
+A rave from the Food Critic brings more guests.
+Competitive Eaters need three dishes.
+
+Reserved Customers order before entering.\r\nNote the brief reservation message in the middle.
+
+Final Score: [{0}]
+New Record!! Capture this screen and submit to https://ow-restaurant.com/en
+High Score: [{0}]
+{0} : {1}
+{0} [{2}]\r\n  {1}
+Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]
+{0}h{1}m{2}s
+{0}
+Practice
+Casual Dining
+Fine Dining
+MasterChef Challenge
+{0} / {1}
+Apperentice
+Journeyman
+Proffesional
+Hell's Kitchen
+Clear!
+Stage {0}
+Total Personal Income: [{0}]\r\nContribution Score: [{1}]
+Success: [{0}]
+Cooking Mastery: [{0}]\r\nChopped: [{1}]
+A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]
+Serving Success: [{0}]
+Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]
+Serving Mistake: [{0}]
+A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]
+Rank: [SSS]
+Rank: [S++]
+Rank: [S+]
+Rank: [S]
+Rank: [A]
+Rank: [B]
+Rank: [C]
+Rank: [F]
+{0}\r\n\r\n{1}\r\n{2}
+{0}{1}\r\n{2}
+Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+Serving Success : [{0}]\r\nServing Mistake : [{1}]
+{0}\r\n\r\n{1}\r\n{2}
+{0}{1}\r\n{2}
+Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+Serving Success : [{0}]\r\nServing Mistake : [{1}]
+{0}\r\n\r\n{1}\r\n{2}
+{0}{1}\r\n{2}
+Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+Serving Success : [{0}]\r\nServing Mistake : [{1}]
+{0}\r\n\r\n{1}\r\n{2}
+{0}{1}\r\n{2}
+Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+Serving Success : [{0}]\r\nServing Mistake : [{1}]
+{0}\r\n\r\n{1}\r\n{2}
+{0}{1}\r\n{2}
+Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+Serving Success : [{0}]\r\nServing Mistake : [{1}]
+{0}\r\n\r\n{1}\r\n{2}
+{0}{1}\r\n{2}
+Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]
+Serving Success : [{0}]\r\nServing Mistake : [{1}]
