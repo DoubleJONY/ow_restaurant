@@ -1929,13 +1929,13 @@ rule("Dummy: Spawn")
 								Global.stageScore += Event Player.score;
 								If(Hero Of(Event Player) == Hero(Moira));
 									Big Message(All Players(All Teams), Custom String("VVIP Serving Success!"));
-									Small Message(All Players(All Teams), Custom String("  Successful Served to VVIP! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("  Successful Served to VVIP! +{0}% ", Event Player.score));
 									All Players(Team 1).score += 100;
 								Else If(Hero Of(Event Player) == Hero(D.Va));
-									Small Message(All Players(All Teams), Custom String("  Successful Served to VIP! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("  Successful Served to VIP! +{0}% ", Event Player.score));
 									All Players(Team 1).score += 20;
 								Else If(Hero Of(Event Player) == Hero(Kiriko));
-									Small Message(All Players(All Teams), Custom String("  A well-prepared dish! +5%"));
+									Small Message(All Players(All Teams), Custom String("  Bonus Score +50 "));
 									Global.totalScore[0] += Global.difficulty != 4 ? 50 : 0;
 								Else;
 									Small Message(All Players(All Teams), Custom String("  Served! +{0}%", Event Player.score));
