@@ -2147,7 +2147,7 @@ rule("Dummy: Spawn")
 									Small Message(All Players(All Teams), Custom String("  Bonus Score +50 "));
 									Global.totalScore[False] += Global.difficulty != 4 ? 50 : 0;
 								Else;
-									Small Message(All Players(All Teams), Custom String("  Served! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("  Served! +{0}% ", Event Player.score));
 								End;
 								Wait(True, Ignore Condition);
 								Destroy HUD Text(Event Player.playerText);
@@ -2183,7 +2183,7 @@ rule("Dummy: Spawn")
 			End;
 		End;
 		If(Event Player.dollar && Global.isOpen);
-			Small Message(All Players(All Teams), Custom String("  {0}{1} say ready to cook! (Head Chef can skip preparation time)  ", Hero Icon String(Hero Of(Event Player)), Event Player));
+			Small Message(All Players(All Teams), Custom String("  {0}{1}'s Promotional effect! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 			Communicate(All Players(Team 1), Incoming);
 			If(Hero Of(Event Player) == Hero(D.Va));
 				Global.loadNext += 4;

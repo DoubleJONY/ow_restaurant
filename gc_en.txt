@@ -455,7 +455,7 @@ rule("Global: Setting")
 		Start Rule(itemCooking, Do Nothing);
 		Start Rule(despawnItem, Do Nothing);
 		Global.stageMode = Workshop Setting Combo(Custom String("Settings"), Custom String("Mode"), 0, Array(Custom String("Practice"),
-			Custom String("Casual Dining"), Custom String("MasterChef Challenge"), Custom String("Fine Dining"), Custom String(
+			Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"), Custom String(
 			"Host Select")), 0);
 		If(Global.stageMode == 4);
 			Set Status(Host Player, Null, Rooted, 9999);
@@ -1780,7 +1780,7 @@ rule("Dummy: Spawn")
 							If(Event Player.customerStatus == 4);
 								All Players(Team 1).score += 1;
 								Global.systemScore += 5;
-								Small Message(All Players(All Teams), Custom String("  A well-prepared dish! +5%"));
+								Small Message(All Players(All Teams), Custom String("  A well-prepared dish! +5% "));
 								Global.scbSurved[2] += 1;
 								Event Player.tipsProb = 10;
 							Else;
@@ -1834,7 +1834,7 @@ rule("Dummy: Spawn")
 						Modify Player Variable(Event Player, score, Max, 10);
 						Global.systemScore += Event Player.score;
 						Global.stageScore += Event Player.score;
-						Small Message(All Players(All Teams), Custom String("  Served! +{0}%", Event Player.score));
+						Small Message(All Players(All Teams), Custom String("  Served! +{0}% ", Event Player.score));
 						Wait(True, Ignore Condition);
 					End;
 					Break;
@@ -1861,7 +1861,7 @@ rule("Dummy: Spawn")
 							If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.180 && Event Player.customerStatus == 4);
 								Global.systemScore += 20;
 								All Players(Team 1).score += 3;
-								Small Message(All Players(All Teams), Custom String("  A-mei-zing Served! +20%"));
+								Small Message(All Players(All Teams), Custom String("  A-mei-zing Served! +20% "));
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : A-mei-zing Served! ", Event Player.tableIndex + True), Null,
 									Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -1872,7 +1872,7 @@ rule("Dummy: Spawn")
 							Else If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.250);
 								Global.systemScore += 10;
 								All Players(Team 1).score += 2;
-								Small Message(All Players(All Teams), Custom String("  Swift Served! +10%"));
+								Small Message(All Players(All Teams), Custom String("  Swift Served! +10% "));
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : Swift Served! ", Event Player.tableIndex + True), Null,
 									Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -1883,7 +1883,7 @@ rule("Dummy: Spawn")
 							Else If(Event Player.customerStatus == 4);
 								Global.systemScore += 5;
 								All Players(Team 1).score += 2;
-								Small Message(All Players(All Teams), Custom String("  A well-prepared dish! +5%"));
+								Small Message(All Players(All Teams), Custom String("  A well-prepared dish! +5% "));
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : Served! ", Event Player.tableIndex + True), Null, Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
@@ -1938,7 +1938,7 @@ rule("Dummy: Spawn")
 									Small Message(All Players(All Teams), Custom String("  Bonus Score +50 "));
 									Global.totalScore[0] += Global.difficulty != 4 ? 50 : 0;
 								Else;
-									Small Message(All Players(All Teams), Custom String("  Served! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("  Served! +{0}% ", Event Player.score));
 								End;
 								Wait(True, Ignore Condition);
 								Destroy HUD Text(Event Player.playerText);
@@ -1974,8 +1974,7 @@ rule("Dummy: Spawn")
 			End;
 		End;
 		If(Event Player.dollar && Global.isOpen);
-			Small Message(All Players(All Teams), Custom String("  {0}{1} say ready to cook! (Head Chef can skip preparation time)  ",
-				Hero Icon String(Hero Of(Event Player)), Event Player));
+			Small Message(All Players(All Teams), Custom String("  {0}{1}'s Promotional effect! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 			Communicate(All Players(Team 1), Incoming);
 			If(Hero Of(Event Player) == Hero(D.Va));
 				Global.loadNext += 4;
@@ -3901,7 +3900,7 @@ rule("Global subroutine: Scoreboard")
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]",
 			Evaluate Once(Custom String("{0}h{1}m{2}s", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(
-			Custom String("Practice"), Custom String("Casual Dining"), Custom String("MasterChef Challenge"), Custom String("Fine Dining"))
+			Custom String("Practice"), Custom String("Casual Dining"), Custom String("Fine Dining"), Custom String("MasterChef Challenge"))
 			[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Apprentice"), Custom String("Journeyman"), Custom String("Professional"),
 			Custom String("Hell's Kitchen"))[Global.difficulty], Global.isVictory ? Custom String(
 			"Complete!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140, Sine From Degrees(Min(
