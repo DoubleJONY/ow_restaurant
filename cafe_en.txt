@@ -472,7 +472,7 @@ rule("Global: Setting")
 			Create HUD Text(All Players(Team 1), Custom String(" [ {0} ] ", Array(Custom String("Practice"), Custom String("Casual Dining"),
 				Custom String("Fine Dining"), Custom String("MasterChef Challenge"))[Global.stageMode]), Custom String("{0}", Array(
 				Custom String("A sandbox mode where you can freely practice your skills."), Custom String(
-				"Complete the Apperentice with 5 menu items."), Custom String("Complete the Journeyman with the all menu."), Custom String(
+				"Complete the Apprentice with 5 menu items."), Custom String("Complete the Journeyman with the all menu."), Custom String(
 				"Challenge to Hell's Kitchen Chef!"))[Global.stageMode]), Local Player == Global.scbRank ? Custom String("[{0}]: Rotate Mode",
 				Input Binding String(Button(Reload)), Input Binding String(Button(Jump))) : Custom String(
 				" Please wait for the host to decide the mode"), Top, -998, Custom Color(Array(255, 140, 110, 255)[Global.stageMode], Array(50,
@@ -2705,7 +2705,7 @@ rule("Global subroutine: Start stage")
 			End;
 		End;
 		Create HUD Text(All Players(All Teams), Custom String(" {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}", Custom String(
-			"{0}{2}stage {1}", Array(Custom String("Journeyman"), Custom String("Proffesional"), Custom String("Hell's Kitchen"),
+			"{0}{2}stage {1}", Array(Custom String("Apprentice"), Custom String("Journeyman"), Custom String("Proffesional"),
 			Custom String("Hell's Kitchen"))[Global.difficulty], Custom String("{0} / {1}", Global.stage + True, Count Of(
 			Global.STAGE_CODE)), Global.isBonusStage ? Custom String("\r\n Bonus ") : Custom String(" - ")), Count Of(
 			Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("Fusion") : Global.STAGE_NAME[Global.STAGE_CODE[Global.stage]],
@@ -3774,8 +3774,8 @@ rule("Global subroutine: Scoreboard")
 			Evaluate Once(Custom String("{0}h{1}m{2}s", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(
 			Custom String("Practice"), Custom String("Casual Dining"), Custom String("MasterChef Challenge"), Custom String("Fine Dining"))
-			[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Journeyman"), Custom String("Proffesional"),
-			Custom String("Hell's Kitchen"), Custom String("Hell's Kitchen"))[Global.difficulty], Global.isVictory ? Custom String(
+			[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("Apprentice"), Custom String("Journeyman"),
+			Custom String("Professional"), Custom String("Hell's Kitchen"))[Global.difficulty], Global.isVictory ? Custom String(
 			"Complete!") : Custom String("Stage {0}", Global.stage + 1))), Vector(214.140, Sine From Degrees(Min(
 			Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
 			Visible To Position String and Color, Custom Color(Array(140, 110, 255, 255, 255)[Global.difficulty], Array(255, 180, 225, 120,
