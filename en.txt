@@ -1770,7 +1770,7 @@ rule("Dummy: Spawn")
 				Event Player));
 			Disable Movement Collision With Environment(Event Player, False);
 			Wait Until(Has Spawned(Event Player), True);
-			Start Forcing Dummy Bot Name(Event Player, String Split(Custom String("Knife Merchant/Upgrade/Upgrade/Upgrade"), Custom String(
+			Start Forcing Dummy Bot Name(Event Player, String Split(Custom String("Knife Merchant/Item Merchant/Upgrade/Upgrade"), Custom String(
 					"/"))[Event Player.cookingIndex]);
 			For Player Variable(Event Player, controlingIndex, False, 6, True);
 				Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
