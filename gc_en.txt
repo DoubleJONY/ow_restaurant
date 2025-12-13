@@ -506,7 +506,7 @@ rule("Global: Setting")
 				Custom String("[{1}]: Mode-{0}", Global.stage == 4 ? Custom String("Other Menus") : (Global.stage == 3 ? Custom String(
 				"End Practice") : (Global.stage == 1 ? Custom String("All") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][0]))),
 				Input Binding String(Button(Interact))), Custom String("[{1}]: {0}", Global.stage == 4 ? Array(Custom String(
-				"변기클라우드-Overwatchcooked!"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-World Cuisine(KR)(old)"),
+				"변기클라우드-Overwatchcooked!"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)(old)"),
 				Custom String("Gummybear-Original(KR)"))[Global.totalScore[0]] : (Count Of(Global.STAGE_CODE[Global.stage])
 				> 1 ? Custom String("Fusion") : Global.STAGE_NAME[Global.totalScore[0]]), Input Binding String(Button(Reload)))), Vector(
 				232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue), Default Visibility);
@@ -1026,7 +1026,7 @@ rule("Player: Interact")
 				Else;
 					If(Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("  {0} Workshop code is {1}! ", Array(Custom String("변기클라우드-Overwatchcooked!"),
-							Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-World Cuisine(KR)(old)"), Custom String("Gummybear-Original(KR)"))
+							Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)(old)"), Custom String("Gummybear-Original(KR)"))
 							[Global.totalScore[0]], Array(Custom String("HTNZ3"), Custom String("Z1TBZ"), Custom String("ST6Z6"), Custom String("8MAAN"))
 							[Global.totalScore[0]]));
 					Else If(Event Player.permission != 3 && Global.stage == 3);

@@ -181,6 +181,10 @@ variables
 		48: svbPathIndex
 		49: tipsProb
 		50: normalDrink
+		51: usingTP
+		52: footPerk
+		53: footPerkDurability
+		54: footPerkText
 }
 
 subroutines
@@ -209,6 +213,8 @@ subroutines
 	21: destroyServeBot
 	22: dropTips
 	23: destroyPerk
+	24: footHud
+	25: serveFail
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -254,127 +260,318 @@ rule("Global: Setting")
 		Global.customerPosition = Empty Array;
 		Global.customerIndex = Empty Array;
 		Global.playerProgress = Empty Array;
-		Global.tableOrderCode = Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
-		Global.TABLE_PATH = Array(Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(208.989, True, 195.792),
-			Vector(212.385, True, 190.614), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(222.009, True, 184.971),
-			Vector(223.481, True, 182.685), Vector(222.079, True, 181.774), Vector(219.244, True, 189.250), Vector(221.141, True, 190.510),
-			Vector(214.349, True, 200.372)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(208.989, True,
-			195.792), Vector(212.385, True, 190.614), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(222.009, True,
-			184.971), Vector(225.568, True, 179.360), Vector(224.230, 1, 178.473), Vector(219.244, True, 189.250), Vector(221.141, True,
-			190.510), Vector(214.349, True, 200.372)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(
-			208.989, True, 195.792), Vector(212.385, True, 190.614), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(
-			222.009, True, 184.971), Vector(227.739, True, 175.986), Vector(226.487, True, 175.061), Vector(219.244, 1, 189.250), Vector(
-			221.141, True, 190.510), Vector(214.349, True, 200.372)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559),
-			Vector(208.989, True, 195.792), Vector(212.385, True, 190.614), Vector(209.842, True, 183.840), Vector(211.701, True, 181),
-			Vector(218.262, True, 182.700), Vector(219.831, True, 180.291), Vector(218.748, True, 179.586), Vector(218.262, True, 182.700),
-			Vector(220.207, True, 187.791), Vector(219.244, True, 189.250), Vector(221.141, True, 190.510), Vector(214.349, True,
-			200.372)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(208.989, True, 195.792), Vector(
-			212.385, True, 190.614), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(218.262, True, 182.700), Vector(
-			222.010, True, 177.008), Vector(220.973, True, 176.288), Vector(218.262, True, 182.700), Vector(220.207, True, 187.791),
-			Vector(219.244, True, 189.250), Vector(221.141, True, 190.510), Vector(214.349, True, 200.372)), Array(Vector(200.987, True,
-			197.362), Vector(204.190, True, 192.559), Vector(208.989, True, 195.792), Vector(212.385, True, 190.614), Vector(209.842, True,
-			183.840), Vector(211.701, True, 181), Vector(218.262, True, 182.700), Vector(224.166, True, 173.622), Vector(223.159, True,
-			172.946), Vector(218.262, True, 182.700), Vector(220.207, True, 187.791), Vector(219.244, True, 189.250), Vector(221.141, True,
-			190.510), Vector(214.349, True, 200.372)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(
-			199.370, True, 189.455), Vector(202.923, True, 183.995), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(
-			207.347, 1, 175.935), Vector(209.066, True, 173.280), Vector(210.132, True, 173.916), Vector(207.347, True, 175.935), Vector(
-			201.998, True, 176.004), Vector(201.036, True, 177.430), Vector(199.438, True, 176.441), Vector(193.083, True, 186.114)),
-			Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(199.370, True, 189.455), Vector(202.923, True,
-			183.995), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(207.347, True, 175.935), Vector(211.256, True,
-			169.981), Vector(212.334, True, 170.592), Vector(207.347, 1, 175.935), Vector(201.998, True, 176.004), Vector(201.036, True,
-			177.430), Vector(199.438, True, 176.441), Vector(193.083, True, 186.114)), Array(Vector(200.987, True, 197.362), Vector(
-			204.190, True, 192.559), Vector(199.370, True, 189.455), Vector(202.923, True, 183.995), Vector(209.842, True, 183.840),
-			Vector(211.701, True, 181), Vector(207.347, True, 175.935), Vector(213.435, True, 166.540), Vector(214.493, True, 167.247),
-			Vector(207.347, True, 175.935), Vector(201.998, True, 176.004), Vector(201.036, True, 177.430), Vector(199.438, True, 176.441),
-			Vector(193.083, True, 186.114)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(199.370, True,
-			189.455), Vector(202.923, True, 183.995), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(203.692, True,
-			173.416), Vector(205.357, True, 170.869), Vector(206.777, True, 171.818), Vector(201.036, True, 177.430), Vector(199.438, True,
-			176.441), Vector(193.083, True, 186.114)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559), Vector(
-			199.370, True, 189.455), Vector(202.923, True, 183.995), Vector(209.842, True, 183.840), Vector(211.701, True, 181), Vector(
-			203.692, True, 173.416), Vector(207.703, 1, 167.399), Vector(208.911, True, 168.442), Vector(201.036, True, 177.430), Vector(
-			199.438, True, 176.441), Vector(193.083, True, 186.114)), Array(Vector(200.987, True, 197.362), Vector(204.190, True, 192.559),
-			Vector(199.370, True, 189.455), Vector(202.923, True, 183.995), Vector(209.842, True, 183.840), Vector(211.701, True, 181),
-			Vector(203.692, True, 173.416), Vector(209.687, True, 164.181), Vector(211.116, True, 165.024), Vector(201.036, True, 177.430),
-			Vector(199.438, True, 176.441), Vector(193.083, True, 186.114)), Array(Vector(200.948, True, 197.385), Vector(204.298, True,
-			192.378), Vector(209.089, True, 195.609), Vector(212.482, True, 190.428), Vector(211.361, True, 184.273), Vector(217.183, True,
-			172.578), Vector(209.024, True, 182.535), Vector(202.871, True, 184.017), Vector(199.540, True, 189.047), Vector(204.295, True,
-			192.378), Vector(200.916, True, 197.370)),
-				Array (
-					Vector(226.255, True, 170.245),
-					Vector(219.825, True, 180.305),
-					Vector(226.255, True, 170.245),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(226.255, True, 170.245),
-					Vector(221.945, True, 176.905),
-					Vector(226.255, True, 170.245),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(226.255, True, 170.245),
-					Vector(223.975, True, 173.655),
-					Vector(226.255, True, 170.245),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(214.565, True, 176.645),
-					Vector(216.505, True, 178.285),
-					Vector(214.565, True, 176.645),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(216.615, True, 173.465),
-					Vector(218.785, True, 174.915),
-					Vector(216.615, True, 173.465),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(218.815, True, 170.035),
-					Vector(221.025, True, 171.555),
-					Vector(218.815, True, 170.035),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(214.565, True, 176.645),
-					Vector(212.245, True, 175.335),
-					Vector(214.565, True, 176.645),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(216.615, True, 173.465),
-					Vector(214.385, True, 172.025),
-					Vector(216.615, True, 173.465),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(218.815, True, 170.035),
-					Vector(216.605, True, 168.605),
-					Vector(218.815, True, 170.035),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(215.505, True, 162.955),
-					Vector(208.865, True, 173.165),
-					Vector(215.505, True, 162.955),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(215.505, True, 162.955),
-					Vector(211.035, True, 169.815),
-					Vector(215.505, True, 162.955),
-					Vector(220.86, True, 166.95)
-				),
-				Array (
-					Vector(215.505, True, 162.955),
-					Vector(213.235, True, 166.495),
-					Vector(215.505, True, 162.955),
-					Vector(220.86, True, 166.95)
-				)
-			);
+		Global.tableOrderCode = Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+		Global.TABLE_PATH = Array(
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(222.009, True, 184.971),
+				Vector(223.481, True, 182.685),
+				Vector(222.079, True, 181.774),
+				Vector(219.244, True, 189.250),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(222.009, True, 184.971),
+				Vector(225.568, True, 179.360),
+				Vector(224.230, True, 178.473),
+				Vector(219.244, True, 189.250),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(222.009, True, 184.971),
+				Vector(227.739, True, 175.986),
+				Vector(226.487, True, 175.061),
+				Vector(219.244, True, 189.250),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(218.262, True, 182.700),
+				Vector(219.831, True, 180.291),
+				Vector(218.748, True, 179.586),
+				Vector(218.262, True, 182.700),
+				Vector(220.207, True, 187.791),
+				Vector(219.244, True, 189.250),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(218.262, True, 182.700),
+				Vector(222.010, True, 177.008),
+				Vector(220.973, True, 176.288),
+				Vector(218.262, True, 182.700),
+				Vector(220.207, True, 187.791),
+				Vector(219.244, True, 189.250),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(218.262, True, 182.700),
+				Vector(224.166, True, 173.622),
+				Vector(223.159, True, 172.946),
+				Vector(218.262, True, 182.700),
+				Vector(220.207, True, 187.791),
+				Vector(219.244, True, 189.250),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(207.347, True, 175.935),
+				Vector(209.066, True, 173.280),
+				Vector(210.132, True, 173.916),
+				Vector(207.347, True, 175.935),
+				Vector(201.998, True, 176.004),
+				Vector(201.036, True, 177.430),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(207.347, True, 175.935),
+				Vector(211.256, True, 169.981),
+				Vector(212.334, True, 170.592),
+				Vector(207.347, True, 175.935),
+				Vector(201.998, True, 176.004),
+				Vector(201.036, True, 177.430),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(207.347, True, 175.935),
+				Vector(213.435, True, 166.540),
+				Vector(214.493, True, 167.247),
+				Vector(207.347, True, 175.935),
+				Vector(201.998, True, 176.004),
+				Vector(201.036, True, 177.430),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(203.692, True, 173.416),
+				Vector(205.357, True, 170.869),
+				Vector(206.777, True, 171.818),
+				Vector(201.036, True, 177.430),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(203.692, True, 173.416),
+				Vector(207.703, True, 167.399),
+				Vector(208.911, True, 168.442),
+				Vector(201.036, True, 177.430),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(211.701, True, 181),
+				Vector(203.692, True, 173.416),
+				Vector(209.687, True, 164.181),
+				Vector(211.116, True, 165.024),
+				Vector(201.036, True, 177.430),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(199.370, True, 189.455),
+				Vector(202.923, True, 183.995),
+				Vector(209.842, True, 183.840),
+				Vector(214.380, 7, 186.300),
+				Vector(217.590, 7, 188.420),
+				Vector(220.050, 7, 187.550),
+				Vector(220.580, 7, 186.850),
+				Vector(217.590, 7, 188.420),
+				Vector(214.380, 7, 186.300),
+				Vector(199.438, True, 176.441),
+				Vector(193.083, True, 186.114)
+			),
+			Array(
+				Vector(200.987, True, 197.362),
+				Vector(204.190, True, 192.559),
+				Vector(208.989, True, 195.792),
+				Vector(212.385, True, 190.614),
+				Vector(209.842, True, 183.840),
+				Vector(205.190, 7, 179.830),
+				Vector(201.240, 7, 177.750),
+				Vector(202.150, 7, 176.100),
+				Vector(202.680, 7, 175.340),
+				Vector(201.240, 7, 177.750),
+				Vector(205.190, 7, 179.830),
+				Vector(221.141, True, 190.510),
+				Vector(214.349, True, 200.372)
+			),
+			
+			Array(
+				Vector(200.948, True, 197.385),
+				Vector(204.298, True, 192.378),
+				Vector(209.089, True, 195.609),
+				Vector(212.482, True, 190.428),
+				Vector(211.361, True, 184.273),
+				Vector(217.183, True, 172.578),
+				Vector(209.024, True, 182.535),
+				Vector(202.871, True, 184.017),
+				Vector(199.540, True, 189.047),
+				Vector(204.295, True, 192.378),
+				Vector(200.916, True, 197.370)
+			),
+			Array(
+				Vector(226.255, True, 170.245),
+				Vector(219.825, True, 180.305),
+				Vector(226.255, True, 170.245),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(226.255, True, 170.245),
+				Vector(221.945, True, 176.905),
+				Vector(226.255, True, 170.245),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(226.255, True, 170.245),
+				Vector(223.975, True, 173.655),
+				Vector(226.255, True, 170.245),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(214.565, True, 176.645),
+				Vector(216.505, True, 178.285),
+				Vector(214.565, True, 176.645),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(216.615, True, 173.465),
+				Vector(218.785, True, 174.915),
+				Vector(216.615, True, 173.465),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(218.815, True, 170.035),
+				Vector(221.025, True, 171.555),
+				Vector(218.815, True, 170.035),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(214.565, True, 176.645),
+				Vector(212.245, True, 175.335),
+				Vector(214.565, True, 176.645),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(216.615, True, 173.465),
+				Vector(214.385, True, 172.025),
+				Vector(216.615, True, 173.465),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(218.815, True, 170.035),
+				Vector(216.605, True, 168.605),
+				Vector(218.815, True, 170.035),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(215.505, True, 162.955),
+				Vector(208.865, True, 173.165),
+				Vector(215.505, True, 162.955),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(215.505, True, 162.955),
+				Vector(211.035, True, 169.815),
+				Vector(215.505, True, 162.955),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Vector(215.505, True, 162.955),
+				Vector(213.235, True, 166.495),
+				Vector(215.505, True, 162.955),
+				Vector(220.86, True, 166.95)
+			),
+			Array(
+				Null,
+				Vector(221.790, 7, 185.080)
+			),
+			Array(
+				Null,
+				Vector(203.870, 7, 173.510)
+			)
+		);
 		Global.TABLE_POSITION = Array(Vector(221.112, 2, 181.216), Vector(223.297, 2, 177.848), Vector(225.495, 2, 174.507), Vector(
 			217.763, 2, 179.027), Vector(219.955, 2, 175.671), Vector(222.138, 2, 172.319), Vector(211.069, 2, 174.658), Vector(213.244, 2,
-			171.301), Vector(215.431, 2, 167.950), Vector(207.710, 2, 172.466), Vector(209.900, 2, 169.116), Vector(212.074, 2, 165.771));
+			171.301), Vector(215.431, 2, 167.950), Vector(207.710, 2, 172.466), Vector(209.900, 2, 169.116), Vector(212.074, 2, 165.771),
+			Vector(221.190, 8, 185.940), Vector(203.150, 8, 174.600));
 		Global.tableFilled = Mapped Array(Global.TABLE_POSITION, False);
 		Global.fryingPower = 1;
 		Global.grillingPower = 1;
@@ -468,7 +665,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v250929\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v251213\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -495,11 +692,11 @@ rule("Global: Setting")
 			Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("練習モード"),
 			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode]), 
 				Custom String("{0}", Array(
-					Custom String("スキルを自由に磨ける練習専用モードです"),
-					Custom String("5つのメニューが登場する入門レベルをクリアしましょう"),
-					Custom String("すべてのメニューが登場する熟練レベルをクリアしましょう"),
+					Custom String("スキルを自由に磨ける練習専用モードです"), 
+					Custom String("5つのメニューが登場する入門レベルをクリアしましょう"), 
+					Custom String("すべてのメニューが登場する熟練レベルをクリアしましょう"), 
 					Custom String("Hell's Kitchenの過酷な試練に挑め"))[Global.stageMode]),
-				Local Player == Host Player ? Custom String("[{0}]: モード変更", Input Binding String(Button(Reload)),
+				Local Player == Global.scbRank ? Custom String("[{0}]: モード変更", Input Binding String(Button(Reload)),
 				Input Binding String(Button(Jump))) : Custom String(" ホストがレベル決定中です"), Top, -998, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
@@ -534,8 +731,8 @@ rule("Global: Setting")
 			Pause Match Time;
 			Create Effect(All Players(All Teams), Sphere, Color(Sky Blue), Vector(232.608, 2.750, 170.455), 0.250, Visible To);
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("〔{1}〕: モード-{0}",
-				Global.stage == 3 ? Custom String("練習終了") : Global.stage == 1 ? Custom String("All") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][0]), 
-				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}", Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("フュージョン")
+				Global.stage == 4 ? Custom String("別のモード") : Global.stage == 3 ? Custom String("練習終了") : Global.stage == 1 ? Custom String("All") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][0]), 
+				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}", Global.stage == 4 ? Array(Custom String("Joseon-World Cuisine(EN)"), Custom String("Joseon-Cafe&Dessert(EN)"), Custom String("Joseon-K-Food(KR)(old)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[0]] : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("フュージョン")
 			: Global.STAGE_NAME[Global.totalScore[0]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[0] = Global.STAGE_CODE[Global.stage];
@@ -574,12 +771,22 @@ rule("Global: Setting")
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
-		Create In-World Text(Null,
-		Custom String("{0} Notice\r\n\r\nカスタムコースモードが復活しました！", Icon String(Fire)), 
+		Create In-World Text(Null, 
+		Null, 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Color(Violet), Default Visibility);
+			Custom Color(208, 70, 86, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v250929\r\n\r\n練習モードでも役職が適用されるように修正いたしました。", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} v251213\r\n\r\n新規客タイプ\r\n  {1}一人客: 2階の隅席を好みます!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Freja)),
+		Custom String("  {0} 稲荷神: この客が持ってくるサプライズボーナスを見逃すな!\r\n{1}", Hero Icon String(Hero(Kiriko)),
+		Custom String("  {0} 怪しい客: 404 NOT FOUND", Hero Icon String(Hero(Sombra))))), 
+		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
+			Custom Color(208, 70, 86, 255), Default Visibility);
+		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
+		Custom String("{0} アイテムバランス調整\r\n\r\n  ツール系と移動系のアイテムを別々に装備できるように。\r\n{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), 
+		Custom String("  アイテム購入: ツール系と移動系の選択肢を分離。\r\n{0}",
+		Custom String("  テレポートスペル: 料理を持ったまま使うと客席へ瞬間移動。\r\n{0}",
+		Custom String("  ジャンプブーツ: より高く跳び、装備中は一部の移動スキルが使用可能。\r\n{0}",
+		Custom String("  伝説のナイフ注文: いまや出現率100%。\r\n"))))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -644,13 +851,6 @@ rule("Player: Spawn")
 
 	actions
 	{
-		If(Count Of(All Players(Team 1)) > 0);
-			Set Slow Motion(100);
-			For Player Variable(Event Player, perkIndex, False, 6, True);
-                Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Event Player.perkIndex]))
-				? All Players(Team 1)[Event Player.perkIndex].playerSpeed * 0.916 : All Players(Team 1)[Event Player.perkIndex].playerSpeed);
-            End;
-		End;
 		Disallow Button(Event Player, Button(Primary Fire));
 		Disallow Button(Event Player, Button(Secondary Fire));
 		Disallow Button(Event Player, Button(Ability 1));
@@ -664,11 +864,12 @@ rule("Player: Spawn")
 		Event Player.durability = 100;
 		Event Player.playerSpeed = 90;
         Event Player.itemPerk = -1;
+		Event Player.footPerk = -1;
 		Event Player.isController = False;
 		Wait Until(Has Spawned(Event Player), 9999);
 		Disable Nameplates(All Players(Team 1), All Players(Team 1));
-		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("設定"), Custom String("プレイヤー基本役職"),
-			0, Array(Custom String("シェフ"), Custom String("ホール·スタッフ"), Custom String("見習い生")), 4);
+		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("設定"), Custom String(
+			"プレイヤー基本役職"), 0, Array(Custom String("シェフ"), Custom String("ホール·スタッフ"), Custom String("見習い生")), 4);
 		If(Slot Of(Host Player) == -1 && Count Of(Filtered Array(All Players(Team 1), Current Array Element.permission == 3)) == 0);
 			Event Player.permission = 3;
 		End;
@@ -702,9 +903,9 @@ rule("Player: Spawn")
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
 		Create In-World Text(Event Player, Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode], Vector(222.559,
-			5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 33.500), 1.500,
-			Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange),
+			Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
 		Create In-World Text(Event Player, Custom String("GummyBear#11798\r\nMod : 변기클라우드#3523\r\nEnglish Version : HTNZ3"), Vector(
 			222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 38.500),
@@ -736,6 +937,7 @@ rule("Player: Spawn")
 		Call Subroutine(loadProgress);
 		Call Subroutine(knifeHud);
 		Call Subroutine(perkHud);
+		Call Subroutine(footHud);
 		Start Rule(saveProgress, Do Nothing);
 	}
 }
@@ -803,7 +1005,7 @@ rule("Player: Control item")
 			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
-        Else If(Array Contains(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]));
+        Else If(Array Contains(Global.PERK_LIST[0], Global.itemCode[Event Player.controlingIndex]) || Array Contains(Global.PERK_LIST[1], Global.itemCode[Event Player.controlingIndex]));
 			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
@@ -821,6 +1023,7 @@ rule("Player: Control item")
 			Wait(0.016, Ignore Condition);
 			Global.itemVelocity[Event Player.controlingIndex] = (Eye Position(Event Player) + Facing Direction Of(Event Player)
 				* 1.500 - Global.itemPosition[Event Player.controlingIndex]) * 0.400;
+			Wait Until(!Event Player.usingTP, True);
 		End;
 		Event Player.mixingIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
 			Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element)
@@ -969,7 +1172,7 @@ rule("Player: Interact")
 						Call Subroutine(purchaseUpgrade);
 					Else;
 						If(Event Player.selectedUpgrade == 2);
-							Small Message(Event Player, Custom String("  伝説包丁ガチャ -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
+							Small Message(Event Player, Custom String("  ヘッドシェフの包丁注文 -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
 							Small Message(Event Player, Custom String("  次は商人が包丁を持ってくるよ。 "));
 							Global.orderedKnives[1] += True;
 						Else If(Event Player.selectedUpgrade == 1);
@@ -1001,8 +1204,10 @@ rule("Player: Interact")
 				Teleport(Event Player, Vector(215.343, True, 155.834));
 				Wait(False, Ignore Condition);
 				Set Facing(Event Player, Vector(0.830, False, 0.560), To World);
-				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
-					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
+				For Player Variable(Event Player, perkIndex, False, 6, True);
+					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					? All Players(Team 1)[Event Player.perkIndex].playerSpeed * 0.916 : All Players(Team 1)[Event Player.perkIndex].playerSpeed);
+				End;
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.isOpen == False);
 				Global.stage = (Global.stage + True) % Count Of(Global.STAGE_CODE);
@@ -1051,7 +1256,11 @@ rule("Player: Interact")
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
-					If(Event Player.permission != 3 && Global.stage == 3);
+					If(Global.stage == 4);
+						Small Message(All Players(All Teams), Custom String("  {0} のワークショップコードは {1} です！ ",
+							Array(Custom String("Joseon-World Cuisine(EN)"), Custom String("Joseon-Cafe&Dessert(EN)"), Custom String("Joseon-K-Food(KR)(old)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]],
+							Array(Custom String("GXYZ5"), Custom String("Z1TBZ"), Custom String("ST6Z6"), Custom String("8MAAN"))[Global.totalScore[False]]));
+					Else If(Event Player.permission != 3 && Global.stage == 3);
 						Small Message(All Players(All Teams), Custom String("  {0}{1} さんがゲームの開始を提案しました！ ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
 						Wait(0.75, Ignore Condition);
@@ -1092,16 +1301,29 @@ rule("Player: Interact")
 			Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Null, Eye Position(Event Player), 100);
 			Call Subroutine(destroyItem);
 			Wait(1.000, Ignore Condition);
-        Else If(Array Contains(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]));
+        Else If(Array Contains(Global.PERK_LIST[0], Global.itemCode[Event Player.controlingIndex]));
 			If(Event Player.itemPerk + True);
 				Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
-					Global.PERK_LIST[Event Player.itemPerk], Event Player.itemPerkDurability, Null);
+					Global.PERK_LIST[0][Event Player.itemPerk], Event Player.itemPerkDurability, Null);
 				Call Subroutine(createItem);
 			End;
-			Event Player.itemPerk = Index Of Array Value(Global.PERK_LIST, Global.itemCode[Event Player.controlingIndex]);
+			Event Player.itemPerk = Index Of Array Value(Global.PERK_LIST[0], Global.itemCode[Event Player.controlingIndex]);
 			Event Player.itemPerkDurability = Global.itemDurability[Event Player.controlingIndex];
 			Destroy HUD Text(Event Player.itemPerkText);
 			Call Subroutine(perkHud);
+			Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Null, Eye Position(Event Player), 100);
+			Call Subroutine(destroyItem);
+			Wait(1.000, Ignore Condition);
+		Else If(Array Contains(Global.PERK_LIST[1], Global.itemCode[Event Player.controlingIndex]));
+			If(Event Player.footPerk + True);
+				Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
+					Global.PERK_LIST[1][Event Player.footPerk], Event Player.footPerkDurability, Null);
+				Call Subroutine(createItem);
+			End;
+			Event Player.footPerk = Index Of Array Value(Global.PERK_LIST[1], Global.itemCode[Event Player.controlingIndex]);
+			Event Player.footPerkDurability = Global.itemDurability[Event Player.controlingIndex];
+			Destroy HUD Text(Event Player.footPerkText);
+			Call Subroutine(footHud);
 			Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Null, Eye Position(Event Player), 100);
 			Call Subroutine(destroyItem);
 			Wait(1.000, Ignore Condition);
@@ -1198,6 +1420,10 @@ rule("Player subroutine: destroy perk")
 			Event Player.itemPerk = -1;
 			Destroy HUD Text(Event Player.itemPerkText);
 		End;
+		If(Event Player.footPerkDurability <= 0);
+			Event Player.footPerk = -1;
+			Destroy HUD Text(Event Player.footPerkText);
+		End;
 	}
 }
 
@@ -1218,7 +1444,7 @@ rule("Player: Reload button")
 	actions
 	{
 		If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
-					Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
 			Global.totalScore[0] = (Global.totalScore[0] + True) % Count Of(Global.FRIDGE_LIST);
 			Global.currentMenu = Empty Array;
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[0]]);
@@ -1232,6 +1458,9 @@ rule("Player: Reload button")
 					Global.WEAVER_MENU_LIST[Global.totalScore[0]]);
 			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[0]];
+		Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+			Global.totalScore[0] = (Global.totalScore[0] + True) % 4;
 		End;
 		Abort If(Event Player.controlingIndex + True);
 		If(Global.currentUpgrade + True && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(
@@ -1240,22 +1469,31 @@ rule("Player: Reload button")
 		Else;
 		Abort If(Global.setUpTime <= 0);
 		Wait(0.2, Abort When False);
+		Small Message(Event Player, Custom String("  長押しすると全てのアイテムを置きます "));
+		Wait(2, Abort When False);
 		If(Event Player.itemPerk + True);
-			Small Message(Event Player, Custom String("  長押しするとアイテムを置きます "));
-			Wait(2, Abort When False);
 			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
-				Global.PERK_LIST[Event Player.itemPerk], Event Player.itemPerkDurability, Null);
+				Global.PERK_LIST[0][Event Player.itemPerk], Event Player.itemPerkDurability, Null);
 			Call Subroutine(createItem);
 			Destroy HUD Text(Event Player.itemPerkText);
 			Event Player.itemPerk = -1;
-		Else If(Event Player.knifeCode + True && Event Player.durability <= 100);
-			Small Message(Event Player, Custom String("  長押しするとナイフを置きます "));
-			Wait(2, Abort When False);
+			Wait(0.100, Abort When False);
+		End;
+		If(Event Player.footPerk + True);
+			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
+				Global.PERK_LIST[1][Event Player.footPerk], Event Player.footPerkDurability, Null);
+			Call Subroutine(createItem);
+			Destroy HUD Text(Event Player.footPerkText);
+			Event Player.footPerk = -1;
+			Wait(0.100, Abort When False);
+		End;
+		If(Event Player.knifeCode + True && Event Player.durability <= 100);
 			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
 				Global.KNIFE[Event Player.knifeCode], Event Player.durability, Null);
 			Call Subroutine(createItem);
 			Destroy HUD Text(Event Player.knifeText);
 			Event Player.knifeCode = -1;
+			Wait(0.100, Abort When False);
 		End;
 		Abort If(Custom String("{0}", Event Player) != Custom String("변기클라우드"));
 		Wait(True, Abort When False);
@@ -1280,6 +1518,7 @@ rule("Player: Secondary fire button")
 	{
 		Is Button Held(Event Player, Button(Secondary Fire)) == True;
         Event Player.controlingIndex == -1;
+		Global.superDrink != -2;
 	}
 
 	actions
@@ -1288,7 +1527,7 @@ rule("Player: Secondary fire button")
 			Distance Between(Current Array Element, Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500)
 			< 1.500 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Eye Position(Event Player)
 			+ Facing Direction Of(Event Player) * 1.500))));
-		If(Event Player.itemPerk == 4);
+		If(Event Player.itemPerk == 3);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 0.01);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Gray), Global.itemPosition[Event Player.controlingIndex], 0.01);
 			Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 1.500, 50);
@@ -1298,7 +1537,7 @@ rule("Player: Secondary fire button")
 			Event Player.controlingIndex = -1;
 			Event Player.itemPerkDurability -= 0.5;
 			Call Subroutine(destroyPerk);
-		Else If(Event Player.itemPerk == 8);
+		Else If(Event Player.itemPerk == 5);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 1);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
 			Play Effect(All Players(All Teams), Reinhardt Fire Strike Target Impact Sound, Null, Eye Position(Event Player) + Facing Direction Of(Event Player)* 3, 100);
@@ -1341,6 +1580,7 @@ rule("Player: Ultimate button")
 	{
 		Is Button Held(Event Player, Button(Ultimate)) == True;
         Event Player.itemPerk != -1;
+		Global.superDrink != -2;
 	}
 
 	actions
@@ -1352,7 +1592,7 @@ rule("Player: Ultimate button")
             Set Move Speed(Event Player, 150);
             Play Effect(All Players(All Teams), Good Explosion, Color(Green), Eye Position(Event Player), 2);
             Play Effect(Event Player, Ana Biotic Grenade Increased Healing Sound, Null, Eye Position(Event Player), 100);
-            Event Player.normalDrink = True;
+			Event Player.normalDrink = True;
             Wait(100, Ignore Condition);
             Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
@@ -1363,7 +1603,7 @@ rule("Player: Ultimate button")
 			Play Effect(All Players(All Teams), Good Explosion, Color(Violet), Eye Position(Event Player), 2);
 			Play Effect(All Players(All Teams), Ana Biotic Grenade Increased Healing Sound, Color(Green), Eye Position(Event Player), 2);
             Global.superDrink = -1;
-        Else If(Event Player.itemPerk == 3);
+        Else If(Event Player.itemPerk == 2);
             If(Event Player.controlingIndex != -1);
                 Play Effect(All Players(All Teams), Good Explosion, Color(Yellow), Global.itemPosition[Event Player.controlingIndex], 2);
                 Play Effect(All Players(All Teams), Heal Target Active Effect, Null, Global.itemPosition[Event Player.controlingIndex], 2);
@@ -1371,7 +1611,7 @@ rule("Player: Ultimate button")
                 Event Player.itemPerkDurability -= 5;
                 Call Subroutine(destroyPerk);
             End;
-        Else If(Event Player.itemPerk == 7);
+        Else If(Event Player.itemPerk == 4);
             If(Event Player.controlingIndex != -1 && !Array Contains(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 432, 433, 434), Global.itemCode[Event Player.controlingIndex]));
                 Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Global.itemPosition[Event Player.controlingIndex], 2);
                 Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 2);
@@ -1383,27 +1623,7 @@ rule("Player: Ultimate button")
                 Event Player.itemPerkDurability -= 20;
                 Call Subroutine(destroyPerk);
             End;
-        Else If(Event Player.itemPerk == 8);
-            If(Event Player.controlingIndex != -1);
-                Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Global.itemPosition[Event Player.controlingIndex], 1);
-                Play Effect(All Players(All Teams), Reinhardt Fire Strike Target Impact Sound, Null, Global.itemPosition[Event Player.controlingIndex], 100);
-                If(Global.itemStatus[Event Player.controlingIndex] == 3);
-					Global.itemProgress[Event Player.controlingIndex] += 1;
-				Else;
-					Global.itemStatus[Event Player.controlingIndex] = 3;
-					Global.itemProgress[Event Player.controlingIndex] = 1;
-				End;
-				If(Global.itemProgress[Event Player.controlingIndex] >= Global.GRILLING_NEEDED[Global.itemCode[Event Player.controlingIndex]]);
-					Global.itemCode[Event Player.controlingIndex] = Global.GRILLING_RESULT[Global.itemCode[Event Player.controlingIndex]];
-					Global.itemProgress[Event Player.controlingIndex] = Null;
-					Play Effect(All Players(All Teams), Ashe Dynamite Explosion Sound, Null, Global.itemPosition[Event Player.controlingIndex], 50);
-					Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Global.itemPosition[Event Player.controlingIndex], 0.500);
-					Modify Global Variable At Index(itemCooker, Event Player.controlingIndex, Append To Array, Global.itemLastControl[Event Player.controlingIndex]);
-				End;
-                Event Player.itemPerkDurability -= 1;
-                Call Subroutine(destroyPerk);
-            End;
-		Else If(Event Player.itemPerk == 9);
+		Else If(Event Player.itemPerk == 6);
 			Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Event Player, 2);
 			Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Event Player, 2);
 			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
@@ -1417,7 +1637,7 @@ rule("Player: Ultimate button")
 			Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
 			Destroy HUD Text(Event Player.itemPerkText);
 			Event Player.itemPerk = -1;
-		Else If(Event Player.itemPerk == 10 && Count Of(All Players(Team 1)) < 6);
+		Else If(Event Player.itemPerk == 7 && Count Of(All Players(Team 1)) < 6);
 			Play Effect(All Players(All Teams), Good Explosion, Color(Orange), Event Player, 2);
 			Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Event Player, 2);
 			Create Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
@@ -1453,7 +1673,7 @@ rule("Player: Authorize Controller")
 		If(Z Component Of(Throttle Of(Event Player)) < 0.730 && Z Component Of(Throttle Of(Event Player)) > 0.200);
 			Event Player.isController = True;
 			Small Message(Event Player, Custom String("  これで[{0}]キーで材料を潰すことができます！ ", Input Binding String(Button(Melee))));
-			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("材料潰し"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, True, Color(Gray), Color(Gray), Color(White),
+			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("材料潰し"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
                 String and Color, Default Visibility);
 		End;
 		Wait(3, Ignore Condition);
@@ -1542,15 +1762,15 @@ rule("Dummy: Spawn")
 	actions
 	{
 		Event Player.controlingIndex = Index Of Array Value(Array(Hero(Soldier: 76), Hero(Roadhog), Hero(Bastion), Hero(Tracer), Hero(
-			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver)), Hero Of(Event Player));
+			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver), Hero(Freja), Hero(Sombra), Hero(Kiriko)), Hero Of(Event Player));
 		Event Player.customerSpeed = Hero Of(Event Player) == Hero(Tracer) ? 6 : 5.500;
 		If(Event Player.controlingIndex == -1);
-			Event Player.customerPath = Global.TABLE_PATH[12];
+			Event Player.customerPath = Global.TABLE_PATH[14];
 			Event Player.cookingIndex = Index Of Array Value(Array(Hero(Torbjörn), Hero(Mei), Hero(Junkrat), Hero(Juno)), Hero Of(
 				Event Player));
 			Disable Movement Collision With Environment(Event Player, False);
 			Wait Until(Has Spawned(Event Player), True);
-			Start Forcing Dummy Bot Name(Event Player, String Split(Custom String("キッチンナイフトレーダー/アップグレード/アップグレード/アップグレード"), Custom String("/"))
+			Start Forcing Dummy Bot Name(Event Player, String Split(Custom String("キッチンナイフトレーダー/アイテム商人/アップグレード/アップグレード"), Custom String("/"))
 				[Event Player.cookingIndex]);
 			For Player Variable(Event Player, controlingIndex, False, 6, True);
 				Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
@@ -1561,7 +1781,6 @@ rule("Dummy: Spawn")
 			End;
 			Stop Throttle In Direction(Event Player);
 			Stop Facing(Event Player);
-			Communicate(Event Player, Hello);
 			Global.currentUpgrade = Event Player.cookingIndex;
 			If(!Event Player.cookingIndex && (Global.orderedKnives[0] || Global.orderedKnives[1]));
 				Small Message(All Players(All Teams), Custom String("  {0} : 注文したナイフを持ってきた！", Hero Icon String(Hero(Torbjörn))));
@@ -1574,7 +1793,7 @@ rule("Dummy: Spawn")
 				End;
 				While(Global.orderedKnives[1]);
 					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-						-70)) * 0.100, Random Value In Array(Array(63, 64, 63, 64, 63, 64, 63, 64, 63, 354)), 100, Null);
+						-70)) * 0.100, 354, 100, Null);
 					Call Subroutine(createItem);
 					Global.orderedKnives[1] -= True;
 					Wait(0.100, Ignore Condition);
@@ -1583,25 +1802,25 @@ rule("Dummy: Spawn")
 				Small Message(All Players(All Teams), Custom String("  {0} : 無料アイテムをプレゼント！", Hero Icon String(Hero(Mei))));
 				For Player Variable(Event Player, controlingIndex, False, Count Of(All Players(Team 1)), True);
 					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-						-70)) * 0.100, Random Value In Array(Global.PERK_LIST), 100, Null);
+						-70)) * 0.100, Random Value In Array(Global.PERK_LIST[Random Integer(0, 1)]), 100, Null);
 					Call Subroutine(createItem);
 					Wait(0.100, Ignore Condition);
 				End;
 			End;
 			All Players(All Teams).selectedUpgrade = False;
-			Global.upgradeColor = Array(Array(Color(Green), Color(Turquoise), Color(Violet)), Array(Color(Sky Blue), Color(Rose), Color(Yellow)), Array(Color(Yellow), Color(Purple), Color(Orange), Color(
+			Global.upgradeColor = Array(Array(Color(Green), Color(Turquoise), Color(Violet)), Array(Color(Sky Blue), Color(Turquoise), Color(Rose)), Array(Color(Yellow), Color(Purple), Color(Orange), Color(
 				Red)), Array(Color(Sky Blue), Color(Violet), Color(Yellow)))[Event Player.cookingIndex];
 			Skip(Event Player.cookingIndex * 2);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
 				"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("{0} 購入",
-				Global.ITEM_NAME[Global.KNIFE[1]]), Custom String("特製包丁ガチャ"), Custom String("伝説包丁ガチャ"))[Local Player.selectedUpgrade], First Of(Global.upgradePrice)
+				Global.ITEM_NAME[Global.KNIFE[1]]), Custom String("特製包丁ガチャ"), Custom String("ヘッドシェフの包丁注文"))[Local Player.selectedUpgrade], First Of(Global.upgradePrice)
 				[Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3, Do Not Clip, Visible To Position String and Color,
 				Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(5);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 購入 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("保存用バット"), Custom String("ランダムアイテム"), Custom String("保存食ボックス"))
+				"〔{0}〕:  {1} 購入 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("保存用バット"), Custom String("ランダム道具"), Custom String("ランダム靴"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[True][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(3);
@@ -1630,57 +1849,69 @@ rule("Dummy: Spawn")
 				End;
 				If(Event Player.customerStatus);
 					Event Player.customerStatus = Null;
-					Communicate(Event Player, Thanks);
 				End;
 			End;
-			Communicate(Event Player, Goodbye);
 			Global.currentUpgrade = -1;
 			All Players(Team 1).selectedUpgrade = -1;
 			Destroy HUD Text(Event Player.playerText);
 			Destroy In-World Text(Event Player.tableText);
 			Destroy Effect(Event Player.customerEffect);
 		Else;
-			Start Forcing Dummy Bot Name(Event Player, String Split(Custom String(
-				"普通の客/大食い/厳しい客/せっかちな客/フードファイター/予約客/フード評論家/モクバンユーチューバー/壊食家/暴悪な客/エルバーピ VVIP/料理研究家"), Custom String("/"))
-				[Event Player.controlingIndex]);
+			Start Forcing Dummy Bot Name(Event Player, String Split(
+				Custom String("普通の客/大食い/厳しい客/せっかちな客/フードファイター/予約客/フード評論家/モクバンユーチューバー/壊食家/暴悪な客/エルバーピ VVIP/料理研究家/{0}",
+				Custom String("一人客/怪しい客/稲荷神")), Custom String("/"))[Event Player.controlingIndex]);
 			Event Player.playerColor = Array(Color(Blue), Color(Green), Color(White), Color(Orange), Color(Purple), Color(Turquoise), Color(
-				Aqua), Color(Violet), Color(Lime Green), Color(Red), Color(Yellow), Custom Color(225, 165, 186, 255))[Event Player.controlingIndex];
-			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10)[Event Player.controlingIndex] - Global.additionalScore;
-			Event Player.orderCount = Array(True, 2, True, True, Null, True, True, 2, True, True, 4, True)[Event Player.controlingIndex];
-			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35)
+				Aqua), Color(Violet), Color(Lime Green), Color(Red), Color(Yellow), 
+				Custom Color(225, 165, 186, 255), 
+				Custom Color(136, 200, 255, 255), 
+				Custom Color(153, 110, 213, 255), 
+				Custom Color(208, 70, 86, 255))[Event Player.controlingIndex];
+			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10)[Event Player.controlingIndex] - Global.additionalScore;
+			Event Player.orderCount = Array(True, 2, True, True, Null, True, True, 2, True, True, 4, True, True, True, True)[Event Player.controlingIndex];
+			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 15)
 				[Event Player.controlingIndex] * Array(6, 3, 2, 1.200, 12)[Global.difficulty] - 0.500;
-			Event Player.byOrder = Array(False, False, 1, False, False, False, False, 1, False, 1, 1, False)[Event Player.controlingIndex];
+			Event Player.byOrder = Array(False, False, 1, False, False, False, False, 1, False, 1, 1, False, False, False, False)[Event Player.controlingIndex];
 			Disable Movement Collision With Environment(Event Player, False);
 			Wait Until(Has Spawned(Event Player), True);
-			For Player Variable(Event Player, controlingIndex, False, 9, True);
-				Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
-					To World, Replace existing throttle, None);
-				Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
-				Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / Event Player.customerSpeed,
-					Ignore Condition);
-				Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
-				If(!Global.isOpen);
-					Global.tableFilled[Event Player.tableIndex] = False;
-					Event Player.customerPath = Array Slice(Global.TABLE_PATH[Event Player.tableIndex], False, Event Player.controlingIndex);
-					While(True);
-						Event Player.controlingIndex -= 1;
-						Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player),
-							Event Player.customerPath[Event Player.controlingIndex]), True, To World, Replace existing throttle, None);
-						Start Facing(Event Player, Direction Towards(Position Of(Event Player), Event Player.customerPath[Event Player.controlingIndex]),
-							300, To World, None);
-						Wait(Distance Between(Position Of(Event Player), Event Player.customerPath[Event Player.controlingIndex])
-							/ Event Player.customerSpeed, Ignore Condition);
-						Modify Player Variable(Event Player, customerPath, Remove From Array By Index, Event Player.controlingIndex);
-						If(Event Player.controlingIndex < 1);
-							Destroy Dummy Bot(Team 2, Slot Of(Event Player));
-							Abort;
+			If(Hero Of(Event Player) == Hero(Kiriko));
+				Teleport(Event Player, Global.TABLE_PATH[Event Player.tableIndex][8]);
+				Set Facing(Event Player, Direction Towards(Position Of(Event Player), Global.TABLE_POSITION[Event Player.tableIndex] - Up), To World);
+				Wait(0.016, Ignore Condition);
+				Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
+            	Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
+			Else;
+				For Player Variable(Event Player, controlingIndex, False, 9, True);
+					Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
+						To World, Replace existing throttle, None);
+					Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
+					If(Event Player.tableIndex >= 12 && Event Player.controlingIndex == 5);
+						Press Button(Event Player, Button(Ability 2));
+					End;
+					Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / Event Player.customerSpeed,
+						Ignore Condition);
+					Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
+					If(!Global.isOpen);
+						Global.tableFilled[Event Player.tableIndex] = False;
+						Event Player.customerPath = Array Slice(Global.TABLE_PATH[Event Player.tableIndex], False, Event Player.controlingIndex);
+						While(True);
+							Event Player.controlingIndex -= 1;
+							Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player),
+								Event Player.customerPath[Event Player.controlingIndex]), True, To World, Replace existing throttle, None);
+							Start Facing(Event Player, Direction Towards(Position Of(Event Player), Event Player.customerPath[Event Player.controlingIndex]),
+								300, To World, None);
+							Wait(Distance Between(Position Of(Event Player), Event Player.customerPath[Event Player.controlingIndex])
+								/ Event Player.customerSpeed, Ignore Condition);
+							Modify Player Variable(Event Player, customerPath, Remove From Array By Index, Event Player.controlingIndex);
+							If(Event Player.controlingIndex < 1);
+								Destroy Dummy Bot(Team 2, Slot Of(Event Player));
+								Abort;
+							End;
 						End;
 					End;
 				End;
 			End;
 			Stop Throttle In Direction(Event Player);
 			Stop Facing(Event Player);
-			Communicate(Event Player, Hello);
 			Event Player.customerStatus = Null;
 			While(True);
 				If(Hero Of(Event Player) == Hero(LifeWeaver));
@@ -1697,7 +1928,7 @@ rule("Dummy: Spawn")
 						Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
 					End;
 					Event Player.durability = Global.tableOrderCode[Event Player.tableIndex];
-				Else If(Hero Of(Event Player) == Hero(Mercy));
+				Else If(Hero Of(Event Player) == Hero(Mercy) || Hero Of(Event Player) == Hero(Sombra));
 					Global.tableOrderCode[Event Player.tableIndex] = Event Player.durability;
 				Else;
 					Global.tableOrderCode[Event Player.tableIndex] = First Of(Global.loadingMenu);
@@ -1804,27 +2035,7 @@ rule("Dummy: Spawn")
 							Event Player.orderTimeOut += Event Player.lastOrderTime - Total Time Elapsed;
 						Else;
 							If(Event Player.customerStatus != -1);
-								Event Player.knifeText.score -= 5;
-								Event Player.controlingIndex = Array(Custom String("タイムオーバー!"), Null, Custom String("{0}の間違ったサービング!", Event Player.knifeText),
-									Custom String("順番注意!"))[Event Player.customerStatus];
-								Create HUD Text(All Players(All Teams), Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
-									Event Player.controlingIndex), Null, Custom String(
-									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
-									Left, Event Player.orderedTime * 0.001, Color(Red), Null, Null, None, Default Visibility);
-								Event Player.playerText = Last Text ID;
-								Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 5);
-								Play Effect(All Players(All Teams), Cassidy Flashbang Explosion Sound, Null, Event Player, 100);
-								Global.scbSurved[5] += 1;
-								Create Effect(All Players(All Teams), Torbjörn Overloading Effect, Null, Event Player, True, Visible To Position and Radius);
-								Event Player.customerEffect = Last Created Entity;
-								Press Button(Event Player, Button(Jump));
-								Event Player.score = Min(Global.systemScore, Global.scoreDecrease[Event Player.customerStatus]);
-								Global.systemScore -= Event Player.score;
-								Small Message(All Players(All Teams), Custom String("  {0}{1}", Event Player.controlingIndex, Event Player.score ? Custom String(
-									" -{0}%", Event Player.score) : Custom String("")));
-								Destroy Effect(Event Player.shaftEffect);
-								Wait(True, Ignore Condition);
-								Destroy Effect(Event Player.customerEffect);
+								Call Subroutine(serveFail);
 								Break;
 							End;
 						End;
@@ -1836,7 +2047,6 @@ rule("Dummy: Spawn")
 					Destroy Effect(Event Player.shaftEffect);
 					Destroy In-World Text(Event Player.tableText);
 					If(Event Player.orderCount == 3);
-						Communicate(Event Player, Thanks);
 						Modify Player Variable(Event Player, score, Max, 10);
 						Global.systemScore += Event Player.score;
 						Global.stageScore += Event Player.score;
@@ -1846,7 +2056,7 @@ rule("Dummy: Spawn")
 					Break;
 				Else;
 					Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
-						Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Event Player.hintText, Custom String(
+						Hero Of(Event Player) == Hero(Sombra) ? Custom String("???") : Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Event Player.hintText, Custom String(
 						"  {0}秒\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
 						Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
 						Total Time Elapsed * 0.001, Event Player.playerColor, Color(Yellow), Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1 < 10 ? Color(Red) : Event Player.playerColor, Visible To String and Color,
@@ -1926,7 +2136,6 @@ rule("Dummy: Spawn")
 								Event Player.durability = False;
 							Else;
 								Modify Player Variable(Event Player, score, Max, 10);
-								Communicate(Event Player, Thanks);
 								Global.systemScore += Event Player.score;
 								Global.stageScore += Event Player.score;
 								If(Hero Of(Event Player) == Hero(Moira));
@@ -1936,6 +2145,9 @@ rule("Dummy: Spawn")
 								Else If(Hero Of(Event Player) == Hero(D.Va));
 									Small Message(All Players(All Teams), Custom String("  VIP サービング成功! +{0}%", Event Player.score));
 									All Players(Team 1).score += 20;
+								Else If(Hero Of(Event Player) == Hero(Kiriko));
+									Small Message(All Players(All Teams), Custom String("  稲荷神のボーナス +50 "));
+									Global.totalScore[0] += Global.difficulty != 4 ? 50 : 0;
 								Else;
 									Small Message(All Players(All Teams), Custom String("  サービング成功! +{0}%", Event Player.score));
 								End;
@@ -1945,41 +2157,7 @@ rule("Dummy: Spawn")
 							End;
 						Else;
 							If(Event Player.customerStatus != -1);
-								Event Player.knifeText.score -= 5;
-								Event Player.controlingIndex = Array(Custom String("タイムオーバー!"), Null, Custom String("{0}の間違ったサービング!", Event Player.knifeText),
-									Custom String("順番注意!"))[Event Player.customerStatus];
-								Create HUD Text(All Players(All Teams), Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
-									Event Player.controlingIndex), Null, Custom String(
-									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
-									Left, Event Player.orderedTime * 0.001, Color(Red), Null, Null, None, Default Visibility);
-								Event Player.playerText = Last Text ID;
-								Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 5);
-								Play Effect(All Players(All Teams), Cassidy Flashbang Explosion Sound, Null, Event Player, 100);
-								Create Effect(All Players(All Teams), Torbjörn Overloading Effect, Null, Event Player, True, Visible To Position and Radius);
-								Event Player.customerEffect = Last Created Entity;
-								Press Button(Event Player, Button(Jump));
-								Global.stageScore -= Hero Of(Event Player) == Hero(D.Va)
-									? Global.scoreDecrease[Event Player.customerStatus] * 3 : Global.scoreDecrease[Event Player.customerStatus];
-								Event Player.score = Min(Global.systemScore, Hero Of(Event Player) == Hero(D.Va)
-									? Global.scoreDecrease[Event Player.customerStatus] * 3 : Global.scoreDecrease[Event Player.customerStatus]);
-								Global.systemScore -= Event Player.score;
-								Event Player.dollar = False;
-								Global.scbSurved[5] += 1;
-								Small Message(All Players(All Teams), Custom String("  {0}{1}", Event Player.controlingIndex, Event Player.score ? Custom String(
-									" -{0}%", Event Player.score) : Custom String("")));
-								If(Hero Of(Event Player) == Hero(Mauga));
-									Clear Status(All Players(Team 1), Phased Out);
-									Set Status(All Players(Team 1), Event Player, Stunned, 5);
-									Wait(0.016, Ignore Condition);
-									Set Status(All Players(Team 1), Null, Phased Out, 9999);
-								Else If(Hero Of(Event Player) == Hero(Moira) && Global.difficulty != 4);
-									Set Match Time(1);
-									Wait(1, Ignore Condition);
-									Global.isVipAngry = True;
-								End;
-								Wait(True, Ignore Condition);
-								Destroy Effect(Event Player.customerEffect);
-								Destroy HUD Text(Event Player.playerText);
+								Call Subroutine(serveFail);
 								Break;
 							End;
 						End;
@@ -1993,13 +2171,18 @@ rule("Dummy: Spawn")
 			Global.tableFilled[Event Player.tableIndex] = False;
 			Global.tableOrderCode[Event Player.tableIndex] = -1;
 		End;
-		While(Event Player.customerPath != Empty Array);
-			Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
-				To World, Replace existing throttle, None);
-			Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
-			Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / Event Player.customerSpeed,
-				Ignore Condition);
-			Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
+		If(Hero Of(Event Player) == Hero(Kiriko));
+			Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
+		Else;
+			While(Event Player.customerPath != Empty Array);
+				Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
+					To World, Replace existing throttle, None);
+				Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
+				Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / Event Player.customerSpeed,
+					Ignore Condition);
+				Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
+			End;
 		End;
 		If(Event Player.dollar && Global.isOpen);
 			Small Message(All Players(All Teams), Custom String("  {0}{1}の口コミ! ", Hero Icon String(Hero Of(Event Player)), Event Player));
@@ -2011,6 +2194,60 @@ rule("Dummy: Spawn")
 			End;
 		End;
 		Destroy Dummy Bot(Team 2, Slot Of(Event Player));
+	}
+}
+
+rule("serveFail") {
+	event
+	{
+		subroutine;
+		serveFail;
+	}
+
+	actions
+	{
+		Event Player.knifeText.score -= 5;
+		Event Player.controlingIndex = Array(Custom String("タイムオーバー!"), Null, Custom String("{0}の間違ったサービング!", Event Player.knifeText),
+			Custom String("順番注意!"))[Event Player.customerStatus];
+		Create HUD Text(All Players(All Teams), Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
+			Event Player.controlingIndex), Null, Custom String(
+			"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
+			Left, Event Player.orderedTime * 0.001, Color(Red), Null, Null, None, Default Visibility);
+		Event Player.playerText = Last Text ID;
+		Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 5);
+		Play Effect(All Players(All Teams), Cassidy Flashbang Explosion Sound, Null, Event Player, 100);
+		Create Effect(All Players(All Teams), Torbjörn Overloading Effect, Null, Event Player, True, Visible To Position and Radius);
+		Event Player.customerEffect = Last Created Entity;
+		Press Button(Event Player, Button(Jump));
+		If(Hero Of(Event Player) != Hero(Kiriko));
+			Global.stageScore -= Hero Of(Event Player) == Hero(D.Va)
+				? Global.scoreDecrease[Event Player.customerStatus] * 3 : Global.scoreDecrease[Event Player.customerStatus];
+			Event Player.score = Min(Global.systemScore, Hero Of(Event Player) == Hero(D.Va)
+				? Global.scoreDecrease[Event Player.customerStatus] * 3 : Global.scoreDecrease[Event Player.customerStatus]);
+			Global.systemScore -= Event Player.score;
+		End;
+		Event Player.dollar = False;
+		Global.scbSurved[5] += 1;
+		Small Message(All Players(All Teams), Custom String("  {0}{1}", Event Player.controlingIndex, Event Player.score ? Custom String(
+			" -{0}%", Event Player.score) : Custom String("")));
+		If(Hero Of(Event Player) == Hero(Mauga));
+			Set Ultimate Charge(Event Player, 100);
+			Clear Status(All Players(Team 1), Phased Out);
+			Set Status(All Players(Team 1), Event Player, Stunned, 5);
+			Wait(0.016, Ignore Condition);
+			Set Status(All Players(Team 1), Null, Phased Out, 9999);
+			Press Button(Event Player, Button(Ultimate));
+			Wait(7, Ignore Condition);
+		Else If(Hero Of(Event Player) == Hero(Moira) && Global.difficulty != 4);
+			Set Match Time(1);
+			Wait(1, Ignore Condition);
+			Global.isVipAngry = True;
+		Else If(Hero Of(Event Player) == Hero(Sombra));
+			Global.superDrink = -2;
+		End;
+		Wait(True, Ignore Condition);
+		Destroy Effect(Event Player.customerEffect);
+		Destroy HUD Text(Event Player.playerText);
 	}
 }
 
@@ -2128,7 +2365,7 @@ rule("Global subroutine: Data init")
 			"チョコチョコホットケーキ+スクランブルエッグ/イチゴホットケーキ/イチゴホットケーキ+ベーコン/イチゴホットケーキ+スクランブルエッグ")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"エナジードリンク/怪しいドリンク/ヘッドシェフの包丁/ジャンプブーツ/調味料パック/掃除機/ダッシュブーツ/{0}", Custom String(
-			"まな板帰還スペル/料理複製スペル/ガストーチ/ドーナツ/チョコドーナツ/ラム肉/薄切りラム肉/ラムひき肉")), Custom String("/")),
+			"テレポートスペル/料理複製スペル/ガストーチ/ドーナツ/チョコドーナツ/ラム肉/薄切りラム肉/ラムひき肉")), Custom String("/")),
 			Append To Array(String Split(Custom String(
 			"焼いたラム肉/焼いた薄切りラム肉/ステーキソース/マッシュルーム/薄切りマッシュルーム/焼きマッシュルーム/{0}", Custom String(
 			"白菜/薄切り白菜/ステーキ＋ソース/豚肉＋ステーキソース/スペアリブ/熟成ポークバラ/玉ねぎ＋マッシュルーム")), Custom String("/")),
@@ -2287,16 +2524,15 @@ rule("Global subroutine: Data init2")
 			Array(203, 274)
 		);
 		Global.STAGE_NAME = String Split(Custom String("ステーキ&パスタ/バーガー/フライドチキン/ピザ/餃子/韓国風ご飯料理/寿司&丼物/麺/タコス/アイスクリーム{0}",
-				Custom String("/ホットケーキ/肉屋食堂")), Custom String("/"));
-		Global.upgradePrice = Array(Array(100, 250, 750), Array(100, 50, 50), Array(100, 100, 100, 100), Array(100, 100, 100));
+			Custom String("/ホットケーキ/肉屋食堂")), Custom String("/"));
+		Global.upgradePrice = Array(Array(100, 250, 750), Array(100, 100, 100), Array(100, 100, 100, 100), Array(100, 100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1, 2), Array(3, 4, 5, 6), Array(7, 8, 9));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
-        Global.PERK_LIST = Array(352, 353, 355, 356, 357, 358, 359, 360, 361, 433, 434);
+        Global.PERK_LIST = Array(Array(352, 353, 356, 357, 360, 361, 433, 434), Array(355, 358, 359));
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
-		Global.UPGRADE_NAME = String Split(Custom String("保存用バット購入/ランダムアイテム購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/個人のスピードアップ/チームの営業タイムアップ"), Custom String("/"));
 		Global.UPGRADE_NAME = String Split(
-			Custom String("保存用バット購入/ランダムアイテム購入/保存食ボックス購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/{0}",
+			Custom String("保存用バット購入/ランダム道具購入/ランダム靴購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/{0}",
 						Custom String("個人のスピードアップ/チームの営業タイムアップ/コイン交換")),
 						Custom String("/"));
 	}
@@ -2315,8 +2551,8 @@ rule("Global subroutine: Data init3")
 		Global.CUSTOMER_LIST = Array(
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
+				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra)),
+				Array(Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(LifeWeaver)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
 			Array(
@@ -2342,36 +2578,36 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
 				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
-				Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)), 
+				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
 				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
 				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
 				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
 				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Mauga), Hero(Bastion), Hero(Bastion), Hero(Bastion), Hero(LifeWeaver)), 
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
-				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(D.Va), Hero(LifeWeaver))
+				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)), 
+				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
+				Array(Hero(D.Va), Hero(Sombra), Hero(Freja), Hero(Kiriko), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
 			), 
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)), 
 				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)), 
 				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
-				Array(Hero(Hazard), Hero(Bastion), Hero(Bastion), Hero(Zarya)), 
+				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
 				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
 				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)), 
-				Array(Hero(D.Va), Hero(Moira), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver), Hero(LifeWeaver))
+				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)), 
+				Array(Hero(Moira), Hero(Sombra), Hero(Tracer), Hero(Sombra), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
+				Array(Hero(D.Va), Hero(Sombra), Hero(Moira), Hero(Freja), Hero(Kiriko), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0)),
-			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(6), Array(2), Array(1), Array(6), Array(3), Array(1), Array(6), Array(1)), 
-			Array(Array(0), Array(2), Array(9), Array(6), Array(3), Array(5), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)), 
+			Array(Array(0), Array(2), Array(9), Array(5), Array(3), Array(6), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
 				Array(Random Integer(0, 11)), 
 				Random Value In Array(Array(Array(5, 6), Array(4, 8), Array(2, 3), Array(0, 1), Array(0, 3), Array(2, 6), Array(9, 10), Array(7, 10)))),
@@ -2383,13 +2619,13 @@ rule("Global subroutine: Data init3")
 					Array(Random Integer(0, 5)),
 					Array(Random Integer(6, 11)), 
 					Array(Random Integer(0, 5)),
-					Array(Random Integer(6, 10)),
+					Array(Random Integer(6, 10)),  
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))),
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
-			)
+				)
 		)[Global.stageMode];
 	}
 }
@@ -2574,7 +2810,7 @@ rule("Global subroutine: Start stage")
 					Wait(0.016, Ignore Condition);
 					Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 					If(Global.visibleScore < 100);
-						Big Message(All Players(All Teams), Custom String("立派な営業!"));
+						Big Message(All Players(All Teams), Custom String("営業完了!"));
 						Global.scbRank[1] += 1;
 						All Players(Team 1).score += 10;
 					Else;
@@ -2918,8 +3154,11 @@ rule("Global subroutine: Call customer")
 		Global.customerIndex = Empty Array;
 		Global.tableFilled = Mapped Array(Global.TABLE_POSITION, False);
 		Global.reservedOrder = Empty Array;
-		Global.spawningCustomerTable = Random Value In Array(Filtered Array(Mapped Array(Global.tableFilled,
-			Current Array Element ? -1 : Current Array Index), Current Array Element != -1));
+		Global.spawningCustomerTable = Random Value In Array(Filtered Array(Filtered Array(Mapped Array(Global.tableFilled,
+			Current Array Element ? -1 : Current Array Index), Current Array Element != -1),
+			Current Array Element < (First Of(Global.currentCustomer) == Hero(Freja) ? 14 : 12) &&
+			Current Array Element >= (First Of(Global.currentCustomer) == Hero(Freja) ? 12 : 0)
+		));
 		Global.tableFilled[Global.spawningCustomerTable] = True;
 		Wait(0.016, Ignore Condition);
 		While(True);
@@ -2934,10 +3173,19 @@ rule("Global subroutine: Call customer")
 				Last Created Entity.customerPath = Global.TABLE_PATH[Global.spawningCustomerTable];
 				Last Created Entity.tableIndex = Global.spawningCustomerTable;
 			End;
-			Global.spawningCustomerTable = Random Value In Array(Filtered Array(Mapped Array(Global.tableFilled,
-				Current Array Element ? -1 : Current Array Index), Current Array Element != -1));
+			Global.spawningCustomerTable = Random Value In Array(Filtered Array(Filtered Array(Mapped Array(Global.tableFilled,
+				Current Array Element ? -1 : Current Array Index), Current Array Element != -1),
+				Current Array Element < (First Of(Global.currentCustomer) == Hero(Freja) ? 14 : 12) &&
+				Current Array Element >= (First Of(Global.currentCustomer) == Hero(Freja) ? 12 : 0)
+			));
+			If(First Of(Global.currentCustomer) == Hero(Freja) && Global.spawningCustomerTable < 12);
+				Global.spawningCustomerTable = Random Value In Array(Filtered Array(Filtered Array(Mapped Array(Global.tableFilled,
+					Current Array Element ? -1 : Current Array Index), Current Array Element != -1),
+					Current Array Element < 12 &&
+					Current Array Element >= 0));
+			End;
 			Global.tableFilled[Global.spawningCustomerTable] = True;
-			If(First Of(Global.currentCustomer) == Hero(Mercy));
+			If(First Of(Global.currentCustomer) == Hero(Mercy) || First Of(Global.currentCustomer) == Hero(Sombra));
 				Global.reservedOrder = First Of(Global.loadingMenu);
 				Modify Global Variable(loadingMenu, Remove From Array By Index, False);
 				If(Global.loadingMenu == Empty Array);
@@ -3054,10 +3302,11 @@ rule("Host Player: Select Mode")
 
 	actions
 	{
-		Wait Until(Is Button Held(Host Player, Button(Reload)) || Is Button Held(Host Player, Button(Jump)), 99999);
-		If(Is Button Held(Host Player, Button(Reload)));
+		Global.scbRank = Slot Of(Host Player) == -1 ? All Players(Team 1)[0] : Host Player;
+		Wait Until(Is Button Held(Global.scbRank, Button(Reload)) || Is Button Held(Global.scbRank, Button(Jump)), 99999);
+		If(Is Button Held(Global.scbRank, Button(Reload)));
 			Global.stageMode = (Global.stageMode + True) % 4;
-			Wait Until(!Is Button Held(Host Player, Button(Reload)), 99999);
+			Wait Until(!Is Button Held(Global.scbRank, Button(Reload)), 99999);
 			Loop;
 		End;
 		Destroy HUD Text(Global.globalText[0]);
@@ -3108,10 +3357,7 @@ rule("Host Player: Set Permission")
 				Global.selectPlayer, Global.permissionText[0][Global.selectPlayer.permission]));
 		Else If(Global.difficulty == 4);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Random Value In Array(Global.KNIFE), 100, Null);
-			Call Subroutine(createItem);
-            Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Random Value In Array(Global.PERK_LIST), 100, Null);
+				-70)) * 0.100, Random Value In Array(Array(61, 62, 63, 64, 65, 265, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 433, 434)), 100, Null);
 			Call Subroutine(createItem);
 		End;
 		Global.cuttingPlayer[0] = Null;
@@ -3172,36 +3418,62 @@ rule("Global subroutine: Perk Hud")
 			Array(
 				Ability Icon String(Hero(Roadhog), Button(Ability 2)),
 				Ability Icon String(Hero(Ana), Button(Ultimate)),
-				Ability Icon String(Hero(Baptiste), Button(Crouch)),
 				Ability Icon String(Hero(Ashe), Button(Ability 2)),
 				Ability Icon String(Hero(Sigma), Button(Ability 1)),
-				Ability Icon String(Hero(Reinhardt), Button(Ability 1)),
-				Ability Icon String(Hero(Kiriko), Button(Ability 1)),
 				Ability Icon String(Hero(Baptiste), Button(Ultimate)),
 				Ability Icon String(Hero(Torbjörn), Button(Ultimate)),
 				Ability Icon String(Hero(Symmetra), Button(Ultimate)),
 				Ability Icon String(Hero(Wrecking Ball), Button(Ability 1))
 			)[Event Player.itemPerk], 
-			Custom String("{1}{0}", Array(True, True, False, False, False, False, False, False, False, True, True)[Event Player.itemPerk] ? Custom String("") : Custom String("-{0}%",
+			Custom String("{1}{0}", Array(True, True, False, False, False, False, True, True)[Event Player.itemPerk] ? Custom String("") : Custom String("-{0}%",
 			Round To Integer(Event Player.itemPerkDurability, Up)), 
-			Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[Event Player.itemPerk]])), 
+			Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[0][Event Player.itemPerk]])), 
 			Custom String("〔{0}〕", 
 				Array(
 					Input Binding String(Button(Ultimate)),
 					Input Binding String(Button(Ultimate)),
-					Input Binding String(Button(Jump)),
 					Input Binding String(Button(Ultimate)),
 					Input Binding String(Button(Secondary Fire)),
-					Input Binding String(Button(Ability 1)),
-					Input Binding String(Button(Ability 1)),
 					Input Binding String(Button(Ultimate)),
 					Input Binding String(Button(Secondary Fire)),
 					Input Binding String(Button(Ultimate)),
 					Input Binding String(Button(Ultimate))
 				)[Event Player.itemPerk]
-				), Right, True, Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[Event Player.itemPerk]], Color(White),
-                String and Color, Default Visibility);
+				), Right, 2, Global.ITEM_COLOR[Global.PERK_LIST[0][Event Player.itemPerk]], Global.ITEM_COLOR[Global.PERK_LIST[0][Event Player.itemPerk]], Color(White),
+				String and Color, Default Visibility);
 		Event Player.itemPerkText = Last Text ID;
+	}
+}
+
+rule("Global subroutine: Foot Hud")
+{
+	event
+	{
+		Subroutine;
+		footHud;
+	}
+
+	actions
+	{
+		Abort If(Event Player.footPerk == -1);
+		Create HUD Text(Event Player, 
+			Array(
+				Ability Icon String(Hero(Baptiste), Button(Crouch)),
+				Ability Icon String(Hero(Reinhardt), Button(Ability 1)),
+				Ability Icon String(Hero(Kiriko), Button(Ability 1))
+			)[Event Player.footPerk], 
+			Custom String("{1}{0}", Custom String("-{0}%",
+			Round To Integer(Event Player.footPerkDurability, Up)), 
+			Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[1][Event Player.footPerk]])), 
+			Custom String("〔{0}〕", 
+				Array(
+					Input Binding String(Button(Jump)),
+					Input Binding String(Button(Ability 1)),
+					Input Binding String(Button(Ability 1))
+				)[Event Player.footPerk]
+				), Right, 3, Global.ITEM_COLOR[Global.PERK_LIST[1][Event Player.footPerk]], Global.ITEM_COLOR[Global.PERK_LIST[1][Event Player.footPerk]], Color(White),
+				String and Color, Default Visibility);
+		Event Player.footPerkText = Last Text ID;
 	}
 }
 
@@ -3217,25 +3489,42 @@ rule("Player: Ability 1")
 	conditions
 	{
 		Is Button Held(Event Player, Button(Ability 1)) == True;
+		Global.superDrink != -2;
 	}
 
 	actions
 	{
-        If(Event Player.itemPerk == 5);
+        If(Event Player.footPerk == 1);
 			Apply Impulse(Event Player, Up, 5, To World, Cancel Contrary Motion);
             Apply Impulse(Event Player, Forward, 15, To Player, Cancel Contrary Motion);
             Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Event Player, 1);
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 20);
-            Event Player.itemPerkDurability -= 2;
+            Event Player.footPerkDurability -= 2;
             Call Subroutine(destroyPerk);
-        Else If(Event Player.itemPerk == 6);
+        Else If(Event Player.footPerk == 2);
+			Event Player.usingTP = True;
             Play Effect(All Players(All Teams), Moira Fade Disappear Sound, Null, Event Player, 50);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
-            Teleport(Event Player, Vector(231.369, 2.5, 166.183));
-            Set Facing(Event Player, Direction Towards(Vector(231.369, 2.5, 166.183), Vector(233.665, 2.100, 163.795)), To World);
-            Wait(0.016, Ignore Condition);
+			Event Player.svbFindIndex = Event Player.controlingIndex;
+			If(Array Contains(Global.tableOrderCode, Global.itemCode[Event Player.svbFindIndex]));
+				Event Player.svbTableIndex = Index Of Array Value(Global.tableOrderCode, Global.itemCode[Event Player.svbFindIndex]);
+				Teleport(Event Player, Global.TABLE_PATH[Event Player.svbTableIndex + 15][True]);
+				Set Facing(Event Player, Direction Towards(Position Of(Event Player), Global.TABLE_POSITION[Event Player.svbTableIndex] - Up), To World);
+			Else;
+            	Teleport(Event Player, Vector(231.369, 2.5, 166.183));
+				Set Facing(Event Player, Direction Towards(Vector(231.369, 2.5, 166.183), Vector(233.665, 2.100, 163.795)), To World);
+			End;
+			If(Event Player.svbFindIndex != -1);
+				Wait(0.100, Ignore Condition);
+				Event Player.controlingIndex = Event Player.svbFindIndex;
+				Global.itemPosition[Event Player.controlingIndex] = Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500;
+				Global.itemVelocity[Event Player.controlingIndex] = (Eye Position(Event Player) + Facing Direction Of(Event Player)
+				* 1.500 - Global.itemPosition[Event Player.controlingIndex]) * 0.400;
+			End;
+			Wait(0.016, Ignore Condition);
             Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
-            Event Player.itemPerkDurability -= 3;
+			Event Player.usingTP = False;
+            Event Player.footPerkDurability -= 10;
             Call Subroutine(destroyPerk);
         End;
 	}
@@ -3253,20 +3542,19 @@ rule("Player: Double Jump")
 	conditions
 	{
 		Is In Air(Event Player) == True;
+		Global.superDrink != -2;
 	}
 
 	actions
 	{
-        If(Event Player.itemPerk == 2);
+        If(Event Player.footPerk == 0);
             Wait Until(Is Button Held(Event Player, Button(Jump)) != True && Is In Air(Event Player) == True, 99999);
             Wait Until(Is Button Held(Event Player, Button(Jump)) == True || Is In Air(Event Player) == False, 99999);
             Abort If Condition Is False;
-            If(Hero Of(Event Player) != Hero(Juno) || Hero Of(Event Player) != Hero(Genji));
-                Apply Impulse(Event Player, Up, 10, To World, Cancel Contrary Motion);
-                Play Effect(All Players(All Teams), Ring Explosion, Color(Yellow), Event Player, 1);
-                Play Effect(All Players(All Teams), Moira Fade Reappear Sound, Null, Event Player, 20);
-            End;
-            Event Player.itemPerkDurability -= 1;
+			Apply Impulse(Event Player, Up, Hero Of(Event Player) != Hero(Juno) || Hero Of(Event Player) != Hero(Genji) ? 15 : 5, To World, Cancel Contrary Motion);
+			Play Effect(All Players(All Teams), Ring Explosion, Color(Yellow), Event Player, 1);
+			Play Effect(All Players(All Teams), Moira Fade Reappear Sound, Null, Event Player, 20);
+            Event Player.footPerkDurability -= 1;
             Call Subroutine(destroyPerk);
         Else;
             Disallow Button(Event Player, Button(Jump));
@@ -3297,13 +3585,13 @@ rule("Global subroutine: Purchase Upgrade")
         Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 1);
             Abort If(Global.itemCount == 32);
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-                -70)) * 0.100, Random Value In Array(Array(352, 352, 352, 352, 352, 353, 355, 355, 355, 355, 355, 356, 356, 356, 356, 356, 357, 357, 358, 358, 358, 359, 359, 360, 361, 361, 434, 434)), 100, Null);
+                -70)) * 0.100, Random Value In Array(Array(352, 352, 352, 352, 353, 356, 356, 356, 356, 357, 357, 360, 361, 361, 433, 433, 433, 434, 434)), 100, Null);
             Call Subroutine(createItem);
             Global.upgradePrice[1] = Array(Global.upgradePrice[1][0], Global.upgradePrice[1][1], Global.upgradePrice[1][2]);
 		Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 2);
 			Abort If(Global.itemCount == 32);
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-                -70)) * 0.100, 433, 100, Null);
+                -70)) * 0.100, Random Value In Array(Array(355, 355, 355, 355, 355, 358, 358, 358, 359)), 100, Null);
             Call Subroutine(createItem);
             Global.upgradePrice[1] = Array(Global.upgradePrice[1][0], Global.upgradePrice[1][1], Global.upgradePrice[1][2]);
         Else If(Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade] == 3);
@@ -3340,7 +3628,6 @@ rule("Global subroutine: Save Progress")
 	{
 		Subroutine;
 		saveProgress;
-
 	}
 
 	actions
@@ -3361,7 +3648,9 @@ rule("Global subroutine: Save Progress")
 					Event Player.durability, 
 					Event Player.scbScore, 
 					Event Player.itemPerk, 
-					Event Player.itemPerkDurability
+					Event Player.itemPerkDurability,
+					Event Player.footPerk,
+					Event Player.footPerkDurability
 				);
 				Break;
 			End;
@@ -3396,6 +3685,8 @@ rule("Global subroutine: Load Progress")
 				Event Player.scbScore = Global.playerProgress[Event Player.progressIndex][11];
                 Event Player.itemPerk = Global.playerProgress[Event Player.progressIndex][12];
                 Event Player.itemPerkDurability = Global.playerProgress[Event Player.progressIndex][13];
+				Event Player.footPerk = Global.playerProgress[Event Player.progressIndex][14];
+				Event Player.footPerkDurability = Global.playerProgress[Event Player.progressIndex][15];
 				If(Event Player.playerSpeed == Null || Event Player.playerSpeed == False);
 					Event Player.playerSpeed = 90;
 				End;
@@ -3424,7 +3715,9 @@ rule("Global subroutine: Load Progress")
 				Event Player.durability, 
 				Event Player.scbScore, 
 				Event Player.itemPerk, 
-				Event Player.itemPerkDurability
+				Event Player.itemPerkDurability,
+				Event Player.footPerk,
+				Event Player.footPerkDurability
 			));
 	}
 }
@@ -3438,37 +3731,61 @@ rule("Global routine: Super Drink!")
 
 	conditions
 	{
-		Global.superDrink == -1;
+		Global.superDrink < 0;
 	}
 
 	actions
 	{
-		Big Message(All Players(All Teams), Custom String("  ザ・ワールド!  "));
-		Set Move Speed(All Players(Team 1), 200);
-		For Global Variable(superDrink, False, 6, True);
-			Set Status(All Players(Team 1)[Global.superDrink], Null, Burning, 20);
-			All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability * 100;
-			Wait(0.016, Ignore Condition);
+		If(Global.superDrink == -1);
+			Big Message(All Players(All Teams), Custom String("  ザ・ワールド!  "));
+			Set Move Speed(All Players(Team 1), 200);
+			For Global Variable(superDrink, False, 6, True);
+				Set Status(All Players(Team 1)[Global.superDrink], Null, Burning, 20);
+				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability * 100;
+				Wait(0.016, Ignore Condition);
+			End;
+			Global.panPower += 10;
+			Global.fryingPower += 10;
+			Global.grillingPower += 10;
+			Global.potPower += 10;
+			Wait(0.800, Ignore Condition);
+			Set Slow Motion(50);
+			Wait(20, Ignore Condition);
+			Set Slow Motion(100);
+			Global.panPower -= 10;
+			Global.fryingPower -= 10;
+			Global.grillingPower -= 10;
+			Global.potPower -= 10;
+			For Global Variable(superDrink, False, 6, True);
+				Clear Status(All Players(Team 1)[Global.superDrink], Burning);
+				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
+				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 100;
+				Wait(0.016, Ignore Condition);
+			End;
+		Else If(Global.superDrink == -2);
+			For Global Variable(superDrink, False, 6, True);
+				Set Status(All Players(Team 1)[Global.superDrink], Null, Hacked, 20);
+				Wait(0.016, Ignore Condition);
+			End;
+			Set Move Speed(All Players(Team 1), 50);
+			Global.superDrink = -2;
+			Global.panPower = Global.panPower * 0.5;
+			Global.fryingPower = Global.fryingPower * 0.5;
+			Global.grillingPower = Global.grillingPower * 0.5;
+			Global.potPower -= 5;
+			Wait(20, Ignore Condition);
+			Global.panPower = Global.panPower * 2;
+			Global.fryingPower = Global.fryingPower * 2;
+			Global.grillingPower = Global.grillingPower * 2;
+			Global.potPower += 5;
+			For Global Variable(superDrink, False, 6, True);
+				Clear Status(All Players(Team 1)[Global.superDrink], Hacked);
+				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
+				Wait(0.016, Ignore Condition);
+			End;
 		End;
-		Global.panPower += 10;
-		Global.fryingPower += 10;
-		Global.grillingPower += 10;
-		Global.potPower += 10;
-		Wait(0.800, Ignore Condition);
-		Set Slow Motion(50);
-		Wait(20, Ignore Condition);
-		Set Slow Motion(100);
-		For Global Variable(superDrink, False, 6, True);
-			Clear Status(All Players(Team 1)[Global.superDrink], Burning);
-			Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
-				? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
-			All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 100;
-			Wait(0.016, Ignore Condition);
-		End;
-		Global.panPower -= 10;
-		Global.fryingPower -= 10;
-		Global.grillingPower -= 10;
-		Global.potPower -= 10;
 		Global.superDrink = 0;
 	}
 }
@@ -3490,7 +3807,6 @@ rule("Player routine: serveBot")
 		Wait(0.5, Ignore Condition);
 		Teleport(Event Player, Vector(220.86, 10.40, 166.95));
 		Clear Status(Event Player, Rooted);
-		Set Move Speed(Event Player, 100);
 		Create In-World Text(Has Spawned(Event Player) ? All Players(All Teams) : Null, Custom String("{0}{1}\r\n{2}", Hero Icon String(Hero Of(Event Player)),
 			Global.permissionText[0][1], Custom String("サービングボール")), Event Player, 1, Do Not Clip,
 			Visible To Position String and Color, Global.permissionText[1][1], Default Visibility);
@@ -3499,7 +3815,7 @@ rule("Player routine: serveBot")
 			Direction and Turn Rate);
 		Wait(1.5, Ignore Condition);
         Wait Until(Global.isOpen == True, 9999);
-        While(Global.isOpen && Count Of(Filtered Array(All Players(Team 1), !Is Dummy Bot(Current Array Element))) < 6);
+        While(Global.isOpen && Count Of(Filtered Array(All Players(Team 1), !Is Dummy Bot(Current Array Element))) < 6 && Count Of(Filtered Array(All Players(Team 1), !Is Dummy Bot(Current Array Element))) > 0 && Global.superDrink != -2);
 			Set Move Speed(Event Player, 100);
 			Event Player.svbFindIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
 			Distance Between(Current Array Element, Position Of(Event Player))
@@ -3512,14 +3828,14 @@ rule("Player routine: serveBot")
 				Wait(Distance Between(Position Of(Event Player), Vector(220.86, 1.00, 166.95)) / 5.500, Ignore Condition);
 			End;
 			Stop Throttle In Direction(Event Player);
-			If(Event Player.svbFindIndex != Empty Array);
+            If(Event Player.svbFindIndex != Empty Array);
 				Wait(0.250, Ignore Condition);
                 Start Holding Button(Event Player, Button(Primary Fire));
 				Wait(0.250, Ignore Condition);
 				If(Event Player.controlingIndex != -1);
-					If(Array Contains(Global.tableOrderCode, Global.itemCode[Event Player.controlingIndex]));
-						Event Player.svbTableIndex = Index Of Array Value(Global.tableOrderCode, Global.itemCode[Event Player.controlingIndex]);
-						Event Player.customerPath = Global.TABLE_PATH[Event Player.svbTableIndex + 13];
+					Event Player.svbTableIndex = Index Of Array Value(Global.tableOrderCode, Global.itemCode[Event Player.controlingIndex]);
+					If(Event Player.svbTableIndex != -1 && Event Player.svbTableIndex < 12);
+						Event Player.customerPath = Global.TABLE_PATH[Event Player.svbTableIndex + 15];
 						Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
 						For Player Variable(Event Player, svbPathIndex, False, 2, True);
 							Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
@@ -3528,7 +3844,7 @@ rule("Player routine: serveBot")
 							Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / 5.500,
 								Ignore Condition);
 							Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
-							If(!Global.isOpen);
+							If(!Global.isOpen || Global.superDrink == -2);
 								Call Subroutine(destroyServeBot);
 							End;
 						End;
@@ -3544,7 +3860,7 @@ rule("Player routine: serveBot")
 							Wait(Distance Between(Position Of(Event Player), First Of(Event Player.customerPath)) / 5.500,
 								Ignore Condition);
 							Modify Player Variable(Event Player, customerPath, Remove From Array By Index, False);
-							If(!Global.isOpen);
+							If(!Global.isOpen || Global.superDrink == -2);
 								Call Subroutine(destroyServeBot);
 							End;
 						End;
@@ -3656,7 +3972,6 @@ rule("Global subroutine: Set Hint Text")
 			Global.hintText = Array(Custom String(""));
 		End;
 	}
-
 }
 
 rule("Global subroutine: Scoreboard")
@@ -3704,8 +4019,8 @@ rule("Global subroutine: Scoreboard")
 				Sine From Radians(Total Time Elapsed * 9) * 50 + 200, 255), Default Visibility);
 			Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Else;
-			Create In-World Text(All Players(Team 1), Custom String("ハイスコア : 〔{0}〕", Custom String("{0} : {1}", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Vector(210.140, Sine From Degrees(
-				Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
+			Create In-World Text(All Players(Team 1), Custom String("ハイスコア : 〔{0}〕", Custom String("{0} : {1}", Global.totalScore[Global.stageMode][1], Global.totalScore[Global.stageMode][0])), Vector(210.140,
+				Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 14) * 5.750, 183.430), 1, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, 0, 0, 255), Default Visibility);
 		End;
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("{0} 〔{2}〕\r\n  {1}", Hero Icon String(Hero Of(
@@ -3759,59 +4074,26 @@ rule("Global subroutine: Scoreboard")
 			Default Visibility);
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
-		If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
+		Create In-World Text(All Players(Team 1), 
+		Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 13000 : 6000)) ?
+			Custom String("ランク : 〔★★★★★★★〕") :
+		Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)) ?
+			Custom String("ランク : 〔★★★★★★〕") :
+		Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)) ?
+			Custom String("ランク : 〔★★★★★〕") : 
+		Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500) ?
+			Custom String("ランク : 〔★★★★☆〕") :
+		Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000) ?
+			Custom String("ランク : 〔★★★☆☆〕") :
+		Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000) ?
+			Custom String("ランク : 〔★★☆☆☆〕") :
+		Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500) ?
+			Custom String("ランク : 〔★☆☆☆☆〕") :
+		Custom String("ランク : 〔☆☆☆☆☆〕")
+		, Vector(210.140, Sine From Degrees(Min(
 				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
 				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
 				Default Visibility);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
-		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 11500 : 5500)));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[0], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[1], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[2], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[3], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[4], 1, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ana Nano Boosted Effect, Color(White), All Players(Team 1)[5], 1, Visible To Position and Radius);
-		Else If(Global.isVictory && (Global.totalScore[0] > (Global.stageMode == 3 ? 10000 : 5000)));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★★〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 8500 : 4500));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★★☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 7000 : 4000));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★★☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 5000 : 3000));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★★☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else If(Global.totalScore[0] > (Global.stageMode == 3 ? 2500 : 1500));
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔★☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		Else;
-			Create In-World Text(All Players(Team 1), Custom String("ランク : 〔☆☆☆☆☆〕"), Vector(210.140, Sine From Degrees(Min(
-				Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2) * 3, 183.430), 3, Do Not Clip,
-				Visible To Position String and Color, Custom Color(255, Sine From Radians(Total Time Elapsed * 8) * 105 + 150, 255, 255),
-				Default Visibility);
-		End;
 		Destroy All Dummy Bots;
 		Wait(10, Ignore Condition);
 		Global.skipSetup = True;
