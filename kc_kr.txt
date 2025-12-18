@@ -2085,7 +2085,7 @@ rule("Global subroutine: Data init")
 			Current Array Element)]);
 		Global.ITEM_NAME = Append To Array(String Split(Custom String("탄 음식/양산형 칼/탄소강 칼/휴대용 칼/날카로운 칼/{0}", Custom String(
 			"겐지의 단검/고급 부엌칼/헤드셰프의 칼/에너지 드링크/수상한 드링크")), Custom String("/")), Append To Array(String Split(Custom String(
-			"점프 부츠/조미료 팩/청소기/대시 부츠/도마 귀환 스펠/{0}", Custom String("요리 복사 스펠/토치/서빙볼/$100/소고기")), Custom String("/")), Append To Array(
+			"점프 부츠/조미료 팩/청소기/대시 부츠/텔레포트 스펠/{0}", Custom String("요리 복사 스펠/토치/서빙볼/$100/소고기")), Custom String("/")), Append To Array(
 			String Split(Custom String("스테이크/삶은 소고기/썬 삶은 소고기/썬 소고기/소고기 구이/{0}", Custom String("다진 소고기/볶은 소고기/돼지고기/통삼겹 구이/수육")),
 			Custom String("/")), Append To Array(String Split(Custom String("썬 수육/썬 돼지고기/삼겹살 구이/다진 돼지고기/볶은 돼지고기/{0}", Custom String(
 			"섞인 다짐육/뭉친 다짐육/튀긴 돼지고기/쌀/쌀가루")), Custom String("/")), Append To Array(String Split(Custom String("밥/볶음밥/공기밥/주먹밥/떡 반죽/{0}",
