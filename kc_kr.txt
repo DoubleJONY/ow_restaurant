@@ -665,7 +665,7 @@ rule("Player: Spawn")
 			Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip,
 			Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
-		Create In-World Text(Event Player, Custom String("Joseon#31496 : P6ZAA\r\nGummyBear#11798\r\n변기클라우드#3523"), Vector(222.559, 5.100,
+		Create In-World Text(Event Player, Custom String("Joseon#31496 : ST6Z6\r\nGummyBear#11798\r\n변기클라우드#3523"), Vector(222.559, 5.100,
 			164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 39.500), 1, Do Not Clip,
 			Visible To Position String and Color, Color(White), Default Visibility);
 		Event Player.tableText[6] = Last Text ID;
@@ -1264,7 +1264,7 @@ rule("Player: Reload button")
 			Wait(True, Abort When False);
 			Small Message(Event Player, Custom String("keep press to outdate warning"));
 			Wait(2, Abort When False);
-			Create HUD Text(All Players(All Teams), Icon String(Warning), Custom String("업데이트 필요! - 코드 : P6ZAA"), Custom String(
+			Create HUD Text(All Players(All Teams), Icon String(Warning), Custom String("업데이트 필요! - 코드 : ST6Z6"), Custom String(
 				"버그 수정 및 추가 업데이트를 적용하려면\r\n위의 코드로 게임을 다시 불러와주세요!"), Top, 2.500, Color(Red), Color(Yellow), Color(White), Visible To and String,
 				Default Visibility);
 	}
