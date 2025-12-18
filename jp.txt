@@ -2552,7 +2552,7 @@ rule("Global subroutine: Data init3")
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra)),
-				Array(Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(LifeWeaver)),
+				Array(Hero(Lifeweaver), Hero(Lifeweaver)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
 			Array(
