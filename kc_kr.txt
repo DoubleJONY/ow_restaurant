@@ -2442,20 +2442,26 @@ rule("Global subroutine: Data init3")
 			Lifeweaver), Hero(Kiriko), Hero(Kiriko)), Array(Hero(Moira), Hero(Sombra), Hero(Tracer), Hero(Sombra), Hero(Tracer), Hero(
 			Tracer), Hero(Tracer)), Array(Hero(D.Va), Hero(Sombra), Hero(Moira), Hero(Freja), Hero(Kiriko), Hero(Hazard), Hero(Mauga),
 			Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(Lifeweaver))))[Global.stageMode];
-		Global.STAGE_CODE = Array(Array(Array(0), Array(0), Array(0), Array(0), Array(0)), Array(Array(0), Array(6), Array(10), Array(11),
-			Array(8), Array(0), Array(6), Array(10), Array(11), Array(8), Array(0), Array(6), Array(10), Array(11), Array(8)), Array(Array(
-			0), Array(6), Array(9), Array(10), Array(3), Array(11), Array(5), Array(2), Array(1), Array(4), Array(6), Array(7), Array(
-			Random Integer(0, 11)), Array(Random Integer(0, 11)), Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10),
-			Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6), Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8,
-			11), Array(10, 11)))), Array(Random Value In Array(Array(Array(0), Array(6))), Random Value In Array(Array(Array(10), Array(
-			11))), Random Value In Array(Array(Array(1), Array(8))), Random Value In Array(Array(Array(9), Array(5))),
-			Random Value In Array(Array(Array(3), Array(4))), Random Value In Array(Array(Array(2), Array(7))), Array(Random Integer(0,
-			11)), Array(Random Integer(0, 11)), Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2,
-			10), Array(3, 4), Array(4, 6))), Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9),
-			Array(8, 11), Array(10, 11))), Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10),
-			Array(3, 4), Array(4, 6))), Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(
-			8, 11), Array(10, 11))), Random Value In Array(Array(Array(0, 1, 10), Array(0, 2, 10), Array(0, 10, 11), Array(2, 10, 11),
-			Array(3, 4, 6), Array(5, 7, 8), Array(6, 7, 8), Array(5, 8, 11), Array(7, 8, 9)))))[Global.stageMode];
+		Global.STAGE_CODE = Array(
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0)), 
+			Array(Array(1), Array(2), Array(8), Array(3),Array(5), Array(1), Array(2), Array(8), Array(3), Array(5), Array(1), Array(2), Array(8), Array(3), Array(5)), 
+			Array(Array(1), Array(2), Array(8), Array(3), Array(4), Array(6), Array(5), Array(7), Array(Random Integer(0, 7)), Array(Random Integer(0, 7)), Array(Random Integer(0, 7)), Array(Random Integer(0, 7)), Array(Random Integer(0, 7)), Array(Random Integer(0, 7)), Array(2, 4)), 
+			Array(
+					Array(Random Integer(0, 3)),
+					Array(Random Integer(4, 7)), 
+					Array(Random Integer(0, 3)),
+					Array(Random Integer(4, 7)), 
+					Array(Random Integer(0, 3)),
+					Array(Random Integer(4, 7)), 
+					Array(Random Integer(0, 3)),
+					Array(Random Integer(4, 7)), 
+					Random Value In Array(Array(Array(2, 4), Array(1, 4))),
+					Random Value In Array(Array(Array(7, 8), Array(5, 7))),
+					Random Value In Array(Array(Array(2, 4), Array(1, 4))),
+					Random Value In Array(Array(Array(7, 8), Array(5, 7))),
+					Array(1, 2, 4)
+					)
+			)[Global.stageMode];
 	}
 }
 
