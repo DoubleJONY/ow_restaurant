@@ -481,7 +481,7 @@ rule("Global: Setting")
 		Global.storageLevel = Array(7, 3, 3, -1)[Global.stageMode];
 		Call Subroutine(dataInit3);
 		Global.scbRank = Empty Array;
-		Global.customerCallTime = Array(16, 12, 8, 4, 32)[Global.difficulty];
+		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
 		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
 		Global.failEnd = Array(5, 3, 3, 3)[Global.difficulty];
 		Global.scoreDecrease = Array(Array(Null, Null, Null, Null), Array(5, Null, 5, 5), Array(15, Null, 15, 35), Array(50, Null, 50, 50))
@@ -2843,7 +2843,7 @@ rule("Global subroutine: Start stage")
 			Global.stage = 0;
 			Global.difficulty += True;
 			Global.failCount = 0;
-			Global.customerCallTime = Array(16, 12, 8, 4, 32)[Global.difficulty];
+			Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
 			Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
 			Global.scoreDecrease = Array(Array(Null, Null, Null, Null), Array(5, Null, 5, 5), Array(15, Null, 15, 35), Array(50, Null, 50, 50))
 				[Global.difficulty];
