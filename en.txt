@@ -732,7 +732,7 @@ rule("Global: Setting")
 			Create Effect(All Players(All Teams), Sphere, Color(Sky Blue), Vector(232.608, 2.750, 170.455), 0.250, Visible To);
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("[{1}]: Mode-{0}",
 				Global.stage == 4 ? Custom String("Other Menus") : Global.stage == 3 ? Custom String("End Practice") : Global.stage == 1 ? Custom String("All") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]), 
-				Input Binding String(Button(Interact))), Custom String("[{1}]: {0}", Global.stage == 4 ? Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)(old)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]] : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("Fusion")
+				Input Binding String(Button(Interact))), Custom String("[{1}]: {0}", Global.stage == 4 ? Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]] : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("Fusion")
 			: Global.STAGE_NAME[Global.totalScore[False]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[False] = Global.STAGE_CODE[Global.stage];
@@ -772,7 +772,7 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260129\r\n\r\nNew Customers\r\n  {1}Gourmet: Requires well-prepared dishes!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Symmetra)),
+		Custom String("{0} v260130\r\n\r\nNew Customers\r\n  {1}Gourmet: Requires well-prepared dishes!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Symmetra)),
 				Custom String("  {0} Chaotic Customer: Succeed quickly or all orders will be thrown into chaos!\r\n{1}", Hero Icon String(Hero(Sigma)),
 				Custom String("  {0} Suffering Customer: Will turn the restaurant upside down if served incorrectly!", Hero Icon String(Hero(Ramattra))))), 
 				Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -1252,8 +1252,8 @@ rule("Player: Interact")
 				Else;
 					If(Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("  {0} Workshop code is {1}! ",
-							Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)(old)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]],
-							Array(Custom String("GXYZ5"), Custom String("Z1TBZ"), Custom String("ST6Z6"), Custom String("8MAAN"))[Global.totalScore[False]]));
+							Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]],
+							Array(Custom String("GXYZ5"), Custom String("Z1TBZ"), Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
 					Else If(Event Player.permission != 3 && Global.stage == 3);
 						Small Message(All Players(All Teams), Custom String("  {0}{1} ready to cook! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
@@ -1594,9 +1594,7 @@ rule("Player: Ultimate button")
         Else If(Event Player.itemPerk == 1);
 			Destroy HUD Text(Event Player.itemPerkText);
 			Event Player.itemPerk = -1;
-			Play Effect(All Players(All Teams), Good Explosion, Color(Violet), Eye Position(Event Player), 2);
-			Play Effect(All Players(All Teams), Ana Biotic Grenade Increased Healing Sound, Color(Green), Eye Position(Event Player), 2);
-            Global.superDrink = -1;
+			Small Message(Event Player, Custom String("  Sorry. This perk is currently disabled.  "));
         Else If(Event Player.itemPerk == 2);
             If(Event Player.controlingIndex != -1);
                 Play Effect(All Players(All Teams), Good Explosion, Color(Yellow), Global.itemPosition[Event Player.controlingIndex], 2);
@@ -2595,7 +2593,7 @@ rule("Global subroutine: Data init2")
 		Global.upgradePrice = Array(Array(100, 250, 750), Array(100, 100, 100), Array(100, 100, 100, 100), Array(100, 100, 100));
 		Global.UPGRADE_CODE = Array(Array(265, -1, -2), Array(0, 1, 2), Array(3, 4, 5, 6), Array(7, 8, 9));
 		Global.KNIFE = Array(61, 265, 62, 63, 64, 65, 354);
-		Global.PERK_LIST = Array(Array(352, 353, 356, 357, 360, 361, 433, 434), Array(355, 358, 359));
+		Global.PERK_LIST = Array(Array(352, 352, 356, 357, 360, 361, 433, 434), Array(355, 358, 359));
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
 		Global.UPGRADE_NAME = String Split(
