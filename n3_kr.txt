@@ -551,7 +551,7 @@ rule("Global: Setting")
 			"{0} 레스토랑 - 뉴 3호점! \r\n\r\n 레시피 북: https://ow-restaurant.com/ko/book/cook-third/0 ", Icon String(Fire)), Vector(213.237, 3,
 			178.708), 1, Do Not Clip, Visible To Position String and Color, Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), Custom String(
-			"{0} v260130\r\n\r\n새로운 조리기구-싱크대(뉴 3호점 전용)\r\n{1} 물을 이용한 다양한 조리법이 추가 되었습니다", Ability Icon String(Hero(Torbjörn), Button(
+			"{0} v260130\r\n\r\n신규 손님 적용(자세한 내용은 모듬회밥 확인)", Ability Icon String(Hero(Torbjörn), Button(
 			Ability 2)), Ability Icon String(Hero(Wuyang), Button(Ability 2))), Vector(213.237, 2, 178.708), 1, Do Not Clip,
 			Visible To Position String and Color, Color(White), Default Visibility);
 	}

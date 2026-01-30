@@ -552,7 +552,7 @@ rule("Global: Setting")
 			"{0} 레스토랑 - 카페! \r\n\r\n 레시피 북: https://ow-restaurant.com/ko/book/cafe/0 ", Icon String(Fire)), Vector(213.237, 3, 178.708), 1,
 			Do Not Clip, Visible To Position String and Color, Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), Custom String(
-			"{0} v260130\r\n\r\n혼밥 손님이 너무 많이 등장시 테이블 오류 수정", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), Vector(213.237, 2,
+			"{0} v260130\r\n\r\n신규 손님 적용(자세한 내용은 모듬회밥 확인)", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), Vector(213.237, 2,
 			178.708), 1, Do Not Clip, Visible To Position String and Color, Color(White), Default Visibility);
 	}
 }
