@@ -3166,20 +3166,6 @@ rule("Global subroutine: Call customer")
 				Wait(0.016, Ignore Condition);
 				Small Message(All Players(All Teams), Custom String("  {0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!",
 					Global.tx, Global.spawningCustomerTable + True, Global.ITEM_NAME[Global.reservedOrder]));
-				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[0] == 11));
-					If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]) > 1);
-						For Player Variable(Event Player, additionalMaterialIndex, False, Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]),
-							True);
-							Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-								-70)) * 0.100, Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder][Event Player.additionalMaterialIndex], Null, Null);
-							Call Subroutine(createItem);
-						End;
-					Else;
-						Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-							-70)) * 0.100, Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder], Null, Null);
-						Call Subroutine(createItem);
-					End;
-				End;
 			End;
 			Wait Until(Global.loadNext > 0, Count Of(Filtered Array(Global.tableFilled, Current Array Element)) + Global.customerCallTime);
 			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 4)[Global.difficulty] || (
