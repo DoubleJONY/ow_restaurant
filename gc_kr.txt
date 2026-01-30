@@ -1713,7 +1713,7 @@ rule("Dummy: Spawn")
 					End;
 					Event Player.durability = Global.tableOrderCode[Event Player.tableIndex];
 				End;
-				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11) || Hero Of(Event Player) == Hero(LifeWeaver));
+				If(Hero Of(Event Player) == Hero(LifeWeaver));
 					Event Player.orderTimeOut += 20;
 					For Player Variable(Event Player, handPosition, False, Hero Of(Event Player) == Hero(Zarya) ? 3 : 1, True);
 						If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]) > 1);
