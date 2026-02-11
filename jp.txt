@@ -666,7 +666,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v260130\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v260211\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -776,7 +776,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(208, 70, 86, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260130\r\n\r\n新規客\r\n  {1}グルメ: 完成度の高い料理を提供する必要があります！\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Symmetra)),
+		Custom String("{0} v260211\r\n\r\n新規客\r\n  {1}グルメ: 完成度の高い料理を提供する必要があります！\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Domina)),
 		Custom String("  {0} 混乱した客: 素早く成功しないと、すべてのお客様の注文が混乱に陥ります！\r\n{1}", Hero Icon String(Hero(Sigma)),
 		Custom String("  {0} 苦しむ客: 正しく提供しないと、店をひっくり返します！", Hero Icon String(Hero(Ramattra))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -1758,7 +1758,7 @@ rule("Dummy: Spawn")
 	actions
 	{
 		Event Player.controlingIndex = Index Of Array Value(Array(Hero(Soldier: 76), Hero(Roadhog), Hero(Bastion), Hero(Tracer), Hero(
-			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver), Hero(Freja), Hero(Sombra), Hero(Kiriko), Hero(Symmetra), Hero(Sigma), Hero(Ramattra)), Hero Of(Event Player));
+			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver), Hero(Freja), Hero(Sombra), Hero(Kiriko), Hero(Domina), Hero(Sigma), Hero(Ramattra)), Hero Of(Event Player));
 		Event Player.customerSpeed = Hero Of(Event Player) == Hero(Tracer) ? 6 : 5.500;
 		If(Event Player.controlingIndex == -1);
 			Event Player.customerPath = Global.TABLE_PATH[14];
@@ -1862,7 +1862,7 @@ rule("Dummy: Spawn")
 				Custom Color(136, 200, 255, 255), 
 				Custom Color(153, 110, 213, 255), 
 				Custom Color(208, 70, 86, 255),
-				Custom Color(181, 219, 230, 255),
+				Custom Color(196, 161, 93, 255),
 				Custom Color(124, 139, 140, 255),
 				Custom Color(125, 85, 199, 255))[Event Player.controlingIndex];
 			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10, 10, 10, 10)[Event Player.controlingIndex] - Global.additionalScore;
@@ -2080,7 +2080,7 @@ rule("Dummy: Spawn")
 					Modify Global Variable(customerIndex, Remove From Array By Index, Event Player.controlingIndex);
 					If(Global.isOpen);
 						If(Event Player.customerStatus == 1 || Event Player.customerStatus == 4);
-							If(Event Player.customerStatus != 4 && Hero Of(Event Player) == Hero(Symmetra));
+							If(Event Player.customerStatus != 4 && Hero Of(Event Player) == Hero(Domina));
 								Event Player.customerStatus = 4;
 								Call Subroutine(serveFail);
 								Break;
@@ -2595,7 +2595,7 @@ rule("Global subroutine: Data init3")
 		Global.CUSTOMER_LIST = Array(
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Symmetra), Hero(Sigma), Hero(Ramattra)),
+				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra)),
 				Array(Hero(Lifeweaver), Hero(Lifeweaver)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
@@ -2641,12 +2641,12 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
 				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
-				Array(Hero(Symmetra), Hero(Sombra), Hero(Sombra), Hero(Hazard)), 
+				Array(Hero(Domina), Hero(Sombra), Hero(Sombra), Hero(Hazard)), 
 				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)), 
 				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(D.Va), Hero(Sombra), Hero(Symmetra), Hero(Sombra), Hero(Symmetra), Hero(Sombra), Hero(Symmetra), Hero(Symmetra)), 
-				Array(Hero(Moira), Hero(Symmetra), Hero(Mauga), Hero(Symmetra), Hero(Symmetra), Hero(Symmetra), Hero(Symmetra)), 
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Hazard), Hero(Symmetra), Hero(Roadhog), Hero(LifeWeaver))
+				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)), 
+				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)), 
+				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
@@ -3468,7 +3468,7 @@ rule("Global subroutine: Perk Hud")
 				Ability Icon String(Hero(Sigma), Button(Ability 1)),
 				Ability Icon String(Hero(Baptiste), Button(Ultimate)),
 				Ability Icon String(Hero(Torbjörn), Button(Ultimate)),
-				Ability Icon String(Hero(Symmetra), Button(Ultimate)),
+				Ability Icon String(Hero(Domina), Button(Ultimate)),
 				Ability Icon String(Hero(Wrecking Ball), Button(Ability 1))
 			)[Event Player.itemPerk], 
 			Custom String("{1}{0}", Array(True, True, False, False, False, False, True, True)[Event Player.itemPerk] ? Custom String("") : Custom String("-{0}%",
