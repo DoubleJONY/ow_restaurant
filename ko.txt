@@ -869,7 +869,7 @@ rule("Player: Spawn")
 		End;
 		Set Status(Event Player, Null, Phased Out, 9999);
 		Set Status(Event Player, Null, Rooted, 9999);
-		Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+		Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 		Create HUD Text(Event Player, Null, Null, Custom String(
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"),
@@ -1183,7 +1183,7 @@ rule("Player: Interact")
 							Call Subroutine(createItem);
 						End;
 					End;
-					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 					All Players(Team 2).customerStatus = 1;
 					Play Effect(All Players(All Teams), Buff Impact Sound, Null, Vector(217.370, 2, 172.520), 100);
@@ -1199,7 +1199,7 @@ rule("Player: Interact")
 				Wait(False, Ignore Condition);
 				Set Facing(Event Player, Vector(0.830, False, 0.560), To World);
 				For Player Variable(Event Player, perkIndex, False, 6, True);
-					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? All Players(Team 1)[Event Player.perkIndex].playerSpeed * 0.916 : All Players(Team 1)[Event Player.perkIndex].playerSpeed);
 				End;
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
@@ -1588,7 +1588,7 @@ rule("Player: Ultimate button")
             Play Effect(Event Player, Ana Biotic Grenade Increased Healing Sound, Null, Eye Position(Event Player), 100);
 			Event Player.normalDrink = True;
             Wait(100, Ignore Condition);
-            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 			Event Player.normalDrink = False;
         Else If(Event Player.itemPerk == 1);
@@ -3708,7 +3708,7 @@ rule("Global subroutine: Load Progress")
 				Else If(Event Player.durability > 100);
 					Event Player.durability = Event Player.durability / 100;
 				End;
-				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 				Small Message(Event Player, Custom String("  돌아오셨군요! 이전 데이터를 불러왔습니다!  "));
 				Abort;
@@ -3771,7 +3771,7 @@ rule("Global routine: Super Drink!")
 			Global.potPower -= 10;
 			For Global Variable(superDrink, False, 6, True);
 				Clear Status(All Players(Team 1)[Global.superDrink], Burning);
-				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(All Players(Team 1)[Global.superDrink]))
 					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
 				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 100;
 				Wait(0.016, Ignore Condition);
@@ -3794,7 +3794,7 @@ rule("Global routine: Super Drink!")
 			Global.potPower += 5;
 			For Global Variable(superDrink, False, 6, True);
 				Clear Status(All Players(Team 1)[Global.superDrink], Hacked);
-				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(All Players(Team 1)[Global.superDrink]))
 					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
 				Wait(0.016, Ignore Condition);
 			End;
