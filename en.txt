@@ -216,14 +216,7 @@ subroutines
 	23: destroyPerk
 	24: footHud
 	25: serveFail
-}
-
-disabled rule("GLOBAL==========================================================================================================================")
-{
-	event
-	{
-		Ongoing - Global;
-	}
+	26: gameSummaryTP
 }
 
 rule("Global: Setting")
@@ -666,7 +659,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v251212\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"Restaurant(HTNZ3) v260409\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -772,7 +765,7 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260211\r\n\r\nNew Customers\r\n  {1}Gourmet: Requires well-prepared dishes!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Domina)),
+		Custom String("{0} v260409\r\n\r\nNew Customers\r\n  {1}Gourmet: Requires well-prepared dishes!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Domina)),
 				Custom String("  {0} Chaotic Customer: Succeed quickly or all orders will be thrown into chaos!\r\n{1}", Hero Icon String(Hero(Sigma)),
 				Custom String("  {0} Suffering Customer: Will turn the restaurant upside down if served incorrectly!", Hero Icon String(Hero(Ramattra))))), 
 				Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -826,14 +819,6 @@ rule("Global subroutine: Create item (position, velocity, code, cooker)")
 	}
 }
 
-disabled rule("PLAYER==========================================================================================================================")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-}
-
 rule("Player: Spawn")
 {
 	event
@@ -869,7 +854,7 @@ rule("Player: Spawn")
 		End;
 		Set Status(Event Player, Null, Phased Out, 9999);
 		Set Status(Event Player, Null, Rooted, 9999);
-		Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+		Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 		Create HUD Text(Event Player, Null, Null, Custom String(
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"),
@@ -1183,7 +1168,7 @@ rule("Player: Interact")
 							Call Subroutine(createItem);
 						End;
 					End;
-					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 					All Players(Team 2).customerStatus = 1;
 					Play Effect(All Players(All Teams), Buff Impact Sound, Null, Vector(217.370, 2, 172.520), 100);
@@ -1199,7 +1184,7 @@ rule("Player: Interact")
 				Wait(False, Ignore Condition);
 				Set Facing(Event Player, Vector(0.830, False, 0.560), To World);
 				For Player Variable(Event Player, perkIndex, False, 6, True);
-					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? All Players(Team 1)[Event Player.perkIndex].playerSpeed * 0.916 : All Players(Team 1)[Event Player.perkIndex].playerSpeed);
 				End;
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
@@ -1588,7 +1573,7 @@ rule("Player: Ultimate button")
             Play Effect(Event Player, Ana Biotic Grenade Increased Healing Sound, Null, Eye Position(Event Player), 100);
 			Event Player.normalDrink = True;
             Wait(100, Ignore Condition);
-            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 			Event Player.normalDrink = False;
         Else If(Event Player.itemPerk == 1);
@@ -1731,14 +1716,6 @@ rule("Player: Left match")
 				Restart Match;
 			disabled End;
 		End;
-	}
-}
-
-disabled rule("DUMMY===========================================================================================================================")
-{
-	event
-	{
-		Ongoing - Global;
 	}
 }
 
@@ -2307,14 +2284,6 @@ rule("drop tips") {
 				-70)) * 0.100, Hero Of(Event Player) == Hero(Ramattra) ? Random Value In Array(Global.PERK_LIST[Random Integer(0, 1)]) : 432, 100, Null);
 			Call Subroutine(createItem);
 		End;
-	}
-}
-
-disabled rule("GLOBAL SUBROUTINE===============================================================================================================")
-{
-	event
-	{
-		Ongoing - Global;
 	}
 }
 
@@ -3755,7 +3724,7 @@ rule("Global subroutine: Load Progress")
 				Else If(Event Player.durability > 100);
 					Event Player.durability = Event Player.durability / 100;
 				End;
-				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 				Small Message(Event Player, Custom String("  Welcome Back! Your progress is restored!  "));
 				Abort;
@@ -3814,7 +3783,7 @@ rule("Global routine: Super Drink!")
 			Global.potPower += 5;
 			For Global Variable(superDrink, False, 6, True);
 				Clear Status(All Players(Team 1)[Global.superDrink], Hacked);
-				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(All Players(Team 1)[Global.superDrink]))
 					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
 				Wait(0.016, Ignore Condition);
 			End;
@@ -4031,12 +4000,7 @@ rule("Global subroutine: Scoreboard")
 		Wait(0.100, Ignore Condition);
 		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
 		Wait(0.100, Ignore Condition);
-		Teleport(All Players(Team 1)[4], Vector(207.200, 2.400, 181.990));
-		Teleport(All Players(Team 1)[2], Vector(209.040, 2.400, 181.850));
-		Teleport(All Players(Team 1)[False], Vector(210.380, 2.400, 182.040));
-		Teleport(All Players(Team 1)[True], Vector(211.340, 2.400, 182.700));
-		Teleport(All Players(Team 1)[3], Vector(212.080, 2.400, 183.830));
-		Teleport(All Players(Team 1)[5], Vector(212.340, 2.400, 185.510));
+		Call Subroutine(gameSummaryTP);
 		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
 		Wait(1.800, Ignore Condition);
 		Create In-World Text(All Players(Team 1), Custom String("Final Score: [{0}]", Global.totalScore[False]), Vector(210.140,
@@ -4131,12 +4095,7 @@ rule("Global subroutine: Scoreboard")
 		Wait(10, Ignore Condition);
 		Global.skipSetup = True;
 		Set Status(All Players(Team 1), Null, Rooted, 9999);
-		Teleport(All Players(Team 1)[4], Vector(207.200, 2.400, 181.990));
-		Teleport(All Players(Team 1)[2], Vector(209.040, 2.400, 181.850));
-		Teleport(All Players(Team 1)[False], Vector(210.380, 2.400, 182.040));
-		Teleport(All Players(Team 1)[True], Vector(211.340, 2.400, 182.700));
-		Teleport(All Players(Team 1)[3], Vector(212.080, 2.400, 183.830));
-		Teleport(All Players(Team 1)[5], Vector(212.340, 2.400, 185.510));
+		Call Subroutine(gameSummaryTP);
 		Create In-World Text(Global.skipSetup && Has Spawned(All Players(Team 1)[False]) ? All Players(All Teams) : Null, Custom String("{0}\r\n\r\n{1}\r\n{2}", Custom String(
 				"{0}{1}\r\n{2}", Hero Icon String(Hero Of(All Players(Team 1)[False])), Global.permissionText[False][All Players(Team 1)
 				[False].permission], All Players(Team 1)[False]), Custom String("Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]", All Players(Team 1)[False].scbDollar, All Players(Team 1)[False].scbScore,
@@ -4186,12 +4145,6 @@ rule("Global subroutine: Scoreboard")
 		Wait(0.500, Ignore Condition);
 		Global.skipSetup = False;
 		Set Invisible(All Players(Team 1), All);
-		Teleport(All Players(Team 1)[4], Vector(207.200, 2.400, 181.990));
-		Teleport(All Players(Team 1)[2], Vector(209.040, 2.400, 181.850));
-		Teleport(All Players(Team 1)[False], Vector(210.380, 2.400, 182.040));
-		Teleport(All Players(Team 1)[True], Vector(211.340, 2.400, 182.700));
-		Teleport(All Players(Team 1)[3], Vector(212.080, 2.400, 183.830));
-		Teleport(All Players(Team 1)[5], Vector(212.340, 2.400, 185.510));
 		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
 		Wait(30, Ignore Condition);
 		If(Global.isVictory || Global.isBonusStage);
@@ -4201,5 +4154,24 @@ rule("Global subroutine: Scoreboard")
 		End;
 		Wait(2.750, Ignore Condition);
 		Restart Match;
+	}
+}
+
+rule("Global subroutine: Scoreboard TP")
+{
+	event
+	{
+		Subroutine;
+		gameSummaryTP;
+	}
+
+	actions
+	{
+		Teleport(All Players(Team 1)[4], Vector(207.200, 2.400, 181.990));
+		Teleport(All Players(Team 1)[2], Vector(209.040, 2.400, 181.850));
+		Teleport(All Players(Team 1)[False], Vector(210.380, 2.400, 182.040));
+		Teleport(All Players(Team 1)[True], Vector(211.340, 2.400, 182.700));
+		Teleport(All Players(Team 1)[3], Vector(212.080, 2.400, 183.830));
+		Teleport(All Players(Team 1)[5], Vector(212.340, 2.400, 185.510));
 	}
 }
