@@ -650,11 +650,11 @@ rule("Player: Spawn")
 			Custom Color(Array(140, 110, 255, 255, 255, 60)[Global.difficulty], Array(255, 180, 225, 120, 50, 255)[Global.difficulty],
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
-		Create In-World Text(Event Player, Custom String("Cafe&Dessert"), Vector(222.559, 5.100, 164.417) + Direction From Angles((
+		Create In-World Text(Event Player, Custom String("World Cuisine"), Vector(222.559, 5.100, 164.417) + Direction From Angles((
 			Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip,
 			Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
-		Create In-World Text(Event Player, Custom String("Joseon#31496 : Z1TBZ\r\nGummyBear#11798\r\n변기클라우드#3523"), Vector(222.559, 5.100,
+		Create In-World Text(Event Player, Custom String("Joseon#31496 : GXYZ5\r\nGummyBear#11798\r\n변기클라우드#3523"), Vector(222.559, 5.100,
 			164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 39.500), 1, Do Not Clip,
 			Visible To Position String and Color, Color(White), Default Visibility);
 		Event Player.tableText[6] = Last Text ID;
