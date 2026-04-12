@@ -666,7 +666,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v260211\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
+			"レストラン(4ND1P) v260412\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
 				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -776,7 +776,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(208, 70, 86, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260211\r\n\r\n新規客\r\n  {1}グルメ: 完成度の高い料理を提供する必要があります！\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Domina)),
+		Custom String("{0} v260412\r\n\r\n新規客\r\n  {1}グルメ: 完成度の高い料理を提供する必要があります！\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Domina)),
 		Custom String("  {0} 混乱した客: 素早く成功しないと、すべてのお客様の注文が混乱に陥ります！\r\n{1}", Hero Icon String(Hero(Sigma)),
 		Custom String("  {0} 苦しむ客: 正しく提供しないと、店をひっくり返します！", Hero Icon String(Hero(Ramattra))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -873,7 +873,7 @@ rule("Player: Spawn")
 		End;
 		Set Status(Event Player, Null, Phased Out, 9999);
 		Set Status(Event Player, Null, Rooted, 9999);
-		Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+		Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 		Create HUD Text(Event Player, Null, Null, Custom String(
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"),
@@ -1187,7 +1187,7 @@ rule("Player: Interact")
 							Call Subroutine(createItem);
 						End;
 					End;
-					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 					All Players(Team 2).customerStatus = 1;
 					Play Effect(All Players(All Teams), Buff Impact Sound, Null, Vector(217.370, 2, 172.520), 100);
@@ -1203,7 +1203,7 @@ rule("Player: Interact")
 				Wait(False, Ignore Condition);
 				Set Facing(Event Player, Vector(0.830, False, 0.560), To World);
 				For Player Variable(Event Player, perkIndex, False, 6, True);
-					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+					Set Move Speed(All Players(Team 1)[Event Player.perkIndex], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? All Players(Team 1)[Event Player.perkIndex].playerSpeed * 0.916 : All Players(Team 1)[Event Player.perkIndex].playerSpeed);
 				End;
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
@@ -1592,7 +1592,7 @@ rule("Player: Ultimate button")
             Play Effect(Event Player, Ana Biotic Grenade Increased Healing Sound, Null, Eye Position(Event Player), 100);
 			Event Player.normalDrink = True;
             Wait(100, Ignore Condition);
-            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+            Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 			? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 			Event Player.normalDrink = False;
         Else If(Event Player.itemPerk == 1);
@@ -3741,7 +3741,7 @@ rule("Global subroutine: Load Progress")
 				Else If(Event Player.durability > 100);
 					Event Player.durability = Event Player.durability / 100;
 				End;
-				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(Event Player))
+				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
 				Small Message(Event Player, Custom String("  おかえりなさいませ! セーブデータを読み込みました!  "));
 				Abort;
@@ -3800,7 +3800,7 @@ rule("Global routine: Super Drink!")
 			Global.potPower += 5;
 			For Global Variable(superDrink, False, 6, True);
 				Clear Status(All Players(Team 1)[Global.superDrink], Hacked);
-				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer)), Hero Of(All Players(Team 1)[Global.superDrink]))
+				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(All Players(Team 1)[Global.superDrink]))
 					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
 				Wait(0.016, Ignore Condition);
 			End;
