@@ -2221,6 +2221,7 @@ rule("Global subroutine: Data init")
 			"0/5/5/4/6/0/0/0/4/3/4/5/0/6/7/0/0/7/9/0/0/3/0/5/6/5/6/4/4/0/0/4/0/4/0/4/8/9/0/8/{0}", Custom String(
 			"0/7/0/0/3/0/6/6/6/0/0/6/6/6/0/8/0/8/0/8/4/7/8/0/9")))))))))))))), Custom String("/")), Index Of Array Value(String Split(
 			Custom String("0/1/2/3/4/5/6/7/8/9"), Custom String("/")), Current Array Element) * 5);
+		Wait(0.100, Ignore Condition);
 		Global.MIXING_RECIPE = String Split(
 			Custom String(
 			"0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/{0}",
@@ -2263,6 +2264,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"447/448/449/450/451/452/453/454/455/456/457/458/459/460/461"
 			)))))))))))))))))))), Custom String("/"));
+		Wait(0.100, Ignore Condition);
 		Global.CUTTING_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/1/99/99/99/99/99/5/99/5/99/99/{0}",
@@ -2295,6 +2297,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"99/99/99/99/99/99/3/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99"
 			))))))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.CUTTING_RESULT = Array(False, False, False, False, False, False, False, False, False, False, False, False, False, False,
 			False, False, False, False, False, False, Array(57, 57), False, False, False, False, False, 28, False, 30, False, False, False,
 			33, False, False, False, 38, False, 40, False, False, False, 43, False, False, False, False, False, False, False, False, False,
@@ -2345,6 +2348,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"5/5/5/5/5/5/5/5/5/5/3/5/3/5/3/5/5/5/5/3/5"
 			))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.GRILLING_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/27/0/29/0/0/0/0/0/0/0/37/0/39/0/0/0/0/{0}",
@@ -2371,6 +2375,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"0/0/0/461/0"
 			)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.FRYING_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/{0}",
@@ -2395,6 +2400,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5"
 			))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.FRYING_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
@@ -2419,6 +2425,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"441/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0"
 			))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 	}
 }
 
@@ -2456,6 +2463,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0"
 			))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.POT_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/20/0/0/0/0/25/0/32/0/0/0/0/0/0/0/35/0/42/0/0/0/0/0/0/{0}",
@@ -2482,6 +2490,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0"
 			)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.PAN_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/2/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/{0}",
@@ -2506,6 +2515,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"5/5/5/5/5/5/5/5/5/5/3/5/3/5/3/5/5/5/5/3/5"
 			))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.PAN_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/123/124/0/0/0/0/0/27/0/31/0/31/0/0/0/0/0/0/0/41/0/41/{0}",
@@ -2532,6 +2542,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"432/0/0/0/436/0/438/0/0/0/0/0/0/0/0/0/0/0/0/0/452/0/454/0/456/0/0/0/0/461/0"
 			)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.IMPACT_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/318/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
@@ -2556,6 +2567,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0"
 			))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.RAW_MIX = Array(3004, 21022, 28024, 20025, 33044, 43044, 20039, 28022, 38022, 20049, 20051, 38023, 20055, 20022, 62058,
 			62022, 62059, 20064, 67022, 70058, 70020, 80058, 72080, 85058, 85022, 85059, 20087, 75059, 76059, 95025, 40099, 93100, 103099,
 			93106, 93098, 109041, 109104, 109105, 105096, 95022, 116098, 116103, 116039, 117039, 119098, 123025, 127020, 132126, 125134,

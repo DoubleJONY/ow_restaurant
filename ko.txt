@@ -2391,6 +2391,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"0/0/0/8/0/7/8/9/0/0/0/0/0/0/9/7/7/0/7/9/9/0/0/8/8"
 			))))))))))), Custom String("/")), Index Of Array Value(String Split(Custom String("0/1/2/3/4/5/6/7/8/9"), Custom String("/")), Current Array Element) * 5);
+		Wait(0.100, Ignore Condition);
 		Global.MIXING_RECIPE = String Split(
 			Custom String(
 			"0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/{0}",
@@ -2434,7 +2435,8 @@ rule("Global subroutine: Data init")
 			"447/448/449/450/451/452/453/454/455/456/457/458/459/460/461/462/463/464/465/466/467/468/{0}",
 			Custom String(
 			"469/470/471/472/473/474"
-			))))))))))))))))))))), Custom String("/"));
+		))))))))))))))))))))), Custom String("/"));
+		Wait(0.100, Ignore Condition);
 		Global.CUTTING_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/5/5/3/99/5/99/99/99/3/99/99/99/99/5/99/99/99/99/2/99/99/99/99/99/99/99/99/99/99/99/99/{0}",
@@ -2469,6 +2471,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"99/99"
 		)))))))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.CUTTING_RESULT = Array(FALSE, 2, 154, 4, FALSE, 6, FALSE, FALSE, FALSE, 10, FALSE, FALSE, FALSE, FALSE, 15, FALSE, FALSE, FALSE, FALSE, 20, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 34, FALSE, FALSE, FALSE, Array(38, 39), 140, 140, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 67, 68, FALSE, 70, 71, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 216, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 104, 102, 103, FALSE, 108, FALSE, 112, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(116, 116), 227, Array(229, 229), FALSE, Array(235, 235), FALSE, FALSE, 124, 138, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 143, 144, FALSE, FALSE, FALSE, 148, 151, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 158, FALSE, 160, 161, FALSE, FALSE, FALSE, 166, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(208, 208), FALSE, 197, FALSE, Array(199, 199), 200, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(231, 231), FALSE, FALSE, FALSE, FALSE, FALSE, Array(237, 237), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 267, FALSE, 269, 270, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 293, 294, FALSE, FALSE, FALSE, FALSE, 301, 302, 306, 304, 307, FALSE, FALSE, 305, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 365, 366, FALSE, 368, FALSE, FALSE, 371, FALSE, FALSE, 374, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 389, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, Array(21, 21), Array(85, 85), Array(127, 127), Array(186, 187), Array(32, 32), Array(156, 156), Array(215, 226), Array(255, 256), Array(286, 287), Array(303, 303), Array(335, 336), Array(1, 159), FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
 		Global.GRILLING_NEEDED = Mapped Array(String Split(
 			Custom String(
@@ -2494,6 +2497,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"5/5/7/7/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5"
 		))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.GRILLING_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/3/4/0/0/8/11/0/0/0/0/0/0/0/16/0/0/0/0/21/21/0/0/0/0/0/0/0/0/0/0/32/0/35/36/0/0/0/0/0/0/0/{0}",
@@ -2520,6 +2524,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0"
 		)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.FRYING_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/2/2/5/5/5/2/5/5/5/5/5/2/2/2/5/5/5/5/5/5/5/5/5/5/5/5/5/5/{0}",
@@ -2544,6 +2549,7 @@ rule("Global subroutine: Data init")
 			Custom String(
 			"5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/4/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5"
 		))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.FRYING_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/7/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
@@ -2605,6 +2611,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0"
 		))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.POT_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/139/0/0/0/9/9/0/0/0/0/0/13/0/0/17/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
@@ -2631,6 +2638,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0/0"
 		)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.PAN_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/5/5/5/5/5/3/5/5/5/5/5/5/5/5/5/5/3/3/5/2/5/3/5/5/5/5/5/3/3/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/{0}",
@@ -2655,6 +2663,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"5/5/5/5/5/5/5/5/5/5/5/5/4/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/6/6/5/5"
 		))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.PAN_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/3/4/0/0/8/11/0/0/0/0/0/0/0/16/0/0/0/0/21/21/0/0/0/0/0/0/0/0/0/0/32/0/35/36/0/0/0/0/0/0/0/{0}",
@@ -2681,6 +2690,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0/0/0/455/0/0/0/0/0/0/0/0/0/0/0/0/468/0/0/0/473/474/0/0"
 		)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.IMPACT_RESULT = Mapped Array(String Split(
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/10/0/0/0/0/98/98/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
@@ -2705,6 +2715,7 @@ rule("Global subroutine: Data init2")
 			Custom String(
 			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0"
 		))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Wait(0.100, Ignore Condition);
 		Global.RAW_MIX = Array(21025, 21026, 6127, 6129, 7021, 13017, 13018, 13022, 13030, 13029, 15038, 15040, 15041, 15043, 15044, 15046,
 			15048, 15051, 17018, 17119, 18021, 20038, 20040, 20042, 20043, 20045, 20046, 20049, 20052, 32038, 32041, 32042, 32043, 32047,
 			32048, 32049, 32053, 34038, 34040, 34041, 34042, 34044, 34045, 34047, 34050, 39040, 39044, 39049, 39053, 39052, 39054, 66072,
@@ -3989,7 +4000,7 @@ rule("Global routine: Super Drink!")
 			Set Move Speed(All Players(Team 1), 200);
 			For Global Variable(superDrink, False, 6, True);
 				Set Status(All Players(Team 1)[Global.superDrink], Null, Burning, 20);
-				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability * 100;
+				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability * 10;
 				Wait(0.016, Ignore Condition);
 			End;
 			Global.panPower += 10;
@@ -4008,7 +4019,7 @@ rule("Global routine: Super Drink!")
 				Clear Status(All Players(Team 1)[Global.superDrink], Burning);
 				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(All Players(Team 1)[Global.superDrink]))
 					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
-				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 100;
+				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 10;
 				Wait(0.016, Ignore Condition);
 			End;
 		Else If(Global.superDrink == -2);
