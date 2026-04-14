@@ -1,0 +1,10 @@
+- [x] Align `ko.txt`, `en.txt`, and `jp.txt` with the compressed Workshop table pattern and shared init flow.
+- [x] Align `cafe_kr.txt` and `cafe_en.txt` with the same pattern, including `ICE_NEEDED` and `ICE_RESULT`.
+- [x] Align `gc_kr.txt` with the same pattern, using the `462`-item lookup range and the shared `dataInit3` flow.
+- [x] Align `gc_en.txt` with the same pattern, using the `462`-item lookup range and the shared `dataInit3` flow.
+- [x] Align `n3_kr.txt` with the same pattern, using the `514`-item lookup range and the shared `dataInit3` flow.
+- [x] Normalize `scoreDecrease` to the six-slot structure used by the non-cafe variants.
+- [x] Keep `CUTTING_RESULT` as a raw mixed-type array.
+- [x] Reformat generated `Custom String` chains to match the accepted local indentation pattern.
+- [x] Remove the duplicate difficulty-up `Global.STAGE_CODE` reassignment from `cafe_en.txt`.
+- [x] Remove redundant `dataInit2` temporary `Global.MIXING_RECIPE = String Split(...)` lookups when an earlier init subroutine already provides the numeric lookup array.
