@@ -1,4 +1,4 @@
-# Workspace Settings for Codex
+﻿# Workspace Settings for Codex
 
 If you are reading this file, it is user-authored workspace-wide agent behavior
 settings. Find and comply with any items or references described here.
@@ -23,3 +23,5 @@ settings. Find and comply with any items or references described here.
   - Match indentation of generated `Custom String` chains to the localized reference file already accepted in the workspace.
 - Current recorded session:
   - `.codex/artifact/20260414_workshop_array_refactor/`
+  - `.codex/artifact/20260415_ko_change_analysis/`
+

@@ -1,0 +1,8 @@
+﻿- [x] Check `ko.txt` working tree changes after the last committed version.
+- [x] Compare the current file against `338c732` (`260414`) for surrounding logic, not just added lines.
+- [x] Identify the structural meaning of the change set:
+- Added customer tables and path/index shifts.
+- Added `Jetpack Cat` customer flow.
+- Added 6-player `serveBot` replacement via forced hero change.
+- Extracted shared subroutines for hero change and serve validation.
+- [x] Record the analysis under `.codex/artifact/20260415_ko_change_analysis/`.
