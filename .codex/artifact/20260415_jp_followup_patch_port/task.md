@@ -1,0 +1,9 @@
+- [x] Compare the latest post-`Jetpack Cat` `ko.txt` patch against the current `jp.txt`.
+- [x] Cross-check the same areas against `en.txt` because `en.txt` already had corrective follow-up edits.
+- [x] Verify `dataInit3`-related differences before porting, including mode-dependent values and expanded tables.
+- [x] Port the 6-mode follow-up patch into `jp.txt` while preserving Japanese locale text where possible.
+- [x] Apply the safer `Hero(Junker Queen)` nearby-customer filter logic in `serveFail`.
+- [x] Keep `ko.txt` authoritative where `en.txt` lagged, including the `stageMode == 5 ? 5 : 10` score cap paths.
+- [x] Repair malformed or hard-to-read structural blocks touched during the port, especially in `Start stage` and `Item physics`.
+- [x] Run static verification on key `jp.txt` branches and search for stale follow-up patterns.
+- [ ] Run in-game Workshop runtime validation.

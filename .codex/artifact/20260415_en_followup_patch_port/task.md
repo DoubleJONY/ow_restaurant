@@ -1,0 +1,10 @@
+- [x] Compare the latest `ko.txt` patch against the current `en.txt`.
+- [x] Preserve existing English text where possible and only translate newly introduced customer/mode names.
+- [x] Expand `en.txt` from 4 stage modes to 6 stage modes where required by the new patch.
+- [x] Port new customer logic for `Hero(Reinhardt)` and `Hero(Junker Queen)` into `en.txt`.
+- [x] Port new `stageFail` flow and updated failure handling into `en.txt`.
+- [x] Port the expanded `CUSTOMER_LIST` and `STAGE_CODE` tables into `en.txt`.
+- [x] Update English-facing changelog, mode labels, and scoreboard labels with the requested translations.
+- [x] Adjust the `Hero(Junker Queen)` failure branch to only affect nearby Team 2 customers within radius 5.
+- [x] Run static verification on the modified `en.txt` structure and search for stale 4-mode patterns.
+- [ ] Run in-game Workshop runtime validation.

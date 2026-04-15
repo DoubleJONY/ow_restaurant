@@ -218,6 +218,7 @@ subroutines
 	25: serveFail
 	27: validateServe
 	28: changeHero
+	29: stageFail
 }
 
 disabled rule("GLOBAL==========================================================================================================================")
@@ -614,7 +615,7 @@ rule("Global: Setting")
 		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
         Global.currentUpgrade = -1;
 		Global.stage = 0;
-		Global.totalScore = Array(Array(0, Custom String("練習モード")), Array(5272, Custom String("Biscuits0507")), Array(0, Custom String("None")), Array(0, Custom String("None")));
+		Global.totalScore = Array(Array(0, Custom String("練習モード")), Array(5272, Custom String("Biscuits0507")), Array(0, Custom String("None")), Array(0, Custom String("None")), Array(0, Custom String("None")), Array(0, Custom String("None")));
 		Global.permissionText = Array(Array(Custom String("シェフ"), Custom String("ホール·スタッフ"), Custom String("見習い生"), Custom String(
 			"ヘッドシェフ")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 役職変更", Input Binding String(Button(
@@ -695,11 +696,11 @@ rule("Global: Setting")
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
 			"レストラン(4ND1P) v260415\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110,
-				255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
+				255, 255, 196)[Global.stageMode], Array(50, 255, 180, 225, 120, 161)[Global.stageMode], Array(145, 180, 255, 120, 120, 93)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n私の役職 : {1}", Global.totalScore[False],
-			Global.permissionText[False][Local Player.permission], Global.stageMode != 4 ? Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][True], Global.totalScore[Global.stageMode][False]) : Custom String("")), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
+			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][True], Global.totalScore[Global.stageMode][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
 			Custom String("{0} 製作中のスペシャルナイフ:{1}つ", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[False] + Global.orderedKnives[True]), Custom String(
 			"{0} 鍋:{1}% / フライヤー:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower, Global.fryingPower * 100)), Custom String(
 			"{0} フライパン:{1}% / グリル:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100, Global.grillingPower * 100),
@@ -716,15 +717,17 @@ rule("Global: Setting")
 			Default Visibility);
 		Global.globalText[False] = Last Text ID;
 		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("練習モード"),
-		Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode]), 
+		Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("スター・ビストロ"), Custom String("マスターシェフチャレンジ"), Custom String("ヘッドシェフ・チャレンジ"))[Global.stageMode]), 
 			Custom String("{0}", Array(
 				Custom String("スキルを自由に磨ける練習専用モードです"), 
 				Custom String("5つのメニューが登場する入門レベルをクリアしましょう"), 
 				Custom String("すべてのメニューが登場する熟練レベルをクリアしましょう"), 
-				Custom String("Hell's Kitchenの過酷な試練に挑め"))[Global.stageMode]),
+				Custom String("個性の強い客が登場するプロレベルを攻略しましょう"),
+				Custom String("Hell's Kitchenのシェフに挑戦しましょう"),
+				Custom String("完璧なレストランに挑戦しましょう"))[Global.stageMode]),
 			Local Player == Global.scbRank ? Custom String("[{0}]: モード変更", Input Binding String(Button(Reload)),
 			Input Binding String(Button(Jump))) : Custom String(" ホストがレベル決定中です"), Top, -998, Custom Color(Array(255, 140, 110,
-			255)[Global.stageMode], Array(50, 255, 180, 120)[Global.stageMode], Array(145, 180, 255, 120)
+			255, 255, 196)[Global.stageMode], Array(50, 255, 180, 225, 120, 161)[Global.stageMode], Array(145, 180, 255, 120, 120, 93)
 			[Global.stageMode], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
 		Global.globalText[True] = Last Text ID;
 		Create HUD Text(All Players(Team 1), Null, Null, Custom String(
@@ -733,11 +736,11 @@ rule("Global: Setting")
 		Global.globalText[2] = Last Text ID;
 		Global.stageMode = 0;
 		Call Subroutine(selectMode);
-		Global.difficulty = Array(4, 0, 1, 1)[Global.stageMode];
-		Global.storageLevel = Array(7, 3, 3, -1)[Global.stageMode];
+		Global.difficulty = Array(4, 0, 1, 2, 1, 2)[Global.stageMode];
+		Global.storageLevel = Array(7, 3, 3, 0, -1, -1)[Global.stageMode];
 		Call Subroutine(dataInit3);
 		Global.scbRank = Empty Array;
-		Global.stageTime = Array(300, 300, 180, 180)[Global.difficulty];
+		Global.stageTime = Array(999, 300, 300, 240, 180, 600)[Global.stageMode];
 		Global.hintText = Array(Custom String(""));
 		Create Effect(All Players(Team 1), Sphere, Global.isOpen ? Color(Red) : Color(Lime Green), Vector(227.287, 2.050, 167.679), 0.250,
 			Visible To and Color);
@@ -780,7 +783,7 @@ rule("Global: Setting")
 			Call Subroutine(createItem);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Array(354, 357, 357, 360)[Global.stageMode], 100, Null);
+				-70)) * 0.100, Array(354, 357, 357, 360, 360, 360)[Global.stageMode], 100, Null);
 			Call Subroutine(createItem);
 			Wait(0.100, Ignore Condition);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -790,13 +793,15 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260415\r\n\r\n新規客\r\n  {1}配達にゃんこ: 押し寄せる注文をさばいて、入口まで届けてほしいにゃ！", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat))), 
+		Custom String("{0} v260415\r\n\r\n新規客\r\n  {1}配達にゃんこ: ものすごい勢いで押し寄せる注文んんんんんんんんaaawwwwwwwwwOwO!{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
+		Custom String("  {0}大食い巨人: もっと持ってこい！\r\n{1}", Hero Icon String(Hero(Reinhardt)),
+		Custom String("  {0}クレーマー客: 一度でもミスすると店中を騒がせます！", Hero Icon String(Hero(Junker Queen))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(214, 156, 107, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
 		Custom String("{0} 新しい変更点\r\n\r\n  ジェットパック装着 - 6人プレイ中、サービングボールはジェットパック装着に変更されます！\r\n{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), 
-		Custom String("  怪しいドリンクの叩き強化バランスを調整しました。\r\n{0}",
-		Custom String("  大規模なコード最適化を適用しました。"))),
+		Custom String("  新モード「スター・ビストロ」「ヘッドシェフ・チャレンジ」を追加しました。\r\n{0}",
+		Custom String("  怪しいドリンクの叩き強化バランスを調整しました。"))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -913,7 +918,7 @@ rule("Player: Spawn")
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
 		Create In-World Text(Event Player, Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("スター・ビストロ"), Custom String("マスターシェフチャレンジ"), Custom String("ヘッドシェフ・チャレンジ"))[Global.stageMode], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange),
 			Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
@@ -1661,14 +1666,14 @@ rule("Player: Ultimate button")
 			Event Player.isController = True;
 			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("材料つぶし"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
                 String and Color, Default Visibility);
-			Wait Until(Global.isOpen != False, 9999);
-			Wait Until(Global.isOpen == False, 9999);
+			Wait Until(Global.isOpen != False || !Has Spawned(Event Player), 9999);
+			Wait Until(Global.isOpen == False || !Has Spawned(Event Player), 9999);
 			Stop Forcing Player To Be Hero(Event Player);
 			Clear Status(Event Player, Phased Out);
 			Set Status(Event Player, Null, Stunned, 1);
 			Set Status(Event Player, Null, Hacked, 1);
 			Wait(0.016, Ignore Condition);
-			Set Status(All Players(Team 1), Null, Phased Out, 9999);
+			Set Status(Event Player, Null, Phased Out, 9999);
 			Wait(True, Ignore Condition);
 			Call Subroutine(changeHero);
         End;	
@@ -1812,8 +1817,8 @@ rule("Dummy: Spawn")
 	actions
 	{
 		Event Player.controlingIndex = Index Of Array Value(Array(Hero(Soldier: 76), Hero(Roadhog), Hero(Bastion), Hero(Tracer), Hero(
-			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver), Hero(Freja), Hero(Sombra), Hero(Kiriko), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat)), Hero Of(Event Player));
-		Event Player.customerSpeed = Hero Of(Event Player) == Hero(Tracer) ? 6 : 5.500;
+			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver), Hero(Freja), Hero(Sombra), Hero(Kiriko), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)), Hero Of(Event Player));
+		Event Player.customerSpeed = Hero Of(Event Player) == Hero(Tracer) ? 6 : Hero Of(Event Player) == Hero(Reinhardt) ? 3.300 : 5.000;
 		If(Event Player.controlingIndex == -1);
 			Event Player.customerPath = Global.TABLE_PATH[19];
 			Event Player.cookingIndex = Index Of Array Value(Array(Hero(Torbjörn), Hero(Mei), Hero(Junkrat), Hero(Juno)), Hero Of(
@@ -1848,7 +1853,7 @@ rule("Dummy: Spawn")
 					Global.orderedKnives[True] -= True;
 					Wait(0.100, Ignore Condition);
 				End;
-			Else If(Event Player.cookingIndex == 1 && Global.stageMode != 3 && Global.stage < 4);
+			Else If(Event Player.cookingIndex == 1 && Global.stageMode < 3 && Global.stage < 4);
 				Small Message(All Players(All Teams), Custom String("  {0} : 無料アイテムをプレゼント！", Hero Icon String(Hero(Mei))));
 				For Player Variable(Event Player, controlingIndex, False, Count Of(All Players(Team 1)), True);
 					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -1909,7 +1914,7 @@ rule("Dummy: Spawn")
 		Else;
 			Start Forcing Dummy Bot Name(Event Player, String Split(
 				Custom String("普通の客/大食い/厳しい客/せっかちな客/フードファイター/予約客/フード評論家/モクバンユーチューバー/壊食家/暴悪な客/エルバーピ VVIP/料理研究家/{0}",
-				Custom String("一人客/怪しい客/稲荷神/グルメ/混乱した客/苦しむ客/配達にゃんこ")), Custom String("/"))[Event Player.controlingIndex]);
+				Custom String("一人客/怪しい客/稲荷神/グルメ/混乱した客/苦しむ客/配達にゃんこ/大食い巨人/クレーマー客")), Custom String("/"))[Event Player.controlingIndex]);
 			Event Player.playerColor = Array(Color(Blue), Color(Green), Color(White), Color(Orange), Color(Purple), Color(Turquoise), Color(
 				Aqua), Custom Color(252, 121, 189, 255), Color(Lime Green), Color(Red), Color(Yellow), 
 				Custom Color(225, 165, 186, 255), 
@@ -1919,14 +1924,20 @@ rule("Dummy: Spawn")
 				Custom Color(196, 161, 93, 255),
 				Custom Color(124, 139, 140, 255),
 				Custom Color(125, 85, 199, 255),
-				Custom Color(214, 156, 107, 255))[Event Player.controlingIndex];
-			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10, 10, 10, 10, -10)[Event Player.controlingIndex] - Global.additionalScore;
-			Event Player.orderCount = Array(True, 2, True, True, Null, True, True, 2, True, True, 4, True, True, True, True, True, True, 2, True)[Event Player.controlingIndex];
-			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 13, 30, 40, 17, 40)
+				Custom Color(214, 156, 107, 255),
+				Custom Color(227, 221, 201, 255),
+				Custom Color(103, 49, 51, 255))[Event Player.controlingIndex];
+			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10, 10, 10, 10, -10, Null, Null)[Event Player.controlingIndex] - Global.additionalScore;
+			Event Player.orderCount = Array(True, 2, True, True, Null, True, True, 2, True, True, 4, True, True, True, True, True, True, 2, True, Null, True)[Event Player.controlingIndex];
+			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 13, 30, 30, 17, 40, 80, 25)
 				[Event Player.controlingIndex] * Array(6, 3, 2, 1.200, 6)[Global.difficulty] - 0.500;
-			Event Player.byOrder = Array(False, False, 1, False, False, False, False, 1, False, 1, 1, False, False, False, False, False, False, 1, False)[Event Player.controlingIndex];
+			Event Player.byOrder = Array(False, False, 1, False, False, False, False, 1, False, 1, 1, False, False, False, False, False, False, 1, False, False, 1)[Event Player.controlingIndex];
 			Event Player.hideOrder = Hero Of(Event Player) == Hero(Sombra) ? 1 : 0;
 			Disable Movement Collision With Environment(Event Player, False);
+			If(Hero Of(Event Player) == Hero(Reinhardt));
+				Start Scaling Player(Event Player, 2, True);
+				Set Move Speed(Event Player, 60);
+			End;
 			Wait Until(Has Spawned(Event Player), True);
 			If(Hero Of(Event Player) == Hero(Kiriko));
 				Teleport(Event Player, Global.TABLE_PATH[Event Player.tableIndex][8]);
@@ -2002,7 +2013,7 @@ rule("Dummy: Spawn")
 				End;
 				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11) || Hero Of(Event Player) == Hero(LifeWeaver));
 					Event Player.orderTimeOut += 20;
-					For Player Variable(Event Player, handPosition, False, Hero Of(Event Player) == Hero(Zarya) ? 3 : 1, True);
+					For Player Variable(Event Player, handPosition, False, Hero Of(Event Player) == Hero(Reinhardt) ? 9 : Hero Of(Event Player) == Hero(Zarya) ? 3 : 1, True);
 						If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]) > 1);
 							For Player Variable(Event Player, additionalMaterialIndex, False, Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]), True);
 								Global.createItemData = Array(Position Of(Event Player) + Vector(False, 2 + (Event Player.additionalMaterialIndex / 2), False), Null,
@@ -2035,14 +2046,14 @@ rule("Dummy: Spawn")
 				If(Global.hintText == Empty Array);
 					Global.hintText = Array(Custom String(""));
 				End;
-				If(Hero Of(Event Player) == Hero(Zarya));
-					Event Player.score = 20 + Min(Event Player.score * 3, 50);
-					While(Event Player.orderCount < 3);
-						Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} {2}/3 ", Event Player.tableIndex + True,
-							Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Event Player.orderCount)), Event Player.hintText, Custom String(
-							"  {0}秒\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-							Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
-							Event Player.orderedTime * 0.001, Event Player.playerColor, Color(Yellow), Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1 < 10 ? Color(Red) : Event Player.playerColor, Visible To String and Color,
+					If(Hero Of(Event Player) == Hero(Reinhardt) || Hero Of(Event Player) == Hero(Zarya));
+						Event Player.score = 20 + Min(Event Player.score * 3, 50);
+						While(Event Player.orderCount < (Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3));
+							Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} {2} ", Event Player.tableIndex + True,
+								Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Custom String("{0}/{1}", Event Player.orderCount, Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3))), Event Player.hintText, Custom String(
+								"  {0}秒\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+								Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
+								Event Player.orderedTime * 0.001, Event Player.playerColor, Color(Yellow), Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1 < 10 ? Color(Red) : Event Player.playerColor, Visible To String and Color,
 							Default Visibility);
 						Event Player.playerText = Last Text ID;
 						Event Player.lastOrderTime = Total Time Elapsed;
@@ -2067,11 +2078,11 @@ rule("Dummy: Spawn")
 							End;
 							Call Subroutine(dropTips);
 							All Players(Team 1).score += 1;
-							Create HUD Text(All Players(All Teams), Custom String(" #{0} : サービング成功! {1}/3 ", Event Player.tableIndex + True,
-								Event Player.orderCount), Null, Custom String(
-								"  {0}秒\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-								Max(Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up), False)), Left,
-								Event Player.orderedTime * 0.001, Color(Rose), Null, Color(Rose), String, Default Visibility);
+								Create HUD Text(All Players(All Teams), Custom String(" #{0} : サービング成功! {1}/{2} ", Event Player.tableIndex + True,
+									Event Player.orderCount, Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3), Null, Custom String(
+									"  {0}秒\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+									Max(Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up), False)), Left,
+									Event Player.orderedTime * 0.001, Color(Rose), Null, Color(Rose), String, Default Visibility);
 							Event Player.playerText = Last Text ID;
 							Create Effect(All Players(All Teams), Sphere, Global.ITEM_COLOR[Global.tableOrderCode[Event Player.tableIndex]],
 								Global.TABLE_POSITION[Event Player.tableIndex], (Evaluate Once(Total Time Elapsed + 2.500) - Total Time Elapsed) * 0.200,
@@ -2087,10 +2098,14 @@ rule("Dummy: Spawn")
 							Destroy Effect(Event Player.customerEffect);
 							If(!Global.isOpen);
 								Destroy HUD Text(Event Player.playerText);
-								Break;
+							Break;
 							End;
 							Play Effect(All Players(All Teams), Good Pickup Effect, Color(Green), Event Player, 5);
 							Play Effect(All Players(All Teams), Buff Impact Sound, Null, Event Player, 100);
+							If(Hero Of(Event Player) == Hero(Reinhardt));
+								Global.systemScore += 5;
+								Global.stageScore += 5;
+							End;
 							Event Player.customerStatus = Null;
 							Wait(True, Ignore Condition);
 							Destroy HUD Text(Event Player.playerText);
@@ -2108,8 +2123,8 @@ rule("Dummy: Spawn")
 					Destroy HUD Text(Event Player.playerText);
 					Destroy Effect(Event Player.shaftEffect);
 					Destroy In-World Text(Event Player.tableText);
-					If(Event Player.orderCount == 3);
-						Modify Player Variable(Event Player, score, Max, 10);
+					If(Event Player.orderCount == (Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3));
+						Modify Player Variable(Event Player, score, Max, Global.stageMode == 5 ? 5 : 10);
 						Global.systemScore += Event Player.score;
 						Global.stageScore += Event Player.score;
 						Small Message(All Players(All Teams), Custom String("  サービング成功! +{0}%", Event Player.score));
@@ -2120,7 +2135,7 @@ rule("Dummy: Spawn")
 					Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
 						Event Player.hideOrder == 1 ? Custom String("???") : Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Event Player.hintText, Custom String(
 						"  {0}秒\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
-						Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
+						(Hero Of(Event Player) == Hero(Sigma) || Hero Of(Event Player) == Hero(Ramattra)) ? Custom String("??") : Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
 						Total Time Elapsed * 0.001, Event Player.playerColor, Color(Yellow), Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1 < 10 ? Color(Red) : Event Player.playerColor, Visible To String and Color,
 						Default Visibility);
 					Event Player.playerText = Last Text ID;
@@ -2147,7 +2162,7 @@ rule("Dummy: Spawn")
 								Call Subroutine(serveFail);
 								Break;
 							End;
-							Event Player.tipsProb = Hero Of(Event Player) == Hero(Moira) ? 30 : Hero Of(Event Player) == Hero(D.Va) ? 15 : 0;
+							Event Player.tipsProb = Hero Of(Event Player) == Hero(Reinhardt) ? 50 : Hero Of(Event Player) == Hero(Moira) ? 30 : Hero Of(Event Player) == Hero(D.Va) ? 15 : 0;
 							If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.180 && Event Player.customerStatus == 4);
 								Global.systemScore += 20;
 								All Players(Team 1).score += 3;
@@ -2220,7 +2235,7 @@ rule("Dummy: Spawn")
 								Event Player.orderCount -= True;
 								Event Player.durability = False;
 							Else;
-								Modify Player Variable(Event Player, score, Max, 10);
+								Modify Player Variable(Event Player, score, Max, Global.stageMode == 5 ? 5 : 10);
 								Global.systemScore += Event Player.score;
 								Global.stageScore += Event Player.score;
 								If(Hero Of(Event Player) == Hero(Moira));
@@ -2279,6 +2294,10 @@ rule("Dummy: Spawn")
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(White), Evaluate Once(Position Of(Event Player)), 2);
 		Else;
 			While(Event Player.customerPath != Empty Array);
+				If(Event Player.tableIndex >= 14 && Count Of(Event Player.customerPath) < 2);
+					Event Player.customerSpeed = 18;
+					Start Holding Button(Event Player, Button(Secondary Fire));
+				End;
 				Start Throttle In Direction(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), True,
 					To World, Replace existing throttle, None);
 				Start Facing(Event Player, Direction Towards(Position Of(Event Player), First Of(Event Player.customerPath)), 300, To World, None);
@@ -2296,6 +2315,7 @@ rule("Dummy: Spawn")
 				Global.loadNext += 2;
 			End;
 		End;
+		Destroy Effect(Event Player.customerEffect);
 		Destroy Dummy Bot(Team 2, Slot Of(Event Player));
 	}
 }
@@ -2310,8 +2330,11 @@ rule("serveFail") {
 	actions
 	{
 		Event Player.knifeText.score -= 5;
+		If(Event Player.customerStatus == 6);
+			Event Player.customerStatus = 5;
+		End;
 		Event Player.controlingIndex = Array(Custom String("タイムオーバー!"), Null, Custom String("{0}の間違ったサービング!", Event Player.knifeText),
-			Custom String("順番注意!"), Custom String("完成度の低い料理!"), Custom String("注文更新拒否!"))[Event Player.customerStatus];
+			Custom String("順番注意!"), Custom String("完成度の低い料理!"), Custom String("混乱して逃げ出した!"))[Event Player.customerStatus];
 		Create HUD Text(All Players(All Teams), Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
 			Event Player.controlingIndex), Null, Custom String(
 			"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -2323,8 +2346,8 @@ rule("serveFail") {
 		Event Player.customerEffect = Last Created Entity;
 		Press Button(Event Player, Button(Jump));
 		If(Hero Of(Event Player) != Hero(Kiriko));
-			Global.stageScore -= Global.scoreDecrease[Event Player.customerStatus] * (Hero Of(Event Player) == Hero(D.Va) ? 3 : 1);
-			Event Player.score = Min(Global.systemScore, Global.scoreDecrease[Event Player.customerStatus] * (Hero Of(Event Player) == Hero(D.Va) ? 3 : 1));
+			Global.stageScore -= Global.scoreDecrease[Event Player.customerStatus] * (Hero Of(Event Player) == Hero(Reinhardt) ? 9 : Hero Of(Event Player) == Hero(D.Va) ? 3 : 1);
+			Event Player.score = Min(Global.systemScore, Global.scoreDecrease[Event Player.customerStatus] * (Hero Of(Event Player) == Hero(Reinhardt) ? 9 : Hero Of(Event Player) == Hero(D.Va) ? 3 : 1));
 			Global.systemScore -= Event Player.score;
 		End;
 		Event Player.dollar = False;
@@ -2353,12 +2376,20 @@ rule("serveFail") {
 				Wait(0.016 + (Event Player.durability / 100), Ignore Condition);
 			End;
 			Wait(10, Ignore Condition);
-		Else If(Hero Of(Event Player) == Hero(Moira) && Global.difficulty != 4);
+		Else If(Hero Of(Event Player) == Hero(Junker Queen));
+			Clear Status(All Players(Team 1), Phased Out);
+			Set Status(All Players(Team 1), Event Player, Stunned, 5);
+			Wait(0.016, Ignore Condition);
+			Set Status(All Players(Team 1), Null, Phased Out, 9999);
+			Press Button(Event Player, Button(Ability 1));
+			Filtered Array(All Players(Team 2), Has Spawned(Current Array Element) && Current Array Element != Event Player && Current Array Element.controlingIndex != -1 && Distance Between(Position Of(Current Array Element), Position Of(Event Player)) < 5).customerStatus = 6;
+		Else If(Hero Of(Event Player) == Hero(Sombra));
+			Global.superDrink = -2;
+		End;
+		If(Hero Of(Event Player) == Hero(Moira) && Global.difficulty != 4 || Global.stageMode == 5);
 			Set Match Time(1);
 			Wait(1, Ignore Condition);
 			Global.isVipAngry = True;
-		Else If(Hero Of(Event Player) == Hero(Sombra));
-			Global.superDrink = -2;
 		End;
 		Wait(True, Ignore Condition);
 		Destroy Effect(Event Player.customerEffect);
@@ -2377,7 +2408,7 @@ rule("drop tips") {
 	{
 		If(Random Integer(1, 100) <= Event Player.tipsProb);
 			Global.createItemData = Array(Position Of(Event Player), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Hero Of(Event Player) == Hero(Ramattra) ? Random Value In Array(Global.PERK_LIST[Random Integer(0, 1)]) : 432, 100, Null);
+				-70)) * 0.100, Hero Of(Event Player) == Hero(Ramattra) || Hero Of(Event Player) == Hero(Reinhardt) ? Random Value In Array(Global.PERK_LIST[Random Integer(0, 1)]) : 432, 100, Null);
 			Call Subroutine(createItem);
 		End;
 	}
@@ -2965,9 +2996,9 @@ rule("Global subroutine: Data init2")
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
 		Global.UPGRADE_NAME = String Split(
-			Custom String("保存用バット購入/ランダム道具購入/ランダム靴購入/プライヤー強化/鍋強化/グリル強化/フライパン強化/{0}",
-						Custom String("個人のスピードアップ/チームの営業タイムアップ/コイン交換")),
-						Custom String("/"));
+			Custom String("保存用バット購入/ランダム道具購入/ランダム靴購入/フライヤー強化/鍋強化/グリル強化/フライパン強化/{0}",
+			Custom String("個人のスピードアップ/チームの営業タイムアップ/コイン交換")),
+			Custom String("/"));
 	}
 }
 
@@ -2985,13 +3016,13 @@ rule("Global subroutine: Data init3")
 		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
 		Global.scoreDecrease = Array(Array(Null, Null, Null, Null, Null, Null), Array(5, Null, 5, 5, 5, 5), Array(15, Null, 15, 35, 15, 15), Array(50, Null, 50, 50, 50, 50))[Global.difficulty];
 		Global.despawnTime = Array(30, 25, 20, 15, 60)[Global.difficulty];
-		Global.additionalScore = Array(Null, 5, 10, 15)[Global.difficulty];
-		Global.failEnd = Array(5, 3, 3, 3)[Global.difficulty];
+		Global.additionalScore = Global.stageMode == 5 ? 15 : Array(Null, 5, 10, 15)[Global.difficulty];
+		Global.failEnd = Array(99, 5, 3, 2, 3, 1)[Global.stageMode];
 		Global.CUSTOMER_LIST = Array(
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat)),
-				Array(Hero(Lifeweaver), Hero(Lifeweaver)),
+				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
+				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
 			Array(
@@ -3022,11 +3053,28 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
 				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
 				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
 				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
 				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)), 
 				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
+				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
+			),  
+			Array(
+				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)), 
+				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)), 
+				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)), 
+				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)), 
+				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
+				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)), 
+				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)), 
+				Array(Hero(Reinhardt), Hero(Sigma), Hero(Jetpack Cat), Hero(Sigma), Hero(Jetpack Cat), Hero(Sigma), Hero(Sigma), Hero(Jetpack Cat)),
+				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
 			), 
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)), 
@@ -3036,12 +3084,34 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
 				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
 				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
 				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)), 
 				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
 				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)), 
 				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)), 
 				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
+			),
+			Array(
+				Array(Hero(Moira), Hero(Tracer), Hero(Roadhog)), 
+				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Mauga)), 
+				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)), 
+				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
+				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(Kiriko), Hero(Kiriko)), 
+				Array(Hero(Domina), Hero(Moira), Hero(Mercy)), 
+				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
+				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
+				Array(Hero(D.Va), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Moira), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)), 
+				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
+				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Moira), Hero(Sombra), Hero(Moira), Hero(Sombra), Hero(LifeWeaver)), 
+				Array(Hero(Sigma), Random Value In Array(Array(Hero(Sombra), Hero(Reinhardt), Hero(Moira), Hero(Ramattra))), Hero(Jetpack Cat), Hero(Sigma), Hero(Jetpack Cat), Hero(Sigma), Hero(Sigma), Hero(Jetpack Cat)),
+				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
@@ -3058,13 +3128,52 @@ rule("Global subroutine: Data init3")
 					Array(Random Integer(0, 5)),
 					Array(Random Integer(6, 11)), 
 					Array(Random Integer(0, 5)),
+					Array(Random Integer(6, 11)), 
+					Array(Random Integer(0, 5)),
 					Array(Random Integer(6, 10)),  
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))),
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
 					Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
 					Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
-				)
+				),
+			Array(
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 10)),  
+				Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))),
+				Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
+				Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
+				Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
+				Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
+			),
+			Array(
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 11)), 
+				Array(Random Integer(0, 5)),
+				Array(Random Integer(6, 10)),  
+				Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))),
+				Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
+				Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
+				Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
+				Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))),
+				Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
+				Random Value In Array(Array(Array(5, 6), Array(4, 7), Array(3, 8), Array(2, 3), Array(9, 10))), 
+				Random Value In Array(Array(Array(0, 1), Array(3, 7), Array(7, 8), Array(2, 6), Array(7, 10))), 
+				Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10))),
+				Random Value In Array(Array(Array(0, 1, 3),	Array(2, 5, 6), Array(3, 4, 7), Array(3, 7, 8), Array(3, 7, 10), Array(8, 9, 10)))
+			)
 		)[Global.stageMode];
 	}
 }
@@ -3080,7 +3189,7 @@ rule("Global subroutine: Start stage")
 	actions
 	{
 		Global.isVipAngry = False;
-		Global.isBonusStage = Global.stage > 7 && Global.stageMode == 3 ? True : False;
+		Global.isBonusStage = Global.stage > 7 && Global.stageMode == 4 ? True : False;
 		If(Global.isBonusStage);
 			Global.failCount = 0;
 		End;
@@ -3165,15 +3274,7 @@ rule("Global subroutine: Start stage")
 		Wait(0.016, Ignore Condition);
 		Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 		If(Global.visibleScore < 100);
-			Global.failCount += True;
-			Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!", Global.tx) : Custom String("{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})",
-				Global.tx, Global.failCount, Global.failEnd));
-			Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
-			Global.scbRank[3] += 1;
-			If(Global.failCount == Global.failEnd);
-				Global.isVictory = False;
-				Call Subroutine(gameSummary);
-			End;
+			Call Subroutine(stageFail);
 		Else;
 			Global.stageColor = Color(Turquoise);
 			Global.systemScore -= 100;
@@ -3187,15 +3288,7 @@ rule("Global subroutine: Start stage")
 				Wait(0.016, Ignore Condition);
 				Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 				If(Global.visibleScore < 100);
-					Global.failCount += True;
-					Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!", Global.tx) : Custom String("{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})",
-						Global.tx, Global.failCount, Global.failEnd));
-					Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
-					Global.scbRank[3] += 1;
-					If(Global.failCount == Global.failEnd);
-						Global.isVictory = False;
-						Call Subroutine(gameSummary);
-					End;
+					Call Subroutine(stageFail);
 				Else;
 					Global.stageColor = Color(Rose);
 					Global.systemScore -= 100;
@@ -3205,8 +3298,10 @@ rule("Global subroutine: Start stage")
 					Play Effect(All Players(Team 1), Lúcio Sound Barrier Cast Sound, Null, Vector(222.007, True, 165.207), 200);
 					Wait(0.016, Ignore Condition);
 					Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
-					If(Global.visibleScore < 100);
-						Big Message(All Players(All Teams), Custom String("営業完了!"));
+					If(Global.visibleScore < 100 && Global.stageMode == 5);
+						Call Subroutine(stageFail);
+					Else If(Global.visibleScore < 100);
+						Big Message(All Players(All Teams), Custom String("立派な営業!"));
 						Global.scbRank[True] += 1;
 						All Players(Team 1).score += 10;
 					Else;
@@ -3249,7 +3344,7 @@ rule("Global subroutine: Start stage")
 					Wait(0.016, Ignore Condition);
 					Wait Until(Global.visibleScore >= 100 || Global.isVipAngry, Match Time);
 					If(Global.visibleScore < 100);
-						Big Message(All Players(All Teams), Custom String("営業完了!"));
+						Big Message(All Players(All Teams), Custom String("成功した営業!"));
 						Global.scbRank[True] += 1;
 						All Players(Team 1).score += 10;
 					Else;
@@ -3293,7 +3388,7 @@ rule("Global subroutine: Start stage")
 		Wait(0.200, Ignore Condition);
 		Global.stageTime -= Global.isBonusStage ? 0 : 5;
 		Loop If(Count Of(Global.STAGE_CODE[Global.stage]) && (!Global.isBonusStage || Global.failCount == 0));
-		If(Global.difficulty != 3 && Global.stageMode == 3);
+		If(Global.difficulty != 3 && Global.stageMode == 4);
 			Big Message(All Players(All Teams), Custom String("中間スコア : {0}", Global.totalScore[False]));
 			Global.stage = 0;
 			Global.difficulty += True;
@@ -3307,6 +3402,28 @@ rule("Global subroutine: Start stage")
 				Global.stage = 0;
 				Global.isVictory = True;
 			End;
+			Call Subroutine(gameSummary);
+		End;
+	}
+}
+
+rule("Global subroutine: Stage Fail")
+{
+	event
+	{
+		Subroutine;
+		stageFail;
+	}
+
+	actions
+	{
+		Global.failCount += True;
+		Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>ボーナス営業失敗!", Global.tx) : Custom String(
+			"{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})", Global.tx, Global.failCount, Global.failEnd));
+		Play Effect(All Players(Team 1), Doomfist Meteor Strike Impact Sound, Null, Vector(222.007, True, 165.207), 200);
+		Global.scbRank[3] += 1;
+		If(Global.failCount == Global.failEnd);
+			Global.isVictory = False;
 			Call Subroutine(gameSummary);
 		End;
 	}
@@ -3338,7 +3455,7 @@ rule("Global subroutine: Item physics")
 					If(Y Component Of(Global.itemPosition[Global.checkingIndex]) > 1.800);
 						If(Distance Between(Global.itemPosition[Global.checkingIndex], Vector(208.330, False, 186.208)) < 25);
 							Global.checkingCustomerIndex = Index Of Array Value(Global.customerPosition, First Of(Filtered Array(Global.customerPosition,
-								Distance Between(Current Array Element, Global.itemPosition[Global.checkingIndex]) < Array(1, 2, 1, 0.5)[Global.stageMode])));
+								Distance Between(Current Array Element, Global.itemPosition[Global.checkingIndex]) < Array(1, 2, 1, 0.5, 0.5, 0.5)[Global.stageMode])));
 							Global.checkingTableIndex = Global.customerIndex[Global.checkingCustomerIndex];
 							If(Global.checkingCustomerIndex != -1 && !Global.tableCustomer[Global.checkingTableIndex].customerStatus);
 								Call Subroutine(validateServe);
@@ -3443,7 +3560,7 @@ rule("Global subroutine: validate serve")
 				Global.itemCooker[Global.checkingIndex][Global.scoringIndex].score += Max(3 - Count Of(All Players(Team 1)), 0);
 				Global.itemCooker[Global.checkingIndex][Global.scoringIndex].scbCooked += 1;
 				All Players(Team 1).score += Global.isBonusStage ? True : False;
-				All Players(Team 1).score += Global.stageMode != 3 ? True : False;
+				All Players(Team 1).score += Global.stageMode < 4 ? True : False;
 			End;
 			Global.itemLastControl[Global.checkingIndex].scbSurved += 1;
 			Global.itemLastControl[Global.checkingIndex].score += Global.isBonusStage ? True : False;
@@ -3757,13 +3874,25 @@ rule("Host Player: Select Mode")
 		Global.scbRank = Slot Of(Host Player) == -1 ? All Players(Team 1)[False] : Host Player;
 		Wait Until(Is Button Held(Global.scbRank, Button(Reload)) || Is Button Held(Global.scbRank, Button(Jump)), 99999);
 		If(Is Button Held(Global.scbRank, Button(Reload)));
-			Global.stageMode = (Global.stageMode + True) % 4;
+			Global.stageMode = (Global.stageMode + True) % 6;
 			Wait Until(!Is Button Held(Global.scbRank, Button(Reload)), 99999);
 			Loop;
 		End;
 		Destroy HUD Text(Global.globalText[False]);
 		Destroy HUD Text(Global.globalText[True]);
 		Destroy HUD Text(Global.globalText[2]);
+		If(Global.stageMode == 5);
+			For Global Variable(scbRank, False, 6, True);
+				All Players(Team 1)[scbRank].dollar = 500;
+				Wait(0.016, Ignore Condition);
+			End;
+			Global.fryingPower = 1.25;
+			Global.grillingPower = 1.25;
+			Global.potPower = 1;
+			Global.panPower = 1.25;
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 354, 100, Null);
+			Call Subroutine(createItem);
+		End;
 		Wait(0.018, Ignore Condition);
 	}
 }
@@ -4483,7 +4612,7 @@ rule("Global subroutine: Scoreboard")
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("タイム : 〔{0}〕\r\nモード: 〔{1}〕\r\n結果: 〔{2}〕",
 			Evaluate Once(Custom String("{0}時間{1}分{2}秒", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
 			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("{0}", Array(Custom String("練習モード"),
-			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("マスターシェフチャレンジ"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("入門レベル"),
+			Custom String("カジュアルダイニング"), Custom String("ファインダイニング"), Custom String("スター・ビストロ"), Custom String("マスターシェフチャレンジ"), Custom String("ヘッドシェフ・チャレンジ"))[Global.stageMode]), Custom String("{0} / {1}", Array(Custom String("入門レベル"),
 			Custom String("熟練レベル"), Custom String("プロレベル"), Custom String("Hell's Kitchen"))[Global.difficulty],
 			Global.isVictory ? Custom String("クリア!") : Custom String("Stage {0} で失敗", Global.stage + 1))), Vector(214.140,
 			Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
@@ -4528,19 +4657,19 @@ rule("Global subroutine: Scoreboard")
 		Play Effect(All Players(Team 1), Ring Explosion Sound, Null, Vector(206.991, 2, 188.239), 200);
 		Wait(0.500, Ignore Condition);
 		Create In-World Text(All Players(Team 1), 
-		Global.isVictory && (Global.totalScore[False] > (Global.stageMode == 3 ? 14000 : 6000)) ?
+		Global.isVictory && (Global.totalScore[False] > (Global.stageMode >= 4 ? 14000 : 6000)) ?
 			Custom String("ランク : 〔★★★★★★★〕") :
-		Global.isVictory && (Global.totalScore[False] > (Global.stageMode == 3 ? 13000 : 5700)) ?
+		Global.isVictory && (Global.totalScore[False] > (Global.stageMode >= 4 ? 13000 : 5700)) ?
 			Custom String("ランク : 〔★★★★★★〕") :
-		Global.isVictory && (Global.totalScore[False] > (Global.stageMode == 3 ? 12000 : 5400)) ?
+		Global.isVictory && (Global.totalScore[False] > (Global.stageMode >= 4 ? 12000 : 5400)) ?
 			Custom String("ランク : 〔★★★★★〕") : 
-		Global.totalScore[False] > (Global.stageMode == 3 ? 11000 : 5000) ?
+		Global.totalScore[False] > (Global.stageMode >= 4 ? 11000 : 5000) ?
 			Custom String("ランク : 〔★★★★☆〕") :
-		Global.totalScore[False] > (Global.stageMode == 3 ? 10000 : 4500) ?
+		Global.totalScore[False] > (Global.stageMode >= 4 ? 10000 : 4500) ?
 			Custom String("ランク : 〔★★★☆☆〕") :
-		Global.totalScore[False] > (Global.stageMode == 3 ? 8000 : 3500) ?
+		Global.totalScore[False] > (Global.stageMode >= 4 ? 8000 : 3500) ?
 			Custom String("ランク : 〔★★☆☆☆〕") :
-		Global.totalScore[False] > (Global.stageMode == 3 ? 6000 : 2000) ?
+		Global.totalScore[False] > (Global.stageMode >= 4 ? 6000 : 2000) ?
 			Custom String("ランク : 〔★☆☆☆☆〕") :
 		Custom String("ランク : 〔☆☆☆☆☆〕")
 		, Vector(210.140, Sine From Degrees(Min(
