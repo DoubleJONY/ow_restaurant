@@ -1,0 +1,10 @@
+- [x] Compare the current `ko.txt` Jetpack Cat feature diff against `jp.txt`.
+- [x] Preserve declaration order by adding new subroutines at the top declaration block first.
+- [x] Port the 19-slot table/path expansion into `jp.txt`.
+- [x] Port shared `changeHero` and `validateServe` subroutines into `jp.txt`.
+- [x] Port the 6-player `serveBot` fallback that forces the player into `Hero(Jetpack Cat)`.
+- [x] Port customer-type, wave, spawn, movement, and serve-zone changes for `Jetpack Cat`.
+- [x] Choose and apply the Japanese customer translation `配達にゃんこ`.
+- [x] Update Japanese-facing changelog and customer text for the new feature.
+- [x] Verify that legacy `+15` serve paths were shifted to `+20` and that `Double Jump` excludes `Hero(Jetpack Cat)`.
+- [ ] Run in-game Workshop runtime validation.

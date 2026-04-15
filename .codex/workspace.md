@@ -24,4 +24,5 @@ settings. Find and comply with any items or references described here.
 - Current recorded session:
   - `.codex/artifact/20260414_workshop_array_refactor/`
   - `.codex/artifact/20260415_ko_change_analysis/`
-
+  - `.codex/artifact/20260415_en_jetpack_cat_port/`
+  - `.codex/artifact/20260415_jp_jetpack_cat_port/`
