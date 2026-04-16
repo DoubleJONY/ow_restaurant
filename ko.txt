@@ -761,7 +761,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v260415\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)[Global.stageMode], 255), Null, String and Color, Default Visibility);
+			"레스토랑(SPXXM) v260416\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][True], Global.totalScore[Global.stageMode][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -855,7 +855,7 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260415\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
+		Custom String("{0} v260416\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
 		Custom String("  {0} 거대식가: 멋있는 대식가!\r\n{1}", Hero Icon String(Hero(Reinhardt)),
 		Custom String("  {0} 시끄러운 손님: 실수하면 고막을 터뜨려 버립니다!", Hero Icon String(Hero(Junker Queen))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -1973,9 +1973,9 @@ rule("Dummy: Spawn")
 				Custom Color(214, 156, 107, 255),
 				Custom Color(227, 221, 201, 255),
 				Custom Color(103, 49, 51, 255))[Event Player.controlingIndex];
-			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10, 10, 10, 10, -10, Null, Null)[Event Player.controlingIndex] - Global.additionalScore;
+			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10, 10, 10, 10, 5, Null, Null)[Event Player.controlingIndex] - Global.additionalScore;
 			Event Player.orderCount = Array(True, 2, True, True, Null, True, True, 2, True, True, 4, True, True, True, True, True, True, 2, True, Null, True)[Event Player.controlingIndex];
-			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 13, 30, 30, 17, 40, 80, 25)
+			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 13, 30, 30, 17, 60, 80, 25)
 				[Event Player.controlingIndex] * Array(6, 3, 2, 1.200, 6)[Global.difficulty] - 0.500;
 			Event Player.byOrder = Array(False, False, 1, False, False, False, False, 1, False, 1, 1, False, False, False, False, False, False, 1, False, False, 1)[Event Player.controlingIndex];
 			Event Player.hideOrder = Hero Of(Event Player) == Hero(Sombra) ? 1 : 0;
@@ -2047,7 +2047,7 @@ rule("Dummy: Spawn")
 						Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
 					End;
 					Event Player.durability = Global.tableOrderCode[Event Player.tableIndex];
-				Else If((Hero Of(Event Player) == Hero(Mercy) || Hero Of(Event Player) == Hero(Sombra) || Hero Of(Event Player) == Hero(Jetpack Cat)) && Event Player.hideOrder > -1);
+				Else If((Hero Of(Event Player) == Hero(Mercy) || Hero Of(Event Player) == Hero(Sombra)) && Event Player.hideOrder > -1);
 					Global.tableOrderCode[Event Player.tableIndex] = Event Player.durability;
 				Else;
 					Global.tableOrderCode[Event Player.tableIndex] = First Of(Global.loadingMenu);
@@ -3091,25 +3091,25 @@ rule("Global subroutine: Data init3")
 			),
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Soldier: 76)), 
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Mauga)), 
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)), 
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
-				Array(Hero(Kiriko), Hero(Kiriko)), 
-				Array(Hero(Domina), Hero(Moira), Hero(Mercy)), 
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Moira), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)), 
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Moira), Hero(Sombra), Hero(Moira), Hero(Sombra), Hero(LifeWeaver)), 
-				Array(Hero(Sigma), Random Value In Array(Array(Hero(Sombra), Hero(Reinhardt), Hero(Moira), Hero(Ramattra))), Hero(Jetpack Cat), Hero(Sigma), Hero(Jetpack Cat), Hero(Sigma), Hero(Sigma), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
+				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)), 
+				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)), 
+				Array(Hero(Domina), Hero(Hazard)), 
+				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(Freja), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
+				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
+				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)), 
+				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)), 
+				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
+				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
+				Array(Hero(Sigma), Hero(Sombra), Hero(Reinhardt)),
+				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
+				Array(Hero(Moira), Hero(Jetpack Cat))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
@@ -3758,7 +3758,7 @@ rule("Global subroutine: Call customer")
 			End;
 			Wait(0.016, Ignore Condition);
 			Global.tableFilled[Global.spawningCustomerTable] = True;
-			If(First Of(Global.currentCustomer) == Hero(Mercy) || First Of(Global.currentCustomer) == Hero(Sombra) || First Of(Global.currentCustomer) == Hero(Jetpack Cat));
+			If(First Of(Global.currentCustomer) == Hero(Mercy) || First Of(Global.currentCustomer) == Hero(Sombra));
 				Global.reservedOrder = First Of(Global.loadingMenu);
 				Modify Global Variable(loadingMenu, Remove From Array By Index, False);
 				If(Global.loadingMenu == Empty Array);
@@ -3782,9 +3782,9 @@ rule("Global subroutine: Call customer")
 						Call Subroutine(createItem);
 					End;
 				End;
-				If(First Of(Global.currentCustomer) == Hero(Jetpack Cat));
-					Global.loadNext += 1;
-				End;
+			End;
+			If(First Of(Global.currentCustomer) == Hero(Jetpack Cat));
+				Global.loadNext += 1;
 			End;
 			Wait Until(Global.loadNext > 0, Count Of(Filtered Array(Global.tableFilled, Current Array Element)) + Global.customerCallTime);
 			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 4)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
