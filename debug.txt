@@ -41,6 +41,7 @@ rule("test code")
 
 	actions
 	{
+		Enable Inspector Recording;
 		If(Is Button Held(Host Player, Button(Melee)));
 			Abort If(!Global.isOpen);
 			Global.systemScore += 100;

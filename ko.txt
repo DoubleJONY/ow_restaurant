@@ -452,6 +452,7 @@ rule("Global: Setting")
 				Vector(220.580, 7, 186.850),
 				Vector(217.590, 7, 188.420),
 				Vector(214.380, 7, 186.300),
+				Vector(209.842, True, 183.840),
 				Vector(199.438, True, 176.441),
 				Vector(193.083, True, 186.114)
 			),
@@ -467,6 +468,7 @@ rule("Global: Setting")
 				Vector(202.680, 7, 175.340),
 				Vector(201.240, 7, 177.750),
 				Vector(205.190, 7, 179.830),
+				Vector(209.842, True, 183.840),
 				Vector(221.141, True, 190.510),
 				Vector(214.349, True, 200.372)
 			),
@@ -843,7 +845,7 @@ rule("Global: Setting")
 			Call Subroutine(createItem);
 		Else;
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
-				-70)) * 0.100, Array(0, 357, 357, 360, 360, 360)[Global.stageMode], 100, Null);
+				-70)) * 0.100, Array(0, 357, 357, 361, 360, 361)[Global.stageMode], 100, Null);
 			Call Subroutine(createItem);
 			Wait(0.100, Ignore Condition);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -1862,7 +1864,7 @@ rule("Dummy: Spawn")
 	{
 		Event Player.controlingIndex = Index Of Array Value(Array(Hero(Soldier: 76), Hero(Roadhog), Hero(Bastion), Hero(Tracer), Hero(
 			Zarya), Hero(Mercy), Hero(Hanzo), Hero(D.Va), Hero(Hazard), Hero(Mauga), Hero(Moira), Hero(LifeWeaver), Hero(Freja), Hero(Sombra), Hero(Kiriko), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)), Hero Of(Event Player));
-		Event Player.customerSpeed = Hero Of(Event Player) == Hero(Tracer) ? 6 : Hero Of(Event Player) == Hero(Reinhardt) ? 3.300 : 5.000;
+		Event Player.customerSpeed = Hero Of(Event Player) == Hero(Tracer) ? 6 : Hero Of(Event Player) == Hero(Reinhardt) ? 3.300 : 5.500;
 		If(Event Player.controlingIndex == -1);
 			Event Player.customerPath = Global.TABLE_PATH[19];
 			Event Player.cookingIndex = Index Of Array Value(Array(Hero(Torbjörn), Hero(Mei), Hero(Junkrat), Hero(Juno)), Hero Of(
@@ -3710,34 +3712,39 @@ rule("Global subroutine: Call customer")
 
 	actions
 	{
+		Global.loadNext = 0;
 		Global.customerPosition = Empty Array;
 		Global.customerIndex = Empty Array;
 		Global.tableFilled = Mapped Array(Global.TABLE_POSITION, False);
 		Global.reservedOrder = Empty Array;
+		Wait(0.016, Ignore Condition);
 		Global.spawningCustomerTable = Random Value In Array(Filtered Array(Filtered Array(Mapped Array(Global.tableFilled,
 			Current Array Element ? -1 : Current Array Index), Current Array Element != -1),
 			Current Array Element < (First Of(Global.currentCustomer) == Hero(Jetpack Cat) ? 19 : First Of(Global.currentCustomer) == Hero(Freja) ? 14 : 12) &&
 			Current Array Element >= (First Of(Global.currentCustomer) == Hero(Jetpack Cat) ? 14 : First Of(Global.currentCustomer) == Hero(Freja) ? 12 : 0)
 		));
+		Wait(0.016, Ignore Condition);
 		Global.tableFilled[Global.spawningCustomerTable] = True;
 		Wait(0.016, Ignore Condition);
 		While(True);
 			If(Global.spawningCustomerTable != -1 && Number Of Players(Team 2) < 15);
 				Create Dummy Bot(First Of(Global.currentCustomer), Team 2, -1, First Of(Global.currentCustomer) == Hero(Jetpack Cat) ? Vector(125.630, 4, 219.530) : Vector(196.268, True, 194.391), Null);
-				Modify Global Variable(currentCustomer, Remove From Array By Index, False);
-				If(Global.currentCustomer == Empty Array);
-					Global.currentCustomer = Randomized Array(Global.CUSTOMER_LIST[Global.stage]);
-				End;
 				Global.tableCustomer[Global.spawningCustomerTable] = Last Created Entity;
 				Last Created Entity.durability = Global.reservedOrder;
 				Last Created Entity.customerPath = Global.TABLE_PATH[Global.spawningCustomerTable];
 				Last Created Entity.tableIndex = Global.spawningCustomerTable;
+				Modify Global Variable(currentCustomer, Remove From Array By Index, False);
+				If(Global.currentCustomer == Empty Array);
+					Global.currentCustomer = Randomized Array(Global.CUSTOMER_LIST[Global.stage]);
+				End;
+				Wait(0.016, Ignore Condition);
 			End;
 			Global.spawningCustomerTable = Random Value In Array(Filtered Array(Filtered Array(Mapped Array(Global.tableFilled,
 				Current Array Element ? -1 : Current Array Index), Current Array Element != -1),
 				Current Array Element < (First Of(Global.currentCustomer) == Hero(Jetpack Cat) ? 19 : First Of(Global.currentCustomer) == Hero(Freja) ? 14 : 12) &&
 				Current Array Element >= (First Of(Global.currentCustomer) == Hero(Jetpack Cat) ? 14 : First Of(Global.currentCustomer) == Hero(Freja) ? 12 : 0)
 			));
+			Wait(0.016, Ignore Condition);
 			If(First Of(Global.currentCustomer) == Hero(Jetpack Cat) && Global.spawningCustomerTable < 14);
 				Global.spawningCustomerTable = Random Value In Array(Filtered Array(Filtered Array(Mapped Array(Global.tableFilled,
 					Current Array Element ? -1 : Current Array Index), Current Array Element != -1),
@@ -3749,6 +3756,7 @@ rule("Global subroutine: Call customer")
 					Current Array Element < 12 &&
 					Current Array Element >= 0));
 			End;
+			Wait(0.016, Ignore Condition);
 			Global.tableFilled[Global.spawningCustomerTable] = True;
 			If(First Of(Global.currentCustomer) == Hero(Mercy) || First Of(Global.currentCustomer) == Hero(Sombra) || First Of(Global.currentCustomer) == Hero(Jetpack Cat));
 				Global.reservedOrder = First Of(Global.loadingMenu);
@@ -3762,11 +3770,13 @@ rule("Global subroutine: Call customer")
 				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11));
 					If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]) > 1);
 						For Player Variable(Event Player, additionalMaterialIndex, False, Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]), True);
+							Wait Until(Global.itemCount < 32, 9999);
 							Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100,
 								Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder][Event Player.additionalMaterialIndex], Null, Null);
 							Call Subroutine(createItem);
 						End;
 					Else;
+						Wait Until(Global.itemCount < 32, 9999);
 						Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100,
 							Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder], Null, Null);
 						Call Subroutine(createItem);
@@ -3774,14 +3784,14 @@ rule("Global subroutine: Call customer")
 				End;
 				If(First Of(Global.currentCustomer) == Hero(Jetpack Cat));
 					Global.loadNext += 1;
-					Wait(True, Ignore Condition);
 				End;
 			End;
 			Wait Until(Global.loadNext > 0, Count Of(Filtered Array(Global.tableFilled, Current Array Element)) + Global.customerCallTime);
 			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 4)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
 			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(6, 8, 8, 10, 4)[Global.difficulty], 999);
+			Wait(True, Ignore Condition);
 			If(Global.loadNext);
-				Global.loadNext -= True;
+				Global.loadNext -= 1;
 			End;
 			Abort If(!Global.isOpen || Match Time < 25);
 			Wait(0.016, Ignore Condition);
@@ -3881,7 +3891,10 @@ rule("Host Player: Select Mode")
 		Destroy HUD Text(Global.globalText[False]);
 		Destroy HUD Text(Global.globalText[True]);
 		Destroy HUD Text(Global.globalText[2]);
-		If(Global.stageMode == 5);
+		If(Global.stageMode == 3);
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 63, 100, Null);
+			Call Subroutine(createItem);
+		Else If(Global.stageMode == 5);
 			For Global Variable(scbRank, False, 6, True);
 				All Players(Team 1)[Global.scbRank].dollar = 500;
 				Wait(0.016, Ignore Condition);
