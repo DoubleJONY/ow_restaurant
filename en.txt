@@ -814,8 +814,11 @@ rule("Global: Setting")
 			Pause Match Time;
 			Create Effect(All Players(All Teams), Sphere, Color(Sky Blue), Vector(232.608, 2.750, 170.455), 0.250, Visible To);
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("[{1}]: Mode-{0}",
-				Global.stage == 4 ? Custom String("Other Menus") : Global.stage == 3 ? Custom String("End Practice") : Global.stage == 1 ? Custom String("All") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]), 
-				Input Binding String(Button(Interact))), Custom String("[{1}]: {0}", Global.stage == 4 ? Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]] : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("Fusion")
+				Global.stage == 5 ? Custom String("Other Menus") : Global.stage == 4 ? Custom String("End Practice") : Global.stage == 3 ? Custom String("All") : Global.stage == 0 ? Custom String("Tutorial") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]), 
+				Input Binding String(Button(Interact))), Custom String("[{1}]: {0}", 
+				Global.stage == 5 ? Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]] : 
+				Global.stage == 4 ? Custom String("Press Open to Start")
+				: Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("Fusion")
 			: Global.STAGE_NAME[Global.totalScore[False]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[False] = Global.STAGE_CODE[Global.stage];
@@ -1315,15 +1318,15 @@ rule("Player: Interact")
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
-					If(Global.stage == 4);
+					If(Global.stage == 5);
 						Small Message(All Players(All Teams), Custom String("  {0} Workshop code is {1}! ",
 							Array(Custom String("Joseon-World Cuisine"), Custom String("Joseon-Cafe&Dessert"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]],
 							Array(Custom String("GXYZ5"), Custom String("Z1TBZ"), Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
-					Else If(Event Player.permission != 3 && Global.stage == 3);
+					Else If(Event Player.permission != 3 && Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("  {0}{1} ready to cook! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
 						Wait(0.75, Ignore Condition);
-					Else If(Event Player.permission == 3 && Global.stage == 3);
+					Else If(Event Player.permission == 3 && Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("  Game will start shortly! "));
 						Communicate(Event Player, Countdown);
 						Wait(3.5, Ignore Condition);
@@ -1332,12 +1335,17 @@ rule("Player: Interact")
 					Else;
 						If(Event Player.permission == 3);
 							Global.isOpen = True;
-							Small Message(All Players(All Teams), Custom String("  Temporary Opening! Customers are coming in! "));
+							Small Message(All Players(All Teams), Custom String("  Practice Customers are coming in! "));
 							Create HUD Text(All Players(All Teams), Custom String("　　　　　Order List　　　　　"), Null, Custom String(
 								"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 								Left, False, Color(Yellow), Null, Null, Visible To and Color, Default Visibility);
 							Global.globalText[True] = Last Text ID;
 							Wait(0.016, Ignore Condition);
+							If(Global.stage == 0);
+								Call Subroutine(setHint);
+							Else;
+								Global.hintText = Array(Custom String(""));
+							End;
 							Start Rule(callCustomer, Restart Rule);
 						Else;
 							Small Message(All Players(All Teams), Custom String("  {0}{1} want to start practicing! ", Hero Icon String(Hero Of(Event Player)), Event Player));
@@ -1528,8 +1536,8 @@ rule("Player: Reload button")
 	actions
 	{
 		If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
-				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
-			Global.totalScore[False] = (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 5 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+			Global.totalScore[False] = Global.stage == 0 ? 0 : (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
 			Global.currentMenu = Empty Array;
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
 			Global.loadingMenu = Randomized Array(Global.currentMenu);
@@ -1543,7 +1551,7 @@ rule("Player: Reload button")
 			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];
 		Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
-				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 5 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
 			Global.totalScore[False] = (Global.totalScore[False] + True) % 4;
 		End;
 		Abort If(Event Player.controlingIndex + True);
@@ -3093,8 +3101,9 @@ rule("Global subroutine: Data init3")
 		Global.CUSTOMER_LIST = Array(
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
+				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
+				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
 			Array(
@@ -3186,7 +3195,7 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Moira), Hero(Jetpack Cat))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(1), Array(2), Array(4), Array(1), Array(3), Array(4), Array(1), Array(4)), 
 			Array(Array(0), Array(2), Array(9), Array(5), Array(3), Array(6), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
@@ -4568,16 +4577,16 @@ rule("Global subroutine: Set Hint Text")
 			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
-				Custom String("Cook using ingredients from the Fridge and serve them!\r\nPan-fry or grill the beef and bring it to the #table."),
-				Custom String("You can slice or chop ingredients on the cutting board to create different dishes.\r\nPan-fry or grill the sliced beef."),
-				Custom String("By preparing ingredients and using different cooking tools, you can make various dishes.\r\nYou can grill a whole potato."),
-				Custom String("or you can slice the potato and put it in a pan."),
-				Custom String("or you can put the sliced potatoes into the fryer."),
-				Custom String("Some ingredients can smash to ground.\r\nSteam potatoes in a pot, then throw the steamed potatoes to the ground."),
-				Custom String("Also, some ingredients can be merged.\r\nTry merging boiled pasta and cream sauce."),
-				Custom String("You can slice tomatoes and steam them in a pot to make tomato sauce.\r\nBut you can smash them instead of slicing."),
-				Custom String("There are different characteristics per customer.\r\nFor Big Fat Customers, you earn more points but must serve the food twice."),
-				Custom String("Master various recipes and challenge the complete game.\r\nGood luck!")
+				Custom String("Use ingredients from the Fridge to cook and serve dishes.\r\nPan-fry or grill the beef, then bring it to the correct table."),
+				Custom String("You can slice or chop ingredients on the cutting board to make different dishes.\r\nTry pan-frying or grilling the sliced beef."),
+				Custom String("By preparing ingredients and using different cooking tools, you can make a variety of dishes.\r\nFor example, grilling a whole potato makes Grilled Potato..."),
+				Custom String("slicing the potato and cooking it in a pan makes Stir-fried Potato..."),
+				Custom String("and putting Sliced Potato into the fryer makes French Fries.\r\nStarting to get the idea?"),
+				Custom String("Some ingredients also change when you smash them.\r\nSteam a potato in the pot, then use momentum to slam the Steamed Potato onto the ground."),
+				Custom String("Some ingredients can also be combined.\r\nTry combining Boiled Pasta with Cream Sauce."),
+				Custom String("You can make Tomato Sauce by slicing tomatoes and steaming them in a pot...\r\nbut smashing them is a faster way to turn them into Mashed Tomato."),
+				Custom String("Different customers have different traits.\r\nBig Fat Customers give more points, but you need to serve them twice."),
+				Custom String("Master the many recipe combinations and aim for a full clear.\r\nGood luck!")
 			);
 		Else If(Global.stage == 1);
 			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
@@ -4594,7 +4603,8 @@ rule("Global subroutine: Set Hint Text")
 		Else If(Global.stage == 2);
 			Global.loadingMenu = Array(126, 7);
 			Global.hintText = Array(
-				Custom String("Throw the flour until it becomes pizza dough.\r\nPizza Dough + Tomato Sauce + Pizza Cheese > Grill")
+				Custom String("Throw the flour until it becomes pizza dough.\r\nPizza Dough + Tomato Sauce + Pizza Cheese > Grill"),
+				Custom String("You can check all recipes on this website.\r\nhttps://ow-restaurant.com/en")
 			);
 		Else If(Global.stage == 3);
 			Global.currentCustomer = Array(Hero(Tracer), Hero(Bastion), Hero(Bastion));
@@ -4618,6 +4628,25 @@ rule("Global subroutine: Set Hint Text")
 			Global.hintText = Array(
 				Custom String(""),
 				Custom String("Reserved Customers order before entering.\r\nNote the brief reservation message in the middle.")
+			);
+		Else If(Global.stage == 7);
+			Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
+			Global.hintText = Array(
+				Custom String("Cut Flour Dough, then smash it again to make Dumpling Wrapper."),
+				Custom String("Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot"),
+				Custom String("Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry"),
+				Custom String("Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot"),
+				Custom String("Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot")
+			);
+		Else If(Global.stage == 9);
+			Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 7, 23);
+			Global.hintText = Array(
+				Custom String("Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun"),
+				Custom String("Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun"),
+				Custom String("Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun"),
+				Custom String("Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun"),
+				Custom String("Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun"),
+				Custom String("Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun")
 			);
 		Else;
 			Global.hintText = Array(Custom String(""));

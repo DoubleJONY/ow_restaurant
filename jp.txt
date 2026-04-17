@@ -815,8 +815,11 @@ rule("Global: Setting")
 			Pause Match Time;
 			Create Effect(All Players(All Teams), Sphere, Color(Sky Blue), Vector(232.608, 2.750, 170.455), 0.250, Visible To);
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("〔{1}〕: モード-{0}",
-				Global.stage == 4 ? Custom String("別のモード") : Global.stage == 3 ? Custom String("練習終了") : Global.stage == 1 ? Custom String("All") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]), 
-				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}", Global.stage == 4 ? Array(Custom String("Joseon-World Cuisine(EN)"), Custom String("Joseon-Cafe&Dessert(EN)"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]] : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("フュージョン")
+				Global.stage == 5 ? Custom String("別のモード") : Global.stage == 4 ? Custom String("練習終了") : Global.stage == 3 ? Custom String("全員") : Global.stage == 0 ? Custom String("チュートリアル") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]), 
+				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}", 
+				Global.stage == 5 ? Array(Custom String("Joseon-World Cuisine(EN)"), Custom String("Joseon-Cafe&Dessert(EN)"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]] :
+				Global.stage == 4 ? Custom String("開始を押してスタート") 
+				: Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("フュージョン")
 			: Global.STAGE_NAME[Global.totalScore[False]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
 				Default Visibility);
 			Global.totalScore[False] = Global.STAGE_CODE[Global.stage];
@@ -1316,15 +1319,15 @@ rule("Player: Interact")
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
-					If(Global.stage == 4);
+					If(Global.stage == 5);
 						Small Message(All Players(All Teams), Custom String("  {0} のワークショップコードは {1} です！ ",
 							Array(Custom String("Joseon-World Cuisine(EN)"), Custom String("Joseon-Cafe&Dessert(EN)"), Custom String("Joseon-K-Food(KR)"), Custom String("Gummybear-Original(KR)"))[Global.totalScore[False]],
 							Array(Custom String("GXYZ5"), Custom String("Z1TBZ"), Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
-					Else If(Event Player.permission != 3 && Global.stage == 3);
+					Else If(Event Player.permission != 3 && Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("  {0}{1} さんがゲームの開始を提案しました！ ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
 						Wait(0.75, Ignore Condition);
-					Else If(Event Player.permission == 3 && Global.stage == 3);
+					Else If(Event Player.permission == 3 && Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("  まもなくゲームを開始します！ "));
 						Communicate(Event Player, Countdown);
 						Wait(3.5, Ignore Condition);
@@ -1333,12 +1336,17 @@ rule("Player: Interact")
 					Else;
 						If(Event Player.permission == 3);
 							Global.isOpen = True;
-							Small Message(All Players(All Teams), Custom String("  一時オープン！ いよいよ本番です！ "));
+							Small Message(All Players(All Teams), Custom String("  練習用のお客様が来店します！ "));
 							Create HUD Text(All Players(All Teams), Custom String("　　　　　注文書　　　　　"), Null, Custom String(
 								"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 								Left, False, Color(Yellow), Null, Null, Visible To and Color, Default Visibility);
 							Global.globalText[True] = Last Text ID;
 							Wait(0.016, Ignore Condition);
+							If(Global.stage == 0);
+								Call Subroutine(setHint);
+							Else;
+								Global.hintText = Array(Custom String(""));
+							End;
 							Start Rule(callCustomer, Restart Rule);
 						Else;
 							Small Message(All Players(All Teams), Custom String("  {0}{1} さんが練習の開始を提案しました！ ", Hero Icon String(Hero Of(Event Player)), Event Player));
@@ -1504,8 +1512,8 @@ rule("Player: Reload button")
 	actions
 	{
 		If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
-				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
-			Global.totalScore[False] = (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 5 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+			Global.totalScore[False] = Global.stage == 0 ? 0 : (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
 			Global.currentMenu = Empty Array;
 			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
 			Global.loadingMenu = Randomized Array(Global.currentMenu);
@@ -1519,7 +1527,7 @@ rule("Player: Reload button")
 			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
 			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];
 		Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
-				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
+				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 5 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
 			Global.totalScore[False] = (Global.totalScore[False] + True) % 4;
 		End;
 		Abort If(Event Player.controlingIndex + True);
@@ -3068,8 +3076,9 @@ rule("Global subroutine: Data init3")
 		Global.CUSTOMER_LIST = Array(
 			Array(
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
+				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
+				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			),
 			Array(
@@ -3161,7 +3170,7 @@ rule("Global subroutine: Data init3")
 				Array(Hero(Moira), Hero(Jetpack Cat))
 			))[Global.stageMode];
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(6), Array(2), Array(1), Array(6), Array(3), Array(1), Array(6), Array(1)), 
 			Array(Array(0), Array(2), Array(9), Array(5), Array(3), Array(6), Array(4), Array(7), Array(8), Array(1), Array(10), Array(11),
 				Array(Random Integer(0, 11)), 
@@ -4543,16 +4552,16 @@ rule("Global subroutine: Set Hint Text")
 			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
-				Custom String("冷蔵庫にある材料で料理して提供してください！\r\n牛肉をフライパンまたはグリルで焼き、左側の#テーブル番号の客に届けてください。"),
-				Custom String("材料はまな板で切るか刻んだで別の料理が作れます。\r\n薄切りした牛肉をフライパンまたはグリルで焼いてください。"),
-				Custom String("材料の下ごしらえとさまざまな調理器具の活用で多彩な料理が作れます。\r\nじゃがいもを丸ごと焼くとベイクドポテトになり…"),
-				Custom String("じゃがいもを薄切りしてフライパンに入れると炒めポテトになり…"),
-				Custom String("薄切りしたじゃがいもをフライヤーに入れるとフレンチフライになります。\r\n感覚はつかめましたか？"),
-				Custom String("ある食材は強く叩くと変化します。\r\nじゃがいもを鍋で蒸して、慣性を利用して蒸しじゃがいもを床に投げてみてください。"),
-				Custom String("また、一部の食材は組み合わせられます。\r\n茹でたパスタとクリームソースを合わせてみてください。"),
-				Custom String("トマトは薄切りして鍋で蒸せばトマトソースが作れますが…\r\n切る代わりに叩くと、より素早く潰したトマトが作れます。"),
-				Custom String("お客様にはそれぞれ異なる特性があります。\r\n大食いの場合、得点は多く得られますが、料理を2回提供する必要があります。"),
-				Custom String("さまざまなレシピの組み合わせをマスターしてクリアに挑戦してください。\r\n幸運を祈ります！")
+				Custom String("冷蔵庫の材料を使って料理を作り、お客様に提供してください！\r\n牛肉をフライパンまたはグリルで焼いて、対応する#テーブルのお客様に届けてください。"),
+				Custom String("材料はまな板で薄切りにしたり刻んだりすると、別の料理が作れます。\r\n薄切り牛肉をフライパンまたはグリルで焼いてみてください。"),
+				Custom String("材料を下ごしらえし、さまざまな調理器具を使い分けることで、多彩な料理が作れます。\r\nたとえば、ジャガイモを丸ごと焼くと焼きジャガイモになり…"),
+				Custom String("ジャガイモを薄切りにしてフライパンで調理すると炒めジャガイモになり…"),
+				Custom String("薄切りジャガイモをフライヤーに入れるとフライドポテトになります。\r\nだんだんコツがつかめてきましたか？"),
+				Custom String("食材の中には、強く叩くと変化するものもあります。\r\nジャガイモを鍋で蒸してから、勢いをつけて蒸しジャガイモを床に叩きつけてみてください。"),
+				Custom String("また、一部の食材は組み合わせることもできます。\r\nゆでパスタとクリームソースを合わせてみてください。"),
+				Custom String("トマトを薄切りにして鍋で蒸すと、トマトソースが作れますが…\r\n薄切りにする代わりに叩けば、もっと素早く潰したトマトにできます。"),
+				Custom String("お客様にはそれぞれ異なる特性があります。\r\n大食いのお客様は高得点ですが、料理を2回提供する必要があります。"),
+				Custom String("さまざまなレシピの組み合わせをマスターして、クリアを目指してください。\r\n幸運を祈ります！")
 			);
 		Else If(Global.stage == 1);
 			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
@@ -4593,6 +4602,25 @@ rule("Global subroutine: Set Hint Text")
 			Global.hintText = Array(
 				Custom String(""),
 				Custom String("予約客は入場前に事前に注文を行います。\r\n中央に短時間表示される予約メッセージを注意深く見て覚えてください！")
+			);
+		Else If(Global.stage == 7);
+			Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
+			Global.hintText = Array(
+				Custom String("小麦粉生地を切ってからもう一度叩くと、餃子の皮が作れます。"),
+				Custom String("刻みネギ + 潰した豆腐 + 餃子の皮 > 鍋で蒸す"),
+				Custom String("刻みネギ + 潰した豆腐 + 餃子の皮 > フライパンで焼く"),
+				Custom String("刻みネギ + 潰した豆腐 + 薄切りした春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す"),
+				Custom String("刻みネギ + 刻んだキムチ + 薄切りした春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す")
+			);
+		Else If(Global.stage == 9);
+			Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 7, 23);
+			Global.hintText = Array(
+				Custom String("牛ひき肉を叩いて生パティを作り、グリルで焼いてください。\r\n下バンズ + 焼いたパティ + 上バンズ"),
+				Custom String("下バンズ + 焼いたパティ + 薄切りチーズ + 上バンズ"),
+				Custom String("下バンズ + 薄切りレタス + 薄切りトマト + 上バンズ"),
+				Custom String("下バンズ + 薄切りトマト + 薄切りレタス + 薄切りチーズ + 上バンズ"),
+				Custom String("下バンズ + 焼いたパティ + 薄切りレタス + 薄切りトマト + 上バンズ"),
+				Custom String("下バンズ + 焼いたパティ + 薄切りチーズ + 薄切りレタス + 薄切りトマト + 上バンズ")
 			);
 		Else;
 			Global.hintText = Array(Custom String(""));
