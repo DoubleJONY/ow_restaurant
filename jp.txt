@@ -2505,7 +2505,7 @@ rule("Global subroutine: Data init")
 			False, 255), Custom Color(255, 255, 190, 255), Custom Color(False, 125, False, 255), Color(Orange), Custom Color(246, 86, 86,
 			255), Custom Color(250, 150, 70, 255), Color(Sky Blue), Custom Color(255, 192, 243, 255), Custom Color(255, 108, 141, 255), Custom Color(255, 239, 104, 255), Color(Violet), Color(Rose), Color(Gray), Custom Color(96, 255, 181, 255), Color(Purple))[Index Of Array Value(String Split(Custom String(
 			"D/R/M/Y/W/L/G/H/T/S/C/F/V/O/A/P/B/N/Q/X/Z/U/E/J/K"), Custom String("/")), Current Array Element)]);
-		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/薄切り牛肉/ステーキ/サイコロステーキ/ジャガイモ/薄切りジャガイモ/フライドポテト/焼きジャガイモ/{0}",
+		Global.ITEM_NAME = Append To Array(String Split(Custom String("焦げ物/牛肉/薄切り牛肉/ステーキ/ひとくちステーキ/ジャガイモ/薄切りジャガイモ/フライドポテト/焼きジャガイモ/{0}",
 			Custom String("蒸しジャガイモ/マッシュポテト/炒めジャガイモ/パスタ/ゆでパスタ/トマト/薄切りトマト/焼きトマト")), Custom String("/")), Append To Array(String Split(
 			Custom String("トマトソース/クリームソース/チーズ/薄切りチーズ/とろけたチーズ/トマトクリームソース/チーズポテト/トマトパスタ/{0}", Custom String(
 			"クリームパスタ/トマトクリームパスタ/トマトクリームチーズパスタ/クリームチーズパスタ/クリームチーズソース/トマトクリームチーズソース")), Custom String("/")), Append To Array(String Split(Custom String(

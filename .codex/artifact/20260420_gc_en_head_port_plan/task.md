@@ -1,0 +1,11 @@
+- [x] Compare baseline `338c7321f9f4aed9688c6d8cb70aaa13f729be1d:gc_en.txt` against `gc_kr.txt` and `en.txt`.
+- [x] Confirm that post-`338c` commits touched `en.txt` but not `gc_en.txt`.
+- [x] Confirm that `gc_en.txt` is structurally aligned with `gc_kr.txt` rather than current `en.txt`.
+- [x] Record the `gc_en`-specific data anomalies relative to `gc_kr.txt`.
+- [ ] Prepare a `gc_en` create-item remap inventory for every touched `Global.createItemData = Array(..., <item>, ...)` site.
+- [ ] Apply the structural `en.txt` `HEAD` port in `gc_en.txt`.
+- [ ] Preserve or remap `gc_en` item ids, perk indices, and shop/drop values during the port.
+- [ ] Expand `gc_en` to the new 6-mode scaffold without finalizing custom `STAGE_CODE` values.
+- [ ] Verify whether the `gc_en`-only `PERK_LIST` and `STAGE_CODE` differences are intentional before implementation finalization.
+- [ ] Run static verification for stale 4-mode and pre-port patterns.
+- [ ] Run Workshop runtime validation in-game.

@@ -1,0 +1,10 @@
+- [x] Compare baseline `338c7321f9f4aed9688c6d8cb70aaa13f729be1d:ko.txt` and `338c7321f9f4aed9688c6d8cb70aaa13f729be1d:gc_kr.txt`.
+- [x] Confirm that post-`338c` commits touched `ko.txt` but not `gc_kr.txt`.
+- [x] Separate shared structural content from `gc_kr`-specific recipe/menu/item-code data.
+- [x] Record the `gc_kr`-specific item-code and perk-index risks for a future `ko.txt` `HEAD` port.
+- [ ] Prepare a `gc_kr` create-item remap inventory for every touched `Global.createItemData = Array(..., <item>, ...)` site.
+- [ ] Apply the structural `ko.txt` `HEAD` port in `gc_kr.txt`.
+- [ ] Preserve or remap `gc_kr` item ids, perk indices, and shop/drop values during the port.
+- [ ] Expand `gc_kr` to the new 6-mode scaffold without finalizing custom `STAGE_CODE` values.
+- [ ] Run static verification for stale 4-mode and pre-port patterns.
+- [ ] Run Workshop runtime validation in-game.

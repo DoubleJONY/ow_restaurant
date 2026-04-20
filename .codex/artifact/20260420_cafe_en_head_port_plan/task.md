@@ -1,0 +1,10 @@
+- [x] Compare `338c7321f9f4aed9688c6d8cb70aaa13f729be1d:en.txt` and `338c7321f9f4aed9688c6d8cb70aaa13f729be1d:cafe_en.txt`.
+- [x] Confirm which baseline structures are shared (`CUSTOMER_LIST`) versus cafe-specific (`STAGE_CODE`, item ids, `ICE_*`).
+- [x] Record the current `en.txt` `HEAD` feature groups that still need to be ported into `cafe_en.txt`.
+- [x] Record the init-routine split risk around `dataInit2_1` / `dataInit2_2` and the safe modification strategy.
+- [ ] Prepare a cafe-sensitive item-code and `createItemData` remap inventory for `cafe_en.txt`.
+- [ ] Build a section map from current `en.txt:dataInit2` into `cafe_en.txt:dataInit2_1` and `dataInit2_2`.
+- [ ] Apply the structural `en.txt` `HEAD` port in `cafe_en.txt`.
+- [ ] Preserve or remap cafe-specific item ids, menu bundles, and `ICE_*` logic during the port.
+- [ ] Run static verification for stale 4-mode and pre-port patterns.
+- [ ] Run Workshop runtime validation in-game.

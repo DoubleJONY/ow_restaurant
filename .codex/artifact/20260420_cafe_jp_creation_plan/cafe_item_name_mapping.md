@@ -1,0 +1,407 @@
+# Support Artifact for Creating `cafe_jp.txt`: `cafe_kr.txt` / `cafe_en.txt` `Global.ITEM_NAME` Mapping
+
+- Source: `cafe_kr.txt` `Global.ITEM_NAME`
+- Source: `cafe_en.txt` `Global.ITEM_NAME`
+- Purpose: index-aligned source table for generating the future Japanese `Global.ITEM_NAME` block in `cafe_jp.txt`
+- Total mapped items: `398`
+
+| Index | cafe_kr | cafe_en |
+| ---: | --- | --- |
+| 0 | 탄 음식 | Burnt Food |
+| 1 | 양산형 칼 | Butter Knife |
+| 2 | 탄소강 칼 | Carbon-Steel Knife |
+| 3 | 휴대용 칼 | Portable Knife |
+| 4 | 날카로운 칼 | Sharp Knife |
+| 5 | 겐지의 단검 | Genji's Dagger |
+| 6 | 고급 부엌칼 | Kitchen Knife |
+| 7 | 헤드셰프의 칼 | Head Chef's Knife |
+| 8 | 에너지 드링크 | Energy Drink |
+| 9 | 수상한 드링크 | Suspicious Drinks |
+| 10 | 점프 부츠 | Jump Boots |
+| 11 | 조미료 팩 | Seasoning Packets |
+| 12 | 청소기 | Vacuum |
+| 13 | 대시 부츠 | Dash Boots |
+| 14 | 텔레포트 스펠 | Teleport Spell |
+| 15 | 요리 복사 스펠 | Food Dupe Spell |
+| 16 | 토치 | Gas Torch |
+| 17 | 서빙볼 | ServingBall |
+| 18 | $100 | $100 |
+| 19 | 물 | Water |
+| 20 | 얼음 | Ice |
+| 21 | 원두 | Coffee Beans |
+| 22 | 커피가루 | Ground Coffee |
+| 23 | 에스프레소 | Espresso |
+| 24 | 아메리카노 | Americano |
+| 25 | 아메리카노(아이스) | Iced Americano |
+| 26 | 우유 | Milk |
+| 27 | 스팀 밀크 | Steamed Milk |
+| 28 | 카페 라떼 | Latte |
+| 29 | 카페 라떼(아이스) | Iced Latte |
+| 30 | 바닐라 시럽 | Vanilla Syrup |
+| 31 | 바닐라 라떼 | Vanilla Latte |
+| 32 | 바닐라 라떼(아이스) | Iced Vanilla Latte |
+| 33 | 카라멜 시럽 | Caramel Syrup |
+| 34 | 카라멜 마키아토 | Caramel Macchiato |
+| 35 | 카라멜 마키아토(아이스) | Iced Caramel Macchiato |
+| 36 | 초코 시럽 | Chocolate Syrup |
+| 37 | 카페 모카 | Mocha |
+| 38 | 카페 모카(아이스) | Iced Mocha |
+| 39 | 커피 프라페 | Coffee Frappe |
+| 40 | 얼린 우유 | Frozen Milk |
+| 41 | 빙수 베이스 | Shaved Ice Base |
+| 42 | 단팥 | Sweet Red Beans |
+| 43 | 팥빙수 | Red Bean Shaved Ice |
+| 44 | 콩가루 | Soybean Powder |
+| 45 | 인절미 빙수 | Injeolmi Shaved Ice |
+| 46 | 팥절미 빙수 | Red Bean Injeolmi Shaved Ice |
+| 47 | 딸기 | Strawberry |
+| 48 | 썬 딸기 | Sliced Strawberry |
+| 49 | 딸기 빙수 | Strawberry Shaved Ice |
+| 50 | 초코 빙수 | Chocolate Shaved Ice |
+| 51 | 딸기초코 빙수 | Strawberry Chocolate Shaved Ice |
+| 52 | 녹차가루 | Matcha Powder |
+| 53 | 녹차 빙수 | Matcha Shaved Ice |
+| 54 | 녹차 팥빙수 | Matcha Red Bean Shaved Ice |
+| 55 | 녹차초코 빙수 | Matcha Chocolate Shaved Ice |
+| 56 | 초콜릿 | Chocolate |
+| 57 | 초콜릿 칩 | Chocolate Chips |
+| 58 | 녹인 초콜릿 | Melted Chocolate |
+| 59 | 초코우유 | Chocolate Milk |
+| 60 | 민트 시럽 | Mint Syrup |
+| 61 | 민트초코우유 | Mint Chocolate Milk |
+| 62 | 쿠키 반죽 | Cookie Dough |
+| 63 | 쿠키 | Cookie |
+| 64 | 초코칩 쿠키 반죽 | Chocolate Chip Cookie Dough |
+| 65 | 초코칩 쿠키 | Chocolate Chip Cookie |
+| 66 | 초코 쿠키 반죽 | Chocolate Cookie Dough |
+| 67 | 초코 쿠키 | Chocolate Cookie |
+| 68 | 아몬드 | Almond |
+| 69 | 아몬드 슬라이스 | Sliced Almonds |
+| 70 | 구운 아몬드 | Roasted Almonds |
+| 71 | 아몬드 초콜릿 | Almond Chocolate |
+| 72 | 통 아몬드 쿠키 반죽 | Whole Almond Cookie Dough |
+| 73 | 통 아몬드 쿠키 | Whole Almond Cookie |
+| 74 | 아몬드 쿠키 반죽 | Almond Cookie Dough |
+| 75 | 아몬드 쿠키 | Almond Cookie |
+| 76 | 아몬드 초코칩 쿠키 반죽 | Almond Choco Chip Cookie Dough |
+| 77 | 아몬드 초코칩 쿠키 | Almond Choco Chip Cookie |
+| 78 | 아이스 초코 | Iced Chocolate |
+| 79 | 초코 프라페 | Chocolate Frappe |
+| 80 | 아이스 민트초코 | Iced Mint Chocolate |
+| 81 | 민트초코 프라페 | Mint Chocolate Frappe |
+| 82 | 늘린 빵 반죽 | Stretched Bread Dough |
+| 83 | 베이글 반죽 | Bagel Dough |
+| 84 | 베이글 | Bagel |
+| 85 | 설탕 | Sugar |
+| 86 | 녹인 설탕 | Melted Sugar |
+| 87 | 호떡 반죽 | Hotteok Batter |
+| 88 | 호떡 | Hotteok |
+| 89 | 도넛 | Donut |
+| 90 | 설탕 도넛 | Sugar Donut |
+| 91 | 글레이즈 도넛 | Glazed Donut |
+| 92 | 으깬 딸기 | Mashed Strawberry |
+| 93 | 딸기+설탕 | Strawberry+Sugar |
+| 94 | 딸기잼 | Strawberry Jam |
+| 95 | 딸기잼 도넛 | Strawberry Jam Donut |
+| 96 | 초코 도넛 | Choco Donut |
+| 97 | 생크림 | Whipped Cream |
+| 98 | 생크림 도넛 | Whipped Cream Donut |
+| 99 | 딸기크림 | Strawberry Cream |
+| 100 | 딸기크림 도넛 | Strawberry Cream Donut |
+| 101 | 초코크림 | Chocolate Cream |
+| 102 | 초코크림 도넛 | Chocolate Cream Donut |
+| 103 | 녹차크림 | Matcha Cream |
+| 104 | 녹차크림 도넛 | Matcha Cream Donut |
+| 105 | 찻잎 | Tea Leaves |
+| 106 | 찻잎+물 | Matcha+Water |
+| 107 | 녹차 | Matcha |
+| 108 | 우롱차 잎 | Oolong Tea Leaves |
+| 109 | 우롱차 잎+물 | Oolong Tea Leaves+Water |
+| 110 | 우롱차 | Oolong Tea |
+| 111 | 비빈 찻잎 | Brewed Tea Leaves |
+| 112 | 홍차 잎 | Black Tea Leaves |
+| 113 | 홍차 잎+물 | Black Tea Leaves+Water |
+| 114 | 홍차 | Black Tea |
+| 115 | 허브 | Herbs |
+| 116 | 말린 허브 | Dried Herbs |
+| 117 | 허브+물 | Herbs+Water |
+| 118 | 허브티 | Herbal Tea |
+| 119 | 아이스티 | Iced Tea |
+| 120 | 우유+설탕 | Milk+Sugar |
+| 121 | 끓인 물 | Boiled Water |
+| 122 | 흑당 펄 | Brown Sugar Pearls |
+| 123 | 밀크티 | Milk Tea |
+| 124 | 녹차 밀크티 | Matcha Milk Tea |
+| 125 | 우롱 밀크티 | Oolong Milk Tea |
+| 126 | 허브 밀크티 | Herbal Milk Tea |
+| 127 | 타피오카 펄 | Tapioca Pearls |
+| 128 | 삶은 펄 | Cooked Tapioca Pearls |
+| 129 | 버블티 | Bubble Tea |
+| 130 | 녹차 버블티 | Matcha Bubble Tea |
+| 131 | 우롱 버블티 | Oolong Bubble Tea |
+| 132 | 허브 버블티 | Herbal Bubble Tea |
+| 133 | 설탕물 | Sugar Water |
+| 134 | 설탕 시럽 | Sugar Syrup |
+| 135 | 흑당 밀크티 | Brown Sugar Milk Tea |
+| 136 | 흑당 버블티 | Brown Sugar Bubble Tea |
+| 137 | 아몬드 가루 | Almond Flour |
+| 138 | 달걀 | Egg |
+| 139 | 깐 달걀 | Peeled Egg |
+| 140 | 흰자 | Egg White |
+| 141 | 노른자 | Egg Yolk |
+| 142 | 섞인 달걀 | Mixed Egg |
+| 143 | 버터 | Butter |
+| 144 | 으깬 버터 | Mashed Butter |
+| 145 | 커스터드 크림 | Custard Cream |
+| 146 | 푸딩 | Pudding |
+| 147 | 크림 브륄레 | Crème Brûlée |
+| 148 | 버터 필링 | Butter Filling |
+| 149 | 녹차 필링 | Matcha Filling |
+| 150 | 홍차가루 | Black Tea Powder |
+| 151 | 얼그레이 필링 | Earl Grey Filling |
+| 152 | 흰자+설탕 | Egg White+Sugar |
+| 153 | 머랭 | Meringue |
+| 154 | 머랭 쿠키 | Meringue Cookie |
+| 155 | 마카롱 반죽 | Macaron Batter |
+| 156 | 마카롱 꼬끄 | Macaron Shells |
+| 157 | 마카롱 | Macaron |
+| 158 | 녹차 마카롱 | Matcha Macaron |
+| 159 | 얼그레이 마카롱 | Earl Grey Macaron |
+| 160 | 수플레 반죽 | Soufflé Batter |
+| 161 | 수플레 팬케이크 | Soufflé Pancake |
+| 162 | 크림화 버터 | Creamed Butter |
+| 163 | 버터+노른자 | Butter+Egg Yolk |
+| 164 | 계란 쿠키 반죽 | Egg Cookie Dough |
+| 165 | 계란 쿠키 | Egg Cookie |
+| 166 | 얼린 딸기 | Frozen Strawberry |
+| 167 | 딸기 주스 | Strawberry Juice |
+| 168 | 블루베리 | Blueberry |
+| 169 | 얼린 블루베리 | Frozen Blueberry |
+| 170 | 블루베리 주스 | Blueberry Juice |
+| 171 | 망고 | Mango |
+| 172 | 썬 망고 | Sliced Mango |
+| 173 | 얼린 망고 | Frozen Mango |
+| 174 | 망고 주스 | Mango Juice |
+| 175 | 바나나 | Banana |
+| 176 | 깐 바나나 | Peeled Banana |
+| 177 | 얼린 바나나 | Frozen Banana |
+| 178 | 요거트 가루 | Yogurt Powder |
+| 179 | 요거트+우유 | Yogurt+Milk |
+| 180 | 딸기+우유 | Strawberry+Milk |
+| 181 | 딸기 스무디 | Strawberry Smoothie |
+| 182 | 블루베리+우유 | Blueberry+Milk |
+| 183 | 블루베리 스무디 | Blueberry Smoothie |
+| 184 | 망고+우유 | Mango+Milk |
+| 185 | 망고 스무디 | Mango Smoothie |
+| 186 | 바나나+우유 | Banana+Milk |
+| 187 | 딸기+바나나+우유 | Strawberry+Banana+Milk |
+| 188 | 딸기바나나 스무디 | Strawberry Banana Smoothie |
+| 189 | 망고+바나나+우유 | Mango+Banana+Milk |
+| 190 | 망고바나나 스무디 | Mango Banana Smoothie |
+| 191 | 딸기+블루베리+우유 | Strawberry+Blueberry+Milk |
+| 192 | 베리베리 스무디 | Mixed Berry Smoothie |
+| 193 | 딸기+요거트 | Strawberry+Yogurt |
+| 194 | 딸기 요거트 스무디 | Strawberry Yogurt Smoothie |
+| 195 | 블루베리+요거트 | Blueberry+Yogurt |
+| 196 | 블루베리 요거트 스무디 | Blueberry Yogurt Smoothie |
+| 197 | 망고+요거트 | Mango+Yogurt |
+| 198 | 망고 요거트 스무디 | Mango Yogurt Smoothie |
+| 199 | 딸기+바나나+요거트 | Strawberry+Banana+Yogurt |
+| 200 | 딸기바나나 요거트 스무디 | Strawberry Banana Yogurt Smoothie |
+| 201 | 망고+바나나+요거트 | Mango+Banana+Yogurt |
+| 202 | 망고바나나 요거트 스무디 | Mango Banana Yogurt Smoothie |
+| 203 | 딸기+블루베리+요거트 | Strawberry+Blueberry+Yogurt |
+| 204 | 베리베리 요거트 스무디 | Mixed Berry Yogurt Smoothie |
+| 205 | 요거트 아이스크림 | Yogurt Ice Cream |
+| 206 | 딸기 요거트 아이스크림 | Strawberry Yogurt Ice Cream |
+| 207 | 블루베리 요거트 아이스크림 | Blueberry Yogurt Ice Cream |
+| 208 | 망고 요거트 아이스크림 | Mango Yogurt Ice Cream |
+| 209 | 바나나+요거트 | Banana+Yogurt |
+| 210 | 바나나 요거트 아이스크림 | Banana Yogurt Ice Cream |
+| 211 | 빵 반죽 | Bread Dough |
+| 212 | 토마토 | Tomato |
+| 213 | 썬 토마토 | Sliced Tomato |
+| 214 | 으깬 토마토 | Mashed Tomato |
+| 215 | 토마토 소스 | Tomato Sauce |
+| 216 | 치즈 | Cheese |
+| 217 | 슬라이스 치즈 | Sliced Cheese |
+| 218 | 머핀 | Muffin |
+| 219 | 계란빵 | Egg Bread |
+| 220 | 치즈+반죽 | Cheese+Dough |
+| 221 | 치즈빵 | Cheese Bread |
+| 222 | 치즈 붕어빵 | Cheese Pancake |
+| 223 | 토마토+반죽 | Tomato+Dough |
+| 224 | 토마토+치즈+반죽 | Tomato+Cheese+Dough |
+| 225 | 피자빵 | Pizza Bread |
+| 226 | 피자 붕어빵 | Pizza Pancake |
+| 227 | 단팥+반죽 | Sweet Red Bean+Dough |
+| 228 | 단팥빵 | Sweet Red Bean Bread |
+| 229 | 붕어빵 | Sweet Bean Pancake |
+| 230 | 커스터드 크림+반죽 | Custard Cream+Dough |
+| 231 | 슈크림빵 | Cream Bread |
+| 232 | 슈크림 붕어빵 | Custard Pancake |
+| 233 | 초코칩+반죽 | Chocolate Chips+Dough |
+| 234 | 초코칩 빵 | Choco Chip Bread |
+| 235 | 초코 붕어빵 | Chocolate Pancake |
+| 236 | 초코 반죽 | Chocolate Batter |
+| 237 | 초코빵 | Chocolate Bread |
+| 238 | 연유 | Condensed Milk |
+| 239 | 연유 라떼 | Condensed Milk Latte |
+| 240 | 연유 라떼(아이스) | Iced Condensed Milk Latte |
+| 241 | 연유 팥빙수 | Condensed Milk Red Bean Shaved Ice |
+| 242 | 앙버터 | Red Bean Butter Bun |
+| 243 | 앙버터+반죽 | Red Bean Butter Dough |
+| 244 | 앙버터 붕어빵 | Red Bean Butter Pancake |
+| 245 | 바닐라크림 | Vanilla Cream |
+| 246 | 오 레 | Chocolate Cookie+Vanilla Cream |
+| 247 | 오레오 | Oreo |
+| 248 | 시나몬 가루 | Cinnamon Powder |
+| 249 | 시나몬 쿠키 반죽 | Cinnamon Cookie Dough |
+| 250 | 시나몬 쿠키 | Cinnamon Cookie |
+| 251 | 망고 빙수 | Mango Shaved Ice |
+| 252 | 슈크림 도넛 | Cream Donut |
+| 253 | 타로 가루 | Taro Powder |
+| 254 | 타로 밀크티 | Taro Milk Tea |
+| 255 | 타로 버블티 | Taro Bubble Tea |
+| 256 | 초콜릿 밀크티 | Chocolate Milk Tea |
+| 257 | 초콜릿 버블티 | Chocolate Bubble Tea |
+| 258 | 블루베리+설탕 | Blueberry+Sugar |
+| 259 | 블루베리잼 | Blueberry Jam |
+| 260 | 블루베리 필링 | Blueberry Filling |
+| 261 | 블루베리 마카롱 | Blueberry Macaron |
+| 262 | 딸기 필링 | Strawberry Filling |
+| 263 | 딸기 마카롱 | Strawberry Macaron |
+| 264 | 크림치즈 | Cream Cheese |
+| 265 | 크림치즈 필링 | Cream Cheese Filling |
+| 266 | 크림치즈 마카롱 | Cream Cheese Macaron |
+| 267 | 카라멜 푸딩 | Caramel Pudding |
+| 268 | 멜론 | Melon |
+| 269 | 썬 멜론 | Sliced Melon |
+| 270 | 멜론 빙수 | Melon Shaved Ice |
+| 271 | 커피 큐브 | Coffee Cubes |
+| 272 | 큐브 라떼 | Coffee Cube Latte |
+| 273 | 아이스티(샷 추가) | Iced Tea (Extra Shot) |
+| 274 | 마시멜로 | Marshmallow |
+| 275 | 마시멜로+초코 쿠키 반죽 | Marshmallow+Choco Cookie Dough |
+| 276 | 마시멜로 초코 쿠키 | Marshmallow Choco Cookie |
+| 277 | 마시멜로+쿠키 반죽 | Marshmallow+Cookie Dough |
+| 278 | 마시멜로 쿠키 | Marshmallow Cookie |
+| 279 | 블루베리잼 도넛 | Blueberry Jam Donut |
+| 280 | 요거트크림 | Yogurt Cream |
+| 281 | 요거트크림 도넛 | Yogurt Cream Donut |
+| 282 | 찹쌀가루 | Glutinous Rice Flour |
+| 283 | 찹쌀 반죽 | Glutinous Rice Dough |
+| 284 | 찹쌀 도너츠 | Glutinous Rice Donut |
+| 285 | 초코 요거트 아이스크림 | Chocolate Yogurt Ice Cream |
+| 286 | 얼린 멜론 | Frozen Melon |
+| 287 | 멜론+우유 | Melon+Milk |
+| 288 | 멜론 스무디 | Melon Smoothie |
+| 289 | 멜론+요거트+우유 | Melon+Yogurt+Milk |
+| 290 | 멜론 요거트 스무디 | Melon Yogurt Smoothie |
+| 291 | 얼린 포도 | Frozen Grapes |
+| 292 | 팥+인절미+반죽 | Red Bean+Injeolmi+Dough |
+| 293 | 팥절미 붕어빵 | Injeolmi Red Bean Pancake |
+| 294 | 튀긴 빵 | Fried Bread |
+| 295 | 꽈배기 | Twisted Donut |
+| 296 | 크림치즈 도넛 | Cream Cheese Donut |
+| 297 | 크림치즈 베이글 | Cream Cheese Bagel |
+| 298 | 호두 | Walnut |
+| 299 | 호두+단팥+반죽 | Walnut+Red Bean+Dough |
+| 300 | 호두과자 | Walnut Cake |
+| 301 | 찻잎+우유+설탕 | Matcha+Milk+Sugar |
+| 302 | 우롱차 잎+우유+설탕 | Oolong Tea Leaves+Milk+Sugar |
+| 303 | 홍차 잎+우유+설탕 | Black Tea Leaves+Milk+Sugar |
+| 304 | 말린 허브+우유+설탕 | Dried Herbs+Milk+Sugar |
+| 305 | 시나몬 설탕 | Cinnamon Sugar |
+| 306 | 츄러스 | Churros |
+| 307 | 치즈+찹쌀 반죽 | Cheese+Glutinous Rice Dough |
+| 308 | 치즈볼 | Cheese Ball |
+| 309 | 베이컨 | Bacon |
+| 310 | 계란 후라이 | Fried Egg |
+| 311 | 스크램블 에그 | Scrambled Eggs |
+| 312 | 오믈렛 | Omelette |
+| 313 | 구운 베이컨 | Grilled Bacon |
+| 314 | 베이컨 계란 정식 | Bacon & Eggs |
+| 315 | 삶은 달걀 | Boiled Egg |
+| 316 | 딸기잼 베이글 | Strawberry Jam Bagel |
+| 317 | 딸기잼 머핀 | Strawberry Jam Muffin |
+| 318 | 머핀+베이컨 | Muffin+Bacon |
+| 319 | 머핀+계란 | Muffin+Egg |
+| 320 | 머핀+치즈 | Muffin+Cheese |
+| 321 | 머핀+베이컨+계란 | Muffin+Bacon+Egg |
+| 322 | 머핀+베이컨+치즈 | Muffin+Bacon+Cheese |
+| 323 | 머핀+계란+치즈 | Muffin+Egg+Cheese |
+| 324 | 머핀+베이컨+계란+치즈 | Muffin+Bacon+Egg+Cheese |
+| 325 | 베이컨 에그 머핀 | Bacon Egg Muffin |
+| 326 | 에그 머핀 | Egg Muffin |
+| 327 | 베이컨 머핀 | Bacon Muffin |
+| 328 | 스크램블 에그+치즈 | Scrambled Eggs+Cheese |
+| 329 | 치즈 오믈렛 | Cheese Omelette |
+| 330 | 딸기 수플레 팬케이크 | Strawberry Soufflé Pancake |
+| 331 | 딸기 크림치즈 베이글 | Strawberry Cream Cheese Bagel |
+| 332 | 블루베리 수플레 팬케이크 | Blueberry Soufflé Pancake |
+| 333 | 블루베리 베이글 반죽 | Blueberry Bagel Dough |
+| 334 | 블루베리 베이글 | Blueberry Bagel |
+| 335 | 아이스크림 | Ice Cream |
+| 336 | 딸기 아이스크림 | Strawberry Ice Cream |
+| 337 | 초코 아이스크림 | Chocolate Ice Cream |
+| 338 | 녹차 아이스크림 | Matcha Ice Cream |
+| 339 | 바닐라 아이스크림 | Vanilla Ice Cream |
+| 340 | 밀크 셰이크 | Milkshake |
+| 341 | 딸기 셰이크 | Strawberry Shake |
+| 342 | 초코 셰이크 | Chocolate Shake |
+| 343 | 녹차 셰이크 | Matcha Shake |
+| 344 | 바닐라 셰이크 | Vanilla Shake |
+| 345 | 민트초코 아이스크림 | Mint Chocolate Ice Cream |
+| 346 | 민트초코 셰이크 | Mint Chocolate Shake |
+| 347 | 블루베리 파르페 | Blueberry Parfait |
+| 348 | 바나나 파르페 | Banana Parfait |
+| 349 | 망고 파르페 | Mango Parfait |
+| 350 | 멜론 파르페 | Melon Parfait |
+| 351 | 냉각총 | Freeze Gun |
+| 352 | 얼음물 | Ice Water |
+| 353 | 파이 생지 | Pie Dough |
+| 354 | 타르트 생지 | Tart Dough |
+| 355 | 사과 | Apple |
+| 356 | 썬 사과 | Sliced Apple |
+| 357 | 생 호두 파이 | Raw Walnut Pie |
+| 358 | 호두 파이 | Walnut Pie |
+| 359 | 생 딸기 파이 | Raw Strawberry Pie |
+| 360 | 딸기 파이 | Strawberry Pie |
+| 361 | 생 사과 파이 | Raw Apple Pie |
+| 362 | 사과 파이 | Apple Pie |
+| 363 | 생 블루베리 파이 | Raw Blueberry Pie |
+| 364 | 블루베리 파이 | Blueberry Pie |
+| 365 | 생 호두 타르트 | Raw Walnut Tart |
+| 366 | 호두 타르트 | Walnut Tart |
+| 367 | 생 에그 타르트 | Raw Egg Tart |
+| 368 | 에그 타르트 | Egg Tart |
+| 369 | 구운 타르트 지 | Baked Tart Shell |
+| 370 | 딸기 타르트 | Strawberry Tart |
+| 371 | 사과 타르트 | Apple Tart |
+| 372 | 블루베리 타르트 | Blueberry Tart |
+| 373 | 베리베리 타르트 | Mixed Berry Tart |
+| 374 | 망고 타르트 | Mango Tart |
+| 375 | 초코 타르트 | Chocolate Tart |
+| 376 | 생 크림치즈 타르트 | Raw Cream Cheese Tart |
+| 377 | 크림치즈 타르트 | Cream Cheese Tart |
+| 378 | 탄산수 | Sparkling Water |
+| 379 | 레몬 | Lemon |
+| 380 | 썬 레몬 | Sliced Lemon |
+| 381 | 레몬즙 | Lemon Juice |
+| 382 | 자몽 | Grapefruit |
+| 383 | 썬 자몽 | Sliced Grapefruit |
+| 384 | 자몽 주스 | Grapefruit Juice |
+| 385 | 레몬+물 | Lemon+Water |
+| 386 | 레몬차 | Lemon Tea |
+| 387 | 자몽+물 | Grapefruit+Water |
+| 388 | 자몽차 | Grapefruit Tea |
+| 389 | 사과+물 | Apple+Water |
+| 390 | 사과차 | Apple Tea |
+| 391 | 사과 주스 | Apple Juice |
+| 392 | 사과 에이드 | Apple Fizz |
+| 393 | 레몬 에이드 | Lemon Fizz |
+| 394 | 자몽 에이드 | Grapefruit Fizz |
+| 395 | 딸기 에이드 | Strawberry Fizz |
+| 396 | 블루베리 에이드 | Blueberry Fizz |
+| 397 | 망고 에이드 | Mango Fizz |

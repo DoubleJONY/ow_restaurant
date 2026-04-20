@@ -1,0 +1,38 @@
+- [x] Define the high-level source policy for `cafe_jp.txt`.
+  - Japanese UI donor: `jp.txt`
+  - Cafe gameplay/data donor: `cafe_en.txt`
+  - Cafe-side cross-check reference: `cafe_kr.txt`
+- [x] Lock the migration method to option 2.
+  - base file: `cafe_en.txt`
+  - transplant target: Japanese UI/String resources from `jp.txt`
+  - rejected direction: using `jp.txt` as the structural base and porting cafe code/data onto it
+- [x] Record that this artifact is planning-only and does not authorize implementation yet.
+- [x] Reframe the existing cafe item-name mapping artifact as support material for `cafe_jp.txt` creation.
+- [ ] Generate a full `cafe_jp` `Global.ITEM_NAME` translation table aligned to the existing 398-item cafe index order.
+- [ ] Classify each item-name translation as one of:
+  - directly reusable from `jp.txt`
+  - newly translated from `cafe_en.txt`
+  - cross-checked against `cafe_kr.txt`
+- [ ] Produce a reviewed translation artifact with at least `index / cafe_kr / cafe_en / cafe_jp / note` columns.
+- [ ] Audit non-item Japanese UI text requirements before touching code.
+  - shared strings that can be lifted from `jp.txt`
+  - cafe-only strings that require fresh Japanese localization
+- [ ] Create `cafe_jp.txt` by copying the chosen cafe structural base.
+- [ ] Preserve cafe-specific data and behavior during migration.
+  - `STAGE_CODE`
+  - `MENU_LIST`
+  - `FRIDGE_LIST`
+  - `UPGRADE_CODE`
+  - `KNIFE`
+  - `PERK_LIST`
+  - `ICE_NEEDED`
+  - `ICE_RESULT`
+  - split init layout: `dataInit2_1` / `dataInit2_2`
+- [ ] Replace user-visible text in `cafe_jp.txt` with Japanese equivalents without importing restaurant-only gameplay data from `jp.txt`.
+- [ ] Inject the new Japanese `Global.ITEM_NAME` block and any other cafe-only Japanese text tables.
+- [ ] Run static verification after migration.
+  - item-count parity
+  - split-init integrity
+  - stale English/Korean UI text search
+  - unintended drift in cafe-only arrays
+- [ ] Run in-game Workshop validation after static verification.

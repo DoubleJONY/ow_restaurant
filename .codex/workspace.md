@@ -28,3 +28,8 @@ settings. Find and comply with any items or references described here.
   - `.codex/artifact/20260415_jp_jetpack_cat_port/`
   - `.codex/artifact/20260415_en_followup_patch_port/`
   - `.codex/artifact/20260415_jp_followup_patch_port/`
+  - `.codex/artifact/20260420_ko_cafe_diff_baseline/`
+  - `.codex/artifact/20260420_cafe_kr_head_port_plan/`
+  - `.codex/artifact/20260420_cafe_en_head_port_plan/`
+  - `.codex/artifact/20260420_gc_kr_head_port_plan/`
+  - `.codex/artifact/20260420_gc_en_head_port_plan/`

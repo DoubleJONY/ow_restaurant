@@ -1,0 +1,3 @@
+- [x] Record the cumulative `ko.txt` diff summary for `338c7321f9f4aed9688c6d8cb70aaa13f729be1d..HEAD`.
+- [x] Compare `ko.txt` and `cafe_kr.txt` using `338c7321f9f4aed9688c6d8cb70aaa13f729be1d` as the baseline.
+- [x] Summarize which post-baseline `ko.txt` changes are absent from `cafe_kr.txt`.
