@@ -2,7 +2,7 @@
 - [x] Identify which existing cafe differences are semantic remaps versus structural incompatibilities.
 - [x] Record the planning assumptions for porting `ko.txt` `HEAD` changes into `cafe_kr.txt`.
 - [x] Incorporate user-provided planning directives for `STAGE_CODE`, direct ports, and item-code preservation.
-- [ ] Prepare a pre-port inventory of cafe-sensitive item-code and create-item remap sites.
+- [x] Prepare a pre-port inventory of cafe-sensitive item-code and create-item remap sites.
 - [ ] Apply the structural port in `cafe_kr.txt`.
 - [ ] Adapt cafe-specific item codes, menu bundles, and mode metadata.
 - [ ] Run static verification for stale 4-mode and pre-port patterns.
