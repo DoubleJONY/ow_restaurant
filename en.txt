@@ -4025,13 +4025,7 @@ rule("Host Player: Set Permission")
 			Call Subroutine(createItem);
 			Wait(3, Abort When False);
 			Small Message(All Players(All Teams), Custom String(" {0} Meow OwO ", Hero Icon String(Hero(Jetpack Cat))));
-			Global.CUSTOMER_LIST = Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			);
+			Global.CUSTOMER_LIST[2] = Array(Hero(Jetpack Cat), Hero(Jetpack Cat));
 			Global.ALLOWED_HEROS = Append To Array(Global.ALLOWED_HEROS, Hero(Jetpack Cat));
 		End;
 		Global.cuttingPlayer[False] = Null;
