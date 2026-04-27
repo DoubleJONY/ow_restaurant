@@ -4032,6 +4032,7 @@ rule("Host Player: Set Permission")
 				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76))
 			);
+			Global.ALLOWED_HEROS = Append To Array(Global.ALLOWED_HEROS, Hero(Jetpack Cat));
 		End;
 		Global.cuttingPlayer[False] = Null;
 		Global.cuttingPlayer[True] = Null;
