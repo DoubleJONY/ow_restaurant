@@ -1967,9 +1967,16 @@ rule("Dummy: Spawn")
 			Destroy In-World Text(Event Player.tableText);
 			Destroy Effect(Event Player.customerEffect);
 		Else;
-			Start Forcing Dummy Bot Name(Event Player, String Split(
-				Custom String("평범한 손님/대식가/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/포악한 손님/엘버피 VVIP/요리연구가/{0}",
-				Custom String("혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/거대식가/시끄러운 손님")), Custom String("/"))[Event Player.controlingIndex]);
+			If(Array Contains(Global.ALLOWED_HEROS, Hero(Mauga)));
+				Start Forcing Dummy Bot Name(Event Player, String Split(
+					Custom String("평범한 손님/재앙은끝나지않았다/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/탱장연 대표/엘버피 VVIP/요리연구가/{0}",
+					Custom String("혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/조용히힐이나하게나/시끄러운 손님")), Custom String("/"))[Event Player.controlingIndex]);
+			Else;
+				Start Forcing Dummy Bot Name(Event Player, String Split(
+					Custom String("평범한 손님/대식가/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/포악한 손님/엘버피 VVIP/요리연구가/{0}",
+					Custom String("혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/거대식가/시끄러운 손님")), Custom String("/"))[Event Player.controlingIndex]);
+			End;
+			
 			Event Player.playerColor = Array(Color(Blue), Color(Green), Color(White), Color(Orange), Color(Purple), Color(Turquoise), Color(
 				Aqua), Custom Color(252, 121, 189, 255), Color(Lime Green), Color(Red), Color(Yellow), 
 				Custom Color(225, 165, 186, 255), 
@@ -2387,8 +2394,13 @@ rule("serveFail") {
 		If(Event Player.customerStatus == 6);
 			Event Player.customerStatus = 5;
 		End;
-		Event Player.controlingIndex = Array(Custom String("시간 초과!"), Null, Custom String("{0}의 잘못된 서빙!", Event Player.knifeText),
-			Custom String("순서 조심!"), Custom String("완성도 낮은 요리!"), Custom String("혼란에 빠져 도망침!"))[Event Player.customerStatus];
+		If(Array Contains(Global.ALLOWED_HEROS, Hero(Mauga)));
+			Event Player.controlingIndex = Array(Custom String("설득 시간 초과!"), Null, Custom String("{0}의 잘못된 정치질!", Event Player.knifeText),
+				Custom String("흑화 조심!"), Custom String("완성도 낮은 요리!"), Custom String("맥주를 찾으러 돌진함!"))[Event Player.customerStatus];
+		Else;
+			Event Player.controlingIndex = Array(Custom String("시간 초과!"), Null, Custom String("{0}의 잘못된 서빙!", Event Player.knifeText),
+				Custom String("순서 조심!"), Custom String("완성도 낮은 요리!"), Custom String("혼란에 빠져 도망침!"))[Event Player.customerStatus];
+		End;
 		Create HUD Text(All Players(All Teams), Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
 			Event Player.controlingIndex), Null, Custom String(
 			"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
@@ -2420,7 +2432,14 @@ rule("serveFail") {
 			Wait(0.016, Ignore Condition);
 			Set Status(All Players(Team 1), Null, Phased Out, 9999);
 			Press Button(Event Player, Button(Ultimate));
-			Wait(7, Ignore Condition);
+			If(Array Contains(Global.ALLOWED_HEROS, Hero(Mauga)));
+				Small Message(All Players(All Teams), Custom String("  {0}이거 재물손괴죄 아니냐고? ", Hero Icon String(Hero Of(Event Player))));
+				Wait(3, Ignore Condition);
+				Small Message(All Players(All Teams), Custom String("  {0}알아. ", Hero Icon String(Hero Of(Event Player))));
+				Wait(4, Ignore Condition);
+			Else;
+				Wait(7, Ignore Condition);
+			End;
 		Else If(Hero Of(Event Player) == Hero(Ramattra));
 			Global.superDrink = -2;
 			Set Ultimate Charge(Event Player, 100);
@@ -3953,6 +3972,10 @@ rule("Host Player: Set Permission")
 			Small Message(All Players(All Teams), Custom String(" {0} 애옹 OwO ", Hero Icon String(Hero(Jetpack Cat))));
 			Global.CUSTOMER_LIST[2] = Array(Hero(Jetpack Cat), Hero(Jetpack Cat));
 			Global.ALLOWED_HEROS = Append To Array(Global.ALLOWED_HEROS, Hero(Jetpack Cat));
+			Wait(3, Abort When False);
+			Small Message(All Players(All Teams), Custom String(" {0} 오빠 달린다~ 헤이! ", Hero Icon String(Hero(Mauga))));
+			Global.CUSTOMER_LIST[1] = Array(Hero(Mauga), Hero(Roadhog), Hero(Reinhardt));
+			Global.ALLOWED_HEROS = Append To Array(Global.ALLOWED_HEROS, Array(Hero(Mauga), Hero(Roadhog), Hero(Reinhardt)));
 		End;
 		Global.cuttingPlayer[False] = Null;
 		Global.cuttingPlayer[True] = Null;
