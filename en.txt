@@ -682,7 +682,7 @@ rule("Global: Setting")
         Global.currentUpgrade = -1;
 		Global.stage = 0;
 		Global.upgradeList = Array(Array(Null), Array(Null), Array(Null));
-		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5506, Custom String("SizzlingGunz")), Array(4082, Custom String("SizzlingGunz")), Array(0, Custom String("None")), Array(7759, Custom String("Moira")), Array(0, Custom String("None")));
+		Global.totalScore = Array(Array(0, Custom String("Practice")), Array(5506, Custom String("SizzlingGunz")), Array(4082, Custom String("SizzlingGunz")), Array(1871, Custom String("Carrion")), Array(7759, Custom String("Carrion")), Array(0, Custom String("None")));
 		Global.permissionText = Array(Array(Custom String("Chef"), Custom String("Waiting Staff"), Custom String("Apprentice"),
 			Custom String("Head Chef")), Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("[{0}] - Change Role", Input Binding String(Button(
