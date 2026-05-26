@@ -761,7 +761,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v260427\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)
+			"レストラン(4ND1P) v260527\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)
 				[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n私の役職 : {1}", Global.totalScore[False],
@@ -860,15 +860,13 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260427\r\n\r\n新規客\r\n  {1}配達にゃんこ: ものすごい勢いで押し寄せる注文んんんんんんんんaaawwwwwwwwwOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
+		Custom String("{0} v260527\r\n\r\n新規客\r\n  {1}配達にゃんこ: ものすごい勢いで押し寄せる注文んんんんんんんんaaawwwwwwwwwOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
 		Custom String("  {0}大食い巨人: もっと持ってこい！\r\n{1}", Hero Icon String(Hero(Reinhardt)),
 		Custom String("  {0}クレーマー客: 一度でもミスすると店中を騒がせます！", Hero Icon String(Hero(Junker Queen))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(214, 156, 107, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} 新しい変更点\r\n\r\n  ジェットパック装着 - 6人プレイ中、サービングボールはジェットパック装着に変更されます！\r\n{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), 
-		Custom String("  新モード「スター・ビストロ」「ヘッドシェフ・チャレンジ」を追加しました。\r\n{0}",
-		Custom String("  ソロプレイ中は常にサービングボールがサポートします。\r\n  アイテム出現確率のアルゴリズムが変更されました。"))),
+		Custom String("{0} Bug Fixes\r\n\r\n  Fixed an issue where the wrong fridge appeared in Casual Dining", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -2069,6 +2067,7 @@ rule("Dummy: Spawn")
 				End;
 				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11) || Hero Of(Event Player) == Hero(LifeWeaver));
 					Event Player.orderTimeOut += 20;
+					Wait Until(Global.itemCount < 32, 9999);
 					For Player Variable(Event Player, handPosition, False, Hero Of(Event Player) == Hero(Reinhardt) ? 9 : Hero Of(Event Player) == Hero(Zarya) ? 3 : 1, True);
 						If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]) > 1);
 							For Player Variable(Event Player, additionalMaterialIndex, False, Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]), True);
@@ -3828,6 +3827,9 @@ rule("Global subroutine: Call customer")
 				Global.loadNext += 1;
 			End;
 			Wait Until(Global.loadNext > 0, Count Of(Filtered Array(Global.tableFilled, Current Array Element)) + Global.customerCallTime);
+			If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11));
+				Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= 4, 999);
+			End;
 			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(4, 5, 6, 8, 4)[Global.difficulty] || (Global.stageColor != Color(Violet) && Global.difficulty != 4), 999);
 			Wait Until(Count Of(Filtered Array(Global.tableFilled, Current Array Element)) <= Array(6, 8, 8, 10, 4)[Global.difficulty], 999);
 			Wait(True, Ignore Condition);
@@ -4619,15 +4621,6 @@ rule("Global subroutine: Set Hint Text")
 			Global.hintText = Array(
 				Custom String(""),
 				Custom String("予約客は入場前に事前に注文を行います。\r\n中央に短時間表示される予約メッセージを注意深く見て覚えてください！")
-			);
-		Else If(Global.stage == 7);
-			Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
-			Global.hintText = Array(
-				Custom String("小麦粉生地を切ってからもう一度叩くと、餃子の皮が作れます。"),
-				Custom String("刻みネギ + 潰した豆腐 + 餃子の皮 > 鍋で蒸す"),
-				Custom String("刻みネギ + 潰した豆腐 + 餃子の皮 > フライパンで焼く"),
-				Custom String("刻みネギ + 潰した豆腐 + 薄切りした春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す"),
-				Custom String("刻みネギ + 刻んだキムチ + 薄切りした春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す")
 			);
 		Else If(Global.stage == 9);
 			Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 7, 23);
