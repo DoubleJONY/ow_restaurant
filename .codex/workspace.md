@@ -9,6 +9,7 @@ settings. Find and comply with any items or references described here.
 ## Additional Context
 - In this workspace, `.codex/` is intentionally tracked by git for workspace memory and artifacts. Do not re-add `.codex/` to `.gitignore` unless explicitly requested.
 - Workspace-local artifacts and history should be stored under `.codex/artifact/`.
+- Version strings in this project use the edit date as `vYYMMDD`. Whenever modifying any project file, update all relevant `vYYMMDD` occurrences in that file to the current date. For example, edits made on 2026-05-31 should use `v260531`.
 - Established Workshop table refactor pattern from `2026-04-14`:
   - For long numeric tables, prefer `Custom String` chains with `{0}` continuation plus `String Split(..., Custom String("/"))`.
   - Keep each string segment around 90 characters to avoid Workshop string-length issues.
@@ -33,3 +34,4 @@ settings. Find and comply with any items or references described here.
   - `.codex/artifact/20260420_cafe_en_head_port_plan/`
   - `.codex/artifact/20260420_gc_kr_head_port_plan/`
   - `.codex/artifact/20260420_gc_en_head_port_plan/`
+  - `.codex/artifact/20260531_restaurant_jp_followups/`
