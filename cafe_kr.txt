@@ -2070,7 +2070,7 @@ rule("Dummy: Spawn")
 				Custom Color(103, 49, 51, 255))[Event Player.controlingIndex];
 			Event Player.score = Array(Null, 5, 10, 5, Null, 10, -5, 5, Null, -5, 15, 10, 5, 15, 10, 10, 10, 10, 5, Null, Null)[Event Player.controlingIndex] - Global.additionalScore;
 			Event Player.orderCount = Array(True, 2, True, True, Null, True, True, 2, True, True, 4, True, True, True, True, True, True, 2, True, Null, True)[Event Player.controlingIndex];
-			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 13, 30, 30, 20, 60, 300, 17)
+			Event Player.orderTimeOut = Array(30, 30, 30, 20, 40, 10, 20, 25, 15, 25, 20, 35, 30, 25, 13, 30, 30, 20, 60, 115, 17)
 				[Event Player.controlingIndex] * Array(6, 3, 2, 1.200, 6)[Global.difficulty] - 0.500;
 			Event Player.byOrder = Array(False, False, 1, False, False, False, False, 1, False, 1, 1, False, False, False, False, False, False, 1, False, False, 1)[Event Player.controlingIndex];
 			Event Player.hideOrder = Hero Of(Event Player) == Hero(Sombra) ? 1 : 0;
@@ -2203,6 +2203,9 @@ rule("Dummy: Spawn")
 						If(Event Player.customerStatus == 1 || Event Player.customerStatus == 4);
 							Event Player.orderCount += True;
 							Event Player.tipsProb = 5;
+							If(Hero Of(Event Player) == Hero(Reinhardt));
+								Event Player.tipsProb = 100;
+							End;
 							If(Event Player.customerStatus == 4);
 								All Players(Team 1).score += 1;
 								Global.systemScore += 5;
@@ -2239,7 +2242,7 @@ rule("Dummy: Spawn")
 							Play Effect(All Players(All Teams), Good Pickup Effect, Color(Green), Event Player, 5);
 							Play Effect(All Players(All Teams), Buff Impact Sound, Null, Event Player, 100);
 							If(Hero Of(Event Player) == Hero(Reinhardt));
-								Global.systemScore += 5;
+								Global.systemScore += 10;
 							End;
 							Event Player.customerStatus = Null;
 							Wait(True, Ignore Condition);
