@@ -1,0 +1,40 @@
+custom_index	previous	applied_reference
+23	[{0}]:  Chop  	  [{0}]:  Chop  
+82	Practice	Practice Mode
+113	[{0}]:  Equip Knife  	  [{0}]:  Equip Knife  
+117	[{0}]:  Pick Up  	  [{0}]:  Pick Up  
+119	[{0}]:  Chop  	  [{0}]:  Chop  
+128	  {0}{1} say ready to cook! (Only Head Chef can skip preparation time)  	  {0}{1} say ready to cook! (Head Chef can skip preparation time)  
+140	  {0}{1} wants to start the game! 	  {0}{1} ready to cook! 
+142	  Temporary Opening! Customers are coming in! 	  Practice Customers are coming in! 
+143	　　　　　Order Slip　　　　　	　　　　　Order List　　　　　
+154	  {1}{0} has equipped a Jetpack! 	  {1}{0} has equipped a jetpack! 
+155	Mash Ingredient	Smash Material
+156	〔{0}〕	[{0}]
+157	Mash Ingredient	Smash Material
+158	〔{0}〕	[{0}]
+159	  You are now Head Chef!  	  You are Now Head Chef!  
+162	  {0} : I brought the knife you ordered!	  {0} : I've brought the ordered knife!
+163	  {0} : Free items for everyone!	  {0} : Free items for you!
+181	[{0}] : Change Item	  [{0}] : Change Select
+192	  Well-Prepared Dish! +5%	  A well-prepared dish! +5%
+193	 #{0} : Serving Success! {1}/{2} 	 #{0} : Served! {1}/{2} 
+204	  A-mei-zing Service! +20% 	  A-mei-zing Served! +20%
+207	  Swift Service! +10% 	  Swift Served! +10%
+210	  Well-Prepared Dish! +5% 	  A well-prepared dish! +5%
+211	 #{0} : Serving Success! 	 #{0} : Served! 
+213	 #{0} : Serving Success! 	 #{0} : Served! 
+222	  Word of mouth from {0}{1}! 	  {0}{1}'s Promotional effect! 
+435	Preparing to Open	Prepare for Service
+448	Opening!	Open for Service!
+451	　　　　　Order Slip　　　　　	　　　　　Order List　　　　　
+455	All-Staff Bonus!	Bonus For All Staff!
+456	Opening Complete!	Good Service!
+458	  Pay +${0}	  +${0}
+459	All-Staff Bonus!	Bonus For All Staff!
+460	Opening Complete!	Good Service!
+464	  Pay +${0}	  +${0}
+467	Difficulty increased! Good luck!	Now getting harder! Good Luck!
+470	  {0}fg00E697FF>#{1}{0}FGffffffFF> table reserved {0}fgFFFF00FF>{2}{0}FGffffffFF>!	  Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!
+471	  {0}{1} - Role changed to {2}!  	  {0}{1} - {2}  
+521	Total Personal Income : [{0}]\r\nContribution Score : [{1}]	Total Personal Income: [{0}]\r\nContribution Score: [{1}]

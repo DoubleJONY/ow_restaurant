@@ -1574,7 +1574,7 @@ rule("Dummy: Spawn")
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
 				"[{0}]:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("Increase My Movement Speed"),
-				Custom String("Increase Team Time Limit"), Custom String("Coin Exchange"))[Local Player.selectedUpgrade],
+				Custom String("Increase Team Time Limit"), Custom String("Exchange Coin"))[Local Player.selectedUpgrade],
 				Global.upgradePrice[3][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3, Do Not Clip,
 				Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Event Player.playerText = Last Text ID;
@@ -2666,7 +2666,7 @@ rule("Global subroutine: Data init2")
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
 		Global.UPGRADE_NAME = String Split(Custom String(
 			"Purchase Storage/Purchase Random Item/Purchase Random Boots/Upgrade Fryer/Upgrade Pot/Upgrade Grill/{0}", Custom String(
-			"Upgrade Pan/Increase Personal Movement Speed/Increase Team Time Limit/Exchange Coins")), Custom String("/"));
+			"Upgrade Pan/Increase Personal Movement Speed/Increase Team Time Limit/Exchange Coin")), Custom String("/"));
 	}
 }
 

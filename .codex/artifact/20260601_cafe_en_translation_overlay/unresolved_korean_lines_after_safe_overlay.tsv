@@ -1,0 +1,156 @@
+696	Global.permissionText = Array(Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생"), Custom String("헤드셰프")),
+698	Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 직책 변경", Input Binding String(Button(
+725	Create In-World Text(Players Within Radius(Vector(226.649, 2, 159.387), 10, Team 1, Off), Custom String("제빙기"), Vector(226.649, 3,
+727	Create In-World Text(Players Within Radius(Vector(233.778, 2, 167.685), 10, Team 1, Off), Custom String("싱크대"), Vector(233.778, 3,
+734	Create In-World Text(Players Within Radius(Vector(231.369, 2, 166.183), 10, Team 1, Off), Custom String("도마"), Vector(231.369, 3,
+736	Create In-World Text(Players Within Radius(Vector(222.109, 2, 156.602), 10, Team 1, Off), Custom String("도마"), Vector(222.109, 3,
+741	Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))) : Custom String(
+742	"  칼이 없습니다  "), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
+793	Custom String("레스토랑(WM3MW) v260531\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)[Global.stageMode], 255), Null, String and Color, Default Visibility);
+798	Custom String("{0} 제작 중인 특수 칼:{1}개", Hero Icon String(Hero(Torbjörn)), Global.orderedKnives[False] + Global.orderedKnives[True]),
+799	Custom String("{0} 솥:{1}% / 튀김&제빙:{2}%", Hero Icon String(Hero(Junkrat)), 100 + 25 * Global.potPower,
+800	Global.fryingPower * 100)), Custom String("{0} 팬:{1}% / 오븐:{2}%", Hero Icon String(Hero(Junkrat)), Global.panPower * 100,
+801	Global.grillingPower * 100), Custom String("{0} 이속:{1}% / 시간:{2}초", Hero Icon String(Hero(Juno)), Local Player.playerSpeed,
+814	Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("연습 모드"), Custom String("캐주얼 다이닝"),
+815	Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))
+816	[Global.stageMode]), Custom String("{0}", Array(Custom String("자유롭게 연습할 수 있는 샌드박스 모드 입니다"), Custom String(
+817	"5개의 메뉴가 등장하는 수습 난이도를 클리어하세요"), Custom String("모든 메뉴가 등장하는 숙련 난이도를 클리어하세요"), Custom String(
+818	"까다로운 손님들이 등장하는 전문 난이도를 클리어하세요"), Custom String("Hell's Kitchen 클리어에 도전하세요"), Custom String(
+819	"완벽의 영역에 도전하세요"))[Global.stageMode]), Local Player == Global.scbRank ? Custom String("[{0}]: 모드 변경",
+820	Input Binding String(Button(Reload)), Input Binding String(Button(Jump))) : Custom String(" 방장이 모드를 결정하는 중입니다"), Top, -998,
+846	Custom String("〔{1}〕: 모드-{0}", Global.stage == 4 ? Custom String("다른 메뉴") : (Global.stage == 3 ? Custom String("연습 종료") : (
+847	Global.stage == 2 ? Custom String("모든 손님") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]))), Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}",
+848	Global.stage == 4 ? Array(Custom String("변기클라우드-모듬회밥"), Custom String(
+849	"Joseon-쿡제요리"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]] : (Global.stage == 3 ? Custom String("개시 하여 시작") : (Count Of(
+850	Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전") : Global.STAGE_NAME[Global.totalScore[False]])), Input Binding String(
+890	"{0} 레스토랑 - 카페! \r\n\r\n 레시피 북: https://ow-restaurant.com/ko/book/cafe/0 ", Icon String(Fire)), Vector(213.237, 3, 178.708), 1,
+893	Custom String("{0} 새로운 변경 사항\r\n\r\n  서빙볼+제트팩 - 6명이 플레이 중일 때 서빙볼은 제트팩 장착으로 변경됩니다!\r\n{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
+894	Custom String("  신규 모드 스타 비스트로와 헤드셰프 챌린지가 추가되었습니다.\r\n{0}",
+895	Custom String("  이제 솔로 플레이 에서 항상 서빙볼이 지원됩니다.\r\n  아이템 등장 확률 알고리즘이 변경되었습니다.")),
+977	Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("설정"), Custom String(
+978	"플레이어 기본 직책"), 0, Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생")), 4);
+1015	Create In-World Text(Event Player, Custom String("Joseon#31496 : Z1TBZ\r\nGummyBear#11798\r\n변기클라우드#3523"), Vector(222.559, 5.100,
+1111	Create HUD Text(Event Player, Custom String("〔{0}〕:  칼 장착  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+1120	Create HUD Text(Event Player, Custom String("〔{0}〕:  줍기  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+1124	Create HUD Text(Event Player, Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+1282	Small Message(Event Player, Custom String("  전설 칼 주문 -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
+1283	Small Message(Event Player, Custom String("  다음번에 상인이 칼을 가져올 것 입니다  "));
+1286	Small Message(Event Player, Custom String("  특수 칼 뽑기 -${0}", Global.upgradePrice[Global.currentUpgrade][True]));
+1287	Small Message(Event Player, Custom String("  다음번에 상인이 칼을 가져올 것 입니다  "));
+1291	Small Message(Event Player, Custom String("  {0} 구매 -${1}",
+1351	Small Message(All Players(All Teams), Custom String("  {0}{1} 준비 완료! (헤드셰프만 준비시간을 생략할 수 있습니다)  ", Hero Icon String(Hero Of(
+1358	Small Message(All Players(All Teams), Custom String(" {0}{1} 님이 연습을 중지하자고 합니다! ", Hero Icon String(Hero Of(Event Player)),
+1370	Small Message(All Players(All Teams), Custom String("  {0} 의 워크샵 코드는 {1} 입니다! ", Array(Custom String("변기클라우드-모듬회밥"), Custom String(
+1371	"Joseon-쿡제요리"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]], Array(Custom String(
+1374	Small Message(All Players(All Teams), Custom String("  {0}{1} 님이 게임을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)),
+1389	Create HUD Text(All Players(All Teams), Custom String("　　　　　주문서　　　　　"), Null, Custom String(
+1615	Create HUD Text(All Players(All Teams), Icon String(Warning), Custom String("업데이트 필요! - 코드 : WM3MW"), Custom String(
+1616	"버그 수정 및 추가 업데이트를 적용하려면\r\n위의 코드로 게임을 다시 불러와주세요!"), Top, 2.500, Color(Red), Color(Yellow), Color(White), Visible To and String,
+1779	Small Message(All Players(All Teams), Custom String("  {1}{0}이(가) 서빙볼을 소환했습니다! ", Event Player, Hero Icon String(Hero Of(
+1788	Small Message(All Players(All Teams), Custom String("  {1}{0}이(가) 제트팩을 장착했습니다! ", Event Player, Hero Icon String(Hero Of(
+1799	Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String(
+1836	Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String(
+1897	Small Message(Filtered Array(All Players(Team 1), Current Array Element.permission == 3), Custom String("  당신이 이제 헤드셰프 입니다!  "));
+1962	Start Forcing Dummy Bot Name(Event Player, String Split(Custom String("부엌칼 상인/아이템 상인/업그레이드/업그레이드"), Custom String("/"))
+1975	Small Message(All Players(All Teams), Custom String("  {0} : 주문한 칼 가지고 왔다네!", Hero Icon String(Hero(Torbjörn))));
+1991	Small Message(All Players(All Teams), Custom String("  {0} : 무료 아이템을 나눠드릴게요!", Hero Icon String(Hero(Mei))));
+2005	"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("{0} 구매",
+2006	Global.ITEM_NAME[Global.KNIFE[True]]), Custom String("특수 칼 뽑기"), Custom String("전설 칼 주문"))[Local Player.selectedUpgrade], First Of(Global.upgradePrice)
+2012	"〔{0}〕:  {1} 구매 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("저장고"), Custom String("무작위 도구"), Custom String("무작위 신발"))
+2018	"〔{0}〕:  {1} 강화 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("튀김기&제빙기"), Custom String("솥"), Custom String("오븐"), Custom String("팬"))
+2024	"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("내 이동 속도 증가"), Custom String("팀 영업 시간 증가"), Custom String("동전 교환"))
+2029	172.520)) < 3), Custom String("〔{0}〕 : 항목 변경", Input Binding String(Button(Reload))), Event Player, 2.500, Do Not Clip,
+2051	Custom String("평범한 손님/재앙은끝나지않았다/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/탱장연 대표/엘버피 VVIP/요리연구가/{0}",
+2052	Custom String("혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/조용히힐이나하게나/시끄러운 손님")), Custom String("/"))[Event Player.controlingIndex]);
+2055	Custom String("평범한 손님/대식가/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/포악한 손님/엘버피 VVIP/요리연구가/{0}",
+2056	Custom String("혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/거대식가/시끄러운 손님")), Custom String("/"))[Event Player.controlingIndex]);
+2180	Custom String("#{1} - {0}초", Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed)
+2190	"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+2209	Small Message(All Players(All Teams), Custom String("  완성도 있는 요리! +5%"));
+2217	Create HUD Text(All Players(All Teams), Custom String(" #{0} : 서빙 성공! {1}/{2} ", Event Player.tableIndex + True,
+2219	"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+2265	Small Message(All Players(All Teams), Custom String("  서빙 성공! +{0}%", Event Player.score));
+2272	"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+2283	Random Value In Array(Array(Custom String("날 풀어줘!"), Custom String("왜!? 이게 아냐!! 메뉴판이..!"), Custom String("이 메뉴는 대체 뭐야!?")))));
+2304	Small Message(All Players(All Teams), Custom String("  환상적인 서빙! +20% "));
+2305	Create HUD Text(All Players(All Teams), Custom String(" #{0} : 환상적인 서빙! ", Event Player.tableIndex + True), Null, Custom String(
+2314	Small Message(All Players(All Teams), Custom String("  신속한 서빙! +10% "));
+2315	Create HUD Text(All Players(All Teams), Custom String(" #{0} : 신속한 서빙! ", Event Player.tableIndex + True), Null, Custom String(
+2324	Small Message(All Players(All Teams), Custom String("  완성도 있는 요리! +5% "));
+2325	Create HUD Text(All Players(All Teams), Custom String(" #{0} : 서빙 성공! ", Event Player.tableIndex + True), Null, Custom String(
+2333	Create HUD Text(All Players(All Teams), Custom String(" #{0} : 서빙 성공! ", Event Player.tableIndex + True), Null, Custom String(
+2377	Big Message(All Players(All Teams), Custom String("VVIP 서빙 성공!"));
+2378	Small Message(All Players(All Teams), Custom String("  VVIP 서빙 성공! +{0}%", Event Player.score));
+2381	Small Message(All Players(All Teams), Custom String("  VIP 서빙 성공! +{0}%", Event Player.score));
+2384	Small Message(All Players(All Teams), Custom String("  보너스 점수 +50 "));
+2387	Small Message(All Players(All Teams), Custom String("  서빙 성공! +{0}%", Event Player.score));
+2400	"  ??초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
+2445	Small Message(All Players(All Teams), Custom String("  {0}{1}의 입소문! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+2472	Event Player.controlingIndex = Array(Custom String("설득 시간 초과!"), Null, Custom String("{0}의 잘못된 정치질!", Event Player.knifeText),
+2473	Custom String("흑화 조심!"), Custom String("완성도 낮은 요리!"), Custom String("맥주를 찾으러 돌진함!"))[Event Player.customerStatus];
+2475	Event Player.controlingIndex = Array(Custom String("시간 초과!"), Null, Custom String("{0}의 잘못된 서빙!", Event Player.knifeText),
+2476	Custom String("순서 조심!"), Custom String("완성도 낮은 요리!"), Custom String("혼란에 빠져 도망침!"))[Event Player.customerStatus];
+2510	Small Message(All Players(All Teams), Custom String("  {0}이거 재물손괴죄 아니냐고? ", Hero Icon String(Hero Of(Event Player))));
+2512	Small Message(All Players(All Teams), Custom String("  {0}알아. ", Hero Icon String(Hero Of(Event Player))));
+2522	Small Message(All Players(All Teams), Custom String("  {0}겨우 그까짓 서비스로 감히!!", Hero Icon String(Hero Of(Event Player))));
+3173	Global.STAGE_NAME = String Split(Custom String("커피/빙수/초코&쿠키/도넛/밀크티/마카롱/스무디/빵/브런치/아이스크림/파이&타르트/주스&에이드"), Custom String("/"));
+3180	Global.UPGRADE_NAME = String Split(Custom String("저장고 구매/무작위 도구 구매/무작위 신발 구매/튀김기&제빙기 강화/솥 강화/오븐 강화/팬 강화/개인 이동 속도 증가/{0}",
+3181	Custom String("팀 영업 시간 증가/동전 교환")), Custom String("/"));
+3379	Set Objective Description(All Players(All Teams), Custom String("영업 준비"), Visible To);
+3391	Create HUD Text(All Players(All Teams), Custom String(" {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}", Custom String(
+3392	"{0}{2}stage {1}", Array(Custom String("수습 난이도"), Custom String("숙련 난이도"), Custom String("전문 난이도"), Custom String(
+3394	" - ")), Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전")
+3404	Big Message(All Players(All Teams), Custom String("영업 시작!"));
+3407	Small Message(All Players(All Teams), Custom String("  서빙볼이 당신을 지원합니다! "));
+3423	Create HUD Text(All Players(All Teams), Custom String("　　　　　주문서　　　　　"), Null, Custom String(
+3444	Big Message(All Players(All Teams), Custom String("몰려오는 손님!"));
+3456	Big Message(All Players(All Teams), Custom String("전직원 보너스!"));
+3464	Big Message(All Players(All Teams), Custom String("영업 완료!"));
+3468	Big Message(All Players(All Teams), Custom String("{0}fgFF3291FF>환상적인 영업!", Global.tx));
+3480	Small Message(Global.scoringPlayer, Custom String("  급여 +${0}", Global.scoringPlayer.score));
+3488	Big Message(All Players(All Teams), Custom String("전직원 보너스!"));
+3493	Big Message(All Players(All Teams), Custom String("영업 완료!"));
+3499	Big Message(All Players(All Teams), Custom String("몰려오는 손님!"));
+3507	Big Message(All Players(All Teams), Custom String("성공적인 영업!"));
+3511	Big Message(All Players(All Teams), Custom String("{0}fgFF3291FF>환상적인 영업!", Global.tx));
+3522	Small Message(Filtered Array(All Players(Team 1), Current Array Element.score > Null), Custom String("  급여 +${0}",
+3552	Big Message(All Players(All Teams), Custom String("중간 점수 : {0}", Global.totalScore[False]));
+3558	Big Message(All Players(All Teams), Custom String("난이도 상승! 행운을 빌어요!"));
+3582	Big Message(All Players(All Teams), Global.isBonusStage ? Custom String("{0}fgC80013FF>보너스 영업 실패!", Global.tx) : Custom String("{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})",
+3843	Small Message(All Players(All Teams), Custom String("  {0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!", Global.tx, Global.spawningCustomerTable + True,
+4012	Small Message(All Players(All Teams), Custom String("  {0}{1} - {2} 직책 변경!  ", Hero Icon String(Hero Of(Global.selectPlayer)),
+4023	Small Message(All Players(All Teams), Custom String(" {0} 애옹 OwO ", Hero Icon String(Hero(Jetpack Cat))));
+4027	Small Message(All Players(All Teams), Custom String(" {0} 오빠 달린다~ 헤이! ", Hero Icon String(Hero(Mauga))));
+4499	Create In-World Text(All Players(Team 1), Custom String("최고 기록 갱신!! 이 화면을 캡처하여 https://ow-restaurant.com 로 보내주세요"), Vector(210.140,
+4514	Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕",
+4515	Evaluate Once(Custom String("{0}시간{1}분{2}초", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
+4517	Custom String("연습 모드"), Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String(
+4518	"마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode]),
+4519	Custom String("{0} / {1}", Array(Custom String("수습 난이도"), Custom String("숙련 난이도"), Custom String("전문 난이도"), Custom String(
+4520	"Hell's Kitchen"))[Global.difficulty], Global.isVictory ? Custom String("클리어!") : Custom String("Stage {0} 에서 실패",
+4530	Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕",
+4534	Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("성공한 영업 : 〔{0}〕",
+4543	"환상적인 영업 : 〔{0}〕\r\n성공적인 영업 : 〔{1}〕\r\n실패한 영업 : 〔{2}〕", Global.scbRank[False], Global.scbRank[True], Global.scbRank[3]), Vector(
+4548	Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("서빙 성공 : 〔{0}〕", Local Player.scbSurved), Vector(
+4551	Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕",
+4556	Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("서빙 실수 : 〔{0}〕", Local Player.scbMissed), Vector(
+4565	? Custom String("평가 : 〔★★★★★★★〕") : (Global.isVictory && Global.totalScore[False] > (Global.stageMode >= 4 ? 13000 : 5700)
+4566	? Custom String("평가 : 〔★★★★★★〕") : (Global.isVictory && Global.totalScore[False] > (Global.stageMode >= 4 ? 12000 : 5400)
+4567	? Custom String("평가 : 〔★★★★★〕") : (Global.totalScore[False] > (Global.stageMode >= 4 ? 11000 : 5000) ? Custom String(
+4568	"평가 : 〔★★★★☆〕") : (Global.totalScore[False] > (Global.stageMode >= 4 ? 10000 : 4500) ? Custom String("평가 : 〔★★★☆☆〕") : (
+4569	Global.totalScore[False] > (Global.stageMode >= 4 ? 8000 : 3500) ? Custom String("평가 : 〔★★☆☆☆〕") : (
+4570	Global.totalScore[False] > (Global.stageMode >= 4 ? 6000 : 2000) ? Custom String("평가 : 〔★☆☆☆☆〕") : Custom String(
+4571	"평가 : 〔☆☆☆☆☆〕"))))))), Vector(210.140, Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 2)
+4582	"개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕", All Players(Team 1)[False].scbDollar, All Players(Team 1)[False].scbScore,
+4583	All Players(Team 1)[False].scbCooked), Custom String("서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕", All Players(Team 1)[False].scbSurved,
+4589	"개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕", All Players(Team 1)[True].scbDollar, All Players(Team 1)[True].scbScore,
+4590	All Players(Team 1)[True].scbCooked), Custom String("서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕", All Players(Team 1)[True].scbSurved,
+4596	"개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕", All Players(Team 1)[2].scbDollar, All Players(Team 1)[2].scbScore,
+4597	All Players(Team 1)[2].scbCooked), Custom String("서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕", All Players(Team 1)[2].scbSurved,
+4603	"개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕", All Players(Team 1)[3].scbDollar, All Players(Team 1)[3].scbScore,
+4604	All Players(Team 1)[3].scbCooked), Custom String("서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕", All Players(Team 1)[3].scbSurved,
+4610	"개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕", All Players(Team 1)[4].scbDollar, All Players(Team 1)[4].scbScore,
+4611	All Players(Team 1)[4].scbCooked), Custom String("서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕", All Players(Team 1)[4].scbSurved,
+4617	"개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕", All Players(Team 1)[5].scbDollar, All Players(Team 1)[5].scbScore,
+4618	All Players(Team 1)[5].scbCooked), Custom String("서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕", All Players(Team 1)[5].scbSurved,
+4774	Big Message(All Players(All Teams), Custom String("  시공간이 뒤틀립니다!  "));
