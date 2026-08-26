@@ -4596,14 +4596,14 @@ rule("Global subroutine: Set Hint Text")
 			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
-				Custom String("Use ingredients from the Fridge to cook and serve dishes.\r\nPan-fry or grill the beef, then bring it to the correct table."),
-				Custom String("You can slice or chop ingredients on the cutting board to make different dishes.\r\nTry pan-frying or grilling the sliced beef."),
-				Custom String("By preparing ingredients and using different cooking tools, you can make a variety of dishes.\r\nFor example, grilling a whole potato makes Grilled Potato..."),
-				Custom String("slicing the potato and cooking it in a pan makes Stir-fried Potato..."),
+				Custom String("Use ingredients from the Fridge to cook and serve dishes.\r\nPan-fry or grill the Beef, then bring it to the correct table."),
+				Custom String("You can slice or chop ingredients on the cutting board to make different dishes.\r\nTry pan-frying or grilling Sliced Beef."),
+				Custom String("By preparing ingredients and using different cooking tools, you can make a variety of dishes.\r\nFor example, grilling a whole Potato makes Grilled Potato..."),
+				Custom String("slicing the Potato and cooking it in a pan makes Stir-fried Potato..."),
 				Custom String("and putting Sliced Potato into the fryer makes French Fries.\r\nStarting to get the idea?"),
-				Custom String("Some ingredients also change when you smash them.\r\nSteam a potato in the pot, then use momentum to slam the Steamed Potato onto the ground."),
+				Custom String("Some ingredients also change when you smash them.\r\nSteam a Potato in the pot, then use momentum to slam the Steamed Potato onto the ground."),
 				Custom String("Some ingredients can also be combined.\r\nTry combining Boiled Pasta with Cream Sauce."),
-				Custom String("You can make Tomato Sauce by slicing tomatoes and steaming them in a pot...\r\nbut smashing them is a faster way to turn them into Mashed Tomato."),
+				Custom String("You can make Tomato Sauce by slicing a Tomato and steaming it in a pot...\r\nbut smashing it is a faster way to turn it into Mashed Tomato."),
 				Custom String("Different customers have different traits.\r\nBig Fat Customers give more points, but you need to serve them twice."),
 				Custom String("Master the many recipe combinations and aim for a full clear.\r\nGood luck!")
 			);
@@ -4613,16 +4613,16 @@ rule("Global subroutine: Set Hint Text")
 				Custom String("Sliced Chicken + Frying Mix > Fryer"),
 				Custom String("Chicken + Frying Mix > Fryer"),
 				Custom String("Chopped Chicken + Frying Mix > Fryer"),
-				Custom String("All sauces can be merge to Fried Chicken.\r\nSoy Sauce + Corn Syrup"),
-				Custom String("Red pepper + Corn Syrup"),
-				Custom String("Red pepper + Soy Sauce + Corn Syrup"),
+				Custom String("Any sauce can be added to Fried Chicken.\r\nSoy Sauce + Corn Syrup"),
+				Custom String("Red Pepper Paste + Corn Syrup"),
+				Custom String("Red Pepper Paste + Soy Sauce + Corn Syrup"),
 				Custom String("Sliced Green Onion + Soy Sauce"),
 				Custom String("Chicken Nugget + Sweet&Spicy Sauce > Pan Fry")
 			);
 		Else If(Global.stage == 2);
 			Global.loadingMenu = Array(126, 7);
 			Global.hintText = Array(
-				Custom String("Throw the flour until it becomes pizza dough.\r\nPizza Dough + Tomato Sauce + Pizza Cheese > Grill"),
+				Custom String("Smash Flour until it becomes Flour Pizza Dough.\r\nFlour Pizza Dough + Tomato Sauce + Shredded Mozzarella > Grill"),
 				Custom String("You can check all recipes on this website.\r\nhttps://ow-restaurant.com/en")
 			);
 		Else If(Global.stage == 3);
