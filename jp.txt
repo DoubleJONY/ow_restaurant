@@ -4573,7 +4573,7 @@ rule("Global subroutine: Set Hint Text")
 			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
 			Global.loadingMenu = Array(3, 4, 8, 11, 7, 10, 25, 24);
 			Global.hintText = Array(
-				Custom String("冷蔵庫の材料を使って料理を作り、お客様に提供してください！\r\n牛肉をフライパンまたはグリルで焼いて、対応する#テーブルのお客様に届けてください。"),
+				Custom String("冷蔵庫の材料を使って料理を作り、お客様に提供してください！\r\n牛肉をフライパンまたはグリルで焼いて、正しいテーブルのお客様に届けてください。"),
 				Custom String("材料はまな板で薄切りにしたり刻んだりすると、別の料理が作れます。\r\n薄切り牛肉をフライパンまたはグリルで焼いてみてください。"),
 				Custom String("材料を下ごしらえし、さまざまな調理器具を使い分けることで、多彩な料理が作れます。\r\nたとえば、ジャガイモを丸ごと焼くと焼きジャガイモになり…"),
 				Custom String("ジャガイモを薄切りにしてフライパンで調理すると炒めジャガイモになり…"),
@@ -4587,10 +4587,10 @@ rule("Global subroutine: Set Hint Text")
 		Else If(Global.stage == 1);
 			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
 			Global.hintText = Array(
-				Custom String("薄切りした鶏肉 + 天ぷら粉 > フライヤー"),
+				Custom String("薄切り鶏肉 + 天ぷら粉 > フライヤー"),
 				Custom String("鶏肉 + 天ぷら粉 > フライヤー"),
 				Custom String("角切り鶏肉 + 天ぷら粉 > フライヤー"),
-				Custom String("すべての調味料はフライドチキンに追加できます。\r\n醤油 + 水飴"),
+				Custom String("フライドチキンには、どのソースも追加できます。\r\n醤油 + 水飴"),
 				Custom String("コチュジャン + 水飴"),
 				Custom String("コチュジャン + 醤油 + 水飴"),
 				Custom String("薄切りネギ + 醤油ソース"),
@@ -4599,14 +4599,15 @@ rule("Global subroutine: Set Hint Text")
 		Else If(Global.stage == 2);
 			Global.loadingMenu = Array(126, 7);
 			Global.hintText = Array(
-				Custom String("小麦粉をピザ生地になるまで叩いてください。\r\nピザ生地 + トマトソース + ピザチーズ > グリルで焼く")
+				Custom String("小麦粉をピザ生地になるまで叩いてください。\r\nピザ生地 + トマトソース + ピザ用チーズ > グリルで焼く"),
+				Custom String("すべてのレシピはこちらで確認できます。\r\nhttps://ow-restaurant.com/ja")
 			);
 		Else If(Global.stage == 3);
 			Global.currentCustomer = Array(Hero(Tracer), Hero(Bastion), Hero(Bastion));
 			Global.hintText = Array(
 				Custom String(""),
-				Custom String("注意してください！後から来たお客様を先に提供すると失敗するお客様のタイプがあります。"),
-				Custom String("このようなお客様には、注文書の順番に提供することをおすすめします。")
+				Custom String("後から来たお客様に先に料理を提供すると、帰ってしまうお客様もいます。"),
+				Custom String("注文書に表示された順番で料理を提供してください。")
 			);
 		Else If(Global.stage == 4);
 			Global.currentCustomer = Array(Hero(Hanzo), Hero(Tracer));
@@ -4616,13 +4617,13 @@ rule("Global subroutine: Set Hint Text")
 		Else If(Global.stage == 5);
 			Global.currentCustomer = Array(Hero(Zarya), Hero(Bastion));
 			Global.hintText = Array(
-				Custom String("フードファイターは3つの料理を提供する必要があります。")
+				Custom String("フードファイターには料理を3回提供する必要があります。")
 			);
 		Else If(Global.stage == 6);
 			Global.currentCustomer = Array(Hero(Hanzo), Hero(Mercy));
 			Global.hintText = Array(
 				Custom String(""),
-				Custom String("予約客は入場前に事前に注文を行います。\r\n中央に短時間表示される予約メッセージを注意深く見て覚えてください！")
+				Custom String("予約客は入場前に注文します。\r\n画面中央に短時間表示される予約メッセージを覚えてください。")
 			);
 		Else If(Global.stage == 9);
 			Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 7, 23);
