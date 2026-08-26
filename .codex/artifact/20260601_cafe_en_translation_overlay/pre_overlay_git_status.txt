@@ -1,0 +1,2 @@
+ M cafe_kr.txt
+?? .codex/artifact/20260601_cafe_en_translation_overlay/

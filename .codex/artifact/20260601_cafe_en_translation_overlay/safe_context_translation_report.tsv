@@ -1,0 +1,1381 @@
+rule	kr	en
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				솥	Pot
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				{0}초	{0}s
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				{0}초	{0}s
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				오븐	Oven
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				팬	Pan
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				냉장고	Fridge
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				〔{0}〕:  물 내리기  	  [{0}]:  Flush  
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				튀김기	Fryer
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				〔{0}〕: 영웅 변경	[{0}]: Change Hero
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				비어 있음	Empty
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				〔{0}〕: 영업 개시	[{0}]: OPEN
+)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Create Dummy Bot(All Heroes, Host Player, False, Null, Null);
+		Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				연습 모드	Practice
+)
+{
+	event
+	{
+		Player Joined Match;
+		Team 1;
+		All;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Primary Fire));
+		Disallow Button(Event Player, Button(Secondary Fire));
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Ultimate));
+		Disallow Button(Event Player, Button(Melee));
+		Set Ultimate Ability Enabled(Event Player, False);
+		Disable Hero HUD(Event Player);
+		Disable Messages(Event Player);
+		Event Player.controlingIndex = -1;
+		Event Player.durability = 100;
+		Event Player.playerSpeed = 90;
+		Event Player.itemPerk = -1;
+		Event Player.footPerk = -1;
+		Event Player.isController = False;
+		Wait Until(Has Spawned(Event Player), 9999);
+		Disable Nameplates(All Players(Team 1), All Players(Team 1));
+		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String(	〔{0}〕 로 시작	[{0}] to Start
+)
+{
+	event
+	{
+		Player Joined Match;
+		Team 1;
+		All;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Primary Fire));
+		Disallow Button(Event Player, Button(Secondary Fire));
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Ultimate));
+		Disallow Button(Event Player, Button(Melee));
+		Set Ultimate Ability Enabled(Event Player, False);
+		Disable Hero HUD(Event Player);
+		Disable Messages(Event Player);
+		Event Player.controlingIndex = -1;
+		Event Player.durability = 100;
+		Event Player.playerSpeed = 90;
+		Event Player.itemPerk = -1;
+		Event Player.footPerk = -1;
+		Event Player.isController = False;
+		Wait Until(Has Spawned(Event Player), 9999);
+		Disable Nameplates(All Players(Team 1), All Players(Team 1));
+		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String(	레 스 토 랑	Restaurant
+)
+{
+	event
+	{
+		Player Joined Match;
+		Team 1;
+		All;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Primary Fire));
+		Disallow Button(Event Player, Button(Secondary Fire));
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Ultimate));
+		Disallow Button(Event Player, Button(Melee));
+		Set Ultimate Ability Enabled(Event Player, False);
+		Disable Hero HUD(Event Player);
+		Disable Messages(Event Player);
+		Event Player.controlingIndex = -1;
+		Event Player.durability = 100;
+		Event Player.playerSpeed = 90;
+		Event Player.itemPerk = -1;
+		Event Player.footPerk = -1;
+		Event Player.isController = False;
+		Wait Until(Has Spawned(Event Player), 9999);
+		Disable Nameplates(All Players(Team 1), All Players(Team 1));
+		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String(	레스토랑 - 카페!	Cafe&Dessert
+)
+{
+	event
+	{
+		Player Joined Match;
+		Team 1;
+		All;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Primary Fire));
+		Disallow Button(Event Player, Button(Secondary Fire));
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Ultimate));
+		Disallow Button(Event Player, Button(Melee));
+		Set Ultimate Ability Enabled(Event Player, False);
+		Disable Hero HUD(Event Player);
+		Disable Messages(Event Player);
+		Event Player.controlingIndex = -1;
+		Event Player.durability = 100;
+		Event Player.playerSpeed = 90;
+		Event Player.itemPerk = -1;
+		Event Player.footPerk = -1;
+		Event Player.isController = False;
+		Wait Until(Has Spawned(Event Player), 9999);
+		Disable Nameplates(All Players(Team 1), All Players(Team 1));
+		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String(	Joseon#31496 : WM3MW\r\nGummyBear#11798\r\n변기클라우드#3523	Joseon#31496 : Z1TBZ\r\nGummyBear#11798\r\n변기클라우드#3523
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Primary Fire)) == True;
+		Event Player.permission != 2;
+	}
+
+	actions
+	{
+		Abort If(Array Contains(Global.cuttingPlayer, Event Player));
+		Event Player.controlingIndex = Index Of Array Value(Global.itemPosition, First Of(Sorted Array(Filtered Array(Global.itemPosition,
+			Distance Between(Current Array Element, Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500)
+			< 1.500 && !Global.itemControled[Current Array Index]), Distance Between(Current Array Element, Eye Position(Event Player)
+			+ Facing Direction Of(Event Player) * 1.500))));
+		If(Event Player.controlingIndex == -1);
+			Abort If(Global.itemCount >= 32);
+			Event Player.handPosition = Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(
+				Event Player) * 1.500, Null, Null, False);
+			Event Player.controlingIndex = Index Of Array Value(Global.FRIDGE_POSITION, First Of(Sorted Array(Filtered Array(
+				Global.FRIDGE_POSITION, Distance Between(Current Array Element, Event Player.handPosition) < 1), Distance Between(
+				Event Player.handPosition, Current Array Element))));
+			If(Event Player.controlingIndex != -1 && Global.fridgeCode[Event Player.controlingIndex]);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Global.createItemData = Array(Global.FRIDGE_POSITION[Event Player.controlingIndex], Vector(False, False, False),
+					Global.fridgeCode[Event Player.controlingIndex], Null, Null);
+				Call Subroutine(createItem);
+				Event Player.controlingIndex = Global.creatingItemIndex;
+			Else;
+				Event Player.controlingIndex = Index Of Array Value(Global.STORAGE_POSITION, First Of(Sorted Array(Filtered Array(
+					Global.STORAGE_POSITION, Distance Between(Current Array Element, Event Player.handPosition) < 1), Distance Between(
+					Event Player.handPosition, Current Array Element))));
+				If(Event Player.controlingIndex != -1 && Global.storageData[Event Player.controlingIndex][False]);
+					Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+					Global.createItemData = Array(Global.STORAGE_POSITION[Event Player.controlingIndex], Vector(False, False, False),
+						Global.storageData[Event Player.controlingIndex][False], Global.storageData[Event Player.controlingIndex][True],
+						Global.storageData[Event Player.controlingIndex][3]);
+					Call Subroutine(createItem);
+					Global.itemProgress[Global.creatingItemIndex] = Global.storageData[Event Player.controlingIndex][2];
+					Global.storageData[Event Player.controlingIndex] = Array(False, False, False);
+					Event Player.controlingIndex = Global.creatingItemIndex;
+				Else;
+					Event Player.controlingIndex = -1;
+					Abort;
+				End;
+			End;
+		End;
+		Global.itemControled[Event Player.controlingIndex] = True;
+		Global.itemLastControl[Event Player.controlingIndex] = Event Player;
+		Create HUD Text(All Players(All Teams), Null, Null, Custom String(
+				〔{0}〕:  아이템 장착  	  [{0}]:  Eqiup Item  
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.controlingIndex == -1);
+			Event Player.cuttingIndex = Index Of Array Value(Global.CUTTING_POSITION, First Of(Filtered Array(Global.CUTTING_POSITION,
+				Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element) < 1.500)));
+			If(Event Player.cuttingIndex != -1);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Abort If(Global.cuttingPlayer[Event Player.cuttingIndex] != Null || Event Player.knifeCode == -1);
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Event Player;
+				While(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1.500 && Is Button Held(Event Player, Button(Interact)));
+					Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element,
+						Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1 ? Current Array Index : -1), Current Array Element != -1);
+					If(Event Player.cookingIndex != Empty Array);
+						Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
+						While(Event Player.cookingIndex != Empty Array);
+							Global.itemVelocity[Event Player.cookingIndex] += Direction From Angles(Random Integer(False, 360), False) * 0.010 + Up * (
+								0.020 + 0.025 / Event Player.cuttingAmount);
+							Global.itemDespawn[Event Player.cookingIndex] = Null;
+							If(Global.itemStatus[Event Player.cookingIndex] == 1);
+								Global.itemProgress[Event Player.cookingIndex] += Event Player.cuttingAmount;
+							Else;
+								Global.itemStatus[Event Player.cookingIndex] = 1;
+								Global.itemProgress[Event Player.cookingIndex] = Event Player.cuttingAmount;
+							End;
+							If(Global.itemProgress[Event Player.cookingIndex] >= Global.CUTTING_NEEDED[Global.itemCode[Event Player.cookingIndex]]);
+								If(!Count Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]));
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+									Global.itemCode[Event Player.cookingIndex] = Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]];
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+								Else If(Global.itemCount + Count Of(Global.CUTTING_RESULT[Event Player.cookingIndex]) < 32);
+									Global.createItemData = Array(Global.itemPosition[Event Player.cookingIndex], Direction From Angles(Random Integer(False, 360),
+										False) * 0.010 + Up * (0.020 + 0.025 / Event Player.cuttingAmount), Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of(
+										Event Player.cookingIndex)]]), Null, Null);
+									Call Subroutine(createItem);
+									Global.itemCode[Event Player.cookingIndex] = First Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]);
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+								End;
+							End;
+							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
+							If(Event Player.durability <= 0);
+								Event Player.knifeCode = -1;
+								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
+									100);
+								Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+									Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+								Play Effect(Event Player, Bad Explosion, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+									False);
+								Destroy HUD Text(Event Player.knifeText);
+								Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+								Abort;
+							End;
+						End;
+						Play Effect(All Players(All Teams), Good Explosion, Color(White), Global.CUTTING_POSITION[Event Player.cuttingIndex], True);
+						Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+							Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+						Event Player.scbCutted += 1;
+					End;
+					Wait Until(!Is Button Held(Event Player, Button(Interact)), Event Player.normalDrink ? 0.250 : (
+						Event Player.knifeCode == 2 ? 0.400 : 0.500));
+					If(!Is Button Held(Event Player, Button(Interact)));
+						Break;
+					End;
+				End;
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
+			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
+					< 1.500);
+				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
+					233.911, 1.821, 167.590)) < 0.500 ? Current Array Index : -1), Current Array Element != -1);
+				If(Event Player.cookingIndex != Empty Array);
+					While(Event Player.cookingIndex != Empty Array);
+						Destroy Effect(Global.itemEffect[Event Player.cookingIndex]);
+						Destroy In-World Text(Global.itemText[Event Player.cookingIndex]);
+						Wait(0.016, Ignore Condition);
+						Global.itemPosition[Event Player.cookingIndex] = Down;
+						Global.itemVelocity[Event Player.cookingIndex] = Null;
+						Global.itemCode[Event Player.cookingIndex] = -1;
+						Global.itemCount -= True;
+						Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+					End;
+					Play Effect(All Players(All Teams), Good Explosion, Color(Aqua), Vector(233.911, 1.821, 167.590), True);
+					Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Null, Vector(233.911, 1.821, 167.590), 100);
+				End;
+			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(217.370, 2, 172.520)) < 1.500);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
+					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
+					Small Message(Event Player, Custom String(	  $ 돈이 부족합니다	  $ Not Enough Money 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.controlingIndex == -1);
+			Event Player.cuttingIndex = Index Of Array Value(Global.CUTTING_POSITION, First Of(Filtered Array(Global.CUTTING_POSITION,
+				Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element) < 1.500)));
+			If(Event Player.cuttingIndex != -1);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Abort If(Global.cuttingPlayer[Event Player.cuttingIndex] != Null || Event Player.knifeCode == -1);
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Event Player;
+				While(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1.500 && Is Button Held(Event Player, Button(Interact)));
+					Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element,
+						Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1 ? Current Array Index : -1), Current Array Element != -1);
+					If(Event Player.cookingIndex != Empty Array);
+						Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
+						While(Event Player.cookingIndex != Empty Array);
+							Global.itemVelocity[Event Player.cookingIndex] += Direction From Angles(Random Integer(False, 360), False) * 0.010 + Up * (
+								0.020 + 0.025 / Event Player.cuttingAmount);
+							Global.itemDespawn[Event Player.cookingIndex] = Null;
+							If(Global.itemStatus[Event Player.cookingIndex] == 1);
+								Global.itemProgress[Event Player.cookingIndex] += Event Player.cuttingAmount;
+							Else;
+								Global.itemStatus[Event Player.cookingIndex] = 1;
+								Global.itemProgress[Event Player.cookingIndex] = Event Player.cuttingAmount;
+							End;
+							If(Global.itemProgress[Event Player.cookingIndex] >= Global.CUTTING_NEEDED[Global.itemCode[Event Player.cookingIndex]]);
+								If(!Count Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]));
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+									Global.itemCode[Event Player.cookingIndex] = Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]];
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+								Else If(Global.itemCount + Count Of(Global.CUTTING_RESULT[Event Player.cookingIndex]) < 32);
+									Global.createItemData = Array(Global.itemPosition[Event Player.cookingIndex], Direction From Angles(Random Integer(False, 360),
+										False) * 0.010 + Up * (0.020 + 0.025 / Event Player.cuttingAmount), Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of(
+										Event Player.cookingIndex)]]), Null, Null);
+									Call Subroutine(createItem);
+									Global.itemCode[Event Player.cookingIndex] = First Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]);
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+								End;
+							End;
+							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
+							If(Event Player.durability <= 0);
+								Event Player.knifeCode = -1;
+								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
+									100);
+								Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+									Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+								Play Effect(Event Player, Bad Explosion, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+									False);
+								Destroy HUD Text(Event Player.knifeText);
+								Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+								Abort;
+							End;
+						End;
+						Play Effect(All Players(All Teams), Good Explosion, Color(White), Global.CUTTING_POSITION[Event Player.cuttingIndex], True);
+						Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+							Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+						Event Player.scbCutted += 1;
+					End;
+					Wait Until(!Is Button Held(Event Player, Button(Interact)), Event Player.normalDrink ? 0.250 : (
+						Event Player.knifeCode == 2 ? 0.400 : 0.500));
+					If(!Is Button Held(Event Player, Button(Interact)));
+						Break;
+					End;
+				End;
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
+			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
+					< 1.500);
+				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
+					233.911, 1.821, 167.590)) < 0.500 ? Current Array Index : -1), Current Array Element != -1);
+				If(Event Player.cookingIndex != Empty Array);
+					While(Event Player.cookingIndex != Empty Array);
+						Destroy Effect(Global.itemEffect[Event Player.cookingIndex]);
+						Destroy In-World Text(Global.itemText[Event Player.cookingIndex]);
+						Wait(0.016, Ignore Condition);
+						Global.itemPosition[Event Player.cookingIndex] = Down;
+						Global.itemVelocity[Event Player.cookingIndex] = Null;
+						Global.itemCode[Event Player.cookingIndex] = -1;
+						Global.itemCount -= True;
+						Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+					End;
+					Play Effect(All Players(All Teams), Good Explosion, Color(Aqua), Vector(233.911, 1.821, 167.590), True);
+					Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Null, Vector(233.911, 1.821, 167.590), 100);
+				End;
+			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(217.370, 2, 172.520)) < 1.500);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
+					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
+					Small Message(Event Player, Custom String(	  준비 시간을 생략합니다! 	  Skipping Preparation Time! 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.controlingIndex == -1);
+			Event Player.cuttingIndex = Index Of Array Value(Global.CUTTING_POSITION, First Of(Filtered Array(Global.CUTTING_POSITION,
+				Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element) < 1.500)));
+			If(Event Player.cuttingIndex != -1);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Abort If(Global.cuttingPlayer[Event Player.cuttingIndex] != Null || Event Player.knifeCode == -1);
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Event Player;
+				While(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1.500 && Is Button Held(Event Player, Button(Interact)));
+					Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element,
+						Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1 ? Current Array Index : -1), Current Array Element != -1);
+					If(Event Player.cookingIndex != Empty Array);
+						Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
+						While(Event Player.cookingIndex != Empty Array);
+							Global.itemVelocity[Event Player.cookingIndex] += Direction From Angles(Random Integer(False, 360), False) * 0.010 + Up * (
+								0.020 + 0.025 / Event Player.cuttingAmount);
+							Global.itemDespawn[Event Player.cookingIndex] = Null;
+							If(Global.itemStatus[Event Player.cookingIndex] == 1);
+								Global.itemProgress[Event Player.cookingIndex] += Event Player.cuttingAmount;
+							Else;
+								Global.itemStatus[Event Player.cookingIndex] = 1;
+								Global.itemProgress[Event Player.cookingIndex] = Event Player.cuttingAmount;
+							End;
+							If(Global.itemProgress[Event Player.cookingIndex] >= Global.CUTTING_NEEDED[Global.itemCode[Event Player.cookingIndex]]);
+								If(!Count Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]));
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+									Global.itemCode[Event Player.cookingIndex] = Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]];
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+								Else If(Global.itemCount + Count Of(Global.CUTTING_RESULT[Event Player.cookingIndex]) < 32);
+									Global.createItemData = Array(Global.itemPosition[Event Player.cookingIndex], Direction From Angles(Random Integer(False, 360),
+										False) * 0.010 + Up * (0.020 + 0.025 / Event Player.cuttingAmount), Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of(
+										Event Player.cookingIndex)]]), Null, Null);
+									Call Subroutine(createItem);
+									Global.itemCode[Event Player.cookingIndex] = First Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]);
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+								End;
+							End;
+							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
+							If(Event Player.durability <= 0);
+								Event Player.knifeCode = -1;
+								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
+									100);
+								Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+									Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+								Play Effect(Event Player, Bad Explosion, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+									False);
+								Destroy HUD Text(Event Player.knifeText);
+								Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+								Abort;
+							End;
+						End;
+						Play Effect(All Players(All Teams), Good Explosion, Color(White), Global.CUTTING_POSITION[Event Player.cuttingIndex], True);
+						Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+							Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+						Event Player.scbCutted += 1;
+					End;
+					Wait Until(!Is Button Held(Event Player, Button(Interact)), Event Player.normalDrink ? 0.250 : (
+						Event Player.knifeCode == 2 ? 0.400 : 0.500));
+					If(!Is Button Held(Event Player, Button(Interact)));
+						Break;
+					End;
+				End;
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
+			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
+					< 1.500);
+				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
+					233.911, 1.821, 167.590)) < 0.500 ? Current Array Index : -1), Current Array Element != -1);
+				If(Event Player.cookingIndex != Empty Array);
+					While(Event Player.cookingIndex != Empty Array);
+						Destroy Effect(Global.itemEffect[Event Player.cookingIndex]);
+						Destroy In-World Text(Global.itemText[Event Player.cookingIndex]);
+						Wait(0.016, Ignore Condition);
+						Global.itemPosition[Event Player.cookingIndex] = Down;
+						Global.itemVelocity[Event Player.cookingIndex] = Null;
+						Global.itemCode[Event Player.cookingIndex] = -1;
+						Global.itemCount -= True;
+						Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+					End;
+					Play Effect(All Players(All Teams), Good Explosion, Color(Aqua), Vector(233.911, 1.821, 167.590), True);
+					Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Null, Vector(233.911, 1.821, 167.590), 100);
+				End;
+			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(217.370, 2, 172.520)) < 1.500);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
+					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
+					Small Message(Event Player, Custom String(	  임시 개장 종료! 	  Temporary Service Closed! 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.controlingIndex == -1);
+			Event Player.cuttingIndex = Index Of Array Value(Global.CUTTING_POSITION, First Of(Filtered Array(Global.CUTTING_POSITION,
+				Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element) < 1.500)));
+			If(Event Player.cuttingIndex != -1);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Abort If(Global.cuttingPlayer[Event Player.cuttingIndex] != Null || Event Player.knifeCode == -1);
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Event Player;
+				While(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1.500 && Is Button Held(Event Player, Button(Interact)));
+					Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element,
+						Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1 ? Current Array Index : -1), Current Array Element != -1);
+					If(Event Player.cookingIndex != Empty Array);
+						Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
+						While(Event Player.cookingIndex != Empty Array);
+							Global.itemVelocity[Event Player.cookingIndex] += Direction From Angles(Random Integer(False, 360), False) * 0.010 + Up * (
+								0.020 + 0.025 / Event Player.cuttingAmount);
+							Global.itemDespawn[Event Player.cookingIndex] = Null;
+							If(Global.itemStatus[Event Player.cookingIndex] == 1);
+								Global.itemProgress[Event Player.cookingIndex] += Event Player.cuttingAmount;
+							Else;
+								Global.itemStatus[Event Player.cookingIndex] = 1;
+								Global.itemProgress[Event Player.cookingIndex] = Event Player.cuttingAmount;
+							End;
+							If(Global.itemProgress[Event Player.cookingIndex] >= Global.CUTTING_NEEDED[Global.itemCode[Event Player.cookingIndex]]);
+								If(!Count Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]));
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+									Global.itemCode[Event Player.cookingIndex] = Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]];
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+								Else If(Global.itemCount + Count Of(Global.CUTTING_RESULT[Event Player.cookingIndex]) < 32);
+									Global.createItemData = Array(Global.itemPosition[Event Player.cookingIndex], Direction From Angles(Random Integer(False, 360),
+										False) * 0.010 + Up * (0.020 + 0.025 / Event Player.cuttingAmount), Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of(
+										Event Player.cookingIndex)]]), Null, Null);
+									Call Subroutine(createItem);
+									Global.itemCode[Event Player.cookingIndex] = First Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]);
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+								End;
+							End;
+							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
+							If(Event Player.durability <= 0);
+								Event Player.knifeCode = -1;
+								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
+									100);
+								Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+									Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+								Play Effect(Event Player, Bad Explosion, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+									False);
+								Destroy HUD Text(Event Player.knifeText);
+								Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+								Abort;
+							End;
+						End;
+						Play Effect(All Players(All Teams), Good Explosion, Color(White), Global.CUTTING_POSITION[Event Player.cuttingIndex], True);
+						Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+							Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+						Event Player.scbCutted += 1;
+					End;
+					Wait Until(!Is Button Held(Event Player, Button(Interact)), Event Player.normalDrink ? 0.250 : (
+						Event Player.knifeCode == 2 ? 0.400 : 0.500));
+					If(!Is Button Held(Event Player, Button(Interact)));
+						Break;
+					End;
+				End;
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
+			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
+					< 1.500);
+				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
+					233.911, 1.821, 167.590)) < 0.500 ? Current Array Index : -1), Current Array Element != -1);
+				If(Event Player.cookingIndex != Empty Array);
+					While(Event Player.cookingIndex != Empty Array);
+						Destroy Effect(Global.itemEffect[Event Player.cookingIndex]);
+						Destroy In-World Text(Global.itemText[Event Player.cookingIndex]);
+						Wait(0.016, Ignore Condition);
+						Global.itemPosition[Event Player.cookingIndex] = Down;
+						Global.itemVelocity[Event Player.cookingIndex] = Null;
+						Global.itemCode[Event Player.cookingIndex] = -1;
+						Global.itemCount -= True;
+						Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+					End;
+					Play Effect(All Players(All Teams), Good Explosion, Color(Aqua), Vector(233.911, 1.821, 167.590), True);
+					Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Null, Vector(233.911, 1.821, 167.590), 100);
+				End;
+			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(217.370, 2, 172.520)) < 1.500);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
+					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
+					Small Message(Event Player, Custom String(	  잠시 후 게임을 시작합니다! 	  Game will start shortly! 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.controlingIndex == -1);
+			Event Player.cuttingIndex = Index Of Array Value(Global.CUTTING_POSITION, First Of(Filtered Array(Global.CUTTING_POSITION,
+				Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element) < 1.500)));
+			If(Event Player.cuttingIndex != -1);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Abort If(Global.cuttingPlayer[Event Player.cuttingIndex] != Null || Event Player.knifeCode == -1);
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Event Player;
+				While(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1.500 && Is Button Held(Event Player, Button(Interact)));
+					Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element,
+						Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1 ? Current Array Index : -1), Current Array Element != -1);
+					If(Event Player.cookingIndex != Empty Array);
+						Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
+						While(Event Player.cookingIndex != Empty Array);
+							Global.itemVelocity[Event Player.cookingIndex] += Direction From Angles(Random Integer(False, 360), False) * 0.010 + Up * (
+								0.020 + 0.025 / Event Player.cuttingAmount);
+							Global.itemDespawn[Event Player.cookingIndex] = Null;
+							If(Global.itemStatus[Event Player.cookingIndex] == 1);
+								Global.itemProgress[Event Player.cookingIndex] += Event Player.cuttingAmount;
+							Else;
+								Global.itemStatus[Event Player.cookingIndex] = 1;
+								Global.itemProgress[Event Player.cookingIndex] = Event Player.cuttingAmount;
+							End;
+							If(Global.itemProgress[Event Player.cookingIndex] >= Global.CUTTING_NEEDED[Global.itemCode[Event Player.cookingIndex]]);
+								If(!Count Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]));
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+									Global.itemCode[Event Player.cookingIndex] = Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]];
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+								Else If(Global.itemCount + Count Of(Global.CUTTING_RESULT[Event Player.cookingIndex]) < 32);
+									Global.createItemData = Array(Global.itemPosition[Event Player.cookingIndex], Direction From Angles(Random Integer(False, 360),
+										False) * 0.010 + Up * (0.020 + 0.025 / Event Player.cuttingAmount), Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of(
+										Event Player.cookingIndex)]]), Null, Null);
+									Call Subroutine(createItem);
+									Global.itemCode[Event Player.cookingIndex] = First Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]);
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+								End;
+							End;
+							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
+							If(Event Player.durability <= 0);
+								Event Player.knifeCode = -1;
+								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
+									100);
+								Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+									Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+								Play Effect(Event Player, Bad Explosion, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+									False);
+								Destroy HUD Text(Event Player.knifeText);
+								Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+								Abort;
+							End;
+						End;
+						Play Effect(All Players(All Teams), Good Explosion, Color(White), Global.CUTTING_POSITION[Event Player.cuttingIndex], True);
+						Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+							Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+						Event Player.scbCutted += 1;
+					End;
+					Wait Until(!Is Button Held(Event Player, Button(Interact)), Event Player.normalDrink ? 0.250 : (
+						Event Player.knifeCode == 2 ? 0.400 : 0.500));
+					If(!Is Button Held(Event Player, Button(Interact)));
+						Break;
+					End;
+				End;
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
+			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
+					< 1.500);
+				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
+					233.911, 1.821, 167.590)) < 0.500 ? Current Array Index : -1), Current Array Element != -1);
+				If(Event Player.cookingIndex != Empty Array);
+					While(Event Player.cookingIndex != Empty Array);
+						Destroy Effect(Global.itemEffect[Event Player.cookingIndex]);
+						Destroy In-World Text(Global.itemText[Event Player.cookingIndex]);
+						Wait(0.016, Ignore Condition);
+						Global.itemPosition[Event Player.cookingIndex] = Down;
+						Global.itemVelocity[Event Player.cookingIndex] = Null;
+						Global.itemCode[Event Player.cookingIndex] = -1;
+						Global.itemCount -= True;
+						Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+					End;
+					Play Effect(All Players(All Teams), Good Explosion, Color(Aqua), Vector(233.911, 1.821, 167.590), True);
+					Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Null, Vector(233.911, 1.821, 167.590), 100);
+				End;
+			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(217.370, 2, 172.520)) < 1.500);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
+					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
+					Small Message(Event Player, Custom String(	  연습용 손님이 입장합니다! 	  Temporary Opening! Customers are coming in! 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.controlingIndex == -1);
+			Event Player.cuttingIndex = Index Of Array Value(Global.CUTTING_POSITION, First Of(Filtered Array(Global.CUTTING_POSITION,
+				Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Current Array Element) < 1.500)));
+			If(Event Player.cuttingIndex != -1);
+				Abort If(Event Player.permission == 1 || Event Player.permission == 2);
+				Abort If(Global.cuttingPlayer[Event Player.cuttingIndex] != Null || Event Player.knifeCode == -1);
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Event Player;
+				While(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1.500 && Is Button Held(Event Player, Button(Interact)));
+					Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element,
+						Global.CUTTING_POSITION[Event Player.cuttingIndex]) < 1 ? Current Array Index : -1), Current Array Element != -1);
+					If(Event Player.cookingIndex != Empty Array);
+						Event Player.cuttingAmount = Global.KNIFE_AMOUNT[Event Player.knifeCode] * (Event Player.durability / 200 + 0.500);
+						While(Event Player.cookingIndex != Empty Array);
+							Global.itemVelocity[Event Player.cookingIndex] += Direction From Angles(Random Integer(False, 360), False) * 0.010 + Up * (
+								0.020 + 0.025 / Event Player.cuttingAmount);
+							Global.itemDespawn[Event Player.cookingIndex] = Null;
+							If(Global.itemStatus[Event Player.cookingIndex] == 1);
+								Global.itemProgress[Event Player.cookingIndex] += Event Player.cuttingAmount;
+							Else;
+								Global.itemStatus[Event Player.cookingIndex] = 1;
+								Global.itemProgress[Event Player.cookingIndex] = Event Player.cuttingAmount;
+							End;
+							If(Global.itemProgress[Event Player.cookingIndex] >= Global.CUTTING_NEEDED[Global.itemCode[Event Player.cookingIndex]]);
+								If(!Count Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]));
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+									Global.itemCode[Event Player.cookingIndex] = Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]];
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+								Else If(Global.itemCount + Count Of(Global.CUTTING_RESULT[Event Player.cookingIndex]) < 32);
+									Global.createItemData = Array(Global.itemPosition[Event Player.cookingIndex], Direction From Angles(Random Integer(False, 360),
+										False) * 0.010 + Up * (0.020 + 0.025 / Event Player.cuttingAmount), Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of(
+										Event Player.cookingIndex)]]), Null, Null);
+									Call Subroutine(createItem);
+									Global.itemCode[Event Player.cookingIndex] = First Of(Global.CUTTING_RESULT[Global.itemCode[Event Player.cookingIndex]]);
+									Global.itemProgress[Event Player.cookingIndex] = Null;
+									Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+										Global.CUTTING_POSITION[Event Player.cuttingIndex], 200);
+									Modify Global Variable At Index(itemCooker, Event Player.cookingIndex, Append To Array, Event Player);
+								End;
+							End;
+							Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+							Event Player.durability -= Global.KNIFE_DECREASE[Event Player.knifeCode];
+							If(Event Player.durability <= 0);
+								Event Player.knifeCode = -1;
+								Play Effect(All Players(All Teams), Bastion Tank Cannon Explosion Sound, Null, Global.CUTTING_POSITION[Event Player.cuttingIndex],
+									100);
+								Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+									Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+								Play Effect(Event Player, Bad Explosion, Color(Red), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+									False);
+								Destroy HUD Text(Event Player.knifeText);
+								Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+								Abort;
+							End;
+						End;
+						Play Effect(All Players(All Teams), Good Explosion, Color(White), Global.CUTTING_POSITION[Event Player.cuttingIndex], True);
+						Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Null,
+							Global.CUTTING_POSITION[Event Player.cuttingIndex], 75);
+						Event Player.scbCutted += 1;
+					End;
+					Wait Until(!Is Button Held(Event Player, Button(Interact)), Event Player.normalDrink ? 0.250 : (
+						Event Player.knifeCode == 2 ? 0.400 : 0.500));
+					If(!Is Button Held(Event Player, Button(Interact)));
+						Break;
+					End;
+				End;
+				Global.cuttingPlayer[Event Player.cuttingIndex] = Null;
+				Wait(Event Player.knifeCode == 5 ? 0.010 : 0.400, Ignore Condition);
+			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(234.340, 2, 168.146))
+					< 1.500);
+				Event Player.cookingIndex = Filtered Array(Mapped Array(Global.itemPosition, Distance Between(Current Array Element, Vector(
+					233.911, 1.821, 167.590)) < 0.500 ? Current Array Index : -1), Current Array Element != -1);
+				If(Event Player.cookingIndex != Empty Array);
+					While(Event Player.cookingIndex != Empty Array);
+						Destroy Effect(Global.itemEffect[Event Player.cookingIndex]);
+						Destroy In-World Text(Global.itemText[Event Player.cookingIndex]);
+						Wait(0.016, Ignore Condition);
+						Global.itemPosition[Event Player.cookingIndex] = Down;
+						Global.itemVelocity[Event Player.cookingIndex] = Null;
+						Global.itemCode[Event Player.cookingIndex] = -1;
+						Global.itemCount -= True;
+						Modify Player Variable(Event Player, cookingIndex, Remove From Array By Index, False);
+					End;
+					Play Effect(All Players(All Teams), Good Explosion, Color(Aqua), Vector(233.911, 1.821, 167.590), True);
+					Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Null, Vector(233.911, 1.821, 167.590), 100);
+				End;
+			Else If(Global.currentUpgrade != -1 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
+					Vector(217.370, 2, 172.520)) < 1.500);
+				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
+					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
+					Small Message(Event Player, Custom String(	 {0}{1} 님이 연습을 시작하자고 합니다! 	  {0}{1} want to start practicing! 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Reload)) == True;
+	}
+
+	actions
+	{
+		If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(232.608, 2.750, 170.455))
+			< 1 && Global.difficulty == 4 && Global.stage != 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage])
+			<= 1);
+			Global.totalScore[False] = (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
+			Global.currentMenu = Empty Array;
+			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
+			Global.loadingMenu = Randomized Array(Global.currentMenu);
+			Global.currentMenuHaz = Empty Array;
+			Modify Global Variable(currentMenuHaz, Append To Array, Global.HAZARD_MENU_LIST[Global.totalScore[False]]);
+			Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
+			Global.currentMenuWeaver = Empty Array;
+			Modify Global Variable(currentMenuWeaver, Append To Array, Global.WEAVER_MENU_LIST[Global.totalScore[False]]);
+			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
+			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];
+		Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(232.608, 2.750, 170.455))
+				< 1 && Global.difficulty == 4 && Global.stage == 4 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage])
+				<= 1);
+			Global.totalScore[False] = (Global.totalScore[False] + True) % 4;
+		End;
+		Abort If(Event Player.controlingIndex + True);
+		If(Global.currentUpgrade + True && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(
+			217.370, 2, 172.520)) < 1.500);
+			Event Player.selectedUpgrade = (Event Player.selectedUpgrade + True) % Count Of(Global.upgradePrice[Global.currentUpgrade]);
+		Else;
+			Abort If(Global.setUpTime <= 0);
+			Wait(0.200, Abort When False);
+			Small Message(Event Player, Custom String(	  길게 누르면 모든 아이템을 내려놓습니다 	  Hold to drop items 
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Ultimate)) == True;
+		Event Player.itemPerk != -1;
+		Global.superDrink != -2;
+	}
+
+	actions
+	{
+		If(Event Player.itemPerk == 0);
+			Small Message(Event Player, Custom String(	  100초간 속도 증가!  	  Increase Speed for 100 seconds! 
+)
+{
+	event
+	{
+		Subroutine;
+		perkHud;
+	}
+
+	actions
+	{
+		Abort If(Event Player.itemPerk == -1);
+		Create HUD Text(Event Player, Array(Ability Icon String(Hero(Roadhog), Button(Ability 2)), Ability Icon String(Hero(Ana), Button(
+			Ultimate)), Ability Icon String(Hero(Ashe), Button(Ability 2)), Ability Icon String(Hero(Sigma), Button(Ability 1)),
+			Ability Icon String(Hero(Baptiste), Button(Ultimate)), Ability Icon String(Hero(Torbjörn), Button(Ultimate)),
+			Ability Icon String(Hero(Wrecking Ball), Button(Ability 1)), Ability Icon String(Hero(Mei), Button(Ability 1)))
+			[Event Player.itemPerk], Custom String(	〔{0}〕	[{0}]
+)
+{
+	event
+	{
+		Subroutine;
+		footHud;
+	}
+
+	actions
+	{
+		Abort If(Event Player.footPerk == -1);
+		Create HUD Text(Event Player, Array(Ability Icon String(Hero(Baptiste), Button(Crouch)), Ability Icon String(Hero(Reinhardt),
+			Button(Ability 1)), Ability Icon String(Hero(Kiriko), Button(Ability 1)))[Event Player.footPerk], Custom String(	〔{0}〕	[{0}]
+)
+{
+	event
+	{
+		Subroutine;
+		loadProgress;
+	}
+
+	actions
+	{
+		For Player Variable(Event Player, progressIndex, False, Count Of(Global.playerProgress), True);
+			If(Global.playerProgress[Event Player.progressIndex][False] == Custom String(	  돌아오셨군요! 이전 데이터를 불러왔습니다!  	  Welcome Back! Your progress is restored!  
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		Wrecking Ball;
+	}
+
+	actions
+	{
+		Start Scaling Player(Event Player, 0.500, True);
+		Start Modifying Hero Voice Lines(Event Player, 10, True);
+		Start Forcing Dummy Bot Name(Event Player, Custom String(	서빙볼	ServingBall
+)
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		Wrecking Ball;
+	}
+
+	actions
+	{
+		Start Scaling Player(Event Player, 0.500, True);
+		Start Modifying Hero Voice Lines(Event Player, 10, True);
+		Start Forcing Dummy Bot Name(Event Player, Custom String(	서빙볼	ServingBall
+)
+{
+	event
+	{
+		Subroutine;
+		gameSummary;
+	}
+
+	actions
+	{
+		Global.isOpen = False;
+		Global.skipSetup = False;
+		Set Status(All Players(Team 1), Null, Rooted, 9999);
+		Destroy All HUD Text;
+		Destroy All In-World Text;
+		Destroy All Progress Bar HUD Text;
+		Disable Game Mode HUD(All Players(All Teams));
+		Wait(2, Ignore Condition);
+		Start Camera(All Players(Team 1), Ray Cast Hit Position(Local Player + Vector(0, 2 + 0.100, 0), Local Player + Vector(0, 2 + 0.100,
+			0) + Facing Direction Of(Local Player) * (-0.500 + 1 * -3), Null, All Players(All Teams), False), Local Player + (Eye Position(
+			Local Player) - Local Player) + Facing Direction Of(Local Player) * 20, 20);
+		Wait(0.100, Ignore Condition);
+		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(gameSummaryTP);
+		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
+		Wait(1.800, Ignore Condition);
+		Create In-World Text(All Players(Team 1), Custom String(	레스토랑 - 카페! : 〔{0}〕	Restaurant-Cafe&Dessert : [{0}]
+)
+{
+	event
+	{
+		Subroutine;
+		gameSummary;
+	}
+
+	actions
+	{
+		Global.isOpen = False;
+		Global.skipSetup = False;
+		Set Status(All Players(Team 1), Null, Rooted, 9999);
+		Destroy All HUD Text;
+		Destroy All In-World Text;
+		Destroy All Progress Bar HUD Text;
+		Disable Game Mode HUD(All Players(All Teams));
+		Wait(2, Ignore Condition);
+		Start Camera(All Players(Team 1), Ray Cast Hit Position(Local Player + Vector(0, 2 + 0.100, 0), Local Player + Vector(0, 2 + 0.100,
+			0) + Facing Direction Of(Local Player) * (-0.500 + 1 * -3), Null, All Players(All Teams), False), Local Player + (Eye Position(
+			Local Player) - Local Player) + Facing Direction Of(Local Player) * 20, 20);
+		Wait(0.100, Ignore Condition);
+		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(gameSummaryTP);
+		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
+		Wait(1.800, Ignore Condition);
+		Create In-World Text(All Players(Team 1), Custom String(	최고 기록 : 〔{0}〕	High Score: [{0}]
+)
+{
+	event
+	{
+		Subroutine;
+		gameSummary;
+	}
+
+	actions
+	{
+		Global.isOpen = False;
+		Global.skipSetup = False;
+		Set Status(All Players(Team 1), Null, Rooted, 9999);
+		Destroy All HUD Text;
+		Destroy All In-World Text;
+		Destroy All Progress Bar HUD Text;
+		Disable Game Mode HUD(All Players(All Teams));
+		Wait(2, Ignore Condition);
+		Start Camera(All Players(Team 1), Ray Cast Hit Position(Local Player + Vector(0, 2 + 0.100, 0), Local Player + Vector(0, 2 + 0.100,
+			0) + Facing Direction Of(Local Player) * (-0.500 + 1 * -3), Null, All Players(All Teams), False), Local Player + (Eye Position(
+			Local Player) - Local Player) + Facing Direction Of(Local Player) * 20, 20);
+		Wait(0.100, Ignore Condition);
+		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(gameSummaryTP);
+		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
+		Wait(1.800, Ignore Condition);
+		Create In-World Text(All Players(Team 1), Custom String(	{0} 〔{2}〕\r\n  {1}	{0} [{2}]\r\n  {1}
+)
+{
+	event
+	{
+		Subroutine;
+		gameSummary;
+	}
+
+	actions
+	{
+		Global.isOpen = False;
+		Global.skipSetup = False;
+		Set Status(All Players(Team 1), Null, Rooted, 9999);
+		Destroy All HUD Text;
+		Destroy All In-World Text;
+		Destroy All Progress Bar HUD Text;
+		Disable Game Mode HUD(All Players(All Teams));
+		Wait(2, Ignore Condition);
+		Start Camera(All Players(Team 1), Ray Cast Hit Position(Local Player + Vector(0, 2 + 0.100, 0), Local Player + Vector(0, 2 + 0.100,
+			0) + Facing Direction Of(Local Player) * (-0.500 + 1 * -3), Null, All Players(All Teams), False), Local Player + (Eye Position(
+			Local Player) - Local Player) + Facing Direction Of(Local Player) * 20, 20);
+		Wait(0.100, Ignore Condition);
+		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(gameSummaryTP);
+		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
+		Wait(1.800, Ignore Condition);
+		Create In-World Text(All Players(Team 1), Custom String(	요리에 기여함 : 〔{0}〕\r\n칼질한 횟수 : 〔{1}〕	Cooking Mastery: [{0}]\r\nChopped: [{1}]
+)
+{
+	event
+	{
+		Subroutine;
+		gameSummary;
+	}
+
+	actions
+	{
+		Global.isOpen = False;
+		Global.skipSetup = False;
+		Set Status(All Players(Team 1), Null, Rooted, 9999);
+		Destroy All HUD Text;
+		Destroy All In-World Text;
+		Destroy All Progress Bar HUD Text;
+		Disable Game Mode HUD(All Players(All Teams));
+		Wait(2, Ignore Condition);
+		Start Camera(All Players(Team 1), Ray Cast Hit Position(Local Player + Vector(0, 2 + 0.100, 0), Local Player + Vector(0, 2 + 0.100,
+			0) + Facing Direction Of(Local Player) * (-0.500 + 1 * -3), Null, All Players(All Teams), False), Local Player + (Eye Position(
+			Local Player) - Local Player) + Facing Direction Of(Local Player) * 20, 20);
+		Wait(0.100, Ignore Condition);
+		Start Camera(All Players(Team 1), Vector(206.991, 2, 188.239), Vector(222.559, 4.963, 164.417), 6);
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(gameSummaryTP);
+		Set Facing(All Players(Team 1), Direction Towards(Vector(210.380, 2.400, 182.040), Vector(206.991, 2, 188.239)), To World);
+		Wait(1.800, Ignore Condition);
+		Create In-World Text(All Players(Team 1), Custom String(	환상적인 서빙 : 〔{0}〕\r\n신속한 서빙 : 〔{1}〕\r\n완성도 있는 요리 : 〔{2}〕	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]
