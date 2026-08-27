@@ -717,7 +717,7 @@ rule("Global: Setting")
 		Create In-World Text(Players Within Radius(Vector(233.690, 2, 163.772), 10, Team 1, Off), Custom String("냉장고"), Vector(233.690,
 			3.500, 163.772), 3, Do Not Clip, Visible To, Color(Sky Blue), Default Visibility);
 		Create HUD Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
-			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  물 내리기  ", Input Binding String(
+			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  물 내리기", Input Binding String(
 			Button(Interact))), Null, Custom String("\r\n"), Top, 6, Color(Aqua), Null, Null, Visible To and String, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(231.369, 2, 166.183), 10, Team 1, Off), Custom String("도마"), Vector(231.369,
 			3, 166.183), 3, Do Not Clip, Visible To, Color(Lime Green), Default Visibility);
@@ -726,8 +726,8 @@ rule("Global: Setting")
 		Create HUD Text(Filtered Array(All Players(Team 1), Min(Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
 			Current Array Element) * 1.500, Vector(231.369, 2, 166.183)), Distance Between(Eye Position(Current Array Element)
 			+ Facing Direction Of(Current Array Element) * 1.500, Vector(222.109, 2, 156.602))) < 1.500),
-			Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))) : Custom String(
-			"  칼이 없습니다  "), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
+			Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기", Input Binding String(Button(Interact))) : Custom String(
+			"칼이 없습니다"), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
 			Null, Visible To String and Color, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(224.552, 2, 161.294), 10, Team 1, Off), Custom String("튀김기"), Vector(224.552,
 			3, 161.294), 3, Do Not Clip, Visible To, Color(Yellow), Default Visibility);
@@ -762,7 +762,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v260527\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)[Global.stageMode], 255), Null, String and Color, Default Visibility);
+			"레스토랑(SPXXM) v260827\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(145, 180, 255, 120, 120, 65)[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode][True], Global.totalScore[Global.stageMode][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -859,13 +859,13 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} v260527\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
-		Custom String("  {0} 거대식가: 멋있는 대식가!\r\n{1}", Hero Icon String(Hero(Reinhardt)),
-		Custom String("  {0} 시끄러운 손님: 실수하면 고막을 터뜨려 버립니다!", Hero Icon String(Hero(Junker Queen))))), 
+		Custom String("{0} v260827\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
+		Custom String("{0} 거대식가: 멋있는 대식가!\r\n{1}", Hero Icon String(Hero(Reinhardt)),
+		Custom String("{0} 시끄러운 손님: 실수하면 고막을 터뜨려 버립니다!", Hero Icon String(Hero(Junker Queen))))), 
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(214, 156, 107, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} 버그 수정\r\n\r\n  정육식당에서 너무 많은 손님이 등장하지 않게 수정", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -1073,19 +1073,19 @@ rule("Player: Control item")
 			Default Visibility);
 		Event Player.tableText[True] = Last Text ID;
 		If(Array Contains(Global.KNIFE, Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  칼 장착  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  칼 장착", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
         Else If(Array Contains(Global.PERK_LIST[False], Global.itemCode[Event Player.controlingIndex]) || Array Contains(Global.PERK_LIST[True], Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  아이템 장착  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  아이템 장착", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(432 == Global.itemCode[Event Player.controlingIndex]);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  줍기  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  줍기", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Yellow), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  썰기", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		End;
@@ -1234,7 +1234,7 @@ rule("Player: Interact")
 					Vector(217.370, 2, 172.520)) < 1.500);
 				If(Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade] > Event Player.dollar);
 					Play Effect(Event Player, Explosion Sound, Null, Vector(217.370, 2, 172.520), 50);
-					Small Message(Event Player, Custom String("  $ 돈이 부족합니다"));
+					Small Message(Event Player, Custom String("$ 돈이 부족합니다"));
 					Wait(True, Ignore Condition);
 				Else;
 					Event Player.dollar -= Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade];
@@ -1243,16 +1243,16 @@ rule("Player: Interact")
 						Call Subroutine(purchaseUpgrade);
 					Else;
 						If(Event Player.selectedUpgrade == 2);
-							Small Message(Event Player, Custom String("  전설 칼 주문 -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
-							Small Message(Event Player, Custom String("  다음번에 상인이 칼을 가져올 것 입니다  "));
+							Small Message(Event Player, Custom String("전설 칼 주문 -${0}", Global.upgradePrice[Global.currentUpgrade][2]));
+							Small Message(Event Player, Custom String("다음번에 상인이 칼을 가져올 것 입니다"));
 							Global.orderedKnives[True] += True;
 						Else If(Event Player.selectedUpgrade == 1);
-							Small Message(Event Player, Custom String("  특수 칼 뽑기 -${0}", Global.upgradePrice[Global.currentUpgrade][True]));
-							Small Message(Event Player, Custom String("  다음번에 상인이 칼을 가져올 것 입니다  "));
+							Small Message(Event Player, Custom String("특수 칼 뽑기 -${0}", Global.upgradePrice[Global.currentUpgrade][True]));
+							Small Message(Event Player, Custom String("다음번에 상인이 칼을 가져올 것 입니다"));
 							Global.orderedKnives[False] += True;
 						Else;
 							Abort If(Global.itemCount == 32);
-							Small Message(Event Player, Custom String("  {0} 구매 -${1}",
+							Small Message(Event Player, Custom String("{0} 구매 -${1}",
 								Global.ITEM_NAME[Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade]],
 								Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade]));
 							Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
@@ -1294,39 +1294,39 @@ rule("Player: Interact")
 				Global.fridgeCode = Global.FRIDGE_LIST[Global.STAGE_CODE[Global.stage]];
 			Else If(Event Player.permission == 3 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty != 4 && Global.isOpen == False && Match Time > 3);
-				Small Message(All Players(All Teams), Custom String("  준비 시간을 생략합니다! "));
+				Small Message(All Players(All Teams), Custom String("준비 시간을 생략합니다! "));
 				Communicate(Event Player, Countdown);
 				Set Match Time(3);
 				Wait(3, Ignore Condition);
 				Global.skipSetup = True;
 			Else If(Event Player.permission != 3 && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty != 4 && Global.isOpen == False && Match Time > 3);
-				Small Message(All Players(All Teams), Custom String("  {0}{1} 준비 완료! (헤드셰프만 준비시간을 생략할 수 있습니다)  ", Hero Icon String(Hero Of(Event Player)), Event Player));
+				Small Message(All Players(All Teams), Custom String("{0}{1} 준비 완료! (헤드셰프만 준비시간을 생략할 수 있습니다)", Hero Icon String(Hero Of(Event Player)), Event Player));
 				Communicate(Event Player, Press the Attack);
 				Wait(0.75, Ignore Condition);
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(227.287, 2.050, 167.679)) < 1 && Global.difficulty == 4);
 				If(Event Player.permission != 3 && Global.isOpen);
-					Small Message(All Players(All Teams), Custom String("  {0}{1} 님이 연습을 중지하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+					Small Message(All Players(All Teams), Custom String("{0}{1} 님이 연습을 중지하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 					Communicate(Event Player, Ready);
 					Wait(0.75, Ignore Condition);
 				Else If(Event Player.permission == 3 && Global.isOpen);
 					Global.isOpen = False;
-					Small Message(All Players(All Teams), Custom String("  임시 개장 종료! "));
+					Small Message(All Players(All Teams), Custom String("임시 개장 종료! "));
 					Destroy HUD Text(Global.globalText[True]);
 					All Players(Team 2).customerStatus = -1;
 					Wait(1.5, Ignore Condition);
 				Else;
 					If(Global.stage == 5);
-						Small Message(All Players(All Teams), Custom String("  {0} 의 워크샵 코드는 {1} 입니다! ",
+						Small Message(All Players(All Teams), Custom String("{0} 의 워크샵 코드는 {1} 입니다! ",
 							Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]],
 							Array(Custom String("P6ZAA"), Custom String("WM3MW"), Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
 					Else If(Event Player.permission != 3 && Global.stage == 4);
-						Small Message(All Players(All Teams), Custom String("  {0}{1} 님이 게임을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+						Small Message(All Players(All Teams), Custom String("{0}{1} 님이 게임을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
 						Wait(0.75, Ignore Condition);
 					Else If(Event Player.permission == 3 && Global.stage == 4);
-						Small Message(All Players(All Teams), Custom String("  잠시 후 게임을 시작합니다! "));
+						Small Message(All Players(All Teams), Custom String("잠시 후 게임을 시작합니다! "));
 						Communicate(Event Player, Countdown);
 						Wait(3.5, Ignore Condition);
 						Communicate(All Players(Team 1), Go);
@@ -1334,7 +1334,7 @@ rule("Player: Interact")
 					Else;
 						If(Event Player.permission == 3);
 							Global.isOpen = True;
-							Small Message(All Players(All Teams), Custom String("  연습용 손님이 입장합니다! "));
+							Small Message(All Players(All Teams), Custom String("연습용 손님이 입장합니다! "));
 							Create HUD Text(All Players(All Teams), Custom String("　　　　　주문서　　　　　"), Null, Custom String(
 								"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 								Left, False, Color(Yellow), Null, Null, Visible To and Color, Default Visibility);
@@ -1347,7 +1347,7 @@ rule("Player: Interact")
 							End;
 							Start Rule(callCustomer, Restart Rule);
 						Else;
-							Small Message(All Players(All Teams), Custom String("  {0}{1} 님이 연습을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+							Small Message(All Players(All Teams), Custom String("{0}{1} 님이 연습을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 							Communicate(Event Player, Press the Attack);
 							Wait(0.75, Ignore Condition);
 						End;
@@ -1560,7 +1560,7 @@ rule("Player: Reload button")
 		Else;
 		Abort If(Global.setUpTime <= 0);
 		Wait(0.2, Abort When False);
-		Small Message(Event Player, Custom String("  길게 누르면 모든 아이템을 내려놓습니다 "));
+		Small Message(Event Player, Custom String("길게 누르면 모든 아이템을 내려놓습니다 "));
 		Wait(2, Abort When False);
 		If(Event Player.itemPerk + True);
 			Global.createItemData = Array(Eye Position(Event Player), Facing Direction Of(Event Player) * 0.200,
@@ -1677,7 +1677,7 @@ rule("Player: Ultimate button")
 	actions
 	{
         If(Event Player.itemPerk == 0);
-            Small Message(Event Player, Custom String("  100초간 속도 증가!  "));
+            Small Message(Event Player, Custom String("100초간 속도 증가!"));
             Destroy HUD Text(Event Player.itemPerkText);
             Event Player.itemPerk = -1;
             Set Move Speed(Event Player, 150);
@@ -1732,7 +1732,7 @@ rule("Player: Ultimate button")
 			Play Effect(All Players(All Teams), Good Explosion, Color(Orange), Event Player, 2);
 			Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Event Player, 2);
 			Create Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
-			Small Message(All Players(All Teams), Custom String("  {1}{0}이(가) 서빙볼을 소환했습니다! ", Event Player, Hero Icon String(Hero Of(Event Player))));
+			Small Message(All Players(All Teams), Custom String("{1}{0}이(가) 서빙볼을 소환했습니다! ", Event Player, Hero Icon String(Hero Of(Event Player))));
 			Global.itemStatus[Global.creatingItemIndex] = Global.itemStatus[Event Player.controlingIndex];
 			Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
 			Destroy HUD Text(Event Player.itemPerkText);
@@ -1740,7 +1740,7 @@ rule("Player: Ultimate button")
 		Else If(Event Player.itemPerk == 7 && Count Of(All Players(Team 1)) == 6);
 			Play Effect(All Players(All Teams), Good Explosion, Color(Orange), Event Player, 10);
 			Play Effect(All Players(All Teams), Ring Explosion Sound, Null, Event Player, 10);
-			Small Message(All Players(All Teams), Custom String("  {1}{0}이(가) 제트팩을 장착했습니다! ", Event Player, Hero Icon String(Hero Of(Event Player))));
+			Small Message(All Players(All Teams), Custom String("{1}{0}이(가) 제트팩을 장착했습니다! ", Event Player, Hero Icon String(Hero Of(Event Player))));
 			Global.itemStatus[Global.creatingItemIndex] = Global.itemStatus[Event Player.controlingIndex];
 			Global.itemProgress[Global.creatingItemIndex] = Global.itemProgress[Event Player.controlingIndex];
 			Destroy HUD Text(Event Player.itemPerkText);
@@ -1783,12 +1783,12 @@ rule("Player: Authorize Controller")
 
 	actions
 	{
-		Small Message(Event Player, Custom String("  뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! "));
+		Small Message(Event Player, Custom String("뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! "));
 		Wait Until(Z Component Of(Throttle Of(Event Player)) < 0.730 && 
 			Z Component Of(Throttle Of(Event Player)) > 0.200, 3);
 		If(Z Component Of(Throttle Of(Event Player)) < 0.730 && Z Component Of(Throttle Of(Event Player)) > 0.200);
 			Event Player.isController = True;
-			Small Message(Event Player, Custom String("  이제 [{0}] 키로 재료를 뭉갤 수 있습니다! ", Input Binding String(Button(Melee))));
+			Small Message(Event Player, Custom String("이제 [{0}] 키로 재료를 뭉갤 수 있습니다! ", Input Binding String(Button(Melee))));
 			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
                 String and Color, Default Visibility);
 		End;
@@ -1846,7 +1846,7 @@ rule("Player: Left match")
 		Host Player.permission = 3;
 		If(Slot Of(Host Player) == -1 && Count Of(Filtered Array(All Players(Team 1), Current Array Element.permission == 3)) == 0);
 			Random Value In Array(Filtered Array(All Players(Team 1), Has Spawned(Current Array Element) && Current Array Element.permission == 0)).permission = 3;
-			Small Message(Filtered Array(All Players(Team 1), Current Array Element.permission == 3), Custom String("  당신이 이제 헤드셰프 입니다!  "));
+			Small Message(Filtered Array(All Players(Team 1), Current Array Element.permission == 3), Custom String("당신이 이제 헤드셰프 입니다!"));
 		End;
 		Destroy In-World Text(Event Player.altNamePlate);
 		If(Count Of(All Players(Team 1)) == 0);
@@ -1891,7 +1891,7 @@ rule("Dummy: Spawn")
 			Stop Facing(Event Player);
 			Global.currentUpgrade = Event Player.cookingIndex;
 			If(!Event Player.cookingIndex && (Global.orderedKnives[False] || Global.orderedKnives[True]));
-				Small Message(All Players(All Teams), Custom String("  {0} : 주문한 칼 가지고 왔다네!", Hero Icon String(Hero(Torbjörn))));
+				Small Message(All Players(All Teams), Custom String("{0} : 주문한 칼 가지고 왔다네!", Hero Icon String(Hero(Torbjörn))));
 				While(Global.orderedKnives[False]);
 					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 						-70)) * 0.100, Random Integer(62, 65), 100, Null);
@@ -1907,7 +1907,7 @@ rule("Dummy: Spawn")
 					Wait(0.100, Ignore Condition);
 				End;
 			Else If(Event Player.cookingIndex == 1 && Global.stageMode < 3 && Global.stage < 4);
-				Small Message(All Players(All Teams), Custom String("  {0} : 무료 아이템을 나눠드릴게요!", Hero Icon String(Hero(Mei))));
+				Small Message(All Players(All Teams), Custom String("{0} : 무료 아이템을 나눠드릴게요!", Hero Icon String(Hero(Mei))));
 				For Player Variable(Event Player, controlingIndex, False, Count Of(All Players(Team 1)), True);
 					Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 						-70)) * 0.100, Random Value In Array(Global.PERK_LIST[Random Integer(0, 1)]), 100, Null);
@@ -1921,26 +1921,26 @@ rule("Dummy: Spawn")
 			Skip(Event Player.cookingIndex * 2);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("{0} 구매",
+				"〔{0}〕:  {1} - ${2}", Input Binding String(Button(Interact)), Array(Custom String("{0} 구매",
 				Global.ITEM_NAME[Global.KNIFE[True]]), Custom String("특수 칼 뽑기"), Custom String("전설 칼 주문"))[Local Player.selectedUpgrade], First Of(Global.upgradePrice)
 				[Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3, Do Not Clip, Visible To Position String and Color,
 				Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(5);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 구매 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("저장고"), Custom String("무작위 도구"), Custom String("무작위 신발"))
+				"〔{0}〕:  {1} 구매 - ${2}", Input Binding String(Button(Interact)), Array(Custom String("저장고"), Custom String("무작위 도구"), Custom String("무작위 신발"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[True][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(3);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} 강화 - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("튀김기"), Custom String("솥"), Custom String("그릴"), Custom String("팬"))
+				"〔{0}〕:  {1} 강화 - ${2}", Input Binding String(Button(Interact)), Array(Custom String("튀김기"), Custom String("솥"), Custom String("그릴"), Custom String("팬"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[2][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Skip(1);
 			Create In-World Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element)
 				+ Facing Direction Of(Current Array Element) * 1.500, Vector(217.370, 2, 172.520)) < 1.500), Custom String(
-				"〔{0}〕:  {1} - ${2}  ", Input Binding String(Button(Interact)), Array(Custom String("내 이동 속도 증가"), Custom String("팀 영업 시간 증가"), Custom String("동전 교환"))
+				"〔{0}〕:  {1} - ${2}", Input Binding String(Button(Interact)), Array(Custom String("내 이동 속도 증가"), Custom String("팀 영업 시간 증가"), Custom String("동전 교환"))
 				[Local Player.selectedUpgrade], Global.upgradePrice[3][Local Player.selectedUpgrade]), Vector(217.370, 1.500, 172.520), 3,
 				Do Not Clip, Visible To Position String and Color, Global.upgradeColor[Local Player.selectedUpgrade], Default Visibility);
 			Event Player.playerText = Last Text ID;
@@ -2112,7 +2112,7 @@ rule("Dummy: Spawn")
 					While(Event Player.orderCount < (Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3));
 						Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} {2} ", Event Player.tableIndex + True,
 							Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]], Custom String("{0}/{1}", Event Player.orderCount, Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3))), Event Player.hintText, Custom String(
-							"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+							"{0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
 							Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
 							Event Player.orderedTime * 0.001, Event Player.playerColor, Color(Yellow), Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1 < 10 ? Color(Red) : Event Player.playerColor, Visible To String and Color,
 							Default Visibility);
@@ -2134,7 +2134,7 @@ rule("Dummy: Spawn")
 							If(Event Player.customerStatus == 4);
 								All Players(Team 1).score += 1;
 								Global.systemScore += 5;
-								Small Message(All Players(All Teams), Custom String("  완성도 있는 요리! +5%"));
+								Small Message(All Players(All Teams), Custom String("완성도 있는 요리! +5%"));
 								Global.scbSurved[2] += 1;
 								Event Player.tipsProb += 5;
 							Else;
@@ -2144,7 +2144,7 @@ rule("Dummy: Spawn")
 							All Players(Team 1).score += 1;
 							Create HUD Text(All Players(All Teams), Custom String(" #{0} : 서빙 성공! {1}/{2} ", Event Player.tableIndex + True,
 								Event Player.orderCount, Hero Of(Event Player) == Hero(Reinhardt) ? 9 : 3), Null, Custom String(
-								"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+								"{0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
 								Max(Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up), False)), Left,
 								Event Player.orderedTime * 0.001, Color(Rose), Null, Color(Rose), String, Default Visibility);
 							Event Player.playerText = Last Text ID;
@@ -2190,14 +2190,14 @@ rule("Dummy: Spawn")
 						Modify Player Variable(Event Player, score, Max, Global.stageMode == 5 ? 5 : 10);
 						Global.systemScore += Event Player.score;
 						Global.stageScore += Event Player.score;
-						Small Message(All Players(All Teams), Custom String("  서빙 성공! +{0}%", Event Player.score));
+						Small Message(All Players(All Teams), Custom String("서빙 성공! +{0}%", Event Player.score));
 						Wait(True, Ignore Condition);
 					End;
 					Break;
 				Else;
 					Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
 						Event Player.hideOrder == 1 ? Custom String("???") : Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Event Player.hintText, Custom String(
-						"  {0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+						"{0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
 						(Hero Of(Event Player) == Hero(Sigma) || Hero Of(Event Player) == Hero(Ramattra)) ? Custom String("??") : Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1), Left,
 						Total Time Elapsed * 0.001, Event Player.playerColor, Color(Yellow), Round To Integer(Evaluate Once(Event Player.orderTimeOut + Total Time Elapsed) - Total Time Elapsed, Up) - 1 < 10 ? Color(Red) : Event Player.playerColor, Visible To String and Color,
 						Default Visibility);
@@ -2207,7 +2207,7 @@ rule("Dummy: Spawn")
 					Destroy In-World Text(Event Player.tableText);
 					Destroy Effect(Event Player.shaftEffect);
 					If(Hero Of(Event Player) == Hero(Sigma) && (Event Player.customerStatus == False || Event Player.customerStatus == 2));
-						Small Message(All Players(All Teams), Custom String("  {0}{1} ", Hero Icon String(Hero Of(Event Player)), 
+						Small Message(All Players(All Teams), Custom String("{0}{1} ", Hero Icon String(Hero Of(Event Player)), 
 						Random Value In Array(Array(Custom String("날 풀어줘!"), Custom String("왜!? 이게 아냐!! 메뉴판이..!"), Custom String("이 메뉴는 대체 뭐야!?")))));
 						Set Ultimate Charge(Event Player, 100);
 						Wait(0.016, Ignore Condition);
@@ -2229,7 +2229,7 @@ rule("Dummy: Spawn")
 							If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.180 && Event Player.customerStatus == 4);
 								Global.systemScore += 20;
 								All Players(Team 1).score += 3;
-								Small Message(All Players(All Teams), Custom String("  환상적인 서빙! +20% "));
+								Small Message(All Players(All Teams), Custom String("환상적인 서빙! +20% "));
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : 환상적인 서빙! ", Event Player.tableIndex + True), Null, Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
@@ -2239,7 +2239,7 @@ rule("Dummy: Spawn")
 							Else If(Total Time Elapsed - Event Player.orderedTime < Event Player.orderTimeOut * 0.250);
 								Global.systemScore += 10;
 								All Players(Team 1).score += 2;
-								Small Message(All Players(All Teams), Custom String("  신속한 서빙! +10% "));
+								Small Message(All Players(All Teams), Custom String("신속한 서빙! +10% "));
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : 신속한 서빙! ", Event Player.tableIndex + True), Null, Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
@@ -2249,7 +2249,7 @@ rule("Dummy: Spawn")
 							Else If(Event Player.customerStatus == 4);
 								Global.systemScore += 5;
 								All Players(Team 1).score += 2;
-								Small Message(All Players(All Teams), Custom String("  완성도 있는 요리! +5% "));
+								Small Message(All Players(All Teams), Custom String("완성도 있는 요리! +5% "));
 								Create HUD Text(All Players(All Teams), Custom String(" #{0} : 서빙 성공! ", Event Player.tableIndex + True), Null, Custom String(
 									"\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"),
 									Left, Event Player.orderedTime * 0.001, Color(Rose), Null, Null, None, Default Visibility);
@@ -2303,16 +2303,16 @@ rule("Dummy: Spawn")
 								Global.stageScore += Event Player.score;
 								If(Hero Of(Event Player) == Hero(Moira));
 									Big Message(All Players(All Teams), Custom String("VVIP 서빙 성공!"));
-									Small Message(All Players(All Teams), Custom String("  VVIP 서빙 성공! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("VVIP 서빙 성공! +{0}%", Event Player.score));
 									All Players(Team 1).score += 100;
 								Else If(Hero Of(Event Player) == Hero(D.Va));
-									Small Message(All Players(All Teams), Custom String("  VIP 서빙 성공! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("VIP 서빙 성공! +{0}%", Event Player.score));
 									All Players(Team 1).score += 20;
 								Else If(Hero Of(Event Player) == Hero(Kiriko));
-									Small Message(All Players(All Teams), Custom String("  보너스 점수 +50 "));
+									Small Message(All Players(All Teams), Custom String("보너스 점수 +50 "));
 									Global.totalScore[False] += Global.difficulty != 4 ? 50 : 0;
 								Else;
-									Small Message(All Players(All Teams), Custom String("  서빙 성공! +{0}%", Event Player.score));
+									Small Message(All Players(All Teams), Custom String("서빙 성공! +{0}%", Event Player.score));
 								End;
 								Wait(True, Ignore Condition);
 								Destroy HUD Text(Event Player.playerText);
@@ -2325,7 +2325,7 @@ rule("Dummy: Spawn")
 								Wait(0.016, Ignore Condition);
 								Create HUD Text(All Players(All Teams), Evaluate Once(Custom String(" #{0} : {1} ", Event Player.tableIndex + True,
 									Global.ITEM_NAME[Global.tableOrderCode[Event Player.tableIndex]])), Null, Custom String(
-									"  ??초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"), 
+									"??초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　"), 
 									Left, Total Time Elapsed * 0.001, Event Player.playerColor, Null, Event Player.playerColor, Visible To String and Color, Default Visibility);
 								Global.tableOrderCode[Event Player.tableIndex] = Random Integer(0, Count Of(Global.ITEM_NAME) - True);
 								Event Player.playerText = Last Text ID;
@@ -2370,7 +2370,7 @@ rule("Dummy: Spawn")
 			End;
 		End;
 		If(Event Player.dollar && Global.isOpen);
-			Small Message(All Players(All Teams), Custom String("  {0}{1}의 입소문! ", Hero Icon String(Hero Of(Event Player)), Event Player));
+			Small Message(All Players(All Teams), Custom String("{0}{1}의 입소문! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 			Communicate(All Players(Team 1), Incoming);
 			If(Hero Of(Event Player) == Hero(D.Va));
 				Global.loadNext += 4;
@@ -2420,7 +2420,7 @@ rule("serveFail") {
 		End;
 		Event Player.dollar = False;
 		Global.scbSurved[5] += 1;
-		Small Message(All Players(All Teams), Custom String("  {0}{1}", Event Player.controlingIndex, Event Player.score ? Custom String(
+		Small Message(All Players(All Teams), Custom String("{0}{1}", Event Player.controlingIndex, Event Player.score ? Custom String(
 			" -{0}%", Event Player.score) : Custom String("")));
 		If(Hero Of(Event Player) == Hero(Moira) && Global.difficulty != 4 || Global.stageMode == 5);
 			Set Match Time(1);
@@ -2435,9 +2435,9 @@ rule("serveFail") {
 			Set Status(All Players(Team 1), Null, Phased Out, 9999);
 			Press Button(Event Player, Button(Ultimate));
 			If(Array Contains(Global.ALLOWED_HEROS, Hero(Mauga)));
-				Small Message(All Players(All Teams), Custom String("  {0}이거 재물손괴죄 아니냐고? ", Hero Icon String(Hero Of(Event Player))));
+				Small Message(All Players(All Teams), Custom String("{0}이거 재물손괴죄 아니냐고? ", Hero Icon String(Hero Of(Event Player))));
 				Wait(3, Ignore Condition);
-				Small Message(All Players(All Teams), Custom String("  {0}알아. ", Hero Icon String(Hero Of(Event Player))));
+				Small Message(All Players(All Teams), Custom String("{0}알아. ", Hero Icon String(Hero Of(Event Player))));
 				Wait(4, Ignore Condition);
 			Else;
 				Wait(7, Ignore Condition);
@@ -2447,7 +2447,7 @@ rule("serveFail") {
 			Set Ultimate Charge(Event Player, 100);
 			Wait(0.016, Ignore Condition);
 			Press Button(Event Player, Button(Ultimate));
-			Small Message(All Players(All Teams), Custom String("  {0}겨우 그까짓 서비스로 감히!!", Hero Icon String(Hero Of(Event Player))));
+			Small Message(All Players(All Teams), Custom String("{0}겨우 그까짓 서비스로 감히!!", Hero Icon String(Hero Of(Event Player))));
 			For Player Variable(Event Player, durability, True, 31, True);
 				If(Global.itemCount == 32);
 					Break;
@@ -3259,7 +3259,7 @@ rule("Global subroutine: Start stage")
 		Big Message(All Players(All Teams), Custom String("영업 시작!"));
 		If(Count Of(All Players(Team 1)) == 1);
 			Create Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
-			Small Message(All Players(All Teams), Custom String("  서빙볼이 당신을 지원합니다! "));
+			Small Message(All Players(All Teams), Custom String("서빙볼이 당신을 지원합니다! "));
 		End;
 		Destroy Progress Bar HUD Text(Global.globalText[False]);
 		Destroy HUD Text(Global.globalText[True]);
@@ -3332,7 +3332,7 @@ rule("Global subroutine: Start stage")
 					For Global Variable(scoringIndex, False, Number Of Players(Team 1), True);
 						Global.scoringPlayer = All Players(Team 1)[Global.scoringIndex];
 						If(Global.scoringPlayer.score > False);
-							Small Message(Global.scoringPlayer, Custom String("  급여 +${0}", Global.scoringPlayer.score));
+							Small Message(Global.scoringPlayer, Custom String("급여 +${0}", Global.scoringPlayer.score));
 							Global.scoringPlayer.dollar += Global.scoringPlayer.score;
 							Global.scoringPlayer.scbDollar += Global.scoringPlayer.score;
 						End;
@@ -3374,7 +3374,7 @@ rule("Global subroutine: Start stage")
 				Global.totalScore[False] += Global.stageScore + Round To Integer(Match Time, To Nearest);
 				Global.customerCallTime -= 0.100;
 				Play Effect(All Players(Team 1), DVa Self Destruct Explosion Sound, Null, Vector(222.007, True, 165.207), 200);
-				Small Message(Filtered Array(All Players(Team 1), Current Array Element.score > Null), Custom String("  급여 +${0}",
+				Small Message(Filtered Array(All Players(Team 1), Current Array Element.score > Null), Custom String("급여 +${0}",
 					Local Player.score));
 				For Global Variable(scoringIndex, False, Number Of Players(Team 1), True);
 					Global.scoringPlayer = All Players(Team 1)[Global.scoringIndex];
@@ -3778,7 +3778,7 @@ rule("Global subroutine: Call customer")
 					Global.loadingMenu = Randomized Array(Global.currentMenu);
 				End;
 				Wait(0.016, Ignore Condition);
-				Small Message(All Players(All Teams), Custom String("  {0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!", Global.tx, Global.spawningCustomerTable + True,
+				Small Message(All Players(All Teams), Custom String("{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!", Global.tx, Global.spawningCustomerTable + True,
 					Global.ITEM_NAME[Global.reservedOrder]));
 				If(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11));
 					If(Count Of(Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]) > 1);
@@ -3963,7 +3963,7 @@ rule("Host Player: Set Permission")
 	{
 		If(Global.selectPlayer != Null);
 			Global.selectPlayer.permission = (Global.selectPlayer.permission + True) % 3;
-			Small Message(All Players(All Teams), Custom String("  {0}{1} - {2} 직책 변경!  ", Hero Icon String(Hero Of(Global.selectPlayer)),
+			Small Message(All Players(All Teams), Custom String("{0}{1} - {2} 직책 변경!", Hero Icon String(Hero Of(Global.selectPlayer)),
 				Global.selectPlayer, Global.permissionText[False][Global.selectPlayer.permission]));
 		Else If(Global.difficulty == 4);
 			Modify Global Variable At Index(upgradeList, 1, Remove From Array By Index, 0);
@@ -4197,7 +4197,7 @@ rule("Global subroutine: Purchase Upgrade")
 
 	actions
 	{
-		Small Message(All Players(All Teams), Custom String("  {2}{0}{1}",
+		Small Message(All Players(All Teams), Custom String("{2}{0}{1}",
             Global.UPGRADE_NAME[Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade]],
             Local Player == Event Player ? Custom String(" -${0}", Global.upgradePrice[Global.currentUpgrade][Event Player.selectedUpgrade])
             : Custom String(""), Hero Icon String(Hero Of(Event Player))));
@@ -4328,7 +4328,7 @@ rule("Global subroutine: Load Progress")
 				End;
 				Set Move Speed(Event Player, Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(Event Player))
 					? Event Player.playerSpeed * 0.916 : Event Player.playerSpeed);
-				Small Message(Event Player, Custom String("  돌아오셨군요! 이전 데이터를 불러왔습니다!  "));
+				Small Message(Event Player, Custom String("돌아오셨군요! 이전 데이터를 불러왔습니다!"));
 				Abort;
 			End;
 		End;
@@ -4368,7 +4368,7 @@ rule("Global routine: Super Drink!")
 	actions
 	{
 		If(Global.superDrink == -1);
-			Big Message(All Players(All Teams), Custom String("  시공간이 뒤틀립니다!  "));
+			Big Message(All Players(All Teams), Custom String("시공간이 뒤틀립니다!"));
 			Set Move Speed(All Players(Team 1), 200);
 			For Global Variable(superDrink, False, 6, True);
 				Set Status(All Players(Team 1)[Global.superDrink], Null, Burning, 20);
