@@ -785,7 +785,7 @@ rule("Global: Setting")
 			: Custom String(" "))), Evaluate Once(Global.STORAGE_POSITION[7]), 0.900, Do Not Clip, Visible To String and Color,
 			Global.ITEM_COLOR[Global.storageData[7][0]], Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
-		Create HUD Text(First Of(True), Null, Custom String("레스토랑(P6ZAA) v260531\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right,
+		Create HUD Text(First Of(True), Null, Custom String("레스토랑(P6ZAA) v260827\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right,
 			-2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode], Array(50, 255, 180, 225, 120, 38)[Global.stageMode], Array(
 			145, 180, 255, 120, 120, 65)[Global.stageMode], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
@@ -886,7 +886,7 @@ rule("Global: Setting")
 			"{0} 레스토랑 - 쿡제요리 \r\n\r\n 레시피 북: https://ow-restaurant.com/ko/book/cook-intl/0 ", Icon String(Fire)), Vector(213.237, 3,
 			178.708), 1, Do Not Clip, Visible To Position String and Color, Color(Violet), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), Custom String(
-			"{0} v260531\r\n\r\n신규 손님 적용(자세한 내용은 모듬회밥 확인)", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), Vector(213.237, 2,
+			"{0} v260827\r\n\r\n신규 손님 적용(자세한 내용은 모듬회밥 확인)", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), Vector(213.237, 2,
 			178.708), 1, Do Not Clip, Visible To Position String and Color, Color(White), Default Visibility);
 	}
 }
@@ -2719,32 +2719,39 @@ rule("Global subroutine: Data init")
 			"99/99/99/99/99/99/3/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99"
 			))))))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
 		Wait(0.100, Ignore Condition);
-		Global.CUTTING_RESULT = Array(False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, Array(57, 57), False, False, False, False, False, 28, False, 30, False, False, False,
-			33, False, False, False, 38, False, 40, False, False, False, 43, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, Array(61, 61), 62, False, False, False, False, Array(67, 67), False,
-			False, False, False, False, False, 75, False, Array(306, 307), False, False, False, False, False, False, False, Array(84, 84),
-			85, False, False, False, False, False, False, 94, False, False, False, False, False, 98, 99, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, 132, False, 134, 135, False, False, False, False, False, False, False, False,
-			False, False, False, False, 147, 148, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, 162, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			196, False, False, False, False, False, False, False, False, 205, 206, False, 210, False, False, False, False, False, 214,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, Array(255, 255), False, False, False, False, False, False, 262, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, 389, False, False, False, False, 353, False, False, False, False, 358,
-			False, False, False, False, False, False, False, False, False, 368, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, 403, False, False, False, False, False, False, False, False, False,
-			413, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, 440, False, False, False, False, False, False, 447, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False);
+		Global.CUTTING_RESULT = Mapped Array(String Split(
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/28/0/30/0/0/0/33/0/0/0/38/0/40/0/0/{0}",
+			Custom String(
+			"0/43/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/62/0/0/0/0/0/0/0/0/0/0/0/75/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/85/0/0/0/0/0/0/94/0/0/0/0/0/98/99/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/132/0/134/135/0/0/0/0/0/0/0/0/0/0/0/0/147/148/0/0/0/0/0/0/0/0/0/0/0/0/0/162/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/196/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/205/206/0/210/0/0/0/0/0/214/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/262/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/389/0/0/0/0/353/0/0/0/0/358/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"368/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/403/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/413/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/440/0/0/0/0/0/0/447/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0"
+		)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Global.CUTTING_RESULT[20] = Array(57, 57);
+		Global.CUTTING_RESULT[60] = Array(61, 61);
+		Global.CUTTING_RESULT[66] = Array(67, 67);
+		Global.CUTTING_RESULT[75] = Array(306, 307);
+		Global.CUTTING_RESULT[83] = Array(84, 84);
+		Global.CUTTING_RESULT[254] = Array(255, 255);
+		Wait(0.100, Ignore Condition);
 		Global.GRILLING_NEEDED = Mapped Array(String Split(
 			Custom String(
 			"99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/{0}",
@@ -3019,6 +3026,34 @@ rule("Global subroutine: Data init2")
 			385, 386, 341, 326, 328, 390, 388, 395, 392, 394, 396, 398, 399, 400, 401, 404, 406, 407, 408, 410, 411, 414, 415, 419, 420,
 			421, 422, 423, 426, 427, 429, 431, 433, 434, 435, 437, 442, 442, 443, 443, 444, 444, 445, 448, 449, 450, 451, 453, 455, 457,
 			458, 458, 459, 459, 460);
+		Global.ADDITIONAL_MATERIAL_LIST = Mapped Array(String Split(
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/281/0/281/73/0/0/0/288/0/288/281/{0}",
+			Custom String(
+			"103/103/281/0/0/0/26/129/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/73/26/{0}",
+			Custom String(
+			"204/204/204/103/26/0/337/103/0/0/340/0/340/0/235/0/0/347/0/0/0/0/0/0/352/0/0/0/357/0/{0}",
+			Custom String(
+			"357/0/145/0/145/0/0/0/0/0/367/0/0/373/0/373/207/0/22/337/23/0/0/0/103/0/0/0/0/0/0/0/0/{0}",
+			Custom String(
+			"0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/409/409/0/0/412/412/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/26/{0}",
+			Custom String(
+			"26/0/26/0/103/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/103/129/0/129"
+		)))))))))))), Custom String("/")), Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		Global.ADDITIONAL_MATERIAL_LIST[351] = Array(126, 160);
+		Wait(0.100, Ignore Condition);
 		Global.MIXING_RECIPE = Mapped Array(Global.ITEM_NAME, Empty Array);
 		Global.MIXING_RESULT = Global.MIXING_RECIPE;
 		For Global Variable(checkingIndex, False, Count Of(Global.RAW_MIX), True);
@@ -3046,32 +3081,6 @@ rule("Global subroutine: Data init2")
 			129, 19, 145, 24, 139), Array(103, 157, 19, 160, 24, 165), Array(198, 36, 204, 207, 195, 218), Array(26, 129, 97, 160, 235,
 			165), Array(26, 254, 206, 73, 260, 261), Array(26, 129, 204, 207, 195, 313), Array(347, 402, 204, 73, 260, 261), Array(416, 36,
 			97, 145, 24, 22), Array(26, 36, 97, 145, 195, 439));
-		Global.ADDITIONAL_MATERIAL_LIST = Array(False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, 281, False, 281, 73, False, False, False, 288, False, 288, 281, 103, 103, 281, False, False, False, 26, 129, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, 73, 26, 204, 204, 204, 103, 26, False, 337, 103, False, False, 340,
-			False, 340, False, 235, False, False, 347, False, Array(126, 160), False, False, False, False, 352, False, False, False, 357,
-			False, 357, False, 145, False, 145, False, False, False, False, False, 367, False, False, 373, False, 373, 207, False, 22, 337,
-			23, False, False, False, 103, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, 409, 409, False, False, 412, 412, False, False, False, False,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, 26, 26, False, 26, False, 103,
-			False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-			False, 103, 129, False, 129);
 		Global.WEAVER_MENU_LIST = Array(Array(284, 286, 287, 291, 293), Array(294, 295, 296, 297), Array(301, 302, 332, 333, 334), Array(
 			335, 336, 338, 339), Array(331, 342, 344, 346), Array(349, 351, 356), Array(360, 362, 364, 366), Array(372, 375, 377, 378),
 			Array(330, 380, 381, 382, 386), Array(410, 411, 414, 415), Array(433, 434, 436, 438), Array(458, 459, 461));
