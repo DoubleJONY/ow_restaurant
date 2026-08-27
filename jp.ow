@@ -867,8 +867,7 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Custom Color(214, 156, 107, 255), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off), 
-		Custom String("{0} バランス調整\r\n\r\n  大食い巨人のサービング成功報酬が5から10に増加しました。\r\n{1}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)),
-		Custom String("カジュアルダイニングモードで商人が来ない不具合を修正")),
+		Custom String("{0} バランス調整\r\n\r\n  大食い巨人のサービング成功報酬が5から10に増加しました。", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
