@@ -36,3 +36,4 @@ settings. Find and comply with any items or references described here.
   - `.codex/artifact/20260420_gc_en_head_port_plan/`
   - `.codex/artifact/20260531_restaurant_jp_followups/`
   - `.codex/artifact/20260827_mixed_array_string_compression/`
+  - `.codex/artifact/20260827_kr_deluxe_unification/`

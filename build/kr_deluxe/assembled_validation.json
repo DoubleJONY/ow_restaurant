@@ -1,0 +1,37 @@
+{
+  "sha256": "54C6784A4F1255EA500467C066C50B4E196CAF227471F47ADDD4ED3B350DB439",
+  "bytes": 397093,
+  "rules": 56,
+  "globals": 128,
+  "ice_global_ids": {
+    "ICE_NEEDED": 100,
+    "ICE_RESULT": 105
+  },
+  "retired_write_only_globals_removed": [
+    "itemPrevPosition",
+    "itemNormal"
+  ],
+  "subroutines": 39,
+  "selection_state": {
+    "edition": "stageMode[0]",
+    "mode": "stageMode[1]"
+  },
+  "selection_inputs": {
+    "edition": "Ability 2",
+    "mode": "Reload",
+    "confirm": "Jump"
+  },
+  "deluxe_data_slots": {
+    "0": "ORG MELT_LIST",
+    "1": "active item-perk drops",
+    "2": "edition runtime configuration"
+  },
+  "create_item_sites": 33,
+  "control_flow_checked": true,
+  "preserved_legacy_implicit_end_rules": [
+    "Player: Reload button"
+  ],
+  "version": "v260828",
+  "gc_water_ported": false,
+  "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch"
+}

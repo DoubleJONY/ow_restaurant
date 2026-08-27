@@ -1,0 +1,154 @@
+{
+  "editions": {
+    "org": {
+      "old_item_count": 475,
+      "new_item_count": 476,
+      "raw_rows": 306,
+      "mapping_entries": 475,
+      "per_item_tables": {
+        "ADDITIONAL_MATERIAL_LIST": 476,
+        "CUTTING_NEEDED": 476,
+        "CUTTING_RESULT": 476,
+        "FRYING_NEEDED": 476,
+        "FRYING_RESULT": 476,
+        "GRILLING_NEEDED": 476,
+        "GRILLING_RESULT": 476,
+        "IMPACT_RESULT": 476,
+        "ITEM_COLOR": 476,
+        "ITEM_NAME": 476,
+        "ITEM_SCORE": 476,
+        "PAN_NEEDED": 476,
+        "PAN_RESULT": 476,
+        "POT_RESULT": 476,
+        "POT_TIME": 476
+      },
+      "active_drop": [
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        17,
+        19
+      ]
+    },
+    "cafe": {
+      "old_item_count": 398,
+      "new_item_count": 399,
+      "raw_rows": 255,
+      "mapping_entries": 398,
+      "per_item_tables": {
+        "ADDITIONAL_MATERIAL_LIST": 399,
+        "CUTTING_NEEDED": 399,
+        "CUTTING_RESULT": 399,
+        "FRYING_NEEDED": 399,
+        "FRYING_RESULT": 399,
+        "GRILLING_NEEDED": 399,
+        "GRILLING_RESULT": 399,
+        "ICE_NEEDED": 399,
+        "ICE_RESULT": 399,
+        "IMPACT_RESULT": 399,
+        "ITEM_COLOR": 399,
+        "ITEM_NAME": 399,
+        "ITEM_SCORE": 399,
+        "PAN_NEEDED": 399,
+        "PAN_RESULT": 399,
+        "POT_RESULT": 399,
+        "POT_TIME": 399
+      },
+      "active_drop": [
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        17,
+        20
+      ]
+    },
+    "gc": {
+      "old_item_count": 462,
+      "new_item_count": 464,
+      "raw_rows": 282,
+      "mapping_entries": 462,
+      "per_item_tables": {
+        "ADDITIONAL_MATERIAL_LIST": 464,
+        "CUTTING_NEEDED": 464,
+        "CUTTING_RESULT": 464,
+        "FRYING_NEEDED": 464,
+        "FRYING_RESULT": 464,
+        "GRILLING_NEEDED": 464,
+        "GRILLING_RESULT": 464,
+        "IMPACT_RESULT": 464,
+        "ITEM_COLOR": 464,
+        "ITEM_NAME": 464,
+        "ITEM_SCORE": 464,
+        "PAN_NEEDED": 464,
+        "PAN_RESULT": 464,
+        "POT_RESULT": 464,
+        "POT_TIME": 464
+      },
+      "active_drop": [
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        17
+      ]
+    }
+  },
+  "generated_table_round_trip": {
+    "org": {
+      "per_item_tables": 15,
+      "numeric_lookup": 476,
+      "list_tables": 5,
+      "round_trip": true
+    },
+    "cafe": {
+      "per_item_tables": 17,
+      "numeric_lookup": 399,
+      "list_tables": 4,
+      "round_trip": true
+    },
+    "gc": {
+      "per_item_tables": 15,
+      "numeric_lookup": 464,
+      "list_tables": 4,
+      "round_trip": true
+    }
+  },
+  "raw_round_trip": {
+    "org": {
+      "rows": 306,
+      "max_operand": 475,
+      "max_result": 472,
+      "round_trip": true
+    },
+    "cafe": {
+      "rows": 255,
+      "max_operand": 398,
+      "max_result": 397,
+      "round_trip": true
+    },
+    "gc": {
+      "rows": 282,
+      "max_operand": 463,
+      "max_result": 460,
+      "round_trip": true
+    }
+  },
+  "custom_string_lengths": {
+    "payloads": 942,
+    "max_characters": 85
+  },
+  "source_sha256": {
+    "org": "01AEFCE72D0250EFAEEDE44646759D977E832A134BA6F9EBED554BC58848E982",
+    "cafe": "34378CEE5E2C5ECF836B44AE319A7A97EBB0FF92819D6BEB468149520C6C5BE9",
+    "gc": "BA87EABCB98CB76CB1EF77BACE46C6DC8497CF3D0F16970A3A9EF7AFD865D290"
+  },
+  "generated_rule_count": 9
+}
