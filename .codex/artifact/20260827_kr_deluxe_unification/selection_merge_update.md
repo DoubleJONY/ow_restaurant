@@ -1,5 +1,7 @@
 # 에디션·모드 선택 병합 기록 (2026-08-28)
 
+> 보존 상태: 중간 구현 기록. 이후 최적화와 수동 동기화까지 반영한 최종 결과는 `release_v260829.md`와 `validation_report.md`를 따른다.
+
 이 문서는 기존 `bootstrap_dispatch_plan.md`의 별도 `selectEdition` 설계를 대체한다.
 
 ## 최종 선택 상태

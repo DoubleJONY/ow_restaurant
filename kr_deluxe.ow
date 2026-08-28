@@ -692,7 +692,6 @@ rule("Global: Setting")
         Global.currentUpgrade = -1;
 		Global.stage = 0;
 		Global.upgradeList = Array(Array(Null), Array(Null), Array(Null));
-		Global.totalScore = Array(Array(0, Custom String("연습 모드")), Array(6077, Custom String("JOSEON")), Array(6007, Custom String("JOSEON")), Array(0, Custom String("없음")), Array(10993, Custom String("JOSEON")), Array(4726, Custom String("REVENGE")));
 		Global.permissionText = Array(Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생"), Custom String("헤드셰프")),
 			Array(Color(Orange), Color(Green), Color(White), Color(Red)));
 		Create In-World Text(Global.selectPlayer != Null ? Host Player : Null, Custom String("〔{0}〕 - 직책 변경", Input Binding String(Button(
@@ -820,6 +819,16 @@ rule("Global: Setting")
 		Call Subroutine(selectMode);
 		Set Objective Description(All Players(All Teams), Custom String("로드 중..."), Visible To and String);
 		Small Message(All Players(All Teams), Custom String("데이터 초기화 중..."));
+		Global.totalScore = Array Slice(Array(
+			Array(0, Custom String("연습 모드")), Array(6077, Custom String("JOSEON")),
+			Array(6007, Custom String("JOSEON")), Array(0, Custom String("없음")),
+			Array(10993, Custom String("JOSEON")), Array(4726, Custom String("REVENGE")),
+			Array(0, Custom String("연습 모드")), Array(0, Custom String("없음")),
+			Array(6083, Custom String("Joseon")), Array(14315, Custom String("REVENGE")),
+			Array(0, Custom String("없음")), Array(0, Custom String("없음")),
+			Array(0, Custom String("연습 모드")), Array(0, Custom String("없음")),
+			Array(0, Custom String("없음")), Array(0, Custom String("없음")),
+			Array(0, Custom String("없음")), Array(0, Custom String("없음"))), Global.stageMode[0] * 6, 6);
 		Global.difficulty = Array(4, 0, 1, 2, 1, 2)[Global.stageMode[1]];
 		Global.storageLevel = Array(7, 3, 3, 0, -1, -1)[Global.stageMode[1]];
 		Call Subroutine(dataInit);
@@ -3497,14 +3506,14 @@ rule("Global subroutine: Perk Hud")
 				Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[False][Event Player.itemPerk]])),
 			Global.stageMode[1] < 2 ?
 			Array(
-				Custom String("100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다"), 
-				Custom String("20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다"), 
-				Custom String("손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다"), 
-				Custom String("필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요"), 
-				Custom String("손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다"), 
-				Custom String("그릴까지 가지 않아도\r\n재료를 구울 수 있습니다"), 
-				Custom String("햄스터가 아르바이트를 구한다\r\n라고 함"), 
-				Custom String("현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다"), 
+				Custom String("100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다"),
+				Custom String("20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다"),
+				Custom String("손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다"),
+				Custom String("필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요"),
+				Custom String("손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다"),
+				Custom String("그릴까지 가지 않아도\r\n재료를 구울 수 있습니다"),
+				Custom String("햄스터가 아르바이트를 구한다\r\n라고 함"),
+				Custom String("현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다"),
 				Custom String("제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다"))[Event Player.itemPerk]
 				: Custom String(" \r\n")
 				, Right, 2,
@@ -3536,8 +3545,8 @@ rule("Global subroutine: Foot Hud")
 			Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[True][Event Player.footPerk]])),
 			Global.stageMode[1] < 2 ?
 			Array(
-				Custom String("공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다"), 
-				Custom String("앞으로 빠르게 대시하는\r\n다재다능한 신발입니다"), 
+				Custom String("공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다"),
+				Custom String("앞으로 빠르게 대시하는\r\n다재다능한 신발입니다"),
 				Custom String("주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다"))[Event Player.footPerk]
 				: Custom String(" \r\n")
 			, Right, 3, Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Color(White),

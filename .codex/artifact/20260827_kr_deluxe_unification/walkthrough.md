@@ -1,5 +1,7 @@
 # kr_deluxe 통합 구현 기록
 
+> 상태: **v260829 릴리즈 완료**. 이 문서의 과거 용량 수치는 조사 당시 기록이며 최종 상태는 `release_v260829.md`를 따른다.
+
 ## 결과
 
 `ko.ow` 공통 런타임을 기반으로 `kr_deluxe.ow`에 ORG/CAFE/GC 데이터를 통합했다. 방장이 게임 시작 시 에디션을 고르면 선택된 에디션의 세 init만 실행된다.
@@ -58,6 +60,6 @@ python scripts/kr_deluxe/build_kr_deluxe.py --check
 
 파일 전체 크기에는 98KB 제한을 적용하지 않는다. 현재 파일 크기는 `ko.ow` 282,679 bytes, `kr_deluxe.ow` 390,969 bytes, `n3_kr.ow` 254,809 bytes다. 약 98KB 제한은 개별 rule 기준으로 관리하며, 큰 init은 에디션·단계별 서브루틴으로 분할한다.
 
-전체 element 상한은 32,768로 보고 실제 Workshop import 수치를 최종 기준으로 삼는다. 사용자가 확인한 `ko.ow` 혼합 배열 압축 전후 값은 약 28,800개에서 27,700개대로 1,000개 이상 감소했다. `kr_deluxe.ow`의 실제 element 수와 N3 추가 여유는 아직 측정하지 않아 WIP으로 남긴다.
+전체 element 상한은 32,768로 보고 실제 Workshop import 수치를 최종 기준으로 삼는다. 사용자가 확인한 `ko.ow` 혼합 배열 압축 전후 값은 약 28,800개에서 27,700개대로 1,000개 이상 감소했다. `kr_deluxe.ow`는 직렬화 전 32,746 / 32,768에서 최종 릴리즈 31,925 / 32,768로 821 elements 감소했으며, 남은 예산은 843이다. N3 통합은 이번 릴리즈 범위 밖이다.
 
 이 클라우드 환경에는 OverPy/OSTW 전용 검사기가 설치되어 있지 않다. OverPy 온라인 데모에 현재 `ko.ow`를 넣은 시험은 player variable `500`을 허용하지 않아 역컴파일에 실패했다. 로컬 Codex에서는 최신 OSTW/Deltinteger 또는 OverPy CLI를 설치해 우선 검사하고, 둘 다 현재 문법을 처리하지 못하면 Workshop 클라이언트 import와 수동 element 확인을 기준으로 한다.

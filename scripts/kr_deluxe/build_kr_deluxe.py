@@ -290,7 +290,7 @@ ICE_MACHINE_BRANCH = '''				Else If(Global.stageMode[0] == 1 && (Distance Betwee
 					End;'''.replace("\n", "\r\n")
 
 
-PERK_HUD_RULE = '''rule("Global subroutine: Perk Hud")
+PERK_HUD_RULE = r'''rule("Global subroutine: Perk Hud")
 {
 	event
 	{
@@ -301,29 +301,125 @@ PERK_HUD_RULE = '''rule("Global subroutine: Perk Hud")
 	actions
 	{
 		Abort If(Event Player.itemPerk == -1);
-		Create HUD Text(Event Player, Array(
-			Ability Icon String(Hero(Roadhog), Button(Ability 2)), Ability Icon String(Hero(Ana), Button(Ultimate)),
-			Ability Icon String(Hero(Ashe), Button(Ability 2)), Ability Icon String(Hero(Sigma), Button(Ability 1)),
-			Ability Icon String(Hero(Baptiste), Button(Ultimate)), Ability Icon String(Hero(Torbjörn), Button(Ultimate)),
-			Ability Icon String(Hero(Wrecking Ball), Button(Ability 1)), Ability Icon String(Hero(Domina), Button(Ultimate)),
-			Ability Icon String(Hero(Mei), Button(Ability 1)))[Event Player.itemPerk],
-			Custom String("{1}{0}", Array(True, True, False, False, False, False, True, True, False)[Event Player.itemPerk]
-				? Custom String("") : Custom String("-{0}%", Round To Integer(Event Player.itemPerkDurability, Up)),
-				Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[False][Event Player.itemPerk]])),
-			Custom String("〔{0}〕", Array(Input Binding String(Button(Ultimate)), Input Binding String(Button(Ultimate)),
+		Create HUD Text(Event Player, Custom String("〔{0}〕", Array(Input Binding String(Button(Ultimate)), Input Binding String(Button(Ultimate)),
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Secondary Fire)),
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Secondary Fire)),
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Ultimate)),
-				Input Binding String(Button(Secondary Fire)))[Event Player.itemPerk]), Right, 2,
+				Input Binding String(Button(Secondary Fire)))[Event Player.itemPerk]),
+			Custom String("{1}{0}", Array(True, True, False, False, False, False, True, True, False)[Event Player.itemPerk]
+				? Custom String("") : Custom String("-{0}%", Round To Integer(Event Player.itemPerkDurability, Up)),
+				Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[False][Event Player.itemPerk]])),
+			Global.stageMode[1] < 2 ?
+			Array(
+				Custom String("100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다"),
+				Custom String("20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다"),
+				Custom String("손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다"),
+				Custom String("필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요"),
+				Custom String("손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다"),
+				Custom String("그릴까지 가지 않아도\r\n재료를 구울 수 있습니다"),
+				Custom String("햄스터가 아르바이트를 구한다\r\n라고 함"),
+				Custom String("현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다"),
+				Custom String("제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다"))[Event Player.itemPerk]
+				: Custom String(" \r\n")
+				, Right, 2,
 			Global.ITEM_COLOR[Global.PERK_LIST[False][Event Player.itemPerk]],
 			Global.ITEM_COLOR[Global.PERK_LIST[False][Event Player.itemPerk]], Color(White), String and Color, Default Visibility);
 		Event Player.itemPerkText = Last Text ID;
 	}
 }'''.replace("\n", "\r\n")
 
+KNIFE_HUD_RULE = r'''rule("Global subroutine: Knife Hud")
+{
+	event
+	{
+		Subroutine;
+		knifeHud;
+	}
+
+	actions
+	{
+		If(Event Player.knifeCode == 0);
+			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("다이소에서 파는\r\n평범한 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+				255 - Event Player.durability * 0.950, Event Player.durability * 2.320, Event Player.durability * 0.270, 255), Color(White), Null,
+				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
+		Else If(Event Player.knifeCode == 1);
+			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("내구도와 성능이 무난한\r\n주방용 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+				255 - Event Player.durability * 1.860, Event Player.durability * 2.550, Event Player.durability * 0.870, 255), Color(White), Null,
+				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
+        Else If(Event Player.knifeCode == 6);
+			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("재료를 손에 들고 바로 썰 수 있는\r\n전설적인 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+				Event Player.durability * 1.760, 0, Event Player.durability * 2.500, 255), Color(White), Null,
+				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
+		Else If(Event Player.knifeCode != -1);
+			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])),
+					Global.stageMode[1] < 2 ? Array(Null, Null,
+					Custom String("내구도와 성능이 뛰어난\r\n고급 칼입니다"),
+					Custom String("재료를 손에 들고 썰 수 있는\r\n희귀한 칼입니다"),
+					Custom String("내구도와 성능이 압도적인\r\n희귀한 칼입니다"),
+					Custom String("도마에서 아주 빠른 속도로\r\n연격할 수 있습니다"))[Event Player.knifeCode]
+					: Custom String(" \r\n")
+				 , Null, Right, True, Custom Color(
+				255 - Event Player.durability * 2.250, Event Player.durability * 2.300, Event Player.durability * 1.510, 255), Color(White), Null,
+				String and Color, Default Visibility);
+			Event Player.knifeText = Last Text ID;
+		End;
+	}
+}'''.replace("\n", "\r\n")
+
+
+FOOT_HUD_RULE = r'''rule("Global subroutine: Foot Hud")
+{
+	event
+	{
+		Subroutine;
+		footHud;
+	}
+
+	actions
+	{
+		Abort If(Event Player.footPerk == -1);
+		Create HUD Text(Event Player,
+			Custom String("〔{0}〕", Array(
+				Input Binding String(Button(Jump)),
+				Input Binding String(Button(Ability 1)),
+				Input Binding String(Button(Ability 1))
+			)[Event Player.footPerk]),
+			Custom String("{1}{0}", Custom String("-{0}%",
+			Round To Integer(Event Player.footPerkDurability, Up)),
+			Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[True][Event Player.footPerk]])),
+			Global.stageMode[1] < 2 ?
+			Array(
+				Custom String("공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다"),
+				Custom String("앞으로 빠르게 대시하는\r\n다재다능한 신발입니다"),
+				Custom String("주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다"))[Event Player.footPerk]
+				: Custom String(" \r\n")
+			, Right, 3, Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Color(White),
+				String and Color, Default Visibility);
+		Event Player.footPerkText = Last Text ID;
+	}
+}'''.replace("\n", "\r\n")
 
 DELUXE_BOOTSTRAP = '''		Global.stageMode = Array(0, 0);
 		Global.DELUXE_DATA = Array(0);'''.replace("\n", "\r\n")
+
+
+TOTAL_SCORE_INIT = '''		Global.totalScore = Array Slice(Array(
+			Array(0, Custom String("연습 모드")), Array(6077, Custom String("JOSEON")),
+			Array(6007, Custom String("JOSEON")), Array(0, Custom String("없음")),
+			Array(10993, Custom String("JOSEON")), Array(4726, Custom String("REVENGE")),
+			Array(0, Custom String("연습 모드")), Array(0, Custom String("없음")),
+			Array(6083, Custom String("Joseon")), Array(14315, Custom String("REVENGE")),
+			Array(0, Custom String("없음")), Array(0, Custom String("없음")),
+			Array(0, Custom String("연습 모드")), Array(0, Custom String("없음")),
+			Array(0, Custom String("없음")), Array(0, Custom String("없음")),
+			Array(0, Custom String("없음")), Array(0, Custom String("없음"))), Global.stageMode[0] * 6, 6);'''.replace("\n", "\r\n")
 
 
 def patch_global_setting(rule: str) -> str:
@@ -351,6 +447,12 @@ def patch_global_setting(rule: str) -> str:
         "\t\tGlobal.storageData = Mapped Array(String Split(Custom String(\"0/0/0/0/0/0/0/0\"), Custom String(\"/\")), Array(False, False, False));",
         "compact storage data",
     )
+    rule = replace_once(
+        rule,
+        '\t\tGlobal.totalScore = Array(Array(0, Custom String("연습 모드")), Array(6077, Custom String("JOSEON")), Array(6007, Custom String("JOSEON")), Array(0, Custom String("없음")), Array(10993, Custom String("JOSEON")), Array(4726, Custom String("REVENGE")));\r\n',
+        "",
+        "defer edition total score until selection",
+    )
     edition_hud_old = (
         '\t\tCreate HUD Text(All Players(Team 1), Null, Null, Custom String(\r\n'
         '\t\t\t"\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n"), Top, -999, Null, Null, Null, Visible To,\r\n'
@@ -365,8 +467,8 @@ def patch_global_setting(rule: str) -> str:
         'Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]),\r\n'
         '\t\t\tCustom String("제작: {0}", Array(Custom String("Gummybear&변기클라우드\\r\\n난이도 : ★★★☆☆"), '
         'Custom String("Joseon&Deadlock\\r\\n난이도 : ★★☆☆☆"), Custom String("Joseon\\r\\n난이도 : ★★★★☆"))[Global.stageMode[0]]),\r\n'
-        '\t\t\tLocal Player == Global.scbRank ? Custom String("[{0}]: 에디션 변경", Input Binding String(Button(Ability 2))) '
-        ': Custom String(" 방장이 에디션을 결정하는 중입니다"), Top, -998, Array(Color(Orange), '
+        '\t\t\tLocal Player == Global.scbRank ? Custom String("[{0}]: 테마 변경", Input Binding String(Button(Ability 2))) '
+        ': Custom String(" 방장이 테마를 결정하는 중입니다"), Top, -998, Array(Color(Orange), '
         'Custom Color(100, 60, False, 255), Color(Blue))[Global.stageMode[0]], Color(Yellow), Color(White), String and Color,\r\n'
         '\t\t\tDefault Visibility);\r\n'
         '\t\tGlobal.globalText[1] = Last Text ID;\r\n'
@@ -417,6 +519,8 @@ def patch_global_setting(rule: str) -> str:
         "\t\tGlobal.stageMode[1] = 1;\r\n\t\tCall Subroutine(selectMode);\r\n"
         "\t\tSet Objective Description(All Players(All Teams), Custom String(\"로드 중...\"), Visible To and String);\r\n"
         "\t\tSmall Message(All Players(All Teams), Custom String(\"데이터 초기화 중...\"));\r\n"
+        + TOTAL_SCORE_INIT
+        + "\r\n"
         "\t\tGlobal.difficulty =",
         "reload selected edition data",
     )
@@ -426,6 +530,23 @@ def patch_global_setting(rule: str) -> str:
         "\t\tCall Subroutine(dataInit);",
         "merged selected edition data init",
     )
+    deluxe_patch_notes = r'''		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
+		Custom String("{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
+		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
+			Color(Red), Default Visibility);
+		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
+		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.", Icon String(Flag)),
+		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
+			Color(White), Default Visibility);'''.replace("\n", "\r\n")
+    patch_notes_pattern = re.compile(
+        r'\t\tCreate In-World Text\(Players Within Radius\(Vector\(206\.991, 1, 188\.239\), 14, All Teams, Off\),.*?'
+        r'거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다\..*?Color\(White\), Default Visibility\);',
+        re.DOTALL,
+    )
+    rule, patch_notes_count = patch_notes_pattern.subn(lambda _: deluxe_patch_notes, rule, count=1)
+    if patch_notes_count != 1:
+        raise BuildError(f"Deluxe patch notes: expected exactly one match, got {patch_notes_count}")
     ice_label = '''		Create In-World Text(Players Within Radius(Vector(226.649, 2, 159.387), 10, Team 1, Off), Global.stageMode[0] == 1 ? Custom String("제빙기") :  Custom String(""),
 			Vector(226.649, 3, 159.387), 3, Do Not Clip, Visible To and String, Color(Blue), Default Visibility);'''.replace("\n", "\r\n")
     pan_label = (
@@ -663,8 +784,12 @@ def patch_set_hint(rule: str) -> str:
     edition_body = (
         "\t\tIf(Global.stageMode[0] == 0);\r\n"
         + indented_body
-        + "\r\n\t\tElse If(Global.stageMode[0] == 1);\r\n"
-        + "\t\tElse;\r\n"
+        + "\r\n\t\tElse;\r\n"
+        + "\t\t\tIf(Global.stage == 0);\r\n"
+        + "\t\t\t\tGlobal.hintText = Array(\r\n"
+        + "\t\t\t\t\tCustom String(\"https://ow-restaurant.com/ko 에서\\r\\n이 테마의 레시피를 확인하실 수 있습니다.\")\r\n"
+        + "\t\t\t\t);\r\n"
+        + "\t\t\tEnd;\r\n"
         + "\t\tEnd;"
     )
     return rule[:body_start] + edition_body + actions_close
@@ -777,7 +902,9 @@ def build_text() -> str:
     text = modify_rule(text, "Global subroutine: Start stage", patch_start_stage)
     text = modify_rule(text, "Global subroutine: Set Hint Text", patch_set_hint)
     text = modify_rule(text, "Host Player: Select Mode", patch_select_mode)
+    text = replace_subroutine_rule(text, "knifeHud", KNIFE_HUD_RULE)
     text = replace_subroutine_rule(text, "perkHud", PERK_HUD_RULE)
+    text = replace_subroutine_rule(text, "footHud", FOOT_HUD_RULE)
 
     text = replace_subroutine_rule(text, "dataInit", "")
     text = replace_subroutine_rule(text, "dataInit2", "")
@@ -909,13 +1036,8 @@ def validate_assembled(text: str) -> dict[str, object]:
     ):
         if legacy_tutorial_bypass in text:
             raise BuildError(f"legacy tutorial bypass remains: {legacy_tutorial_bypass}")
-    empty_tutorial_branches = (
-        "\t\tElse If(Global.stageMode[0] == 1);\r\n"
-        "\t\tElse;\r\n"
-        "\t\tEnd;\r\n\t}\r\n}"
-    )
-    if text.count(empty_tutorial_branches) != 1:
-        raise BuildError("empty CAFE/GC tutorial branch mismatch")
+    if text.count("https://ow-restaurant.com/ko 에서\\r\\n이 테마의 레시피를 확인하실 수 있습니다.") != 1:
+        raise BuildError("CAFE/GC recipe hint mismatch")
     scalar_stage_mode = re.findall(r"\bGlobal\.stageMode\b(?!\[)", text)
     if scalar_stage_mode != ["Global.stageMode"] or text.count("Global.stageMode = Array(0, 0);") != 1:
         raise BuildError("stageMode must be an array with only [0]/[1] scalar access")
@@ -940,6 +1062,13 @@ def validate_assembled(text: str) -> dict[str, object]:
     select_start, select_end = rule_span_by_title(text, "Host Player: Select Mode")
     setting_rule = text[setting_start:setting_end]
     select_mode_rule = text[select_start:select_end]
+    if setting_rule.count(TOTAL_SCORE_INIT) != 1:
+        raise BuildError("edition totalScore initialization mismatch")
+    total_score_at = setting_rule.find("Global.totalScore = Array Slice(Array(")
+    if total_score_at < setting_rule.find("Call Subroutine(selectMode);"):
+        raise BuildError("totalScore must initialize after edition selection")
+    if total_score_at > setting_rule.find("Global.difficulty ="):
+        raise BuildError("totalScore must initialize before difficulty")
     selection_slot_assignments = [
         setting_rule.find(f"Global.globalText[{index}] = Last Text ID;")
         for index in range(5)
