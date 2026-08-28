@@ -119,6 +119,11 @@
       "numeric_lookup": 464,
       "list_tables": 4,
       "round_trip": true
+    },
+    "common_customer_list": {
+      "source": "org",
+      "top_level_entries": 6,
+      "round_trip": true
     }
   },
   "raw_round_trip": {
@@ -150,5 +155,5 @@
     "cafe": "34378CEE5E2C5ECF836B44AE319A7A97EBB0FF92819D6BEB468149520C6C5BE9",
     "gc": "BA87EABCB98CB76CB1EF77BACE46C6DC8497CF3D0F16970A3A9EF7AFD865D290"
   },
-  "generated_rule_count": 9
+  "generated_rule_count": 10
 }

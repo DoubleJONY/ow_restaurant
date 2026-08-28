@@ -109,7 +109,8 @@ COMMON_INIT2 = '''		Global.MIXING_RECIPE = Mapped Array(Global.ITEM_NAME, Empty 
 '''.replace("\n", "\r\n")
 
 
-COMMON_INIT3 = '''		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
+COMMON_INIT3 = '''		Call Subroutine(dataInit_customerCommon);
+		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
 		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
 		Global.scoreDecrease = Array(Array(Null, Null, Null, Null, Null, Null), Array(5, Null, 5, 5, 5, 5),
 			Array(15, Null, 15, 35, 15, 15), Array(50, Null, 50, 50, 50, 50))[Global.difficulty];
@@ -278,13 +279,6 @@ def patch_global_setting(rule: str) -> str:
     )
     rule = replace_once(
         rule,
-        "\t\tCall Subroutine(dataInit3);\r\n\t\tGlobal.scbRank = Empty Array;",
-        "\t\tCall Subroutine(dataInit3);\r\n\t\tIf(Global.stageMode[0] != 0 && Global.difficulty == 4);\r\n"
-        "\t\t\tGlobal.stage = 1;\r\n\t\tEnd;\r\n\t\tGlobal.scbRank = Empty Array;",
-        "non-ORG tutorial gate",
-    )
-    rule = replace_once(
-        rule,
         "\t\t\tGlobal.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,\r\n"
         "\t\t\t\t-70)) * 0.100, 357, 100, Null);",
         "\t\t\tGlobal.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,\r\n"
@@ -368,24 +362,10 @@ def patch_item_cooking(rule: str) -> str:
 
 
 def patch_control_item(rule: str) -> str:
-    rule = replace_once(
-        rule,
-        "\t\t\t\tGlobal.stage = (Global.stage + True) % Count Of(Global.STAGE_CODE);",
-        "\t\t\t\tGlobal.stage = (Global.stage + True) % Count Of(Global.STAGE_CODE);\r\n"
-        "\t\t\t\tIf(Global.stageMode[0] != 0 && Global.stage == 0);\r\n"
-        "\t\t\t\t\tGlobal.stage = 1;\r\n\t\t\t\tEnd;",
-        "practice tutorial skip",
-    )
     return rule
 
 
 def patch_set_hint(rule: str) -> str:
-    rule = replace_once(
-        rule,
-        "\tactions\r\n\t{\r\n\t\tIf(Global.stage == 0);",
-        "\tactions\r\n\t{\r\n\t\tAbort If(Global.stageMode[0] != 0);\r\n\t\tIf(Global.stage == 0);",
-        "setHint edition guard",
-    )
     replacements = {
         "Array(3, 4, 8, 11, 7, 10, 25, 24)": "Array(63, 64, 352, 356, 354, 355, 25, 24)",
         "Array(126, 7)": "Array(126, 354)",
@@ -393,7 +373,24 @@ def patch_set_hint(rule: str) -> str:
     }
     for old, new in replacements.items():
         rule = replace_once(rule, old, new, f"tutorial item map {old}")
-    return rule
+
+    actions_open = "\tactions\r\n\t{\r\n"
+    actions_close = "\r\n\t}\r\n}"
+    if rule.count(actions_open) != 1 or not rule.endswith(actions_close):
+        raise BuildError("setHint actions boundary mismatch")
+    body_start = rule.index(actions_open) + len(actions_open)
+    body = rule[body_start:-len(actions_close)]
+    if not body.startswith("\t\tIf(Global.stage == 0);") or not body.endswith("\t\tEnd;"):
+        raise BuildError("setHint tutorial body mismatch")
+    indented_body = "\r\n".join("\t" + line if line else line for line in body.split("\r\n"))
+    edition_body = (
+        "\t\tIf(Global.stageMode[0] == 0);\r\n"
+        + indented_body
+        + "\r\n\t\tElse If(Global.stageMode[0] == 1);\r\n"
+        + "\t\tElse;\r\n"
+        + "\t\tEnd;"
+    )
+    return rule[:body_start] + edition_body + actions_close
 
 
 def patch_common_runtime(text: str) -> str:
@@ -435,7 +432,7 @@ def patch_common_runtime(text: str) -> str:
         raise BuildError(f"MELT runtime references: expected 5, got {text.count(melt_ref)}")
     text = text.replace(
         melt_ref,
-        "Global.stageMode[0] == 0 && Array Contains(Global.DELUXE_DATA[0],",
+        "Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT,",
     )
     return text
 
@@ -464,7 +461,8 @@ def build_text() -> str:
         "\t28: changeHero\r\n\t29: stageFail",
         "\t28: changeHero\r\n\t29: stageFail\r\n\t30: dataInit_org1\r\n"
         "\t31: dataInit_org2\r\n\t32: dataInit_org3\r\n\t33: dataInit_cafe1\r\n\t34: dataInit_cafe2\r\n"
-        "\t35: dataInit_cafe3\r\n\t36: dataInit_gc1\r\n\t37: dataInit_gc2\r\n\t38: dataInit_gc3",
+        "\t35: dataInit_cafe3\r\n\t36: dataInit_gc1\r\n\t37: dataInit_gc2\r\n\t38: dataInit_gc3\r\n"
+        "\t39: dataInit_customerCommon",
         "subroutine declarations",
     )
 
@@ -518,7 +516,7 @@ def build_text() -> str:
     return text
 
 
-def validate_assembled(text: str) -> None:
+def validate_assembled(text: str) -> dict[str, object]:
     stack: list[tuple[str, int]] = []
     pairs = {")": "(", "]": "[", "}": "{"}
     in_string = escaped = False
@@ -544,21 +542,37 @@ def validate_assembled(text: str) -> None:
 
     if "Global.MELT_LIST" in text:
         raise BuildError("legacy MELT_LIST reference remains")
-    if re.search(r"Global\.DELUXE_DATA\[(?:3|[4-9]|[1-9]\d+)\]", text):
+    if "Global.DELUXE_DATA[0]" in text or re.search(r"Global\.DELUXE_DATA\[(?:3|[4-9]|[1-9]\d+)\]", text):
         raise BuildError("uncompacted DELUXE_DATA slot reference remains")
     if "selectEdition" in text or "Select Deluxe Edition" in text:
         raise BuildError("retired standalone edition selector remains")
     for name in (
         "dataInit_org1", "dataInit_org2", "dataInit_org3",
         "dataInit_cafe1", "dataInit_cafe2", "dataInit_cafe3",
-        "dataInit_gc1", "dataInit_gc2", "dataInit_gc3",
+        "dataInit_gc1", "dataInit_gc2", "dataInit_gc3", "dataInit_customerCommon",
     ):
         if len(re.findall(rf"(?mi)^[ \t]+{re.escape(name)};\r?$", text)) != 1:
             raise BuildError(f"generated subroutine event count mismatch: {name}")
-    if text.count("Global.ICE_NEEDED =") != 1 or text.count("Global.ICE_RESULT =") != 1:
-        raise BuildError("CAFE ICE assignment count mismatch")
-    if text.count("Global.DELUXE_DATA[0] =") != 1:
-        raise BuildError("ORG MELT assignment count mismatch")
+    if text.count("Global.ICE_NEEDED =") != 1 or text.count("Global.ICE_RESULT =") != 2:
+        raise BuildError("shared ICE_RESULT assignment count mismatch")
+    if text.count("Global.CUSTOMER_LIST =") != 1:
+        raise BuildError("shared CUSTOMER_LIST assignment count mismatch")
+    if text.count("Call Subroutine(dataInit_customerCommon);") != 1:
+        raise BuildError("shared CUSTOMER_LIST dispatcher call mismatch")
+    for legacy_tutorial_bypass in (
+        "If(Global.stageMode[0] != 0 && Global.difficulty == 4);",
+        "If(Global.stageMode[0] != 0 && Global.stage == 0);",
+        "Abort If(Global.stageMode[0] != 0);",
+    ):
+        if legacy_tutorial_bypass in text:
+            raise BuildError(f"legacy tutorial bypass remains: {legacy_tutorial_bypass}")
+    empty_tutorial_branches = (
+        "\t\tElse If(Global.stageMode[0] == 1);\r\n"
+        "\t\tElse;\r\n"
+        "\t\tEnd;\r\n\t}\r\n}"
+    )
+    if text.count(empty_tutorial_branches) != 1:
+        raise BuildError("empty CAFE/GC tutorial branch mismatch")
     scalar_stage_mode = re.findall(r"\bGlobal\.stageMode\b(?!\[)", text)
     if scalar_stage_mode != ["Global.stageMode"] or text.count("Global.stageMode = Array(0, 0);") != 1:
         raise BuildError("stageMode must be an array with only [0]/[1] scalar access")
@@ -600,8 +614,8 @@ def validate_assembled(text: str) -> None:
     subs_found = [(int(number), name) for number, name in re.findall(
         r"(?m)^[ \t]+(\d+):\s*([A-Za-z_][A-Za-z0-9_]*)\s*$", sub_section
     )]
-    if [number for number, _ in subs_found] != list(range(39)):
-        raise BuildError("subroutine IDs are not exactly 0..38")
+    if [number for number, _ in subs_found] != list(range(40)):
+        raise BuildError("subroutine IDs are not exactly 0..39")
 
     create_assignments = data_builder.find_all_assignments(text, "createItemData")
     if len(create_assignments) != 33:
@@ -636,6 +650,7 @@ def validate_assembled(text: str) -> None:
     # inserted on the wrong side of an If/Else/While/For/End boundary.
     cursor = 0
     rule_count = 0
+    largest_rule = {"name": "", "bytes": 0}
     while True:
         start = text.find('rule("', cursor)
         if start < 0:
@@ -644,6 +659,9 @@ def validate_assembled(text: str) -> None:
         cursor = data_builder.scan_balanced(text, open_at, "{", "}")
         rule_text = text[start:cursor]
         rule_name = rule_text.split('"', 2)[1]
+        rule_bytes = len(rule_text.replace("\r\n", "\n").encode("utf-8"))
+        if rule_bytes > largest_rule["bytes"]:
+            largest_rule = {"name": rule_name, "bytes": rule_bytes}
         block_stack: list[dict[str, object]] = []
         for relative_line, raw_line in enumerate(rule_text.splitlines(), 1):
             statement = raw_line.strip()
@@ -695,8 +713,16 @@ def validate_assembled(text: str) -> None:
                 f"unclosed {opener['kind']} in {rule_name!r} line {opener['line']}"
             )
         rule_count += 1
-    if rule_count != 56:
-        raise BuildError(f"assembled rule count mismatch: {rule_count} != 56")
+    if rule_count != 57:
+        raise BuildError(f"assembled rule count mismatch: {rule_count} != 57")
+    if largest_rule["bytes"] > 98 * 1024:
+        raise BuildError(f"source rule exceeds 98 KiB: {largest_rule}")
+    return {
+        "largest_rule": largest_rule,
+        "limit_bytes": 98 * 1024,
+        "rules_over_limit": 0,
+        "scope": "LF UTF-8 Workshop source only; compiler/runtime not invoked",
+    }
 
 
 def main() -> None:
@@ -704,10 +730,11 @@ def main() -> None:
     parser.add_argument("--check", action="store_true", help="assemble and validate without writing kr_deluxe.ow")
     args = parser.parse_args()
     text = build_text()
-    validate_assembled(text)
-    digest = hashlib.sha256(text.encode("utf-8")).hexdigest().upper()
+    source_rule_size_check = validate_assembled(text)
+    output_text = text.replace("\r\n", "\n")
+    digest = hashlib.sha256(output_text.encode("utf-8")).hexdigest().upper()
     if not args.check:
-        TARGET.write_bytes(text.encode("utf-8"))
+        TARGET.write_bytes(output_text.encode("utf-8"))
         BUILD_DIR.mkdir(parents=True, exist_ok=True)
         site_lines = ["line\titem_expression"]
         for assignment in data_builder.find_all_assignments(text, "createItemData"):
@@ -722,19 +749,22 @@ def main() -> None:
             json.dumps(
                 {
                     "sha256": digest,
-                    "bytes": len(text.encode("utf-8")),
-                    "rules": 56,
+                    "bytes": len(output_text.encode("utf-8")),
+                    "rules": 57,
                     "globals": 128,
                     "ice_global_ids": {"ICE_NEEDED": 100, "ICE_RESULT": 105},
                     "retired_write_only_globals_removed": ["itemPrevPosition", "itemNormal"],
-                    "subroutines": 39,
+                    "subroutines": 40,
                     "selection_state": {"edition": "stageMode[0]", "mode": "stageMode[1]"},
                     "selection_inputs": {"edition": "Ability 2", "mode": "Reload", "confirm": "Jump"},
                     "deluxe_data_slots": {
-                        "0": "ORG MELT_LIST",
                         "1": "active item-perk drops",
                         "2": "edition runtime configuration",
                     },
+                    "shared_customer_list": {"source": "ORG/ko", "dispatcher_call": True},
+                    "ice_result_reuse": {"ORG": "MELT_LIST", "CAFE": "ice conversion"},
+                    "tutorial_routing": {"ORG": "implemented", "CAFE": "empty", "GC": "empty"},
+                    "source_rule_size_check": source_rule_size_check,
                     "create_item_sites": len(site_lines) - 1,
                     "control_flow_checked": True,
                     "preserved_legacy_implicit_end_rules": ["Player: Reload button"],
@@ -747,7 +777,7 @@ def main() -> None:
             ) + "\n",
             encoding="utf-8",
         )
-    print(f"rules={text.count('rule(\"')} bytes={len(text.encode('utf-8'))} sha256={digest}")
+    print(f"rules={output_text.count('rule(\"')} bytes={len(output_text.encode('utf-8'))} sha256={digest}")
 
 
 if __name__ == "__main__":

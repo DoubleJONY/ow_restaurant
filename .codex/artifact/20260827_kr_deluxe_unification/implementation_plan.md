@@ -45,7 +45,7 @@ dataInit3 -> dataInit_org3  / dataInit_cafe3 / dataInit_gc3
 
 ko 기반 파일은 글로벌 변수 ID `0..127`을 모두 선언하지만, ID 100 `itemPrevPosition`과 ID 105 `itemNormal`은 대입만 있고 읽기가 없는 write-only 변수였다. 두 대입을 제거하고 ID 100/105를 각각 `ICE_NEEDED`/`ICE_RESULT`로 재사용한다.
 
-기존 `MELT_LIST` 슬롯은 `DELUXE_DATA` 컨테이너로 확장해 사용하고 있으나, 후속 최적화에서는 MELT 목록을 `ICE_RESULT`와 에디션별로 재사용하고 `DELUXE_DATA[0]`을 폐기한다.
+기존 `MELT_LIST` 슬롯은 `DELUXE_DATA` 컨테이너로 확장해 사용했으나, 2026-08-28 후속 최적화에서 MELT 목록을 `ICE_RESULT`와 에디션별로 재사용하고 `DELUXE_DATA[0]`을 폐기했다.
 
 ```text
 Global.stageMode[0] = edition: 0 ORG / 1 CAFE / 2 GC
@@ -140,22 +140,22 @@ createItemData[2] 리터럴 및 선택 배열
 - 최종 ITEM 길이 476
 - 보존식 박스와 기존 `420..431` 보존식 결과 아이템 유지
 - 냉각총은 ITEM 데이터 레코드만 존재
-- MELT_LIST 할당
-- ICE 배열 미할당
+- `ICE_RESULT`에 ORG MELT 목록 할당
+- `ICE_NEEDED` 미할당
 
 ### CAFE
 
 - 최종 ITEM 길이 399
 - 냉각총과 보존식 박스 ITEM 데이터 레코드 존재
 - ICE_NEEDED/ICE_RESULT 실제 데이터 할당
-- MELT_LIST 미할당
+- ORG MELT 목록 미할당
 - 보존식 박스 전용 결과 아이템은 추가하지 않음
 
 ### GC
 
 - 최종 ITEM 길이 464
 - 보존식 박스와 냉각총 ITEM 데이터 레코드 존재
-- MELT_LIST와 ICE 배열 모두 미할당
+- ORG MELT 목록과 ICE 배열 모두 미할당
 - GC 자체 음식·레시피·메뉴 데이터만 로드
 
 비활성 도구의 ITEM 레코드는 이름, 색, 점수와 중립적인 처리값을 가지지만 정상 드랍 목록에는 포함되지 않는다.
@@ -176,7 +176,7 @@ edition == ORG && itemPerk == 7
 
 - 보존식 박스 사용
 - stage별 `420..431` 아이템 생성
-- MELT_LIST 기반 despawn 처리
+- ORG 조건에서 `ICE_RESULT` 기반 MELT despawn 처리
 
 ### CAFE 전용
 
@@ -225,8 +225,8 @@ edition == GC
 - `stage == 0`은 모든 에디션에서 튜토리얼 자리로 유지하며 CAFE/GC라고 인덱스를 당기거나 별도 HUD 분기를 만들지 않는다.
 - ORG판 `CUSTOMER_LIST`의 추가 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 항목은 이 공통 튜토리얼 인덱스를 유지하기 위한 정상 항목이다.
 - CAFE와 GC의 현재 목록이 한 항목 짧은 이유는 튜토리얼 콘텐츠가 아직 이식되지 않았기 때문이며, 의도적으로 사용하지 않는 슬롯이 아니다.
-- 현재 코드의 비ORG 시작 시 `stage = 1` 강제, 모드 순환 시 `stage 0` 건너뛰기, `setHint`의 비ORG `Abort`는 다음 구현에서 즉시 제거한다.
-- 대신 `setHint` 내부에 ORG/CAFE/GC 에디션 분기를 둔다. ORG 분기에는 기존 튜토리얼 내용을 유지하고, 아직 콘텐츠가 없는 CAFE와 GC 분기 본문은 비워둔다.
+- 비ORG 시작 시 `stage = 1` 강제, 모드 순환 시 `stage 0` 건너뛰기, `setHint`의 비ORG `Abort`를 2026-08-28 후속 구현에서 제거했다.
+- `setHint` 내부에 ORG/CAFE/GC 에디션 분기를 추가했다. ORG 분기에는 기존 튜토리얼 내용을 유지하고, 아직 콘텐츠가 없는 CAFE와 GC 분기 본문은 비워뒀다.
 - `setHint` 호출 전에는 공통 stage의 `currentCustomer`·메뉴가 먼저 구성되고 `hintText`도 빈 문자열 배열로 초기화되므로, 빈 CAFE/GC 분기는 공통 연습 데이터를 그대로 사용하며 ORG 튜토리얼 값을 참조하지 않는다.
 - 튜토리얼 진입과 stage/HUD 인덱스에는 에디션 분기를 두지 않는다. 추후 CAFE/GC 튜토리얼을 작성할 때 비어 있는 각 분기의 내용만 채운다.
 
@@ -341,15 +341,15 @@ edition == GC
 - 최종 walkthrough와 알려진 후속 작업 목록
 
 
-## 13. init3 손님 구성 공용화 추가 계획 (2026-08-28)
+## 13. init3 손님 구성 공용화 구현 (2026-08-28)
 
 - 에디션별 `STAGE_CODE`는 메뉴·웨이브 구성이 다르므로 각 `dataInit_*3`에 유지한다.
 - 손님 유형 구성인 `CUSTOMER_LIST`는 공용 데이터로 분리한다.
-- 새 공용 서브루틴(가칭 `dataInit_customerCommon`)은 에디션 분기 없이 `CUSTOMER_LIST`를 한 번만 할당한다.
+- 공용 서브루틴 `dataInit_customerCommon`은 에디션 분기 없이 `CUSTOMER_LIST`를 한 번만 할당한다.
 - `dataInit3` 디스패처는 선택 에디션의 `dataInit_org3/cafe3/gc3`를 호출한 뒤 공용 손님 구성 서브루틴을 한 번 호출한다.
 - 현재 CAFE와 GC의 `CUSTOMER_LIST`는 동일하고, ORG에는 튜토리얼 인덱스를 위한 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 한 항목이 더 있다.
 - 공통 런타임이 `ko.ow` 기준이므로 이 항목을 포함한 ORG판 `CUSTOMER_LIST`를 공용 기준으로 사용한다.
-- CAFE/GC에서 이 항목을 사용하지 않는 별도 분기를 만들지 않는다. 기존 stage 0 우회는 즉시 제거하고, 내용이 없는 에디션은 `setHint`의 빈 분기로 처리하며 stage 인덱스와 HUD는 처음부터 `ko` 규격을 유지한다.
+- CAFE/GC에서 이 항목을 사용하지 않는 별도 분기를 만들지 않는다. 기존 stage 0 우회는 제거했으며, 내용이 없는 에디션은 `setHint`의 빈 분기로 처리해 stage 인덱스와 HUD를 `ko` 규격으로 유지한다.
 - 현재 `dataInit3`의 나머지 대입인 `STAGE_CODE`, `DELUXE_DATA[1]`, `DELUXE_DATA[2]`는 모두 에디션별 값이므로 각 init3에 유지한다.
 - `FRIDGE_LIST`, `MENU_LIST`, `HAZARD_MENU_LIST`, `WEAVER_MENU_LIST`, `STAGE_NAME`, `UPGRADE_NAME`은 현재 구조에서 init3가 아니라 init2에 있으며 세 에디션 값이 모두 다르므로 공용화하지 않는다.
 - 예상 절감량은 중복 `CUSTOMER_LIST` 두 사본 제거 기준 약 1,650~1,750 elements이며, 공용 rule과 호출 action 비용을 반영한 순절감 추정치다.

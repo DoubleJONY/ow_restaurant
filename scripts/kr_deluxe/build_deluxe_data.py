@@ -114,9 +114,10 @@ def normalize_expr(value: str) -> str:
 def read_ow(path: Path) -> str:
     data = path.read_bytes()
     text = data.decode("utf-8")
-    if "\r\n" not in text:
-        raise ParseError(f"expected CRLF source: {path}")
-    return text
+    # GitHub stores the source files with LF, while the rule parser and
+    # generated Workshop output use CRLF.  Normalize at the read boundary so
+    # the builders are deterministic on Linux and Windows checkouts alike.
+    return text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r\n")
 
 
 def scan_balanced(text: str, start: int, opener: str, closer: str) -> int:
@@ -809,7 +810,7 @@ def render_phase2_rule(edition: EditionData, transformed: dict[str, list[Any]], 
             continue
         assignment = find_assignment(block, table)
         mapped = recursively_map_list(edition.values[table], edition.mapping)
-        lhs = "Global.DELUXE_DATA[0]" if table == "MELT_LIST" else f"Global.{table}"
+        lhs = "Global.ICE_RESULT" if table == "MELT_LIST" else f"Global.{table}"
         replacements.append((assignment.start, assignment.end, f"\t\t{lhs} = {render_array(mapped)};"))
 
     # These statements are byte-for-byte/semantically common after canonical
@@ -838,6 +839,8 @@ def render_phase3_rule(edition: EditionData, target_subroutine: str) -> str:
     old_name = "dataInit3"
     block = re.sub(rf"(\r\n\t\t){old_name};\r\n", rf"\1{target_subroutine};\r\n", block, count=1)
     block = re.sub(r'rule\("[^"]+"\)', f'rule("Global subroutine: Deluxe {edition.name.upper()} init3")', block, count=1)
+    # Original edition files use scalar stageMode for the game mode.
+    block = re.sub(r"Global\.stageMode(?!\[)", "Global.stageMode[1]", block)
     active = ACTIVE_DROPS[edition.name]
     # DELUXE_DATA[2] keeps the edition-specific runtime item pools together.
     runtime_config = RUNTIME_CONFIGS[edition.name]
@@ -852,17 +855,38 @@ def render_phase3_rule(edition: EditionData, target_subroutine: str) -> str:
     block = block[:insert] + injected + block[insert:]
     # These difficulty scalars are identical in ORG/CAFE/GC and are emitted by
     # the dataInit3 dispatcher after the selected variant returns.
-    common_scalars = (
+    common_assignments = (
         "customerCallTime", "setUpTime", "scoreDecrease", "despawnTime",
-        "additionalScore", "failEnd",
+        "additionalScore", "failEnd", "CUSTOMER_LIST",
     )
     block = replace_spans(
         block,
         [(assignment.start, assignment.end, "") for assignment in (
-            find_assignment(block, name) for name in common_scalars
+            find_assignment(block, name) for name in common_assignments
         )],
     )
     return block
+
+
+def render_customer_common_rule(org: EditionData) -> str:
+    customer = find_assignment(org.rules[3], "CUSTOMER_LIST")
+    expression = re.sub(
+        r"Global\.stageMode(?!\[)", "Global.stageMode[1]", customer.expression
+    )
+    return (
+        'rule("Global subroutine: Deluxe common customer init")\r\n'
+        "{\r\n"
+        "\tevent\r\n"
+        "\t{\r\n"
+        "\t\tSubroutine;\r\n"
+        "\t\tdataInit_customerCommon;\r\n"
+        "\t}\r\n\r\n"
+        "\tactions\r\n"
+        "\t{\r\n"
+        f"\t\tGlobal.CUSTOMER_LIST = {expression};\r\n"
+        "\t}\r\n"
+        "}"
+    )
 
 
 def validate_semantics(editions: dict[str, EditionData], transformed: dict[str, dict[str, list[Any]]]) -> dict[str, Any]:
@@ -957,7 +981,7 @@ def validate_generated_tables(
         for table in LIST_TABLES:
             if table not in edition.values:
                 continue
-            lhs = "DELUXE_DATA[0]" if table == "MELT_LIST" else table
+            lhs = "ICE_RESULT" if table == "MELT_LIST" else table
             observed = eval_expr(find_assignment(blocks[2], lhs).expression)
             expected = recursively_map_list(edition.values[table], edition.mapping)
             if observed != expected:
@@ -967,12 +991,35 @@ def validate_generated_tables(
             raise ParseError(f"{name} generated active-drop pool mismatch")
         if eval_expr(find_assignment(blocks[3], "DELUXE_DATA[2]").expression) != RUNTIME_CONFIGS[name]:
             raise ParseError(f"{name} generated runtime-config pool mismatch")
+        if "Global.CUSTOMER_LIST =" in blocks[3]:
+            raise ParseError(f"{name} generated init3 still contains CUSTOMER_LIST")
         report[name] = {
             "per_item_tables": checked_tables,
             "numeric_lookup": edition.new_count,
             "list_tables": len([table for table in LIST_TABLES if table in edition.values]),
             "round_trip": True,
         }
+
+    common_block = find_rule(generated, "dataInit_customerCommon")
+    source_expression = find_assignment(
+        editions["org"].rules[3], "CUSTOMER_LIST"
+    ).expression
+    source_expression = re.sub(
+        r"Global\.stageMode(?!\[)", "Global.stageMode[1]", source_expression
+    )
+    observed_expression = find_assignment(
+        common_block, "CUSTOMER_LIST"
+    ).expression
+    if normalize_expr(observed_expression) != normalize_expr(source_expression):
+        raise ParseError("generated common CUSTOMER_LIST differs from ORG source")
+    _, customer_modes, suffix = unwrap_call(source_expression, "Array")
+    if normalize_expr(suffix) != "[Global.stageMode[1]]":
+        raise ParseError(f"common CUSTOMER_LIST mode suffix changed: {suffix!r}")
+    report["common_customer_list"] = {
+        "source": "org",
+        "top_level_entries": len(customer_modes),
+        "round_trip": True,
+    }
     return report
 
 
@@ -1035,6 +1082,7 @@ def build() -> tuple[str, dict[str, Any]]:
         rules.append(render_per_item_rule(edition, 1, transformed[name], f"dataInit_{name}1"))
         rules.append(render_phase2_rule(edition, transformed[name], f"dataInit_{name}2"))
         rules.append(render_phase3_rule(edition, f"dataInit_{name}3"))
+    rules.append(render_customer_common_rule(editions["org"]))
     generated = "\r\n\r\n".join(rules) + "\r\n"
     report = validate_semantics(editions, transformed)
     report["generated_table_round_trip"] = validate_generated_tables(
@@ -1043,8 +1091,8 @@ def build() -> tuple[str, dict[str, Any]]:
     report["raw_round_trip"] = validate_generated_raw(generated, editions)
     report["custom_string_lengths"] = validate_custom_string_lengths(generated)
     report["source_sha256"] = {
-        name: __import__("hashlib").sha256(edition.source.encode("utf-8")).hexdigest().upper()
-        for name, edition in editions.items()
+        name: __import__("hashlib").sha256(EDITION_SPECS[name]["path"].read_bytes()).hexdigest().upper()
+        for name in editions
     }
     report["generated_rule_count"] = len(rules)
     return generated, report
@@ -1057,7 +1105,8 @@ def main() -> None:
     generated, report = build()
     if not args.check:
         BUILD_DIR.mkdir(parents=True, exist_ok=True)
-        (BUILD_DIR / "generated_data_init_rules.ow").write_bytes(generated.encode("utf-8"))
+        generated_output = generated.replace("\r\n", "\n")
+        (BUILD_DIR / "generated_data_init_rules.ow").write_bytes(generated_output.encode("utf-8"))
         (BUILD_DIR / "data_validation.json").write_text(
             json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )

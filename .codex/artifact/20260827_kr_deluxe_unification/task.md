@@ -8,7 +8,7 @@
 
 ## 확정 결정
 
-- 최종 수정 파일은 `kr_deluxe.ow` 하나다.
+- 실행 결과물은 `kr_deluxe.ow` 하나이며, 재생성 일치를 위해 생성 스크립트와 build 산출물도 함께 갱신한다.
 - 현재 작업 사본의 `kr_deluxe.ow`는 `ko.ow`와 바이트 단위로 동일하다.
 - 에디션 선택은 아이템 데이터 초기화보다 먼저 완료하고 게임 중에는 변경하지 않는다.
 - 기존 `dataInit`, `dataInit2`, `dataInit3`는 에디션 디스패처로 유지한다.
@@ -54,9 +54,9 @@
 - [x] `kr_deluxe.ow` 핵심 통합 구현
 - [x] 데이터/RAW/런타임 하드코드 정적 검증
 - [x] GC 싱크대 물 생성 항목 제외(N3 전용 기능으로 범위 정정)
-- [ ] `dataInit3`의 ORG판 `CUSTOMER_LIST`를 공용 서브루틴으로 분리(튜토리얼 항목과 ko 인덱스/HUD 유지, 예상 순절감 약 1,650~1,750 elements)
-- [ ] MELT 목록을 ORG의 `ICE_RESULT`로 이동하고 `DELUXE_DATA[0]` 제거
-- [ ] CAFE/GC stage 0 우회와 `setHint` 비ORG Abort 즉시 제거, `setHint`에 ORG/CAFE/GC 분기 추가(CAFE/GC 본문은 빈 상태)
+- [x] `dataInit3`의 ORG판 `CUSTOMER_LIST`를 공용 서브루틴으로 분리(튜토리얼 항목과 ko 인덱스/HUD 유지, 예상 순절감 약 1,650~1,750 elements)
+- [x] MELT 목록을 ORG의 `ICE_RESULT`로 이동하고 `DELUXE_DATA[0]` 제거
+- [x] CAFE/GC stage 0 우회와 `setHint` 비ORG Abort 제거, `setHint`에 ORG/CAFE/GC 분기 추가(CAFE/GC 본문은 빈 상태)
 - [ ] CAFE/GC의 빈 `setHint` 분기에 실제 튜토리얼 콘텐츠 추가(후속 작업)
 - [ ] 연습모드 에디션 dataInit 세트 재로딩(별도 요청 전까지 보류)
 - [ ] N3 네 번째 에디션 통합 가능성 검토(Elements 실제 측정 전까지 WIP, 이번 작업에서는 미이식)
@@ -70,12 +70,22 @@
 - ORG 476개, CAFE 399개, GC 464개 item table을 생성했다.
 - RAW 조합 306/255/282행을 새 코드로 변환하고 문자열 기반 Mapped Array로 압축했다.
 - 공통 init2/init3 문장을 디스패처로 끌어올려 세 사본의 중복 element를 제거했다.
-- write-only 글로벌 ID 100/105의 사용처를 제거하고 `ICE_NEEDED`/`ICE_RESULT`로 재사용했으며, ICE 데이터는 CAFE init에서만 할당한다.
-- `DELUXE_DATA`는 `[0]` ORG MELT, `[1]` 활성 드랍, `[2]` 런타임 설정으로 압축했다.
+- write-only 글로벌 ID 100/105의 사용처를 제거하고 `ICE_NEEDED`/`ICE_RESULT`로 재사용했다. `ICE_NEEDED`는 CAFE만, `ICE_RESULT`는 ORG MELT와 CAFE 제빙 결과가 에디션별로 사용한다.
+- `DELUXE_DATA`는 `[1]` 활성 드랍, `[2]` 런타임 설정만 사용하며 `[0]` 대입·조회는 제거했다.
 - ORG 보존식 박스, CAFE 제빙기·냉각총, 에디션별 드랍/시작/연습/업그레이드 pool 분기를 적용했다.
-- 현재 cafe/gc의 미작성 튜토리얼 진입은 임시로 건너뛰고 있으나, 다음 구현에서 이 우회를 즉시 제거한다. `setHint`에 ORG/CAFE/GC 분기를 만들고 CAFE/GC는 빈 본문으로 두어 ko 기준 stage 인덱스/HUD를 바로 공통화한다.
+- cafe/gc의 stage 0 건너뛰기와 비ORG `setHint` 중단을 제거했다. `setHint`에 ORG/CAFE/GC 분기를 만들고 CAFE/GC는 빈 본문으로 두어 ko 기준 stage 인덱스/HUD를 공통화했다.
 - 원본 `ko.ow`, `cafe_kr.ow`, `gc_kr.ow` SHA-256이 작업 전 기준과 동일함을 확인했다.
 - 상세 결과와 재현 명령은 `walkthrough.md`, 검증 수치는 `validation_report.md`에 기록했다.
+
+## 후속 최적화 적용 결과 (2026-08-28)
+
+- ORG판 `CUSTOMER_LIST` 한 사본을 공용 `dataInit_customerCommon`으로 이동하고 에디션별 init3의 세 사본을 제거했다.
+- 생성기는 공용 고객 Rule을 포함한 10개 Rule을 만들며, ORG 원본과 정규화 표현식이 일치하는지 왕복 검증한다.
+- 데이터 생성기와 전체 조립기는 LF/CRLF 입력을 내부 CRLF로 정규화하며, 전체 조립 결과와 검증 산출물을 결정론적으로 재생성한다.
+- 원본의 scalar `Global.stageMode`가 생성 산출물에 남지 않도록 init3 생성 시 `Global.stageMode[1]`로 변환한다.
+- ORG MELT 24개 목록은 `ICE_RESULT`에 할당하고 MELT 조회 다섯 곳의 ORG 조건을 유지했다.
+- CAFE 제빙기·냉각총의 `ICE_RESULT` 인덱싱 두 곳은 기존 CAFE 조건 안에 유지했다.
+- 외부 Workshop 도구와 인게임 런타임 검증은 요청에 따라 실행하지 않았다.
 
 ## 범위 최신화 (2026-08-28)
 

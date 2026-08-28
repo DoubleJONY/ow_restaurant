@@ -28,7 +28,7 @@
   2. `dataInit2`
   3. difficulty/storage 계산
   4. `dataInit3`
-- `DELUXE_DATA`에서 에디션 값과 init-ready 값을 제거했다. 후속 최적화에서는 `[0]`의 ORG MELT 목록도 `ICE_RESULT`로 옮기고 다음 두 슬롯만 사용한다.
+- `DELUXE_DATA`에서 에디션 값과 init-ready 값을 제거했다. 2026-08-28 후속 최적화에서 `[0]`의 ORG MELT 목록도 `ICE_RESULT`로 옮겨 다음 두 슬롯만 사용한다.
   - `[1]`: 선택 에디션의 활성 item-perk 드랍 목록
   - `[2]`: 시작 아이템과 강화 풀 등 에디션 런타임 설정
 - 별도 `DELUXE_DATA[3]` 동기화 장벽은 사용하지 않는 현재 흐름을 최종 기준으로 결정했다.
@@ -38,7 +38,7 @@
 - 글로벌 ID 100/105를 각각 `ICE_NEEDED`, `ICE_RESULT`로 재사용한다.
 - 기존 write-only 변수의 할당과 참조는 제거했다.
 - 현재 ICE 배열은 CAFE init에서 할당하고, 제빙·냉각총 로직은 이미 CAFE 조건 안에서만 조회한다.
-- 후속 최적화에서는 ORG init이 `ICE_RESULT`에 MELT 목록을 할당하고 MELT 디스폰 로직의 `DELUXE_DATA[0]` 조회를 `ICE_RESULT` 조회로 바꾼다. GC는 할당하지 않는다.
+- 후속 최적화에서 ORG init이 `ICE_RESULT`에 MELT 목록을 할당하도록 바꾸고, MELT 디스폰 로직의 `DELUXE_DATA[0]` 조회를 `ICE_RESULT` 조회로 교체했다. GC는 할당하지 않는다.
 - 제빙기 라벨 블록은 팬 라벨 다음의 원래 월드 초기화 위치로 복귀했다.
 - 제빙기 라벨의 `If(Global.stageMode[0] == 1)` 내용은 그대로 유지한다.
 - 그릴/오븐처럼 같은 텍스트 엔티티의 문자열이 에디션에 따라 달라지는 곳은 `Visible To and String`을 유지한다.
@@ -52,11 +52,11 @@
 ## 2. 현재 확정 기준점
 
 - 버전: `v260828`
-- `kr_deluxe.ow`: 56 rules / 128 globals / 39 subroutines
+- `kr_deluxe.ow`: 57 rules / 128 globals / 40 subroutines
 - `createItemData` 생성 지점: 33곳
 - `DELUXE_DATA` 최대 슬롯: `[2]`
 - `kr_deluxe.ow` SHA-256:
-  `54C6784A4F1255EA500467C066C50B4E196CAF227471F47ADDD4ED3B350DB439`
+  `E8F62B19A0F478E8471A2B7AA76E1ED2970E53FB3D172D1F900A2EDE8850D30D`
 
 원본 파일은 변경하지 않았다.
 
@@ -138,9 +138,9 @@ ORG 연습모드의 `stage == 5`는 통합 전 다른 워크샵을 소개하기 
    - `Global.stageMode[1] = 0`
    - `Global.difficulty = 4`
 9. `Call Subroutine(dataInit3)`를 호출한다.
-10. 새 에디션에서 유효한 stage로 먼저 이동한다.
-    - ORG 튜토리얼을 유지한다면 ORG는 `0` 또는 `1`
-    - CAFE/GC는 현재 정책에 따라 `1`
+10. 새 에디션에서도 공통 stage 인덱스를 유지한다.
+    - 모든 에디션의 `stage == 0`은 튜토리얼 자리이며 자동으로 `1`로 건너뛰지 않는다.
+    - CAFE/GC는 실제 튜토리얼이 추가될 때까지 `setHint`의 빈 에디션 분기를 사용한다.
 11. 현재 stage 기준 런타임 배열을 재구성한다.
     - `currentCustomer`
     - `currentMenu` / `loadingMenu`
@@ -213,7 +213,7 @@ CAFE/GC에서도 다시 다른 에디션으로 이동하려면 다음 중 하나
 ### Workshop 제한
 
 - 전체 스크립트 크기 98KB 제한으로 보지 않는다.
-- 현재 GitHub blob 크기는 `ko.ow` 282,679 bytes, `kr_deluxe.ow` 390,969 bytes, `n3_kr.ow` 254,809 bytes다.
+- 현재 GitHub blob 크기는 `ko.ow` 282,679 bytes, `kr_deluxe.ow` 377,814 bytes, `n3_kr.ow` 254,809 bytes다.
 - 약 98KB 제한은 개별 rule 기준으로 관리한다. 큰 데이터 초기화는 에디션별·단계별 서브루틴으로 분할한다.
 - 전체 컴파일 예산은 최대 32,768 elements로 별도 관리한다.
 - `ko.ow`의 혼합 배열 압축 전후 사용자 실측은 약 28,800 → 27,700대로, 1,000개 이상 절감됐다.
@@ -235,7 +235,7 @@ CAFE/GC에서도 다시 다른 에디션으로 이동하려면 다음 중 하나
 - 이번 최신화에서는 N3 또는 잔여 마이그레이션 코드를 수정하지 않는다.
 
 
-## 10. init3 공용 손님 구성 계획
+## 10. init3 공용 손님 구성 구현
 
 ### 구조
 
@@ -250,8 +250,8 @@ CAFE/GC에서도 다시 다른 에디션으로 이동하려면 다음 중 하나
 - ORG는 첫 번째 게임 모드의 연습 배열에 튜토리얼용 `Soldier: 76 ×2` 항목 하나가 더 있다.
 - 이 차이는 CAFE/GC에 튜토리얼이 아직 없기 때문에 생긴 미이식 차이이며, 사용하지 않는 에디션 전용 슬롯이 아니다.
 - 공통 런타임은 `ko.ow` 기준이므로 이 항목을 포함한 ORG판 `CUSTOMER_LIST`, stage 인덱스와 HUD 구조를 전 에디션의 공통 규격으로 사용한다.
-- CAFE/GC의 튜토리얼 인덱스를 건너뛰는 `stage = 1` 강제와 `stage 0` 건너뛰기는 다음 구현에서 즉시 제거한다. `setHint`의 비ORG `Abort`도 함께 제거한다.
-- `setHint`에는 ORG/CAFE/GC 분기 골격을 추가한다. ORG는 기존 내용을 유지하고 CAFE/GC 분기는 당분간 비워둔다.
+- CAFE/GC의 튜토리얼 인덱스를 건너뛰는 `stage = 1` 강제와 `stage 0` 건너뛰기, `setHint`의 비ORG `Abort`를 제거했다.
+- `setHint`에 ORG/CAFE/GC 분기 골격을 추가했다. ORG는 기존 내용을 유지하고 CAFE/GC 분기는 당분간 비워뒀다.
 - 호출 전에 공통 stage 고객·메뉴가 로드되고 `hintText`가 초기화되므로 빈 분기는 데이터 누출 없이 기본 연습 상태로 동작한다.
 - CAFE/GC 튜토리얼 콘텐츠는 후속 작업에서 빈 분기 안에 추가하며 공통 인덱스나 HUD 순서는 변경하지 않는다.
 

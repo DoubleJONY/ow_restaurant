@@ -229,6 +229,7 @@ subroutines
 	36: dataInit_gc1
 	37: dataInit_gc2
 	38: dataInit_gc3
+	39: dataInit_customerCommon
 }
 
 rule("Global: Setting")
@@ -817,9 +818,6 @@ rule("Global: Setting")
 		Global.difficulty = Array(4, 0, 1, 2, 1, 2)[Global.stageMode[1]];
 		Global.storageLevel = Array(7, 3, 3, 0, -1, -1)[Global.stageMode[1]];
 		Call Subroutine(dataInit3);
-		If(Global.stageMode[0] != 0 && Global.difficulty == 4);
-			Global.stage = 1;
-		End;
 		Global.scbRank = Empty Array;
 		Global.stageTime = Array(999, 300, 300, 240, 180, 600)[Global.stageMode[1]];
 		Global.hintText = Array(Custom String(""));
@@ -1290,9 +1288,6 @@ rule("Player: Interact")
 			Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 					Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.isOpen == False);
 				Global.stage = (Global.stage + True) % Count Of(Global.STAGE_CODE);
-				If(Global.stageMode[0] != 0 && Global.stage == 0);
-					Global.stage = 1;
-				End;
 				Global.totalScore[False] = Global.STAGE_CODE[Global.stage];
 				Global.currentCustomer = Global.CUSTOMER_LIST[Global.stage];
 				Global.currentMenu = Empty Array;
@@ -2628,6 +2623,7 @@ rule("Global subroutine: Deluxe dispatcher dataInit3")
 		Else;
 			Call Subroutine(dataInit_gc3);
 		End;
+		Call Subroutine(dataInit_customerCommon);
 		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
 		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
 		Global.scoreDecrease = Array(Array(Null, Null, Null, Null, Null, Null), Array(5, Null, 5, 5, 5, 5),
@@ -3062,7 +3058,7 @@ rule("Global subroutine: Item cooking")
 					Play Effect(All Players(All Teams), DVa Micro Missiles Explosion Sound, Null, Vector(224.552, 2, 161.294), 15);
 					Global.itemVelocity[Global.cookingIndex] += Direction From Angles(False, Random Integer(False, 360)) * 0.005 + Vector(False, 0.075,
 						False);
-					Global.itemDespawn[Global.cookingIndex] = Global.stageMode[0] == 0 && Array Contains(Global.DELUXE_DATA[0], Global.itemCode[Global.cookingIndex]) ? 99 : Null;
+					Global.itemDespawn[Global.cookingIndex] = Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT, Global.itemCode[Global.cookingIndex]) ? 99 : Null;
 					If(Global.itemStatus[Global.cookingIndex] == 2);
 						Global.itemProgress[Global.cookingIndex] += Global.fryingPower;
 					Else;
@@ -3078,7 +3074,7 @@ rule("Global subroutine: Item cooking")
 				Else If(Distance Between(Global.itemPosition[Global.cookingIndex], Vector(223.169, 2, 157.009)) < 0.550 || Distance Between(
 						Global.itemPosition[Global.cookingIndex], Vector(224.003, 2, 157.566)) < 0.550);
 					Play Effect(All Players(All Teams), Ring Explosion, Color(Orange), Global.itemPosition[Global.cookingIndex], True);
-					Global.itemDespawn[Global.cookingIndex] = Global.stageMode[0] == 0 && Array Contains(Global.DELUXE_DATA[0], Global.itemCode[Global.cookingIndex]) ? 99 : Null;
+					Global.itemDespawn[Global.cookingIndex] = Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT, Global.itemCode[Global.cookingIndex]) ? 99 : Null;
 					If(Global.itemStatus[Global.cookingIndex] == 3);
 						Global.itemProgress[Global.cookingIndex] += Global.grillingPower;
 					Else;
@@ -3096,7 +3092,7 @@ rule("Global subroutine: Item cooking")
 					End;
 				Else If(Distance Between(Global.itemPosition[Global.cookingIndex], Vector(224.926, 2, 158.167)) < 0.550);
 					Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Global.itemPosition[Global.cookingIndex], True);
-					Global.itemDespawn[Global.cookingIndex] = Global.stageMode[0] == 0 && Array Contains(Global.DELUXE_DATA[0], Global.itemCode[Global.cookingIndex]) ? 99 : Null;
+					Global.itemDespawn[Global.cookingIndex] = Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT, Global.itemCode[Global.cookingIndex]) ? 99 : Null;
 					Global.itemVelocity[Global.cookingIndex] += Direction From Angles(False, Random Integer(False, 360)) * 0.003 + Vector(False, 0.050,
 						False);
 					If(Global.itemStatus[Global.cookingIndex] == 4);
@@ -3159,14 +3155,14 @@ rule("Global subroutine: Despawn item")
 	{
 		For Global Variable(despawnIndex, False, Count Of(Global.itemCode), True);
 			If(Global.itemCode[Global.despawnIndex] != -1 && !Global.itemControled[Global.despawnIndex]);
-				If(Global.stageMode[0] == 0 && Array Contains(Global.DELUXE_DATA[0], Global.itemCode[Global.despawnIndex]));
+				If(Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT, Global.itemCode[Global.despawnIndex]));
 					Play Effect(All Players(All Teams), Ring Explosion, Global.ITEM_COLOR[Global.itemCode[Global.despawnIndex]],
 					Global.itemPosition[Global.despawnIndex], 1.2);
 					Play Effect(All Players(All Teams), Ring Explosion, Color(Sky Blue),
 					Global.itemPosition[Global.despawnIndex], 1);
 				End;
 				Global.itemDespawn[Global.despawnIndex] +=
-					Global.stageMode[0] == 0 && Array Contains(Global.DELUXE_DATA[0], Global.itemCode[Global.despawnIndex]) ? 20 :
+					Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT, Global.itemCode[Global.despawnIndex]) ? 20 :
 					Global.itemCode[Global.despawnIndex] == False ? 2 :
 					(Array Contains(Global.STAGE_CODE[Global.stage], 11) || (Global.difficulty == 4 && Global.totalScore[False] == 11))
 					&& Array Contains(Global.ADDITIONAL_MATERIAL_LIST, Global.itemCode[Global.despawnIndex]) ? 0.5 :
@@ -4017,84 +4013,87 @@ rule("Global subroutine: Set Hint Text")
 
 	actions
 	{
-		Abort If(Global.stageMode[0] != 0);
-		If(Global.stage == 0);
-			Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
-			Global.loadingMenu = Array(63, 64, 352, 356, 354, 355, 25, 24);
-			Global.hintText = Array(
-				Custom String("냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요."),
-				Custom String("재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요."),
-				Custom String("재료의 손질과 각기 다른 조리기구의 활용으로 다양한 요리를 만들 수 있습니다.\r\n감자를 통째로 구우면 구운 감자가 되고..."),
-				Custom String("감자를 썰어서 팬에 올리면 볶은 감자가 되고..."),
-				Custom String("썬 감자를 튀김기에 올리면 감자튀김이 되는 식입니다.\r\n어떤 느낌인지 감이 오셨나요?"),
-				Custom String("어떤 재료는 강하게 내려치면 변하기도 합니다.\r\n감자를 솥에 쪄서 찐 감자를 관성을 이용해 바닥에 던져보세요."),
-				Custom String("또한 일부 재료는 합칠 수 있습니다.\r\n삶은 파스타와 크림 소스를 맞대어 합쳐보세요."),
-				Custom String("토마토는 썰어서 솥에 찌면 토마토 소스를 만들 수 있지만..\r\n써는 대신 내려치면 더 빠르게 뭉갠 토마토로 만들 수 있습니다."),
-				Custom String("손님에 따라 다른 특성들도 있습니다.\r\n대식가의 경우에는 점수를 더 많이 주지만 음식을 2번 서빙해야 합니다."),
-				Custom String("다양한 레시피들의 조합법을 마스터하고 클리어에 도전하세요.\r\n행운을 빕니다!")
-			);
-		Else If(Global.stage == 1);
-			Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
-			Global.hintText = Array(
-				Custom String("썬 닭고기 + 튀김가루 > 튀김기"),
-				Custom String("닭고기 + 튀김가루 > 튀김기"),
-				Custom String("조각낸 닭고기 + 튀김가루 > 튀김기"),
-				Custom String("모든 양념은 후라이드 치킨에 추가할 수 있습니다.\r\n간장 + 물엿"),
-				Custom String("고추장 + 물엿"),
-				Custom String("고추장 + 간장 + 물엿"),
-				Custom String("썬 파 + 간장 소스"),
-				Custom String("튀긴 조각 닭 + 양념 소스 > 팬에 볶기")
-			);
-		Else If(Global.stage == 2);
-			Global.loadingMenu = Array(126, 354);
-			Global.hintText = Array(
-				Custom String("밀가루를 피자 도우가 될 때 까지 내려치세요.\r\n피자 도우 + 토마토 소스 + 피자 치즈 > 그릴에 굽기"),
-				Custom String("모든 레시피를 확인할 수 있는 사이트를 참고하실 수 있습니다.\r\nhttps://ow-restaurant.com/ko")
-			);
-		Else If(Global.stage == 3);
-			Global.currentCustomer = Array(Hero(Tracer), Hero(Bastion), Hero(Bastion));
-			Global.hintText = Array(
-				Custom String(""),
-				Custom String("조심하세요! 자신보다 늦게 온 손님을 먼저 서빙하면 실패하는 손님 유형이 있습니다."),
-				Custom String("이런 손님들은 주문서 순서대로 서빙하는걸 추천합니다.")
-			);
-		Else If(Global.stage == 4);
-			Global.currentCustomer = Array(Hero(Hanzo), Hero(Tracer));
-			Global.hintText = Array(
-				Custom String("음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.")
-			);
-		Else If(Global.stage == 5);
-			Global.currentCustomer = Array(Hero(Zarya), Hero(Bastion));
-			Global.hintText = Array(
-				Custom String("푸드 파이터는 3개의 음식을 서빙해야 합니다.")
-			);
-		Else If(Global.stage == 6);
-			Global.currentCustomer = Array(Hero(Hanzo), Hero(Mercy));
-			Global.hintText = Array(
-				Custom String(""),
-				Custom String("예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!")
-			);
-		Else If(Global.stage == 7);
-			Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
-			Global.hintText = Array(
-				Custom String("밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다."),
-				Custom String("다진 파 + 으깬 두부 + 만두피 > 솥에 찌기"),
-				Custom String("다진 파 + 으깬 두부 + 만두피 > 팬에 굽기"),
-				Custom String("다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기"),
-				Custom String("다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기")
-			);
-		Else If(Global.stage == 9);
-			Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 354, 23);
-			Global.hintText = Array(
-				Custom String("다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵"),
-				Custom String("아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵"),
-				Custom String("아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵"),
-				Custom String("아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵"),
-				Custom String("아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵"),
-				Custom String("아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵")
-			);
+		If(Global.stageMode[0] == 0);
+			If(Global.stage == 0);
+				Global.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog));
+				Global.loadingMenu = Array(63, 64, 352, 356, 354, 355, 25, 24);
+				Global.hintText = Array(
+					Custom String("냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요."),
+					Custom String("재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요."),
+					Custom String("재료의 손질과 각기 다른 조리기구의 활용으로 다양한 요리를 만들 수 있습니다.\r\n감자를 통째로 구우면 구운 감자가 되고..."),
+					Custom String("감자를 썰어서 팬에 올리면 볶은 감자가 되고..."),
+					Custom String("썬 감자를 튀김기에 올리면 감자튀김이 되는 식입니다.\r\n어떤 느낌인지 감이 오셨나요?"),
+					Custom String("어떤 재료는 강하게 내려치면 변하기도 합니다.\r\n감자를 솥에 쪄서 찐 감자를 관성을 이용해 바닥에 던져보세요."),
+					Custom String("또한 일부 재료는 합칠 수 있습니다.\r\n삶은 파스타와 크림 소스를 맞대어 합쳐보세요."),
+					Custom String("토마토는 썰어서 솥에 찌면 토마토 소스를 만들 수 있지만..\r\n써는 대신 내려치면 더 빠르게 뭉갠 토마토로 만들 수 있습니다."),
+					Custom String("손님에 따라 다른 특성들도 있습니다.\r\n대식가의 경우에는 점수를 더 많이 주지만 음식을 2번 서빙해야 합니다."),
+					Custom String("다양한 레시피들의 조합법을 마스터하고 클리어에 도전하세요.\r\n행운을 빕니다!")
+				);
+			Else If(Global.stage == 1);
+				Global.loadingMenu = Array(85, 90, 84, 88, 87, 86, 96, 89);
+				Global.hintText = Array(
+					Custom String("썬 닭고기 + 튀김가루 > 튀김기"),
+					Custom String("닭고기 + 튀김가루 > 튀김기"),
+					Custom String("조각낸 닭고기 + 튀김가루 > 튀김기"),
+					Custom String("모든 양념은 후라이드 치킨에 추가할 수 있습니다.\r\n간장 + 물엿"),
+					Custom String("고추장 + 물엿"),
+					Custom String("고추장 + 간장 + 물엿"),
+					Custom String("썬 파 + 간장 소스"),
+					Custom String("튀긴 조각 닭 + 양념 소스 > 팬에 볶기")
+				);
+			Else If(Global.stage == 2);
+				Global.loadingMenu = Array(126, 354);
+				Global.hintText = Array(
+					Custom String("밀가루를 피자 도우가 될 때 까지 내려치세요.\r\n피자 도우 + 토마토 소스 + 피자 치즈 > 그릴에 굽기"),
+					Custom String("모든 레시피를 확인할 수 있는 사이트를 참고하실 수 있습니다.\r\nhttps://ow-restaurant.com/ko")
+				);
+			Else If(Global.stage == 3);
+				Global.currentCustomer = Array(Hero(Tracer), Hero(Bastion), Hero(Bastion));
+				Global.hintText = Array(
+					Custom String(""),
+					Custom String("조심하세요! 자신보다 늦게 온 손님을 먼저 서빙하면 실패하는 손님 유형이 있습니다."),
+					Custom String("이런 손님들은 주문서 순서대로 서빙하는걸 추천합니다.")
+				);
+			Else If(Global.stage == 4);
+				Global.currentCustomer = Array(Hero(Hanzo), Hero(Tracer));
+				Global.hintText = Array(
+					Custom String("음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.")
+				);
+			Else If(Global.stage == 5);
+				Global.currentCustomer = Array(Hero(Zarya), Hero(Bastion));
+				Global.hintText = Array(
+					Custom String("푸드 파이터는 3개의 음식을 서빙해야 합니다.")
+				);
+			Else If(Global.stage == 6);
+				Global.currentCustomer = Array(Hero(Hanzo), Hero(Mercy));
+				Global.hintText = Array(
+					Custom String(""),
+					Custom String("예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!")
+				);
+			Else If(Global.stage == 7);
+				Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
+				Global.hintText = Array(
+					Custom String("밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다."),
+					Custom String("다진 파 + 으깬 두부 + 만두피 > 솥에 찌기"),
+					Custom String("다진 파 + 으깬 두부 + 만두피 > 팬에 굽기"),
+					Custom String("다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기"),
+					Custom String("다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기")
+				);
+			Else If(Global.stage == 9);
+				Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 354, 23);
+				Global.hintText = Array(
+					Custom String("다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵"),
+					Custom String("아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵"),
+					Custom String("아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵"),
+					Custom String("아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵"),
+					Custom String("아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵"),
+					Custom String("아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵")
+				);
+			Else;
+				Global.hintText = Array(Custom String(""));
+			End;
+		Else If(Global.stageMode[0] == 1);
 		Else;
-			Global.hintText = Array(Custom String(""));
 		End;
 	}
 }
@@ -4762,7 +4761,7 @@ rule("Global subroutine: Deluxe ORG init2")
 			Array(295, 296, 298, 297, 300, 299),
 			Array(114, 332, 298, 100, 122, 299),
 			Array(268, 370, 373, 74, 241, 75));
-		Global.DELUXE_DATA[0] = Array(296, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 331, 402, 403);
+		Global.ICE_RESULT = Array(296, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 331, 402, 403);
 		Global.WEAVER_MENU_LIST = Array(Array(411, 437),
 			Array(393, 453),
 			Array(412, 441, 442),
@@ -4810,102 +4809,7 @@ rule("Global subroutine: Deluxe ORG init3")
 
 
 
-		Global.CUSTOMER_LIST = Array(
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Tracer)),
-				Array(Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Soldier: 76)),
-				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)),
-				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)),
-				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)),
-				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)),
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)),
-				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)),
-				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)),
-				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Hazard)),
-				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)),
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
-				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
-				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Moira), Hero(Kiriko))
-			))[Global.stageMode[1]];
+
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)),
@@ -5389,101 +5293,7 @@ rule("Global subroutine: Deluxe CAFE init3")
 
 
 
-		Global.CUSTOMER_LIST = Array(
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Tracer)),
-				Array(Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Soldier: 76)),
-				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)),
-				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)),
-				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)),
-				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)),
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)),
-				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)),
-				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)),
-				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Hazard)),
-				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)),
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
-				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
-				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Moira), Hero(Kiriko))
-			))[Global.stageMode[1]];
+
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(9), Array(3), Array(1), Array(7), Array(0), Array(9), Array(3), Array(1), Array(7), Array(0), Array(9), Array(3), Array(1), Array(7), Array(0)),
@@ -5983,8 +5793,65 @@ rule("Global subroutine: Deluxe GC init3")
 
 
 
+
+		Global.STAGE_CODE = Array(
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(6), Array(10), Array(11), Array(8), Array(0), Array(6), Array(10), Array(11), Array(8), Array(0),
+				Array(6), Array(10), Array(11), Array(8)),
+			Array(Array(0), Array(6), Array(9), Array(10), Array(3), Array(11), Array(5), Array(2), Array(1), Array(4), Array(8), Array(7),
+				Array(Random Integer(0, 11)), Array(Random Integer(0, 11)), Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0,
+				10), Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6), Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9),
+				Array(8, 11), Array(10, 11)))),
+			Append To Array(
+				Randomized Array(Array(Array(0), Array(2), Array(3), Array(5), Array(6), Array(9))),
+				Append To Array(
+					Randomized Array(Array(Array(1), Array(4), Array(7), Array(8), Array(10), Array(11))),
+					Append To Array(
+						Array(Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10), Array(3, 4),
+							Array(4, 6)))),
+						Append To Array(
+							Array(Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8,
+								11), Array(10, 11)))),
+							Array(Random Value In Array(Array(Array(0, 1, 10), Array(0, 2, 10), Array(0, 10, 11), Array(2, 10, 11), Array(
+								3, 4, 6), Array(5, 7, 8), Array(6, 7, 8), Array(5, 8, 11), Array(7, 8, 9))))
+						)
+					)
+				)
+			),
+			Array(Random Value In Array(Array(Array(0), Array(6))), Random Value In Array(Array(Array(10), Array(11))), Random Value In Array(
+				Array(Array(1), Array(8))), Random Value In Array(Array(Array(9), Array(5))), Random Value In Array(Array(Array(3), Array(
+				4))), Random Value In Array(Array(Array(2), Array(7))), Array(Random Integer(0, 11)), Array(Random Integer(0, 11)),
+				Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6))),
+				Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8, 11), Array(10, 11))),
+				Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6))),
+				Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8, 11), Array(10, 11))),
+				Random Value In Array(Array(Array(0, 1, 10), Array(0, 2, 10), Array(0, 10, 11), Array(2, 10, 11), Array(3, 4, 6), Array(
+				5, 7, 8), Array(6, 7, 8), Array(5, 8, 11), Array(7, 8, 9)))),
+			Array(
+				Array(0), Array(2), Array(3), Array(5), Array(6), Array(1), Array(4), Array(7), Array(8), Array(10),
+				Array(0, 1), Array(2, 3), Array(5, 6), Array(4, 7),
+				Array(1, 3), Array(3, 7), Array(9, 10),
+				Array(2, 5, 6),
+				Array(3, 7, 8),
+				Array(7, 8, 10)
+			)
+		)[Global.stageMode[1]];
+	}
+}
+
+rule("Global subroutine: Deluxe common customer init")
+{
+	event
+	{
+		Subroutine;
+		dataInit_customerCommon;
+	}
+
+	actions
+	{
 		Global.CUSTOMER_LIST = Array(
 			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
 				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
 				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
@@ -6078,47 +5945,5 @@ rule("Global subroutine: Deluxe GC init3")
 				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
 				Array(Hero(Moira), Hero(Kiriko))
 			))[Global.stageMode[1]];
-		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
-			Array(Array(0), Array(6), Array(10), Array(11), Array(8), Array(0), Array(6), Array(10), Array(11), Array(8), Array(0),
-				Array(6), Array(10), Array(11), Array(8)),
-			Array(Array(0), Array(6), Array(9), Array(10), Array(3), Array(11), Array(5), Array(2), Array(1), Array(4), Array(8), Array(7),
-				Array(Random Integer(0, 11)), Array(Random Integer(0, 11)), Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0,
-				10), Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6), Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9),
-				Array(8, 11), Array(10, 11)))),
-			Append To Array(
-				Randomized Array(Array(Array(0), Array(2), Array(3), Array(5), Array(6), Array(9))),
-				Append To Array(
-					Randomized Array(Array(Array(1), Array(4), Array(7), Array(8), Array(10), Array(11))),
-					Append To Array(
-						Array(Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10), Array(3, 4),
-							Array(4, 6)))),
-						Append To Array(
-							Array(Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8,
-								11), Array(10, 11)))),
-							Array(Random Value In Array(Array(Array(0, 1, 10), Array(0, 2, 10), Array(0, 10, 11), Array(2, 10, 11), Array(
-								3, 4, 6), Array(5, 7, 8), Array(6, 7, 8), Array(5, 8, 11), Array(7, 8, 9))))
-						)
-					)
-				)
-			),
-			Array(Random Value In Array(Array(Array(0), Array(6))), Random Value In Array(Array(Array(10), Array(11))), Random Value In Array(
-				Array(Array(1), Array(8))), Random Value In Array(Array(Array(9), Array(5))), Random Value In Array(Array(Array(3), Array(
-				4))), Random Value In Array(Array(Array(2), Array(7))), Array(Random Integer(0, 11)), Array(Random Integer(0, 11)),
-				Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6))),
-				Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8, 11), Array(10, 11))),
-				Random Value In Array(Array(Array(0, 1), Array(0, 2), Array(0, 10), Array(0, 11), Array(2, 10), Array(3, 4), Array(4, 6))),
-				Random Value In Array(Array(Array(5, 7), Array(5, 8), Array(6, 8), Array(7, 8), Array(7, 9), Array(8, 11), Array(10, 11))),
-				Random Value In Array(Array(Array(0, 1, 10), Array(0, 2, 10), Array(0, 10, 11), Array(2, 10, 11), Array(3, 4, 6), Array(
-				5, 7, 8), Array(6, 7, 8), Array(5, 8, 11), Array(7, 8, 9)))),
-			Array(
-				Array(0), Array(2), Array(3), Array(5), Array(6), Array(1), Array(4), Array(7), Array(8), Array(10),
-				Array(0, 1), Array(2, 3), Array(5, 6), Array(4, 7),
-				Array(1, 3), Array(3, 7), Array(9, 10),
-				Array(2, 5, 6),
-				Array(3, 7, 8),
-				Array(7, 8, 10)
-			)
-		)[Global.stageMode[1]];
 	}
 }

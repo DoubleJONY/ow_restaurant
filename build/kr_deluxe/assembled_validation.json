@@ -1,7 +1,7 @@
 {
-  "sha256": "54C6784A4F1255EA500467C066C50B4E196CAF227471F47ADDD4ED3B350DB439",
-  "bytes": 397093,
-  "rules": 56,
+  "sha256": "E8F62B19A0F478E8471A2B7AA76E1ED2970E53FB3D172D1F900A2EDE8850D30D",
+  "bytes": 377814,
+  "rules": 57,
   "globals": 128,
   "ice_global_ids": {
     "ICE_NEEDED": 100,
@@ -11,7 +11,7 @@
     "itemPrevPosition",
     "itemNormal"
   ],
-  "subroutines": 39,
+  "subroutines": 40,
   "selection_state": {
     "edition": "stageMode[0]",
     "mode": "stageMode[1]"
@@ -22,9 +22,30 @@
     "confirm": "Jump"
   },
   "deluxe_data_slots": {
-    "0": "ORG MELT_LIST",
     "1": "active item-perk drops",
     "2": "edition runtime configuration"
+  },
+  "shared_customer_list": {
+    "source": "ORG/ko",
+    "dispatcher_call": true
+  },
+  "ice_result_reuse": {
+    "ORG": "MELT_LIST",
+    "CAFE": "ice conversion"
+  },
+  "tutorial_routing": {
+    "ORG": "implemented",
+    "CAFE": "empty",
+    "GC": "empty"
+  },
+  "source_rule_size_check": {
+    "largest_rule": {
+      "name": "Dummy: Spawn",
+      "bytes": 37216
+    },
+    "limit_bytes": 100352,
+    "rules_over_limit": 0,
+    "scope": "LF UTF-8 Workshop source only; compiler/runtime not invoked"
   },
   "create_item_sites": 33,
   "control_flow_checked": true,

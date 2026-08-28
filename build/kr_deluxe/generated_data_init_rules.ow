@@ -462,7 +462,7 @@ rule("Global subroutine: Deluxe ORG init2")
 			Array(295, 296, 298, 297, 300, 299),
 			Array(114, 332, 298, 100, 122, 299),
 			Array(268, 370, 373, 74, 241, 75));
-		Global.DELUXE_DATA[1] = Array(296, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 331, 402, 403);
+		Global.ICE_RESULT = Array(296, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 331, 402, 403);
 		Global.WEAVER_MENU_LIST = Array(Array(411, 437),
 			Array(393, 453),
 			Array(412, 441, 442),
@@ -499,8 +499,8 @@ rule("Global subroutine: Deluxe ORG init3")
 
 	actions
 	{
-		Global.DELUXE_DATA[2] = Array(8, 9, 11, 12, 15, 16, 17, 19);
-		Global.DELUXE_DATA[3] = Array(Array(0, 12, 12, 16, 15, 16),
+		Global.DELUXE_DATA[1] = Array(8, 9, 11, 12, 15, 16, 17, 19);
+		Global.DELUXE_DATA[2] = Array(Array(0, 12, 12, 16, 15, 16),
 			Array(0, 17, 16, 13, 13, 14),
 			Array(1, 6, 2, 3, 4, 5, 7, 8, 9, 11, 12, 15, 16, 19, 17, 10, 13, 14),
 			Array(8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 19, 19, 19, 17, 17));
@@ -510,102 +510,7 @@ rule("Global subroutine: Deluxe ORG init3")
 
 
 
-		Global.CUSTOMER_LIST = Array(
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
-				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Hanzo), Hero(Tracer)), 
-				Array(Hero(Zarya), Hero(Bastion)), 
-				Array(Hero(Hanzo), Hero(Mercy)), 
-				Array(Hero(Hanzo), Hero(Soldier: 76)), 
-				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)), 
-				Array(Hero(Soldier: 76), Hero(Roadhog)), 
-				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)), 
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)), 
-				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)), 
-				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)), 
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
-			), 
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
-				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
-				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)), 
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),  
-			Array(
-				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)), 
-				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)), 
-				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)), 
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)), 
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)), 
-				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
-				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)), 
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)), 
-				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			), 
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)), 
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)), 
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
-				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)), 
-				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)), 
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)), 
-				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)), 
-				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)), 
-				Array(Hero(Domina), Hero(Hazard)), 
-				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)), 
-				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)), 
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
-				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)), 
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)), 
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)), 
-				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
-				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
-				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Moira), Hero(Kiriko))
-			))[Global.stageMode];
+
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)), 
@@ -649,7 +554,7 @@ rule("Global subroutine: Deluxe ORG init3")
 				Array(3, 7, 8),
 				Array(7, 8, 10)
 			)
-		)[Global.stageMode];
+		)[Global.stageMode[1]];
 	}
 }
 
@@ -1078,8 +983,8 @@ rule("Global subroutine: Deluxe CAFE init3")
 
 	actions
 	{
-		Global.DELUXE_DATA[2] = Array(8, 9, 11, 12, 15, 16, 17, 20);
-		Global.DELUXE_DATA[3] = Array(Array(12, 12, 12, 13, 16, 14),
+		Global.DELUXE_DATA[1] = Array(8, 9, 11, 12, 15, 16, 17, 20);
+		Global.DELUXE_DATA[2] = Array(Array(12, 12, 12, 13, 16, 14),
 			Array(Null, 20, 20, 3, 20, 16),
 			Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20),
 			Array(8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 17, 17, 20, 20));
@@ -1089,101 +994,7 @@ rule("Global subroutine: Deluxe CAFE init3")
 
 
 
-		Global.CUSTOMER_LIST = Array(
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Tracer)),
-				Array(Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Soldier: 76)),
-				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)),
-				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)),
-				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)),
-				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)),
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)),
-				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)),
-				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)),
-				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Hazard)),
-				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)),
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
-				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
-				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Moira), Hero(Kiriko))
-			))[Global.stageMode];
+
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(9), Array(3), Array(1), Array(7), Array(0), Array(9), Array(3), Array(1), Array(7), Array(0), Array(9), Array(3), Array(1), Array(7), Array(0)), 
@@ -1225,7 +1036,7 @@ rule("Global subroutine: Deluxe CAFE init3")
 				Array(6, 10, 11),
 				Array(2, 0, 4)
 			)
-		)[Global.stageMode];
+		)[Global.stageMode[1]];
 	}
 }
 
@@ -1672,8 +1483,8 @@ rule("Global subroutine: Deluxe GC init3")
 
 	actions
 	{
-		Global.DELUXE_DATA[2] = Array(8, 9, 11, 12, 15, 16, 17);
-		Global.DELUXE_DATA[3] = Array(Array(12, 12, 12, 16, 15, 16),
+		Global.DELUXE_DATA[1] = Array(8, 9, 11, 12, 15, 16, 17);
+		Global.DELUXE_DATA[2] = Array(Array(12, 12, 12, 16, 15, 16),
 			Array(Null, 17, 16, 13, 13, 14),
 			Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
 			Array(8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 17, 17));
@@ -1683,101 +1494,7 @@ rule("Global subroutine: Deluxe GC init3")
 
 
 
-		Global.CUSTOMER_LIST = Array(
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Tracer)),
-				Array(Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Soldier: 76)),
-				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)),
-				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)),
-				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)),
-				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)),
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)),
-				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)),
-				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)),
-				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Hazard)),
-				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)),
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
-				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
-				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Moira), Hero(Kiriko))
-			))[Global.stageMode];
+
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(6), Array(10), Array(11), Array(8), Array(0), Array(6), Array(10), Array(11), Array(8), Array(0),
@@ -1819,6 +1536,115 @@ rule("Global subroutine: Deluxe GC init3")
 				Array(3, 7, 8),
 				Array(7, 8, 10)
 			)
-		)[Global.stageMode];
+		)[Global.stageMode[1]];
+	}
+}
+
+rule("Global subroutine: Deluxe common customer init")
+{
+	event
+	{
+		Subroutine;
+		dataInit_customerCommon;
+	}
+
+	actions
+	{
+		Global.CUSTOMER_LIST = Array(
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
+				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
+				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
+				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
+				Array(Hero(Soldier: 76), Hero(Soldier: 76))
+			),
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Hanzo), Hero(Tracer)), 
+				Array(Hero(Zarya), Hero(Bastion)), 
+				Array(Hero(Hanzo), Hero(Mercy)), 
+				Array(Hero(Hanzo), Hero(Soldier: 76)), 
+				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)), 
+				Array(Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)), 
+				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)), 
+				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)), 
+				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)), 
+				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
+			), 
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
+				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
+				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)), 
+				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
+				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)), 
+				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
+				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
+			),  
+			Array(
+				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)), 
+				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)), 
+				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)), 
+				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)), 
+				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)), 
+				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)), 
+				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)), 
+				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
+				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
+			), 
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)), 
+				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)), 
+				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)), 
+				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)), 
+				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)), 
+				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)), 
+				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)), 
+				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)), 
+				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
+			),
+			Array(
+				Array(Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)), 
+				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)), 
+				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)), 
+				Array(Hero(Domina), Hero(Hazard)), 
+				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)), 
+				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)), 
+				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)), 
+				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)), 
+				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
+				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)), 
+				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)), 
+				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
+				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
+				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
+				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
+				Array(Hero(Moira), Hero(Kiriko))
+			))[Global.stageMode[1]];
 	}
 }
