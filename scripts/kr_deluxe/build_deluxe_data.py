@@ -126,6 +126,12 @@ def read_ow(path: Path) -> str:
     return text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r\n")
 
 
+def canonical_source_sha256(path: Path) -> str:
+    """Hash source text independently of the checkout's line endings."""
+    data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return __import__("hashlib").sha256(data).hexdigest().upper()
+
+
 def scan_balanced(text: str, start: int, opener: str, closer: str) -> int:
     if start >= len(text) or text[start] != opener:
         raise ParseError(f"expected {opener!r} at {start}")
@@ -697,44 +703,22 @@ def serialize_nested_numeric_list(table: str, values: list[Any]) -> str:
 
 def render_serialized_list_assignment(lhs: str, table: str, values: list[Any]) -> str:
     payload = serialize_nested_numeric_list(table, values)
-    chain = make_custom_chain(payload, "\t\t\t\t")
+    chain = make_custom_chain(payload, "\t\t\t")
     return "\r\n".join(
         [
-            f"\t\t{lhs} = Mapped Array(",
-            f"\t\t\tString Split({chain}, Custom String(\"/\")),",
-            "\t\t\tMapped Array(",
-            "\t\t\t\tString Split(Current Array Element, Custom String(\",\")),",
-            "\t\t\t\tIndex Of Array Value(Global.MIXING_RECIPE, Current Array Element)));",
+            f"\t\t{lhs} = String Split({chain}, Custom String(\"/\"));",
+            serialized_list_decoder_loop(lhs),
         ]
     )
 
 
 def decode_serialized_list_expression(table: str, expression: str) -> list[list[int]]:
-    _, outer_args, outer_suffix = unwrap_call(expression, "Mapped Array")
-    if outer_suffix or len(outer_args) != 2:
-        raise ParseError(f"{table} serialized outer mapper shape changed")
-
-    _, group_args, group_suffix = unwrap_call(outer_args[0], "String Split")
+    _, group_args, group_suffix = unwrap_call(expression, "String Split")
     if group_suffix or len(group_args) != 2 or eval_expr(group_args[1]) != "/":
         raise ParseError(f"{table} serialized group delimiter changed")
     payload = eval_expr(group_args[0])
     if not isinstance(payload, str):
         raise ParseError(f"{table} serialized payload is not a string")
-
-    _, inner_args, inner_suffix = unwrap_call(outer_args[1], "Mapped Array")
-    if inner_suffix or len(inner_args) != 2:
-        raise ParseError(f"{table} serialized inner mapper shape changed")
-    _, item_args, item_suffix = unwrap_call(inner_args[0], "String Split")
-    if (
-        item_suffix
-        or len(item_args) != 2
-        or normalize_expr(item_args[0]) != "CurrentArrayElement"
-        or eval_expr(item_args[1]) != ","
-    ):
-        raise ParseError(f"{table} serialized item delimiter or mapper input changed")
-    numeric_mapper = "Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)"
-    if normalize_expr(inner_args[1]) != normalize_expr(numeric_mapper):
-        raise ParseError(f"{table} serialized numeric mapper changed")
 
     groups = payload.split("/")
     try:
@@ -746,11 +730,181 @@ def decode_serialized_list_expression(table: str, expression: str) -> list[list[
     return decoded
 
 
+def serialized_list_decoder_loop(lhs: str) -> str:
+    return "\r\n".join(
+        [
+            f"\t\tFor Global Variable(checkingIndex, False, Count Of({lhs}), True);",
+            f"\t\t\t{lhs}[Global.checkingIndex] = Mapped Array(",
+            f"\t\t\t\tString Split({lhs}[Global.checkingIndex], Custom String(\",\")),",
+            "\t\t\t\tIndex Of Array Value(Global.MIXING_RECIPE, Current Array Element));",
+            "\t\tEnd;",
+        ]
+    )
+
+
+def parse_customer_list(expression: str) -> dict[str, Any]:
+    """Parse the common CUSTOMER_LIST into static token rows and dynamic patches."""
+    _, mode_expressions, suffix = unwrap_call(expression, "Array")
+    if normalize_expr(suffix) not in {"[Global.stageMode]", "[Global.stageMode[1]]"}:
+        raise ParseError(f"CUSTOMER_LIST mode selector changed: {suffix!r}")
+
+    palette: list[str] = []
+    palette_keys: dict[str, int] = {}
+    modes: list[list[list[int] | None]] = []
+    dynamic_rows: list[tuple[int, int, str]] = []
+    for mode_index, mode_expression in enumerate(mode_expressions):
+        _, row_expressions, mode_suffix = unwrap_call(mode_expression, "Array")
+        if mode_suffix:
+            raise ParseError(f"CUSTOMER_LIST mode {mode_index} has an unexpected suffix")
+        rows: list[list[int] | None] = []
+        for row_index, row_expression in enumerate(row_expressions):
+            _, hero_expressions, row_suffix = unwrap_call(row_expression, "Array")
+            if row_suffix or not hero_expressions:
+                raise ParseError(f"CUSTOMER_LIST[{mode_index}][{row_index}] shape changed")
+            parsed_row: list[int] = []
+            static = True
+            for hero_expression in hero_expressions:
+                try:
+                    _, hero_args, hero_suffix = unwrap_call(hero_expression, "Hero")
+                except ParseError:
+                    static = False
+                    break
+                if hero_suffix or len(hero_args) != 1:
+                    raise ParseError(
+                        f"CUSTOMER_LIST[{mode_index}][{row_index}] Hero shape changed"
+                    )
+                canonical = f"Hero({hero_args[0].strip()})"
+                key = normalize_expr(canonical)
+                if key not in palette_keys:
+                    palette_keys[key] = len(palette)
+                    palette.append(canonical)
+                parsed_row.append(palette_keys[key])
+            if static:
+                rows.append(parsed_row)
+            else:
+                rows.append(None)
+                dynamic_rows.append((mode_index, row_index, row_expression.strip()))
+        modes.append(rows)
+
+    if len(palette) > 21:
+        raise ParseError(f"CUSTOMER_LIST static Hero palette unexpectedly grew to {len(palette)}")
+    return {
+        "palette": palette,
+        "modes": modes,
+        "dynamic_rows": dynamic_rows,
+        "suffix": suffix,
+    }
+
+
+def render_expression_array(expressions: list[str], indent: str) -> str:
+    lines: list[str] = []
+    current = ""
+    for expression in expressions:
+        candidate = expression if not current else current + ", " + expression
+        if current and len(indent) + len(candidate) > 125:
+            lines.append(current)
+            current = expression
+        else:
+            current = candidate
+    lines.append(current)
+    if len(lines) == 1:
+        return f"Array({lines[0]})"
+    return "Array(" + (",\r\n" + indent + "\t").join(lines) + ")"
+
+
+def customer_payloads(model: dict[str, Any]) -> list[str]:
+    payloads: list[str] = []
+    for rows in model["modes"]:
+        encoded_rows = [
+            "0" if row is None else ",".join(str(token) for token in row)
+            for row in rows
+        ]
+        payloads.append("/".join(encoded_rows))
+    return payloads
+
+
+def customer_decoder_loop(palette: list[str]) -> str:
+    palette_expression = render_expression_array(palette, "\t\t\t")
+    return "\r\n".join(
+        [
+            "\t\tFor Global Variable(RAW_MIX, False, Count Of(Global.CUSTOMER_LIST), True);",
+            "\t\t\tGlobal.CUSTOMER_LIST[Global.RAW_MIX] = Mapped Array(",
+            "\t\t\t\tString Split(Global.CUSTOMER_LIST[Global.RAW_MIX], Custom String(\",\")),",
+            f"\t\t\t\t{palette_expression}[Index Of Array Value(Global.RAW_RESULT, Current Array Element)]);",
+            "\t\tEnd;",
+        ]
+    )
+
+
+def deluxe_value_token(value: Any) -> str:
+    if value == "Null":
+        return "N"
+    if isinstance(value, int) and 0 <= value <= 20:
+        return str(value)
+    raise ParseError(f"DELUXE_DATA contains an unsupported value: {value!r}")
+
+
+def deluxe_data_decoder_loop() -> str:
+    lookup_chain = make_custom_chain(
+        "/".join(str(value) for value in range(21)), "\t\t\t\t\t"
+    )
+    return "\r\n".join(
+        [
+            "\t\tGlobal.RAW_MIX = Empty Array;",
+            "\t\tFor Global Variable(RAW_RESULT, False, Count Of(Global.DELUXE_DATA[2]), True);",
+            "\t\t\tGlobal.RAW_MIX[Global.RAW_RESULT] = Mapped Array(",
+            "\t\t\t\tString Split(Global.DELUXE_DATA[2][Global.RAW_RESULT], Custom String(\",\")),",
+            "\t\t\t\tCurrent Array Element == Custom String(\"N\") ? Null",
+            f"\t\t\t\t: Index Of Array Value(String Split({lookup_chain}, Custom String(\"/\")), Current Array Element));",
+            "\t\tEnd;",
+            "\t\tGlobal.DELUXE_DATA[2] = Global.RAW_MIX;",
+        ]
+    )
+
+
+def render_serialized_deluxe_data(active: list[int], runtime_config: list[list[Any]]) -> str:
+    lookup = "/".join(str(value) for value in range(21))
+    active_payload = ",".join(deluxe_value_token(value) for value in active)
+    runtime_payload = "/".join(
+        ",".join(deluxe_value_token(value) for value in row) for row in runtime_config
+    )
+    lookup_chain = make_custom_chain(lookup, "\t\t\t")
+    active_chain = make_custom_chain(active_payload, "\t\t\t\t")
+    runtime_chain = make_custom_chain(runtime_payload, "\t\t\t")
+    return "\r\n".join(
+        [
+            f"\t\tGlobal.DELUXE_DATA[1] = String Split({active_chain}, Custom String(\",\"));",
+            f"\t\tGlobal.DELUXE_DATA[2] = String Split({runtime_chain}, Custom String(\"/\"));",
+            deluxe_data_decoder_loop(),
+            f"\t\tGlobal.RAW_RESULT = String Split({lookup_chain}, Custom String(\"/\"));",
+            "\t\tGlobal.DELUXE_DATA[1] = Mapped Array(Global.DELUXE_DATA[1],",
+            "\t\t\tIndex Of Array Value(Global.RAW_RESULT, Current Array Element));",
+        ]
+    )
+
+
+def decode_deluxe_tokens(tokens: list[str]) -> list[Any]:
+    result: list[Any] = []
+    for token in tokens:
+        if token == "N":
+            result.append("Null")
+        elif token.isdigit() and 0 <= int(token) <= 20:
+            result.append(int(token))
+        else:
+            raise ParseError(f"invalid DELUXE_DATA token: {token!r}")
+    return result
+
+
 def replace_spans(text: str, replacements: Iterable[tuple[int, int, str]]) -> str:
     result = text
     for start, end, replacement in sorted(replacements, key=lambda item: item[0], reverse=True):
         result = result[:start] + replacement + result[end:]
     return result
+
+
+def compact_removed_assignment_gaps(text: str) -> str:
+    pattern = re.compile(r";\r\n(?:[ \t]*\r\n)+(?P<indent>[ \t]+)(?=\S)")
+    return pattern.sub(lambda match: ";\r\n" + match.group("indent"), text)
 
 
 def mapping_second_arg(expression: str) -> str:
@@ -888,8 +1042,8 @@ def render_phase2_rule(edition: EditionData, transformed: dict[str, list[Any]], 
         replacements.append((assignment.start, assignment.end, replacement))
 
     # These statements are byte-for-byte/semantically common after canonical
-    # remapping.  The dataInit2 dispatcher emits them once after the selected
-    # edition returns.
+    # remapping.  The merged dataInit dispatcher emits them once after the
+    # selected edition's phase2 returns.
     for table in (
         "upgradePrice", "UPGRADE_CODE", "KNIFE", "PERK_LIST", "KNIFE_AMOUNT", "KNIFE_DECREASE"
     ):
@@ -922,13 +1076,10 @@ def render_phase3_rule(edition: EditionData, target_subroutine: str) -> str:
     if actions < 0:
         raise ParseError(f"actions block missing in {edition.name} init3")
     insert = actions + len("\r\n\tactions\r\n\t{\r\n")
-    injected = (
-        f"\t\tGlobal.DELUXE_DATA[1] = {render_array(active)};\r\n"
-        f"\t\tGlobal.DELUXE_DATA[2] = {render_array(runtime_config)};\r\n"
-    )
+    injected = render_serialized_deluxe_data(active, runtime_config) + "\r\n"
     block = block[:insert] + injected + block[insert:]
     # These difficulty scalars are identical in ORG/CAFE/GC and are emitted by
-    # the dataInit3 dispatcher after the selected variant returns.
+    # the shared customer/difficulty subroutine after the selected variant returns.
     common_assignments = (
         "customerCallTime", "setUpTime", "scoreDecrease", "despawnTime",
         "additionalScore", "failEnd", "CUSTOMER_LIST",
@@ -939,14 +1090,44 @@ def render_phase3_rule(edition: EditionData, target_subroutine: str) -> str:
             find_assignment(block, name) for name in common_assignments
         )],
     )
+    if edition.name in {"cafe", "gc"}:
+        five_practice_slots = (
+            "Global.STAGE_CODE = Array(\r\n"
+            "\t\t\tArray(Array(0), Array(0), Array(0), Array(0), Array(0)),"
+        )
+        six_practice_slots = (
+            "Global.STAGE_CODE = Array(\r\n"
+            "\t\t\tArray(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),"
+        )
+        if block.count(five_practice_slots) != 1:
+            raise ParseError(f"{edition.name} practice STAGE_CODE shape changed")
+        block = block.replace(five_practice_slots, six_practice_slots, 1)
     return block
 
 
 def render_customer_common_rule(org: EditionData) -> str:
     customer = find_assignment(org.rules[3], "CUSTOMER_LIST")
-    expression = re.sub(
+    source_expression = re.sub(
         r"Global\.stageMode(?!\[)", "Global.stageMode[1]", customer.expression
     )
+    model = parse_customer_list(source_expression)
+    payload_expressions = [
+        make_custom_chain(payload, "\t\t\t\t") for payload in customer_payloads(model)
+    ]
+    payload_array = "Array(\r\n\t\t\t" + ",\r\n\t\t\t".join(payload_expressions) + ")"
+    patches_by_mode: dict[int, list[tuple[int, str]]] = {}
+    for mode_index, row_index, expression in model["dynamic_rows"]:
+        patches_by_mode.setdefault(mode_index, []).append((row_index, expression))
+    patch_lines: list[str] = []
+    for branch_index, (mode_index, rows) in enumerate(sorted(patches_by_mode.items())):
+        keyword = "If" if branch_index == 0 else "Else If"
+        patch_lines.append(f"\t\t{keyword}(Global.stageMode[1] == {mode_index});")
+        for row_index, expression in rows:
+            patch_lines.append(
+                f"\t\t\tGlobal.CUSTOMER_LIST[{row_index}] = {expression};"
+            )
+    if patch_lines:
+        patch_lines.append("\t\tEnd;")
     return (
         'rule("Global subroutine: Deluxe common customer init")\r\n'
         "{\r\n"
@@ -957,7 +1138,11 @@ def render_customer_common_rule(org: EditionData) -> str:
         "\t}\r\n\r\n"
         "\tactions\r\n"
         "\t{\r\n"
-        f"\t\tGlobal.CUSTOMER_LIST = {expression};\r\n"
+        "\t\tGlobal.CUSTOMER_LIST = String Split(\r\n"
+        f"\t\t\t{payload_array}[Global.stageMode[1]], Custom String(\"/\"));\r\n"
+        + customer_decoder_loop(model["palette"])
+        + ("\r\n" + "\r\n".join(patch_lines) if patch_lines else "")
+        + "\r\n"
         "\t}\r\n"
         "}"
     )
@@ -1059,16 +1244,44 @@ def validate_generated_tables(
             expression = find_assignment(blocks[2], lhs).expression
             if table in SERIALIZED_LIST_TABLES:
                 observed = decode_serialized_list_expression(table, expression)
+                decoder = serialized_list_decoder_loop(f"Global.{lhs}")
+                if blocks[2].count(decoder) != 1:
+                    raise ParseError(f"{name} generated {table} decoder loop mismatch")
             else:
                 observed = eval_expr(expression)
             expected = recursively_map_list(edition.values[table], edition.mapping)
             if observed != expected:
                 raise ParseError(f"{name} generated {table} recursive mapping mismatch")
 
-        if eval_expr(find_assignment(blocks[3], "DELUXE_DATA[1]").expression) != ACTIVE_DROPS[name]:
+        phase3_lookup = eval_expr(find_assignment(blocks[3], "RAW_RESULT").expression)
+        if phase3_lookup != [str(value) for value in range(21)]:
+            raise ParseError(f"{name} generated DELUXE_DATA numeric lookup mismatch")
+        active_assignments = find_all_assignments(blocks[3], "DELUXE_DATA[1]")
+        if len(active_assignments) != 2:
+            raise ParseError(f"{name} generated active-drop assignment shape changed")
+        observed_active = decode_deluxe_tokens(eval_expr(active_assignments[0].expression))
+        if observed_active != ACTIVE_DROPS[name]:
             raise ParseError(f"{name} generated active-drop pool mismatch")
-        if eval_expr(find_assignment(blocks[3], "DELUXE_DATA[2]").expression) != RUNTIME_CONFIGS[name]:
+        _, active_mapper_args, active_mapper_suffix = unwrap_call(
+            active_assignments[1].expression, "Mapped Array"
+        )
+        if (
+            active_mapper_suffix
+            or len(active_mapper_args) != 2
+            or normalize_expr(active_mapper_args[0]) != "Global.DELUXE_DATA[1]"
+        ):
+            raise ParseError(f"{name} generated active-drop mapper changed")
+        runtime_assignments = find_all_assignments(blocks[3], "DELUXE_DATA[2]")
+        if len(runtime_assignments) != 2:
+            raise ParseError(f"{name} generated runtime-config assignment shape changed")
+        runtime_groups = eval_expr(runtime_assignments[0].expression)
+        observed_runtime = [decode_deluxe_tokens(group.split(",")) for group in runtime_groups]
+        if observed_runtime != RUNTIME_CONFIGS[name]:
             raise ParseError(f"{name} generated runtime-config pool mismatch")
+        if normalize_expr(runtime_assignments[1].expression) != "Global.RAW_MIX":
+            raise ParseError(f"{name} generated runtime-config final assignment changed")
+        if blocks[3].count(deluxe_data_decoder_loop()) != 1:
+            raise ParseError(f"{name} generated DELUXE_DATA decoder loop mismatch")
         if "Global.CUSTOMER_LIST =" in blocks[3]:
             raise ParseError(f"{name} generated init3 still contains CUSTOMER_LIST")
         report[name] = {
@@ -1078,6 +1291,7 @@ def validate_generated_tables(
             "serialized_list_tables": len(
                 [table for table in SERIALIZED_LIST_TABLES if table in edition.values]
             ),
+            "serialized_deluxe_data": True,
             "round_trip": True,
         }
 
@@ -1088,17 +1302,31 @@ def validate_generated_tables(
     source_expression = re.sub(
         r"Global\.stageMode(?!\[)", "Global.stageMode[1]", source_expression
     )
-    observed_expression = find_assignment(
-        common_block, "CUSTOMER_LIST"
-    ).expression
-    if normalize_expr(observed_expression) != normalize_expr(source_expression):
-        raise ParseError("generated common CUSTOMER_LIST differs from ORG source")
-    _, customer_modes, suffix = unwrap_call(source_expression, "Array")
-    if normalize_expr(suffix) != "[Global.stageMode[1]]":
-        raise ParseError(f"common CUSTOMER_LIST mode suffix changed: {suffix!r}")
+    customer_model = parse_customer_list(source_expression)
+    observed_expression = find_assignment(common_block, "CUSTOMER_LIST").expression
+    _, customer_args, customer_suffix = unwrap_call(observed_expression, "String Split")
+    if customer_suffix or len(customer_args) != 2 or eval_expr(customer_args[1]) != "/":
+        raise ParseError("generated common CUSTOMER_LIST outer decoder changed")
+    _, payload_expressions, payload_suffix = unwrap_call(customer_args[0], "Array")
+    if normalize_expr(payload_suffix) != "[Global.stageMode[1]]":
+        raise ParseError(f"serialized CUSTOMER_LIST mode selector changed: {payload_suffix!r}")
+    observed_payloads = [eval_expr(expression) for expression in payload_expressions]
+    expected_payloads = customer_payloads(customer_model)
+    if observed_payloads != expected_payloads:
+        raise ParseError("serialized CUSTOMER_LIST payload differs from ORG source")
+    if common_block.count(customer_decoder_loop(customer_model["palette"])) != 1:
+        raise ParseError("serialized CUSTOMER_LIST decoder loop mismatch")
+    normalized_common = normalize_expr(common_block)
+    for _, row_index, row_expression in customer_model["dynamic_rows"]:
+        patch = normalize_expr(f"Global.CUSTOMER_LIST[{row_index}] = {row_expression};")
+        if normalized_common.count(patch) != 1:
+            raise ParseError(f"serialized CUSTOMER_LIST dynamic row {row_index} mismatch")
     report["common_customer_list"] = {
         "source": "org",
-        "top_level_entries": len(customer_modes),
+        "top_level_entries": len(customer_model["modes"]),
+        "hero_palette": len(customer_model["palette"]),
+        "dynamic_rows": len(customer_model["dynamic_rows"]),
+        "serialized": True,
         "round_trip": True,
     }
     return report
@@ -1164,7 +1392,7 @@ def build() -> tuple[str, dict[str, Any]]:
         rules.append(render_phase2_rule(edition, transformed[name], f"dataInit_{name}2"))
         rules.append(render_phase3_rule(edition, f"dataInit_{name}3"))
     rules.append(render_customer_common_rule(editions["org"]))
-    generated = "\r\n\r\n".join(rules) + "\r\n"
+    generated = compact_removed_assignment_gaps("\r\n\r\n".join(rules) + "\r\n")
     report = validate_semantics(editions, transformed)
     report["generated_table_round_trip"] = validate_generated_tables(
         generated, editions, transformed
@@ -1172,7 +1400,7 @@ def build() -> tuple[str, dict[str, Any]]:
     report["raw_round_trip"] = validate_generated_raw(generated, editions)
     report["custom_string_lengths"] = validate_custom_string_lengths(generated)
     report["source_sha256"] = {
-        name: __import__("hashlib").sha256(EDITION_SPECS[name]["path"].read_bytes()).hexdigest().upper()
+        name: canonical_source_sha256(EDITION_SPECS[name]["path"])
         for name in editions
     }
     report["generated_rule_count"] = len(rules)

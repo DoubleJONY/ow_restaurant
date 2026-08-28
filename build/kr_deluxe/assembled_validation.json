@@ -1,6 +1,6 @@
 {
-  "sha256": "2C0CDCD2018573625B34D8B78FB23656B5FA10F13CC49039C4BF7EDC88D5AA10",
-  "bytes": 379179,
+  "sha256": "0FD0D132E94650C9A2287EDDD2D6C2B8A7C5A1A33A584E5B2F7A31C3C160FE23",
+  "bytes": 381009,
   "rules": 57,
   "globals": 128,
   "ice_global_ids": {
@@ -21,13 +21,40 @@
     "mode": "Reload",
     "confirm": "Jump"
   },
+  "practice_edition_reload": {
+    "dispatcher": "otherMenu",
+    "menu_initializer": "menuInit",
+    "storage_reset": true,
+    "pot_rules_restarted": true
+  },
+  "workshop_elements": {
+    "last_measured_used": 32746,
+    "limit": 32768,
+    "last_measured_remaining": 22,
+    "current_output_measured_in_client": false
+  },
   "deluxe_data_slots": {
     "1": "active item-perk drops",
     "2": "edition runtime configuration"
   },
   "shared_customer_list": {
     "source": "ORG/ko",
-    "dispatcher_call": true
+    "dispatcher_call": true,
+    "serialized": true,
+    "hero_palette": 21,
+    "dynamic_rows": 3
+  },
+  "serialized_deluxe_data": {
+    "slots": [
+      1,
+      2
+    ],
+    "editions": [
+      "cafe",
+      "gc",
+      "org"
+    ],
+    "round_trip_checked": true
   },
   "serialized_menu_tables": {
     "tables": [
@@ -67,7 +94,7 @@
   "preserved_legacy_implicit_end_rules": [
     "Player: Reload button"
   ],
-  "version": "v260828",
+  "version": "v260829",
   "gc_water_ported": false,
   "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch"
 }

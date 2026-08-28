@@ -107,6 +107,7 @@
       "numeric_lookup": 476,
       "list_tables": 5,
       "serialized_list_tables": 4,
+      "serialized_deluxe_data": true,
       "round_trip": true
     },
     "cafe": {
@@ -114,6 +115,7 @@
       "numeric_lookup": 399,
       "list_tables": 4,
       "serialized_list_tables": 4,
+      "serialized_deluxe_data": true,
       "round_trip": true
     },
     "gc": {
@@ -121,11 +123,15 @@
       "numeric_lookup": 464,
       "list_tables": 4,
       "serialized_list_tables": 4,
+      "serialized_deluxe_data": true,
       "round_trip": true
     },
     "common_customer_list": {
       "source": "org",
       "top_level_entries": 6,
+      "hero_palette": 21,
+      "dynamic_rows": 3,
+      "serialized": true,
       "round_trip": true
     }
   },
@@ -150,7 +156,7 @@
     }
   },
   "custom_string_lengths": {
-    "payloads": 1022,
+    "payloads": 1068,
     "max_characters": 85
   },
   "source_sha256": {

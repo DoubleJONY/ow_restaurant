@@ -201,35 +201,35 @@ subroutines
 	8: rotatingFridge
 	9: createItem
 	10: selectMode
-	11: dataInit2
-	12: saveProgress
-	13: loadProgress
-	14: gameSummary
-	15: knifeHud
-    16: purchaseUpgrade
-    17: perkHud
-	18: dataInit3
-	19: setHint
-	20: destroyItem
-	21: destroyServeBot
-	22: dropTips
-	23: destroyPerk
-	24: footHud
-	25: serveFail
-	26: gameSummaryTP
-	27: validateServe
-	28: changeHero
-	29: stageFail
-	30: dataInit_org1
-	31: dataInit_org2
-	32: dataInit_org3
-	33: dataInit_cafe1
-	34: dataInit_cafe2
-	35: dataInit_cafe3
-	36: dataInit_gc1
-	37: dataInit_gc2
-	38: dataInit_gc3
-	39: dataInit_customerCommon
+	11: saveProgress
+	12: loadProgress
+	13: gameSummary
+	14: knifeHud
+	15: purchaseUpgrade
+	16: perkHud
+	17: setHint
+	18: destroyItem
+	19: destroyServeBot
+	20: dropTips
+	21: destroyPerk
+	22: footHud
+	23: serveFail
+	24: gameSummaryTP
+	25: validateServe
+	26: changeHero
+	27: stageFail
+	28: dataInit_org1
+	29: dataInit_org2
+	30: dataInit_org3
+	31: dataInit_cafe1
+	32: dataInit_cafe2
+	33: dataInit_cafe3
+	34: dataInit_gc1
+	35: dataInit_gc2
+	36: dataInit_gc3
+	37: dataInit_customerCommon
+	38: menuInit
+	39: otherMenu
 }
 
 rule("Global: Setting")
@@ -255,8 +255,6 @@ rule("Global: Setting")
 		Destroy All Dummy Bots;
 		Global.stageMode = Array(0, 0);
 		Global.DELUXE_DATA = Array(0);
-		Call Subroutine(dataInit);
-		Call Subroutine(dataInit2);
 		Global.itemPosition = Empty Array;
 		Global.itemVelocity = Empty Array;
 		Global.itemCode = Empty Array;
@@ -690,7 +688,7 @@ rule("Global: Setting")
 			Vector(232.349, 1.750, 162.947), Vector(233.665, 1.750, 163.795), Vector(234.967, 1.750, 164.652));
 		Global.CUTTING_POSITION = Array(Vector(231.369, 2, 166.183), Vector(222.109, 2, 156.602));
 		Global.STORAGE_POSITION = Array(Vector(222.149, 2.045, 159.937), Vector(222.431, 2.045, 160.111), Vector(222.723, 2.045, 160.292), Vector(222.986, 2.045, 160.456), Vector(225.983, 2.045, 162.307), Vector(226.276, 2.045, 162.492), Vector(226.536, 2.045, 162.668), Vector(226.827, 2.045, 162.861));
-		Global.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));
+		Global.storageData = Mapped Array(String Split(Custom String("0/0/0/0/0/0/0/0"), Custom String("/")), Array(False, False, False));
         Global.currentUpgrade = -1;
 		Global.stage = 0;
 		Global.upgradeList = Array(Array(Null), Array(Null), Array(Null));
@@ -724,16 +722,14 @@ rule("Global: Setting")
 			155.415), 200, Visible To);
 		Create In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("팬"), Vector(224.926,
 			2.750, 158.167), 3, Do Not Clip, Visible To, Color(Red), Default Visibility);
-		If(Global.stageMode[0] == 1);
-			Create In-World Text(Players Within Radius(Vector(226.649, 2, 159.387), 10, Team 1, Off), Custom String("제빙기"),
-				Vector(226.649, 3, 159.387), 3, Do Not Clip, Visible To, Color(Blue), Default Visibility);
-		End;
+		Create In-World Text(Players Within Radius(Vector(226.649, 2, 159.387), 10, Team 1, Off), Global.stageMode[0] == 1 ? Custom String("제빙기") :  Custom String(""),
+			Vector(226.649, 3, 159.387), 3, Do Not Clip, Visible To and String, Color(Blue), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(233.778, 2, 167.685), 10, Team 1, Off), Custom String("싱크대"), Vector(233.778,
 			3, 167.685), 3, Do Not Clip, Visible To, Color(Aqua), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(233.690, 2, 163.772), 10, Team 1, Off), Custom String("냉장고"), Vector(233.690,
 			3.500, 163.772), 3, Do Not Clip, Visible To, Color(Sky Blue), Default Visibility);
 		Create HUD Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
-			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  물 내리기", Input Binding String(
+			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  물 내리기  ", Input Binding String(
 			Button(Interact))), Null, Custom String("\r\n"), Top, 6, Color(Aqua), Null, Null, Visible To and String, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(231.369, 2, 166.183), 10, Team 1, Off), Custom String("도마"), Vector(231.369,
 			3, 166.183), 3, Do Not Clip, Visible To, Color(Lime Green), Default Visibility);
@@ -742,8 +738,8 @@ rule("Global: Setting")
 		Create HUD Text(Filtered Array(All Players(Team 1), Min(Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
 			Current Array Element) * 1.500, Vector(231.369, 2, 166.183)), Distance Between(Eye Position(Current Array Element)
 			+ Facing Direction Of(Current Array Element) * 1.500, Vector(222.109, 2, 156.602))) < 1.500),
-			Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기", Input Binding String(Button(Interact))) : Custom String(
-			"칼이 없습니다"), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
+			Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))) : Custom String(
+			" 칼이 없습니다  "), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
 			Null, Visible To String and Color, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(224.552, 2, 161.294), 10, Team 1, Off), Custom String("튀김기"), Vector(224.552,
 			3, 161.294), 3, Do Not Clip, Visible To, Color(Yellow), Default Visibility);
@@ -778,7 +774,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v260828\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -791,10 +787,19 @@ rule("Global: Setting")
 		Start Rule(itemCooking, Do Nothing);
 		Start Rule(despawnItem, Do Nothing);
 		Set Status(Host Player, Null, Rooted, 9999);
-		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("오리지널"), Custom String("카페"), Custom String("쿡제요리"))[Global.stageMode[0]]), Null,
-			Local Player == Global.scbRank ? Custom String("[{0}]: 에디션 변경", Input Binding String(Button(Ability 2))) : Custom String(" 방장이 에디션을 결정하는 중입니다"), Top, -999, Color(Orange), Null, Color(White), String and Color,
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String(
+			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, -999, Null, Null, Null, Visible To,
 			Default Visibility);
-		Global.globalText[False] = Last Text ID;
+		Global.globalText[0] = Last Text ID;
+		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]),
+			Custom String("제작: {0}", Array(Custom String("Gummybear&변기클라우드\r\n난이도 : ★★★☆☆"), Custom String("Joseon&Deadlock\r\n난이도 : ★★☆☆☆"), Custom String("Joseon\r\n난이도 : ★★★★☆"))[Global.stageMode[0]]),
+			Local Player == Global.scbRank ? Custom String("[{0}]: 에디션 변경", Input Binding String(Button(Ability 2))) : Custom String(" 방장이 에디션을 결정하는 중입니다"), Top, -998, Array(Color(Orange), Custom Color(100, 60, False, 255), Color(Blue))[Global.stageMode[0]], Color(Yellow), Color(White), String and Color,
+			Default Visibility);
+		Global.globalText[1] = Last Text ID;
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String(
+			"\r\n"), Top, -997, Null, Null, Null, Visible To,
+			Default Visibility);
+		Global.globalText[2] = Last Text ID;
 		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("연습 모드"),
 		Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode[1]]),
 			Custom String("{0}", Array(
@@ -805,19 +810,19 @@ rule("Global: Setting")
 				Custom String("Hell's Kitchen 클리어에 도전하세요"),
 				Custom String("완벽의 영역에 도전하세요"))[Global.stageMode[1]]),
 			Local Player == Global.scbRank ? Custom String("[{0}]: 모드 변경", Input Binding String(Button(Reload)),
-			Input Binding String(Button(Jump))) : Custom String(" 방장이 모드를 결정하는 중입니다"), Top, -998, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
-		Global.globalText[True] = Last Text ID;
+			Input Binding String(Button(Jump))) : Custom String(" 방장이 모드를 결정하는 중입니다"), Top, -996, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Color(Yellow), Color(White), String and Color, Default Visibility);
+		Global.globalText[3] = Last Text ID;
 		Create HUD Text(All Players(Team 1), Null, Null, Custom String(
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"),
-			Top, -997, Null, Null, Null, Visible To, Default Visibility);
-		Global.globalText[2] = Last Text ID;
+			Top, -995, Null, Null, Null, Visible To, Default Visibility);
+		Global.globalText[4] = Last Text ID;
 		Global.stageMode[1] = 1;
 		Call Subroutine(selectMode);
-		Call Subroutine(dataInit);
-		Call Subroutine(dataInit2);
+		Set Objective Description(All Players(All Teams), Custom String("로드 중..."), Visible To and String);
+		Small Message(All Players(All Teams), Custom String("데이터 초기화 중..."));
 		Global.difficulty = Array(4, 0, 1, 2, 1, 2)[Global.stageMode[1]];
 		Global.storageLevel = Array(7, 3, 3, 0, -1, -1)[Global.stageMode[1]];
-		Call Subroutine(dataInit3);
+		Call Subroutine(dataInit);
 		Global.scbRank = Empty Array;
 		Global.stageTime = Array(999, 300, 300, 240, 180, 600)[Global.stageMode[1]];
 		Global.hintText = Array(Custom String(""));
@@ -833,7 +838,7 @@ rule("Global: Setting")
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("〔{1}〕: 모드-{0}",
 				Global.stage == 5 ? Custom String("다른 메뉴") : Global.stage == 4 ? Custom String("연습 종료") : Global.stage == 3 ? Custom String("모든 손님") : Global.stage == 0 ? Custom String("튜토리얼") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]),
 				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}",
-				Global.stage == 5 ? Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]] :
+				Global.stage == 5 ? Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]] :
 				Global.stage == 4 ? Custom String("개시 하여 시작")
 				 : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전")
 			: Global.STAGE_NAME[Global.totalScore[False]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
@@ -875,7 +880,7 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260828\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
+		Custom String("{0} v260829\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
 		Custom String("{0} 거대식가: 멋있는 대식가!\r\n{1}", Hero Icon String(Hero(Reinhardt)),
 		Custom String("{0} 시끄러운 손님: 실수하면 고막을 터뜨려 버립니다!", Hero Icon String(Hero(Junker Queen))))),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
@@ -989,10 +994,8 @@ rule("Player: Spawn")
 			Custom Color(Array(140, 110, 255, 255, 255, 60)[Global.difficulty], Array(255, 180, 225, 120, 50, 255)[Global.difficulty],
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
-		Create In-World Text(Event Player, Array(Custom String("연습 모드"),
-			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode[1]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
-			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange),
-			Default Visibility);
+		Create In-World Text(Event Player, Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
 		Create In-World Text(Event Player, Custom String("GummyBear#11798\r\nMod : 변기클라우드#3523\r\nEnglish Version : HTNZ3"), Vector(
 			222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 38.500),
@@ -1089,19 +1092,19 @@ rule("Player: Control item")
 			Default Visibility);
 		Event Player.tableText[True] = Last Text ID;
 		If(Array Contains(Global.KNIFE, Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  칼 장착", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  칼 장착  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
         Else If(Array Contains(Global.PERK_LIST[False], Global.itemCode[Event Player.controlingIndex]) || Array Contains(Global.PERK_LIST[True], Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  아이템 장착", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  아이템 장착  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(18 == Global.itemCode[Event Player.controlingIndex]);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  줍기", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  줍기  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Yellow), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  썰기", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		End;
@@ -1334,9 +1337,7 @@ rule("Player: Interact")
 					Wait(1.5, Ignore Condition);
 				Else;
 					If(Global.stage == 5);
-						Small Message(All Players(All Teams), Custom String("{0} 의 워크샵 코드는 {1} 입니다! ",
-							Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]],
-							Array(Custom String("P6ZAA"), Custom String("WM3MW"), Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
+						Call Subroutine(otherMenu);
 					Else If(Event Player.permission != 3 && Global.stage == 4);
 						Small Message(All Players(All Teams), Custom String("{0}{1} 님이 게임을 시작하자고 합니다! ", Hero Icon String(Hero Of(Event Player)), Event Player));
 						Communicate(Event Player, Ready);
@@ -1552,22 +1553,10 @@ rule("Player: Reload button")
 	{
 		If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage != 5 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
-			Global.totalScore[False] = Global.stage == 0 ? 0 : (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
-			Global.currentMenu = Empty Array;
-			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
-			Global.loadingMenu = Randomized Array(Global.currentMenu);
-			Global.currentMenuHaz = Empty Array;
-			Modify Global Variable(currentMenuHaz, Append To Array,
-					Global.HAZARD_MENU_LIST[Global.totalScore[False]]);
-			Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
-			Global.currentMenuWeaver = Empty Array;
-			Modify Global Variable(currentMenuWeaver, Append To Array,
-					Global.WEAVER_MENU_LIST[Global.totalScore[False]]);
-			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
-			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];
+			Call Subroutine(menuInit);
 		Else If(Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500,
 				Vector(232.608, 2.750, 170.455)) < 1 && Global.difficulty == 4 && Global.stage == 5 && Global.isOpen == False && Count Of(Global.STAGE_CODE[Global.stage]) <= 1);
-			Global.totalScore[False] = (Global.totalScore[False] + True) % 4;
+			Global.totalScore[False] = (Global.totalScore[False] + True) % 5;
 		End;
 		Abort If(Event Player.controlingIndex + True);
 		If(Global.currentUpgrade + True && Distance Between(Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.500, Vector(
@@ -2565,19 +2554,6 @@ rule("Global subroutine: Deluxe dispatcher dataInit")
 		Else;
 			Call Subroutine(dataInit_gc1);
 		End;
-	}
-}
-
-rule("Global subroutine: Deluxe dispatcher dataInit2")
-{
-	event
-	{
-		Subroutine;
-		dataInit2;
-	}
-
-	actions
-	{
 		If(Global.stageMode[0] == 0);
 			Call Subroutine(dataInit_org2);
 		Else If(Global.stageMode[0] == 1);
@@ -2603,19 +2579,6 @@ rule("Global subroutine: Deluxe dispatcher dataInit2")
 		Global.PERK_LIST = Array(Array(8, 9, 11, 12, 15, 16, 17, 19, 20), Array(10, 13, 14));
 		Global.KNIFE_AMOUNT = Array(1.200, 1.500, 1.500, 1.500, 3, 1.200, 6);
 		Global.KNIFE_DECREASE = Array(0.150, 0.100, 0.050, 0.050, 0.050, 0.100, 0.030);
-	}
-}
-
-rule("Global subroutine: Deluxe dispatcher dataInit3")
-{
-	event
-	{
-		Subroutine;
-		dataInit3;
-	}
-
-	actions
-	{
 		If(Global.stageMode[0] == 0);
 			Call Subroutine(dataInit_org3);
 		Else If(Global.stageMode[0] == 1);
@@ -2624,13 +2587,6 @@ rule("Global subroutine: Deluxe dispatcher dataInit3")
 			Call Subroutine(dataInit_gc3);
 		End;
 		Call Subroutine(dataInit_customerCommon);
-		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
-		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
-		Global.scoreDecrease = Array(Array(Null, Null, Null, Null, Null, Null), Array(5, Null, 5, 5, 5, 5),
-			Array(15, Null, 15, 35, 15, 15), Array(50, Null, 50, 50, 50, 50))[Global.difficulty];
-		Global.despawnTime = Array(30, 25, 20, 15, 60)[Global.difficulty];
-		Global.additionalScore = Global.stageMode[1] == 5 ? 15 : Array(Null, 5, 10, 15)[Global.difficulty];
-		Global.failEnd = Array(99, 5, 3, 2, 3, 1)[Global.stageMode[1]];
 	}
 }
 
@@ -2854,7 +2810,14 @@ rule("Global subroutine: Start stage")
 			Global.difficulty += True;
 			Global.failCount = 0;
 			Global.stageTime -= 30;
-			Call Subroutine(dataInit3);
+			If(Global.stageMode[0] == 0);
+				Call Subroutine(dataInit_org3);
+			Else If(Global.stageMode[0] == 1);
+				Call Subroutine(dataInit_cafe3);
+			Else;
+				Call Subroutine(dataInit_gc3);
+			End;
+			Call Subroutine(dataInit_customerCommon);
 			Big Message(All Players(All Teams), Custom String("난이도 상승! 행운을 빌어요!"));
 			Loop;
 		Else;
@@ -3384,9 +3347,11 @@ rule("Host Player: Select Mode")
 			End;
 			Loop;
 		End;
-		Destroy HUD Text(Global.globalText[False]);
-		Destroy HUD Text(Global.globalText[True]);
+		Destroy HUD Text(Global.globalText[0]);
+		Destroy HUD Text(Global.globalText[1]);
 		Destroy HUD Text(Global.globalText[2]);
+		Destroy HUD Text(Global.globalText[3]);
+		Destroy HUD Text(Global.globalText[4]);
 		If(Global.stageMode[1] == 3);
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 3, 100, Null);
 			Call Subroutine(createItem);
@@ -3479,26 +3444,33 @@ rule("Global subroutine: Knife Hud")
 	{
 		If(Event Player.knifeCode == 0);
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
-				255 - Event Player.durability * 0.950, Event Player.durability * 2.320, Event Player.durability * 0.270, 255), Null, Null,
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("다이소에서 파는\r\n평범한 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+				255 - Event Player.durability * 0.950, Event Player.durability * 2.320, Event Player.durability * 0.270, 255), Color(White), Null,
 				String and Color, Default Visibility);
 			Event Player.knifeText = Last Text ID;
 		Else If(Event Player.knifeCode == 1);
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
-				255 - Event Player.durability * 1.860, Event Player.durability * 2.550, Event Player.durability * 0.870, 255), Null, Null,
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("내구도와 성능이 무난한\r\n주방용 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+				255 - Event Player.durability * 1.860, Event Player.durability * 2.550, Event Player.durability * 0.870, 255), Color(White), Null,
 				String and Color, Default Visibility);
 			Event Player.knifeText = Last Text ID;
         Else If(Event Player.knifeCode == 6);
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
-				Event Player.durability * 1.760, 0, Event Player.durability * 2.500, 255), Null, Null,
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("재료를 손에 들고 바로 썰 수 있는\r\n전설적인 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+				Event Player.durability * 1.760, 0, Event Player.durability * 2.500, 255), Color(White), Null,
 				String and Color, Default Visibility);
 			Event Player.knifeText = Last Text ID;
 		Else If(Event Player.knifeCode != -1);
 			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Null, Custom String("\r\n"), Right, True, Custom Color(
-				255 - Event Player.durability * 2.250, Event Player.durability * 2.300, Event Player.durability * 1.510, 255), Null, Null,
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])),
+					Global.stageMode[1] < 2 ? Array(Null, Null,
+					Custom String("내구도와 성능이 뛰어난\r\n고급 칼입니다"),
+					Custom String("재료를 손에 들고 썰 수 있는\r\n희귀한 칼입니다"),
+					Custom String("내구도와 성능이 압도적인\r\n희귀한 칼입니다"),
+					Custom String("도마에서 아주 빠른 속도로\r\n연격할 수 있습니다"))[Event Player.knifeCode]
+					: Custom String(" \r\n")
+				 , Null, Right, True, Custom Color(
+				255 - Event Player.durability * 2.250, Event Player.durability * 2.300, Event Player.durability * 1.510, 255), Color(White), Null,
 				String and Color, Default Visibility);
 			Event Player.knifeText = Last Text ID;
 		End;
@@ -3516,20 +3488,27 @@ rule("Global subroutine: Perk Hud")
 	actions
 	{
 		Abort If(Event Player.itemPerk == -1);
-		Create HUD Text(Event Player, Array(
-			Ability Icon String(Hero(Roadhog), Button(Ability 2)), Ability Icon String(Hero(Ana), Button(Ultimate)),
-			Ability Icon String(Hero(Ashe), Button(Ability 2)), Ability Icon String(Hero(Sigma), Button(Ability 1)),
-			Ability Icon String(Hero(Baptiste), Button(Ultimate)), Ability Icon String(Hero(Torbjörn), Button(Ultimate)),
-			Ability Icon String(Hero(Wrecking Ball), Button(Ability 1)), Ability Icon String(Hero(Domina), Button(Ultimate)),
-			Ability Icon String(Hero(Mei), Button(Ability 1)))[Event Player.itemPerk],
-			Custom String("{1}{0}", Array(True, True, False, False, False, False, True, True, False)[Event Player.itemPerk]
-				? Custom String("") : Custom String("-{0}%", Round To Integer(Event Player.itemPerkDurability, Up)),
-				Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[False][Event Player.itemPerk]])),
-			Custom String("〔{0}〕", Array(Input Binding String(Button(Ultimate)), Input Binding String(Button(Ultimate)),
+		Create HUD Text(Event Player, Custom String("〔{0}〕", Array(Input Binding String(Button(Ultimate)), Input Binding String(Button(Ultimate)),
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Secondary Fire)),
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Secondary Fire)),
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Ultimate)),
-				Input Binding String(Button(Secondary Fire)))[Event Player.itemPerk]), Right, 2,
+				Input Binding String(Button(Secondary Fire)))[Event Player.itemPerk]),
+			Custom String("{1}{0}", Array(True, True, False, False, False, False, True, True, False)[Event Player.itemPerk]
+				? Custom String("") : Custom String("-{0}%", Round To Integer(Event Player.itemPerkDurability, Up)),
+				Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[False][Event Player.itemPerk]])),
+			Global.stageMode[1] < 2 ?
+			Array(
+				Custom String("100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다"), 
+				Custom String("20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다"), 
+				Custom String("손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다"), 
+				Custom String("필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요"), 
+				Custom String("손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다"), 
+				Custom String("그릴까지 가지 않아도\r\n재료를 구울 수 있습니다"), 
+				Custom String("햄스터가 아르바이트를 구한다\r\n라고 함"), 
+				Custom String("현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다"), 
+				Custom String("제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다"))[Event Player.itemPerk]
+				: Custom String(" \r\n")
+				, Right, 2,
 			Global.ITEM_COLOR[Global.PERK_LIST[False][Event Player.itemPerk]],
 			Global.ITEM_COLOR[Global.PERK_LIST[False][Event Player.itemPerk]], Color(White), String and Color, Default Visibility);
 		Event Player.itemPerkText = Last Text ID;
@@ -3548,21 +3527,21 @@ rule("Global subroutine: Foot Hud")
 	{
 		Abort If(Event Player.footPerk == -1);
 		Create HUD Text(Event Player,
-			Array(
-				Ability Icon String(Hero(Baptiste), Button(Crouch)),
-				Ability Icon String(Hero(Reinhardt), Button(Ability 1)),
-				Ability Icon String(Hero(Kiriko), Button(Ability 1))
-			)[Event Player.footPerk],
+			Custom String("〔{0}〕", Array(
+				Input Binding String(Button(Jump)),
+				Input Binding String(Button(Ability 1)),
+				Input Binding String(Button(Ability 1))
+			)[Event Player.footPerk]),
 			Custom String("{1}{0}", Custom String("-{0}%",
 			Round To Integer(Event Player.footPerkDurability, Up)),
 			Evaluate Once(Global.ITEM_NAME[Global.PERK_LIST[True][Event Player.footPerk]])),
-			Custom String("〔{0}〕",
-				Array(
-					Input Binding String(Button(Jump)),
-					Input Binding String(Button(Ability 1)),
-					Input Binding String(Button(Ability 1))
-				)[Event Player.footPerk]
-				), Right, 3, Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Color(White),
+			Global.stageMode[1] < 2 ?
+			Array(
+				Custom String("공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다"), 
+				Custom String("앞으로 빠르게 대시하는\r\n다재다능한 신발입니다"), 
+				Custom String("주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다"))[Event Player.footPerk]
+				: Custom String(" \r\n")
+			, Right, 3, Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Global.ITEM_COLOR[Global.PERK_LIST[True][Event Player.footPerk]], Color(White),
 				String and Color, Default Visibility);
 		Event Player.footPerkText = Last Text ID;
 	}
@@ -4460,26 +4439,6 @@ rule("Global subroutine: Deluxe ORG init1")
 		Global.CUTTING_RESULT[429] = Array(303, 303);
 		Global.CUTTING_RESULT[430] = Array(335, 336);
 		Global.CUTTING_RESULT[431] = Array(61, 159);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		Wait(0.100, Ignore Condition);
 		Global.GRILLING_NEEDED = Mapped Array(
 			String Split(Custom String("99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/3/3/5/5/5/5/5/3/3/3{0}",
@@ -4712,65 +4671,51 @@ rule("Global subroutine: Deluxe ORG init2")
 		Global.ADDITIONAL_MATERIAL_LIST[464] = Array(273, 459);
 		Global.ADDITIONAL_MATERIAL_LIST[469] = Array(66, 112);
 		Global.ADDITIONAL_MATERIAL_LIST[470] = Array(66, 112);
-
-
-
-
-
-
-
-
-
-
-
-
 		Wait(0.100, Ignore Condition);
-		Global.MENU_LIST = Mapped Array(
-			String Split(Custom String("63,64,354,355,23,24,25,26,28,27/354,23,55,56,57,58,59,60/85,86,87,88,89,90,96/354,{0}",
-					Custom String("23,126,132,133,134,135/193,188,189,190,191,192/105,106,107,146,152,153,194,101,103{0}",
-					Custom String(",109,110,111,156,218/196,202,203,209,210,211,213,214,215,219,220,223,226/193,246,2{0}",
-					Custom String("47,248,249,250,251,259,260,261,264,111/278,279,280,281,282,283,284,285,293,294/308{0}",
-					Custom String(",310,311,312,313,324,325,326,327,328,329,330,331/337,338,339,337,338,339,337,338,3{0}",
-					Custom String("39,340,341,342,343,344,345,346,347,348,349,350,351,362,363/63,64,162,165,367,377,4{0}",
-					Custom String("18,375,378,384,385,156"))))))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.HAZARD_MENU_LIST = Mapped Array(
-			String Split(Custom String("0,352,353,356,358,360,361,475,32,139/0,63,64,352,353,355,356,361,475,35,36,139,140{0}",
-					Custom String("/0,80,91,92,93,94,95,216/0,352,353,355,356,120,293,123,137,138/0,91,92,94,120,293,{0}",
-					Custom String("145,147,148,148,150,158,162,163,164,165,166,176,177,178,179,180,181,253,254/0,61,6{0}",
-					Custom String("2,63,64,33,34,35,36,77,100,102,104,108,112,142,143,144,145,154,155,195/0,101,102,1{0}",
-					Custom String("03,106,109,110,111,162,163,164,165,166,194,195,204,218,84,85,90/0,190,109,110,101,{0}",
-					Custom String("102,103,120,293,145,143/0,162,163,165,63,64,32,274,275,271,272,139,164,166/0,295,2{0}",
-					Custom String("96,297,298,299,300,301,302,303,304,305,306,307,309,314,315,316,317,318,319,320,321{0}",
-					Custom String(",322,323/0,332,333,335,336,101,102,103,109,110,111,118,120,293,123,138,299,306/0,2{0}",
-					Custom String("71,372,374,383"))))))))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.FRIDGE_LIST = Mapped Array(
-			String Split(Custom String("61,65,433,357,359,432/37,61,359,33,433,65/66,72,69,73,74,75/114,359,113,121,122,65{0}",
-					Custom String("/159,142,114,69,157,147/61,142,112,100,33,77/198,159,112,100,66,72/114,142,184,100{0}",
-					Custom String(",241,258/114,61,290,159,273,268/295,296,298,297,300,299/114,332,298,100,122,299/26{0}",
-					Custom String("8,370,373,74,241,75")))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
+		Global.MENU_LIST = String Split(Custom String("63,64,354,355,23,24,25,26,28,27/354,23,55,56,57,58,59,60/85,86,87,88,89,90,96/354,{0}",
+				Custom String("23,126,132,133,134,135/193,188,189,190,191,192/105,106,107,146,152,153,194,101,103{0}",
+				Custom String(",109,110,111,156,218/196,202,203,209,210,211,213,214,215,219,220,223,226/193,246,2{0}",
+				Custom String("47,248,249,250,251,259,260,261,264,111/278,279,280,281,282,283,284,285,293,294/308{0}",
+				Custom String(",310,311,312,313,324,325,326,327,328,329,330,331/337,338,339,337,338,339,337,338,3{0}",
+				Custom String("39,340,341,342,343,344,345,346,347,348,349,350,351,362,363/63,64,162,165,367,377,4{0}",
+				Custom String("18,375,378,384,385,156"))))))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.MENU_LIST), True);
+			Global.MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.HAZARD_MENU_LIST = String Split(Custom String("0,352,353,356,358,360,361,475,32,139/0,63,64,352,353,355,356,361,475,35,36,139,140{0}",
+				Custom String("/0,80,91,92,93,94,95,216/0,352,353,355,356,120,293,123,137,138/0,91,92,94,120,293,{0}",
+				Custom String("145,147,148,148,150,158,162,163,164,165,166,176,177,178,179,180,181,253,254/0,61,6{0}",
+				Custom String("2,63,64,33,34,35,36,77,100,102,104,108,112,142,143,144,145,154,155,195/0,101,102,1{0}",
+				Custom String("03,106,109,110,111,162,163,164,165,166,194,195,204,218,84,85,90/0,190,109,110,101,{0}",
+				Custom String("102,103,120,293,145,143/0,162,163,165,63,64,32,274,275,271,272,139,164,166/0,295,2{0}",
+				Custom String("96,297,298,299,300,301,302,303,304,305,306,307,309,314,315,316,317,318,319,320,321{0}",
+				Custom String(",322,323/0,332,333,335,336,101,102,103,109,110,111,118,120,293,123,138,299,306/0,2{0}",
+				Custom String("71,372,374,383"))))))))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.HAZARD_MENU_LIST), True);
+			Global.HAZARD_MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.HAZARD_MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.FRIDGE_LIST = String Split(Custom String("61,65,433,357,359,432/37,61,359,33,433,65/66,72,69,73,74,75/114,359,113,121,122,65{0}",
+				Custom String("/159,142,114,69,157,147/61,142,112,100,33,77/198,159,112,100,66,72/114,142,184,100{0}",
+				Custom String(",241,258/114,61,290,159,273,268/295,296,298,297,300,299/114,332,298,100,122,299/26{0}",
+				Custom String("8,370,373,74,241,75")))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.FRIDGE_LIST), True);
+			Global.FRIDGE_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.FRIDGE_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
 		Global.ICE_RESULT = Array(296, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 331, 402, 403);
-		Global.WEAVER_MENU_LIST = Mapped Array(
-			String Split(Custom String("411,437/393,453/412,441,442/391,443,446/416,417,448/395,455,456,457/396,206,207,46{0}",
-					Custom String("4,465,466/408,252,468/409,410,469,470/402,403,413/407,473,474/203,274")), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
+		Global.WEAVER_MENU_LIST = String Split(Custom String("411,437/393,453/412,441,442/391,443,446/416,417,448/395,455,456,457/396,206,207,46{0}",
+				Custom String("4,465,466/408,252,468/409,410,469,470/402,403,413/407,473,474/203,274")), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.WEAVER_MENU_LIST), True);
+			Global.WEAVER_MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.WEAVER_MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
 		Global.STAGE_NAME = String Split(Custom String("스테이크&파스타/수제 버거/치킨/피자/만두/달걀&밥/생선&밥/국수/타코/아이스크림/핫케이크/정육식당"), Custom String("/"));
-
-
-
-
-
-
 		Global.UPGRADE_NAME = String Split(
 			Custom String("저장고 구매/무작위 도구 구매/무작위 신발 구매/튀김기 강화/솥 강화/그릴 강화/팬 강화/개인 이동 속도 증가/{0}",
 			Custom String("팀 영업 시간 증가/동전 교환")),
@@ -4788,18 +4733,20 @@ rule("Global subroutine: Deluxe ORG init3")
 
 	actions
 	{
-		Global.DELUXE_DATA[1] = Array(8, 9, 11, 12, 15, 16, 17, 19);
-		Global.DELUXE_DATA[2] = Array(Array(0, 12, 12, 16, 15, 16),
-			Array(0, 17, 16, 13, 13, 14),
-			Array(1, 6, 2, 3, 4, 5, 7, 8, 9, 11, 12, 15, 16, 19, 17, 10, 13, 14),
-			Array(8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 19, 19, 19, 17, 17));
-
-
-
-
-
-
-
+		Global.DELUXE_DATA[1] = String Split(Custom String("8,9,11,12,15,16,17,19"), Custom String(","));
+		Global.DELUXE_DATA[2] = String Split(Custom String("0,12,12,16,15,16/0,17,16,13,13,14/1,6,2,3,4,5,7,8,9,11,12,15,16,19,17,10,13,14/8,8{0}",
+				Custom String(",8,8,9,11,11,11,11,12,12,15,16,16,19,19,19,17,17")), Custom String("/"));
+		Global.RAW_MIX = Empty Array;
+		For Global Variable(RAW_RESULT, False, Count Of(Global.DELUXE_DATA[2]), True);
+			Global.RAW_MIX[Global.RAW_RESULT] = Mapped Array(
+				String Split(Global.DELUXE_DATA[2][Global.RAW_RESULT], Custom String(",")),
+				Current Array Element == Custom String("N") ? Null
+				: Index Of Array Value(String Split(Custom String("0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20"), Custom String("/")), Current Array Element));
+		End;
+		Global.DELUXE_DATA[2] = Global.RAW_MIX;
+		Global.RAW_RESULT = String Split(Custom String("0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20"), Custom String("/"));
+		Global.DELUXE_DATA[1] = Mapped Array(Global.DELUXE_DATA[1],
+			Index Of Array Value(Global.RAW_RESULT, Current Array Element));
 		Global.STAGE_CODE = Array(
 			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(2), Array(3), Array(0), Array(2), Array(0), Array(3), Array(4), Array(2), Array(1), Array(4), Array(3), Array(1), Array(4), Array(1)),
@@ -4977,8 +4924,6 @@ rule("Global subroutine: Deluxe CAFE init1")
 			Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
 		Global.CUTTING_RESULT[139] = Array(140, 141);
 		Global.CUTTING_RESULT[353] = Array(354, 354);
-
-
 		Wait(0.100, Ignore Condition);
 		Global.GRILLING_NEEDED = Mapped Array(
 			String Split(Custom String("99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}",
@@ -5202,46 +5147,44 @@ rule("Global subroutine: Deluxe CAFE init2")
 					Custom String("/0/0/0/0/0/171/56/0/264/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/168/171/0"))))))))))), Custom String("/")),
 			Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
 		Wait(0.100, Ignore Condition);
-		Global.MENU_LIST = Mapped Array(
-			String Split(Custom String("23,24,25,28,29,31,32,34,35,37,38,39/43,45,46,49,50,51,53,54,55/59,61,63,65,67,71,7{0}",
-					Custom String("3,75,77,78,79,80,81/84,88,89,90,91,95,96,98,100,102,104/107,110,114,118,119,123,12{0}",
-					Custom String("4,125,126,129,130,131,132,135,136/146,147,154,156,157,158,159,161,165/181,183,185,{0}",
-					Custom String("188,190,192,194,196,198,200,202,204,205,206,207,208,210/84,219,221,222,225,226,228{0}",
-					Custom String(",229,231,232,234,235,237/161,312,314,315,316,317,325,326,327,329,330,218,84/335,33{0}",
-					Custom String("6,337,338,339,340,341,342,343,344/146,358,360,362,364,366,368,370,371,372,373/167,{0}",
-					Custom String("384,391,386,388,390,392,393,394,395"))))))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.HAZARD_MENU_LIST = Mapped Array(
-			String Split(Custom String("351,26,27,40,398,121,352/26,27,40,47/398,26,27,70,57,121,352/57,97,47,94/398,351,1{0}",
-					Custom String("05,108,112,128,116,121,352/141/176,172,47,168/57,217,213,215,294/310,313,311,89,21{0}",
-					Custom String("7,47,94/26,97,99,101,103,245/298,356,168,47,294/378,381,356,380,47,383"))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.FRIDGE_LIST = Mapped Array(
-			String Split(Custom String("26,21,398,36,30,33/26,44,52,36,42,47/26,56,398,62,68,60/211,56,52,97,85,47/26,105,{0}",
-					Custom String("398,115,85,127/137,105,145,138,85,143/26,178,175,171,168,47/211,56,145,216,42,212/{0}",
-					Custom String("211,138,309,216,85,47/26,56,52,97,30,47/211,298,145,355,168,47/378,379,398,355,382{0}",
-					Custom String(",47")))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.WEAVER_MENU_LIST = Mapped Array(
-			String Split(Custom String("239,240,272,273/241,251,270/247,250,276,278/252,279,281,284,296,297,306/254,255,25{0}",
-					Custom String("6,257/261,263,266,267/285,288,290/244,293,295,300,308,297,334/297,331,332,334/345,{0}",
-					Custom String("346,347,348,349,350/267,374,375,377/170,174,396,397"))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
+		Global.MENU_LIST = String Split(Custom String("23,24,25,28,29,31,32,34,35,37,38,39/43,45,46,49,50,51,53,54,55/59,61,63,65,67,71,7{0}",
+				Custom String("3,75,77,78,79,80,81/84,88,89,90,91,95,96,98,100,102,104/107,110,114,118,119,123,12{0}",
+				Custom String("4,125,126,129,130,131,132,135,136/146,147,154,156,157,158,159,161,165/181,183,185,{0}",
+				Custom String("188,190,192,194,196,198,200,202,204,205,206,207,208,210/84,219,221,222,225,226,228{0}",
+				Custom String(",229,231,232,234,235,237/161,312,314,315,316,317,325,326,327,329,330,218,84/335,33{0}",
+				Custom String("6,337,338,339,340,341,342,343,344/146,358,360,362,364,366,368,370,371,372,373/167,{0}",
+				Custom String("384,391,386,388,390,392,393,394,395"))))))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.MENU_LIST), True);
+			Global.MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.HAZARD_MENU_LIST = String Split(Custom String("351,26,27,40,398,121,352/26,27,40,47/398,26,27,70,57,121,352/57,97,47,94/398,351,1{0}",
+				Custom String("05,108,112,128,116,121,352/141/176,172,47,168/57,217,213,215,294/310,313,311,89,21{0}",
+				Custom String("7,47,94/26,97,99,101,103,245/298,356,168,47,294/378,381,356,380,47,383"))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.HAZARD_MENU_LIST), True);
+			Global.HAZARD_MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.HAZARD_MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.FRIDGE_LIST = String Split(Custom String("26,21,398,36,30,33/26,44,52,36,42,47/26,56,398,62,68,60/211,56,52,97,85,47/26,105,{0}",
+				Custom String("398,115,85,127/137,105,145,138,85,143/26,178,175,171,168,47/211,56,145,216,42,212/{0}",
+				Custom String("211,138,309,216,85,47/26,56,52,97,30,47/211,298,145,355,168,47/378,379,398,355,382{0}",
+				Custom String(",47")))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.FRIDGE_LIST), True);
+			Global.FRIDGE_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.FRIDGE_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.WEAVER_MENU_LIST = String Split(Custom String("239,240,272,273/241,251,270/247,250,276,278/252,279,281,284,296,297,306/254,255,25{0}",
+				Custom String("6,257/261,263,266,267/285,288,290/244,293,295,300,308,297,334/297,331,332,334/345,{0}",
+				Custom String("346,347,348,349,350/267,374,375,377/170,174,396,397"))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.WEAVER_MENU_LIST), True);
+			Global.WEAVER_MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.WEAVER_MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
 		Global.STAGE_NAME = String Split(Custom String("커피/빙수/초코&쿠키/도넛/밀크티/마카롱/스무디/빵/브런치/아이스크림/파이&타르트/주스&에이드"), Custom String("/"));
-
-
-
-
-
-
 		Global.UPGRADE_NAME = String Split(Custom String("저장고 구매/무작위 도구 구매/무작위 신발 구매/튀김기&제빙기 강화/솥 강화/오븐 강화/팬 강화/개인 이동 속도 증가/{0}",
 			Custom String("팀 영업 시간 증가/동전 교환")), Custom String("/"));
 	}
@@ -5257,20 +5200,22 @@ rule("Global subroutine: Deluxe CAFE init3")
 
 	actions
 	{
-		Global.DELUXE_DATA[1] = Array(8, 9, 11, 12, 15, 16, 17, 20);
-		Global.DELUXE_DATA[2] = Array(Array(12, 12, 12, 13, 16, 14),
-			Array(Null, 20, 20, 3, 20, 16),
-			Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20),
-			Array(8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 17, 17, 20, 20));
-
-
-
-
-
-
-
+		Global.DELUXE_DATA[1] = String Split(Custom String("8,9,11,12,15,16,17,20"), Custom String(","));
+		Global.DELUXE_DATA[2] = String Split(Custom String("12,12,12,13,16,14/N,20,20,3,20,16/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,20/8,8{0}",
+				Custom String(",8,8,9,11,11,11,11,12,12,15,16,16,17,17,20,20")), Custom String("/"));
+		Global.RAW_MIX = Empty Array;
+		For Global Variable(RAW_RESULT, False, Count Of(Global.DELUXE_DATA[2]), True);
+			Global.RAW_MIX[Global.RAW_RESULT] = Mapped Array(
+				String Split(Global.DELUXE_DATA[2][Global.RAW_RESULT], Custom String(",")),
+				Current Array Element == Custom String("N") ? Null
+				: Index Of Array Value(String Split(Custom String("0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20"), Custom String("/")), Current Array Element));
+		End;
+		Global.DELUXE_DATA[2] = Global.RAW_MIX;
+		Global.RAW_RESULT = String Split(Custom String("0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20"), Custom String("/"));
+		Global.DELUXE_DATA[1] = Mapped Array(Global.DELUXE_DATA[1],
+			Index Of Array Value(Global.RAW_RESULT, Current Array Element));
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(9), Array(3), Array(1), Array(7), Array(0), Array(9), Array(3), Array(1), Array(7), Array(0), Array(9), Array(3), Array(1), Array(7), Array(0)),
 			Array(Array(9), Array(3), Array(1), Array(7), Array(5), Array(11), Array(0), Array(8), Array(2), Array(4), Array(6), Array(10),
 				Array(Random Integer(0, 11)),
@@ -5462,12 +5407,6 @@ rule("Global subroutine: Deluxe GC init1")
 		Global.CUTTING_RESULT[83] = Array(84, 84);
 		Global.CUTTING_RESULT[254] = Array(255, 255);
 		Global.CUTTING_RESULT[463] = Array(57, 57);
-
-
-
-
-
-
 		Wait(0.100, Ignore Condition);
 		Global.GRILLING_NEEDED = Mapped Array(
 			String Split(Custom String("99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}",
@@ -5685,48 +5624,45 @@ rule("Global subroutine: Deluxe GC init2")
 					Custom String("0/0/0/0/0/0/103/129/0/129/0/0"))))))))))))), Custom String("/")),
 			Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
 		Global.ADDITIONAL_MATERIAL_LIST[351] = Array(126, 160);
-
 		Wait(0.100, Ignore Condition);
-		Global.MENU_LIST = Mapped Array(
-			String Split(Custom String("35,44,45,46,47,49,51,52,54,55,56/62,63,64,65,70,71,72,79,80,81,82,85,86,87,88,89/4{0}",
-					Custom String("25,96,102,108,110,112,114,120,121,122,299,300/125,127,128,130,138,141,142,144,146,{0}",
-					Custom String("149,150,153,418/156,168,170,172,174,176,178,180,182,184,186,188,190,192,194/37,201{0}",
-					Custom String(",202,203,212,214,217,219,220,221,223,226,229,232,234/27,240,242,244,246,248,250,25{0}",
-					Custom String("3,303,304/27,232,234,259,268,272,276,278,280,74,78/315,317,27,130,212,214,325,326,{0}",
-					Custom String("327,328,222,215/310,312,393,398,388,400,406,407,408,401,394,395/146,418,420,421,42{0}",
-					Custom String("2,423,424,425,428,430,432/441,443,444,445,448,449,450,452,454,456,457"))))))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.HAZARD_MENU_LIST = Mapped Array(
-			String Split(Custom String("463,32,39,31,42,41/76,78,58,463,74,68/41,42,104,105/143,124,140,148,463,133,136/16{0}",
-					Custom String("1,162,104,105/205,208,209,211,213,218/235,130,161,162,133,136/31,76,262,264,265,29{0}",
-					Custom String("/208,209,211,213,29/389,306,307,405,402,397/298,419,39,41,148/29,31,39,41,148,305"))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.FRIDGE_LIST = Mapped Array(
-			String Split(Custom String("26,36,462,21,24,22/60,66,462,73,83,22/103,36,97,90,24,22/126,129,462,145,24,139/10{0}",
-					Custom String("3,157,462,160,24,165/198,36,204,207,195,218/26,129,97,160,235,165/26,254,206,73,26{0}",
-					Custom String("0,261/26,129,204,207,195,313/347,402,204,73,260,261/416,36,97,145,24,22/26,36,97,1{0}",
-					Custom String("45,195,439")))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
-		Global.WEAVER_MENU_LIST = Mapped Array(
-			String Split(Custom String("284,286,287,291,293/294,295,296,297/301,302,332,333,334/335,336,338,339/331,342,34{0}",
-					Custom String("4,346/349,351,356/360,362,364,366/372,375,377,378/330,380,381,382,386/410,411,414,{0}",
-					Custom String("415/433,434,436,438/458,459,461"))), Custom String("/")),
-			Mapped Array(
-				String Split(Current Array Element, Custom String(",")),
-				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)));
+		Global.MENU_LIST = String Split(Custom String("35,44,45,46,47,49,51,52,54,55,56/62,63,64,65,70,71,72,79,80,81,82,85,86,87,88,89/4{0}",
+				Custom String("25,96,102,108,110,112,114,120,121,122,299,300/125,127,128,130,138,141,142,144,146,{0}",
+				Custom String("149,150,153,418/156,168,170,172,174,176,178,180,182,184,186,188,190,192,194/37,201{0}",
+				Custom String(",202,203,212,214,217,219,220,221,223,226,229,232,234/27,240,242,244,246,248,250,25{0}",
+				Custom String("3,303,304/27,232,234,259,268,272,276,278,280,74,78/315,317,27,130,212,214,325,326,{0}",
+				Custom String("327,328,222,215/310,312,393,398,388,400,406,407,408,401,394,395/146,418,420,421,42{0}",
+				Custom String("2,423,424,425,428,430,432/441,443,444,445,448,449,450,452,454,456,457"))))))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.MENU_LIST), True);
+			Global.MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.HAZARD_MENU_LIST = String Split(Custom String("463,32,39,31,42,41/76,78,58,463,74,68/41,42,104,105/143,124,140,148,463,133,136/16{0}",
+				Custom String("1,162,104,105/205,208,209,211,213,218/235,130,161,162,133,136/31,76,262,264,265,29{0}",
+				Custom String("/208,209,211,213,29/389,306,307,405,402,397/298,419,39,41,148/29,31,39,41,148,305"))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.HAZARD_MENU_LIST), True);
+			Global.HAZARD_MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.HAZARD_MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.FRIDGE_LIST = String Split(Custom String("26,36,462,21,24,22/60,66,462,73,83,22/103,36,97,90,24,22/126,129,462,145,24,139/10{0}",
+				Custom String("3,157,462,160,24,165/198,36,204,207,195,218/26,129,97,160,235,165/26,254,206,73,26{0}",
+				Custom String("0,261/26,129,204,207,195,313/347,402,204,73,260,261/416,36,97,145,24,22/26,36,97,1{0}",
+				Custom String("45,195,439")))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.FRIDGE_LIST), True);
+			Global.FRIDGE_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.FRIDGE_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
+		Global.WEAVER_MENU_LIST = String Split(Custom String("284,286,287,291,293/294,295,296,297/301,302,332,333,334/335,336,338,339/331,342,34{0}",
+				Custom String("4,346/349,351,356/360,362,364,366/372,375,377,378/330,380,381,382,386/410,411,414,{0}",
+				Custom String("415/433,434,436,438/458,459,461"))), Custom String("/"));
+		For Global Variable(checkingIndex, False, Count Of(Global.WEAVER_MENU_LIST), True);
+			Global.WEAVER_MENU_LIST[Global.checkingIndex] = Mapped Array(
+				String Split(Global.WEAVER_MENU_LIST[Global.checkingIndex], Custom String(",")),
+				Index Of Array Value(Global.MIXING_RECIPE, Current Array Element));
+		End;
 		Global.STAGE_NAME = String Split(Custom String("한식/일식/쌀국수/커리&필라프/리소토&파스타/소시지/스튜/비프&파이/버거&치킨/디저트/훠궈/타코"), Custom String("/"));
-
-
-
-
-
-
 		Global.UPGRADE_NAME = String Split(Custom String("저장고 구매/무작위 도구 구매/무작위 신발 구매/튀김기 강화/솥 강화/그릴 강화/팬 강화/개인 이동 속도 증가/{0}",
 			Custom String("팀 영업 시간 증가/동전 교환")), Custom String("/"));
 	}
@@ -5742,20 +5678,22 @@ rule("Global subroutine: Deluxe GC init3")
 
 	actions
 	{
-		Global.DELUXE_DATA[1] = Array(8, 9, 11, 12, 15, 16, 17);
-		Global.DELUXE_DATA[2] = Array(Array(12, 12, 12, 16, 15, 16),
-			Array(Null, 17, 16, 13, 13, 14),
-			Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
-			Array(8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 17, 17));
-
-
-
-
-
-
-
+		Global.DELUXE_DATA[1] = String Split(Custom String("8,9,11,12,15,16,17"), Custom String(","));
+		Global.DELUXE_DATA[2] = String Split(Custom String("12,12,12,16,15,16/N,17,16,13,13,14/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17/8,8,8{0}",
+				Custom String(",8,9,11,11,11,11,12,12,15,16,16,17,17")), Custom String("/"));
+		Global.RAW_MIX = Empty Array;
+		For Global Variable(RAW_RESULT, False, Count Of(Global.DELUXE_DATA[2]), True);
+			Global.RAW_MIX[Global.RAW_RESULT] = Mapped Array(
+				String Split(Global.DELUXE_DATA[2][Global.RAW_RESULT], Custom String(",")),
+				Current Array Element == Custom String("N") ? Null
+				: Index Of Array Value(String Split(Custom String("0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20"), Custom String("/")), Current Array Element));
+		End;
+		Global.DELUXE_DATA[2] = Global.RAW_MIX;
+		Global.RAW_RESULT = String Split(Custom String("0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20"), Custom String("/"));
+		Global.DELUXE_DATA[1] = Mapped Array(Global.DELUXE_DATA[1],
+			Index Of Array Value(Global.RAW_RESULT, Current Array Element));
 		Global.STAGE_CODE = Array(
-			Array(Array(0), Array(0), Array(0), Array(0), Array(0)),
+			Array(Array(0), Array(0), Array(0), Array(0), Array(0), Array(0)),
 			Array(Array(0), Array(6), Array(10), Array(11), Array(8), Array(0), Array(6), Array(10), Array(11), Array(8), Array(0),
 				Array(6), Array(10), Array(11), Array(8)),
 			Array(Array(0), Array(6), Array(9), Array(10), Array(3), Array(11), Array(5), Array(2), Array(1), Array(4), Array(8), Array(7),
@@ -5809,101 +5747,105 @@ rule("Global subroutine: Deluxe common customer init")
 
 	actions
 	{
-		Global.CUSTOMER_LIST = Array(
+		Global.CUSTOMER_LIST = String Split(
 			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(LifeWeaver)),
-				Array(Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy), Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(LifeWeaver), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra), Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Tracer)),
-				Array(Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Soldier: 76)),
-				Array(Hero(Zarya), Hero(Hanzo), Hero(Mercy)),
-				Array(Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Hanzo), Hero(Roadhog), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion)),
-				Array(Hero(Roadhog), Hero(Mercy), Hero(Tracer)),
-				Array(Hero(Tracer), Hero(Hanzo), Hero(Zarya)),
-				Array(Hero(Hanzo), Hero(Zarya), Hero(Bastion), Hero(Mercy))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Mauga), Hero(Mercy), Hero(Mercy), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Mercy), Hero(Mercy), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Roadhog), Hero(Hazard), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Freja), Hero(Kiriko), Hero(Freja), Hero(Kiriko), Hero(LifeWeaver)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Sombra), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Tracer), Hero(Tracer), Hero(Roadhog)),
-				Array(Hero(Roadhog), Hero(Roadhog), Hero(Jetpack Cat)),
-				Array(Hero(Domina), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Jetpack Cat)),
-				Array(Hero(Hazard), Hero(Zarya), Hero(LifeWeaver)),
-				Array(Hero(Freja), Hero(Jetpack Cat), Hero(Bastion), Hero(Jetpack Cat), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Reinhardt), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(Jetpack Cat), Hero(Tracer), Hero(Tracer), Hero(Tracer)),
-				Array(Hero(Junker Queen), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Freja), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(Junker Queen), Hero(Sombra), Hero(Junker Queen), Hero(Sombra), Hero(LifeWeaver)),
-				Array(Hero(Reinhardt), Hero(D.Va), Hero(Jetpack Cat), Hero(D.Va), Hero(Jetpack Cat), Hero(Jetpack Cat)),
-				Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76),Hero(Roadhog)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Sombra)),
-				Array(Hero(Hanzo), Hero(Bastion), Hero(Hanzo), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(LifeWeaver)),
-				Array(Hero(Hazard), Hero(Freja), Hero(Bastion), Hero(Freja), Hero(Bastion), Hero(Bastion)),
-				Array(Hero(Mauga), Hero(Roadhog), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Jetpack Cat), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(D.Va), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko), Hero(LifeWeaver), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Kiriko), Hero(Zarya), Hero(Zarya), Hero(Zarya)),
-				Array(Hero(D.Va), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Sombra), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(Domina), Hero(Mauga), Hero(Domina), Hero(Domina), Hero(Domina), Hero(Domina)),
-				Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver))
-			),
-			Array(
-				Array(Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Roadhog), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Tracer), Hero(Bastion), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Mercy)),
-				Array(Hero(Hazard), Hero(Roadhog), Hero(Bastion), Hero(Roadhog)),
-				Array(Hero(Mauga), Hero(Soldier: 76), Hero(Zarya)),
-				Array(Hero(Domina), Hero(Hazard)),
-				Array(Hero(Hanzo), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat), Hero(Hazard)),
-				Array(Hero(Freja), Hero(Roadhog), Hero(Bastion)),
-				Array(Hero(Tracer), Hero(Tracer), Hero(Mercy)),
-				Array(Hero(D.Va), Hero(Tracer), Hero(Tracer), Hero(Tracer), Hero(Soldier: 76), Hero(Soldier: 76)),
-				Array(Hero(LifeWeaver), Hero(Sombra), Hero(Soldier: 76), Hero(Soldier: 76), Hero(LifeWeaver), Hero(Soldier: 76)),
-				Array(Hero(Mauga), Hero(Hazard), Hero(Zarya)),
-				Array(Hero(Moira), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Soldier: 76), Hero(Jetpack Cat)),
-				Array(Hero(Freja), Hero(Zarya), Hero(Zarya), Hero(Hazard)),
-				Array(Hero(LifeWeaver), Hero(Jetpack Cat), Hero(Ramattra), Hero(Ramattra)),
-				Array(Hero(Sigma), Hero(Sombra), Hero(Sigma), Hero(Mercy)),
-				Array(Hero(Reinhardt), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko), Hero(Kiriko)),
-				Array(Hero(Moira), Hero(Kiriko))
-			))[Global.stageMode[1]];
+			Custom String("0,0/0,0/1,1/2,3,4,5,6,7,8,9,10,1,11,12,13,14,15,16,17,18,19/0,0"),
+			Custom String("0,0,2/3,3,0/0,0,2/3,4,4/5,3/6,4/5,7/5,0/6,5,7/0,2/5,2,7/5,6,4/2,7,3/3,5,6/5,6,4,7"),
+			Custom String("0,0,2/3,3,0/3,3,7/5,4,5,4,4/10,2,1/10,11,4,11,4,4/9,2,6/9,7,7,10/8,0,0,0,0/12,6,6,{0}",
+					Custom String("6/8,7,7,3,3,3,3/2,10,6,6,6/11,12,11,12,1/1,13,0,13,0,1,0/0")),
+			Custom String("3,3,2/2,2,17/14,3,13/5,4,5,4,17/10,6,1/11,17,4,17,4,4/9,18,6,6/14,17,17,10/8,17,3,{0}",
+					Custom String("3,3/19,12,12,12,17/11,11,17,17,10/1,17,6,6,6/19,13,19,13,1/18,8,17,8,17,17/0")),
+			Custom String("0,0,2/3,3,0/3,3,13/5,4,5,4,4/10,2,1/10,11,4,11,4,4/9,2,6/14,17,17,10/8,1,12,12,1,1{0}",
+					Custom String("2,12/12,6,6,6/8,13,14,13,14,13,14,14/20,14,9,14,14,14,14/0")),
+			Custom String("0,0/2,0,0/3,4,0,0/0,0,7/10,2,4,2/9,0,6/14,10/5,0,0,0,0/0,0,17,10/11,2,4/3,3,7/8,3,{0}",
+					Custom String("3,3,0,0/1,13,0,0,1,0/9,10,6/20,0,0,0,17/11,6,6,10/1,17,16,16/15,13,15,7/18,12,12,1{0}",
+					Custom String("2,12,12,12,12/20,12"))))[Global.stageMode[1]], Custom String("/"));
+		For Global Variable(RAW_MIX, False, Count Of(Global.CUSTOMER_LIST), True);
+			Global.CUSTOMER_LIST[Global.RAW_MIX] = Mapped Array(
+				String Split(Global.CUSTOMER_LIST[Global.RAW_MIX], Custom String(",")),
+				Array(Hero(Soldier: 76), Hero(LifeWeaver), Hero(Roadhog), Hero(Tracer), Hero(Bastion), Hero(Hanzo), Hero(Zarya), Hero(Mercy),
+				Hero(D.Va), Hero(Mauga), Hero(Hazard), Hero(Freja), Hero(Kiriko), Hero(Sombra), Hero(Domina), Hero(Sigma), Hero(Ramattra),
+				Hero(Jetpack Cat), Hero(Reinhardt), Hero(Junker Queen), Hero(Moira))[Index Of Array Value(Global.RAW_RESULT, Current Array Element)]);
+		End;
+		If(Global.stageMode[1] == 2);
+			Global.CUSTOMER_LIST[14] = Array(Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Hazard), Hero(Mauga), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver));
+		Else If(Global.stageMode[1] == 3);
+			Global.CUSTOMER_LIST[14] = Array(Hero(Reinhardt), Hero(D.Va), Random Value In Array(Array(Hero(Sombra), Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Mauga), Hero(Junker Queen), Hero(Zarya), Hero(Zarya), Hero(Zarya), Hero(LifeWeaver));
+		Else If(Global.stageMode[1] == 4);
+			Global.CUSTOMER_LIST[12] = Array(Hero(Moira), Hero(D.Va), Random Value In Array(Array(Hero(Sigma), Hero(Moira), Hero(Ramattra))), Hero(Sombra), Hero(Mauga), Hero(Freja), Hero(Jetpack Cat), Hero(Hazard), Hero(Domina), Hero(Roadhog), Hero(LifeWeaver));
+		End;
+		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
+		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
+		Global.scoreDecrease = Array(Array(Null, Null, Null, Null, Null, Null), Array(5, Null, 5, 5, 5, 5),
+			Array(15, Null, 15, 35, 15, 15), Array(50, Null, 50, 50, 50, 50))[Global.difficulty];
+		Global.despawnTime = Array(30, 25, 20, 15, 60)[Global.difficulty];
+		Global.additionalScore = Global.stageMode[1] == 5 ? 15 : Array(Null, 5, 10, 15)[Global.difficulty];
+		Global.failEnd = Array(99, 5, 3, 2, 3, 1)[Global.stageMode[1]];
+
+	}
+}
+
+rule("Global subroutine: Other Menu")
+{
+	event
+	{
+		Subroutine;
+		otherMenu;
+	}
+
+	actions
+	{
+		If(Global.totalScore[False] <= 2);
+			Set Objective Description(All Players(All Teams), Custom String("로드 중..."), Visible To and String);
+			Small Message(All Players(All Teams), Custom String("데이터 초기화 중..."));
+			Global.potTime = Null;
+			Global.fridgeCode = Empty Array;
+			Wait(2, Ignore Condition);
+			For Global Variable(despawnIndex, False, Count Of(Global.itemCode), True);
+				Destroy Effect(Global.itemEffect[Global.despawnIndex]);
+				Destroy In-World Text(Global.itemText[Global.despawnIndex]);
+				Global.itemPosition[Global.despawnIndex] = Down;
+				Global.itemCode[Global.despawnIndex] = -1;
+				Global.itemCount -= True;
+			End;
+			Global.stageMode[0] = Global.totalScore[False];
+			Call Subroutine(dataInit);
+			Wait(0.016, Ignore Condition);
+			Global.stage = 0;
+			Call Subroutine(menuInit);
+			Global.storageData = Mapped Array(String Split(Custom String("0/0/0/0/0/0/0/0"), Custom String("/")), Array(False, False, False));
+			Global.potTime = Null;
+			Set Objective Description(All Players(All Teams), Custom String("연습 모드"), Visible To and String);
+		Else;
+			Small Message(All Players(All Teams), Custom String("{0} 의 워크샵 코드는 {1} 입니다! ",
+			Array(Null, Null, Null, Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]],
+			Array(Null, Null, Null, Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
+		End;
+	}
+}
+
+rule("Global subroutine: Menu init")
+{
+	event
+	{
+		Subroutine;
+		menuInit;
+	}
+
+	actions
+	{
+		Global.totalScore[False] = Global.stage == 0 ? 0 : (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
+		Global.currentMenu = Empty Array;
+		Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
+		Global.loadingMenu = Randomized Array(Global.currentMenu);
+		Global.currentMenuHaz = Empty Array;
+		Modify Global Variable(currentMenuHaz, Append To Array,
+				Global.HAZARD_MENU_LIST[Global.totalScore[False]]);
+		Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
+		Global.currentMenuWeaver = Empty Array;
+		Modify Global Variable(currentMenuWeaver, Append To Array,
+				Global.WEAVER_MENU_LIST[Global.totalScore[False]]);
+		Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
+		Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];
 	}
 }

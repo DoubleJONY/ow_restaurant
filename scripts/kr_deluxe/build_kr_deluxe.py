@@ -20,6 +20,17 @@ BASE = ROOT / "ko.ow"
 TARGET = ROOT / "kr_deluxe.ow"
 BUILD_DIR = ROOT / "build" / "kr_deluxe"
 
+SUBROUTINE_NAMES = (
+    "itemPhysics", "itemCooking", "despawnItem", "pot0", "pot1", "callCustomer",
+    "startStage", "dataInit", "rotatingFridge", "createItem", "selectMode", "saveProgress",
+    "loadProgress", "gameSummary", "knifeHud", "purchaseUpgrade", "perkHud", "setHint",
+    "destroyItem", "destroyServeBot", "dropTips", "destroyPerk", "footHud", "serveFail",
+    "gameSummaryTP", "validateServe", "changeHero", "stageFail", "dataInit_org1",
+    "dataInit_org2", "dataInit_org3", "dataInit_cafe1", "dataInit_cafe2", "dataInit_cafe3",
+    "dataInit_gc1", "dataInit_gc2", "dataInit_gc3", "dataInit_customerCommon",
+    "menuInit", "otherMenu",
+)
+
 
 class BuildError(RuntimeError):
     pass
@@ -64,17 +75,20 @@ def replace_subroutine_rule(text: str, subroutine: str, replacement: str) -> str
     return text[:start] + replacement + text[end:]
 
 
-def dispatcher_rule(subroutine: str, variants: tuple[str, str, str], common: str = "") -> str:
+def replace_subroutine_declarations(text: str) -> str:
+    start = text.index("subroutines\r\n{")
+    open_at = text.index("{", start)
+    end = data_builder.scan_balanced(text, open_at, "{", "}")
+    replacement = (
+        "subroutines\r\n{\r\n"
+        + "".join(f"\t{index}: {name}\r\n" for index, name in enumerate(SUBROUTINE_NAMES))
+        + "}"
+    )
+    return text[:start] + replacement + text[end:]
+
+
+def edition_phase_actions(variants: tuple[str, str, str]) -> str:
     return (
-        f'rule("Global subroutine: Deluxe dispatcher {subroutine}")\r\n'
-        "{\r\n"
-        "\tevent\r\n"
-        "\t{\r\n"
-        "\t\tSubroutine;\r\n"
-        f"\t\t{subroutine};\r\n"
-        "\t}\r\n\r\n"
-        "\tactions\r\n"
-        "\t{\r\n"
         "\t\tIf(Global.stageMode[0] == 0);\r\n"
         f"\t\t\tCall Subroutine({variants[0]});\r\n"
         "\t\tElse If(Global.stageMode[0] == 1);\r\n"
@@ -82,9 +96,6 @@ def dispatcher_rule(subroutine: str, variants: tuple[str, str, str], common: str
         "\t\tElse;\r\n"
         f"\t\t\tCall Subroutine({variants[2]});\r\n"
         "\t\tEnd;\r\n"
-        f"{common}"
-        "\t}\r\n"
-        "}"
     )
 
 
@@ -109,8 +120,7 @@ COMMON_INIT2 = '''		Global.MIXING_RECIPE = Mapped Array(Global.ITEM_NAME, Empty 
 '''.replace("\n", "\r\n")
 
 
-COMMON_INIT3 = '''		Call Subroutine(dataInit_customerCommon);
-		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
+COMMON_DIFFICULTY_INIT = '''		Global.customerCallTime = Array(16, 12, 8, 4, 20)[Global.difficulty];
 		Global.setUpTime = Array(120, 40, 30, 30, 120)[Global.difficulty];
 		Global.scoreDecrease = Array(Array(Null, Null, Null, Null, Null, Null), Array(5, Null, 5, 5, 5, 5),
 			Array(15, Null, 15, 35, 15, 15), Array(50, Null, 50, 50, 50, 50))[Global.difficulty];
@@ -118,6 +128,101 @@ COMMON_INIT3 = '''		Call Subroutine(dataInit_customerCommon);
 		Global.additionalScore = Global.stageMode == 5 ? 15 : Array(Null, 5, 10, 15)[Global.difficulty];
 		Global.failEnd = Array(99, 5, 3, 2, 3, 1)[Global.stageMode];
 '''.replace("\n", "\r\n")
+
+
+def combined_data_init_rule() -> str:
+    return (
+        'rule("Global subroutine: Deluxe dispatcher dataInit")\r\n'
+        "{\r\n"
+        "\tevent\r\n"
+        "\t{\r\n"
+        "\t\tSubroutine;\r\n"
+        "\t\tdataInit;\r\n"
+        "\t}\r\n\r\n"
+        "\tactions\r\n"
+        "\t{\r\n"
+        + edition_phase_actions(("dataInit_org1", "dataInit_cafe1", "dataInit_gc1"))
+        + edition_phase_actions(("dataInit_org2", "dataInit_cafe2", "dataInit_gc2"))
+        + COMMON_INIT2
+        + edition_phase_actions(("dataInit_org3", "dataInit_cafe3", "dataInit_gc3"))
+        + "\t\tCall Subroutine(dataInit_customerCommon);\r\n"
+        + "\t}\r\n"
+        "}"
+    )
+
+
+def patch_customer_common(rule: str) -> str:
+    close = "\r\n\t}\r\n}"
+    if not rule.endswith(close):
+        raise BuildError("customer common rule close not found")
+    return rule[:-len(close)] + "\r\n" + COMMON_DIFFICULTY_INIT + close
+
+
+OTHER_MENU_RULE = '''rule("Global subroutine: Other Menu")
+{
+	event
+	{
+		Subroutine;
+		otherMenu;
+	}
+
+	actions
+	{
+		If(Global.totalScore[False] <= 2);
+			Set Objective Description(All Players(All Teams), Custom String("로드 중..."), Visible To and String);
+			Small Message(All Players(All Teams), Custom String("데이터 초기화 중..."));
+			Global.potTime = Null;
+			Global.fridgeCode = Empty Array;
+			Wait(2, Ignore Condition);
+			For Global Variable(despawnIndex, False, Count Of(Global.itemCode), True);
+				Destroy Effect(Global.itemEffect[Global.despawnIndex]);
+				Destroy In-World Text(Global.itemText[Global.despawnIndex]);
+				Global.itemPosition[Global.despawnIndex] = Down;
+				Global.itemCode[Global.despawnIndex] = -1;
+				Global.itemCount -= True;
+			End;
+			Global.stageMode[0] = Global.totalScore[False];
+			Call Subroutine(dataInit);
+			Wait(0.016, Ignore Condition);
+			Global.stage = 0;
+			Call Subroutine(menuInit);
+			Global.storageData = Mapped Array(String Split(Custom String("0/0/0/0/0/0/0/0"), Custom String("/")), Array(False, False, False));
+			Global.potTime = Null;
+			Set Objective Description(All Players(All Teams), Custom String("연습 모드"), Visible To and String);
+		Else;
+			Small Message(All Players(All Teams), Custom String("{0} 의 워크샵 코드는 {1} 입니다! ",
+			Array(Null, Null, Null, Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]],
+			Array(Null, Null, Null, Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));
+		End;
+	}
+}'''.replace("\n", "\r\n")
+
+
+MENU_INIT_RULE = '''rule("Global subroutine: Menu init")
+{
+	event
+	{
+		Subroutine;
+		menuInit;
+	}
+
+	actions
+	{
+		Global.totalScore[False] = Global.stage == 0 ? 0 : (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
+		Global.currentMenu = Empty Array;
+		Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
+		Global.loadingMenu = Randomized Array(Global.currentMenu);
+		Global.currentMenuHaz = Empty Array;
+		Modify Global Variable(currentMenuHaz, Append To Array,
+				Global.HAZARD_MENU_LIST[Global.totalScore[False]]);
+		Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
+		Global.currentMenuWeaver = Empty Array;
+		Modify Global Variable(currentMenuWeaver, Append To Array,
+				Global.WEAVER_MENU_LIST[Global.totalScore[False]]);
+		Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
+		Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];
+	}
+}'''.replace("\n", "\r\n")
 
 
 COOLING_GUN_BRANCH = '''		Else If(Global.stageMode[0] == 1 && Event Player.itemPerk == 8);
@@ -228,35 +333,126 @@ def patch_global_setting(rule: str) -> str:
         "\t\tDestroy All Dummy Bots;\r\n" + DELUXE_BOOTSTRAP + "\r\n\t\tCall Subroutine(dataInit);",
         "Deluxe bootstrap",
     )
+    rule = replace_once(
+        rule,
+        "\t\tCall Subroutine(dataInit);\r\n\t\tCall Subroutine(dataInit2);",
+        "",
+        "defer data init until edition selection",
+    )
+    rule = replace_once(
+        rule,
+        "\t\tGlobal.DELUXE_DATA = Array(0);\r\n\r\n\t\tGlobal.itemPosition",
+        "\t\tGlobal.DELUXE_DATA = Array(0);\r\n\t\tGlobal.itemPosition",
+        "bootstrap action spacing",
+    )
+    rule = replace_once(
+        rule,
+        "\t\tGlobal.storageData = Array(Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False), Array(False, False, False));",
+        "\t\tGlobal.storageData = Mapped Array(String Split(Custom String(\"0/0/0/0/0/0/0/0\"), Custom String(\"/\")), Array(False, False, False));",
+        "compact storage data",
+    )
     edition_hud_old = (
         '\t\tCreate HUD Text(All Players(Team 1), Null, Null, Custom String(\r\n'
         '\t\t\t"\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n"), Top, -999, Null, Null, Null, Visible To,\r\n'
         '\t\t\tDefault Visibility);'
     )
+    # ITEM_COLOR for soy sauce: ORG code 77 and GC code 22 both resolve to
+    # Custom Color(100, 60, False, 255).
     edition_hud_new = (
-        '\t\tCreate HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("오리지널"), '
-        'Custom String("카페"), Custom String("쿡제요리"))[Global.stageMode[0]]), Null,\r\n'
+        edition_hud_old
+        + '\r\n\t\tGlobal.globalText[0] = Last Text ID;\r\n'
+        '\t\tCreate HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("모듬회밥!"), '
+        'Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]),\r\n'
+        '\t\t\tCustom String("제작: {0}", Array(Custom String("Gummybear&변기클라우드\\r\\n난이도 : ★★★☆☆"), '
+        'Custom String("Joseon&Deadlock\\r\\n난이도 : ★★☆☆☆"), Custom String("Joseon\\r\\n난이도 : ★★★★☆"))[Global.stageMode[0]]),\r\n'
         '\t\t\tLocal Player == Global.scbRank ? Custom String("[{0}]: 에디션 변경", Input Binding String(Button(Ability 2))) '
-        ': Custom String(" 방장이 에디션을 결정하는 중입니다"), Top, -999, Color(Orange), Null, Color(White), String and Color,\r\n'
-        '\t\t\tDefault Visibility);'
+        ': Custom String(" 방장이 에디션을 결정하는 중입니다"), Top, -998, Array(Color(Orange), '
+        'Custom Color(100, 60, False, 255), Color(Blue))[Global.stageMode[0]], Color(Yellow), Color(White), String and Color,\r\n'
+        '\t\t\tDefault Visibility);\r\n'
+        '\t\tGlobal.globalText[1] = Last Text ID;\r\n'
+        '\t\tCreate HUD Text(All Players(Team 1), Null, Null, Custom String(\r\n'
+        '\t\t\t"\\r\\n"), Top, -997, Null, Null, Null, Visible To,\r\n'
+        '\t\t\tDefault Visibility);\r\n'
+        '\t\tGlobal.globalText[2] = Last Text ID;'
     )
     rule = replace_once(rule, edition_hud_old, edition_hud_new, "edition selection HUD")
     rule = replace_once(
         rule,
+        "\t\tGlobal.globalText[2] = Last Text ID;\r\n"
+        "\t\tGlobal.globalText[False] = Last Text ID;",
+        "\t\tGlobal.globalText[2] = Last Text ID;",
+        "remove superseded edition spacer HUD slot",
+    )
+    rule = replace_once(
+        rule,
+        '결정하는 중입니다"), Top, -998, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode],',
+        '결정하는 중입니다"), Top, -996, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode],',
+        "mode HUD priority",
+    )
+    rule = replace_once(
+        rule,
+        '"\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n"),\r\n'
+        '\t\t\tTop, -997, Null, Null, Null, Visible To, Default Visibility);',
+        '"\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n"),\r\n'
+        '\t\t\tTop, -995, Null, Null, Null, Visible To, Default Visibility);',
+        "lower HUD spacer priority",
+    )
+    rule = replace_once(
+        rule,
+        "\t\tGlobal.globalText[True] = Last Text ID;",
+        "\t\tGlobal.globalText[3] = Last Text ID;",
+        "mode HUD slot",
+    )
+    rule = replace_once(
+        rule,
+        "\t\t\tTop, -995, Null, Null, Null, Visible To, Default Visibility);\r\n"
+        "\t\tGlobal.globalText[2] = Last Text ID;",
+        "\t\t\tTop, -995, Null, Null, Null, Visible To, Default Visibility);\r\n"
+        "\t\tGlobal.globalText[4] = Last Text ID;",
+        "lower HUD spacer slot",
+    )
+    rule = replace_once(
+        rule,
         "\t\tGlobal.stageMode = 0;\r\n\t\tCall Subroutine(selectMode);\r\n\t\tGlobal.difficulty =",
         "\t\tGlobal.stageMode[1] = 1;\r\n\t\tCall Subroutine(selectMode);\r\n"
-        "\t\tCall Subroutine(dataInit);\r\n\t\tCall Subroutine(dataInit2);\r\n\t\tGlobal.difficulty =",
+        "\t\tSet Objective Description(All Players(All Teams), Custom String(\"로드 중...\"), Visible To and String);\r\n"
+        "\t\tSmall Message(All Players(All Teams), Custom String(\"데이터 초기화 중...\"));\r\n"
+        "\t\tGlobal.difficulty =",
         "reload selected edition data",
     )
-    ice_label = '''		If(Global.stageMode[0] == 1);
-			Create In-World Text(Players Within Radius(Vector(226.649, 2, 159.387), 10, Team 1, Off), Custom String("제빙기"),
-				Vector(226.649, 3, 159.387), 3, Do Not Clip, Visible To, Color(Blue), Default Visibility);
-		End;'''.replace("\n", "\r\n")
+    rule = replace_once(
+        rule,
+        "\t\tCall Subroutine(dataInit3);",
+        "\t\tCall Subroutine(dataInit);",
+        "merged selected edition data init",
+    )
+    ice_label = '''		Create In-World Text(Players Within Radius(Vector(226.649, 2, 159.387), 10, Team 1, Off), Global.stageMode[0] == 1 ? Custom String("제빙기") :  Custom String(""),
+			Vector(226.649, 3, 159.387), 3, Do Not Clip, Visible To and String, Color(Blue), Default Visibility);'''.replace("\n", "\r\n")
     pan_label = (
         '\t\tCreate In-World Text(Players Within Radius(Vector(224.926, 2, 158.167), 10, Team 1, Off), Custom String("팬"), Vector(224.926,\r\n'
         "\t\t\t2.750, 158.167), 3, Do Not Clip, Visible To, Color(Red), Default Visibility);"
     )
     rule = replace_once(rule, pan_label, pan_label + "\r\n" + ice_label, "ice-machine label position")
+    rule = replace_once(
+        rule,
+        'Custom String("〔{0}〕:  물 내리기", Input Binding String(',
+        'Custom String("〔{0}〕:  물 내리기  ", Input Binding String(',
+        "sink interaction label spacing",
+    )
+    rule = replace_once(
+        rule,
+        'Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기", Input Binding String(Button(Interact))) : Custom String(\r\n'
+        '\t\t\t"칼이 없습니다")',
+        'Local Player.knifeCode + True ? Custom String("〔{0}〕:  썰기  ", Input Binding String(Button(Interact))) : Custom String(\r\n'
+        '\t\t\t" 칼이 없습니다  ")',
+        "cutting interaction label spacing",
+    )
+    rule = replace_once(
+        rule,
+        'Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))',
+        'Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))',
+        "practice edition menu labels",
+    )
     rule = replace_once(
         rule,
         'Create In-World Text(Players Within Radius(Vector(223.583, 2, 157.286), 10, Team 1, Off), Custom String("그릴"), Vector(223.583,\r\n'
@@ -325,7 +521,19 @@ def patch_select_mode(rule: str) -> str:
 			End;
 			Loop;
 		End;'''.replace("\n", "\r\n")
-    return replace_once(rule, old, new, "merged edition/mode input")
+    rule = replace_once(rule, old, new, "merged edition/mode input")
+    return replace_once(
+        rule,
+        "\t\tDestroy HUD Text(Global.globalText[False]);\r\n"
+        "\t\tDestroy HUD Text(Global.globalText[True]);\r\n"
+        "\t\tDestroy HUD Text(Global.globalText[2]);",
+        "\t\tDestroy HUD Text(Global.globalText[0]);\r\n"
+        "\t\tDestroy HUD Text(Global.globalText[1]);\r\n"
+        "\t\tDestroy HUD Text(Global.globalText[2]);\r\n"
+        "\t\tDestroy HUD Text(Global.globalText[3]);\r\n"
+        "\t\tDestroy HUD Text(Global.globalText[4]);",
+        "selection HUD cleanup slots",
+    )
 
 
 def patch_secondary(rule: str) -> str:
@@ -361,8 +569,77 @@ def patch_item_cooking(rule: str) -> str:
     return replace_once(rule, anchor, "\r\n" + ICE_MACHINE_BRANCH + anchor, "ice-machine cooking branch")
 
 
-def patch_control_item(rule: str) -> str:
+def patch_spawn(rule: str) -> str:
+    old = '''		Create In-World Text(Event Player, Array(Custom String("연습 모드"),
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange),
+			Default Visibility);'''.replace("\n", "\r\n")
+    new = '''		Create In-World Text(Event Player, Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);'''.replace("\n", "\r\n")
+    return replace_once(rule, old, new, "spawn edition label")
+
+
+def patch_control_item_hud(rule: str) -> str:
+    replacements = {
+        'Custom String("〔{0}〕:  칼 장착",': 'Custom String("〔{0}〕:  칼 장착  ",',
+        'Custom String("〔{0}〕:  아이템 장착",': 'Custom String("〔{0}〕:  아이템 장착  ",',
+        'Custom String("〔{0}〕:  줍기",': 'Custom String("〔{0}〕:  줍기  ",',
+        'Custom String("〔{0}〕:  썰기",': 'Custom String("〔{0}〕:  썰기  ",',
+    }
+    for old, new in replacements.items():
+        rule = replace_once(rule, old, new, f"control-item HUD spacing: {old}")
     return rule
+
+
+def patch_interact(rule: str) -> str:
+    old = '''					If(Global.stage == 5);
+						Small Message(All Players(All Teams), Custom String("{0} 의 워크샵 코드는 {1} 입니다! ",
+							Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))[Global.totalScore[False]],
+							Array(Custom String("P6ZAA"), Custom String("WM3MW"), Custom String("SSZ1Z1"), Custom String("8MAAN"))[Global.totalScore[False]]));'''.replace("\n", "\r\n")
+    new = '''					If(Global.stage == 5);
+						Call Subroutine(otherMenu);'''.replace("\n", "\r\n")
+    return replace_once(rule, old, new, "practice edition switching")
+
+
+def patch_reload(rule: str) -> str:
+    menu_setup = '''			Global.totalScore[False] = Global.stage == 0 ? 0 : (Global.totalScore[False] + True) % Count Of(Global.FRIDGE_LIST);
+			Global.currentMenu = Empty Array;
+			Modify Global Variable(currentMenu, Append To Array, Global.MENU_LIST[Global.totalScore[False]]);
+			Global.loadingMenu = Randomized Array(Global.currentMenu);
+			Global.currentMenuHaz = Empty Array;
+			Modify Global Variable(currentMenuHaz, Append To Array,
+					Global.HAZARD_MENU_LIST[Global.totalScore[False]]);
+			Global.loadingMenuHaz = Randomized Array(Global.currentMenuHaz);
+			Global.currentMenuWeaver = Empty Array;
+			Modify Global Variable(currentMenuWeaver, Append To Array,
+					Global.WEAVER_MENU_LIST[Global.totalScore[False]]);
+			Global.loadingMenuWeaver = Randomized Array(Global.currentMenuWeaver);
+			Global.fridgeCode = Global.FRIDGE_LIST[Global.totalScore[False]];'''.replace("\n", "\r\n")
+    rule = replace_once(
+        rule,
+        menu_setup,
+        "\t\t\tCall Subroutine(menuInit);",
+        "shared practice menu initialization",
+    )
+    return replace_once(
+        rule,
+        "Global.totalScore[False] = (Global.totalScore[False] + True) % 4;",
+        "Global.totalScore[False] = (Global.totalScore[False] + True) % 5;",
+        "practice edition menu count",
+    )
+
+
+def patch_start_stage(rule: str) -> str:
+    old = "\t\t\tCall Subroutine(dataInit3);"
+    new = '''			If(Global.stageMode[0] == 0);
+				Call Subroutine(dataInit_org3);
+			Else If(Global.stageMode[0] == 1);
+				Call Subroutine(dataInit_cafe3);
+			Else;
+				Call Subroutine(dataInit_gc3);
+			End;
+			Call Subroutine(dataInit_customerCommon);'''.replace("\n", "\r\n")
+    return replace_once(rule, old, new, "difficulty-up phase3 refresh")
 
 
 def patch_set_hint(rule: str) -> str:
@@ -471,6 +748,7 @@ def patch_common_runtime(text: str) -> str:
 
 def build_text() -> str:
     source = data_builder.read_ow(BASE)
+    source = replace_subroutine_declarations(source)
     generated, _ = data_builder.build()
 
     text = replace_once(source, "\t\t126: MELT_LIST", "\t\t126: DELUXE_DATA", "global container")
@@ -488,44 +766,22 @@ def build_text() -> str:
         "",
         "remove unused itemNormal write",
     )
-    text = replace_once(
-        text,
-        "\t28: changeHero\r\n\t29: stageFail",
-        "\t28: changeHero\r\n\t29: stageFail\r\n\t30: dataInit_org1\r\n"
-        "\t31: dataInit_org2\r\n\t32: dataInit_org3\r\n\t33: dataInit_cafe1\r\n\t34: dataInit_cafe2\r\n"
-        "\t35: dataInit_cafe3\r\n\t36: dataInit_gc1\r\n\t37: dataInit_gc2\r\n\t38: dataInit_gc3\r\n"
-        "\t39: dataInit_customerCommon",
-        "subroutine declarations",
-    )
-
     text = modify_rule(text, "Global: Setting", patch_global_setting)
     text = modify_rule(text, "Player: Secondary fire button", patch_secondary)
     text = modify_rule(text, "Player: Ultimate button", patch_ultimate)
-    text = modify_rule(text, "Player: Interact", patch_control_item)
+    text = modify_rule(text, "Player: Spawn", patch_spawn)
+    text = modify_rule(text, "Player: Control item", patch_control_item_hud)
+    text = modify_rule(text, "Player: Interact", patch_interact)
+    text = modify_rule(text, "Player: Reload button", patch_reload)
     text = modify_rule(text, "Global subroutine: Item cooking", patch_item_cooking)
+    text = modify_rule(text, "Global subroutine: Start stage", patch_start_stage)
     text = modify_rule(text, "Global subroutine: Set Hint Text", patch_set_hint)
     text = modify_rule(text, "Host Player: Select Mode", patch_select_mode)
     text = replace_subroutine_rule(text, "perkHud", PERK_HUD_RULE)
 
-    text = replace_subroutine_rule(
-        text,
-        "dataInit",
-        dispatcher_rule("dataInit", ("dataInit_org1", "dataInit_cafe1", "dataInit_gc1")),
-    )
-    text = replace_subroutine_rule(
-        text,
-        "dataInit2",
-        dispatcher_rule(
-            "dataInit2", ("dataInit_org2", "dataInit_cafe2", "dataInit_gc2"), COMMON_INIT2
-        ),
-    )
-    text = replace_subroutine_rule(
-        text,
-        "dataInit3",
-        dispatcher_rule(
-            "dataInit3", ("dataInit_org3", "dataInit_cafe3", "dataInit_gc3"), COMMON_INIT3
-        ),
-    )
+    text = replace_subroutine_rule(text, "dataInit", "")
+    text = replace_subroutine_rule(text, "dataInit2", "")
+    text = replace_subroutine_rule(text, "dataInit3", combined_data_init_rule())
 
     text = patch_common_runtime(text)
     text = replace_once(
@@ -535,10 +791,17 @@ def build_text() -> str:
         "upgrade station label",
     )
 
-    text = text.replace("v260827", "v260828")
+    text = text.replace("v260827", "v260829").replace("v260828", "v260829")
     text = text.rstrip("\r\n") + "\r\n\r\n" + generated
+    text = replace_subroutine_rule(
+        text,
+        "dataInit_customerCommon",
+        patch_customer_common(data_builder.find_rule(text, "dataInit_customerCommon")),
+    )
+    text = text.rstrip("\r\n") + "\r\n\r\n" + OTHER_MENU_RULE + "\r\n\r\n" + MENU_INIT_RULE + "\r\n"
     text = re.sub(r"\bGlobal\.stageMode\b(?!\[)", "Global.stageMode[1]", text)
     text = text.replace("Global.stageMode[1] = Array(0, 0);", "Global.stageMode = Array(0, 0);")
+    text = re.sub(r"}(?:\r\n){3,}(?=rule\()", "}\r\n\r\n", text)
     text = re.sub(r"[ \t]+(?=\r\n)", "", text)
     text = re.sub(
         r"(?m)^( +)(?=\t)",
@@ -582,6 +845,7 @@ def validate_assembled(text: str) -> dict[str, object]:
         "dataInit_org1", "dataInit_org2", "dataInit_org3",
         "dataInit_cafe1", "dataInit_cafe2", "dataInit_cafe3",
         "dataInit_gc1", "dataInit_gc2", "dataInit_gc3", "dataInit_customerCommon",
+        "menuInit", "otherMenu",
     ):
         if len(re.findall(rf"(?mi)^[ \t]+{re.escape(name)};\r?$", text)) != 1:
             raise BuildError(f"generated subroutine event count mismatch: {name}")
@@ -589,13 +853,30 @@ def validate_assembled(text: str) -> dict[str, object]:
         raise BuildError("shared ICE_RESULT assignment count mismatch")
     if text.count("Global.CUSTOMER_LIST =") != 1:
         raise BuildError("shared CUSTOMER_LIST assignment count mismatch")
-    if text.count("Call Subroutine(dataInit_customerCommon);") != 1:
-        raise BuildError("shared CUSTOMER_LIST dispatcher call mismatch")
+    customer_model = data_builder.parse_customer_list(
+        re.sub(
+            r"Global\.stageMode(?!\[)",
+            "Global.stageMode[1]",
+            data_builder.find_assignment(
+                data_builder.find_rule(data_builder.read_ow(BASE), "dataInit3"),
+                "CUSTOMER_LIST",
+            ).expression,
+        )
+    )
+    common_customer = data_builder.find_rule(text, "dataInit_customerCommon")
+    if common_customer.count(data_builder.customer_decoder_loop(customer_model["palette"])) != 1:
+        raise BuildError("serialized CUSTOMER_LIST decoder mismatch")
+    if common_customer.count("For Global Variable(RAW_MIX, False, Count Of(Global.CUSTOMER_LIST), True);") != 1:
+        raise BuildError("serialized CUSTOMER_LIST counter mismatch")
+    if text.count("Call Subroutine(dataInit_customerCommon);") != 2:
+        raise BuildError("shared customer/difficulty init call mismatch")
     serialized_list_count = len(data_builder.EDITION_SPECS) * len(
         data_builder.SERIALIZED_LIST_TABLES
     )
-    if text.count('String Split(Current Array Element, Custom String(","))') != serialized_list_count:
+    if text.count("[Global.checkingIndex] = Mapped Array(") != serialized_list_count:
         raise BuildError("serialized menu-table decoder count mismatch")
+    if re.search(r"Mapped Array\s*\([^;]*Mapped Array\s*\(", text, re.DOTALL):
+        raise BuildError("nested Mapped Array remains in generated output")
     for edition in data_builder.EDITION_SPECS:
         block = data_builder.find_rule(text, f"dataInit_{edition}2")
         for table in data_builder.SERIALIZED_LIST_TABLES:
@@ -603,6 +884,12 @@ def validate_assembled(text: str) -> dict[str, object]:
             decoded = data_builder.decode_serialized_list_expression(table, expression)
             if len(decoded) != 12:
                 raise BuildError(f"{edition} {table} serialized group count mismatch")
+            decoder = data_builder.serialized_list_decoder_loop(f"Global.{table}")
+            if block.count(decoder) != 1:
+                raise BuildError(f"{edition} {table} serialized decoder loop mismatch")
+        phase3 = data_builder.find_rule(text, f"dataInit_{edition}3")
+        if phase3.count(data_builder.deluxe_data_decoder_loop()) != 1:
+            raise BuildError(f"{edition} DELUXE_DATA decoder loop mismatch")
     butcher_condition = (
         "Array Contains(Global.STAGE_CODE[Global.stage], 11) || "
         "(Global.difficulty == 4 && Global.totalScore[False] == 11)"
@@ -636,11 +923,34 @@ def validate_assembled(text: str) -> dict[str, object]:
         "If(Is Button Held(Global.scbRank, Button(Ability 2)) || Is Button Held(Global.scbRank, Button(Reload)));",
         "Global.stageMode[0] = (Global.stageMode[0] + True) % 3;",
         "Global.stageMode[1] = (Global.stageMode[1] + True) % 6;",
-        "\t\t\tLoop;\r\n\t\tEnd;\r\n\t\tDestroy HUD Text(Global.globalText[False]);",
-        "\t\tCall Subroutine(selectMode);\r\n\t\tCall Subroutine(dataInit);\r\n\t\tCall Subroutine(dataInit2);",
+        "\t\t\tLoop;\r\n\t\tEnd;\r\n\t\tDestroy HUD Text(Global.globalText[0]);",
+        "\t\tCall Subroutine(selectMode);",
+        "\t\tGlobal.storageLevel = Array(7, 3, 3, 0, -1, -1)[Global.stageMode[1]];\r\n"
+        "\t\tCall Subroutine(dataInit);",
     ):
         if text.count(fragment) != 1:
             raise BuildError(f"combined edition/mode selector mismatch: {fragment}")
+    if len(re.findall(r"(?mi)^[ \t]+dataInit[23];\r?$", text)) != 0:
+        raise BuildError("retired dataInit2/dataInit3 subroutine event remains")
+    if "Call Subroutine(dataInit2);" in text or "Call Subroutine(dataInit3);" in text:
+        raise BuildError("retired dataInit2/dataInit3 call remains")
+    if text.count("Call Subroutine(dataInit);") != 2:
+        raise BuildError("merged dataInit call count mismatch")
+    setting_start, setting_end = rule_span_by_title(text, "Global: Setting")
+    select_start, select_end = rule_span_by_title(text, "Host Player: Select Mode")
+    setting_rule = text[setting_start:setting_end]
+    select_mode_rule = text[select_start:select_end]
+    selection_slot_assignments = [
+        setting_rule.find(f"Global.globalText[{index}] = Last Text ID;")
+        for index in range(5)
+    ]
+    if -1 in selection_slot_assignments or selection_slot_assignments != sorted(selection_slot_assignments):
+        raise BuildError("selection HUD slots are not assigned in creation order")
+    for index in range(5):
+        if setting_rule.count(f"Global.globalText[{index}] = Last Text ID;") != 1:
+            raise BuildError(f"selection HUD slot {index} assignment mismatch")
+        if select_mode_rule.count(f"Destroy HUD Text(Global.globalText[{index}]);") != 1:
+            raise BuildError(f"selection HUD slot {index} cleanup mismatch")
     for assignment, expected in {
         "Global.MIXING_RECIPE = Mapped Array(Global.ITEM_NAME, Empty Array);": 1,
         "Global.UPGRADE_CODE = Array(Array(6, -1, -2)": 1,
@@ -650,6 +960,18 @@ def validate_assembled(text: str) -> dict[str, object]:
     }.items():
         if text.count(assignment) != expected:
             raise BuildError(f"common dispatcher assignment count mismatch: {assignment}")
+    for fragment, expected in {
+        'Global.storageData = Mapped Array(String Split(Custom String("0/0/0/0/0/0/0/0"), Custom String("/")), Array(False, False, False));': 2,
+        'Small Message(All Players(All Teams), Custom String("데이터 초기화 중..."));': 2,
+        "Call Subroutine(menuInit);": 2,
+        "Call Subroutine(otherMenu);": 1,
+        "Abort If(Global.potTime[False] < 1);": 0,
+        "Abort If(Global.potTime[True] < 1);": 0,
+        "Start Rule(pot0, Restart Rule);": 1,
+        "Start Rule(pot1, Restart Rule);": 1,
+    }.items():
+        if text.count(fragment) != expected:
+            raise BuildError(f"practice edition reset mismatch: {fragment}")
 
     global_section = text[text.index("\tglobal:") : text.index("\tplayer:")]
     globals_found = [(int(number), name) for number, name in re.findall(
@@ -670,8 +992,10 @@ def validate_assembled(text: str) -> dict[str, object]:
     subs_found = [(int(number), name) for number, name in re.findall(
         r"(?m)^[ \t]+(\d+):\s*([A-Za-z_][A-Za-z0-9_]*)\s*$", sub_section
     )]
-    if [number for number, _ in subs_found] != list(range(40)):
-        raise BuildError("subroutine IDs are not exactly 0..39")
+    if [number for number, _ in subs_found] != list(range(len(SUBROUTINE_NAMES))):
+        raise BuildError("subroutine IDs are not contiguous after dataInit merge")
+    if tuple(name for _, name in subs_found) != SUBROUTINE_NAMES:
+        raise BuildError("subroutine declaration order mismatch after dataInit merge")
 
     create_assignments = data_builder.find_all_assignments(text, "createItemData")
     if len(create_assignments) != 33:
@@ -686,14 +1010,20 @@ def validate_assembled(text: str) -> dict[str, object]:
         if stale:
             raise BuildError(f"stale ORG tool code in createItemData[2]: {sorted(stale)}")
 
-    if "v260827" in text or text.count("v260828") < 2:
+    if "v260827" in text or "v260828" in text or text.count("v260829") < 2:
         raise BuildError("project version was not updated consistently")
     if text.count(
-        'Array(Custom String("오리지널"), Custom String("카페"), Custom String("쿡제요리"))[Global.stageMode[0]]'
-    ) != 1:
+        'Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]'
+    ) != 2:
         raise BuildError("Deluxe edition selector labels do not match ORG/CAFE/GC data")
+    edition_color = (
+        "Array(Color(Orange), Custom Color(100, 60, False, 255), Color(Blue))"
+        "[Global.stageMode[0]]"
+    )
+    if text.count(edition_color) != 1:
+        raise BuildError("Deluxe edition selector color mapping mismatch")
     for fragment in (
-        'If(Global.stageMode[0] == 1);\r\n\t\t\tCreate In-World Text(Players Within Radius(Vector(226.649, 2, 159.387)',
+        'Global.stageMode[0] == 1 ? Custom String("제빙기") :  Custom String("")',
         'Global.stageMode[0] == 1 ? Custom String("오븐") : Custom String("그릴"), Vector(223.583,\r\n'
         '\t\t\t3, 157.286), 3, Do Not Clip, Visible To and String, Color(Orange)',
         'Global.stageMode[0] == 1 ? Custom String("{0} 팬:{1}% / 오븐:{2}%"',
@@ -701,6 +1031,13 @@ def validate_assembled(text: str) -> dict[str, object]:
     ):
         if text.count(fragment) != 1:
             raise BuildError(f"CAFE oven label branch mismatch: {fragment}")
+    for fragment in (
+        "Global.stageMode[0] = Global.totalScore[False];",
+        "If(Global.totalScore[False] <= 2);",
+        "Call Subroutine(dataInit_customerCommon);",
+    ):
+        if fragment not in text:
+            raise BuildError(f"runtime edition/difficulty reload mismatch: {fragment}")
     # Scan every rule independently.  The delimiter check above catches
     # malformed expressions; this block stack additionally catches actions
     # inserted on the wrong side of an If/Else/While/For/End boundary.
@@ -810,14 +1147,37 @@ def main() -> None:
                     "globals": 128,
                     "ice_global_ids": {"ICE_NEEDED": 100, "ICE_RESULT": 105},
                     "retired_write_only_globals_removed": ["itemPrevPosition", "itemNormal"],
-                    "subroutines": 40,
+                    "subroutines": len(SUBROUTINE_NAMES),
                     "selection_state": {"edition": "stageMode[0]", "mode": "stageMode[1]"},
                     "selection_inputs": {"edition": "Ability 2", "mode": "Reload", "confirm": "Jump"},
+                    "practice_edition_reload": {
+                        "dispatcher": "otherMenu",
+                        "menu_initializer": "menuInit",
+                        "storage_reset": True,
+                        "pot_rules_restarted": True,
+                    },
+                    "workshop_elements": {
+                        "last_measured_used": 32746,
+                        "limit": 32768,
+                        "last_measured_remaining": 22,
+                        "current_output_measured_in_client": False,
+                    },
                     "deluxe_data_slots": {
                         "1": "active item-perk drops",
                         "2": "edition runtime configuration",
                     },
-                    "shared_customer_list": {"source": "ORG/ko", "dispatcher_call": True},
+                    "shared_customer_list": {
+                        "source": "ORG/ko",
+                        "dispatcher_call": True,
+                        "serialized": True,
+                        "hero_palette": 21,
+                        "dynamic_rows": 3,
+                    },
+                    "serialized_deluxe_data": {
+                        "slots": [1, 2],
+                        "editions": sorted(data_builder.EDITION_SPECS),
+                        "round_trip_checked": True,
+                    },
                     "serialized_menu_tables": {
                         "tables": sorted(data_builder.SERIALIZED_LIST_TABLES),
                         "editions": sorted(data_builder.EDITION_SPECS),
@@ -830,7 +1190,7 @@ def main() -> None:
                     "create_item_sites": len(site_lines) - 1,
                     "control_flow_checked": True,
                     "preserved_legacy_implicit_end_rules": ["Player: Reload button"],
-                    "version": "v260828",
+                    "version": "v260829",
                     "gc_water_ported": False,
                     "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch",
                 },
