@@ -1,6 +1,6 @@
 {
-  "sha256": "E8F62B19A0F478E8471A2B7AA76E1ED2970E53FB3D172D1F900A2EDE8850D30D",
-  "bytes": 377814,
+  "sha256": "F9C1D1E4D9854B2C2FE949808EFBC0FE6A9D06215465D92D5B9D2325CC3FD164",
+  "bytes": 377936,
   "rules": 57,
   "globals": 128,
   "ice_global_ids": {
@@ -41,7 +41,7 @@
   "source_rule_size_check": {
     "largest_rule": {
       "name": "Dummy: Spawn",
-      "bytes": 37216
+      "bytes": 37248
     },
     "limit_bytes": 100352,
     "rules_over_limit": 0,

@@ -434,6 +434,38 @@ def patch_common_runtime(text: str) -> str:
         melt_ref,
         "Global.stageMode[0] == 0 && Array Contains(Global.ICE_RESULT,",
     )
+
+    # Menu code 11 is ORG's butcher-restaurant stage, but CAFE and GC reuse
+    # the same numeric code for unrelated menus. Keep every butcher-stage
+    # runtime branch ORG-only while preserving LifeWeaver's independent
+    # customer behavior across all editions.
+    butcher_condition = (
+        "Array Contains(Global.STAGE_CODE[Global.stage], 11) || "
+        "(Global.difficulty == 4 && Global.totalScore[False] == 11)"
+    )
+    customer_condition = f"{butcher_condition} || Hero Of(Event Player) == Hero(LifeWeaver)"
+    guarded_customer_condition = (
+        f"(Global.stageMode[0] == 0 && ({butcher_condition})) || "
+        "Hero Of(Event Player) == Hero(LifeWeaver)"
+    )
+    text = replace_once(
+        text,
+        customer_condition,
+        guarded_customer_condition,
+        "ORG butcher customer order behavior",
+    )
+    unguarded_butcher = re.compile(
+        rf"(?<!Global\.stageMode\[0\] == 0 && \(){re.escape(butcher_condition)}"
+    )
+    text, guarded_count = unguarded_butcher.subn(
+        f"Global.stageMode[0] == 0 && ({butcher_condition})",
+        text,
+    )
+    if guarded_count != 3:
+        raise BuildError(
+            "ORG butcher runtime branches: expected three remaining matches, "
+            f"got {guarded_count}"
+        )
     return text
 
 
@@ -559,6 +591,18 @@ def validate_assembled(text: str) -> dict[str, object]:
         raise BuildError("shared CUSTOMER_LIST assignment count mismatch")
     if text.count("Call Subroutine(dataInit_customerCommon);") != 1:
         raise BuildError("shared CUSTOMER_LIST dispatcher call mismatch")
+    butcher_condition = (
+        "Array Contains(Global.STAGE_CODE[Global.stage], 11) || "
+        "(Global.difficulty == 4 && Global.totalScore[False] == 11)"
+    )
+    guarded_butcher_condition = f"Global.stageMode[0] == 0 && ({butcher_condition})"
+    if text.count(guarded_butcher_condition) != 4:
+        raise BuildError("ORG butcher-stage guard count mismatch")
+    unguarded_butcher = re.compile(
+        rf"(?<!Global\.stageMode\[0\] == 0 && \(){re.escape(butcher_condition)}"
+    )
+    if unguarded_butcher.search(text):
+        raise BuildError("unguarded butcher-stage code 11 condition remains")
     for legacy_tutorial_bypass in (
         "If(Global.stageMode[0] != 0 && Global.difficulty == 4);",
         "If(Global.stageMode[0] != 0 && Global.stage == 0);",
