@@ -225,9 +225,10 @@ edition == GC
 - `stage == 0`은 모든 에디션에서 튜토리얼 자리로 유지하며 CAFE/GC라고 인덱스를 당기거나 별도 HUD 분기를 만들지 않는다.
 - ORG판 `CUSTOMER_LIST`의 추가 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 항목은 이 공통 튜토리얼 인덱스를 유지하기 위한 정상 항목이다.
 - CAFE와 GC의 현재 목록이 한 항목 짧은 이유는 튜토리얼 콘텐츠가 아직 이식되지 않았기 때문이며, 의도적으로 사용하지 않는 슬롯이 아니다.
-- 현재 코드의 비ORG 시작 시 `stage = 1` 강제, 모드 순환 시 `stage 0` 건너뛰기, 튜토리얼 서브루틴의 비ORG `Abort`는 미이식 기간의 임시 우회로 분류한다.
-- CAFE/GC 튜토리얼을 추가할 때 위 임시 분기를 함께 제거하고, 선택 에디션의 `MENU_LIST`, `STAGE_CODE`, `FRIDGE_LIST`에 맞는 튜토리얼 데이터만 연결한다.
-- 최종 구조에는 튜토리얼 진입 여부를 결정하는 에디션 분기를 두지 않는다.
+- 현재 코드의 비ORG 시작 시 `stage = 1` 강제, 모드 순환 시 `stage 0` 건너뛰기, `setHint`의 비ORG `Abort`는 다음 구현에서 즉시 제거한다.
+- 대신 `setHint` 내부에 ORG/CAFE/GC 에디션 분기를 둔다. ORG 분기에는 기존 튜토리얼 내용을 유지하고, 아직 콘텐츠가 없는 CAFE와 GC 분기 본문은 비워둔다.
+- `setHint` 호출 전에는 공통 stage의 `currentCustomer`·메뉴가 먼저 구성되고 `hintText`도 빈 문자열 배열로 초기화되므로, 빈 CAFE/GC 분기는 공통 연습 데이터를 그대로 사용하며 ORG 튜토리얼 값을 참조하지 않는다.
+- 튜토리얼 진입과 stage/HUD 인덱스에는 에디션 분기를 두지 않는다. 추후 CAFE/GC 튜토리얼을 작성할 때 비어 있는 각 분기의 내용만 채운다.
 
 ## 10. 구현 순서와 게이트
 
@@ -348,7 +349,7 @@ edition == GC
 - `dataInit3` 디스패처는 선택 에디션의 `dataInit_org3/cafe3/gc3`를 호출한 뒤 공용 손님 구성 서브루틴을 한 번 호출한다.
 - 현재 CAFE와 GC의 `CUSTOMER_LIST`는 동일하고, ORG에는 튜토리얼 인덱스를 위한 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 한 항목이 더 있다.
 - 공통 런타임이 `ko.ow` 기준이므로 이 항목을 포함한 ORG판 `CUSTOMER_LIST`를 공용 기준으로 사용한다.
-- CAFE/GC에서 이 항목을 사용하지 않는 별도 분기를 만들지 않는다. 현재 튜토리얼 미이식 상태는 후속 콘텐츠 추가로 해결하고, stage 인덱스와 HUD는 처음부터 `ko` 규격을 유지한다.
+- CAFE/GC에서 이 항목을 사용하지 않는 별도 분기를 만들지 않는다. 기존 stage 0 우회는 즉시 제거하고, 내용이 없는 에디션은 `setHint`의 빈 분기로 처리하며 stage 인덱스와 HUD는 처음부터 `ko` 규격을 유지한다.
 - 현재 `dataInit3`의 나머지 대입인 `STAGE_CODE`, `DELUXE_DATA[1]`, `DELUXE_DATA[2]`는 모두 에디션별 값이므로 각 init3에 유지한다.
 - `FRIDGE_LIST`, `MENU_LIST`, `HAZARD_MENU_LIST`, `WEAVER_MENU_LIST`, `STAGE_NAME`, `UPGRADE_NAME`은 현재 구조에서 init3가 아니라 init2에 있으며 세 에디션 값이 모두 다르므로 공용화하지 않는다.
 - 예상 절감량은 중복 `CUSTOMER_LIST` 두 사본 제거 기준 약 1,650~1,750 elements이며, 공용 rule과 호출 action 비용을 반영한 순절감 추정치다.

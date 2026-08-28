@@ -27,7 +27,7 @@
 - MELT 디스폰 판정은 기존 ORG 조건을 유지한 채 `DELUXE_DATA[0]` 대신 `ICE_RESULT`를 조회한다.
 - 싱크대 물 생성은 GC 기능이 아니라 N3 전용 기능이다. 현재 3종 Deluxe에는 넣지 않고, N3를 네 번째 에디션으로 통합할 때 함께 이식한다.
 - 장비 판별용 전체 `PERK_LIST`와 실제 랜덤 드랍용 활성 목록을 분리한다.
-- CAFE/GC 전용 튜토리얼 콘텐츠 추가는 후속 작업으로 남긴다. 다만 stage 인덱스, HUD와 `CUSTOMER_LIST` 구조는 `ko`를 공통 규격으로 유지하며 에디션별 튜토리얼 건너뛰기를 최종 설계로 두지 않는다.
+- stage 인덱스, HUD와 `CUSTOMER_LIST` 구조는 `ko`를 공통 규격으로 유지한다. 기존 CAFE/GC stage 0 우회와 `setHint`의 비ORG Abort는 즉시 제거하고, `setHint`에 에디션 분기를 추가하되 CAFE/GC 본문은 비워둔다. 실제 CAFE/GC 튜토리얼 콘텐츠는 후속 작업에서 해당 빈 분기에 추가한다.
 
 ## 범위
 
@@ -56,7 +56,8 @@
 - [x] GC 싱크대 물 생성 항목 제외(N3 전용 기능으로 범위 정정)
 - [ ] `dataInit3`의 ORG판 `CUSTOMER_LIST`를 공용 서브루틴으로 분리(튜토리얼 항목과 ko 인덱스/HUD 유지, 예상 순절감 약 1,650~1,750 elements)
 - [ ] MELT 목록을 ORG의 `ICE_RESULT`로 이동하고 `DELUXE_DATA[0]` 제거
-- [ ] CAFE/GC 튜토리얼 데이터 추가 후 임시 stage 0 건너뛰기·비ORG Abort 제거
+- [ ] CAFE/GC stage 0 우회와 `setHint` 비ORG Abort 즉시 제거, `setHint`에 ORG/CAFE/GC 분기 추가(CAFE/GC 본문은 빈 상태)
+- [ ] CAFE/GC의 빈 `setHint` 분기에 실제 튜토리얼 콘텐츠 추가(후속 작업)
 - [ ] 연습모드 에디션 dataInit 세트 재로딩(별도 요청 전까지 보류)
 - [ ] N3 네 번째 에디션 통합 가능성 검토(Elements 실제 측정 전까지 WIP, 이번 작업에서는 미이식)
 - [ ] Workshop import 및 런타임 검증
@@ -72,7 +73,7 @@
 - write-only 글로벌 ID 100/105의 사용처를 제거하고 `ICE_NEEDED`/`ICE_RESULT`로 재사용했으며, ICE 데이터는 CAFE init에서만 할당한다.
 - `DELUXE_DATA`는 `[0]` ORG MELT, `[1]` 활성 드랍, `[2]` 런타임 설정으로 압축했다.
 - ORG 보존식 박스, CAFE 제빙기·냉각총, 에디션별 드랍/시작/연습/업그레이드 pool 분기를 적용했다.
-- 현재 cafe/gc의 미작성 튜토리얼 진입은 임시로 건너뛴다. 이는 최종 인덱스 설계가 아니며, 튜토리얼 추가 시 ko 기준 stage 인덱스/HUD를 유지한 채 건너뛰기 분기를 제거한다.
+- 현재 cafe/gc의 미작성 튜토리얼 진입은 임시로 건너뛰고 있으나, 다음 구현에서 이 우회를 즉시 제거한다. `setHint`에 ORG/CAFE/GC 분기를 만들고 CAFE/GC는 빈 본문으로 두어 ko 기준 stage 인덱스/HUD를 바로 공통화한다.
 - 원본 `ko.ow`, `cafe_kr.ow`, `gc_kr.ow` SHA-256이 작업 전 기준과 동일함을 확인했다.
 - 상세 결과와 재현 명령은 `walkthrough.md`, 검증 수치는 `validation_report.md`에 기록했다.
 
