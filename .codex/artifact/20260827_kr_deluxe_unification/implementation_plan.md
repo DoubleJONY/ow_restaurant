@@ -337,3 +337,14 @@ edition == GC
 - Workshop element/import 결과
 - 에디션별 런타임 체크리스트
 - 최종 walkthrough와 알려진 후속 작업 목록
+
+
+## 13. init3 손님 구성 공용화 추가 계획 (2026-08-28)
+
+- 에디션별 `STAGE_CODE`는 메뉴·웨이브 구성이 다르므로 각 `dataInit_*3`에 유지한다.
+- 손님 유형 구성인 `CUSTOMER_LIST`는 공용 데이터로 분리한다.
+- 새 공용 서브루틴(가칭 `dataInit_customerCommon`)은 에디션 분기 없이 `CUSTOMER_LIST`를 한 번만 할당한다.
+- `dataInit3` 디스패처는 선택 에디션의 `dataInit_org3/cafe3/gc3`를 호출한 뒤 공용 손님 구성 서브루틴을 한 번 호출한다.
+- 현재 CAFE와 GC의 `CUSTOMER_LIST`는 동일하다. ORG는 연습모드 배열에 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 한 항목만 추가되어 있으므로, 기존 ORG `stage == 5` 처리 방향과 함께 공용 배열의 마지막 슬롯을 정규화한다.
+- 공용 배열을 ORG 확장형으로 유지할 경우 CAFE/GC의 존재하지 않는 stage 슬롯에서는 해당 값이 조회되지 않도록 보장한다.
+- 예상 절감량은 중복 `CUSTOMER_LIST` 두 사본 제거 기준 약 1,650~1,750 elements이며, 공용 rule과 호출 action 비용을 반영한 순절감 추정치다.
