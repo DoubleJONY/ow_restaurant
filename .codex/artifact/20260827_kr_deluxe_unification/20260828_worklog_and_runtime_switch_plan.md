@@ -245,9 +245,32 @@ CAFE/GC에서도 다시 다른 에디션으로 이동하려면 다음 중 하나
 ### 현재 데이터 차이
 
 - CAFE와 GC의 `CUSTOMER_LIST`는 공백을 제외하면 완전히 동일하다.
-- ORG는 첫 번째 게임 모드의 연습 배열에 `Soldier: 76 ×2` 항목 하나만 더 있다.
-- 기존 ORG `stage == 5` 외부 워크샵 소개 기능을 제거·재사용하는 계획과 함께 이 슬롯을 정규화한다.
-- 에디션별 `STAGE_CODE` 길이가 다르므로, 공용 목록을 확장형으로 유지할 경우 존재하지 않는 stage 인덱스가 실제로 선택되지 않게 한다.
+- ORG는 첫 번째 게임 모드의 연습 배열에 `Soldier: 76 ×2` 항목 하나가 더 있다.
+- 공통 런타임은 `ko.ow` 기준이므로 이 항목을 포함한 ORG판 `CUSTOMER_LIST`를 공용 기준으로 사용한다.
+- CAFE/GC의 `STAGE_CODE`에 없는 추가 stage 슬롯에서는 공용 목록의 해당 항목이 조회되지 않게 한다.
+
+### init3 및 관련 변수 비교
+
+현재 에디션별 init3에 직접 대입되는 변수는 다음 네 가지뿐이다.
+
+| 변수 | 비교 결과 | 처리 |
+|---|---|---|
+| `CUSTOMER_LIST` | CAFE=GC, ORG는 연습 항목 1개 추가 | ORG판을 공용 서브루틴으로 이동 |
+| `STAGE_CODE` | 세 에디션 모두 다름 | 에디션별 init3 유지 |
+| `DELUXE_DATA[1]` | 활성 perk 목록이 19/20 포함 여부에 따라 다름 | 에디션별 init3 유지 |
+| `DELUXE_DATA[2]` | 시작 아이템·연습/강화 pool 구성이 다름 | 에디션별 init3 유지 |
+
+`FRIDGE_LIST` 등은 현재 init3가 아니라 init2에 있다. 다음 변수들은 세 에디션 값이 모두 다르므로 현재 형태로는 공용화하지 않는다.
+
+- `MENU_LIST`
+- `HAZARD_MENU_LIST`
+- `FRIDGE_LIST`
+- `WEAVER_MENU_LIST`
+- `STAGE_NAME`
+- `UPGRADE_NAME`
+- 조리 결과·필요치, `RAW_MIX`, `RAW_RESULT`, `ADDITIONAL_MATERIAL_LIST`
+
+공통 dispatcher에는 이미 `customerCallTime`, `setUpTime`, `scoreDecrease`, `despawnTime`, `additionalScore`, `failEnd`가 한 사본만 존재한다.
 
 ### Elements 추정
 

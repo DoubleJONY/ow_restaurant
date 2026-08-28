@@ -53,7 +53,7 @@
 - [x] `kr_deluxe.ow` 핵심 통합 구현
 - [x] 데이터/RAW/런타임 하드코드 정적 검증
 - [x] GC 싱크대 물 생성 항목 제외(N3 전용 기능으로 범위 정정)
-- [ ] `dataInit3`의 공용 `CUSTOMER_LIST` 서브루틴 분리(예상 순절감 약 1,650~1,750 elements)
+- [ ] `dataInit3`의 ORG판 `CUSTOMER_LIST`를 공용 서브루틴으로 분리(연습 항목 유지, 예상 순절감 약 1,650~1,750 elements)
 - [ ] N3 네 번째 에디션 통합 가능성 검토(Elements 실제 측정 전까지 WIP, 이번 작업에서는 미이식)
 - [ ] Workshop import 및 런타임 검증
 

@@ -345,6 +345,8 @@ edition == GC
 - 손님 유형 구성인 `CUSTOMER_LIST`는 공용 데이터로 분리한다.
 - 새 공용 서브루틴(가칭 `dataInit_customerCommon`)은 에디션 분기 없이 `CUSTOMER_LIST`를 한 번만 할당한다.
 - `dataInit3` 디스패처는 선택 에디션의 `dataInit_org3/cafe3/gc3`를 호출한 뒤 공용 손님 구성 서브루틴을 한 번 호출한다.
-- 현재 CAFE와 GC의 `CUSTOMER_LIST`는 동일하다. ORG는 연습모드 배열에 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 한 항목만 추가되어 있으므로, 기존 ORG `stage == 5` 처리 방향과 함께 공용 배열의 마지막 슬롯을 정규화한다.
-- 공용 배열을 ORG 확장형으로 유지할 경우 CAFE/GC의 존재하지 않는 stage 슬롯에서는 해당 값이 조회되지 않도록 보장한다.
+- 현재 CAFE와 GC의 `CUSTOMER_LIST`는 동일하고, ORG에는 연습모드용 `Array(Hero(Soldier: 76), Hero(Soldier: 76))` 한 항목이 더 있다.
+- 공통 런타임이 `ko.ow` 기준이므로 ORG판 `CUSTOMER_LIST`를 공용 기준으로 사용한다. 추가 연습 항목은 유지하며 CAFE/GC에서는 해당 stage 슬롯을 조회하지 않는다.
+- 현재 `dataInit3`의 나머지 대입인 `STAGE_CODE`, `DELUXE_DATA[1]`, `DELUXE_DATA[2]`는 모두 에디션별 값이므로 각 init3에 유지한다.
+- `FRIDGE_LIST`, `MENU_LIST`, `HAZARD_MENU_LIST`, `WEAVER_MENU_LIST`, `STAGE_NAME`, `UPGRADE_NAME`은 현재 구조에서 init3가 아니라 init2에 있으며 세 에디션 값이 모두 다르므로 공용화하지 않는다.
 - 예상 절감량은 중복 `CUSTOMER_LIST` 두 사본 제거 기준 약 1,650~1,750 elements이며, 공용 rule과 호출 action 비용을 반영한 순절감 추정치다.
