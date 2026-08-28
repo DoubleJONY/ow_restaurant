@@ -591,6 +591,18 @@ def validate_assembled(text: str) -> dict[str, object]:
         raise BuildError("shared CUSTOMER_LIST assignment count mismatch")
     if text.count("Call Subroutine(dataInit_customerCommon);") != 1:
         raise BuildError("shared CUSTOMER_LIST dispatcher call mismatch")
+    serialized_list_count = len(data_builder.EDITION_SPECS) * len(
+        data_builder.SERIALIZED_LIST_TABLES
+    )
+    if text.count('String Split(Current Array Element, Custom String(","))') != serialized_list_count:
+        raise BuildError("serialized menu-table decoder count mismatch")
+    for edition in data_builder.EDITION_SPECS:
+        block = data_builder.find_rule(text, f"dataInit_{edition}2")
+        for table in data_builder.SERIALIZED_LIST_TABLES:
+            expression = data_builder.find_assignment(block, table).expression
+            decoded = data_builder.decode_serialized_list_expression(table, expression)
+            if len(decoded) != 12:
+                raise BuildError(f"{edition} {table} serialized group count mismatch")
     butcher_condition = (
         "Array Contains(Global.STAGE_CODE[Global.stage], 11) || "
         "(Global.difficulty == 4 && Global.totalScore[False] == 11)"
@@ -806,6 +818,12 @@ def main() -> None:
                         "2": "edition runtime configuration",
                     },
                     "shared_customer_list": {"source": "ORG/ko", "dispatcher_call": True},
+                    "serialized_menu_tables": {
+                        "tables": sorted(data_builder.SERIALIZED_LIST_TABLES),
+                        "editions": sorted(data_builder.EDITION_SPECS),
+                        "group_count_each": 12,
+                        "round_trip_checked": True,
+                    },
                     "ice_result_reuse": {"ORG": "MELT_LIST", "CAFE": "ice conversion"},
                     "tutorial_routing": {"ORG": "implemented", "CAFE": "empty", "GC": "empty"},
                     "source_rule_size_check": source_rule_size_check,

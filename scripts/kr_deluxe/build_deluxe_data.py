@@ -48,7 +48,13 @@ OUTER_AND_LEAVES = {
 }
 
 PER_ITEM = OUTER_ONLY | OUTER_AND_LEAVES
-LIST_TABLES = {"MENU_LIST", "HAZARD_MENU_LIST", "FRIDGE_LIST", "WEAVER_MENU_LIST", "MELT_LIST"}
+SERIALIZED_LIST_TABLES = {
+    "MENU_LIST",
+    "HAZARD_MENU_LIST",
+    "FRIDGE_LIST",
+    "WEAVER_MENU_LIST",
+}
+LIST_TABLES = SERIALIZED_LIST_TABLES | {"MELT_LIST"}
 RAW_TABLES = {"RAW_MIX", "RAW_RESULT"}
 
 ACTIVE_DROPS = {
@@ -676,6 +682,70 @@ def render_mapped_assignment(lhs: str, values: list[Any], second_arg: str, map_n
     return "\r\n".join(lines)
 
 
+def serialize_nested_numeric_list(table: str, values: list[Any]) -> str:
+    if len(values) != 12:
+        raise ParseError(f"{table} must contain exactly 12 menu groups, got {len(values)}")
+    groups: list[str] = []
+    for group_index, group in enumerate(values):
+        if not isinstance(group, list) or not group:
+            raise ParseError(f"{table}[{group_index}] must be a non-empty numeric list")
+        if any(not isinstance(value, int) or value < 0 for value in group):
+            raise ParseError(f"{table}[{group_index}] contains a non-item-code value")
+        groups.append(",".join(str(value) for value in group))
+    return "/".join(groups)
+
+
+def render_serialized_list_assignment(lhs: str, table: str, values: list[Any]) -> str:
+    payload = serialize_nested_numeric_list(table, values)
+    chain = make_custom_chain(payload, "\t\t\t\t")
+    return "\r\n".join(
+        [
+            f"\t\t{lhs} = Mapped Array(",
+            f"\t\t\tString Split({chain}, Custom String(\"/\")),",
+            "\t\t\tMapped Array(",
+            "\t\t\t\tString Split(Current Array Element, Custom String(\",\")),",
+            "\t\t\t\tIndex Of Array Value(Global.MIXING_RECIPE, Current Array Element)));",
+        ]
+    )
+
+
+def decode_serialized_list_expression(table: str, expression: str) -> list[list[int]]:
+    _, outer_args, outer_suffix = unwrap_call(expression, "Mapped Array")
+    if outer_suffix or len(outer_args) != 2:
+        raise ParseError(f"{table} serialized outer mapper shape changed")
+
+    _, group_args, group_suffix = unwrap_call(outer_args[0], "String Split")
+    if group_suffix or len(group_args) != 2 or eval_expr(group_args[1]) != "/":
+        raise ParseError(f"{table} serialized group delimiter changed")
+    payload = eval_expr(group_args[0])
+    if not isinstance(payload, str):
+        raise ParseError(f"{table} serialized payload is not a string")
+
+    _, inner_args, inner_suffix = unwrap_call(outer_args[1], "Mapped Array")
+    if inner_suffix or len(inner_args) != 2:
+        raise ParseError(f"{table} serialized inner mapper shape changed")
+    _, item_args, item_suffix = unwrap_call(inner_args[0], "String Split")
+    if (
+        item_suffix
+        or len(item_args) != 2
+        or normalize_expr(item_args[0]) != "CurrentArrayElement"
+        or eval_expr(item_args[1]) != ","
+    ):
+        raise ParseError(f"{table} serialized item delimiter or mapper input changed")
+    numeric_mapper = "Index Of Array Value(Global.MIXING_RECIPE, Current Array Element)"
+    if normalize_expr(inner_args[1]) != normalize_expr(numeric_mapper):
+        raise ParseError(f"{table} serialized numeric mapper changed")
+
+    groups = payload.split("/")
+    try:
+        decoded = [[int(value) for value in group.split(",")] for group in groups]
+    except ValueError as exc:
+        raise ParseError(f"{table} serialized payload contains a non-integer") from exc
+    if any(not group for group in decoded):
+        raise ParseError(f"{table} serialized payload contains an empty group")
+    return decoded
+
+
 def replace_spans(text: str, replacements: Iterable[tuple[int, int, str]]) -> str:
     result = text
     for start, end, replacement in sorted(replacements, key=lambda item: item[0], reverse=True):
@@ -811,7 +881,11 @@ def render_phase2_rule(edition: EditionData, transformed: dict[str, list[Any]], 
         assignment = find_assignment(block, table)
         mapped = recursively_map_list(edition.values[table], edition.mapping)
         lhs = "Global.ICE_RESULT" if table == "MELT_LIST" else f"Global.{table}"
-        replacements.append((assignment.start, assignment.end, f"\t\t{lhs} = {render_array(mapped)};"))
+        if table in SERIALIZED_LIST_TABLES:
+            replacement = render_serialized_list_assignment(lhs, table, mapped)
+        else:
+            replacement = f"\t\t{lhs} = {render_array(mapped)};"
+        replacements.append((assignment.start, assignment.end, replacement))
 
     # These statements are byte-for-byte/semantically common after canonical
     # remapping.  The dataInit2 dispatcher emits them once after the selected
@@ -982,7 +1056,11 @@ def validate_generated_tables(
             if table not in edition.values:
                 continue
             lhs = "ICE_RESULT" if table == "MELT_LIST" else table
-            observed = eval_expr(find_assignment(blocks[2], lhs).expression)
+            expression = find_assignment(blocks[2], lhs).expression
+            if table in SERIALIZED_LIST_TABLES:
+                observed = decode_serialized_list_expression(table, expression)
+            else:
+                observed = eval_expr(expression)
             expected = recursively_map_list(edition.values[table], edition.mapping)
             if observed != expected:
                 raise ParseError(f"{name} generated {table} recursive mapping mismatch")
@@ -997,6 +1075,9 @@ def validate_generated_tables(
             "per_item_tables": checked_tables,
             "numeric_lookup": edition.new_count,
             "list_tables": len([table for table in LIST_TABLES if table in edition.values]),
+            "serialized_list_tables": len(
+                [table for table in SERIALIZED_LIST_TABLES if table in edition.values]
+            ),
             "round_trip": True,
         }
 

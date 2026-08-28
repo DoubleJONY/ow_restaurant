@@ -106,18 +106,21 @@
       "per_item_tables": 15,
       "numeric_lookup": 476,
       "list_tables": 5,
+      "serialized_list_tables": 4,
       "round_trip": true
     },
     "cafe": {
       "per_item_tables": 17,
       "numeric_lookup": 399,
       "list_tables": 4,
+      "serialized_list_tables": 4,
       "round_trip": true
     },
     "gc": {
       "per_item_tables": 15,
       "numeric_lookup": 464,
       "list_tables": 4,
+      "serialized_list_tables": 4,
       "round_trip": true
     },
     "common_customer_list": {
@@ -147,13 +150,13 @@
     }
   },
   "custom_string_lengths": {
-    "payloads": 942,
+    "payloads": 1022,
     "max_characters": 85
   },
   "source_sha256": {
-    "org": "01AEFCE72D0250EFAEEDE44646759D977E832A134BA6F9EBED554BC58848E982",
-    "cafe": "34378CEE5E2C5ECF836B44AE319A7A97EBB0FF92819D6BEB468149520C6C5BE9",
-    "gc": "BA87EABCB98CB76CB1EF77BACE46C6DC8497CF3D0F16970A3A9EF7AFD865D290"
+    "org": "A6020AF605BDA84A6C4AF34D1638105C77B368643F775B3C69E8A096A8F2A07E",
+    "cafe": "553E1A074E227911B0A04456000FBE4A098AB43025C611FCCBED36C1E65A4A92",
+    "gc": "E7361A093C05F9EC776CE6F7E5E78919282A839E2A75C2D3ACD6CED17922A9DA"
   },
   "generated_rule_count": 10
 }
