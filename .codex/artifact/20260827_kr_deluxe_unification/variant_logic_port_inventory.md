@@ -6,7 +6,7 @@
 
 - CAFE: `cafe_kr.ow`
 - GC: `gc_kr.ow`
-- GC 물 생성 후보 원본: `n3_kr.ow`
+- N3 물 생성 원본: `n3_kr.ow`
 
 최종 공통 item-perk ordinal은 다음을 전제로 한다.
 
@@ -316,72 +316,27 @@ Random Value In Array(Global.PERK_LIST[Random Integer(0, 1)])
 
 `Purchase Upgrade`의 pool은 확률 보존을 위해 별도의 weighted 배열을 사용해야 한다. 단순 active pool로 대체하면 원본 가중치가 사라진다.
 
-## GC 싱크대 물 생성 조사 결과
+## N3 싱크대 물 생성 조사 결과
 
-### 현재 `gc_kr.ow`에는 해당 기능이 없다
+### 범위 정정
 
-현재 `gc_kr.ow`에는 사용자가 설명한 “싱크대 근처를 Primary Fire로 조작하여 물 아이템 생성” 로직이 없다.
+싱크대 근처에서 Primary Fire로 물 아이템을 생성하는 기능은 GC가 아니라 N3 전용이다. `gc_kr.ow`에는 물 item 레코드, 물 recipe, 해당 Primary Fire 분기가 없으며 공통 배수 로직만 있다.
 
-- `ITEM_NAME[19]`는 `쌀`이며 `물` 아이템 레코드가 없다 (`gc_kr.ow:2574-2577`).
-- `Player: Control item`에는 냉장고와 저장고 조회만 있고 싱크대 생성 분기가 없다 (`gc_kr.ow:1043-1157`).
-- 싱크대 관련 코드는 `Interact`로 배수구 주변 기존 아이템을 삭제하는 공통 로직뿐이다 (`gc_kr.ow:1244-1260`).
-- 같은 배수 로직은 `kr_deluxe.ow`와 `cafe_kr.ow`에도 동일한 좌표로 존재하므로 GC 전용 기능이 아니다.
-- GC의 `createItemData` 호출에는 싱크대 좌표나 물 리터럴이 없다.
-
-따라서 현재 `gc_kr.ow`만으로는 이 기능을 의미 보존 방식으로 포팅할 수 없다.
-
-### `n3_kr.ow`에 일치하는 후보 구현이 있다
-
-사용자 설명과 일치하는 구현은 `n3_kr.ow`에서 발견된다.
+`n3_kr.ow`에는 다음 구현이 함께 존재한다.
 
 | 기능 | 위치 |
 |---|---:|
 | `sinkcode` 글로벌 선언 | 123 |
-| 물 표지 | 378-379 |
-| Aqua Sphere 효과 | 380 |
+| 물 표지·Aqua Sphere 효과 | 378-380 |
 | Primary Fire 물 생성 분기 | 734-738 |
 | `ITEM_NAME[19] = 물` | 3529-3532 |
 | `sinkcode = Array(19)` | 4074 |
 
-정확한 좌표와 조작은 다음과 같다.
+따라서 물 생성 분기만 현재 GC 데이터에 복사하지 않는다. N3를 네 번째 Deluxe 에디션으로 추가할 때 N3의 물 item·recipe·런타임을 같은 매핑 단위로 이식한다. 현재 단계에서는 조사 결과만 유지하고 구현은 WIP이다.
 
-```text
-물 공급 위치: Vector(233.820, 2.230, 167.720)
-Ray Cast handPosition과의 거리: 1 미만
-입력: Player: Control item 규칙의 Primary Fire
-권한 제한: 홀 서버/수습생 차단
-생성 속도: Vector(0, 0, 0)
-```
+### 용량 대응
 
-분기는 냉장고 조회 실패 후, 저장고 조회 전에 위치한다.
-
-```ow
-Else If(edition == GC
-        && Distance Between(Vector(233.820, 2.230, 167.720), Event Player.handPosition) < 1);
-    Abort If(Event Player.permission == 1 || Event Player.permission == 2);
-    Global.createItemData = Array(
-        Vector(233.820, 2.230, 167.720),
-        Vector(0, 0, 0),
-        Global.DELUXE_DATA[3][4],
-        Null,
-        Null
-    );
-    Call Subroutine(createItem);
-    Event Player.controlingIndex = Global.creatingItemIndex;
-```
-
-물 표지와 Aqua Sphere의 visible-to 대상도 GC로 제한한다.
-
-### 구현 차단 사항
-
-`n3_kr.ow`의 물은 실제 itemCode `19`이고 레시피 및 모든 per-item 테이블에 포함되어 있다. 반면 통합 계획에서 코드 `19`는 보존식 박스로 예약되며 현재 GC 데이터에는 물 레코드와 물 기반 레시피가 없다.
-
-따라서 GC 물 기능을 실제로 넣으려면 다음 중 하나가 먼저 확정되어야 한다.
-
-1. GC에 새 물 아이템을 추가하고 새 GC 전용 코드(예: 공통 `0..20` 뒤가 아닌 GC 데이터 끝의 신규 코드)를 지정하며, 필요한 레시피/조리 데이터를 정의한다.
-2. 사용자가 의도한 다른 GC 원본 파일이나 기존 GC 물 itemCode를 제공한다.
-
-단순히 `n3_kr.ow`의 `19`를 복사하면 보존식 박스를 생성하게 되므로 절대 적용하면 안 된다. 물을 GC 데이터 끝에 추가한다면 기존 계획의 GC 길이 `464`도 `465`로 바뀌며 `DELUXE_DATA[3][4]`에 최종 물 코드를 저장하는 것이 안전하다.
+약 98KB 제한은 전체 `.ow` 파일이 아니라 개별 rule 기준으로 관리한다. N3용 `dataInit_n3_1`, `dataInit_n3_2`, `dataInit_n3_3`처럼 큰 초기화를 서브루틴으로 나누면 해당 위험은 줄일 수 있다. 단, 전체 32,768 element 예산은 별도이므로 실제 import 수치 확인 전에는 4종 통합 가능성을 확정하지 않는다.
 
 ## 검증 항목
 
@@ -392,5 +347,5 @@ Else If(edition == GC
 - CAFE 제빙기 이외 위치에서는 `itemStatus = 5`가 설정되지 않음
 - CAFE의 튀김 업그레이드가 제빙기 속도에도 적용됨
 - 비CAFE 화면에 제빙기 표지와 제빙 관련 문구가 노출되지 않음
-- GC 물 구현 전에는 미확정 코드를 임의로 생성하지 않음
-- GC 물 구현 후에는 Primary Fire로 생성, Interact로 배수하는 두 동작이 서로 독립적으로 정상 동작
+- 현재 GC에 N3 물 코드를 임의로 삽입하지 않음
+- N3 통합 시 Primary Fire 생성과 Interact 배수가 독립적으로 정상 동작

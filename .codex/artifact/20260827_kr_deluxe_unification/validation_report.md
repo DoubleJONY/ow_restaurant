@@ -7,7 +7,7 @@
 | `ko.ow` | `01AEFCE72D0250EFAEEDE44646759D977E832A134BA6F9EBED554BC58848E982` |
 | `cafe_kr.ow` | `34378CEE5E2C5ECF836B44AE319A7A97EBB0FF92819D6BEB468149520C6C5BE9` |
 | `gc_kr.ow` | `BA87EABCB98CB76CB1EF77BACE46C6DC8497CF3D0F16970A3A9EF7AFD865D290` |
-| `kr_deluxe.ow` | `365CB6EC088AAA7B20C1765C3989E337C9E4F338ABBE200082BAC36D9A0AB749` |
+| `kr_deluxe.ow` | `54C6784A4F1255EA500467C066C50B4E196CAF227471F47ADDD4ED3B350DB439` |
 
 ## 데이터 수치
 
@@ -22,13 +22,13 @@ RAW 좌/우 operand와 result는 원본 행 순서로 왕복 검증했으며 모
 ## 구조 검증
 
 - global variable ID: 정확히 `0..127`, ID 100 = `ICE_NEEDED`, ID 105 = `ICE_RESULT`, ID 126 = `DELUXE_DATA`
-- subroutine ID: 정확히 `0..39`
-- rule 수: 57
+- subroutine ID: 정확히 `0..38`
+- rule 수: 56
 - 실제 edition init rule: 9
 - CAFE ICE assignment: `Global.ICE_NEEDED`, `Global.ICE_RESULT` 각각 1회
-- ORG MELT assignment: `[1]` 1회
+- ORG MELT assignment: `DELUXE_DATA[0]` 1회
 - 삭제한 `itemPrevPosition`, `itemNormal` 선언·대입·참조: 0회
-- 이전 ICE 슬롯 및 압축 전 컨테이너 슬롯 `DELUXE_DATA[5]`, `[6]`: 0회
+- 폐기된 컨테이너 슬롯 `DELUXE_DATA[3]` 이상: 0회
 - legacy `Global.MELT_LIST`: 0회
 - 공통 MIX/KNIFE/PERK/upgrade/difficulty 초기화: 각각 dispatcher 1사본
 - 생성된 per-item 47개 테이블, 숫자 lookup 1,339칸, 메뉴 계열 13개 테이블 재파싱 왕복 검사 통과
@@ -51,6 +51,20 @@ RAW 좌/우 operand와 result는 원본 행 순서로 왕복 검증했으며 모
 
 두 항목 모두 해당 result가 0인 원본 도구 레코드이며, 에디션별 원본 동작 보존을 우선했다.
 
+## 크기·Elements 현황
+
+| 파일 | GitHub blob 크기 |
+|---|---:|
+| `ko.ow` | 282,679 bytes (282.679 KB / 276.054 KiB) |
+| `kr_deluxe.ow` | 390,969 bytes (390.969 KB / 381.806 KiB) |
+| `n3_kr.ow` | 254,809 bytes (254.809 KB / 248.837 KiB) |
+
+- 위 파일들이 모두 98KB보다 크므로 98KB는 전체 파일 제한이 아니다.
+- 현재 판단 기준은 전체 최대 32,768 elements와 개별 rule의 약 98KB 제한이다.
+- 큰 데이터 초기화 rule은 에디션별·단계별 서브루틴으로 분할한다.
+- `ko.ow` 혼합 배열 변환 전후 인게임 실측은 약 28,800 → 27,700대이며, 1,000개 이상 절감됐다.
+- `kr_deluxe.ow` 및 N3 추가 후 element 수는 아직 인게임에서 측정하지 않았다.
+
 ## 자동 산출물
 
 - `build/kr_deluxe/generated_data_init_rules.ow`
@@ -62,5 +76,5 @@ RAW 좌/우 operand와 result는 원본 행 순서로 왕복 검증했으며 모
 ## 미실행 검증
 
 - Overwatch Workshop import
-- element counter의 실제 수치 확인
+- `kr_deluxe.ow`의 전체 element 수와 개별 rule 직렬화 크기 확인
 - ORG/CAFE/GC 인게임 회귀 플레이

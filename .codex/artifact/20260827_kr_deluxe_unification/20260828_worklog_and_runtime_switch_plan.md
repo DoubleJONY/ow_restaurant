@@ -204,3 +204,30 @@ CAFE/GC에서도 다시 다른 에디션으로 이동하려면 다음 중 하나
 - [ ] Workshop import와 실제 element 카운트 확인
 
 이 문서의 런타임 에디션 전환 부분은 계획만 확정한 상태이며 아직 `kr_deluxe.ow`에는 구현하지 않았다.
+
+
+## 9. 검사 도구·제한·범위 최신화
+
+### Workshop 제한
+
+- 전체 스크립트 크기 98KB 제한으로 보지 않는다.
+- 현재 GitHub blob 크기는 `ko.ow` 282,679 bytes, `kr_deluxe.ow` 390,969 bytes, `n3_kr.ow` 254,809 bytes다.
+- 약 98KB 제한은 개별 rule 기준으로 관리한다. 큰 데이터 초기화는 에디션별·단계별 서브루틴으로 분할한다.
+- 전체 컴파일 예산은 최대 32,768 elements로 별도 관리한다.
+- `ko.ow`의 혼합 배열 압축 전후 사용자 실측은 약 28,800 → 27,700대로, 1,000개 이상 절감됐다.
+- `kr_deluxe.ow`의 실제 element 수와 N3 추가 후 수치는 아직 Workshop에서 측정하지 않았다.
+
+### 검사 도구
+
+- 현재 클라우드 Work 환경에는 OverPy, OSTW/Deltinteger 또는 전용 Workshop 검사기가 설치되어 있지 않다.
+- OverPy 온라인 데모에 현재 `ko.ow`를 넣은 시험은 `Player: Secondary fire button`의 player variable `500`을 허용하지 않아 역컴파일에 실패했다.
+- 로컬 Codex 환경에서는 최신 OSTW/Deltinteger를 먼저 설치해 vanilla Workshop import·element 정보를 확인하고, OverPy CLI를 보조로 사용한다.
+- 두 도구가 현재 export 문법을 처리하지 못하면 Overwatch 클라이언트 import를 문법·element 판정의 최종 기준으로 사용한다.
+- 필요하면 로컬에서 전체 elements, rule별 UTF-8 직렬화 크기, 최대 rule 목록을 출력하는 읽기 전용 검사 스크립트를 추가한다.
+
+### 범위 정정
+
+- 싱크대 Primary Fire 물 생성은 GC가 아니라 N3 전용 기능이다.
+- 현재 3종 Deluxe의 GC 누락으로 취급하지 않으며, N3를 네 번째 에디션으로 통합할 때 데이터·recipe·런타임을 함께 가져온다.
+- `gc_en` 독립 마이그레이션은 하지 않는다. 향후 English Deluxe를 만들 때 필요한 아이템·현지화 배열만 가져온다.
+- 이번 최신화에서는 N3 또는 잔여 마이그레이션 코드를 수정하지 않는다.

@@ -7,13 +7,13 @@
 ## 부트스트랩과 디스패처
 
 - 글로벌 ID 126의 `MELT_LIST`를 `DELUXE_DATA` 컨테이너로 전환했다.
-- 서브루틴 ID 30~39에 에디션 선택기와 실제 init 9개를 할당했다.
+- 서브루틴 ID 30~38에는 ORG/CAFE/GC의 실제 init 9개를 할당했다.
+- 별도 에디션 선택 서브루틴은 제거하고 기존 `selectMode`에 에디션 선택을 통합했다.
 - 기존 ID 7/11/18의 `dataInit`/`dataInit2`/`dataInit3`는 호출 호환성을 유지하는 디스패처다.
-- 선택 HUD의 세 번째 항목은 `gc_kr.ow`의 실제 에디션명인 `쿡제요리`로 표시한다.
-- 선택 입력의 Reload/Jump release를 기다려 다음 모드 선택으로 입력이 전달되지 않게 했다.
-- Player Spawn은 `DELUXE_DATA[4]` init-ready가 True가 될 때까지 입장 확정을 진행하지 않는다.
-- write-only였던 ID 100 `itemPrevPosition`, ID 105 `itemNormal`의 대입을 제거하고 각각 `ICE_NEEDED`, `ICE_RESULT`로 재사용했다.
-- ICE 제거 후 `DELUXE_DATA`는 `[0]` 에디션, `[1]` ORG MELT, `[2]` 활성 드랍, `[3]` 런타임 설정, `[4]` init-ready로 압축했다.
+- 선택 확정 시 선택 에디션 기준으로 init1, init2, difficulty/storage 계산, init3를 다시 실행한다.
+- `Global.stageMode[0]`은 에디션, `Global.stageMode[1]`은 게임 모드다.
+- write-only였던 ID 100/105는 각각 `ICE_NEEDED`, `ICE_RESULT`로 재사용한다.
+- `DELUXE_DATA`는 `[0]` ORG MELT, `[1]` 활성 드랍, `[2]` 런타임 설정만 사용한다. 별도 init-ready 슬롯은 사용하지 않는다.
 
 ## 데이터 변환
 
@@ -54,6 +54,10 @@ python scripts/kr_deluxe/build_kr_deluxe.py --check
 
 ## 남은 사항
 
-현재 저장소의 `gc_kr.ow`와 해당 파일의 전체 Git 이력에는 싱크대 Primary Fire 물 생성 분기, 물 item 레코드, 물 기반 recipe가 없다. 일치하는 구현은 별도 에디션 `n3_kr.ow`에 있으나 그 파일의 물 코드 19는 Deluxe의 보존식 박스 코드 19와 충돌하고 데이터 세트도 다르다. 정확한 GC 원본 또는 새 물 item/recipe 코드 결정 전에는 잘못된 item을 생성할 수 있어 임의 이식하지 않았다.
+싱크대 Primary Fire 물 생성, 물 item 레코드, 물 기반 recipe는 GC가 아니라 `n3_kr.ow`의 전용 기능이다. 현재 3종 Deluxe에서 누락된 GC 기능으로 취급하지 않는다. N3를 네 번째 에디션으로 통합할 때 N3 데이터와 함께 이식한다.
 
-Overwatch Workshop 인게임 import/runtime 검증은 이 환경에서 실행하지 않았다.
+파일 전체 크기에는 98KB 제한을 적용하지 않는다. 현재 파일 크기는 `ko.ow` 282,679 bytes, `kr_deluxe.ow` 390,969 bytes, `n3_kr.ow` 254,809 bytes다. 약 98KB 제한은 개별 rule 기준으로 관리하며, 큰 init은 에디션·단계별 서브루틴으로 분할한다.
+
+전체 element 상한은 32,768로 보고 실제 Workshop import 수치를 최종 기준으로 삼는다. 사용자가 확인한 `ko.ow` 혼합 배열 압축 전후 값은 약 28,800개에서 27,700개대로 1,000개 이상 감소했다. `kr_deluxe.ow`의 실제 element 수와 N3 추가 여유는 아직 측정하지 않아 WIP으로 남긴다.
+
+이 클라우드 환경에는 OverPy/OSTW 전용 검사기가 설치되어 있지 않다. OverPy 온라인 데모에 현재 `ko.ow`를 넣은 시험은 player variable `500`을 허용하지 않아 역컴파일에 실패했다. 로컬 Codex에서는 최신 OSTW/Deltinteger 또는 OverPy CLI를 설치해 우선 검사하고, 둘 다 현재 문법을 처리하지 못하면 Workshop 클라이언트 import와 수동 element 확인을 기준으로 한다.

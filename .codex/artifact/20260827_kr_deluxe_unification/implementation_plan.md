@@ -1,5 +1,7 @@
 # kr_deluxe 단일 파일 통합 계획
 
+> 상태 메모(2026-08-28): 이 문서는 최초 3종 통합 설계 기록이다. 현재 구현 기준은 `20260828_worklog_and_runtime_switch_plan.md`와 `validation_report.md`를 우선한다. 아래의 GC 싱크대/물 항목은 N3 전용 기능으로 판명되어 현재 3종 Deluxe 범위에서 폐기됐다. N3를 네 번째 에디션으로 검토할 때 별도 재설계한다.
+
 ## 1. 기본 원칙
 
 `kr_deluxe.ow`는 ko 로직을 공통 런타임으로 사용한다. ORG, CAFE, GC 데이터는 동시에 글로벌 배열에 보관하지 않고, 시작 시 방장이 선택한 한 에디션의 데이터만 동일한 글로벌 변수에 로드한다.
@@ -46,22 +48,22 @@ ko 기반 파일은 글로벌 변수 ID `0..127`을 모두 선언하지만, ID 1
 기존 `MELT_LIST` 슬롯을 `DELUXE_DATA` 컨테이너로 확장한다.
 
 ```text
-DELUXE_DATA[0] = edition: 0 ORG / 1 CAFE / 2 GC
-DELUXE_DATA[1] = ORG MELT_LIST
-DELUXE_DATA[2] = 선택 에디션의 활성 item perk 드랍 목록
-DELUXE_DATA[3] = 선택 에디션의 특수 아이템 코드/설정
-DELUXE_DATA[4] = init-ready
+Global.stageMode[0] = edition: 0 ORG / 1 CAFE / 2 GC
+Global.stageMode[1] = game mode: 0..5
+DELUXE_DATA[0] = ORG MELT_LIST
+DELUXE_DATA[1] = 선택 에디션의 활성 item perk 드랍 목록
+DELUXE_DATA[2] = 선택 에디션의 런타임 설정
 Global.ICE_NEEDED = CAFE 전용 냉각 요구치
 Global.ICE_RESULT = CAFE 전용 냉각 결과
 ```
 
 ICE 글로벌은 선언되지만 실제 배열은 CAFE init에서만 생성한다. ORG/GC에는 빈 배열이나 길이 맞춤용 배열을 할당하지 않는다.
 
-- 시작 선택기는 `[0]`만 설정한다.
-- ORG init은 `[1]`만 할당한다.
+- 에디션 값은 `stageMode[0]`에 저장한다.
+- ORG init은 `DELUXE_DATA[0]`만 할당한다.
 - CAFE init1만 `ICE_NEEDED`, `ICE_RESULT`를 할당한다.
-- 각 에디션 init3가 `[2]`, `[3]`을 설정한다.
-- 공통 초기화가 완료되면 `[4]`를 True로 설정한다.
+- 각 에디션 init3가 `DELUXE_DATA[1]`, `[2]`를 설정한다.
+- 별도 init-ready 슬롯은 사용하지 않는다.
 
 ICE 참조는 먼저 `edition == CAFE`를 확인하는 바깥 `If` 안에 둔다. CAFE가 아닐 때 ICE 인덱싱 표현 자체가 실행되지 않게 한다.
 
@@ -266,7 +268,7 @@ edition == GC
 
 - ORG 보존식 박스와 MELT
 - CAFE 제빙기, 냉각총, ICE
-- GC 싱크대와 물
+- N3 싱크대와 물은 향후 네 번째 에디션 범위로 제외
 - 활성 드랍과 상점 분기
 
 ### Phase F: 검증과 정리
