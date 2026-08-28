@@ -793,7 +793,7 @@ rule("Global: Setting")
 		Global.globalText[0] = Last Text ID;
 		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]),
 			Custom String("제작: {0}", Array(Custom String("Gummybear&변기클라우드\r\n난이도 : ★★★☆☆"), Custom String("Joseon&Deadlock\r\n난이도 : ★★☆☆☆"), Custom String("Joseon\r\n난이도 : ★★★★☆"))[Global.stageMode[0]]),
-			Local Player == Global.scbRank ? Custom String("[{0}]: 에디션 변경", Input Binding String(Button(Ability 2))) : Custom String(" 방장이 에디션을 결정하는 중입니다"), Top, -998, Array(Color(Orange), Custom Color(100, 60, False, 255), Color(Blue))[Global.stageMode[0]], Color(Yellow), Color(White), String and Color,
+			Local Player == Global.scbRank ? Custom String("[{0}]: 테마 변경", Input Binding String(Button(Ability 2))) : Custom String(" 방장이 테마를 결정하는 중입니다"), Top, -998, Array(Color(Orange), Custom Color(100, 60, False, 255), Color(Blue))[Global.stageMode[0]], Color(Yellow), Color(White), String and Color,
 			Default Visibility);
 		Global.globalText[1] = Last Text ID;
 		Create HUD Text(All Players(Team 1), Null, Null, Custom String(
@@ -880,13 +880,12 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260829\r\n\r\n신규 손님\r\n  {1}배달냥이: 엄청나게 몰려오는 주문ssssssssssssdddddddllllllllOwO!\r\n{2}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)), Hero Icon String(Hero(Jetpack Cat)),
-		Custom String("{0} 거대식가: 멋있는 대식가!\r\n{1}", Hero Icon String(Hero(Reinhardt)),
-		Custom String("{0} 시끄러운 손님: 실수하면 고막을 터뜨려 버립니다!", Hero Icon String(Hero(Junker Queen))))),
+		Custom String("{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Custom Color(214, 156, 107, 255), Default Visibility);
+			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.", Ability Icon String(Hero(Torbjörn), Button(Ability 2))),
+		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.", Icon String(Flag)),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 	}
@@ -4071,8 +4070,12 @@ rule("Global subroutine: Set Hint Text")
 			Else;
 				Global.hintText = Array(Custom String(""));
 			End;
-		Else If(Global.stageMode[0] == 1);
 		Else;
+			If(Global.stage == 0);
+				Global.hintText = Array(
+					Custom String("https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.")
+				);
+			End;
 		End;
 	}
 }
