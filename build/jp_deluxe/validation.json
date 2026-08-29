@@ -1,0 +1,374 @@
+{
+  "localized_data": {
+    "name_tables": {
+      "item_name_counts": {
+        "org": 476,
+        "cafe": 399,
+        "gc": 464
+      },
+      "item_name_max_literal_chars": {
+        "org": 85,
+        "cafe": 85,
+        "gc": 85
+      },
+      "stage_name_counts": {
+        "org": 12,
+        "cafe": 12,
+        "gc": 12
+      },
+      "upgrade_name_counts": {
+        "org": 10,
+        "cafe": 10,
+        "gc": 10
+      }
+    },
+    "total_score": {
+      "org": [
+        {
+          "score": 0,
+          "holder": "練習モード"
+        },
+        {
+          "score": 5272,
+          "holder": "Biscuits0507"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        }
+      ],
+      "cafe": [
+        {
+          "score": 0,
+          "holder": "練習モード"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        }
+      ],
+      "gc": [
+        {
+          "score": 0,
+          "holder": "練習モード"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        },
+        {
+          "score": 0,
+          "holder": "None"
+        }
+      ]
+    },
+    "org_gameplay_deltas": {
+      "item_color_deltas": [
+        {
+          "path": "[247]",
+          "kr": "C",
+          "jp": "P"
+        },
+        {
+          "path": "[249]",
+          "kr": "C",
+          "jp": "P"
+        },
+        {
+          "path": "[251]",
+          "kr": "C",
+          "jp": "P"
+        }
+      ],
+      "menu_deltas": [
+        {
+          "table": "MENU_LIST",
+          "path": "[2]",
+          "kr": [
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            96
+          ],
+          "jp": [
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            96
+          ]
+        },
+        {
+          "table": "HAZARD_MENU_LIST",
+          "path": "[7]",
+          "kr": [
+            0,
+            190,
+            109,
+            110,
+            101,
+            102,
+            103,
+            120,
+            293,
+            145,
+            143
+          ],
+          "jp": [
+            0,
+            190,
+            109,
+            110,
+            101,
+            102,
+            103,
+            120,
+            293
+          ]
+        },
+        {
+          "table": "FRIDGE_LIST",
+          "path": "[7][1]",
+          "kr": 142,
+          "jp": 266
+        }
+      ],
+      "raw_recipe_deltas": [
+        {
+          "row": 150,
+          "kr": [
+            144,
+            246,
+            247
+          ],
+          "jp": [
+            246,
+            267,
+            247
+          ]
+        },
+        {
+          "row": 152,
+          "kr": [
+            144,
+            248,
+            249
+          ],
+          "jp": [
+            248,
+            267,
+            249
+          ]
+        },
+        {
+          "row": 154,
+          "kr": [
+            144,
+            250,
+            251
+          ],
+          "jp": [
+            250,
+            267,
+            251
+          ]
+        }
+      ],
+      "stage_code_deltas": [
+        {
+          "path": "[1][7][0]",
+          "kr": 4,
+          "jp": 6
+        },
+        {
+          "path": "[1][10][0]",
+          "kr": 4,
+          "jp": 6
+        },
+        {
+          "path": "[1][13][0]",
+          "kr": 4,
+          "jp": 6
+        }
+      ]
+    },
+    "scoreboard_layout_deltas": [
+      {
+        "label": "cooked/cut",
+        "kr_y": 2.2,
+        "jp_y": 2.4
+      },
+      {
+        "label": "served",
+        "kr_y": 2.0,
+        "jp_y": 2.2
+      },
+      {
+        "label": "missed",
+        "kr_y": 1.8,
+        "jp_y": 2.0
+      }
+    ],
+    "shared_release_fixes": [
+      {
+        "label": "practice edition selector count",
+        "base": "Global.totalScore[False] = (Global.totalScore[False] + True) % 5;",
+        "target": "Global.totalScore[False] = (Global.totalScore[False] + True) % 3;"
+      },
+      {
+        "label": "Sandevistan durability activation",
+        "base": "All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 10;",
+        "target": "All Players(Team 1)[Global.superDrink].durability = 100;"
+      },
+      {
+        "label": "Sandevistan durability restoration",
+        "base": "All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability * 10;",
+        "target": "All Players(Team 1)[Global.superDrink].durability = 1000;"
+      },
+      {
+        "label": "remove obsolete external Workshop-code branch"
+      }
+    ]
+  },
+  "translation": {
+    "inventory": 1560,
+    "translated": 317,
+    "unresolved": 0,
+    "allowlisted": 2,
+    "manual_global_entries": 65,
+    "manual_context_entries": 44,
+    "direct_source": {
+      "rules": 46,
+      "exact_rules": 35,
+      "literals": 134,
+      "local_context_literals": 255
+    },
+    "english_bridge_source": {
+      "rules": 47,
+      "exact_rules": 39,
+      "literals": 171,
+      "local_context_literals": 290
+    },
+    "output_overrides": 0,
+    "korean_only_messages_removed": 2
+  },
+  "rules": 57,
+  "globals": 128,
+  "subroutines": 40,
+  "custom_string_calls": 1560,
+  "kr_custom_string_calls": 1549,
+  "custom_string_call_delta": 11,
+  "array_call_delta": 0,
+  "remaining_unapproved_hangul": 0,
+  "forbidden_japanese_occurrences": 0,
+  "placeholder_mismatches": 0,
+  "color_markup_mismatches": 0,
+  "maximum_custom_string_literal": {
+    "rule": "Player: Spawn",
+    "ordinal": 5,
+    "characters": 128
+  },
+  "source_shape": {
+    "delimiter_balance": true,
+    "globals": 128,
+    "subroutines": 40,
+    "nested_mapped_arrays": 0
+  },
+  "structural_fingerprint_sha256": "E767AF2A36F1A198BDC0EE05D59ACF0FB256A0E90E4AC1137FEDF18DC3707EAC",
+  "kr_structural_fingerprint_sha256": "E767AF2A36F1A198BDC0EE05D59ACF0FB256A0E90E4AC1137FEDF18DC3707EAC",
+  "largest_rule": {
+    "name": "Dummy: Spawn",
+    "bytes": 37545
+  },
+  "rule_limit_bytes": 100352,
+  "output_data_assertions": {
+    "localized_table_checks": 9,
+    "org_item_color_changed_indices": [
+      247,
+      249,
+      251
+    ],
+    "org_menu_paths": [
+      "MENU_LIST[2]",
+      "HAZARD_MENU_LIST[7]",
+      "FRIDGE_LIST[7][1]"
+    ],
+    "org_raw_changed_rows": [
+      150,
+      152,
+      154
+    ],
+    "raw_mapper_wrappers_unchanged": true,
+    "org_stage_code_paths": [
+      "[1][7][0]",
+      "[1][10][0]",
+      "[1][13][0]"
+    ],
+    "cafe_gc_raw_unchanged": true,
+    "cafe_gc_stage_code_unchanged": true,
+    "total_score_rows": 18,
+    "total_score_verified": true,
+    "scoreboard_layout_verified": true
+  },
+  "sha256": "A9EF271750AF995154F7C3E7333501D7AE587BCF5BBB39317B1C755123CE4060",
+  "bytes": 392079,
+  "unresolved": 0,
+  "source_sha256": {
+    "kr_deluxe.ow": "8D69EDD520D98E3221B321C05123D06B68801E912C87792593AA0188DFACEAA0",
+    "en_deluxe.ow": "73996191AA905D0016C86E0B74CE64434FC3EDDD0CD4982F574BE7707CDDA113",
+    "jp.ow": "0057AB27B288DA83589E4392982105AD95491C190FEB78E082070A83CACF4413",
+    "scripts/jp_deluxe/item_name_translations.tsv": "ACE9797CBA69D1479F2221D724AFA92078C8F642863287CFB099EC4AC399D99A",
+    "scripts/jp_deluxe/item_name_translation_proposals.tsv": "AFAE9592B9F0FEF8300483FFF1C6FC52183B1472E3A112656BF9CF6E172160DD",
+    "scripts/jp_deluxe/localized_tables.tsv": "643253D6AA590A9CE4ECB3B7B5F2893A7F4865ED714C29CE7B5CF46BFD725FC0",
+    "scripts/jp_deluxe/manual_translations.tsv": "D821C82E998629655FCC338E57E84A2D14ADFF62F0772B02AA38F5B54F4ACEA0",
+    "scripts/jp_deluxe/legacy_context_remap.tsv": "5B3EC438067BDB8B988403FDAAF7ED04AF65AEE0A578F7631C345EB2DA00EFF1",
+    "scripts/jp_deluxe/output_overrides.tsv": "9455C10F1AE32DAA278B8171B4D0E2CD8C816C8B72FC9AAEC842F04BBF404CE4",
+    "scripts/jp_deluxe/build_jp_deluxe.py": "D38A218803F227C592C4F6914D811E0550A4005BF0FAB4F17991CE9E33FCEDC6"
+  }
+}

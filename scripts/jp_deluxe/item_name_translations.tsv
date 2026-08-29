@@ -1,0 +1,1340 @@
+edition	item_index	kr	en	jp
+ORG	0	탄 음식	Burnt Food	焦げ物
+ORG	1	양산형 칼	Butter Knife	安物のナイフ
+ORG	2	탄소강 칼	Carbon-Steel Knife	炭素鋼ナイフ
+ORG	3	휴대용 칼	Portable Knife	携帯ナイフ
+ORG	4	날카로운 칼	Sharp Knife	鋭いナイフ
+ORG	5	겐지의 단검	Genji's Dagger	ゲンジの脇差
+ORG	6	고급 부엌칼	Kitchen Knife	キッチンナイフ
+ORG	7	헤드셰프의 칼	Head Chef's Knife	ヘッドシェフの包丁
+ORG	8	에너지 드링크	Energy Drink	エナジードリンク
+ORG	9	싼데비슷한 드링크	Sandevistan	怪しいスタンド
+ORG	10	점프 부츠	Jump Boots	ジャンプブーツ
+ORG	11	조미료 팩	Seasoning Packets	調味料パック
+ORG	12	청소기	Vacuum	掃除機
+ORG	13	대시 부츠	Dash Boots	ダッシュブーツ
+ORG	14	텔레포트 스펠	Teleport Spell	テレポートスペル
+ORG	15	요리 복사 스펠	Food Dupe Spell	料理複製スペル
+ORG	16	토치	Gas Torch	ガストーチ
+ORG	17	서빙볼	ServingBall	サービングボール
+ORG	18	$100	$100	$100
+ORG	19	보존식 박스	Food Box	保存食ボックス
+ORG	20	냉각총	Freeze Gun	冷却銃
+ORG	21	녹인 치즈	Melted Cheese	とろけたチーズ
+ORG	22	로제 소스	Creamy Tomato Sauce	トマトクリームソース
+ORG	23	치즈 감자튀김	Cheese Fries	チーズポテト
+ORG	24	토마토 파스타	Tomato Pasta	トマトパスタ
+ORG	25	크림 파스타	Creamy Pasta	クリームパスタ
+ORG	26	로제 파스타	Creamy Tomato Pasta	トマトクリームパスタ
+ORG	27	로제치즈 파스타	Creamy Tomato Cheese Pasta	トマトクリームチーズパスタ
+ORG	28	크림치즈 파스타	Cream Cheese Pasta	クリームチーズパスタ
+ORG	29	크림치즈 소스	Cream Cheese Sauce	クリームチーズソース
+ORG	30	로제치즈 소스	Creamy Tomato Cheese Sauce	トマトクリームチーズソース
+ORG	31	생 패티	Raw Patty	生パティ
+ORG	32	익힌 패티	Cooked Patty	焼いたパティ
+ORG	33	양상추	Lettuce	レタス
+ORG	34	썬 양상추	Sliced Lettuce	薄切りレタス
+ORG	35	구운 양상추	Grilled Lettuce	焼いたレタス
+ORG	36	볶은 양상추	Stir-fried Lettuce	炒めたレタス
+ORG	37	햄버거 빵	Burger Bun	ハンバーガーバンズ
+ORG	38	아래 빵	Bottom Bun	下バンズ
+ORG	39	윗 빵	Top Bun	上バンズ
+ORG	40	빵+패티	B+P	バンズ＋パティ
+ORG	41	빵+치즈	B+C	バンズ＋チーズ
+ORG	42	빵+토마토	B+T	バンズ＋トマト
+ORG	43	빵+양상추	B+L	バンズ＋レタス
+ORG	44	빵+패티+치즈	B+P+C	バンズ＋パティ＋チーズ
+ORG	45	빵+패티+토마토	B+P+T	バンズ＋パティ＋トマト
+ORG	46	빵+패티+양상추	B+P+L	バンズ＋パティ＋レタス
+ORG	47	빵+치즈+토마토	B+C+T	バンズ＋チーズ＋トマト
+ORG	48	빵+치즈+양상추	B+C+L	バンズ＋チーズ＋レタス
+ORG	49	빵+토마토+양상추	B+T+L	バンズ＋トマト＋レタス
+ORG	50	빵+패+치+토	B+P+C+T	バンズ＋パティ＋チーズ＋トマト
+ORG	51	빵+패+치+양	B+P+C+L	バンズ＋パティ＋チーズ＋レタス
+ORG	52	빵+패+토+양	B+P+T+L	バンズ＋パティ＋トマト＋レタス
+ORG	53	빵+치+토+양	B+C+T+L	バンズ＋チーズ＋トマト＋レタス
+ORG	54	빵+패+치+토+양	B+P+C+T+L	バンズ＋パティ＋チーズ＋トマト＋レタス
+ORG	55	고기 버거	Hamburger	ミートバーガー
+ORG	56	치즈고기 버거	Cheeseburger	チーズミートバーガー
+ORG	57	야채 버거	Veggie Burger	ベジバーガー
+ORG	58	치즈야채 버거	Veggie CheeseBurger	チーズベジバーガー
+ORG	59	일반 버거	Deluxe Burger	デラックスバーガー
+ORG	60	치즈 버거	Cheese Deluxe Burger	チーズデラックスバーガー
+ORG	61	소고기	Beef	牛肉
+ORG	62	썬 소고기	Sliced Beef	薄切り牛肉
+ORG	63	스테이크	Steak	ステーキ
+ORG	64	찹스테이크	Steak Bites	ひとくちステーキ
+ORG	65	감자	Potato	ジャガイモ
+ORG	66	닭고기	Chicken	鶏肉
+ORG	67	썬 닭고기	Sliced Chicken	薄切り鶏肉
+ORG	68	조각낸 닭고기	Chopped Chicken	角切り鶏肉
+ORG	69	파	Green Onion	ネギ
+ORG	70	썬 파	Sliced Green Onion	薄切りネギ
+ORG	71	다진 파	Minced Green Onion	刻みネギ
+ORG	72	튀김가루	Frying Mix	天ぷら粉
+ORG	73	고추장	Red Pepper Paste	コチュジャン
+ORG	74	간장	Soy Sauce	醤油
+ORG	75	물엿	Corn Syrup	水飴
+ORG	76	고추장 소스	Red Pepper Sauce	コチュジャンソース
+ORG	77	간장 소스	Sweet Soy Sauce	醤油ソース
+ORG	78	파닭 소스	Green Onion+Soy Sauce	醤油ネギソース
+ORG	79	양념 소스	Sweet&Spicy Sauce	ヤンニョムソース
+ORG	80	구운 닭	Grilled Chicken	焼いた鶏肉
+ORG	81	닭+튀김가루	Chicken+Frying Mix	鶏肉＋天ぷら粉
+ORG	82	썬 닭+튀김가루	Sliced Chicken+Frying Mix	薄切り鶏肉＋天ぷら粉
+ORG	83	조각 닭+튀김가루	Chopped Chicken+Frying Mix	角切り鶏肉＋天ぷら粉
+ORG	84	튀긴 조각 닭	Chicken Nugget	から揚げ
+ORG	85	후라이드 치킨	Fried Chicken	フライドチキン
+ORG	86	양념치킨	Sweet&Spicy Chicken	ヤンニョムチキン
+ORG	87	고추장 치킨	Red Pepper Chicken	コチュジャンチキン
+ORG	88	간장 치킨	Sweet Soy Sauce Chicken	醤油チキン
+ORG	89	닭강정	Sweet&Spicy Chicken Nugget	ヤンニョムから揚げ
+ORG	90	통닭	Fried Whole Chicken	鶏の丸揚げ
+ORG	91	볶은 파	Stir-fried Green Onion	炒めたネギ
+ORG	92	튀긴 파	Fried Green Onion	揚げたネギ
+ORG	93	삶은 닭고기	Boiled Chicken	ゆで鶏肉
+ORG	94	구운 파	Grilled Green Onion	焼いたネギ
+ORG	95	튀김 부스러기	Frying Crumbs	天かす
+ORG	96	파닭	Green Onion Sweet Soy Sauce Chicken	醤油ネギチキン
+ORG	97	양념+튀긴 조각 닭	Raw S&S Chicken Nugget	生ヤンニョム＋から揚げ
+ORG	98	뭉갠 토마토	Mashed Tomato	潰したトマト
+ORG	99	깨진 달걀	Broken Egg	割れた卵
+ORG	100	달걀	Egg	卵
+ORG	101	삶은 달걀	Boiled Egg	ゆで卵
+ORG	102	깐 삶은 달걀	Peeled Boiled Egg	殻剥きゆで卵
+ORG	103	으깬 삶은 달걀	Mashed Boiled Egg	潰したゆで卵
+ORG	104	깐 달걀	Peeled Egg	殻剥き卵
+ORG	105	김치볶음밥	Kimchi Fried Rice	キムチチャーハン
+ORG	106	계란볶음밥	Egg Fried Rice	卵チャーハン
+ORG	107	불고기쌈밥	Bulgogi Wrap Rice	プルコギサムパプ
+ORG	108	섞인 달걀	Mixed Egg	溶き卵
+ORG	109	계란 후라이	Fried Egg	目玉焼き
+ORG	110	스크램블 에그	Scrambled Egg	スクランブルエッグ
+ORG	111	계란찜	Steamed Egg	茶碗蒸し
+ORG	112	쌀	Raw Rice	米
+ORG	113	피자 치즈	Shredded Mozzarella	ピザ用チーズ
+ORG	114	밀가루	Flour	小麦粉
+ORG	115	밀가루 반죽	Flour Dough	小麦粉生地
+ORG	116	작은 밀가루 반죽	Small Flour Dough	小さい小麦粉生地
+ORG	117	핀 밀가루 반죽	Rolled Flour Dough	伸ばした小麦粉生地
+ORG	118	만두피	Dumpling Wrapper	餃子の皮
+ORG	119	피자 도우	Flour Pizza Dough	ピザ生地
+ORG	120	밀 토르티야	Flour Tortilla	小麦トルティーヤ
+ORG	121	페퍼로니	Pepperoni	ペパロニ
+ORG	122	베이컨	Bacon	ベーコン
+ORG	123	구운 베이컨	Grilled Bacon	焼いたベーコン
+ORG	124	썬 베이컨	Sliced Bacon	薄切りしたベーコン
+ORG	125	도우+소스	Pizza Dough+Sauce	生地＋ソース
+ORG	126	치즈 피자	Mozzarella Pizza	チーズピザ
+ORG	127	피자 베이스	Pizza Base	ピザベース
+ORG	128	피자+페퍼로니	PB+Pepperoni	ピザ＋ペパロニ
+ORG	129	피자+베이컨	PB+Bacon	ピザ＋ベーコン
+ORG	130	피자+감자	PB+Potato	ピザ＋ジャガイモ
+ORG	131	피자+베이컨+감자	PB+Bacon+Potato	ピザ＋ベーコン＋ジャガイモ
+ORG	132	페퍼로니 피자	Pepperoni Pizza	ペパロニピザ
+ORG	133	베이컨 피자	Bacon Pizza	ベーコンピザ
+ORG	134	포테이토 피자	Potato Pizza	ポテトピザ
+ORG	135	베이컨 포테이토 피자	Bacon Potato Pizza	ベーコンポテトピザ
+ORG	136	계란말이	Rolled Omelette	卵焼き
+ORG	137	구운 페퍼로니	Grilled Pepperoni	焼いたペパロニ
+ORG	138	구운 썬 베이컨	Grilled Sliced Bacon	焼いた薄切りベーコン
+ORG	139	삶은 소고기	Boiled Beef	ゆで牛肉
+ORG	140	빵가루	Breadcrumbs	パン粉
+ORG	141	채썬 계란말이	Shredded Rolled Omelette	千切り卵焼き
+ORG	142	김치	Kimchi	キムチ
+ORG	143	썬 김치	Sliced Kimchi	薄切りキムチ
+ORG	144	다진 김치	Minced Kimchi	刻んだキムチ
+ORG	145	볶은 김치	Stir-fried Kimchi	炒めたキムチ
+ORG	146	계란김치볶음밥	Egg Kimchi Fried Rice	卵とキムチの炒飯
+ORG	147	두부	Tofu	豆腐
+ORG	148	썬 두부	Sliced Tofu	薄切り豆腐
+ORG	149	두부 구이	Grilled Tofu	焼き豆腐
+ORG	150	두부 볶음	Stir-fried Tofu	豆腐の炒め物
+ORG	151	으깬 두부	Mashed Tofu	潰した豆腐
+ORG	152	불고기덮밥	Bulgogi Rice Bowl	プルコギ丼
+ORG	153	김치불고기덮밥	Kimchi Bulgogi Rice Bowl	キムチプルコギ丼
+ORG	154	다진 소고기	Minced Beef	牛ひき肉
+ORG	155	썬 소고기+간장	Sliced Beef+Soy Sauce	薄切り牛肉＋醤油
+ORG	156	불고기	Bulgogi	プルコギ
+ORG	157	당면	Glass Noodles	春雨
+ORG	158	썬 당면	Sliced Glass Noodles	切った春雨
+ORG	159	돼지고기	Pork	ポーク
+ORG	160	썬 돼지고기	Sliced Pork	薄切りポーク
+ORG	161	다진 돼지고기	Minced Pork	ポークミンチ
+ORG	162	구운 돼지고기	Grilled Pork	焼いたポーク
+ORG	163	튀긴 돼지고기	Fried Pork	揚げたポーク
+ORG	164	수육	Boiled Pork	ボイルドポーク
+ORG	165	볶은 돼지고기	Stir-fried Pork	炒めたポーク
+ORG	166	썬 수육	Sliced Boiled Pork	薄切りボイルドポーク
+ORG	167	파+김치	G+K	ネギ＋キムチ
+ORG	168	파+두부	G+T	ネギ＋豆腐
+ORG	169	파+당면	G+N	ネギ＋春雨
+ORG	170	파+돼지	G+P	ネギ＋ポーク
+ORG	171	김치+당면	K+N	キムチ＋春雨
+ORG	172	김치+돼지	K+P	キムチ＋ポーク
+ORG	173	두부+당면	T+N	豆腐＋春雨
+ORG	174	두부+돼지	T+P	豆腐＋ポーク
+ORG	175	당면+돼지	N+P	春雨＋ポーク
+ORG	176	파+김+당	G+K+N	ネギ＋キムチ＋春雨
+ORG	177	파+김+돼	G+K+P	ネギ＋キムチ＋ポーク
+ORG	178	파+두+당	G+T+N	ネギ＋豆腐＋春雨
+ORG	179	파+두+돼	G+T+P	ネギ＋豆腐＋ポーク
+ORG	180	파+당+돼	G+N+P	ネギ＋春雨＋ポーク
+ORG	181	김+당+돼	K+N+P	キムチ＋春雨＋ポーク
+ORG	182	두+당+돼	T+N+P	豆腐＋春雨＋ポーク
+ORG	183	파+김+당+돼	G+K+N+P	ネギ＋キムチ＋春雨＋ポーク
+ORG	184	파+두+당+돼	G+T+N+P	ネギ＋豆腐＋春雨＋ポーク
+ORG	185	생 야채만두	Raw Vegetable Dumpling	生野菜餃子
+ORG	186	생 김치만두	Raw Kimchi Dumpling	生キムチ餃子
+ORG	187	생 고기만두	Raw Meat Dumpling	生肉餃子
+ORG	188	구운 야채만두	Stir-fried Vegetable Dumpling	焼き野菜餃子
+ORG	189	구운 김치만두	Stir-fried Kimchi Dumpling	焼きキムチ餃子
+ORG	190	구운 고기만두	Stir-fried Meat Dumpling	焼き肉餃子
+ORG	191	찐 야채만두	Steamed Vegetable Dumpling	蒸し野菜餃子
+ORG	192	찐 김치만두	Steamed Kimchi Dumpling	蒸しキムチ餃子
+ORG	193	찐 고기만두	Steamed Meat Dumpling	蒸し肉餃子
+ORG	194	공기밥	Steamed Rice	ご飯
+ORG	195	볶음밥	Fried Rice	炒飯
+ORG	196	돈가스	Pork Cutlet	とんかつ
+ORG	197	썬 돈가스	Sliced Pork Cutlet	切ったとんかつ
+ORG	198	생선	Fish	魚
+ORG	199	손질한 생선	Sliced Fish	捌いた魚
+ORG	200	다진 생선	Minced Fish	魚のミンチ
+ORG	201	찐 생선	Steamed Fish	蒸し魚
+ORG	202	찐 어묵	Steamed Fish Cake	蒸しかまぼこ
+ORG	203	생선 구이	Grilled Fish	焼き魚
+ORG	204	튀긴 생선	Fried Fish	揚げ魚
+ORG	205	손질한 생선+간장	Sliced Fish+Soy Sauce	捌いた魚＋醤油
+ORG	206	생선 간장 찜	Soy Sauce Steamed Fish	煮付け
+ORG	207	생선 간장 구이	Soy Sauce Grilled Fish	照り焼き
+ORG	208	작은 공기밥	Small Steamed Rice	小盛りご飯
+ORG	209	초밥	Sushi	握り寿司
+ORG	210	초밥 2pcs	Sushi 2pcs	握り寿司2貫
+ORG	211	주먹밥	Rice Ball	おにぎり
+ORG	212	간장 주먹밥	Soy Sauce Rice Ball	醤油おにぎり
+ORG	213	찐 생선 덮밥	Steamed Fish Rice Bowl	蒸し魚丼
+ORG	214	돈가스 정식	Pork Cutlet+Rice Bowl	とんかつ+ご飯
+ORG	215	돈가스 계란덮밥	Pork Cutlet+Egg Rice bowl	カツ丼
+ORG	216	썬 삶은 닭고기	Sliced Boiled Chicken	薄切りしたゆで鶏肉
+ORG	217	삶은 닭고기+밥	Boiled Chicken+Rice	ゆで鶏肉＋ご飯
+ORG	218	스크램블에그 덮밥	Scrambled Egg Rice Bowl	スクランブルエッグ丼
+ORG	219	삶은 닭 계란덮밥	Boiled Chicken+Egg Rice Bowl	親子丼
+ORG	220	생선가스	Fish Cutlet	白身魚のフライ
+ORG	221	썬 돼지+튀김가루	Sliced Pork+Frying Mix	薄切りポーク＋天ぷら粉
+ORG	222	다진 생선+튀김가루	Minced Fish+Frying Mix	魚のミンチ＋天ぷら粉
+ORG	223	튀긴 어묵	Fried Fish Cake	揚げかまぼこ
+ORG	224	손질한생선+튀김가루	Sliced Fish+Frying Mix	捌いた魚＋天ぷら粉
+ORG	225	튀긴 조각 닭+밥	Chicken Nugget+Rice Bowl	から揚げ+ご飯
+ORG	226	튀긴 닭 계란덮밥	Chicken Nugget+Egg Rice Bowl	唐揚げ丼
+ORG	227	작은 수제비 반죽	Small Hand-Torn Noodles	小さなすいとん生地
+ORG	228	수제비 반죽	Hand-Torn Noodles	すいとん生地
+ORG	229	밀가루 덩어리	Flour Chunk	小麦粉の塊
+ORG	230	늘린 밀가루 반죽	Stretched Flour Dough	伸ばした小麦粉生地
+ORG	231	밀가루 중면(1|4)	Raw Noodles (1|4)	うどん麺(1|4)
+ORG	232	밀가루 중면(2|4)	Raw Noodles (2|4)	うどん麺(2|4)
+ORG	233	밀가루 중면(3|4)	Raw Noodles (3|4)	うどん麺(3|4)
+ORG	234	밀가루 중면	Raw Noodles	うどん麺
+ORG	235	얇은 밀가루 덩어리	Thin Flour Chunk	薄い小麦粉の塊
+ORG	236	늘린 밀가루 가닥	Stretched Flour Strands	伸ばした小麦粉の紐
+ORG	237	밀가루 소면(1|4)	Raw Thin Noodles (1|4)	ラーメン麺(1|4)
+ORG	238	밀가루 소면(2|4)	Raw Thin Noodles (2|4)	ラーメン麺(2|4)
+ORG	239	밀가루 소면(3|4)	Raw Thin Noodles (3|4)	ラーメン麺(3|4)
+ORG	240	밀가루 소면	Raw Thin Noodles	ラーメン麺
+ORG	241	육수	Broth	出汁
+ORG	242	김치 육수	Kimchi Broth	キムチ出汁
+ORG	243	끓인 육수	Boiled Broth	煮出し
+ORG	244	끓인 김치 육수	Boiled Kimchi Broth	煮たキムチ出汁
+ORG	245	자장 소스	Black Bean Sauce	ジャージャーソース
+ORG	246	수제비	Hand-Torn Noodle Soup	すいとん
+ORG	247	김치수제비	Kimchi Hand-Torn Noodle Soup	鳴門巻きすいとん
+ORG	248	칼국수	Noodle Soup	うどん
+ORG	249	김치칼국수	Kimchi Noodle Soup	鳴門巻きうどん
+ORG	250	잔치국수	Thin Noodle Soup	ラーメン
+ORG	251	김치잔치국수	Kimchi Thin Noodle Soup	鳴門巻きラーメン
+ORG	252	자장면	Black Bean Noodle	ジャージャー麺
+ORG	253	썬 두부+김치	Sliced Tofu+Kimchi	薄切り豆腐＋キムチ
+ORG	254	두부 볶음+김치	Stir-fried Tofu+Kimchi	豆腐炒め＋キムチ
+ORG	255	삶은 밀가루 중면	Boiled Noodles	ゆでうどん麺
+ORG	256	삶은 밀가루 소면	Boiled Thin Noodles	ゆでラーメン麺
+ORG	257	삶은 수제비 반죽	Boiled Hand-Torn Noodles	ゆですいとん生地
+ORG	258	떡국용 떡	Rice Cake	お雑煮用の餅
+ORG	259	떡국	Rice Cake Soup	お雑煮
+ORG	260	만둣국	Dumpling Soup	水餃子
+ORG	261	떡만둣국	Rice Cake Dumpling Soup	餃子お雑煮
+ORG	262	계란 반죽	Egg Batter	卵生地
+ORG	263	고기 반죽	Meat Batter	肉の生地
+ORG	264	동그랑땡	Meatball	ミートボール
+ORG	265	썬 감자	Sliced Potato	薄切りジャガイモ
+ORG	266	회오리어묵	Narutomaki	鳴門巻き
+ORG	267	썬 회오리어묵	Sliced Narutomaki	薄切り鳴門巻き
+ORG	268	양파	Onion	玉ねぎ
+ORG	269	썬 양파	Sliced Onion	薄切り玉ねぎ
+ORG	270	다진 양파	Minced Onion	刻んだ玉ねぎ
+ORG	271	구운 양파	Grilled Onion	焼いた玉ねぎ
+ORG	272	볶은 양파	Stir-fried Onion	炒めた玉ねぎ
+ORG	273	새우	Shrimp	エビ
+ORG	274	구운 새우	Grilled Shrimp	焼いたエビ
+ORG	275	찐 새우	Steamed Shrimp	蒸しエビ
+ORG	276	핀 옥수수 반죽	Rolled Corn Dough	伸ばしたコーン生地
+ORG	277	옥수수 토르티야	Corn Tortilla	コーントルティーヤ
+ORG	278	돼지고기 타코(밀)	Pork Taco(Flour)	ポークタコス(小麦)
+ORG	279	돼지고기 타코(옥수수)	Pork Taco(Corn)	ポークタコス(コーン)
+ORG	280	소고기 타코(밀)	Beef Taco(Flour)	牛肉タコス(小麦)
+ORG	281	소고기 타코(옥수수)	Beef Taco(Corn)	牛肉タコス(コーン)
+ORG	282	구운 새우 타코(밀)	Grilled Shrimp Taco(Flour)	焼きエビタコス(小麦)
+ORG	283	구운 새우 타코(옥수수)	Grilled Shrimp Taco(Corn)	焼きエビタコス(コーン)
+ORG	284	찐 새우 타코(밀)	Steamed Shrimp Taco(Flour)	蒸しエビタコス(小麦)
+ORG	285	찐 새우 타코(옥수수)	Steamed Shrimp Taco(Corn)	蒸しエビタコス(コーン)
+ORG	286	돼지고기+양파	Pork+Onion	ポーク+玉ねぎ
+ORG	287	소고기+양파	Beef+Onion	牛肉+玉ねぎ
+ORG	288	구운 새우+양파	Grilled Shrimp+Onion	焼きエビ+玉ねぎ
+ORG	289	찐 새우+양파	Steamed Shrimp+Onion	蒸しエビ+玉ねぎ
+ORG	290	옥수수 반죽	Corn Dough	コーン生地
+ORG	291	튀긴 밀 토르티야	Fried Flour Tortilla	揚げた小麦粉トルティーヤ
+ORG	292	튀긴 옥수수 토르티야	Fried Corn Tortilla	揚げたコーントルティーヤ
+ORG	293	나초(밀)	Flour Nachos	ナチョス(小麦)
+ORG	294	나초(옥수수)	Corn Nachos	ナチョス(コーン)
+ORG	295	우유	Milk	ミルク
+ORG	296	아이스크림	Ice Cream	アイスクリーム
+ORG	297	바나나	Banana	バナナ
+ORG	298	초콜릿	Chocolate	チョコ
+ORG	299	딸기	Strawberry	イチゴ
+ORG	300	오렌지	Orange	オレンジ
+ORG	301	깐 바나나	Peeled Banana	むきバナナ
+ORG	302	조각낸 초콜릿	Chopped Chocolate	刻んだチョコ
+ORG	303	녹인 초콜릿	Melted Chocolate	溶かしたチョコ
+ORG	304	깐 오렌지	Peeled Orange	むきオレンジ
+ORG	305	뭉갠 오렌지	Mashed Orange	マッシュオレンジ
+ORG	306	뭉갠 딸기	Mashed Strawberry	マッシュイチゴ
+ORG	307	뭉갠 바나나	Mashed Banana	マッシュバナナ
+ORG	308	초코우유	Chocolate Milk	チョコミルク
+ORG	309	딸기+바나나	Strawberry+Banana	イチゴ+バナナ
+ORG	310	초코 파르페	Chocolate Parfait	チョコパフェ
+ORG	311	바나나 파르페	Banana Parfait	バナナパフェ
+ORG	312	오렌지 파르페	Orange Parfait	オレンジパフェ
+ORG	313	딸기 파르페	Strawberry Parfait	イチゴパフェ
+ORG	314	바나나 파르페+초콜릿	Banana Parfait+Chocolate	バナナパフェ+チョコ
+ORG	315	오렌지 파르페+초콜릿	Orange Parfait+Chocolate	オレンジパフェ+チョコ
+ORG	316	딸기 파르페+초콜릿	Strawberry Parfait+Chocolate	イチゴパフェ+チョコ
+ORG	317	바나나 파르페+오렌지	Banana Parfait+Orange	バナナパフェ+オレンジ
+ORG	318	바나나 파르페+딸기	Banana Parfait+Strawberry	バナナパフェ+イチゴ
+ORG	319	오렌지 파르페+딸기	Orange Parfait+Strawberry	オレンジパフェ+イチゴ
+ORG	320	바나나 파르페+초콜릿+오렌지	Banana Parfait+Chocolate+Orange	バナナパフェ+チョコ+オレンジ
+ORG	321	바나나 파르페+초콜릿+딸기	Banana Parfait+Chocolate+Strawberry	バナナパフェ+チョコ+イチゴ
+ORG	322	오렌지 파르페+초콜릿+딸기	Orange Parfait+Chocolate+Strawberry	オレンジパフェ+チョコ+イチゴ
+ORG	323	바나나 파르페+오렌지+딸기	Banana Parfait+Orange+Strawberry	バナナパフェ+オレンジ+イチゴ
+ORG	324	밀크 셰이크	Milkshake	ミルクシェイク
+ORG	325	딸기바나나셰이크	Strawberry Banana Shake	イチゴバナナシェイク
+ORG	326	딸기 셰이크	Strawberry Shake	イチゴシェイク
+ORG	327	오렌지 셰이크	Orange Shake	オレンジシェイク
+ORG	328	바나나 셰이크	Banana Shake	バナナシェイク
+ORG	329	초코 셰이크	Chocolate Shake	チョコシェイク
+ORG	330	초코바나나	Chocolate Banana	チョコバナナ
+ORG	331	디럭스 파르페	Deluxe Parfait	デラックスパフェ
+ORG	332	메이플 시럽	Maple Syrup	メープルシロップ
+ORG	333	초코시럽	Chocolate Syrup	チョコシロップ
+ORG	334	초코 반죽	Chocolate Batter	チョコ生地
+ORG	335	계란빵	Egg Bread	卵パン
+ORG	336	초코빵	Chocolate Bread	チョコパン
+ORG	337	핫케이크	Pancake	ホットケーキ
+ORG	338	핫케이크+베이컨	Pancake+Bacon	ホットケーキ+ベーコン
+ORG	339	핫케이크+스크램블에그	Pancake+Scrambled Eggs	ホットケーキ+スクランブルエッグ
+ORG	340	초코시럽핫케이크	Chocolate Syrup Pancake	チョコシロップホットケーキ
+ORG	341	초코시럽핫케이크+베이컨	Chocolate Syrup Pancake+Bacon	チョコシロップホットケーキ+ベーコン
+ORG	342	초코시럽핫케이크+스크램블에그	Chocolate Syrup Pancake+Scrambled Eggs	チョコシロップホットケーキ+スクランブルエッグ
+ORG	343	초코핫케이크	Chocolate Pancake	チョコホットケーキ
+ORG	344	초코핫케이크+베이컨	Chocolate Pancake+Bacon	チョコホットケーキ+ベーコン
+ORG	345	초코핫케이크+스크램블에그	Chocolate Pancake+Scrambled Eggs	チョコホットケーキ+スクランブルエッグ
+ORG	346	초코초코핫케이크	Double Chocolate Pancake	チョコチョコホットケーキ
+ORG	347	초코초코핫케이크+베이컨	Double Chocolate Pancake+Bacon	チョコチョコホットケーキ+ベーコン
+ORG	348	초코초코핫케이크+스크램블에그	Double Chocolate Pancake+Scrambled Eggs	チョコチョコホットケーキ+スクランブルエッグ
+ORG	349	딸기핫케이크	Strawberry Pancake	イチゴホットケーキ
+ORG	350	딸기핫케이크+베이컨	Strawberry Pancake+Bacon	イチゴホットケーキ+ベーコン
+ORG	351	딸기핫케이크+스크램블에그	Strawberry Pancake+Scrambled Eggs	イチゴホットケーキ+スクランブルエッグ
+ORG	352	구운 감자	Grilled Potato	焼きジャガイモ
+ORG	353	찐 감자	Steamed Potato	蒸しジャガイモ
+ORG	354	감자튀김	French Fries	フライドポテト
+ORG	355	으깬 감자	Mashed Potato	マッシュポテト
+ORG	356	볶은 감자	Stir-fried Potato	炒めジャガイモ
+ORG	357	파스타	Pasta	パスタ
+ORG	358	삶은 파스타	Boiled Pasta	ゆでパスタ
+ORG	359	토마토	Tomato	トマト
+ORG	360	썬 토마토	Sliced Tomato	薄切りトマト
+ORG	361	구운 토마토	Grilled Tomato	焼きトマト
+ORG	362	도넛	Donut	ドーナツ
+ORG	363	초코도넛	Choco Donut	チョコドーナツ
+ORG	364	양고기	Lamb	ラム肉
+ORG	365	썬 양고기	Sliced Lamb	薄切りラム肉
+ORG	366	다진 양고기	Minced Lamb	ラムひき肉
+ORG	367	양고기 구이	Lamb Roast	焼いたラム肉
+ORG	368	구운 썬 양고기	Grilled Sliced Lamb	焼いた薄切りラム肉
+ORG	369	스테이크 소스	Steak Sauce	ステーキソース
+ORG	370	버섯	Mushroom	マッシュルーム
+ORG	371	썬 버섯	Sliced Mushroom	薄切りマッシュルーム
+ORG	372	구운 버섯	Grilled Mushroom	焼きマッシュルーム
+ORG	373	배추	Cabbage	白菜
+ORG	374	썬 배추	Sliced Cabbage	薄切り白菜
+ORG	375	스테이크+소스	Steak with Sauce	ステーキ＋ソース
+ORG	376	돼지고기+스테이크 소스	Pork+Steak Sauce	ポーク＋ステーキソース
+ORG	377	폭립	Spare Ribs	スペアリブ
+ORG	378	숙성 삼겹살	Aged Pork Belly	熟成ポークバラ
+ORG	379	양파+버섯	Onion+Mushroom	玉ねぎ＋マッシュルーム
+ORG	380	양파+배추	Onion+Cabbage	玉ねぎ＋白菜
+ORG	381	버섯+배추	Mushroom+Cabbage	マッシュルーム＋白菜
+ORG	382	양파+버섯+배추	Onion+Mushroom+Cabbage	玉ねぎ＋マッシュルーム＋白菜
+ORG	383	야채 육수	Vegetable Broth	野菜出汁
+ORG	384	샤브샤브	Shabu-Shabu	しゃぶしゃぶ
+ORG	385	훠궈	Chinese Hotpot	中華火鍋
+ORG	386	조개	Clam	貝
+ORG	387	볶은 조개	Stir-fried Clams	炒めた貝
+ORG	388	파인애플	Pineapple	パイナップル
+ORG	389	썬 파인애플	Sliced Pineapple	薄切りパイナップル
+ORG	390	피자+파인애플	Pizza+Pineapple	ピザ＋パイナップル
+ORG	391	파인애플 피자	Pineapple Pizza	パイナップルピザ
+ORG	392	빵+치킨	B+Chicken	バンズ＋チキン
+ORG	393	치킨 버거	Chicken Burger	チキンバーガー
+ORG	394	썬 소고기+양념소스	Sliced Beef+Sweet&Spicy Sauce	薄切り牛肉＋ヤンニョムソース
+ORG	395	양념 불고기	Sweet&Spicy Bulgogi	ヤンニョムプルコギ
+ORG	396	구운 간장 주먹밥	Grilled Soy Sauce Rice Ball	焼きおにぎり
+ORG	397	쌀국수 면	Rice Noodles	ライスヌードル
+ORG	398	삶은 쌀국수 면	Boiled Rice Noodles	ゆでライスヌードル
+ORG	399	볶은 닭	Stir-fried Chicken	炒めた鶏肉
+ORG	400	닭+양파	Chicken+Onion	チキン＋玉ねぎ
+ORG	401	양고기+양파	Lamb+Onion	ラム肉＋玉ねぎ
+ORG	402	민트초코파르페	Mint Choco Parfait	チョコミントパフェ
+ORG	403	민트초코셰이크	Mint Choco Shake	チョコミントシェイク
+ORG	404	민트 시럽	Mint Syrup	ミントシロップ
+ORG	405	찹쌀	Glutinous Rice	もち米
+ORG	406	호떡 반죽	Hotteok Dough	ホットク生地
+ORG	407	호떡	Hotteok	ホットク
+ORG	408	쌀국수	Rice Noodle Soup	ライスヌードルスープ
+ORG	409	치킨 타코(밀)	Chicken Taco(Flour)	チキンタコス(小麦)
+ORG	410	양고기 타코(밀)	Lamb Taco(Flour)	ラムタコス(小麦)
+ORG	411	봉골레 파스타	Vongole Pasta	ヴォンゴレパスタ
+ORG	412	크림 치킨	Creamy Chicken	クリームチキン
+ORG	413	딸기탕후루	Strawberry Tanghulu	イチゴ飴がけ串
+ORG	414	파+두+당+새	G+T+N+S	ネギ＋豆腐＋春雨＋エビ
+ORG	415	생 새우만두	Raw Shrimp Dumpling	生エビ餃子
+ORG	416	찐 새우만두	Steamed Shrimp Dumpling	蒸しエビ餃子
+ORG	417	구운 새우만두	Stir-Fried Shrimp Dumpling	焼きエビ餃子
+ORG	418	보쌈	Boiled Pork Wrap	ポッサム
+ORG	419	와인	Wine	ワイン
+ORG	420	녹인 치즈 팩	Melted Cheese Pack	とろけたチーズパック
+ORG	421	후라이드 치킨 팩	Fried Chicken Pack	フライドチキンパック
+ORG	422	피자 베이스 팩	Pizza Base Pack	ピザベースパック
+ORG	423	만두 팩	Dumpling Pack	餃子パック
+ORG	424	패티 팩	Patty Pack	パティパック
+ORG	425	불고기 팩	Bulgogi Pack	プルコギパック
+ORG	426	모듬회밥 팩	Rice Bowl Pack	丼物パック
+ORG	427	소면 팩	Noodle Pack	麺パック
+ORG	428	타코 베이스 팩	Taco Base Pack	タコベースパック
+ORG	429	녹인 초코 팩	Melted Chocolate Pack	溶かしたチョコパック
+ORG	430	빵 세트	Bread Set	パンセット
+ORG	431	고기 팩	Meat Pack	ミートパック
+ORG	432	크림 소스	Cream Sauce	クリームソース
+ORG	433	치즈	Cheese	チーズ
+ORG	434	토마토 소스	Tomato Sauce	トマトソース
+ORG	435	명란젓 소스	Spicy Cod Roe Sauce	明太子ソース
+ORG	436	명란크림 소스	Spicy Cod Roe Cream Sauce	明太子クリームソース
+ORG	437	명란크림 파스타	Mentaiko Pasta	明太子クリームパスタ
+ORG	438	스테이크 파스타	Steak Pasta	ステーキスパゲッティ
+ORG	439	핫소스	Chili Sauce	チリソース
+ORG	440	불닭 소스	Fire Chicken Sauce	プルダックソース
+ORG	441	불닭	Fire Chicken	プルダック
+ORG	442	버팔로 윙	Buffalo Wings	バッファローウィング
+ORG	443	불고기 피자	Bulgogi Pizza	プルコギピザ
+ORG	444	피자+불고기	PB+Bulgogi	ピザ＋プルコギ
+ORG	445	피자+새우	PB+Shrimp	ピザ＋エビ
+ORG	446	새우 피자	Shrimp Pizza	エビピザ
+ORG	447	생 고기만두+육수	Raw Meat Dumpling+Soup	生肉餃子＋出汁
+ORG	448	샤오롱바오	Xiaolongbao	小籠包
+ORG	449	빵+베이컨	B+Ba	バンズ＋ベーコン
+ORG	450	빵+패+베	B+P+Ba	バンズ＋パティ＋ベーコン
+ORG	451	빵+베+치	B+Ba+C	バンズ＋ベーコン＋チーズ
+ORG	452	빵+패+베+치	B+P+Ba+C	バンズ＋パティ＋ベーコン＋チーズ
+ORG	453	베이컨치즈버거	Bacon Cheeseburger	ベーコンチーズバーガー
+ORG	454	썬 돼지+양념소스	Sliced Pork + Sweet&Spicy Sauce	薄切りポーク＋ヤンニョムソース
+ORG	455	제육볶음	Spicy Pork	ジェユクポックム
+ORG	456	제육덮밥	Spicy Pork Rice Bowl	ジェユク丼
+ORG	457	제육덮밥+계란	Spicy Pork Rice Bowl with Egg	ジェユク丼＋卵
+ORG	458	새우+튀김가루	Shrimp+Frying Mix	エビ+天ぷら粉
+ORG	459	김	Seaweed	海苔
+ORG	460	김+튀김가루	Seaweed+Frying Mix	海苔＋天ぷら粉
+ORG	461	튀긴 김	Fried Seaweed	揚げた海苔
+ORG	462	튀긴 새우	Fried Shrimp	揚げたエビ
+ORG	463	튀긴 새우+김	Fried Shrimp+Seaweed	揚げたエビ＋海苔
+ORG	464	튀긴 새우 덮밥	Tempura Rice Bowl	天丼
+ORG	465	군함말이초밥	Gunkan Maki Sushi	軍艦巻き
+ORG	466	피시앤칩스	Fish and Chips	フィッシュ・アンド・チップス
+ORG	467	불닭소스+면	Fire Chicken Sauce+Noodles	プルダックソース＋麺
+ORG	468	불닭볶음면	Fire Noodle	プルダックポックンミョン
+ORG	469	치킨 부리토(밀)	Chicken Burrito(Flour)	チキンブリトー（小麦）
+ORG	470	치킨 부리토(옥수수)	Chicken Burrito(Corn)	チキンブリトー（コーン）
+ORG	471	썬 파+반죽	Green Onion Pancake Batter	葱チヂミ生地
+ORG	472	썬 김치+반죽	Kimchi Pancake Batter	キムチチヂミ生地
+ORG	473	파전	Green Onion Pancake	ネギチヂミ
+ORG	474	김치전	Kimchi Pancake	キムチチヂミ
+ORG	475	슬라이스 치즈	Sliced Cheese	薄切りチーズ
+CAFE	0	탄 음식	Burnt Food	焦げ物
+CAFE	1	양산형 칼	Butter Knife	安物のナイフ
+CAFE	2	탄소강 칼	Carbon-Steel Knife	炭素鋼ナイフ
+CAFE	3	휴대용 칼	Portable Knife	携帯ナイフ
+CAFE	4	날카로운 칼	Sharp Knife	鋭いナイフ
+CAFE	5	겐지의 단검	Genji's Dagger	ゲンジの脇差
+CAFE	6	고급 부엌칼	Kitchen Knife	キッチンナイフ
+CAFE	7	헤드셰프의 칼	Head Chef's Knife	ヘッドシェフの包丁
+CAFE	8	에너지 드링크	Energy Drink	エナジードリンク
+CAFE	9	싼데비슷한 드링크	Sandevistan	怪しいスタンド
+CAFE	10	점프 부츠	Jump Boots	ジャンプブーツ
+CAFE	11	조미료 팩	Seasoning Packets	調味料パック
+CAFE	12	청소기	Vacuum	掃除機
+CAFE	13	대시 부츠	Dash Boots	ダッシュブーツ
+CAFE	14	텔레포트 스펠	Teleport Spell	テレポートスペル
+CAFE	15	요리 복사 스펠	Food Dupe Spell	料理複製スペル
+CAFE	16	토치	Gas Torch	ガストーチ
+CAFE	17	서빙볼	ServingBall	サービングボール
+CAFE	18	$100	$100	$100
+CAFE	19	보존식 박스	Food Box	保存食ボックス
+CAFE	20	냉각총	Freeze Gun	冷却銃
+CAFE	21	원두	Coffee Beans	コーヒー豆
+CAFE	22	커피가루	Ground Coffee	コーヒー粉
+CAFE	23	에스프레소	Espresso	エスプレッソ
+CAFE	24	아메리카노	Americano	アメリカーノ
+CAFE	25	아메리카노(아이스)	Iced Americano	アイスアメリカーノ
+CAFE	26	우유	Milk	ミルク
+CAFE	27	스팀 밀크	Steamed Milk	スチームミルク
+CAFE	28	카페 라떼	Latte	カフェラテ
+CAFE	29	카페 라떼(아이스)	Iced Latte	アイスカフェラテ
+CAFE	30	바닐라 시럽	Vanilla Syrup	バニラシロップ
+CAFE	31	바닐라 라떼	Vanilla Latte	バニララテ
+CAFE	32	바닐라 라떼(아이스)	Iced Vanilla Latte	アイスバニララテ
+CAFE	33	카라멜 시럽	Caramel Syrup	キャラメルシロップ
+CAFE	34	카라멜 마키아토	Caramel Macchiato	キャラメルマキアート
+CAFE	35	카라멜 마키아토(아이스)	Iced Caramel Macchiato	アイスキャラメルマキアート
+CAFE	36	초코 시럽	Chocolate Syrup	チョコシロップ
+CAFE	37	카페 모카	Mocha	カフェモカ
+CAFE	38	카페 모카(아이스)	Iced Mocha	アイスカフェモカ
+CAFE	39	커피 프라페	Coffee Frappe	コーヒーフラッペ
+CAFE	40	얼린 우유	Frozen Milk	冷凍ミルク
+CAFE	41	빙수 베이스	Shaved Ice Base	かき氷ベース
+CAFE	42	단팥	Sweet Red Beans	あんこ
+CAFE	43	팥빙수	Red Bean Shaved Ice	パッピンス
+CAFE	44	콩가루	Soybean Powder	きな粉
+CAFE	45	인절미 빙수	Injeolmi Shaved Ice	インジョルミピンス
+CAFE	46	팥절미 빙수	Red Bean Injeolmi Shaved Ice	インジョルミパッピンス
+CAFE	47	딸기	Strawberry	イチゴ
+CAFE	48	썬 딸기	Sliced Strawberry	薄切りイチゴ
+CAFE	49	딸기 빙수	Strawberry Shaved Ice	イチゴかき氷
+CAFE	50	초코 빙수	Chocolate Shaved Ice	チョコかき氷
+CAFE	51	딸기초코 빙수	Strawberry Chocolate Shaved Ice	イチゴチョコかき氷
+CAFE	52	녹차가루	Matcha Powder	抹茶パウダー
+CAFE	53	녹차 빙수	Matcha Shaved Ice	抹茶かき氷
+CAFE	54	녹차 팥빙수	Matcha Red Bean Shaved Ice	抹茶あんこかき氷
+CAFE	55	녹차초코 빙수	Matcha Chocolate Shaved Ice	抹茶チョコかき氷
+CAFE	56	초콜릿	Chocolate	チョコ
+CAFE	57	초콜릿 칩	Chocolate Chips	チョコチップ
+CAFE	58	녹인 초콜릿	Melted Chocolate	溶かしたチョコ
+CAFE	59	초코우유	Chocolate Milk	チョコミルク
+CAFE	60	민트 시럽	Mint Syrup	ミントシロップ
+CAFE	61	민트초코우유	Mint Chocolate Milk	チョコミントミルク
+CAFE	62	쿠키 반죽	Cookie Dough	クッキー生地
+CAFE	63	쿠키	Cookie	クッキー
+CAFE	64	초코칩 쿠키 반죽	Chocolate Chip Cookie Dough	チョコチップクッキー生地
+CAFE	65	초코칩 쿠키	Chocolate Chip Cookie	チョコチップクッキー
+CAFE	66	초코 쿠키 반죽	Chocolate Cookie Dough	チョコクッキー生地
+CAFE	67	초코 쿠키	Chocolate Cookie	チョコクッキー
+CAFE	68	아몬드	Almond	アーモンド
+CAFE	69	아몬드 슬라이스	Sliced Almonds	薄切りアーモンド
+CAFE	70	구운 아몬드	Roasted Almonds	ローストアーモンド
+CAFE	71	아몬드 초콜릿	Almond Chocolate	アーモンドチョコ
+CAFE	72	통 아몬드 쿠키 반죽	Whole Almond Cookie Dough	丸ごとアーモンドクッキー生地
+CAFE	73	통 아몬드 쿠키	Whole Almond Cookie	丸ごとアーモンドクッキー
+CAFE	74	아몬드 쿠키 반죽	Almond Cookie Dough	アーモンドクッキー生地
+CAFE	75	아몬드 쿠키	Almond Cookie	アーモンドクッキー
+CAFE	76	아몬드 초코칩 쿠키 반죽	Almond Choco Chip Cookie Dough	アーモンドチョコチップクッキー生地
+CAFE	77	아몬드 초코칩 쿠키	Almond Choco Chip Cookie	アーモンドチョコチップクッキー
+CAFE	78	아이스 초코	Iced Chocolate	アイスチョコ
+CAFE	79	초코 프라페	Chocolate Frappe	チョコフラッペ
+CAFE	80	아이스 민트초코	Iced Mint Chocolate	アイスチョコミント
+CAFE	81	민트초코 프라페	Mint Chocolate Frappe	チョコミントフラッペ
+CAFE	82	늘린 빵 반죽	Stretched Bread Dough	伸ばしたパン生地
+CAFE	83	베이글 반죽	Bagel Dough	ベーグル生地
+CAFE	84	베이글	Bagel	ベーグル
+CAFE	85	설탕	Sugar	砂糖
+CAFE	86	녹인 설탕	Melted Sugar	溶かした砂糖
+CAFE	87	호떡 반죽	Hotteok Batter	ホットク生地
+CAFE	88	호떡	Hotteok	ホットク
+CAFE	89	도넛	Donut	ドーナツ
+CAFE	90	설탕 도넛	Sugar Donut	砂糖ドーナツ
+CAFE	91	글레이즈 도넛	Glazed Donut	グレーズドドーナツ
+CAFE	92	으깬 딸기	Mashed Strawberry	マッシュイチゴ
+CAFE	93	딸기+설탕	Strawberry+Sugar	イチゴ＋砂糖
+CAFE	94	딸기잼	Strawberry Jam	イチゴジャム
+CAFE	95	딸기잼 도넛	Strawberry Jam Donut	イチゴジャムドーナツ
+CAFE	96	초코 도넛	Choco Donut	チョコドーナツ
+CAFE	97	생크림	Whipped Cream	生クリーム
+CAFE	98	생크림 도넛	Whipped Cream Donut	生クリームドーナツ
+CAFE	99	딸기크림	Strawberry Cream	イチゴクリーム
+CAFE	100	딸기크림 도넛	Strawberry Cream Donut	イチゴクリームドーナツ
+CAFE	101	초코크림	Chocolate Cream	チョコクリーム
+CAFE	102	초코크림 도넛	Chocolate Cream Donut	チョコクリームドーナツ
+CAFE	103	녹차크림	Matcha Cream	抹茶クリーム
+CAFE	104	녹차크림 도넛	Matcha Cream Donut	抹茶クリームドーナツ
+CAFE	105	찻잎	Tea Leaves	茶葉
+CAFE	106	찻잎+물	Matcha+Water	抹茶＋水
+CAFE	107	녹차	Matcha	抹茶
+CAFE	108	우롱차 잎	Oolong Tea Leaves	ウーロン茶葉
+CAFE	109	우롱차 잎+물	Oolong Tea Leaves+Water	ウーロン茶葉＋水
+CAFE	110	우롱차	Oolong Tea	ウーロン茶
+CAFE	111	비빈 찻잎	Brewed Tea Leaves	抽出済み茶葉
+CAFE	112	홍차 잎	Black Tea Leaves	紅茶葉
+CAFE	113	홍차 잎+물	Black Tea Leaves+Water	紅茶葉＋水
+CAFE	114	홍차	Black Tea	紅茶
+CAFE	115	허브	Herbs	ハーブ
+CAFE	116	말린 허브	Dried Herbs	乾燥ハーブ
+CAFE	117	허브+물	Herbs+Water	ハーブ＋水
+CAFE	118	허브티	Herbal Tea	ハーブティー
+CAFE	119	아이스티	Iced Tea	アイスティー
+CAFE	120	우유+설탕	Milk+Sugar	ミルク＋砂糖
+CAFE	121	끓인 물	Boiled Water	お湯
+CAFE	122	흑당 펄	Brown Sugar Pearls	黒糖タピオカ
+CAFE	123	밀크티	Milk Tea	ミルクティー
+CAFE	124	녹차 밀크티	Matcha Milk Tea	抹茶ミルクティー
+CAFE	125	우롱 밀크티	Oolong Milk Tea	ウーロンミルクティー
+CAFE	126	허브 밀크티	Herbal Milk Tea	ハーブミルクティー
+CAFE	127	타피오카 펄	Tapioca Pearls	タピオカ
+CAFE	128	삶은 펄	Cooked Tapioca Pearls	ゆでタピオカ
+CAFE	129	버블티	Bubble Tea	タピオカティー
+CAFE	130	녹차 버블티	Matcha Bubble Tea	抹茶タピオカティー
+CAFE	131	우롱 버블티	Oolong Bubble Tea	ウーロンタピオカティー
+CAFE	132	허브 버블티	Herbal Bubble Tea	ハーブタピオカティー
+CAFE	133	설탕물	Sugar Water	砂糖水
+CAFE	134	설탕 시럽	Sugar Syrup	砂糖シロップ
+CAFE	135	흑당 밀크티	Brown Sugar Milk Tea	黒糖ミルクティー
+CAFE	136	흑당 버블티	Brown Sugar Bubble Tea	黒糖タピオカティー
+CAFE	137	아몬드 가루	Almond Flour	アーモンドパウダー
+CAFE	138	달걀	Egg	卵
+CAFE	139	깐 달걀	Peeled Egg	殻剥き卵
+CAFE	140	흰자	Egg White	卵白
+CAFE	141	노른자	Egg Yolk	卵黄
+CAFE	142	섞인 달걀	Mixed Egg	溶き卵
+CAFE	143	버터	Butter	バター
+CAFE	144	으깬 버터	Mashed Butter	潰したバター
+CAFE	145	커스터드 크림	Custard Cream	カスタードクリーム
+CAFE	146	푸딩	Pudding	プリン
+CAFE	147	크림 브륄레	Crème Brûlée	クレームブリュレ
+CAFE	148	버터 필링	Butter Filling	バターフィリング
+CAFE	149	녹차 필링	Matcha Filling	抹茶フィリング
+CAFE	150	홍차가루	Black Tea Powder	紅茶パウダー
+CAFE	151	얼그레이 필링	Earl Grey Filling	アールグレイフィリング
+CAFE	152	흰자+설탕	Egg White+Sugar	卵白＋砂糖
+CAFE	153	머랭	Meringue	メレンゲ
+CAFE	154	머랭 쿠키	Meringue Cookie	メレンゲクッキー
+CAFE	155	마카롱 반죽	Macaron Batter	マカロン生地
+CAFE	156	마카롱 꼬끄	Macaron Shells	マカロンコック
+CAFE	157	마카롱	Macaron	マカロン
+CAFE	158	녹차 마카롱	Matcha Macaron	抹茶マカロン
+CAFE	159	얼그레이 마카롱	Earl Grey Macaron	アールグレイマカロン
+CAFE	160	수플레 반죽	Soufflé Batter	スフレ生地
+CAFE	161	수플레 팬케이크	Soufflé Pancake	スフレパンケーキ
+CAFE	162	크림화 버터	Creamed Butter	クリーム状バター
+CAFE	163	버터+노른자	Butter+Egg Yolk	バター＋卵黄
+CAFE	164	계란 쿠키 반죽	Egg Cookie Dough	卵クッキー生地
+CAFE	165	계란 쿠키	Egg Cookie	卵クッキー
+CAFE	166	얼린 딸기	Frozen Strawberry	冷凍イチゴ
+CAFE	167	딸기 주스	Strawberry Juice	イチゴジュース
+CAFE	168	블루베리	Blueberry	ブルーベリー
+CAFE	169	얼린 블루베리	Frozen Blueberry	冷凍ブルーベリー
+CAFE	170	블루베리 주스	Blueberry Juice	ブルーベリージュース
+CAFE	171	망고	Mango	マンゴー
+CAFE	172	썬 망고	Sliced Mango	薄切りマンゴー
+CAFE	173	얼린 망고	Frozen Mango	冷凍マンゴー
+CAFE	174	망고 주스	Mango Juice	マンゴージュース
+CAFE	175	바나나	Banana	バナナ
+CAFE	176	깐 바나나	Peeled Banana	むきバナナ
+CAFE	177	얼린 바나나	Frozen Banana	冷凍バナナ
+CAFE	178	요거트 가루	Yogurt Powder	ヨーグルトパウダー
+CAFE	179	요거트+우유	Yogurt+Milk	ヨーグルト＋ミルク
+CAFE	180	딸기+우유	Strawberry+Milk	イチゴ＋ミルク
+CAFE	181	딸기 스무디	Strawberry Smoothie	イチゴスムージー
+CAFE	182	블루베리+우유	Blueberry+Milk	ブルーベリー＋ミルク
+CAFE	183	블루베리 스무디	Blueberry Smoothie	ブルーベリースムージー
+CAFE	184	망고+우유	Mango+Milk	マンゴー＋ミルク
+CAFE	185	망고 스무디	Mango Smoothie	マンゴースムージー
+CAFE	186	바나나+우유	Banana+Milk	バナナ＋ミルク
+CAFE	187	딸기+바나나+우유	Strawberry+Banana+Milk	イチゴ＋バナナ＋ミルク
+CAFE	188	딸기바나나 스무디	Strawberry Banana Smoothie	イチゴバナナスムージー
+CAFE	189	망고+바나나+우유	Mango+Banana+Milk	マンゴー＋バナナ＋ミルク
+CAFE	190	망고바나나 스무디	Mango Banana Smoothie	マンゴーバナナスムージー
+CAFE	191	딸기+블루베리+우유	Strawberry+Blueberry+Milk	イチゴ＋ブルーベリー＋ミルク
+CAFE	192	베리베리 스무디	Mixed Berry Smoothie	ミックスベリースムージー
+CAFE	193	딸기+요거트	Strawberry+Yogurt	イチゴ＋ヨーグルト
+CAFE	194	딸기 요거트 스무디	Strawberry Yogurt Smoothie	イチゴヨーグルトスムージー
+CAFE	195	블루베리+요거트	Blueberry+Yogurt	ブルーベリー＋ヨーグルト
+CAFE	196	블루베리 요거트 스무디	Blueberry Yogurt Smoothie	ブルーベリーヨーグルトスムージー
+CAFE	197	망고+요거트	Mango+Yogurt	マンゴー＋ヨーグルト
+CAFE	198	망고 요거트 스무디	Mango Yogurt Smoothie	マンゴーヨーグルトスムージー
+CAFE	199	딸기+바나나+요거트	Strawberry+Banana+Yogurt	イチゴ＋バナナ＋ヨーグルト
+CAFE	200	딸기바나나 요거트 스무디	Strawberry Banana Yogurt Smoothie	イチゴバナナヨーグルトスムージー
+CAFE	201	망고+바나나+요거트	Mango+Banana+Yogurt	マンゴー＋バナナ＋ヨーグルト
+CAFE	202	망고바나나 요거트 스무디	Mango Banana Yogurt Smoothie	マンゴーバナナヨーグルトスムージー
+CAFE	203	딸기+블루베리+요거트	Strawberry+Blueberry+Yogurt	イチゴ＋ブルーベリー＋ヨーグルト
+CAFE	204	베리베리 요거트 스무디	Mixed Berry Yogurt Smoothie	ミックスベリーヨーグルトスムージー
+CAFE	205	요거트 아이스크림	Yogurt Ice Cream	ヨーグルトアイス
+CAFE	206	딸기 요거트 아이스크림	Strawberry Yogurt Ice Cream	イチゴヨーグルトアイス
+CAFE	207	블루베리 요거트 아이스크림	Blueberry Yogurt Ice Cream	ブルーベリーヨーグルトアイス
+CAFE	208	망고 요거트 아이스크림	Mango Yogurt Ice Cream	マンゴーヨーグルトアイス
+CAFE	209	바나나+요거트	Banana+Yogurt	バナナ＋ヨーグルト
+CAFE	210	바나나 요거트 아이스크림	Banana Yogurt Ice Cream	バナナヨーグルトアイス
+CAFE	211	빵 반죽	Bread Dough	パン生地
+CAFE	212	토마토	Tomato	トマト
+CAFE	213	썬 토마토	Sliced Tomato	薄切りトマト
+CAFE	214	으깬 토마토	Mashed Tomato	潰したトマト
+CAFE	215	토마토 소스	Tomato Sauce	トマトソース
+CAFE	216	치즈	Cheese	チーズ
+CAFE	217	슬라이스 치즈	Sliced Cheese	薄切りチーズ
+CAFE	218	머핀	Muffin	マフィン
+CAFE	219	계란빵	Egg Bread	卵パン
+CAFE	220	치즈+반죽	Cheese+Dough	チーズ＋生地
+CAFE	221	치즈빵	Cheese Bread	チーズパン
+CAFE	222	치즈 붕어빵	Cheese Pancake	チーズプンオパン
+CAFE	223	토마토+반죽	Tomato+Dough	トマト＋生地
+CAFE	224	토마토+치즈+반죽	Tomato+Cheese+Dough	トマト＋チーズ＋生地
+CAFE	225	피자빵	Pizza Bread	ピザパン
+CAFE	226	피자 붕어빵	Pizza Pancake	ピザプンオパン
+CAFE	227	단팥+반죽	Sweet Red Bean+Dough	あんこ＋生地
+CAFE	228	단팥빵	Sweet Red Bean Bread	あんパン
+CAFE	229	붕어빵	Sweet Bean Pancake	プンオパン
+CAFE	230	커스터드 크림+반죽	Custard Cream+Dough	カスタードクリーム＋生地
+CAFE	231	슈크림빵	Cream Bread	クリームパン
+CAFE	232	슈크림 붕어빵	Custard Pancake	カスタードプンオパン
+CAFE	233	초코칩+반죽	Chocolate Chips+Dough	チョコチップ＋生地
+CAFE	234	초코칩 빵	Choco Chip Bread	チョコチップパン
+CAFE	235	초코 붕어빵	Chocolate Pancake	チョコプンオパン
+CAFE	236	초코 반죽	Chocolate Batter	チョコ生地
+CAFE	237	초코빵	Chocolate Bread	チョコパン
+CAFE	238	연유	Condensed Milk	練乳
+CAFE	239	연유 라떼	Condensed Milk Latte	練乳ラテ
+CAFE	240	연유 라떼(아이스)	Iced Condensed Milk Latte	アイス練乳ラテ
+CAFE	241	연유 팥빙수	Condensed Milk Red Bean Shaved Ice	練乳あんこかき氷
+CAFE	242	앙버터	Red Bean Butter Bun	あんバターパン
+CAFE	243	앙버터+반죽	Red Bean Butter Dough	あんバター生地
+CAFE	244	앙버터 붕어빵	Red Bean Butter Pancake	あんバタープンオパン
+CAFE	245	바닐라크림	Vanilla Cream	バニラクリーム
+CAFE	246	오 레	Chocolate Cookie+Vanilla Cream	オ・レ
+CAFE	247	오레오	Oreo	オレオ
+CAFE	248	시나몬 가루	Cinnamon Powder	シナモンパウダー
+CAFE	249	시나몬 쿠키 반죽	Cinnamon Cookie Dough	シナモンクッキー生地
+CAFE	250	시나몬 쿠키	Cinnamon Cookie	シナモンクッキー
+CAFE	251	망고 빙수	Mango Shaved Ice	マンゴーかき氷
+CAFE	252	슈크림 도넛	Cream Donut	クリームドーナツ
+CAFE	253	타로 가루	Taro Powder	タロイモパウダー
+CAFE	254	타로 밀크티	Taro Milk Tea	タロイモミルクティー
+CAFE	255	타로 버블티	Taro Bubble Tea	タロイモタピオカティー
+CAFE	256	초콜릿 밀크티	Chocolate Milk Tea	チョコミルクティー
+CAFE	257	초콜릿 버블티	Chocolate Bubble Tea	チョコタピオカティー
+CAFE	258	블루베리+설탕	Blueberry+Sugar	ブルーベリー＋砂糖
+CAFE	259	블루베리잼	Blueberry Jam	ブルーベリージャム
+CAFE	260	블루베리 필링	Blueberry Filling	ブルーベリーフィリング
+CAFE	261	블루베리 마카롱	Blueberry Macaron	ブルーベリーマカロン
+CAFE	262	딸기 필링	Strawberry Filling	イチゴフィリング
+CAFE	263	딸기 마카롱	Strawberry Macaron	イチゴマカロン
+CAFE	264	크림치즈	Cream Cheese	クリームチーズ
+CAFE	265	크림치즈 필링	Cream Cheese Filling	クリームチーズフィリング
+CAFE	266	크림치즈 마카롱	Cream Cheese Macaron	クリームチーズマカロン
+CAFE	267	카라멜 푸딩	Caramel Pudding	キャラメルプリン
+CAFE	268	멜론	Melon	メロン
+CAFE	269	썬 멜론	Sliced Melon	薄切りメロン
+CAFE	270	멜론 빙수	Melon Shaved Ice	メロンかき氷
+CAFE	271	커피 큐브	Coffee Cubes	コーヒーキューブ
+CAFE	272	큐브 라떼	Coffee Cube Latte	コーヒーキューブラテ
+CAFE	273	아이스티(샷 추가)	Iced Tea (Extra Shot)	アイスティー（ショット追加）
+CAFE	274	마시멜로	Marshmallow	マシュマロ
+CAFE	275	마시멜로+초코 쿠키 반죽	Marshmallow+Choco Cookie Dough	マシュマロ＋チョコクッキー生地
+CAFE	276	마시멜로 초코 쿠키	Marshmallow Choco Cookie	マシュマロチョコクッキー
+CAFE	277	마시멜로+쿠키 반죽	Marshmallow+Cookie Dough	マシュマロ＋クッキー生地
+CAFE	278	마시멜로 쿠키	Marshmallow Cookie	マシュマロクッキー
+CAFE	279	블루베리잼 도넛	Blueberry Jam Donut	ブルーベリージャムドーナツ
+CAFE	280	요거트크림	Yogurt Cream	ヨーグルトクリーム
+CAFE	281	요거트크림 도넛	Yogurt Cream Donut	ヨーグルトクリームドーナツ
+CAFE	282	찹쌀가루	Glutinous Rice Flour	もち米粉
+CAFE	283	찹쌀 반죽	Glutinous Rice Dough	もち米生地
+CAFE	284	찹쌀 도너츠	Glutinous Rice Donut	もち米ドーナツ
+CAFE	285	초코 요거트 아이스크림	Chocolate Yogurt Ice Cream	チョコヨーグルトアイス
+CAFE	286	얼린 멜론	Frozen Melon	冷凍メロン
+CAFE	287	멜론+우유	Melon+Milk	メロン＋ミルク
+CAFE	288	멜론 스무디	Melon Smoothie	メロンスムージー
+CAFE	289	멜론+요거트+우유	Melon+Yogurt+Milk	メロン＋ヨーグルト＋ミルク
+CAFE	290	멜론 요거트 스무디	Melon Yogurt Smoothie	メロンヨーグルトスムージー
+CAFE	291	얼린 포도	Frozen Grapes	冷凍ブドウ
+CAFE	292	팥+인절미+반죽	Red Bean+Injeolmi+Dough	あんこ＋インジョルミ＋生地
+CAFE	293	팥절미 붕어빵	Injeolmi Red Bean Pancake	インジョルミあんこプンオパン
+CAFE	294	튀긴 빵	Fried Bread	揚げパン
+CAFE	295	꽈배기	Twisted Donut	ねじりドーナツ
+CAFE	296	크림치즈 도넛	Cream Cheese Donut	クリームチーズドーナツ
+CAFE	297	크림치즈 베이글	Cream Cheese Bagel	クリームチーズベーグル
+CAFE	298	호두	Walnut	クルミ
+CAFE	299	호두+단팥+반죽	Walnut+Red Bean+Dough	クルミ＋あんこ＋生地
+CAFE	300	호두과자	Walnut Cake	クルミ菓子
+CAFE	301	찻잎+우유+설탕	Matcha+Milk+Sugar	抹茶＋ミルク＋砂糖
+CAFE	302	우롱차 잎+우유+설탕	Oolong Tea Leaves+Milk+Sugar	ウーロン茶葉＋ミルク＋砂糖
+CAFE	303	홍차 잎+우유+설탕	Black Tea Leaves+Milk+Sugar	紅茶葉＋ミルク＋砂糖
+CAFE	304	말린 허브+우유+설탕	Dried Herbs+Milk+Sugar	乾燥ハーブ＋ミルク＋砂糖
+CAFE	305	시나몬 설탕	Cinnamon Sugar	シナモン砂糖
+CAFE	306	츄러스	Churros	チュロス
+CAFE	307	치즈+찹쌀 반죽	Cheese+Glutinous Rice Dough	チーズ＋もち米生地
+CAFE	308	치즈볼	Cheese Ball	チーズボール
+CAFE	309	베이컨	Bacon	ベーコン
+CAFE	310	계란 후라이	Fried Egg	目玉焼き
+CAFE	311	스크램블 에그	Scrambled Eggs	スクランブルエッグ
+CAFE	312	오믈렛	Omelette	オムレツ
+CAFE	313	구운 베이컨	Grilled Bacon	焼いたベーコン
+CAFE	314	베이컨 계란 정식	Bacon & Eggs	ベーコンエッグ
+CAFE	315	삶은 달걀	Boiled Egg	ゆで卵
+CAFE	316	딸기잼 베이글	Strawberry Jam Bagel	イチゴジャムベーグル
+CAFE	317	딸기잼 머핀	Strawberry Jam Muffin	イチゴジャムマフィン
+CAFE	318	머핀+베이컨	Muffin+Bacon	マフィン＋ベーコン
+CAFE	319	머핀+계란	Muffin+Egg	マフィン＋卵
+CAFE	320	머핀+치즈	Muffin+Cheese	マフィン＋チーズ
+CAFE	321	머핀+베이컨+계란	Muffin+Bacon+Egg	マフィン＋ベーコン＋卵
+CAFE	322	머핀+베이컨+치즈	Muffin+Bacon+Cheese	マフィン＋ベーコン＋チーズ
+CAFE	323	머핀+계란+치즈	Muffin+Egg+Cheese	マフィン＋卵＋チーズ
+CAFE	324	머핀+베이컨+계란+치즈	Muffin+Bacon+Egg+Cheese	マフィン＋ベーコン＋卵＋チーズ
+CAFE	325	베이컨 에그 머핀	Bacon Egg Muffin	ベーコンエッグマフィン
+CAFE	326	에그 머핀	Egg Muffin	エッグマフィン
+CAFE	327	베이컨 머핀	Bacon Muffin	ベーコンマフィン
+CAFE	328	스크램블 에그+치즈	Scrambled Eggs+Cheese	スクランブルエッグ＋チーズ
+CAFE	329	치즈 오믈렛	Cheese Omelette	チーズオムレツ
+CAFE	330	딸기 수플레 팬케이크	Strawberry Soufflé Pancake	イチゴスフレパンケーキ
+CAFE	331	딸기 크림치즈 베이글	Strawberry Cream Cheese Bagel	イチゴクリームチーズベーグル
+CAFE	332	블루베리 수플레 팬케이크	Blueberry Soufflé Pancake	ブルーベリースフレパンケーキ
+CAFE	333	블루베리 베이글 반죽	Blueberry Bagel Dough	ブルーベリーベーグル生地
+CAFE	334	블루베리 베이글	Blueberry Bagel	ブルーベリーベーグル
+CAFE	335	아이스크림	Ice Cream	アイスクリーム
+CAFE	336	딸기 아이스크림	Strawberry Ice Cream	イチゴアイス
+CAFE	337	초코 아이스크림	Chocolate Ice Cream	チョコアイス
+CAFE	338	녹차 아이스크림	Matcha Ice Cream	抹茶アイス
+CAFE	339	바닐라 아이스크림	Vanilla Ice Cream	バニラアイス
+CAFE	340	밀크 셰이크	Milkshake	ミルクシェイク
+CAFE	341	딸기 셰이크	Strawberry Shake	イチゴシェイク
+CAFE	342	초코 셰이크	Chocolate Shake	チョコシェイク
+CAFE	343	녹차 셰이크	Matcha Shake	抹茶シェイク
+CAFE	344	바닐라 셰이크	Vanilla Shake	バニラシェイク
+CAFE	345	민트초코 아이스크림	Mint Chocolate Ice Cream	チョコミントアイス
+CAFE	346	민트초코 셰이크	Mint Chocolate Shake	チョコミントシェイク
+CAFE	347	블루베리 파르페	Blueberry Parfait	ブルーベリーパフェ
+CAFE	348	바나나 파르페	Banana Parfait	バナナパフェ
+CAFE	349	망고 파르페	Mango Parfait	マンゴーパフェ
+CAFE	350	멜론 파르페	Melon Parfait	メロンパフェ
+CAFE	351	얼음	Ice	氷
+CAFE	352	얼음물	Ice Water	氷水
+CAFE	353	파이 생지	Pie Dough	パイ生地
+CAFE	354	타르트 생지	Tart Dough	タルト生地
+CAFE	355	사과	Apple	リンゴ
+CAFE	356	썬 사과	Sliced Apple	薄切りリンゴ
+CAFE	357	생 호두 파이	Raw Walnut Pie	生クルミパイ
+CAFE	358	호두 파이	Walnut Pie	クルミパイ
+CAFE	359	생 딸기 파이	Raw Strawberry Pie	生イチゴパイ
+CAFE	360	딸기 파이	Strawberry Pie	イチゴパイ
+CAFE	361	생 사과 파이	Raw Apple Pie	生リンゴパイ
+CAFE	362	사과 파이	Apple Pie	リンゴパイ
+CAFE	363	생 블루베리 파이	Raw Blueberry Pie	生ブルーベリーパイ
+CAFE	364	블루베리 파이	Blueberry Pie	ブルーベリーパイ
+CAFE	365	생 호두 타르트	Raw Walnut Tart	生クルミタルト
+CAFE	366	호두 타르트	Walnut Tart	クルミタルト
+CAFE	367	생 에그 타르트	Raw Egg Tart	生エッグタルト
+CAFE	368	에그 타르트	Egg Tart	エッグタルト
+CAFE	369	구운 타르트 지	Baked Tart Shell	焼いたタルト台
+CAFE	370	딸기 타르트	Strawberry Tart	イチゴタルト
+CAFE	371	사과 타르트	Apple Tart	リンゴタルト
+CAFE	372	블루베리 타르트	Blueberry Tart	ブルーベリータルト
+CAFE	373	베리베리 타르트	Mixed Berry Tart	ミックスベリータルト
+CAFE	374	망고 타르트	Mango Tart	マンゴータルト
+CAFE	375	초코 타르트	Chocolate Tart	チョコタルト
+CAFE	376	생 크림치즈 타르트	Raw Cream Cheese Tart	生クリームチーズタルト
+CAFE	377	크림치즈 타르트	Cream Cheese Tart	クリームチーズタルト
+CAFE	378	탄산수	Sparkling Water	炭酸水
+CAFE	379	레몬	Lemon	レモン
+CAFE	380	썬 레몬	Sliced Lemon	薄切りレモン
+CAFE	381	레몬즙	Lemon Juice	レモン汁
+CAFE	382	자몽	Grapefruit	グレープフルーツ
+CAFE	383	썬 자몽	Sliced Grapefruit	薄切りグレープフルーツ
+CAFE	384	자몽 주스	Grapefruit Juice	グレープフルーツジュース
+CAFE	385	레몬+물	Lemon+Water	レモン＋水
+CAFE	386	레몬차	Lemon Tea	レモンティー
+CAFE	387	자몽+물	Grapefruit+Water	グレープフルーツ＋水
+CAFE	388	자몽차	Grapefruit Tea	グレープフルーツティー
+CAFE	389	사과+물	Apple+Water	リンゴ＋水
+CAFE	390	사과차	Apple Tea	リンゴティー
+CAFE	391	사과 주스	Apple Juice	リンゴジュース
+CAFE	392	사과 에이드	Apple Fizz	アップルエイド
+CAFE	393	레몬 에이드	Lemon Fizz	レモンエイド
+CAFE	394	자몽 에이드	Grapefruit Fizz	グレープフルーツエイド
+CAFE	395	딸기 에이드	Strawberry Fizz	イチゴエイド
+CAFE	396	블루베리 에이드	Blueberry Fizz	ブルーベリーエイド
+CAFE	397	망고 에이드	Mango Fizz	マンゴーエイド
+CAFE	398	물	Water	水
+GC	0	탄 음식	Burnt Food	焦げ物
+GC	1	양산형 칼	Butter Knife	安物のナイフ
+GC	2	탄소강 칼	Carbon-Steel Knife	炭素鋼ナイフ
+GC	3	휴대용 칼	Portable Knife	携帯ナイフ
+GC	4	날카로운 칼	Sharp Knife	鋭いナイフ
+GC	5	겐지의 단검	Genji's Dagger	ゲンジの脇差
+GC	6	고급 부엌칼	Kitchen Knife	キッチンナイフ
+GC	7	헤드셰프의 칼	Head Chef's Knife	ヘッドシェフの包丁
+GC	8	에너지 드링크	Energy Drink	エナジードリンク
+GC	9	싼데비슷한 드링크	Sandevistan	怪しいスタンド
+GC	10	점프 부츠	Jump Boots	ジャンプブーツ
+GC	11	조미료 팩	Seasoning Packets	調味料パック
+GC	12	청소기	Vacuum	掃除機
+GC	13	대시 부츠	Dash Boots	ダッシュブーツ
+GC	14	텔레포트 스펠	Teleport Spell	テレポートスペル
+GC	15	요리 복사 스펠	Food Dupe Spell	料理複製スペル
+GC	16	토치	Gas Torch	ガストーチ
+GC	17	서빙볼	ServingBall	サービングボール
+GC	18	$100	$100	$100
+GC	19	보존식 박스	Food Box	保存食ボックス
+GC	20	냉각총	Freeze Gun	冷却銃
+GC	21	고추장	Red Pepper Paste	コチュジャン
+GC	22	간장 소스	Sweet Soy Sauce	醤油ソース
+GC	23	양념 소스	Sweet&Spicy Sauce	ヤンニョムソース
+GC	24	육수	Broth	出汁
+GC	25	끓인 육수	Boiled Broth	煮出し
+GC	26	소고기	Beef	牛肉
+GC	27	스테이크	Steak	ステーキ
+GC	28	썬 소고기	Sliced Beef	薄切り牛肉
+GC	29	구운 소고기	Grilled Beef	焼いた牛肉
+GC	30	다진 소고기	Minced Beef	牛ひき肉
+GC	31	볶은 소고기	Stir-fried Beef	炒めた牛肉
+GC	32	소고기 수육	Boiled Beef	ゆで牛肉
+GC	33	썬 소고기 수육	Sliced Boiled Beef	薄切りしたゆで牛肉
+GC	34	소고기+육수	Beef+Broth	牛肉＋出汁
+GC	35	갈비탕	Beef Short Rib Soup	カルビタン
+GC	36	돼지고기	Pork	ポーク
+GC	37	직화구이 족발	Char-grilled Pork Trotters	チョッパルの直火焼き
+GC	38	썬 돼지고기	Sliced Pork	薄切りポーク
+GC	39	구운 돼지고기	Grilled Pork	焼いたポーク
+GC	40	다진 돼지고기	Minced Pork	ポークミンチ
+GC	41	볶은 돼지고기	Stir-fried Pork	炒めたポーク
+GC	42	돼지 수육	Boiled Pork	ボイルドポーク
+GC	43	썬 돼지 수육	Sliced Boiled Pork	薄切りボイルドポーク
+GC	44	국밥	Rice Soup	クッパ
+GC	45	소고기국밥	Beef Rice Soup	牛肉クッパ
+GC	46	돼지국밥	Pork Rice Soup	ポーククッパ
+GC	47	삼겹덮밥	Pork Belly Rice Bowl	サムギョプサル丼
+GC	48	소고기+간장	Beef+Soy Sauce	牛肉＋醤油
+GC	49	소불고기	Beef Bulgogi	牛プルコギ
+GC	50	돼지고기+간장	Pork+Soy Sauce	ポーク＋醤油
+GC	51	돼지불고기	Pork Bulgogi	ポークプルコギ
+GC	52	불고기덮밥	Bulgogi Rice Bowl	プルコギ丼
+GC	53	돼지고기+양념	Pork+Sweet&Spicy Sauce	ポーク＋ヤンニョムソース
+GC	54	돼지 주물럭	Marinated Pork	ポークの甘辛炒め
+GC	55	제육볶음	Spicy Pork	ジェユクポックム
+GC	56	제육덮밥	Spicy Pork Rice Bowl	ジェユク丼
+GC	57	작은 공기밥	Small Steamed Rice	小盛りご飯
+GC	58	주먹밥	Rice Ball	おにぎり
+GC	59	간장+공기밥	Soy Sauce Rice	醤油ご飯
+GC	60	참치	Tuna	マグロ
+GC	61	손질한 참치	Sliced Tuna	捌いたマグロ
+GC	62	참치회	Tuna Sashimi	マグロの刺身
+GC	63	참치초밥	Tuna Sushi	マグロ寿司
+GC	64	참치장	Soy Sauce Marinated Tuna	マグロ漬け
+GC	65	참치덮밥	Tuna Rice Bowl	鉄火丼
+GC	66	장어	Eel	ウナギ
+GC	67	손질한 장어	Sliced Eel	捌いたウナギ
+GC	68	장어구이	Grilled Eel	焼きウナギ
+GC	69	장어+간장	Eel+Soy Sauce	ウナギ＋醤油
+GC	70	양념 장어구이	Sweet&Spicy Grilled Eel	ウナギの蒲焼き
+GC	71	장어초밥	Eel Sushi	ウナギ寿司
+GC	72	장어덮밥	Eel Rice Bowl	うな丼
+GC	73	달걀	Egg	卵
+GC	74	삶은 달걀	Boiled Egg	ゆで卵
+GC	75	깐 달걀	Peeled Egg	殻剥き卵
+GC	76	계란 후라이	Fried Egg	目玉焼き
+GC	77	섞인 달걀	Mixed Egg	溶き卵
+GC	78	스크램블 에그	Scrambled Egg	スクランブルエッグ
+GC	79	계란찜	Steamed Egg	茶碗蒸し
+GC	80	계란말이	Rolled Omelette	卵焼き
+GC	81	계란초밥	Egg Sushi	卵寿司
+GC	82	계란장어덮밥	Egg & Eel Rice Bowl	うな玉丼
+GC	83	연어	Salmon	サーモン
+GC	84	손질한 연어	Sliced Salmon	捌いたサーモン
+GC	85	연어회	Salmon Sashimi	サーモンの刺身
+GC	86	연어초밥	Salmon Sushi	サーモン寿司
+GC	87	연어장	Soy Sauce Marinated Salmon	サーモン漬け
+GC	88	연어덮밥	Salmon Rice Bowl	サーモン丼
+GC	89	간장계란밥	Soy Sauce Egg Rice	卵かけご飯
+GC	90	쌀 반죽	Rice Dough	米粉生地
+GC	91	핀 쌀 반죽	Rolled Rice Dough	伸ばした米粉生地
+GC	92	라이스 페이퍼	Rice Paper	ライスペーパー
+GC	93	불린 라이스 페이퍼	Soaked Rice Paper	水で戻したライスペーパー
+GC	94	쌀국수 면	Rice Noodles	ライスヌードル
+GC	95	삶은 쌀국수 면	Boiled Rice Noodles	ゆでライスヌードル
+GC	96	쌀국수	Rice Noodle Soup	ライスヌードルスープ
+GC	97	야채	Vegetables	野菜
+GC	98	썬 야채	Sliced Vegetables	薄切り野菜
+GC	99	다진 야채	Minced Vegetables	みじん切り野菜
+GC	100	돼지+야채	Pork+Vegetables	ポーク＋野菜
+GC	101	생 고기짜조	Raw Meat Spring Roll	生肉チャーゾー
+GC	102	고기짜조	Fried Meat Spring Roll	肉チャーゾー
+GC	103	새우	Shrimp	エビ
+GC	104	구운 새우	Grilled Shrimp	焼いたエビ
+GC	105	삶은 새우	Boiled Shrimp	ゆでエビ
+GC	106	새우+야채	Shrimp+Vegetables	エビ＋野菜
+GC	107	생 새우짜조	Raw Shrimp Spring Roll	生エビチャーゾー
+GC	108	새우짜조	Fried Shrimp Spring Roll	エビチャーゾー
+GC	109	월남쌈 베이스	Fresh Spring Roll Base	生春巻きベース
+GC	110	야채 월남쌈	Vegetable Fresh Spring Roll	野菜の生春巻き
+GC	111	돼지+월남쌈	Pork+Fresh Spring Roll	ポーク＋生春巻き
+GC	112	고기 월남쌈	Meat Fresh Spring Roll	肉入り生春巻き
+GC	113	새우+월남쌈	Shrimp+Fresh Spring Roll	エビ＋生春巻き
+GC	114	새우 월남쌈	Shrimp Fresh Spring Roll	エビの生春巻き
+GC	115	새우 쌀국수	Shrimp Rice Noodle Soup	エビフォー
+GC	116	쌀국수 면+간장	Rice Noodles+Soy Sauce	ライスヌードル＋醤油
+GC	117	면+간장+야채	Noodles+Soy Sauce+Vegetables	麺＋醤油＋野菜
+GC	118	면+간장+새우	Noodles+Soy Sauce+Shrimp	麺＋醤油＋エビ
+GC	119	면+간장+돼지	Noodles+Soy Sauce+Pork	麺＋醤油＋ポーク
+GC	120	야채 팟타이	Vegetable Pad Thai	野菜パッタイ
+GC	121	새우 팟타이	Shrimp Pad Thai	エビパッタイ
+GC	122	분짜	Bun cha	ブンチャー
+GC	123	볶은 쌀	Stir-fried Rice	炒めたご飯
+GC	124	볶음밥	Fried Rice	炒飯
+GC	125	필라프	Pilaf	ピラフ
+GC	126	커리 가루	Curry Powder	カレーパウダー
+GC	127	커리	Curry	カレー
+GC	128	카레라이스	Curry Rice	カレーライス
+GC	129	닭고기	Chicken	鶏肉
+GC	130	직화구이 통닭	Char-grilled Whole Chicken	丸鶏の直火焼き
+GC	131	삶은 닭고기	Boiled Chicken	ゆで鶏肉
+GC	132	썬 닭고기	Sliced Chicken	薄切り鶏肉
+GC	133	구운 닭	Grilled Chicken	焼いた鶏肉
+GC	134	썬 삶은 닭고기	Sliced Boiled Chicken	薄切りしたゆで鶏肉
+GC	135	조각낸 닭고기	Chopped Chicken	角切り鶏肉
+GC	136	볶은 닭	Stir-fried Chicken	炒めた鶏肉
+GC	137	커리+닭고기	Curry+Chicken	カレー＋鶏肉
+GC	138	탄두리 치킨	Tandoori Chicken	タンドリーチキン
+GC	139	병아리콩	Chickpeas	ひよこ豆
+GC	140	삶은 콩	Boiled Chickpeas	ゆでひよこ豆
+GC	141	치킨 필라프	Chicken Pilaf	チキンピラフ
+GC	142	병아리콩 커리	Chickpea Curry	ひよこ豆カレー
+GC	143	콩밥	Bean Rice	豆ご飯
+GC	144	병아리콩 필라프	Chickpea Pilaf	ひよこ豆ピラフ
+GC	145	양고기	Lamb	ラム肉
+GC	146	양고기 구이	Lamb Roast	焼いたラム肉
+GC	147	썬 양고기	Sliced Lamb	薄切りラム肉
+GC	148	볶은 양고기	Stir-fried Lamb	炒めたラム肉
+GC	149	양고기 필라프	Lamb Pilaf	ラムピラフ
+GC	150	양고기 커리	Lamb Curry	ラムカレー
+GC	151	닭고기 커리	Chicken Curry	チキンカレー
+GC	152	커리+익은 쌀	Curry+Cooked Rice	カレー＋炊いた米
+GC	153	커리 필라프	Curry Pilaf	カレーピラフ
+GC	154	익은 쌀	Cooked Rice	炊いた米
+GC	155	육수+익은 쌀	Broth+Cooked Rice	出汁＋炊いた米
+GC	156	리소토	Risotto	リゾット
+GC	157	파스타	Pasta	パスタ
+GC	158	삶은 파스타	Boiled Pasta	ゆでパスタ
+GC	159	미트 소스+파스타	Meat Sauce+Pasta	ミートソース＋パスタ
+GC	160	토마토	Tomato	トマト
+GC	161	구운 토마토	Grilled Tomato	焼きトマト
+GC	162	썬 토마토	Sliced Tomato	薄切りトマト
+GC	163	뭉갠 토마토	Mashed Tomato	潰したトマト
+GC	164	토마토 소스	Tomato Sauce	トマトソース
+GC	165	크림 소스	Cream Sauce	クリームソース
+GC	166	로제 소스	Creamy Tomato Sauce	トマトクリームソース
+GC	167	새우+육수+익은 쌀	Shrimp+Broth+Cooked Rice	エビ＋出汁＋炊いた米
+GC	168	새우 리소토	Shrimp Risotto	エビリゾット
+GC	169	토마토+익은 쌀	Tomato+Cooked Rice	トマト＋炊いた米
+GC	170	토마토 리소토	Tomato Risotto	トマトリゾット
+GC	171	크림+익은 쌀	Cream+Cooked Rice	クリーム＋炊いた米
+GC	172	크림 리소토	Cream Risotto	クリームリゾット
+GC	173	로제+익은 쌀	Creamy Tomato+Cooked Rice	トマトクリーム＋炊いた米
+GC	174	로제 리소토	Creamy Tomato Risotto	トマトクリームリゾット
+GC	175	새우+토마토+익은 쌀	Shrimp+Tomato+Cooked Rice	エビ＋トマト＋炊いた米
+GC	176	새우 토마토 리소토	Shrimp Tomato Risotto	エビトマトリゾット
+GC	177	새우+크림+익은 쌀	Shrimp+Cream+Cooked Rice	エビ＋クリーム＋炊いた米
+GC	178	새우 크림 리소토	Shrimp Cream Risotto	エビクリームリゾット
+GC	179	새우+로제+익은 쌀	Shrimp+Creamy Tomato+Cooked Rice	エビ＋トマトクリーム＋炊いた米
+GC	180	새우 로제 리소토	Shrimp Creamy Tomato Risotto	エビトマトクリームリゾット
+GC	181	새우+파스타	Shrimp+Pasta	エビ＋パスタ
+GC	182	새우 파스타	Shrimp Pasta	エビパスタ
+GC	183	토마토+파스타	Tomato+Pasta	トマト＋パスタ
+GC	184	토마토 파스타	Tomato Pasta	トマトパスタ
+GC	185	크림+파스타	Cream+Pasta	クリーム＋パスタ
+GC	186	크림 파스타	Cream Pasta	クリームパスタ
+GC	187	로제+파스타	Creamy Tomato+Pasta	トマトクリーム＋パスタ
+GC	188	로제 파스타	Creamy Tomato Pasta	トマトクリームパスタ
+GC	189	새우+토마토+파스타	Shrimp+Tomato+Pasta	エビ＋トマト＋パスタ
+GC	190	새우 토마토 파스타	Shrimp Tomato Pasta	エビトマトパスタ
+GC	191	새우+크림+파스타	Shrimp+Cream+Pasta	エビ＋クリーム＋パスタ
+GC	192	새우 크림 파스타	Shrimp Cream Pasta	エビクリームパスタ
+GC	193	새우+로제+파스타	Shrimp+Creamy Tomato+Pasta	エビ＋トマトクリーム＋パスタ
+GC	194	새우 로제 파스타	Shrimp Creamy Tomato Pasta	エビトマトクリームパスタ
+GC	195	치즈	Cheese	チーズ
+GC	196	슬라이스 치즈	Sliced Cheese	薄切りチーズ
+GC	197	녹인 치즈	Melted Cheese	とろけたチーズ
+GC	198	돈장	Donjang Sauce	テンジャンソース
+GC	199	곱창 구이	Grilled Pork Intestines	ポークホルモン焼き
+GC	200	생 소시지	Raw Sausage	生ソーセージ
+GC	201	훈제 소시지	Smoked Sausage	燻製ソーセージ
+GC	202	구운 소시지	Grilled Sausage	焼いたソーセージ
+GC	203	삶은 소시지	Boiled Sausage	ゆでソーセージ
+GC	204	빵	Bread	パン
+GC	205	빵조각	Bread Pieces	パン切れ
+GC	206	빵가루	Breadcrumbs	パン粉
+GC	207	감자	Potato	ジャガイモ
+GC	208	구운 감자	Grilled Potato	焼きジャガイモ
+GC	209	찐 감자	Steamed Potato	蒸しジャガイモ
+GC	210	썬 감자	Sliced Potato	薄切りジャガイモ
+GC	211	볶은 감자	Stir-fried Potato	炒めジャガイモ
+GC	212	감자튀김	French Fries	フライドポテト
+GC	213	삶은 감자	Boiled Potato	ゆでジャガイモ
+GC	214	으깬 감자	Mashed Potato	マッシュポテト
+GC	215	해시 브라운	Hash Browns	ハッシュドポテト
+GC	216	감자 반죽	Potato Dough	ジャガイモ生地
+GC	217	감자전	Potato Pancake	ジャガイモチヂミ
+GC	218	양배추 절임	Pickled Cabbage	キャベツの漬物
+GC	219	핫도그	Hot Dog	ホットドッグ
+GC	220	치즈 핫도그	Cheese Hot Dog	チーズホットドッグ
+GC	221	퐁뒤	Fondue	フォンデュ
+GC	222	치즈 감자튀김	Cheese Fries	チーズポテト
+GC	223	치즈 감자전	Cheese Potato Pancake	チーズジャガイモチヂミ
+GC	224	족발+감자	Pork Trotters+Potato	チョッパル＋ジャガイモ
+GC	225	족발+양배추 절임	Pork Trotters+Pickled Cabbage	チョッパル＋キャベツの漬物
+GC	226	족발 정식	Pork Trotters Set	チョッパル定食
+GC	227	소시지+감자	Sausage+Potato	ソーセージ＋ジャガイモ
+GC	228	소시지+양배추 절임	Sausage+Pickled Cabbage	ソーセージ＋キャベツの漬物
+GC	229	소시지 정식	Sausage Platter	ソーセージ盛り合わせ
+GC	230	감자 샐러드	Potato Salad	ポテトサラダ
+GC	231	생 커틀릿	Raw Cutlet	生カツレツ
+GC	232	커틀릿	Cutlet	カツレツ
+GC	233	생 미트볼	Raw Meatball	生ミートボール
+GC	234	미트볼	Meatball	ミートボール
+GC	235	와인	Wine	ワイン
+GC	236	토마토 스튜 베이스	Tomato Stew Base	トマトシチューベース
+GC	237	크림 스튜 베이스	Cream Stew Base	クリームシチューベース
+GC	238	와인 스튜 베이스	Wine Stew Base	ワインシチューベース
+GC	239	토마토+소고기	Tomato+Beef	トマト＋牛肉
+GC	240	토마토 비프 스튜	Tomato Beef Stew	トマトビーフシチュー
+GC	241	크림+소고기	Cream+Beef	クリーム＋牛肉
+GC	242	크림 비프 스튜	Cream Beef Stew	クリームビーフシチュー
+GC	243	와인+소고기	Wine+Beef	ワイン＋牛肉
+GC	244	비프 스튜	Beef Stew	ビーフシチュー
+GC	245	토마토+닭고기	Tomato+Chicken	トマト＋鶏肉
+GC	246	토마토 치킨 스튜	Tomato Chicken Stew	トマトチキンシチュー
+GC	247	크림+닭고기	Cream+Chicken	クリーム＋鶏肉
+GC	248	크림 치킨 스튜	Cream Chicken Stew	クリームチキンシチュー
+GC	249	와인+닭고기	Wine+Chicken	ワイン＋鶏肉
+GC	250	치킨 스튜	Chicken Stew	チキンシチュー
+GC	251	미트 소스	Meat Sauce	ミートソース
+GC	252	스테이크 소스	Steak Sauce	ステーキソース
+GC	253	뱅쇼	Mulled Wine	ホットワイン
+GC	254	파이 생지	Pie Dough	パイ生地
+GC	255	타르트 생지	Tart Dough	タルト生地
+GC	256	소고기+파이	Beef+Pie Dough	牛肉＋パイ生地
+GC	257	파이+소고기+파이	PD+Beef+PD	パイ生地＋牛肉＋パイ生地
+GC	258	생 미트 파이	Raw Meat Pie	生ミートパイ
+GC	259	미트 파이	Meat Pie	ミートパイ
+GC	260	설탕	Sugar	砂糖
+GC	261	사과	Apple	リンゴ
+GC	262	썬 사과	Sliced Apple	薄切りリンゴ
+GC	263	사과+설탕	Apple+Sugar	リンゴ＋砂糖
+GC	264	사과조림	Stewed Apples	リンゴの甘煮
+GC	265	사과잼	Apple Jam	リンゴジャム
+GC	266	스테이크+생지	Steak+Pastry Dough	ステーキ＋パイ生地
+GC	267	생 비프 웰링턴	Raw Beef Wellington	生ビーフウェリントン
+GC	268	비프 웰링턴	Beef Wellington	ビーフウェリントン
+GC	269	소고기+달걀	Beef+Egg	牛肉＋卵
+GC	270	튀김옷	Batter	衣
+GC	271	생 스카치 에그	Raw Scotch Egg	生スコッチエッグ
+GC	272	스카치 에그	Scotch Egg	スコッチエッグ
+GC	273	사과+파이	Apple+Pie Dough	リンゴ＋パイ生地
+GC	274	파이+사과+파이	PD+Apple+PD	パイ生地＋リンゴ＋パイ生地
+GC	275	생 사과 파이	Raw Apple Pie	生リンゴパイ
+GC	276	사과 파이	Apple Pie	リンゴパイ
+GC	277	생 사과 타르트	Raw Apple Tart	生リンゴタルト
+GC	278	사과 타르트	Apple Tart	リンゴタルト
+GC	279	생 사과잼 타르트	Raw Apple Jam Tart	生リンゴジャムタルト
+GC	280	사과잼 타르트	Apple Jam Tart	リンゴジャムタルト
+GC	281	김	Seaweed	海苔
+GC	282	김+밥	Seaweed+Rice	海苔＋ご飯
+GC	283	김+밥+불고기	Seaweed+Rice+Bulgogi	海苔＋ご飯＋プルコギ
+GC	284	불고기 김밥	Bulgogi Kimbap	プルコギキンパ
+GC	285	김+밥+제육	Seaweed+Rice+Spicy Pork	海苔＋ご飯＋ジェユク
+GC	286	제육 김밥	Spicy Pork Kimbap	ジェユクキンパ
+GC	287	육회	Seasoned Raw Beef	ユッケ
+GC	288	맛술	Cooking Wine	料理酒
+GC	289	갈비 양념장	Galbi Marinade	カルビだれ
+GC	290	소고기+갈비	Beef+Galbi Marinade	牛肉＋カルビだれ
+GC	291	소갈비	Beef Short Ribs	牛カルビ
+GC	292	돼지고기+갈비	Pork+Galbi Marinade	ポーク＋カルビだれ
+GC	293	돼지갈비	Pork Ribs	ポークカルビ
+GC	294	참치 군함말이초밥	Tuna Gunkan Sushi	マグロ軍艦巻き
+GC	295	생새우초밥	Raw Shrimp Sushi	生エビ寿司
+GC	296	새우초밥	Shrimp Sushi	エビ寿司
+GC	297	삼각김밥	Onigiri	おにぎり
+GC	298	야채 육수	Vegetable Broth	野菜出汁
+GC	299	똠얌꿍	Tom Yum Goong	トムヤムクン
+GC	300	똠얌꿍 쌀국수	Tom Yum Goong Noodle Soup	トムヤムクンフォー
+GC	301	소고기 쌀국수	Beef Rice Noodle Soup	牛肉フォー
+GC	302	닭고기 쌀국수	Chicken Rice Noodle Soup	鶏肉フォー
+GC	303	토마토 스튜	Tomato Stew	トマトシチュー
+GC	304	크림 스튜	Cream Stew	クリームシチュー
+GC	305	볶은 야채	Stir-fried Vegetables	炒めた野菜
+GC	306	흰자	Egg White	卵白
+GC	307	노른자	Egg Yolk	卵黄
+GC	308	흰자+설탕	Egg White+Sugar	卵白＋砂糖
+GC	309	머랭	Meringue	メレンゲ
+GC	310	머랭 쿠키	Meringue Cookie	メレンゲクッキー
+GC	311	수플레 반죽	Soufflé Batter	スフレ生地
+GC	312	수플레 팬케이크	Soufflé Pancake	スフレパンケーキ
+GC	313	튀김가루	Frying Mix	天ぷら粉
+GC	314	썬 닭고기+튀김가루	Sliced Chicken+Frying Mix	薄切り鶏肉＋天ぷら粉
+GC	315	후라이드 치킨	Fried Chicken	フライドチキン
+GC	316	조각낸 닭고기+튀김가루	Chopped Chicken+Frying Mix	角切り鶏肉＋天ぷら粉
+GC	317	치킨 너겟	Chicken Nugget	から揚げ
+GC	318	생 패티	Raw Patty	生パティ
+GC	319	익힌 패티	Cooked Patty	焼いたパティ
+GC	320	빵+패티	B+P	バンズ＋パティ
+GC	321	빵+치즈	B+C	バンズ＋チーズ
+GC	322	빵+패티+치즈	B+P+C	バンズ＋パティ＋チーズ
+GC	323	빵+치킨	B+Chicken	バンズ＋チキン
+GC	324	빵+치킨+치즈	B+Chicken+C	バンズ＋チキン＋チーズ
+GC	325	고기 버거	Hamburger	ミートバーガー
+GC	326	치즈고기 버거	Cheeseburger	チーズミートバーガー
+GC	327	치킨 버거	Chicken Burger	チキンバーガー
+GC	328	치즈치킨 버거	Chicken Cheeseburger	チキンチーズバーガー
+GC	329	생 치즈스틱	Raw Cheese Stick	生チーズスティック
+GC	330	치즈스틱	Cheese Stick	チーズスティック
+GC	331	미트 소스 파스타	Meat Sauce Pasta	ミートソースパスタ
+GC	332	야채 샌드위치	Vegetable Sandwich	野菜サンドイッチ
+GC	333	새우 샌드위치	Shrimp Sandwich	エビサンドイッチ
+GC	334	고기 샌드위치	Meat Sandwich	ミートサンドイッチ
+GC	335	새우 필라프	Shrimp Pilaf	エビピラフ
+GC	336	소고기 필라프	Beef Pilaf	ビーフピラフ
+GC	337	핫소스	Chili Sauce	チリソース
+GC	338	빈달루 커리	Vindaloo Curry	ヴィンダルーカレー
+GC	339	새우 커리	Shrimp Curry	エビカレー
+GC	340	조개	Clam	貝
+GC	341	조개+파스타	Clams+Pasta	アサリ＋パスタ
+GC	342	봉골레 파스타	Vongole Pasta	ヴォンゴレパスタ
+GC	343	조개+육수+익은 쌀	Clams+Broth+Cooked Rice	アサリ＋出汁＋炊いた米
+GC	344	봉골레 리소토	Vongole Risotto	ボンゴレリゾット
+GC	345	와인+익은 쌀	Wine+Cooked Rice	ワイン＋炊いた米
+GC	346	와인 리소토	Wine Risotto	ワインリゾット
+GC	347	초콜릿	Chocolate	チョコ
+GC	348	녹인 초콜릿	Melted Chocolate	溶かしたチョコ
+GC	349	초코 퐁뒤	Chocolate Fondue	チョコフォンデュ
+GC	350	커리+토마토	Curry+Tomato	カレー＋トマト
+GC	351	커리 소시지	Curried Sausage	カレーソーセージ
+GC	352	당면	Glass Noodles	春雨
+GC	353	썬 당면	Sliced Glass Noodles	切った春雨
+GC	354	당면+돼지	Glass Noodles+Pork	春雨＋ポーク
+GC	355	생 순대	Raw Blood Sausage	生スンデ
+GC	356	순대	Blood Sausage	スンデ
+GC	357	오크라	Okra	オクラ
+GC	358	썬 오크라	Sliced Okra	薄切りオクラ
+GC	359	토마토+오크라	Tomato+Okra	トマト＋オクラ
+GC	360	토마토 오크라 스튜	Tomato Okra Stew	トマトオクラシチュー
+GC	361	토마토+오크라+소고기	Tomato+Okra+Beef	トマト＋オクラ＋牛肉
+GC	362	토마토 오크라 비프 스튜	Tomato Okra Beef Stew	トマトオクラビーフシチュー
+GC	363	토마토+양고기	Tomato+Lamb	トマト＋ラム肉
+GC	364	토마토 양고기 스튜	Tomato Lamb Stew	ラムのトマトシチュー
+GC	365	와인+양고기	Wine+Lamb	ワイン＋ラム肉
+GC	366	양고기 스튜	Lamb Stew	ラムシチュー
+GC	367	정어리	Sardine	イワシ
+GC	368	손질한 정어리	Sliced Sardine	捌いたイワシ
+GC	369	정어리+파이	Sardine+Pie Dough	イワシ＋パイ生地
+GC	370	파이+정어리+파이	PD+Sardine+PD	パイ生地＋イワシ＋パイ生地
+GC	371	생 정어리 파이	Raw Sardine Pie	生イワシパイ
+GC	372	정어리 파이	Sardine Pie	イワシパイ
+GC	373	호두 필링	Walnut Filling	クルミフィリング
+GC	374	생 호두 파이	Raw Walnut Pie	生クルミパイ
+GC	375	호두 파이	Walnut Pie	クルミパイ
+GC	376	생 호두 타르트	Raw Walnut Tart	生クルミタルト
+GC	377	호두 타르트	Walnut Tart	クルミタルト
+GC	378	파이 앤 매시	Pie and Mash	パイ・アンド・マッシュ
+GC	379	빵+불고기	B+Bulgogi	バンズ＋プルコギ
+GC	380	불고기 버거	Bulgogi Burger	プルコギバーガー
+GC	381	버팔로 윙	Buffalo Wings	バッファローウィング
+GC	382	양념치킨	Sweet&Spicy Chicken	ヤンニョムチキン
+GC	383	생 새우 패티	Raw Shrimp Patty	生エビパティ
+GC	384	새우 패티	Shrimp Patty	エビパティ
+GC	385	빵+새우	B+Shrimp	バンズ＋エビ
+GC	386	새우 버거	Shrimp Burger	エビバーガー
+GC	387	녹인 설탕	Melted Sugar	溶かした砂糖
+GC	388	통 사과 탕후루	Whole Apple Tanghulu	丸ごとリンゴ飴
+GC	389	조각낸 초콜릿	Chopped Chocolate	刻んだチョコ
+GC	390	초코 시럽	Chocolate Syrup	チョコシロップ
+GC	391	구운 빵	Toasted Bread	トーストパン
+GC	392	빵조각+설탕	Bread Pieces+Sugar	パン切れ＋砂糖
+GC	393	식빵 러스크	Bread Rusk	パンラスク
+GC	394	설탕 토스트	Sugar Toast	シュガートースト
+GC	395	사과 탕후루	Apple Tanghulu	リンゴ飴
+GC	396	계란+빵	Egg+Bread	卵＋パン
+GC	397	계란빵	Egg Bread	卵パン
+GC	398	프렌치 토스트	French Toast	フレンチトースト
+GC	399	사과잼 토스트	Apple Jam Toast	リンゴジャムトースト
+GC	400	초코애플	Choco-Dipped Apple	チョコリンゴ
+GC	401	초코 토스트	Chocolate Toast	チョコトースト
+GC	402	딸기	Strawberry	イチゴ
+GC	403	으깬 딸기	Mashed Strawberry	マッシュイチゴ
+GC	404	딸기+설탕	Strawberry+Sugar	イチゴ＋砂糖
+GC	405	딸기잼	Strawberry Jam	イチゴジャム
+GC	406	딸기 탕후루	Strawberry Tanghulu	イチゴ飴がけ串
+GC	407	초코베리	Choco-Dipped Berry	チョコイチゴ
+GC	408	딸기잼 토스트	Strawberry Jam Toast	イチゴジャムトースト
+GC	409	우유	Milk	ミルク
+GC	410	딸기우유	Strawberry Milk	イチゴミルク
+GC	411	초코우유	Chocolate Milk	チョコミルク
+GC	412	바나나	Banana	バナナ
+GC	413	깐 바나나	Peeled Banana	むきバナナ
+GC	414	초코바나나	Choco-Dipped Banana	チョコバナナ
+GC	415	바나나 초코 토스트	Banana Choco Toast	バナナチョコトースト
+GC	416	두반장	Doubanjiang	豆板醤
+GC	417	볶은 두반장	Stir-fried Doubanjiang	炒めた豆板醤
+GC	418	양꼬치	Lamb Skewers	ラム串焼き
+GC	419	매운 야채 육수	Spicy Vegetable Broth	辛口野菜だし
+GC	420	양고기 훠궈(백탕)	Mild Lamb Hotpot	ラムの白湯火鍋
+GC	421	양고기 훠궈(홍탕)	Spicy Lamb Hotpot	ラムの麻辣火鍋
+GC	422	돼지 훠궈(백탕)	Mild Pork Hotpot	ポークの白湯火鍋
+GC	423	돼지 훠궈(홍탕)	Spicy Pork Hotpot	ポークの麻辣火鍋
+GC	424	돼지 간장 조림	Soy-braised Pork	ポークの醤油煮
+GC	425	돼지 간장 구이	Soy-grilled Pork	ポークの醤油焼き
+GC	426	두반장 양념장	Doubanjiang Marinade	豆板醤だれ
+GC	427	야채+두반장	Vegetables+Doubanjiang	野菜＋豆板醤
+GC	428	두반장 야채볶음	Doubanjiang Stir-fried Vegetables	野菜の豆板醤炒め
+GC	429	양고기+두반장	Lamb+Doubanjiang	ラム肉＋豆板醤
+GC	430	두반장 양고기볶음	Doubanjiang Stir-fried Lamb	ラムの豆板醤炒め
+GC	431	돼지고기+두반장	Pork+Doubanjiang	ポーク＋豆板醤
+GC	432	두반장 돼지볶음	Doubanjiang Stir-fried Pork	ポークの豆板醤炒め
+GC	433	소고기 훠궈(백탕)	Mild Beef Hotpot	牛肉の白湯火鍋
+GC	434	소고기 훠궈(홍탕)	Spicy Beef Hotpot	牛肉の麻辣火鍋
+GC	435	두반장+소고기	Beef+Doubanjiang	牛肉＋豆板醤
+GC	436	두반장 소고기볶음	Doubanjiang Stir-fried Beef	牛肉の豆板醤炒め
+GC	437	두반장+새우	Shrimp+Doubanjiang	エビ＋豆板醤
+GC	438	두반장 새우볶음	Doubanjiang Stir-fried Shrimp	エビの豆板醤炒め
+GC	439	토르티야	Tortilla	トルティーヤ
+GC	440	토르티야 조각	Tortilla Pieces	トルティーヤ片
+GC	441	나초	Nachos	ナチョス
+GC	442	타코 베이스	Taco Base	タコスベース
+GC	443	소고기 타코	Beef Taco	牛肉タコス
+GC	444	돼지고기 타코	Pork Taco	ポークタコス
+GC	445	양고기 타코	Lamb Taco	ラムタコス
+GC	446	양고기 수육	Boiled Lamb	ゆでラム肉
+GC	447	썬 양고기 수육	Sliced Boiled Lamb	薄切りしたゆでラム肉
+GC	448	소고기 수육 타코	Boiled Beef Taco	ゆで牛肉タコス
+GC	449	돼지 수육 타코	Boiled Pork Taco	ゆでポークタコス
+GC	450	양고기 수육 타코	Boiled Lamb Taco	ゆでラム肉タコス
+GC	451	소고기 타코+치즈	Beef Taco+Cheese	牛肉タコス＋チーズ
+GC	452	소고기 퀘사디아	Beef Quesadilla	牛肉ケサディーヤ
+GC	453	돼지고기 타코+치즈	Pork Taco+Cheese	ポークタコス＋チーズ
+GC	454	돼지고기 퀘사디아	Pork Quesadilla	ポークケサディーヤ
+GC	455	양고기 타코+치즈	Lamb Taco+Cheese	ラムタコス＋チーズ
+GC	456	양고기 퀘사디아	Lamb Quesadilla	ラムケサディーヤ
+GC	457	치즈 나초	Cheese Nachos	チーズナチョス
+GC	458	감바스 타코	Gambas Taco	ガンバスタコス
+GC	459	치킨 타코	Chicken Taco	チキンタコス
+GC	460	치킨 타코+치즈	Chicken Taco+Cheese	チキンタコス＋チーズ
+GC	461	치킨 퀘사디아	Chicken Quesadilla	チキンケサディーヤ
+GC	462	쌀	Raw Rice	米
+GC	463	공기밥	Steamed Rice	ご飯

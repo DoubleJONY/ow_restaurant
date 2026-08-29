@@ -34,8 +34,26 @@ BUILD_DIR = ROOT / "build" / "en_deluxe"
 MANUAL_TRANSLATIONS = Path(__file__).with_name("manual_translations.tsv")
 OUTPUT_OVERRIDES = Path(__file__).with_name("output_overrides.tsv")
 RELEASE_CODE_OVERRIDES = Path(__file__).with_name("release_code_overrides.jsonl")
-APPROVED_RELEASE_STRUCTURE_SHA256 = "5FB7564207CBDED9F4896A9A4B1F075C5C54C14C6B536E02369144C56BF31D32"
+APPROVED_RELEASE_STRUCTURE_SHA256 = "788654043DC616BC134D91B6A60A6FD2ABF6C273A4E8AD16C2ED5392A9403B2C"
 JSON_STRING_TOKEN = r'"(?:\\.|[^"\\])*"'
+
+KOREAN_ONLY_MESSAGE_EDITS = (
+    (
+        "\t\t\tIf(Array Contains(Global.ALLOWED_HEROS, Hero(Mauga)));\n"
+        "\t\t\t\tSmall Message(All Players(All Teams), Custom String(\"{0}이거 재물손괴죄 아니냐고? \", Hero Icon String(Hero Of(Event Player))));\n"
+        "\t\t\t\tWait(3, Ignore Condition);\n"
+        "\t\t\t\tSmall Message(All Players(All Teams), Custom String(\"{0}알아. \", Hero Icon String(Hero Of(Event Player))));\n"
+        "\t\t\t\tWait(4, Ignore Condition);\n"
+        "\t\t\tElse;\n"
+        "\t\t\t\tWait(7, Ignore Condition);\n"
+        "\t\t\tEnd;\n",
+        "\t\t\tWait(7, Ignore Condition);\n",
+    ),
+    (
+        "\t\t\tSmall Message(All Players(All Teams), Custom String(\"{0}겨우 그까짓 서비스로 감히!!\", Hero Icon String(Hero Of(Event Player))));\n",
+        "",
+    ),
+)
 
 LOCALE_SOURCES = {
     "org": {"kr": ROOT / "ko.ow", "en": ROOT / "en.ow", "old_count": 475, "new_count": 476},
@@ -561,12 +579,35 @@ def apply_release_code_overrides(text: str) -> tuple[str, int]:
             base = patch["base"]
             target = patch["target"]
             occurrences = text.count(base)
+            if occurrences == 0 and text.count(target) == 1:
+                # A reviewed release fix may later be promoted into the KR
+                # builder or translation overlay. Keep the record valid while
+                # avoiding a second application of the same change.
+                count += 1
+                continue
             if occurrences != 1:
                 raise BuildError(
                     f"stale release code override at line {line_number}: base occurrences={occurrences}"
                 )
             text = text.replace(base, target, 1)
             count += 1
+    return text, count
+
+
+def suppress_korean_only_messages(text: str) -> tuple[str, int]:
+    """Remove KR-only meme messages while preserving their gameplay timing."""
+    newline = "\r\n" if "\r\n" in text else "\n"
+    count = 0
+    for base, target in KOREAN_ONLY_MESSAGE_EDITS:
+        localized_base = base.replace("\n", newline)
+        localized_target = target.replace("\n", newline)
+        occurrences = text.count(localized_base)
+        if occurrences != 1:
+            raise BuildError(
+                f"stale Korean-only message edit {count + 1}: base occurrences={occurrences}"
+            )
+        text = text.replace(localized_base, localized_target, 1)
+        count += 1
     return text, count
 
 
@@ -709,7 +750,7 @@ def locale_assignment_manifest(text: str) -> dict[str, str]:
 def write_tsv(path: Path, rows: list[dict[str, object]], fields: list[str]) -> None:
     lines = ["\t".join(fields)]
     for row in rows:
-        lines.append("\t".join(tsv_value(row.get(field, "")) for field in fields))
+        lines.append("\t".join(tsv_value(row.get(field, "")) for field in fields).rstrip())
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -722,6 +763,7 @@ def validate_output(
     inventory: list[dict[str, object]],
 ) -> dict[str, object]:
     kr_text = kr_builder.build_text()
+    kr_structure_text, _ = suppress_korean_only_messages(kr_text)
     rule_count = len(rule_blocks(text))
     kr_rule_count = len(rule_blocks(kr_text))
     if rule_count != kr_rule_count:
@@ -768,14 +810,17 @@ def validate_output(
     locale_manifest_payload = json.dumps(observed_locale, ensure_ascii=False, sort_keys=True)
     locale_manifest_sha = hashlib.sha256(locale_manifest_payload.encode("utf-8")).hexdigest().upper()
 
-    kr_structure, kr_structure_sha = structural_fingerprint(kr_text)
+    kr_structure, kr_structure_sha = structural_fingerprint(kr_structure_text)
     en_structure, en_structure_sha = structural_fingerprint(text)
     if en_structure != kr_structure and en_structure_sha != APPROVED_RELEASE_STRUCTURE_SHA256:
         mismatch = next(
             (index for index, (kr_char, en_char) in enumerate(zip(kr_structure, en_structure)) if kr_char != en_char),
             min(len(kr_structure), len(en_structure)),
         )
-        raise BuildError(f"non-localized structure differs from KR Deluxe at normalized offset {mismatch}")
+        raise BuildError(
+            "non-localized structure differs from KR Deluxe at normalized offset "
+            f"{mismatch}; observed={en_structure_sha} approved={APPROVED_RELEASE_STRUCTURE_SHA256}"
+        )
 
     source_rule_size = kr_builder.validate_assembled(kr_text)
     largest = {"name": "", "bytes": 0}
@@ -812,10 +857,12 @@ def build_text() -> tuple[str, dict[str, object], list[dict[str, object]], list[
     text, data_report = localize_data_tables(text)
     text, total_score_report = localize_total_score(text)
     text, stage_deltas = localize_stage_code(text)
+    text, korean_only_message_count = suppress_korean_only_messages(text)
     locale_baseline = text
     text, inventory, unresolved, translation_stats = translate_custom_strings(text)
     text, inventory, override_count = apply_output_overrides(text, inventory)
     translation_stats["output_overrides"] = override_count
+    translation_stats["korean_only_messages_removed"] = korean_only_message_count
     translation_stats["translated"] = sum(row["en"] != row["kr"] for row in inventory)
     text, release_override_count = apply_release_code_overrides(text)
     translation_stats["release_code_overrides"] = release_override_count

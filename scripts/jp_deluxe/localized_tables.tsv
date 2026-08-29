@@ -1,0 +1,45 @@
+edition	table	item_index	kr	jp
+CAFE	STAGE_NAME	0	커피	コーヒー
+CAFE	STAGE_NAME	1	빙수	かき氷
+CAFE	STAGE_NAME	2	초코&쿠키	チョコ&クッキー
+CAFE	STAGE_NAME	3	도넛	ドーナツ
+CAFE	STAGE_NAME	4	밀크티	ミルクティー
+CAFE	STAGE_NAME	5	마카롱	マカロン
+CAFE	STAGE_NAME	6	스무디	スムージー
+CAFE	STAGE_NAME	7	빵	パン
+CAFE	STAGE_NAME	8	브런치	ブランチ
+CAFE	STAGE_NAME	9	아이스크림	アイスクリーム
+CAFE	STAGE_NAME	10	파이&타르트	パイ&タルト
+CAFE	STAGE_NAME	11	주스&에이드	ジュース&エイド
+CAFE	UPGRADE_NAME	0	저장고 구매	保存用バット購入
+CAFE	UPGRADE_NAME	1	무작위 도구 구매	ランダム道具購入
+CAFE	UPGRADE_NAME	2	무작위 신발 구매	ランダム靴購入
+CAFE	UPGRADE_NAME	3	튀김기&제빙기 강화	フライヤー&製氷機強化
+CAFE	UPGRADE_NAME	4	솥 강화	鍋強化
+CAFE	UPGRADE_NAME	5	오븐 강화	オーブン強化
+CAFE	UPGRADE_NAME	6	팬 강화	フライパン強化
+CAFE	UPGRADE_NAME	7	개인 이동 속도 증가	個人のスピードアップ
+CAFE	UPGRADE_NAME	8	팀 영업 시간 증가	チームの営業タイムアップ
+CAFE	UPGRADE_NAME	9	동전 교환	コイン交換
+GC	STAGE_NAME	0	한식	韓国料理
+GC	STAGE_NAME	1	일식	日本料理
+GC	STAGE_NAME	2	쌀국수	フォー
+GC	STAGE_NAME	3	커리&필라프	カレー&ピラフ
+GC	STAGE_NAME	4	리소토&파스타	リゾット&パスタ
+GC	STAGE_NAME	5	소시지	ソーセージ
+GC	STAGE_NAME	6	스튜	シチュー
+GC	STAGE_NAME	7	비프&파이	ビーフ&パイ
+GC	STAGE_NAME	8	버거&치킨	バーガー&チキン
+GC	STAGE_NAME	9	디저트	デザート
+GC	STAGE_NAME	10	훠궈	火鍋
+GC	STAGE_NAME	11	타코	タコス
+GC	UPGRADE_NAME	0	저장고 구매	保存用バット購入
+GC	UPGRADE_NAME	1	무작위 도구 구매	ランダム道具購入
+GC	UPGRADE_NAME	2	무작위 신발 구매	ランダム靴購入
+GC	UPGRADE_NAME	3	튀김기 강화	フライヤー強化
+GC	UPGRADE_NAME	4	솥 강화	鍋強化
+GC	UPGRADE_NAME	5	그릴 강화	グリル強化
+GC	UPGRADE_NAME	6	팬 강화	フライパン強化
+GC	UPGRADE_NAME	7	개인 이동 속도 증가	個人のスピードアップ
+GC	UPGRADE_NAME	8	팀 영업 시간 증가	チームの営業タイムアップ
+GC	UPGRADE_NAME	9	동전 교환	コイン交換

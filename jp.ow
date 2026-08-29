@@ -717,7 +717,7 @@ rule("Global: Setting")
 		Create In-World Text(Players Within Radius(Vector(233.690, 2, 163.772), 10, Team 1, Off), Custom String("冷蔵庫"), Vector(233.690,
 			3.500, 163.772), 3, Do Not Clip, Visible To, Color(Sky Blue), Default Visibility);
 		Create HUD Text(Filtered Array(All Players(Team 1), Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
-			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  水を流す", Input Binding String(
+			Current Array Element) * 1.500, Vector(234.340, 2, 168.146)) < 1.500), Custom String("〔{0}〕:  水を流す  ", Input Binding String(
 			Button(Interact))), Null, Custom String("\r\n"), Top, 6, Color(Aqua), Null, Null, Visible To and String, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(231.369, 2, 166.183), 10, Team 1, Off), Custom String("まな板"), Vector(231.369,
 			3, 166.183), 3, Do Not Clip, Visible To, Color(Lime Green), Default Visibility);
@@ -726,7 +726,7 @@ rule("Global: Setting")
 		Create HUD Text(Filtered Array(All Players(Team 1), Min(Distance Between(Eye Position(Current Array Element) + Facing Direction Of(
 			Current Array Element) * 1.500, Vector(231.369, 2, 166.183)), Distance Between(Eye Position(Current Array Element)
 			+ Facing Direction Of(Current Array Element) * 1.500, Vector(222.109, 2, 156.602))) < 1.500),
-			Local Player.knifeCode + True ? Custom String("〔{0}〕:  薄切り", Input Binding String(Button(Interact))) : Custom String(
+			Local Player.knifeCode + True ? Custom String("〔{0}〕:  薄切り  ", Input Binding String(Button(Interact))) : Custom String(
 			"キッチンナイフなし"), Null, Custom String("\r\n"), Top, 6, Local Player.knifeCode + True ? Color(Lime Green) : Color(Red), Null,
 			Null, Visible To String and Color, Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(224.552, 2, 161.294), 10, Team 1, Off), Custom String("フライヤー"), Vector(224.552,
@@ -1075,19 +1075,19 @@ rule("Player: Control item")
 			Default Visibility);
 		Event Player.tableText[True] = Last Text ID;
 		If(Array Contains(Global.KNIFE, Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
         Else If(Array Contains(Global.PERK_LIST[False], Global.itemCode[Event Player.controlingIndex]) || Array Contains(Global.PERK_LIST[True], Global.itemCode[Event Player.controlingIndex]));
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  セット  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Global.ITEM_COLOR[Global.itemCode[Event Player.controlingIndex]], Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(432 == Global.itemCode[Event Player.controlingIndex]);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  GET", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  GET  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Yellow), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		Else If(Event Player.knifeCode == 3 || Event Player.knifeCode == 6);
-			Create HUD Text(Event Player, Custom String("〔{0}〕:  切る", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
+			Create HUD Text(Event Player, Custom String("〔{0}〕:  切る  ", Input Binding String(Button(Interact))), Null, Custom String("\r\n"),
 				Top, 4, Color(Lime Green), Null, Null, String, Default Visibility);
 			Event Player.tableText[False] = Last Text ID;
 		End;

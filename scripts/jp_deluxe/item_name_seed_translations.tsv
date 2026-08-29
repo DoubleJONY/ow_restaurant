@@ -1,0 +1,117 @@
+edition	kr	en	jp	reason
+CAFE	물	Water	水	simple
+CAFE	얼음	Ice	氷	simple
+CAFE	원두	Coffee Beans	コーヒー豆	simple
+CAFE	커피가루	Ground Coffee	コーヒー粉	simple
+CAFE	에스프레소	Espresso	エスプレッソ	loanword
+CAFE	아메리카노	Americano	アメリカーノ	loanword
+CAFE	아메리카노(아이스)	Iced Americano	アイスアメリカーノ	loanword
+CAFE	스팀 밀크	Steamed Milk	スチームミルク	loanword
+CAFE	카페 라떼	Latte	カフェラテ	loanword
+CAFE	카페 라떼(아이스)	Iced Latte	アイスカフェラテ	loanword
+CAFE	바닐라 시럽	Vanilla Syrup	バニラシロップ	loanword
+CAFE	바닐라 라떼	Vanilla Latte	バニララテ	loanword
+CAFE	바닐라 라떼(아이스)	Iced Vanilla Latte	アイスバニララテ	loanword
+CAFE	카라멜 시럽	Caramel Syrup	キャラメルシロップ	loanword
+CAFE	카라멜 마키아토	Caramel Macchiato	キャラメルマキアート	loanword
+CAFE	카라멜 마키아토(아이스)	Iced Caramel Macchiato	アイスキャラメルマキアート	loanword
+CAFE	초코 시럽	Chocolate Syrup	チョコシロップ	org_equivalent
+CAFE	카페 모카	Mocha	カフェモカ	loanword
+CAFE	카페 모카(아이스)	Iced Mocha	アイスカフェモカ	loanword
+CAFE	커피 프라페	Coffee Frappe	コーヒーフラッペ	loanword
+CAFE	쿠키	Cookie	クッキー	loanword
+CAFE	아몬드	Almond	アーモンド	loanword
+CAFE	베이글	Bagel	ベーグル	loanword
+CAFE	설탕	Sugar	砂糖	simple
+CAFE	으깬 딸기	Mashed Strawberry	マッシュイチゴ	org_equivalent
+CAFE	딸기잼	Strawberry Jam	イチゴジャム	simple
+CAFE	초코 도넛	Choco Donut	チョコドーナツ	org_equivalent
+CAFE	생크림	Whipped Cream	生クリーム	simple
+CAFE	딸기크림	Strawberry Cream	イチゴクリーム	simple
+CAFE	초코크림	Chocolate Cream	チョコクリーム	simple
+CAFE	녹차크림	Matcha Cream	抹茶クリーム	simple
+CAFE	찻잎	Tea Leaves	茶葉	simple
+CAFE	녹차	Matcha	抹茶	simple
+CAFE	우롱차	Oolong Tea	ウーロン茶	loanword
+CAFE	홍차	Black Tea	紅茶	simple
+CAFE	허브	Herbs	ハーブ	loanword
+CAFE	허브티	Herbal Tea	ハーブティー	loanword
+CAFE	아이스티	Iced Tea	アイスティー	loanword
+CAFE	설탕물	Sugar Water	砂糖水	simple
+CAFE	흰자	Egg White	卵白	simple
+CAFE	노른자	Egg Yolk	卵黄	simple
+CAFE	버터	Butter	バター	loanword
+CAFE	푸딩	Pudding	プリン	loanword
+CAFE	머랭	Meringue	メレンゲ	loanword
+CAFE	마카롱	Macaron	マカロン	loanword
+CAFE	블루베리	Blueberry	ブルーベリー	loanword
+CAFE	망고	Mango	マンゴー	loanword
+CAFE	으깬 토마토	Mashed Tomato	潰したトマト	org_equivalent
+CAFE	머핀	Muffin	マフィン	loanword
+CAFE	치즈빵	Cheese Bread	チーズパン	simple
+CAFE	피자빵	Pizza Bread	ピザパン	simple
+CAFE	슈크림빵	Cream Bread	クリームパン	simple
+CAFE	연유	Condensed Milk	練乳	simple
+CAFE	바닐라크림	Vanilla Cream	バニラクリーム	loanword
+CAFE	오레오	Oreo	オレオ	proper_name
+CAFE	블루베리잼	Blueberry Jam	ブルーベリージャム	loanword
+CAFE	크림치즈	Cream Cheese	クリームチーズ	loanword
+CAFE	멜론	Melon	メロン	loanword
+CAFE	마시멜로	Marshmallow	マシュマロ	loanword
+CAFE	요거트크림	Yogurt Cream	ヨーグルトクリーム	loanword
+CAFE	호두	Walnut	クルミ	simple
+CAFE	츄러스	Churros	チュロス	loanword
+CAFE	치즈볼	Cheese Ball	チーズボール	loanword
+CAFE	오믈렛	Omelette	オムレツ	loanword
+CAFE	민트초코 셰이크	Mint Chocolate Shake	チョコミントシェイク	org_equivalent
+CAFE	얼음물	Ice Water	氷水	simple
+CAFE	사과	Apple	リンゴ	simple
+CAFE	탄산수	Sparkling Water	炭酸水	simple
+CAFE	레몬	Lemon	レモン	loanword
+CAFE	레몬즙	Lemon Juice	レモン汁	simple
+CAFE	자몽	Grapefruit	グレープフルーツ	loanword
+CAFE	레몬차	Lemon Tea	レモンティー	loanword
+CAFE	자몽차	Grapefruit Tea	グレープフルーツティー	loanword
+GC	소고기 수육	Boiled Beef	ゆで牛肉	org_equivalent
+GC	돼지 수육	Boiled Pork	ボイルドポーク	org_equivalent
+GC	썬 돼지 수육	Sliced Boiled Pork	薄切りボイルドポーク	org_equivalent
+GC	참치	Tuna	マグロ	simple
+GC	참치회	Tuna Sashimi	マグロの刺身	simple
+GC	참치초밥	Tuna Sushi	マグロ寿司	simple
+GC	장어	Eel	ウナギ	simple
+GC	장어구이	Grilled Eel	焼きウナギ	simple
+GC	장어초밥	Eel Sushi	ウナギ寿司	simple
+GC	계란초밥	Egg Sushi	卵寿司	simple
+GC	야채	Vegetables	野菜	simple
+GC	필라프	Pilaf	ピラフ	loanword
+GC	커리	Curry	カレー	loanword
+GC	카레라이스	Curry Rice	カレーライス	loanword
+GC	병아리콩	Chickpeas	ひよこ豆	simple
+GC	리소토	Risotto	リゾット	loanword
+GC	빵	Bread	パン	loanword
+GC	핫도그	Hot Dog	ホットドッグ	loanword
+GC	퐁뒤	Fondue	フォンデュ	loanword
+GC	미트볼	Meatball	ミートボール	org_equivalent
+GC	설탕	Sugar	砂糖	simple
+GC	사과	Apple	リンゴ	simple
+GC	사과잼	Apple Jam	リンゴジャム	simple
+GC	맛술	Cooking Wine	料理酒	simple
+GC	새우초밥	Shrimp Sushi	エビ寿司	simple
+GC	삼각김밥	Onigiri	おにぎり	simple
+GC	흰자	Egg White	卵白	simple
+GC	노른자	Egg Yolk	卵黄	simple
+GC	머랭	Meringue	メレンゲ	loanword
+GC	썬 닭고기+튀김가루	Sliced Chicken+Frying Mix	薄切り鶏肉＋天ぷら粉	org_equivalent
+GC	조각낸 닭고기+튀김가루	Chopped Chicken+Frying Mix	角切り鶏肉＋天ぷら粉	org_equivalent
+GC	치킨 너겟	Chicken Nugget	から揚げ	org_equivalent
+GC	치즈스틱	Cheese Stick	チーズスティック	loanword
+GC	오크라	Okra	オクラ	loanword
+GC	정어리	Sardine	イワシ	simple
+GC	초코 시럽	Chocolate Syrup	チョコシロップ	org_equivalent
+GC	으깬 딸기	Mashed Strawberry	マッシュイチゴ	org_equivalent
+GC	딸기잼	Strawberry Jam	イチゴジャム	simple
+GC	딸기 탕후루	Strawberry Tanghulu	イチゴ飴がけ串	org_equivalent
+GC	딸기우유	Strawberry Milk	イチゴミルク	simple
+GC	두반장	Doubanjiang	豆板醤	simple
+GC	토르티야	Tortilla	トルティーヤ	loanword
+GC	나초	Nachos	ナチョス	loanword

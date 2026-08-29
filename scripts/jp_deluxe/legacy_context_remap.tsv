@@ -1,0 +1,40 @@
+target_rule	target_ordinal	legacy_rule	legacy_kr_ordinal	legacy_jp_ordinal
+Dummy: Spawn	0	Dummy: Spawn	0	0
+Dummy: Spawn	2	Dummy: Spawn	2	2
+Dummy: Spawn	3	Dummy: Spawn	3	3
+Dummy: Spawn	5	Dummy: Spawn	5	5
+Dummy: Spawn	6	Dummy: Spawn	6	6
+Dummy: Spawn	7	Dummy: Spawn	7	7
+Dummy: Spawn	8	Dummy: Spawn	8	8
+Dummy: Spawn	11	Dummy: Spawn	11	11
+Dummy: Spawn	12	Dummy: Spawn	12	12
+Dummy: Spawn	22	Dummy: Spawn	20	20
+Dummy: Spawn	23	Dummy: Spawn	21	21
+Dummy: Spawn	30	Dummy: Spawn	28	25
+Dummy: Spawn	35	Dummy: Spawn	33	30
+Dummy: Spawn	36	Dummy: Spawn	34	31
+Dummy: Spawn	38	Dummy: Spawn	36	33
+Dummy: Spawn	44	Dummy: Spawn	42	39
+Dummy: Spawn	46	Dummy: Spawn	44	41
+Dummy: Spawn	47	Dummy: Spawn	45	42
+Dummy: Spawn	50	Dummy: Spawn	48	45
+Dummy: Spawn	53	Dummy: Spawn	51	48
+Dummy: Spawn	54	Dummy: Spawn	52	49
+Dummy: Spawn	56	Dummy: Spawn	54	51
+Dummy: Spawn	58	Dummy: Spawn	56	53
+Dummy: Spawn	59	Dummy: Spawn	57	54
+Dummy: Spawn	60	Dummy: Spawn	58	55
+Dummy: Spawn	61	Dummy: Spawn	59	56
+Dummy: Spawn	62	Dummy: Spawn	60	57
+Dummy: Spawn	65	Dummy: Spawn	63	60
+Global subroutine: Set Hint Text	0	Global subroutine: Set Hint Text	0	0
+Global subroutine: Set Hint Text	9	Global subroutine: Set Hint Text	9	9
+Global subroutine: Set Hint Text	10	Global subroutine: Set Hint Text	10	10
+Global subroutine: Set Hint Text	17	Global subroutine: Set Hint Text	17	17
+Global subroutine: Set Hint Text	18	Global subroutine: Set Hint Text	18	18
+Global subroutine: Set Hint Text	19	Global subroutine: Set Hint Text	19	19
+Global subroutine: Set Hint Text	22	Global subroutine: Set Hint Text	22	22
+Global subroutine: Set Hint Text	23	Global subroutine: Set Hint Text	23	23
+Global subroutine: Set Hint Text	24	Global subroutine: Set Hint Text	24	24
+Global subroutine: Set Hint Text	32	Global subroutine: Set Hint Text	32	27
+Global subroutine: Set Hint Text	37	Global subroutine: Set Hint Text	37	32

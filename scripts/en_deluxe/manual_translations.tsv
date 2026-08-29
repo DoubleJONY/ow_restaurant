@@ -1,4 +1,8 @@
 rule	ordinal	kr	en
+		 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 
+		{0}fgC72BD4FF>기초적인 임플란트 가동.	{0}fgC72BD4FF>Sandevistan online. Time to cook, choom
+		  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.	  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.
+		[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode
 		〔{0}〕:  물 내리기  	[{0}]:  Flush
 		〔{0}〕:  썰기  	[{0}]:  Chop
 		 칼이 없습니다  	No Knife Available
@@ -62,7 +66,7 @@ Global subroutine: Other Menu	4	연습 모드	Practice Mode
 		내구도와 성능이 압도적인\r\n희귀한 칼입니다	A rare knife with\r\nexceptional durability and performance.
 		도마에서 아주 빠른 속도로\r\n연격할 수 있습니다	Lets you unleash rapid strikes\r\non a cutting board.
 		100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다	Increases chopping and movement speed\r\nfor 100 seconds.
-		20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다	Slows time for 20 seconds while boosting\r\nknife, movement, and appliance speed.
+		잠시 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다	Briefly slows time while boosting\r\nknife, movement, and appliance speed.
 		손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness.
 		필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요	Sucks up unwanted ingredients\r\nso you can skip the cleanup.
 		손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다	Use while holding food\r\nto duplicate it.
@@ -113,7 +117,7 @@ Global subroutine: Other Menu	4	연습 모드	Practice Mode
 		〔{1}〕: 모드-{0}	[{1}]: Mode-{0}
 		연습 종료	End Practice
 		튜토리얼	Tutorial
-		{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10.
+		{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10.\r\n{1}
 		캐주얼 다이닝 튜토리얼 표시	Show Casual Dining Tutorial
 		냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요.	Cook dishes with ingredients from the Fridge.\r\nPan-fry or grill Beef, then serve it to the correct table.
 		재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요.	Slice or chop ingredients on the cutting board.\r\nPan-fry or grill Sliced Beef.

@@ -75,13 +75,13 @@ RUNTIME_CONFIGS = {
     "cafe": [
         [12, 12, 12, 13, 16, 14],
         ["Null", 20, 20, 3, 20, 16],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20],
+        [1, 6, 2, 3, 4, 5, 7, 8, 9, 11, 12, 15, 16, 20, 17, 10, 13, 14],
         [8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 17, 17, 20, 20],
     ],
     "gc": [
         [12, 12, 12, 16, 15, 16],
         ["Null", 17, 16, 13, 13, 14],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+        [1, 6, 2, 3, 4, 5, 7, 8, 9, 11, 12, 15, 16, 17, 10, 13, 14],
         [8, 8, 8, 8, 9, 11, 11, 11, 11, 12, 12, 15, 16, 16, 17, 17],
     ],
 }
@@ -560,6 +560,7 @@ def inject_new_records(editions: dict[str, EditionData], remapped: dict[str, dic
                     f"{donor_name} {table}[{donor_code}]={donor_value!r}"
                 )
             tables[table][new_code] = donor_value
+
 
 
 def remap_data(editions: dict[str, EditionData]) -> dict[str, dict[str, list[Any]]]:

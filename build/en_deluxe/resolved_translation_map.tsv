@@ -1,34 +1,34 @@
 rule	ordinal	source	kr	en	placeholders
-Global: Setting	5	source-phrase	요리사	Chef	
-Global: Setting	6	source-phrase	홀 서버	Waiting Staff	
-Global: Setting	7	source-phrase	수습생	Apprentice	
-Global: Setting	8	manual-global	헤드셰프	Head Chef	
+Global: Setting	5	source-phrase	요리사	Chef
+Global: Setting	6	source-phrase	홀 서버	Waiting Staff
+Global: Setting	7	source-phrase	수습생	Apprentice
+Global: Setting	8	manual-global	헤드셰프	Head Chef
 Global: Setting	9	manual-global	〔{0}〕 - 직책 변경	[{0}] - Change Role	{0}
-Global: Setting	12	source-phrase	솥	Pot	
+Global: Setting	12	source-phrase	솥	Pot
 Global: Setting	13	manual-global	{0}초	{0}s	{0}
 Global: Setting	14	manual-global	{0}초	{0}s	{0}
-Global: Setting	15	source-phrase	오븐	Oven	
-Global: Setting	16	manual-global	그릴	Grill	
-Global: Setting	17	source-phrase	팬	Pan	
-Global: Setting	18	manual-global	제빙기	Ice Maker	
-Global: Setting	20	manual-global	싱크대	Sink	
-Global: Setting	21	manual-global	냉장고	Fridge	
+Global: Setting	15	source-phrase	오븐	Oven
+Global: Setting	16	manual-global	그릴	Grill
+Global: Setting	17	source-phrase	팬	Pan
+Global: Setting	18	manual-global	제빙기	Ice Maker
+Global: Setting	20	manual-global	싱크대	Sink
+Global: Setting	21	manual-global	냉장고	Fridge
 Global: Setting	22	manual-global	〔{0}〕:  물 내리기  	[{0}]:  Flush	{0}
-Global: Setting	24	manual-global	도마	Cutting Board	
-Global: Setting	25	manual-global	도마	Cutting Board	
+Global: Setting	24	manual-global	도마	Cutting Board
+Global: Setting	25	manual-global	도마	Cutting Board
 Global: Setting	26	manual-global	〔{0}〕:  썰기  	[{0}]:  Chop	{0}
-Global: Setting	27	manual-global+output-override	 칼이 없습니다  	  No Knife Available  	
-Global: Setting	29	manual-global	튀김기	Fryer	
+Global: Setting	27	manual-global+output-override	 칼이 없습니다  	  No Knife Available
+Global: Setting	29	manual-global	튀김기	Fryer
 Global: Setting	30	manual-global	〔{0}〕: 영웅 변경	[{0}]: Change Hero	{0}
-Global: Setting	32	manual-global	비어 있음	Empty	
-Global: Setting	35	manual-global	비어 있음	Empty	
-Global: Setting	38	manual-global	비어 있음	Empty	
-Global: Setting	41	manual-global	비어 있음	Empty	
-Global: Setting	44	manual-global	비어 있음	Empty	
-Global: Setting	47	manual-global	비어 있음	Empty	
-Global: Setting	50	manual-global	비어 있음	Empty	
-Global: Setting	53	manual-global	비어 있음	Empty	
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260829\r\ndiscord&recipes : ow-restaurant.com/en	
+Global: Setting	32	manual-global	비어 있음	Empty
+Global: Setting	35	manual-global	비어 있음	Empty
+Global: Setting	38	manual-global	비어 있음	Empty
+Global: Setting	41	manual-global	비어 있음	Empty
+Global: Setting	44	manual-global	비어 있음	Empty
+Global: Setting	47	manual-global	비어 있음	Empty
+Global: Setting	50	manual-global	비어 있음	Empty
+Global: Setting	53	manual-global	비어 있음	Empty
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260829\r\ndiscord&recipes : ow-restaurant.com/en
 Global: Setting	57	manual-global	Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}	{0} {2} {1}
 Global: Setting	61	manual-global	{0} 제작 중인 특수 칼:{1}개	{0} Special Knife:{1}	{0} {1}
 Global: Setting	62	manual-global	{0} 솥:{1}% / 튀김&제빙:{2}%	{0} Pot:{1}% / Fryer&Ice:{2}%	{0} {1} {2}
@@ -37,265 +37,262 @@ Global: Setting	64	manual-global	{0} 팬:{1}% / 오븐:{2}%	{0} Pan:{1}% / Oven:
 Global: Setting	65	manual-global	{0} 팬:{1}% / 그릴:{2}%	{0} Pan:{1}% / Grill:{2}%	{0} {1} {2}
 Global: Setting	66	manual-global	{0} 이속:{1}% / 시간:{2}초	{0} Speed:{1}% / Time:{2}s	{0} {1} {2}
 Global: Setting	68	manual-global	 〔 {0} 〕 	 [ {0} ] 	{0}
-Global: Setting	69	manual-global+output-override	모듬회밥!	OverwatchCooked!	
-Global: Setting	70	manual-global	카페 & 디저트	Cafe & Dessert	
-Global: Setting	71	manual-global	쿡제요리	World Cuisine	
+Global: Setting	69	manual-global+output-override	모듬회밥!	OverwatchCooked!
+Global: Setting	70	manual-global	카페 & 디저트	Cafe & Dessert
+Global: Setting	71	manual-global	쿡제요리	World Cuisine
 Global: Setting	72	manual-global	제작: {0}	Created by: {0}	{0}
-Global: Setting	73	manual-global+output-override	Gummybear&변기클라우드\r\n난이도 : ★★★☆☆	GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆	
-Global: Setting	74	manual-global+output-override	Joseon&Deadlock\r\n난이도 : ★★☆☆☆	Joseon&Deadlock\r\nDifficulty: ★★☆☆☆	
-Global: Setting	75	manual-global	Joseon\r\n난이도 : ★★★★☆	Joseon\r\nDifficulty: ★★★★☆	
+Global: Setting	73	manual-global+output-override	Gummybear&변기클라우드\r\n난이도 : ★★★☆☆	GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆
+Global: Setting	74	manual-global+output-override	Joseon&Deadlock\r\n난이도 : ★★☆☆☆	Joseon&Deadlock\r\nDifficulty: ★★☆☆☆
+Global: Setting	75	manual-global	Joseon\r\n난이도 : ★★★★☆	Joseon\r\nDifficulty: ★★★★☆
 Global: Setting	76	manual-global	[{0}]: 테마 변경	[{0}]: Change Theme	{0}
-Global: Setting	77	manual-global	 방장이 테마를 결정하는 중입니다	 The host is choosing the theme	
+Global: Setting	77	manual-global	 방장이 테마를 결정하는 중입니다	 The host is choosing the theme
 Global: Setting	79	manual-global	 〔 {0} 〕 	 [ {0} ] 	{0}
-Global: Setting	80	manual-context	연습 모드	Practice	
-Global: Setting	81	source-phrase	캐주얼 다이닝	Casual Dining	
-Global: Setting	82	source-phrase	파인 다이닝	Fine Dining	
-Global: Setting	83	manual-global	스타 비스트로	Buzzy Restaurant	
-Global: Setting	84	manual-global	마스터쿡 챌린지	MasterChef Challenge	
-Global: Setting	85	manual-global	헤드셰프 챌린지	HeadChef Challenge	
-Global: Setting	87	manual-global+output-override	자유롭게 연습할 수 있는 샌드박스 모드 입니다	A sandbox mode where you can freely practice your skills	
-Global: Setting	88	manual-global+output-override	5개의 메뉴가 등장하는 수습 난이도를 클리어하세요	Complete the Apprentice with 5 menu items	
-Global: Setting	89	manual-global+output-override	모든 메뉴가 등장하는 숙련 난이도를 클리어하세요	Complete the Journeyman with the all menu	
-Global: Setting	90	manual-global+output-override	까다로운 손님들이 등장하는 전문 난이도를 클리어하세요	Complete the Professional featuring demanding customers	
-Global: Setting	91	manual-global	Hell's Kitchen 클리어에 도전하세요	Challenge the Hell's Kitchen Chef!	
-Global: Setting	92	manual-global+output-override	완벽의 영역에 도전하세요	Challenge the perfect restaurant	
+Global: Setting	80	manual-context	연습 모드	Practice
+Global: Setting	81	source-phrase	캐주얼 다이닝	Casual Dining
+Global: Setting	82	source-phrase	파인 다이닝	Fine Dining
+Global: Setting	83	manual-global	스타 비스트로	Buzzy Restaurant
+Global: Setting	84	manual-global	마스터쿡 챌린지	MasterChef Challenge
+Global: Setting	85	manual-global	헤드셰프 챌린지	HeadChef Challenge
+Global: Setting	87	manual-global+output-override	자유롭게 연습할 수 있는 샌드박스 모드 입니다	A sandbox mode where you can freely practice your skills
+Global: Setting	88	manual-global+output-override	5개의 메뉴가 등장하는 수습 난이도를 클리어하세요	Complete the Apprentice with 5 menu items
+Global: Setting	89	manual-global+output-override	모든 메뉴가 등장하는 숙련 난이도를 클리어하세요	Complete the Journeyman with the all menu
+Global: Setting	90	manual-global+output-override	까다로운 손님들이 등장하는 전문 난이도를 클리어하세요	Complete the Professional featuring demanding customers
+Global: Setting	91	manual-global	Hell's Kitchen 클리어에 도전하세요	Challenge the Hell's Kitchen Chef!
+Global: Setting	92	manual-global+output-override	완벽의 영역에 도전하세요	Challenge the perfect restaurant
 Global: Setting	93	manual-global	[{0}]: 모드 변경	[{0}]: Rotate Mode	{0}
-Global: Setting	94	manual-global	 방장이 모드를 결정하는 중입니다	 Please wait for the host to decide the mode	
-Global: Setting	96	manual-global	로드 중...	Loading...	
-Global: Setting	97	manual-global	데이터 초기화 중...	Initializing data...	
+Global: Setting	94	manual-global	 방장이 모드를 결정하는 중입니다	 Please wait for the host to decide the mode
+Global: Setting	96	manual-global	로드 중...	Loading...
+Global: Setting	97	manual-global	데이터 초기화 중...	Initializing data...
 Global: Setting	117	manual-global	〔{0}〕: 영업 개시	[{0}]: OPEN	{0}
-Global: Setting	118	manual-context	연습 모드	Practice Mode	
+Global: Setting	118	manual-context	연습 모드	Practice Mode
 Global: Setting	120	manual-global	〔{1}〕: 모드-{0}	[{1}]: Mode-{0}	{1} {0}
-Global: Setting	121	manual-global	다른 메뉴	Other Menus	
-Global: Setting	122	manual-global	연습 종료	End Practice	
-Global: Setting	123	manual-global	모든 손님	All	
-Global: Setting	124	manual-global	튜토리얼	Tutorial	
+Global: Setting	121	manual-global	다른 메뉴	Other Menus
+Global: Setting	122	manual-global	연습 종료	End Practice
+Global: Setting	123	manual-global	모든 손님	All
+Global: Setting	124	manual-global	튜토리얼	Tutorial
 Global: Setting	125	manual-global	〔{1}〕: {0}	[{1}]: {0}	{1} {0}
-Global: Setting	126	manual-global+output-override	모듬회밥!	OverwatchCooked!	
-Global: Setting	127	manual-global	카페 & 디저트	Cafe & Dessert	
-Global: Setting	128	manual-global	쿡제요리	World Cuisine	
-Global: Setting	129	manual-global	Joseon-뉴 3호점	Joseon-K-Food(KR)	
-Global: Setting	130	manual-global	Gummybear-오리지널	Gummybear-Original(KR)	
-Global: Setting	131	manual-global	개시 하여 시작	Press Open to Start	
-Global: Setting	132	source-phrase	퓨전	Fusion	
-Global: Setting	133	manual-global+output-override	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260829\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into OverwatchCooked!\r\n{2}	{0} {1} {2}
-Global: Setting	134	manual-global+output-override	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	  You can change the theme when entering the game or in Practice Mode	
-Global: Setting	135	manual-global+output-override	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10	{0}
-Player: Spawn	0	source-phrase	설정	Settings	
-Player: Spawn	1	source-phrase	플레이어 기본 직책	Default Player Role	
-Player: Spawn	2	source-phrase	요리사	Chef	
-Player: Spawn	3	source-phrase	홀 서버	Waiting Staff	
-Player: Spawn	4	source-phrase	수습생	Apprentice	
+Global: Setting	126	manual-global+output-override	모듬회밥!	OverwatchCooked!
+Global: Setting	127	manual-global	카페 & 디저트	Cafe & Dessert
+Global: Setting	128	manual-global	쿡제요리	World Cuisine
+Global: Setting	129	manual-global	Joseon-뉴 3호점	Joseon-K-Food(KR)
+Global: Setting	130	manual-global	Gummybear-오리지널	Gummybear-Original(KR)
+Global: Setting	131	manual-global	개시 하여 시작	Press Open to Start
+Global: Setting	132	source-phrase	퓨전	Fusion
+Global: Setting	133	manual-global+output-override	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260829\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
+Global: Setting	134	manual-global+output-override	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	 OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.
+Global: Setting	135	manual-global+output-override	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10\r\n{1}	{0} {1}
+Global: Setting	136	manual-global	  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.	  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.
+Global: Setting	137	manual-global	[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode	{0}
+Player: Spawn	0	source-phrase	설정	Settings
+Player: Spawn	1	source-phrase	플레이어 기본 직책	Default Player Role
+Player: Spawn	2	source-phrase	요리사	Chef
+Player: Spawn	3	source-phrase	홀 서버	Waiting Staff
+Player: Spawn	4	source-phrase	수습생	Apprentice
 Player: Spawn	8	source-phrase	〔{0}〕 로 시작	[{0}] to Start	{0}
-Player: Spawn	9	source-phrase	레 스 토 랑	Restaurant	
-Player: Spawn	10	manual-global+output-override	모듬회밥!	OverwatchCooked!	
-Player: Spawn	11	manual-global	카페 & 디저트	Cafe & Dessert	
-Player: Spawn	12	manual-global	쿡제요리	World Cuisine	
-Player: Spawn	13	source-phrase+output-override	GummyBear#11798\r\nMod : 변기클라우드#3523\r\nEnglish Version : HTNZ3	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	
+Player: Spawn	9	source-phrase	레 스 토 랑	Restaurant
+Player: Spawn	10	manual-global+output-override	모듬회밥!	OverwatchCooked!
+Player: Spawn	11	manual-global	카페 & 디저트	Cafe & Dessert
+Player: Spawn	12	manual-global	쿡제요리	World Cuisine
 Player: Control item	1	manual-global+output-override	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	{0}
 Player: Control item	3	manual-global+output-override	〔{0}〕:  아이템 장착  	 [{0}]:  Equip Item  	{0}
 Player: Control item	5	manual-global+output-override	〔{0}〕:  줍기  	 [{0}]:  Pick Up  	{0}
 Player: Control item	7	manual-global+output-override	〔{0}〕:  썰기  	 [{0}]:  Chop  	{0}
-Player: Interact	0	source-phrase	$ 돈이 부족합니다	$ Not Enough Money 	
+Player: Interact	0	source-phrase	$ 돈이 부족합니다	$ Not Enough Money
 Player: Interact	1	source-phrase	전설 칼 주문 -${0}	Order Legendary Knife -${0}	{0}
-Player: Interact	2	manual-global	다음번에 상인이 칼을 가져올 것 입니다	Knife will be delivered when he came back	
+Player: Interact	2	manual-global	다음번에 상인이 칼을 가져올 것 입니다	Knife will be delivered when he came back
 Player: Interact	3	manual-global	특수 칼 뽑기 -${0}	Order Special Knife Random Box -${0}	{0}
-Player: Interact	4	manual-global	다음번에 상인이 칼을 가져올 것 입니다	Knife will be delivered when he came back	
+Player: Interact	4	manual-global	다음번에 상인이 칼을 가져올 것 입니다	Knife will be delivered when he came back
 Player: Interact	5	manual-global	{0} 구매 -${1}	Purchase {0} -${1}	{0} {1}
-Player: Interact	6	source-phrase	준비 시간을 생략합니다! 	Skipping Preparation Time! 	
+Player: Interact	6	source-phrase	준비 시간을 생략합니다! 	Skipping Preparation Time!
 Player: Interact	7	source-phrase	{0}{1} 준비 완료! (헤드셰프만 준비시간을 생략할 수 있습니다)	{0}{1} say ready to cook! (Head Chef can skip preparation time)	{0} {1}
 Player: Interact	8	source-phrase	{0}{1} 님이 연습을 중지하자고 합니다! 	{0}{1} want to close the service! 	{0} {1}
-Player: Interact	9	source-phrase	임시 개장 종료! 	Temporary Service Closed! 	
+Player: Interact	9	source-phrase	임시 개장 종료! 	Temporary Service Closed!
 Player: Interact	10	source-phrase	{0}{1} 님이 게임을 시작하자고 합니다! 	{0}{1} ready to cook! 	{0} {1}
-Player: Interact	11	source-phrase	잠시 후 게임을 시작합니다! 	Game will start shortly! 	
-Player: Interact	12	manual-global	연습용 손님이 입장합니다! 	Practice Customers are coming in!	
-Player: Interact	13	source-phrase	　　　　　주문서　　　　　	　　　　　Order List　　　　　	
+Player: Interact	11	source-phrase	잠시 후 게임을 시작합니다! 	Game will start shortly!
+Player: Interact	12	manual-global	연습용 손님이 입장합니다! 	Practice Customers are coming in!
+Player: Interact	13	source-phrase	　　　　　주문서　　　　　	　　　　　Order List
 Player: Interact	16	source-phrase	{0}{1} 님이 연습을 시작하자고 합니다! 	{0}{1} want to start practicing! 	{0} {1}
-Player: Reload button	0	source-phrase	길게 누르면 모든 아이템을 내려놓습니다 	Hold to drop items 	
-Player: Reload button	4	source-phrase	업데이트 필요! - 코드 : SPXXM	This game is Outdated! - Code : HTNZ3	
-Player: Reload button	5	manual-global+output-override	버그 수정 및 추가 업데이트를 적용하려면\r\n위의 코드로 게임을 다시 불러와주세요!	Please re-import code above\r\nto apply bug fixes and additional updates	
-Player: Ultimate button	0	source-phrase	100초간 속도 증가!	Increase Speed for 100 seconds! 	
+Player: Reload button	0	source-phrase	길게 누르면 모든 아이템을 내려놓습니다 	Hold to drop items
+Player: Reload button	4	source-phrase	업데이트 필요! - 코드 : SPXXM	This game is Outdated! - Code : HTNZ3
+Player: Reload button	5	manual-global+output-override	버그 수정 및 추가 업데이트를 적용하려면\r\n위의 코드로 게임을 다시 불러와주세요!	Please re-import code above\r\nto apply bug fixes and additional updates
+Player: Ultimate button	0	source-phrase	100초간 속도 증가!	Increase Speed for 100 seconds!
 Player: Ultimate button	1	source-phrase	{1}{0}이(가) 서빙볼을 소환했습니다! 	{1}{0} has summoned a ServingBall! 	{1} {0}
 Player: Ultimate button	2	source-phrase	{1}{0}이(가) 제트팩을 장착했습니다! 	{1}{0} has equipped a jetpack! 	{1} {0}
-Player: Ultimate button	3	source-phrase	재료 뭉개기	Smash Material	
+Player: Ultimate button	3	source-phrase	재료 뭉개기	Smash Material
 Player: Ultimate button	4	source-phrase	〔{0}〕	[{0}]	{0}
-Player: Authorize Controller	0	source-context	뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! 	To substitute the smash action with a button, please slowly push the controller stick forward! 	
+Player: Authorize Controller	0	source-context	뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! 	To substitute the smash action with a button, please slowly push the controller stick forward!
 Player: Authorize Controller	1	source-context	이제 [{0}] 키로 재료를 뭉갤 수 있습니다! 	Now you can smash the ingredients using the [{0}] key! 	{0}
-Player: Authorize Controller	2	source-context	재료 뭉개기	Smash Material	
+Player: Authorize Controller	2	source-context	재료 뭉개기	Smash Material
 Player: Authorize Controller	3	source-context	〔{0}〕	[{0}]	{0}
-Player: Left match	0	source-context	당신이 이제 헤드셰프 입니다!	You are Now Head Chef!	
-Dummy: Spawn	0	source-phrase	부엌칼 상인/아이템 상인/업그레이드/업그레이드	Knife Merchant/Item Merchant/Upgrade/Upgrade	
+Player: Left match	0	source-context	당신이 이제 헤드셰프 입니다!	You are Now Head Chef!
+Dummy: Spawn	0	source-phrase	부엌칼 상인/아이템 상인/업그레이드/업그레이드	Knife Merchant/Item Merchant/Upgrade/Upgrade
 Dummy: Spawn	2	source-phrase	{0} : 주문한 칼 가지고 왔다네!	{0} : I've brought the ordered knife!	{0}
 Dummy: Spawn	3	source-phrase	{0} : 무료 아이템을 나눠드릴게요!	{0} : Free items for you!	{0}
 Dummy: Spawn	4	manual-global	〔{0}〕:  {1} - ${2}	[{0}]:  {1} - ${2}	{0} {1} {2}
 Dummy: Spawn	5	source-phrase	{0} 구매	Buy {0}	{0}
-Dummy: Spawn	6	source-phrase	특수 칼 뽑기	Special Knife Random Box	
-Dummy: Spawn	7	source-phrase	전설 칼 주문	Order Legendary Knife	
+Dummy: Spawn	6	source-phrase	특수 칼 뽑기	Special Knife Random Box
+Dummy: Spawn	7	source-phrase	전설 칼 주문	Order Legendary Knife
 Dummy: Spawn	8	source-phrase	〔{0}〕:  {1} 구매 - ${2}	[{0}]:  Buy {1} - ${2}	{0} {1} {2}
-Dummy: Spawn	9	source-phrase	저장고	Storage	
-Dummy: Spawn	10	source-phrase	무작위 도구	Random Tool	
-Dummy: Spawn	11	source-phrase	무작위 신발	Random Shoes	
+Dummy: Spawn	9	source-phrase	저장고	Storage
+Dummy: Spawn	10	source-phrase	무작위 도구	Random Tool
+Dummy: Spawn	11	source-phrase	무작위 신발	Random Shoes
 Dummy: Spawn	12	source-phrase	〔{0}〕:  {1} 강화 - ${2}	[{0}]:  Upgrade {1} - ${2}	{0} {1} {2}
-Dummy: Spawn	13	source-phrase	튀김기&제빙기	Fryer&Ice Maker	
-Dummy: Spawn	14	manual-global	튀김기	Fryer	
-Dummy: Spawn	15	source-phrase	솥	Pot	
-Dummy: Spawn	16	source-phrase	오븐	Oven	
-Dummy: Spawn	17	manual-global	그릴	Grill	
-Dummy: Spawn	18	source-phrase	팬	Pan	
+Dummy: Spawn	13	source-phrase	튀김기&제빙기	Fryer&Ice Maker
+Dummy: Spawn	14	manual-global	튀김기	Fryer
+Dummy: Spawn	15	source-phrase	솥	Pot
+Dummy: Spawn	16	source-phrase	오븐	Oven
+Dummy: Spawn	17	manual-global	그릴	Grill
+Dummy: Spawn	18	source-phrase	팬	Pan
 Dummy: Spawn	19	manual-global	〔{0}〕:  {1} - ${2}	[{0}]:  {1} - ${2}	{0} {1} {2}
-Dummy: Spawn	20	source-phrase	내 이동 속도 증가	Increase My Movement Speed	
-Dummy: Spawn	21	source-phrase	팀 영업 시간 증가	Increase Team Time Limit	
-Dummy: Spawn	22	source-phrase	동전 교환	Exchange Coin	
+Dummy: Spawn	20	source-phrase	내 이동 속도 증가	Increase My Movement Speed
+Dummy: Spawn	21	source-phrase	팀 영업 시간 증가	Increase Team Time Limit
+Dummy: Spawn	22	source-phrase	동전 교환	Exchange Coin
 Dummy: Spawn	23	manual-global+output-override	〔{0}〕 : 항목 변경	[{0}] : Change Select	{0}
 Dummy: Spawn	24	source-phrase+output-override	평범한 손님/재앙은끝나지않았다/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/탱장연 대표/엘버피 VVIP/요리연구가/{0}	Regular Customer/ANTID wont stop us/Picky Customer/Impatient Customer/Competitive Eater/Reserved Customer/Food Critic/Mukbang YouTuber/Weirdo Customer/Mauga Main/elBuffi VVIP/Culinary Researcher/{0}	{0}
-Dummy: Spawn	25	source-phrase+output-override	혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/조용히힐이나하게나/시끄러운 손님	Solo Diner/Suspicious Customer/Foxy Customer/Gourmet/Chaotic Customer/Suffering Customer/Delivery Cat/For Honor and Beer/Karen	
+Dummy: Spawn	25	source-phrase+output-override	혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/조용히힐이나하게나/시끄러운 손님	Solo Diner/Suspicious Customer/Foxy Customer/Gourmet/Chaotic Customer/Suffering Customer/Delivery Cat/For Honor and Beer/Karen
 Dummy: Spawn	27	source-phrase	평범한 손님/대식가/깐깐한 손님/성급한 손님/푸드파이터/예약 손님/음식 평론가/먹방 유튜버/괴식가/포악한 손님/엘버피 VVIP/요리연구가/{0}	Regular Customer/Big Fat Customer/Picky Customer/Impatient Customer/Competitive Eater/Reserved Customer/Food Critic/Mukbang YouTuber/Weirdo Customer/Savage Customer/elBuffi VVIP/Culinary Researcher/{0}	{0}
-Dummy: Spawn	28	source-phrase	혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/거대식가/시끄러운 손님	Solo Diner/Suspicious Customer/Foxy Customer/Gourmet/Chaotic Customer/Suffering Customer/Delivery Cat/Justice Giant/Karen	
+Dummy: Spawn	28	source-phrase	혼밥 손님/수상한 손님/여우같은 손님/미식가/대혼돈의 손님/관심이가는손님/배달냥이/거대식가/시끄러운 손님	Solo Diner/Suspicious Customer/Foxy Customer/Gourmet/Chaotic Customer/Suffering Customer/Delivery Cat/Justice Giant/Karen
 Dummy: Spawn	30	source-phrase	#{1} - {0}초	#{1} - {0}s	{1} {0}
 Dummy: Spawn	34	source-phrase	{0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	{0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	{0}
-Dummy: Spawn	35	source-phrase	완성도 있는 요리! +5%	A well-prepared dish! +5%	
+Dummy: Spawn	35	source-phrase	완성도 있는 요리! +5%	A well-prepared dish! +5%
 Dummy: Spawn	36	source-phrase	 #{0} : 서빙 성공! {1}/{2} 	 #{0} : Served! {1}/{2} 	{0} {1} {2}
 Dummy: Spawn	37	source-phrase	{0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	{0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	{0}
 Dummy: Spawn	38	source-phrase	서빙 성공! +{0}%	Serving Success! +{0}%	{0}
 Dummy: Spawn	41	source-phrase	{0}초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	{0}s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	{0}
-Dummy: Spawn	44	source-phrase	날 풀어줘!	Let me go!	
-Dummy: Spawn	45	source-phrase	왜!? 이게 아냐!! 메뉴판이..!	Why!? This is wrong!! The menu..!	
-Dummy: Spawn	46	source-phrase	이 메뉴는 대체 뭐야!?	What even is this menu!?	
-Dummy: Spawn	47	source-phrase	환상적인 서빙! +20% 	A-mei-zing Served! +20%	
+Dummy: Spawn	44	source-phrase	날 풀어줘!	Let me go!
+Dummy: Spawn	45	source-phrase	왜!? 이게 아냐!! 메뉴판이..!	Why!? This is wrong!! The menu..!
+Dummy: Spawn	46	source-phrase	이 메뉴는 대체 뭐야!?	What even is this menu!?
+Dummy: Spawn	47	source-phrase	환상적인 서빙! +20% 	A-mei-zing Served! +20%
 Dummy: Spawn	48	source-phrase	 #{0} : 환상적인 서빙! 	 #{0} : A-mei-zing Service! 	{0}
-Dummy: Spawn	50	source-phrase	신속한 서빙! +10% 	Swift Served! +10%	
+Dummy: Spawn	50	source-phrase	신속한 서빙! +10% 	Swift Served! +10%
 Dummy: Spawn	51	source-phrase	 #{0} : 신속한 서빙! 	 #{0} : Swift Service! 	{0}
-Dummy: Spawn	53	source-phrase	완성도 있는 요리! +5% 	A well-prepared dish! +5%	
+Dummy: Spawn	53	source-phrase	완성도 있는 요리! +5% 	A well-prepared dish! +5%
 Dummy: Spawn	54	source-phrase	 #{0} : 서빙 성공! 	 #{0} : Served! 	{0}
 Dummy: Spawn	56	source-phrase	 #{0} : 서빙 성공! 	 #{0} : Served! 	{0}
-Dummy: Spawn	58	source-phrase	VVIP 서빙 성공!	VVIP Serving Success!	
+Dummy: Spawn	58	source-phrase	VVIP 서빙 성공!	VVIP Serving Success!
 Dummy: Spawn	59	source-phrase	VVIP 서빙 성공! +{0}%	VVIP Serving Success! +{0}%	{0}
 Dummy: Spawn	60	source-phrase	VIP 서빙 성공! +{0}%	VIP Serving Success! +{0}%	{0}
-Dummy: Spawn	61	source-phrase	보너스 점수 +50 	Bonus Score +50 	
+Dummy: Spawn	61	source-phrase	보너스 점수 +50 	Bonus Score +50
 Dummy: Spawn	62	source-phrase	서빙 성공! +{0}%	Serving Success! +{0}%	{0}
-Dummy: Spawn	64	source-phrase	??초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	??s\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
+Dummy: Spawn	64	source-phrase	??초\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	??s\r\n
 Dummy: Spawn	65	source-phrase	{0}{1}의 입소문! 	{0}{1}'s Promotional effect! 	{0} {1}
-serveFail	0	source-phrase	설득 시간 초과!	Persuasion Time Out!	
+serveFail	0	source-phrase	설득 시간 초과!	Persuasion Time Out!
 serveFail	1	source-phrase	{0}의 잘못된 정치질!	{0}'s Bad Politics!	{0}
-serveFail	2	source-phrase	흑화 조심!	Beware of Corruption!	
-serveFail	3	source-phrase	완성도 낮은 요리!	Poorly Prepared Dish!	
-serveFail	4	source-phrase	맥주를 찾으러 돌진함!	Dashed off to find beer!	
-serveFail	5	source-phrase	시간 초과!	Time Out!	
+serveFail	2	source-phrase	흑화 조심!	Beware of Corruption!
+serveFail	3	source-phrase	완성도 낮은 요리!	Poorly Prepared Dish!
+serveFail	4	source-phrase	맥주를 찾으러 돌진함!	Dashed off to find beer!
+serveFail	5	source-phrase	시간 초과!	Time Out!
 serveFail	6	source-phrase	{0}의 잘못된 서빙!	{0}'s Bad Serving!	{0}
-serveFail	7	source-phrase	순서 조심!	Watch the Order!	
-serveFail	8	source-phrase	완성도 낮은 요리!	Poorly Prepared Dish!	
-serveFail	9	source-phrase	혼란에 빠져 도망침!	Fled in confusion!	
-serveFail	15	source-phrase	{0}이거 재물손괴죄 아니냐고? 	{0}Is this not property damage? 	{0}
-serveFail	16	source-phrase	{0}알아. 	{0}I know. 	{0}
-serveFail	17	source-phrase	{0}겨우 그까짓 서비스로 감히!!	{0}How dare you call that service!!	{0}
-Global subroutine: Start stage	1	source-phrase	설정	Settings	
-Global subroutine: Start stage	2	manual-global	캐주얼 다이닝 튜토리얼 표시	Show Casual Dining Tutorial	
-Global subroutine: Start stage	3	source-phrase	영업 준비	Prepare for Service	
+serveFail	7	source-phrase	순서 조심!	Watch the Order!
+serveFail	8	source-phrase	완성도 낮은 요리!	Poorly Prepared Dish!
+serveFail	9	source-phrase	혼란에 빠져 도망침!	Fled in confusion!
+Global subroutine: Start stage	1	source-phrase	설정	Settings
+Global subroutine: Start stage	2	manual-global	캐주얼 다이닝 튜토리얼 표시	Show Casual Dining Tutorial
+Global subroutine: Start stage	3	source-phrase	영업 준비	Prepare for Service
 Global subroutine: Start stage	5	source-phrase	 {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}	 {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}	{0} {1} {2}
-Global subroutine: Start stage	7	manual-global	수습 난이도	Apprentice	
-Global subroutine: Start stage	8	manual-global	숙련 난이도	Journeyman	
-Global subroutine: Start stage	9	manual-global	전문 난이도	Professional	
-Global subroutine: Start stage	14	source-phrase	퓨전	Fusion	
-Global subroutine: Start stage	16	source-phrase	영업 시작!	Open for Service!	
-Global subroutine: Start stage	17	source-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you! 	
-Global subroutine: Start stage	19	source-phrase	　　　　　주문서　　　　　	　　　　　Order List　　　　　	
-Global subroutine: Start stage	22	source-phrase	몰려오는 손님!	More Incoming Customers!	
-Global subroutine: Start stage	23	source-phrase	전직원 보너스!	Bonus For All Staff!	
-Global subroutine: Start stage	24	source-phrase	영업 완료!	Good Service!	
+Global subroutine: Start stage	7	manual-global	수습 난이도	Apprentice
+Global subroutine: Start stage	8	manual-global	숙련 난이도	Journeyman
+Global subroutine: Start stage	9	manual-global	전문 난이도	Professional
+Global subroutine: Start stage	14	source-phrase	퓨전	Fusion
+Global subroutine: Start stage	16	source-phrase	영업 시작!	Open for Service!
+Global subroutine: Start stage	17	source-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you!
+Global subroutine: Start stage	19	source-phrase	　　　　　주문서　　　　　	　　　　　Order List
+Global subroutine: Start stage	22	source-phrase	몰려오는 손님!	More Incoming Customers!
+Global subroutine: Start stage	23	source-phrase	전직원 보너스!	Bonus For All Staff!
+Global subroutine: Start stage	24	source-phrase	영업 완료!	Good Service!
 Global subroutine: Start stage	25	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
 Global subroutine: Start stage	26	source-phrase	급여 +${0}	+${0}	{0}
-Global subroutine: Start stage	27	source-phrase	전직원 보너스!	Bonus For All Staff!	
-Global subroutine: Start stage	28	source-phrase	영업 완료!	Good Service!	
-Global subroutine: Start stage	29	source-phrase	몰려오는 손님!	More Incoming Customers!	
-Global subroutine: Start stage	30	manual-global	성공적인 영업!	Successful Service!	
+Global subroutine: Start stage	27	source-phrase	전직원 보너스!	Bonus For All Staff!
+Global subroutine: Start stage	28	source-phrase	영업 완료!	Good Service!
+Global subroutine: Start stage	29	source-phrase	몰려오는 손님!	More Incoming Customers!
+Global subroutine: Start stage	30	manual-global	성공적인 영업!	Successful Service!
 Global subroutine: Start stage	31	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
 Global subroutine: Start stage	32	source-phrase	급여 +${0}	+${0}	{0}
 Global subroutine: Start stage	34	source-phrase	중간 점수 : {0}	Current Score: {0}	{0}
-Global subroutine: Start stage	35	source-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!	
+Global subroutine: Start stage	35	source-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!
 Global subroutine: Stage Fail	0	manual-global	{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!	{0}
 Global subroutine: Stage Fail	1	manual-global	{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})	{0} {0} {1} {2}
 Global subroutine: Call customer	0	manual-global	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0} {1} {0} {0} {2} {0}
 Host Player: Set Permission	0	source-phrase	{0}{1} - {2} 직책 변경!	{0}{1} - {2}	{0} {1} {2}
 Host Player: Set Permission	1	source-phrase	 {0} 애옹 OwO 	 {0} Meow OwO 	{0}
-Host Player: Set Permission	2	source-phrase+output-override	 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 	{0}
-Global subroutine: Knife Hud	1	manual-global+output-override	다이소에서 파는\r\n평범한 칼입니다	A flimsy butter knife\r\nfrom a discount store	
-Global subroutine: Knife Hud	4	manual-global+output-override	내구도와 성능이 무난한\r\n주방용 칼입니다	Cuts ingredients faster\r\nand lasts longer	
-Global subroutine: Knife Hud	7	manual-global+output-override	재료를 손에 들고 바로 썰 수 있는\r\n전설적인 칼입니다	A legendary knife that lets you\r\nchop ingredients while holding them	
-Global subroutine: Knife Hud	10	manual-global+output-override	내구도와 성능이 뛰어난\r\n고급 칼입니다	Cuts quickly and\r\nloses very little durability	
-Global subroutine: Knife Hud	11	manual-global+output-override	재료를 손에 들고 썰 수 있는\r\n희귀한 칼입니다	Lets you chop ingredients\r\nwhile holding them	
-Global subroutine: Knife Hud	12	manual-global+output-override	내구도와 성능이 압도적인\r\n희귀한 칼입니다	Cuts ingredients\r\ntwice as fast	
-Global subroutine: Knife Hud	13	manual-global+output-override	도마에서 아주 빠른 속도로\r\n연격할 수 있습니다	Lets you unleash rapid strikes\r\non a cutting board	
+Global subroutine: Knife Hud	1	manual-global+output-override	다이소에서 파는\r\n평범한 칼입니다	A flimsy butter knife\r\nfrom a discount store
+Global subroutine: Knife Hud	4	manual-global+output-override	내구도와 성능이 무난한\r\n주방용 칼입니다	Cuts ingredients faster\r\nand lasts longer
+Global subroutine: Knife Hud	7	manual-global+output-override	재료를 손에 들고 바로 썰 수 있는\r\n전설적인 칼입니다	A legendary knife that lets you\r\nchop ingredients while holding them
+Global subroutine: Knife Hud	10	manual-global+output-override	내구도와 성능이 뛰어난\r\n고급 칼입니다	Cuts quickly and\r\nloses very little durability
+Global subroutine: Knife Hud	11	manual-global+output-override	재료를 손에 들고 썰 수 있는\r\n희귀한 칼입니다	Lets you chop ingredients\r\nwhile holding them
+Global subroutine: Knife Hud	12	manual-global+output-override	내구도와 성능이 압도적인\r\n희귀한 칼입니다	Cuts ingredients\r\ntwice as fast
+Global subroutine: Knife Hud	13	manual-global+output-override	도마에서 아주 빠른 속도로\r\n연격할 수 있습니다	Lets you unleash rapid strikes\r\non a cutting board
 Global subroutine: Perk Hud	0	source-phrase+output-override	〔{0}〕	 [{0}] 	{0}
-Global subroutine: Perk Hud	4	manual-global+output-override	100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다	Increases chopping and movement speed\r\nfor 100 seconds	
-Global subroutine: Perk Hud	5	manual-global+output-override	20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다	Activates Bullet Time for 20 seconds\r\nand boosting all action speeds	
-Global subroutine: Perk Hud	6	manual-global+output-override	손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness	
-Global subroutine: Perk Hud	7	manual-global+output-override	필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요	Make unwanted ingredients disappear\r\nSay goodbye to cleanup!	
-Global subroutine: Perk Hud	8	manual-global+output-override	손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다	Use while holding food\r\nto duplicate it	
-Global subroutine: Perk Hud	9	manual-global+output-override	그릴까지 가지 않아도\r\n재료를 구울 수 있습니다	Shoots a jet of flame to\r\ngrill ingredients anywhere	
-Global subroutine: Perk Hud	10	manual-global+output-override	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment	
-Global subroutine: Perk Hud	11	manual-global+output-override	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife	
-Global subroutine: Perk Hud	12	manual-global+output-override	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere	
+Global subroutine: Perk Hud	4	manual-global+output-override	100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다	Increases chopping and movement speed\r\nfor 100 seconds
+Global subroutine: Perk Hud	5	manual-global+output-override	잠시 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다	Briefly activates Bullet Time\r\nand overboosting all action speeds
+Global subroutine: Perk Hud	6	manual-global+output-override	손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness
+Global subroutine: Perk Hud	7	manual-global+output-override	필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요	Make unwanted ingredients disappear\r\nSay goodbye to cleanup!
+Global subroutine: Perk Hud	8	manual-global+output-override	손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다	Use while holding food\r\nto duplicate it
+Global subroutine: Perk Hud	9	manual-global+output-override	그릴까지 가지 않아도\r\n재료를 구울 수 있습니다	Shoots a jet of flame to\r\ngrill ingredients anywhere
+Global subroutine: Perk Hud	10	manual-global+output-override	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment
+Global subroutine: Perk Hud	11	manual-global+output-override	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife
+Global subroutine: Perk Hud	12	manual-global+output-override	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere
 Global subroutine: Foot Hud	0	source-phrase+output-override	〔{0}〕	 [{0}] 	{0}
-Global subroutine: Foot Hud	3	manual-global+output-override	공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다	Jump high into the air\r\nto reach higher floors	
-Global subroutine: Foot Hud	4	manual-global+output-override	앞으로 빠르게 대시하는\r\n다재다능한 신발입니다	Versatile boots that let you\r\ndash quickly forward	
-Global subroutine: Foot Hud	5	manual-global+output-override	주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다	Use while holding an ordered dish\r\nto teleport to its table	
-Global subroutine: Load Progress	1	source-context	돌아오셨군요! 이전 데이터를 불러왔습니다!	Welcome Back! Your progress is restored!	
-Global routine: Super Drink!	0	source-context	시공간이 뒤틀립니다!	ZA WARUDO!	
-Player routine: serveBot	0	source-context	서빙볼	ServingBall	
-Player routine: serveBot	2	source-context	서빙볼	ServingBall	
-Global subroutine: Set Hint Text	0	manual-global+output-override	냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요.	Cook dishes with ingredients from the Fridge.\r\nPan-fry or grill Beef, then serve it to the correct table	
-Global subroutine: Set Hint Text	1	manual-global+output-override	재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요.	Slice or chop ingredients on the cutting board.\r\nPan-fry or grill Sliced Beef	
-Global subroutine: Set Hint Text	2	manual-global+output-override	재료의 손질과 각기 다른 조리기구의 활용으로 다양한 요리를 만들 수 있습니다.\r\n감자를 통째로 구우면 구운 감자가 되고...	The same ingredient can become different dishes.\r\nGrill a whole Potato to make Grilled Potato	
-Global subroutine: Set Hint Text	3	manual-global	감자를 썰어서 팬에 올리면 볶은 감자가 되고...	Slice the Potato and cook it in a pan to make Stir-fried Potato...	
-Global subroutine: Set Hint Text	4	manual-global	썬 감자를 튀김기에 올리면 감자튀김이 되는 식입니다.\r\n어떤 느낌인지 감이 오셨나요?	Then put Sliced Potato in the Fryer to make French Fries.\r\nSee how the same Potato changes?	
-Global subroutine: Set Hint Text	5	manual-global+output-override	어떤 재료는 강하게 내려치면 변하기도 합니다.\r\n감자를 솥에 쪄서 찐 감자를 관성을 이용해 바닥에 던져보세요.	Smashing can transform some ingredients.\r\nSteam a Potato, then slam the Steamed Potato onto the ground using momentum	
-Global subroutine: Set Hint Text	6	manual-global+output-override	또한 일부 재료는 합칠 수 있습니다.\r\n삶은 파스타와 크림 소스를 맞대어 합쳐보세요.	Some ingredients can be combined.\r\nCombine Boiled Pasta with Cream Sauce	
-Global subroutine: Set Hint Text	7	manual-global+output-override	토마토는 썰어서 솥에 찌면 토마토 소스를 만들 수 있지만..\r\n써는 대신 내려치면 더 빠르게 뭉갠 토마토로 만들 수 있습니다.	Slice a Tomato and steam it in the Pot to make Tomato Sauce.\r\nSmash a Tomato to make Mashed Tomato faster	
-Global subroutine: Set Hint Text	8	manual-global+output-override	손님에 따라 다른 특성들도 있습니다.\r\n대식가의 경우에는 점수를 더 많이 주지만 음식을 2번 서빙해야 합니다.	Customers have different traits.\r\nA Big Fat Customer gives more points but must be served twice	
-Global subroutine: Set Hint Text	9	manual-global	다양한 레시피들의 조합법을 마스터하고 클리어에 도전하세요.\r\n행운을 빕니다!	Master the recipe combinations and clear the mode.\r\nGood luck!	
-Global subroutine: Set Hint Text	10	manual-global	썬 닭고기 + 튀김가루 > 튀김기	Sliced Chicken + Frying Mix > Fryer	
-Global subroutine: Set Hint Text	11	manual-global	닭고기 + 튀김가루 > 튀김기	Chicken + Frying Mix > Fryer	
-Global subroutine: Set Hint Text	12	manual-global	조각낸 닭고기 + 튀김가루 > 튀김기	Chopped Chicken + Frying Mix > Fryer	
-Global subroutine: Set Hint Text	13	manual-global	모든 양념은 후라이드 치킨에 추가할 수 있습니다.\r\n간장 + 물엿	Any sauce can be added to Fried Chicken.\r\nSoy Sauce + Corn Syrup	
-Global subroutine: Set Hint Text	14	manual-global	고추장 + 물엿	Red Pepper Paste + Corn Syrup	
-Global subroutine: Set Hint Text	15	manual-global	고추장 + 간장 + 물엿	Red Pepper Paste + Soy Sauce + Corn Syrup	
-Global subroutine: Set Hint Text	16	manual-global	썬 파 + 간장 소스	Sliced Green Onion + Sweet Soy Sauce	
-Global subroutine: Set Hint Text	17	manual-global	튀긴 조각 닭 + 양념 소스 > 팬에 볶기	Chicken Nugget + Sweet&Spicy Sauce > Pan Fry	
-Global subroutine: Set Hint Text	18	manual-global	밀가루를 피자 도우가 될 때 까지 내려치세요.\r\n피자 도우 + 토마토 소스 + 피자 치즈 > 그릴에 굽기	Smash Flour until it becomes Flour Pizza Dough.\r\nFlour Pizza Dough + Tomato Sauce + Shredded Mozzarella > Grill	
-Global subroutine: Set Hint Text	19	manual-global	모든 레시피를 확인할 수 있는 사이트를 참고하실 수 있습니다.\r\nhttps://ow-restaurant.com/ko	View all recipes on this website.\r\nhttps://ow-restaurant.com/en	
-Global subroutine: Set Hint Text	21	manual-global+output-override	조심하세요! 자신보다 늦게 온 손님을 먼저 서빙하면 실패하는 손님 유형이 있습니다.	Some customers leave if you serve a later arrival first	
-Global subroutine: Set Hint Text	22	manual-global+output-override	이런 손님들은 주문서 순서대로 서빙하는걸 추천합니다.	Serve them in the order shown on the order slips	
-Global subroutine: Set Hint Text	23	manual-global+output-override	음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.	A positive review from the Food Critic attracts more customers	
-Global subroutine: Set Hint Text	24	manual-global+output-override	푸드 파이터는 3개의 음식을 서빙해야 합니다.	A Competitive Eater must be served three dishes	
-Global subroutine: Set Hint Text	26	manual-global+output-override	예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!	A Reserved Customer orders before entering.\r\nRemember the reservation message briefly shown at the center of the screen	
-Global subroutine: Set Hint Text	27	manual-global+output-override	밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다.	Cut Flour Dough, then smash it again to make Dumpling Wrapper	
-Global subroutine: Set Hint Text	28	manual-global	다진 파 + 으깬 두부 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot	
-Global subroutine: Set Hint Text	29	manual-global	다진 파 + 으깬 두부 + 만두피 > 팬에 굽기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry	
-Global subroutine: Set Hint Text	30	manual-global	다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot	
-Global subroutine: Set Hint Text	31	manual-global	다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot	
-Global subroutine: Set Hint Text	32	manual-global	다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun	
-Global subroutine: Set Hint Text	33	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun	
-Global subroutine: Set Hint Text	34	manual-global	아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun	
-Global subroutine: Set Hint Text	35	manual-global	아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun	
-Global subroutine: Set Hint Text	36	manual-global	아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun	
-Global subroutine: Set Hint Text	37	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun	
-Global subroutine: Set Hint Text	39	manual-global+output-override	https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.	View this theme's recipes at\r\nhttps://ow-restaurant.com/en	
+Global subroutine: Foot Hud	3	manual-global+output-override	공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다	Jump high into the air\r\nto reach higher floors
+Global subroutine: Foot Hud	4	manual-global+output-override	앞으로 빠르게 대시하는\r\n다재다능한 신발입니다	Versatile boots that let you\r\ndash quickly forward
+Global subroutine: Foot Hud	5	manual-global+output-override	주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다	Use while holding an ordered dish\r\nto teleport to its table
+Global subroutine: Load Progress	1	source-context	돌아오셨군요! 이전 데이터를 불러왔습니다!	Welcome Back! Your progress is restored!
+Global routine: Super Drink!	0	manual-global	{0}fgC72BD4FF>기초적인 임플란트 가동.	{0}fgC72BD4FF>Sandevistan online. Time to cook, choom	{0}
+Player routine: serveBot	0	source-context	서빙볼	ServingBall
+Player routine: serveBot	2	source-context	서빙볼	ServingBall
+Global subroutine: Set Hint Text	0	manual-global+output-override	냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요.	Cook dishes with ingredients from the Fridge.\r\nPan-fry or grill Beef, then serve it to the correct table
+Global subroutine: Set Hint Text	1	manual-global+output-override	재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요.	Slice or chop ingredients on the cutting board.\r\nPan-fry or grill Sliced Beef
+Global subroutine: Set Hint Text	2	manual-global+output-override	재료의 손질과 각기 다른 조리기구의 활용으로 다양한 요리를 만들 수 있습니다.\r\n감자를 통째로 구우면 구운 감자가 되고...	The same ingredient can become different dishes.\r\nGrill a whole Potato to make Grilled Potato
+Global subroutine: Set Hint Text	3	manual-global	감자를 썰어서 팬에 올리면 볶은 감자가 되고...	Slice the Potato and cook it in a pan to make Stir-fried Potato...
+Global subroutine: Set Hint Text	4	manual-global	썬 감자를 튀김기에 올리면 감자튀김이 되는 식입니다.\r\n어떤 느낌인지 감이 오셨나요?	Then put Sliced Potato in the Fryer to make French Fries.\r\nSee how the same Potato changes?
+Global subroutine: Set Hint Text	5	manual-global+output-override	어떤 재료는 강하게 내려치면 변하기도 합니다.\r\n감자를 솥에 쪄서 찐 감자를 관성을 이용해 바닥에 던져보세요.	Smashing can transform some ingredients.\r\nSteam a Potato, then slam the Steamed Potato onto the ground using momentum
+Global subroutine: Set Hint Text	6	manual-global+output-override	또한 일부 재료는 합칠 수 있습니다.\r\n삶은 파스타와 크림 소스를 맞대어 합쳐보세요.	Some ingredients can be combined.\r\nCombine Boiled Pasta with Cream Sauce
+Global subroutine: Set Hint Text	7	manual-global+output-override	토마토는 썰어서 솥에 찌면 토마토 소스를 만들 수 있지만..\r\n써는 대신 내려치면 더 빠르게 뭉갠 토마토로 만들 수 있습니다.	Slice a Tomato and steam it in the Pot to make Tomato Sauce.\r\nSmash a Tomato to make Mashed Tomato faster
+Global subroutine: Set Hint Text	8	manual-global+output-override	손님에 따라 다른 특성들도 있습니다.\r\n대식가의 경우에는 점수를 더 많이 주지만 음식을 2번 서빙해야 합니다.	Customers have different traits.\r\nA Big Fat Customer gives more points but must be served twice
+Global subroutine: Set Hint Text	9	manual-global	다양한 레시피들의 조합법을 마스터하고 클리어에 도전하세요.\r\n행운을 빕니다!	Master the recipe combinations and clear the mode.\r\nGood luck!
+Global subroutine: Set Hint Text	10	manual-global	썬 닭고기 + 튀김가루 > 튀김기	Sliced Chicken + Frying Mix > Fryer
+Global subroutine: Set Hint Text	11	manual-global	닭고기 + 튀김가루 > 튀김기	Chicken + Frying Mix > Fryer
+Global subroutine: Set Hint Text	12	manual-global	조각낸 닭고기 + 튀김가루 > 튀김기	Chopped Chicken + Frying Mix > Fryer
+Global subroutine: Set Hint Text	13	manual-global	모든 양념은 후라이드 치킨에 추가할 수 있습니다.\r\n간장 + 물엿	Any sauce can be added to Fried Chicken.\r\nSoy Sauce + Corn Syrup
+Global subroutine: Set Hint Text	14	manual-global	고추장 + 물엿	Red Pepper Paste + Corn Syrup
+Global subroutine: Set Hint Text	15	manual-global	고추장 + 간장 + 물엿	Red Pepper Paste + Soy Sauce + Corn Syrup
+Global subroutine: Set Hint Text	16	manual-global	썬 파 + 간장 소스	Sliced Green Onion + Sweet Soy Sauce
+Global subroutine: Set Hint Text	17	manual-global	튀긴 조각 닭 + 양념 소스 > 팬에 볶기	Chicken Nugget + Sweet&Spicy Sauce > Pan Fry
+Global subroutine: Set Hint Text	18	manual-global	밀가루를 피자 도우가 될 때 까지 내려치세요.\r\n피자 도우 + 토마토 소스 + 피자 치즈 > 그릴에 굽기	Smash Flour until it becomes Flour Pizza Dough.\r\nFlour Pizza Dough + Tomato Sauce + Shredded Mozzarella > Grill
+Global subroutine: Set Hint Text	19	manual-global	모든 레시피를 확인할 수 있는 사이트를 참고하실 수 있습니다.\r\nhttps://ow-restaurant.com/ko	View all recipes on this website.\r\nhttps://ow-restaurant.com/en
+Global subroutine: Set Hint Text	21	manual-global+output-override	조심하세요! 자신보다 늦게 온 손님을 먼저 서빙하면 실패하는 손님 유형이 있습니다.	Some customers leave if you serve a later arrival first
+Global subroutine: Set Hint Text	22	manual-global+output-override	이런 손님들은 주문서 순서대로 서빙하는걸 추천합니다.	Serve them in the order shown on the order slips
+Global subroutine: Set Hint Text	23	manual-global+output-override	음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.	A positive review from the Food Critic attracts more customers
+Global subroutine: Set Hint Text	24	manual-global+output-override	푸드 파이터는 3개의 음식을 서빙해야 합니다.	A Competitive Eater must be served three dishes
+Global subroutine: Set Hint Text	26	manual-global+output-override	예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!	A Reserved Customer orders before entering.\r\nRemember the reservation message briefly shown at the center of the screen
+Global subroutine: Set Hint Text	27	manual-global+output-override	밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다.	Cut Flour Dough, then smash it again to make Dumpling Wrapper
+Global subroutine: Set Hint Text	28	manual-global	다진 파 + 으깬 두부 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot
+Global subroutine: Set Hint Text	29	manual-global	다진 파 + 으깬 두부 + 만두피 > 팬에 굽기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry
+Global subroutine: Set Hint Text	30	manual-global	다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
+Global subroutine: Set Hint Text	31	manual-global	다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
+Global subroutine: Set Hint Text	32	manual-global	다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun
+Global subroutine: Set Hint Text	33	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun
+Global subroutine: Set Hint Text	34	manual-global	아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	35	manual-global	아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun
+Global subroutine: Set Hint Text	36	manual-global	아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	37	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	39	manual-global+output-override	https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.	View this theme's recipes at\r\nhttps://ow-restaurant.com/en
 Global subroutine: Scoreboard	0	manual-global	최종 점수 : 〔{0}〕	Final Score: [{0}]	{0}
-Global subroutine: Scoreboard	1	source-phrase	최고 기록 갱신!! 이 화면을 캡처하여 https://ow-restaurant.com 로 보내주세요	New Record!! Capture this screen and submit to https://ow-restaurant.com/en	
+Global subroutine: Scoreboard	1	source-phrase	최고 기록 갱신!! 이 화면을 캡처하여 https://ow-restaurant.com 로 보내주세요	New Record!! Capture this screen and submit to https://ow-restaurant.com/en
 Global subroutine: Scoreboard	2	source-phrase	최고 기록 : 〔{0}〕	High Score: [{0}]	{0}
 Global subroutine: Scoreboard	4	source-phrase	{0} 〔{2}〕\r\n  {1}	{0} [{2}]\r\n  {1}	{0} {2} {1}
 Global subroutine: Scoreboard	5	manual-global	시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕	Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]	{0} {1} {2}
 Global subroutine: Scoreboard	6	manual-global	{0}시간{1}분{2}초	{0}h{1}m{2}s	{0} {1} {2}
-Global subroutine: Scoreboard	8	manual-context	연습 모드	Practice	
-Global subroutine: Scoreboard	9	source-phrase	캐주얼 다이닝	Casual Dining	
-Global subroutine: Scoreboard	10	source-phrase	파인 다이닝	Fine Dining	
-Global subroutine: Scoreboard	11	manual-global	스타 비스트로	Buzzy Restaurant	
-Global subroutine: Scoreboard	12	manual-global	마스터쿡 챌린지	MasterChef Challenge	
-Global subroutine: Scoreboard	13	manual-global	헤드셰프 챌린지	HeadChef Challenge	
-Global subroutine: Scoreboard	15	manual-global	수습 난이도	Apprentice	
-Global subroutine: Scoreboard	16	manual-global	숙련 난이도	Journeyman	
-Global subroutine: Scoreboard	17	manual-global	전문 난이도	Professional	
-Global subroutine: Scoreboard	19	manual-global	클리어!	Complete!	
+Global subroutine: Scoreboard	8	manual-context	연습 모드	Practice
+Global subroutine: Scoreboard	9	source-phrase	캐주얼 다이닝	Casual Dining
+Global subroutine: Scoreboard	10	source-phrase	파인 다이닝	Fine Dining
+Global subroutine: Scoreboard	11	manual-global	스타 비스트로	Buzzy Restaurant
+Global subroutine: Scoreboard	12	manual-global	마스터쿡 챌린지	MasterChef Challenge
+Global subroutine: Scoreboard	13	manual-global	헤드셰프 챌린지	HeadChef Challenge
+Global subroutine: Scoreboard	15	manual-global	수습 난이도	Apprentice
+Global subroutine: Scoreboard	16	manual-global	숙련 난이도	Journeyman
+Global subroutine: Scoreboard	17	manual-global	전문 난이도	Professional
+Global subroutine: Scoreboard	19	manual-global	클리어!	Complete!
 Global subroutine: Scoreboard	20	manual-global+output-override	Stage {0} 에서 실패	Stage {0}	{0}
 Global subroutine: Scoreboard	21	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕	Total Personal Income: [{0}]\r\nContribution Score: [{1}]	{0} {1}
 Global subroutine: Scoreboard	22	manual-global	성공한 영업 : 〔{0}〕	Success: [{0}]	{0}
@@ -305,14 +302,14 @@ Global subroutine: Scoreboard	25	manual-global	서빙 성공 : 〔{0}〕	Serving
 Global subroutine: Scoreboard	26	manual-global	전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]	{0} {1}
 Global subroutine: Scoreboard	27	manual-global	서빙 실수 : 〔{0}〕	Serving Mistake: [{0}]	{0}
 Global subroutine: Scoreboard	28	source-phrase	환상적인 서빙 : 〔{0}〕\r\n신속한 서빙 : 〔{1}〕\r\n완성도 있는 요리 : 〔{2}〕	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	29	manual-global	평가 : 〔★★★★★★★〕	Rank: [SSS]	
-Global subroutine: Scoreboard	30	manual-global	평가 : 〔★★★★★★〕	Rank: [S++]	
-Global subroutine: Scoreboard	31	manual-global	평가 : 〔★★★★★〕	Rank: [S+]	
-Global subroutine: Scoreboard	32	manual-global	평가 : 〔★★★★☆〕	Rank: [S]	
-Global subroutine: Scoreboard	33	manual-global	평가 : 〔★★★☆☆〕	Rank: [A]	
-Global subroutine: Scoreboard	34	manual-global	평가 : 〔★★☆☆☆〕	Rank: [B]	
-Global subroutine: Scoreboard	35	manual-global	평가 : 〔★☆☆☆☆〕	Rank: [C]	
-Global subroutine: Scoreboard	36	manual-global	평가 : 〔☆☆☆☆☆〕	Rank: [F]	
+Global subroutine: Scoreboard	29	manual-global	평가 : 〔★★★★★★★〕	Rank: [SSS]
+Global subroutine: Scoreboard	30	manual-global	평가 : 〔★★★★★★〕	Rank: [S++]
+Global subroutine: Scoreboard	31	manual-global	평가 : 〔★★★★★〕	Rank: [S+]
+Global subroutine: Scoreboard	32	manual-global	평가 : 〔★★★★☆〕	Rank: [S]
+Global subroutine: Scoreboard	33	manual-global	평가 : 〔★★★☆☆〕	Rank: [A]
+Global subroutine: Scoreboard	34	manual-global	평가 : 〔★★☆☆☆〕	Rank: [B]
+Global subroutine: Scoreboard	35	manual-global	평가 : 〔★☆☆☆☆〕	Rank: [C]
+Global subroutine: Scoreboard	36	manual-global	평가 : 〔☆☆☆☆☆〕	Rank: [F]
 Global subroutine: Scoreboard	39	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
 Global subroutine: Scoreboard	40	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
 Global subroutine: Scoreboard	43	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
@@ -325,9 +322,9 @@ Global subroutine: Scoreboard	55	source-phrase	개인 총 수입 : 〔{0}〕\r\n
 Global subroutine: Scoreboard	56	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
 Global subroutine: Scoreboard	59	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
 Global subroutine: Scoreboard	60	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
-Global subroutine: Other Menu	0	manual-global	로드 중...	Loading...	
-Global subroutine: Other Menu	1	manual-global	데이터 초기화 중...	Initializing data...	
-Global subroutine: Other Menu	4	manual-context	연습 모드	Practice Mode	
+Global subroutine: Other Menu	0	manual-global	로드 중...	Loading...
+Global subroutine: Other Menu	1	manual-global	데이터 초기화 중...	Initializing data...
+Global subroutine: Other Menu	4	manual-context	연습 모드	Practice Mode
 Global subroutine: Other Menu	5	manual-global	{0} 의 워크샵 코드는 {1} 입니다! 	{0} Workshop code is {1}! 	{0} {1}
-Global subroutine: Other Menu	6	manual-global	Joseon-뉴 3호점	Joseon-K-Food(KR)	
-Global subroutine: Other Menu	7	manual-global	Gummybear-오리지널	Gummybear-Original(KR)	
+Global subroutine: Other Menu	6	manual-global	Joseon-뉴 3호점	Joseon-K-Food(KR)
+Global subroutine: Other Menu	7	manual-global	Gummybear-오리지널	Gummybear-Original(KR)

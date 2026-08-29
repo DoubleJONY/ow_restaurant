@@ -312,7 +312,7 @@ PERK_HUD_RULE = r'''rule("Global subroutine: Perk Hud")
 			Global.stageMode[1] < 2 ?
 			Array(
 				Custom String("100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다"),
-				Custom String("20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다"),
+				Custom String("잠시 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다"),
 				Custom String("손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다"),
 				Custom String("필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요"),
 				Custom String("손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다"),
@@ -339,8 +339,8 @@ KNIFE_HUD_RULE = r'''rule("Global subroutine: Knife Hud")
 	actions
 	{
 		If(Event Player.knifeCode == 0);
-			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up), Evaluate Once(
-				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]])), Global.stageMode[1] < 2 ? Custom String("다이소에서 파는\r\n평범한 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
+			Create HUD Text(Event Player, Custom String(" {1} - {0}% ", Round To Integer(Event Player.durability, Up),
+				Global.ITEM_NAME[Global.KNIFE[Event Player.knifeCode]]), Global.stageMode[1] < 2 ? Custom String("다이소에서 파는\r\n평범한 칼입니다") : Custom String(" \r\n"), Null, Right, True, Custom Color(
 				255 - Event Player.durability * 0.950, Event Player.durability * 2.320, Event Player.durability * 0.270, 255), Color(White), Null,
 				String and Color, Default Visibility);
 			Event Player.knifeText = Last Text ID;
@@ -536,9 +536,13 @@ def patch_global_setting(rule: str) -> str:
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.", Icon String(Flag)),
+		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}", Icon String(Flag),
+		Custom String("  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
-			Color(White), Default Visibility);'''.replace("\n", "\r\n")
+			Color(White), Default Visibility);
+		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
+			Global.difficulty == 4 ? Custom String("[{0}] - 연습모드용 아이템 생성", Input Binding String(Button(Ability 2))) : Custom String(""),
+			Vector(217.370, 2.5, 172.520), 1, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);'''.replace("\n", "\r\n")
     patch_notes_pattern = re.compile(
         r'\t\tCreate In-World Text\(Players Within Radius\(Vector\(206\.991, 1, 188\.239\), 14, All Teams, Off\),.*?'
         r'거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다\..*?Color\(White\), Default Visibility\);',
@@ -697,7 +701,13 @@ def patch_spawn(rule: str) -> str:
 			Default Visibility);'''.replace("\n", "\r\n")
     new = '''		Create In-World Text(Event Player, Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);'''.replace("\n", "\r\n")
-    return replace_once(rule, old, new, "spawn edition label")
+    rule = replace_once(rule, old, new, "spawn edition label")
+    return replace_once(
+        rule,
+        'Custom String("GummyBear#11798\\r\\nMod : 변기클라우드#3523\\r\\nEnglish Version : HTNZ3")',
+        'Custom String("한국어 : SPXXM\\r\\nEnglish : HTNZ3\\r\\n日本語 : 4ND1P")',
+        "spawn language codes",
+    )
 
 
 def patch_control_item_hud(rule: str) -> str:
@@ -921,6 +931,13 @@ def build_text() -> str:
 
     text = text.replace("v260827", "v260829").replace("v260828", "v260829")
     text = text.rstrip("\r\n") + "\r\n\r\n" + generated
+    legacy_drink_name = "에너지 드링크/수상한 드링크/점프 부츠"
+    release_drink_name = "에너지 드링크/싼데비슷한 드링크/점프 부츠"
+    if text.count(legacy_drink_name) != 3:
+        raise BuildError(
+            f"Deluxe ITEM_NAME drink rename: expected 3, got {text.count(legacy_drink_name)}"
+        )
+    text = text.replace(legacy_drink_name, release_drink_name)
     text = replace_subroutine_rule(
         text,
         "dataInit_customerCommon",
@@ -935,6 +952,33 @@ def build_text() -> str:
         r"(?m)^( +)(?=\t)",
         lambda match: "\t" * (len(match.group(1)) // 4) + " " * (len(match.group(1)) % 4),
         text,
+    )
+    text = replace_once(
+        text,
+        "\t\t\tGlobal.KNIFE_DECREASE = Mapped Array(Global.KNIFE_DECREASE, Null);\r\n",
+        "",
+        "practice durability preservation",
+    )
+    text = replace_once(
+        text,
+        "\t\tSet Facing(Event Player, Vector(0.830, False, 0.560), To World);",
+        "\t\tSet Facing(Event Player, Vector(0.830, False, 0.560), To World);\r\n"
+        "\t\tAbort If(Global.superDrink < 0);",
+        "guard Sandevistan reset",
+    )
+    text = replace_once(
+        text,
+        'Big Message(All Players(All Teams), Custom String("시공간이 뒤틀립니다!"));\r\n'
+        "\t\t\tSet Move Speed(All Players(Team 1), 200);",
+        'Big Message(All Players(All Teams), Custom String("{0}fgC72BD4FF>기초적인 임플란트 가동.", Global.tx));\r\n'
+        "\t\t\tSet Move Speed(All Players(Team 1), 280);",
+        "Sandevistan activation",
+    )
+    text = replace_once(
+        text,
+        "\t\t\tSet Slow Motion(50);",
+        "\t\t\tSet Slow Motion(30);",
+        "Sandevistan slow motion",
     )
     return text
 
