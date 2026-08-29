@@ -1,0 +1,194 @@
+{
+  "localized_data": {
+    "item_name_counts": {
+      "org": 476,
+      "cafe": 399,
+      "gc": 464
+    },
+    "stage_name_counts": {
+      "org": 12,
+      "cafe": 12,
+      "gc": 12
+    },
+    "upgrade_name_counts": {
+      "org": 10,
+      "cafe": 10,
+      "gc": 10
+    },
+    "paired_item_tables": {
+      "org": 15,
+      "cafe": 17,
+      "gc": 15
+    },
+    "item_name_max_literal_chars": {
+      "org": 85,
+      "cafe": 85,
+      "gc": 85
+    }
+  },
+  "total_score": {
+    "org": [
+      {
+        "score": 0,
+        "holder": "Practice"
+      },
+      {
+        "score": 5506,
+        "holder": "SizzlingGunz"
+      },
+      {
+        "score": 4082,
+        "holder": "SizzlingGunz"
+      },
+      {
+        "score": 4555,
+        "holder": "Carrion"
+      },
+      {
+        "score": 7759,
+        "holder": "Carrion"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      }
+    ],
+    "cafe": [
+      {
+        "score": 0,
+        "holder": "Practice"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      }
+    ],
+    "gc": [
+      {
+        "score": 0,
+        "holder": "Practice"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      },
+      {
+        "score": 0,
+        "holder": "None"
+      }
+    ]
+  },
+  "stage_code_deltas": [
+    {
+      "edition": "org",
+      "path": "[1][7][0]",
+      "kr": 4,
+      "en": 1,
+      "policy": "English order"
+    },
+    {
+      "edition": "org",
+      "path": "[1][9][0]",
+      "kr": 1,
+      "en": 4,
+      "policy": "English order"
+    },
+    {
+      "edition": "org",
+      "path": "[1][10][0]",
+      "kr": 4,
+      "en": 1,
+      "policy": "English order"
+    },
+    {
+      "edition": "org",
+      "path": "[1][12][0]",
+      "kr": 1,
+      "en": 4,
+      "policy": "English order"
+    },
+    {
+      "edition": "org",
+      "path": "[1][13][0]",
+      "kr": 4,
+      "en": 1,
+      "policy": "English order"
+    },
+    {
+      "edition": "org",
+      "path": "[1][14][0]",
+      "kr": 1,
+      "en": 4,
+      "policy": "English order"
+    },
+    {
+      "edition": "gc",
+      "path": "[2][10][0]",
+      "kr": 8,
+      "en": 6,
+      "policy": "shared legacy English order"
+    }
+  ],
+  "translation": {
+    "exact_rules": 97,
+    "sequence_rules": 26,
+    "aligned_literals": 452,
+    "inventory": 1706,
+    "translated": 332,
+    "unresolved": 0,
+    "allowlisted": 1,
+    "manual_global_entries": 152,
+    "manual_context_entries": 4,
+    "output_overrides": 60,
+    "release_code_overrides": 15
+  },
+  "rules": 57,
+  "globals": 128,
+  "subroutines": 40,
+  "custom_string_calls": 1702,
+  "kr_custom_string_calls": 1546,
+  "custom_string_call_delta": 156,
+  "array_call_delta": 10,
+  "remaining_unapproved_hangul": 0,
+  "placeholder_mismatches": 0,
+  "color_markup_mismatches": 0,
+  "locale_assignment_manifest_sha256": "D874A1F04B8D46B843594D499A158559B44377ABB5B6A6725D6C31815FC6E6E2",
+  "structural_fingerprint_sha256": "5FB7564207CBDED9F4896A9A4B1F075C5C54C14C6B536E02369144C56BF31D32",
+  "kr_structural_fingerprint_sha256": "5DEC4A94405D3B16DFA8986CB9B57EBD81BC8AC3381935A56B76FAF80C93CB99",
+  "largest_rule": {
+    "name": "Dummy: Spawn",
+    "bytes": 37065
+  },
+  "rule_limit_bytes": 100352,
+  "sha256": "935AA105EE0803AE54D39BBFF433FB94F124FB955529A6BD6FCE6BCC65E21F1E",
+  "bytes": 383681,
+  "unresolved": 0
+}

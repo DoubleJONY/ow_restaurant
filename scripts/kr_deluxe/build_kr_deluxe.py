@@ -786,6 +786,7 @@ def patch_set_hint(rule: str) -> str:
         + indented_body
         + "\r\n\t\tElse;\r\n"
         + "\t\t\tIf(Global.stage == 0);\r\n"
+        + "\t\t\t\tGlobal.currentCustomer = Array(Hero(Soldier: 76), Hero(Soldier: 76));\r\n"
         + "\t\t\t\tGlobal.hintText = Array(\r\n"
         + "\t\t\t\t\tCustom String(\"https://ow-restaurant.com/ko 에서\\r\\n이 테마의 레시피를 확인하실 수 있습니다.\")\r\n"
         + "\t\t\t\t);\r\n"

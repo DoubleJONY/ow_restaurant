@@ -9,6 +9,9 @@ settings. Find and comply with any items or references described here.
 ## Additional Context
 - In this workspace, `.codex/` is intentionally tracked by git for workspace memory and artifacts. Do not re-add `.codex/` to `.gitignore` unless explicitly requested.
 - Workspace-local artifacts and history should be stored under `.codex/artifact/`.
+- Before every task that can modify an `.ow` file or one of its generators, treat the current `.ow` file as potentially hand-edited. First compare it read-only against the generator's prospective output; do not run a write-producing build before this comparison.
+- If the current `.ow` file differs from generated output, treat the `.ow` file as authoritative unless the user explicitly says otherwise. Reverse-sync its manual changes into the generator, translation mappings, or explicit override data before making the requested change.
+- After editing, run a check that compares the actual `.ow` file with generated output byte-for-byte. A check that merely validates an in-memory generated result is insufficient. Never allow generator execution to silently roll back manual `.ow` edits.
 - Version strings in this project use the edit date as `vYYMMDD`. Whenever modifying any project file, update all relevant `vYYMMDD` occurrences in that file to the current date. For example, edits made on 2026-05-31 should use `v260531`.
 - Established Workshop table refactor pattern from `2026-04-14`:
   - For long numeric tables, prefer `Custom String` chains with `{0}` continuation plus `String Split(..., Custom String("/"))`.
@@ -37,3 +40,4 @@ settings. Find and comply with any items or references described here.
   - `.codex/artifact/20260531_restaurant_jp_followups/`
   - `.codex/artifact/20260827_mixed_array_string_compression/`
   - `.codex/artifact/20260827_kr_deluxe_unification/`
+  - `.codex/artifact/20260829_en_deluxe_creation_plan/`

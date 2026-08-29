@@ -1,0 +1,157 @@
+rule	ordinal	kr	en
+		〔{0}〕:  물 내리기  	[{0}]:  Flush
+		〔{0}〕:  썰기  	[{0}]:  Chop
+		 칼이 없습니다  	No Knife Available
+		레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260829\r\ndiscord&recipes : ow-restaurant.com/en
+		{0} 제작 중인 특수 칼:{1}개	{0} Special Knife:{1}
+		모듬회밥!	Assorted Sashimi Rice Bowl!
+		카페 & 디저트	Cafe & Dessert
+		쿡제요리	World Cuisine
+		제작: {0}	Created by: {0}
+		Gummybear&변기클라우드\r\n난이도 : ★★★☆☆	GummyBear & ToiletCloud\r\nDifficulty: ★★★☆☆
+		Joseon&Deadlock\r\n난이도 : ★★☆☆☆	Joseon & Deadlock\r\nDifficulty: ★★☆☆☆
+		Joseon\r\n난이도 : ★★★★☆	Joseon\r\nDifficulty: ★★★★☆
+		[{0}]: 테마 변경	[{0}]: Change Theme
+		 방장이 테마를 결정하는 중입니다	 The host is choosing the theme
+Global: Setting	80	연습 모드	Practice
+Global: Setting	118	연습 모드	Practice Mode
+Global subroutine: Scoreboard	8	연습 모드	Practice
+Global subroutine: Other Menu	4	연습 모드	Practice Mode
+		스타 비스트로	Buzzy Restaurant
+		마스터쿡 챌린지	MasterChef Challenge
+		헤드셰프 챌린지	HeadChef Challenge
+		자유롭게 연습할 수 있는 샌드박스 모드 입니다	A sandbox mode where you can freely practice your skills.
+		5개의 메뉴가 등장하는 수습 난이도를 클리어하세요	Complete the Apprentice with 5 menu items.
+		모든 메뉴가 등장하는 숙련 난이도를 클리어하세요	Complete the Journeyman with the all menu.
+		까다로운 손님들이 등장하는 전문 난이도를 클리어하세요	Complete the Professional featuring demanding customers.
+		Hell's Kitchen 클리어에 도전하세요	Challenge the Hell's Kitchen Chef!
+		완벽의 영역에 도전하세요	Challenge the perfect restaurant.
+		[{0}]: 모드 변경	[{0}]: Rotate Mode
+		 방장이 모드를 결정하는 중입니다	 Please wait for the host to decide the mode
+		로드 중...	Loading...
+		데이터 초기화 중...	Initializing data...
+		다른 메뉴	Other Menus
+		모든 손님	All
+		Joseon-뉴 3호점	Joseon-K-Food(KR)
+		Gummybear-오리지널	Gummybear-Original(KR)
+		개시 하여 시작	Press Open to Start
+		{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260829\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into Assorted Sashimi Rice Bowl!\r\n{2}
+		  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	  You can change the theme when entering the game or in Practice Mode.
+		〔{0}〕:  칼 장착  	[{0}]:  Equip Knife
+		〔{0}〕:  아이템 장착  	[{0}]:  Equip Item
+		〔{0}〕:  줍기  	[{0}]:  Pick Up
+		〔{0}〕 : 항목 변경	 [{0}] : Change Select 
+		다음번에 상인이 칼을 가져올 것 입니다	Knife will be delivered when he came back
+		특수 칼 뽑기 -${0}	Order Special Knife Random Box -${0}
+		{0} 구매 -${1}	Purchase {0} -${1}
+		연습용 손님이 입장합니다! 	Practice Customers are coming in!
+		버그 수정 및 추가 업데이트를 적용하려면\r\n위의 코드로 게임을 다시 불러와주세요!	Please re-import code above\r\nto apply bug fixes and additional updates.
+		수습 난이도	Apprentice
+		숙련 난이도	Journeyman
+		전문 난이도	Professional
+		{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!
+		성공적인 영업!	Successful Service!
+		{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!
+		{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})
+		{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!
+		다이소에서 파는\r\n평범한 칼입니다	An ordinary knife\r\nsold at Daiso.
+		내구도와 성능이 무난한\r\n주방용 칼입니다	A kitchen knife with\r\ndecent durability and performance.
+		재료를 손에 들고 바로 썰 수 있는\r\n전설적인 칼입니다	A legendary knife that lets you\r\nchop ingredients while holding them.
+		내구도와 성능이 뛰어난\r\n고급 칼입니다	A high-end knife with\r\nexcellent durability and performance.
+		재료를 손에 들고 썰 수 있는\r\n희귀한 칼입니다	A rare knife that lets you\r\nchop ingredients while holding them.
+		내구도와 성능이 압도적인\r\n희귀한 칼입니다	A rare knife with\r\nexceptional durability and performance.
+		도마에서 아주 빠른 속도로\r\n연격할 수 있습니다	Lets you unleash rapid strikes\r\non a cutting board.
+		100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다	Increases chopping and movement speed\r\nfor 100 seconds.
+		20초간 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다	Slows time for 20 seconds while boosting\r\nknife, movement, and appliance speed.
+		손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness.
+		필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요	Sucks up unwanted ingredients\r\nso you can skip the cleanup.
+		손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다	Use while holding food\r\nto duplicate it.
+		그릴까지 가지 않아도\r\n재료를 구울 수 있습니다	Grill ingredients anywhere\r\nwithout going to the Grill.
+		햄스터가 아르바이트를 구한다\r\n라고 함	Apparently, a hamster\r\nis looking for a part-time job.
+		현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round.\r\nOpen the pack with a knife.
+		제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Freeze ingredients anywhere\r\nwithout using the Ice Maker.
+		공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다	Jump high into the air\r\nto reach elevated places.
+		앞으로 빠르게 대시하는\r\n다재다능한 신발입니다	Versatile boots that let you\r\ndash quickly forward.
+		주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다	Use while holding an ordered dish\r\nto teleport to its table.
+		https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.	View this theme's recipes at\r\nhttps://ow-restaurant.com/en.
+		시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕	Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]
+		{0}시간{1}분{2}초	{0}h{1}m{2}s
+		클리어!	Complete!
+		Stage {0} 에서 실패	Failed at Stage {0}
+		성공한 영업 : 〔{0}〕	Success: [{0}]
+		환상적인 영업 : 〔{0}〕\r\n성공적인 영업 : 〔{1}〕\r\n실패한 영업 : 〔{2}〕	A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]
+		서빙 성공 : 〔{0}〕	Serving Success: [{0}]
+		전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]
+		서빙 실수 : 〔{0}〕	Serving Mistake: [{0}]
+		평가 : 〔★★★★★★★〕	Rank: [SSS]
+		평가 : 〔★★★★★★〕	Rank: [S++]
+		평가 : 〔★★★★★〕	Rank: [S+]
+		평가 : 〔★★★★☆〕	Rank: [S]
+		평가 : 〔★★★☆☆〕	Rank: [A]
+		평가 : 〔★★☆☆☆〕	Rank: [B]
+		평가 : 〔★☆☆☆☆〕	Rank: [C]
+		평가 : 〔☆☆☆☆☆〕	Rank: [F]
+		{0} 의 워크샵 코드는 {1} 입니다! 	{0} Workshop code is {1}! 
+		헤드셰프	Head Chef
+		〔{0}〕 - 직책 변경	[{0}] - Change Role
+		{0}초	{0}s
+		그릴	Grill
+		제빙기	Ice Maker
+		싱크대	Sink
+		냉장고	Fridge
+		도마	Cutting Board
+		튀김기	Fryer
+		〔{0}〕: 영웅 변경	[{0}]: Change Hero
+		비어 있음	Empty
+		Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}
+		{0} 솥:{1}% / 튀김&제빙:{2}%	{0} Pot:{1}% / Fryer&Ice:{2}%
+		{0} 솥:{1}% / 튀김:{2}%	{0} Pot:{1}% / Fryer:{2}%
+		{0} 팬:{1}% / 오븐:{2}%	{0} Pan:{1}% / Oven:{2}%
+		{0} 팬:{1}% / 그릴:{2}%	{0} Pan:{1}% / Grill:{2}%
+		{0} 이속:{1}% / 시간:{2}초	{0} Speed:{1}% / Time:{2}s
+		〔{0}〕: 영업 개시	[{0}]: OPEN
+		〔{1}〕: 모드-{0}	[{1}]: Mode-{0}
+		연습 종료	End Practice
+		튜토리얼	Tutorial
+		{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10.
+		캐주얼 다이닝 튜토리얼 표시	Show Casual Dining Tutorial
+		냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요.	Cook dishes with ingredients from the Fridge.\r\nPan-fry or grill Beef, then serve it to the correct table.
+		재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요.	Slice or chop ingredients on the cutting board.\r\nPan-fry or grill Sliced Beef.
+		재료의 손질과 각기 다른 조리기구의 활용으로 다양한 요리를 만들 수 있습니다.\r\n감자를 통째로 구우면 구운 감자가 되고...	The same ingredient can become different dishes.\r\nGrill a whole Potato to make Grilled Potato.
+		감자를 썰어서 팬에 올리면 볶은 감자가 되고...	Slice the Potato and cook it in a pan to make Stir-fried Potato...
+		썬 감자를 튀김기에 올리면 감자튀김이 되는 식입니다.\r\n어떤 느낌인지 감이 오셨나요?	Then put Sliced Potato in the Fryer to make French Fries.\r\nSee how the same Potato changes?
+		어떤 재료는 강하게 내려치면 변하기도 합니다.\r\n감자를 솥에 쪄서 찐 감자를 관성을 이용해 바닥에 던져보세요.	Smashing can transform some ingredients.\r\nSteam a Potato, then slam the Steamed Potato onto the ground using momentum.
+		또한 일부 재료는 합칠 수 있습니다.\r\n삶은 파스타와 크림 소스를 맞대어 합쳐보세요.	Some ingredients can be combined.\r\nCombine Boiled Pasta with Cream Sauce.
+		토마토는 썰어서 솥에 찌면 토마토 소스를 만들 수 있지만..\r\n써는 대신 내려치면 더 빠르게 뭉갠 토마토로 만들 수 있습니다.	Slice a Tomato and steam it in the Pot to make Tomato Sauce.\r\nSmash a Tomato to make Mashed Tomato faster.
+		손님에 따라 다른 특성들도 있습니다.\r\n대식가의 경우에는 점수를 더 많이 주지만 음식을 2번 서빙해야 합니다.	Customers have different traits.\r\nA Big Fat Customer gives more points but must be served twice.
+		다양한 레시피들의 조합법을 마스터하고 클리어에 도전하세요.\r\n행운을 빕니다!	Master the recipe combinations and clear the mode.\r\nGood luck!
+		썬 닭고기 + 튀김가루 > 튀김기	Sliced Chicken + Frying Mix > Fryer
+		닭고기 + 튀김가루 > 튀김기	Chicken + Frying Mix > Fryer
+		조각낸 닭고기 + 튀김가루 > 튀김기	Chopped Chicken + Frying Mix > Fryer
+		모든 양념은 후라이드 치킨에 추가할 수 있습니다.\r\n간장 + 물엿	Any sauce can be added to Fried Chicken.\r\nSoy Sauce + Corn Syrup
+		고추장 + 물엿	Red Pepper Paste + Corn Syrup
+		고추장 + 간장 + 물엿	Red Pepper Paste + Soy Sauce + Corn Syrup
+		썬 파 + 간장 소스	Sliced Green Onion + Sweet Soy Sauce
+		튀긴 조각 닭 + 양념 소스 > 팬에 볶기	Chicken Nugget + Sweet&Spicy Sauce > Pan Fry
+		밀가루를 피자 도우가 될 때 까지 내려치세요.\r\n피자 도우 + 토마토 소스 + 피자 치즈 > 그릴에 굽기	Smash Flour until it becomes Flour Pizza Dough.\r\nFlour Pizza Dough + Tomato Sauce + Shredded Mozzarella > Grill
+		모든 레시피를 확인할 수 있는 사이트를 참고하실 수 있습니다.\r\nhttps://ow-restaurant.com/ko	View all recipes on this website.\r\nhttps://ow-restaurant.com/en
+		조심하세요! 자신보다 늦게 온 손님을 먼저 서빙하면 실패하는 손님 유형이 있습니다.	Some customers leave if you serve a later arrival first.
+		이런 손님들은 주문서 순서대로 서빙하는걸 추천합니다.	Serve them in the order shown on the order slips.
+		음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.	A positive review from the Food Critic attracts more customers.
+		푸드 파이터는 3개의 음식을 서빙해야 합니다.	A Competitive Eater must be served three dishes.
+		예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!	A Reserved Customer orders before entering.\r\nRemember the reservation message briefly shown at the center of the screen.
+		밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다.	Cut Flour Dough, then smash it again to make Dumpling Wrapper.
+		다진 파 + 으깬 두부 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot
+		다진 파 + 으깬 두부 + 만두피 > 팬에 굽기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry
+		다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
+		다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
+		다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun
+		아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun
+		아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun
+		아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun
+		아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun
+		아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun
+		최종 점수 : 〔{0}〕	Final Score: [{0}]
+		 〔 {0} 〕 	 [ {0} ] 
+		〔{1}〕: {0}	[{1}]: {0}
+		〔{0}〕:  {1} - ${2}	[{0}]:  {1} - ${2}
