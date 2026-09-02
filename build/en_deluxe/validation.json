@@ -157,39 +157,47 @@
       "policy": "shared legacy English order"
     }
   ],
+  "serialized_ui_tables": {
+    "edition_names": 3,
+    "edition_credits": 1,
+    "mode_names": 2,
+    "mode_descriptions": 1,
+    "practice_edition_names": 1,
+    "difficulty_names": 2
+  },
   "translation": {
     "exact_rules": 97,
     "sequence_rules": 26,
     "aligned_literals": 452,
-    "inventory": 1705,
-    "translated": 329,
+    "inventory": 1694,
+    "translated": 294,
     "unresolved": 0,
-    "allowlisted": 2,
-    "manual_global_entries": 155,
-    "manual_context_entries": 4,
-    "output_overrides": 58,
-    "korean_only_messages_removed": 3,
-    "release_code_overrides": 16
+    "allowlisted": 3,
+    "manual_global_entries": 137,
+    "manual_context_entries": 5,
+    "output_overrides": 47,
+    "korean_only_messages_removed": 2,
+    "release_code_overrides": 15
   },
   "rules": 57,
   "globals": 128,
   "subroutines": 40,
-  "custom_string_calls": 1698,
-  "kr_custom_string_calls": 1549,
-  "custom_string_call_delta": 149,
+  "custom_string_calls": 1689,
+  "kr_custom_string_calls": 1537,
+  "custom_string_call_delta": 152,
   "array_call_delta": 10,
   "remaining_unapproved_hangul": 0,
   "placeholder_mismatches": 0,
   "color_markup_mismatches": 0,
   "locale_assignment_manifest_sha256": "D874A1F04B8D46B843594D499A158559B44377ABB5B6A6725D6C31815FC6E6E2",
-  "structural_fingerprint_sha256": "AF4B5562EBE8F798E0BAB10E58A3094677E77E70803A44CA7F05678299AE8807",
-  "kr_structural_fingerprint_sha256": "63292B5DA30E37DFB1666D5E43753076898605D3D95C891CF8B571277DF1C122",
+  "structural_fingerprint_sha256": "1D518AA450A86A8FC1FD830AC3B8676C18F93D6A80FB00629B8057BE006F729F",
+  "kr_structural_fingerprint_sha256": "8C6F2A3CD7F16807E8EBEF697D065E1A19D5B9F8227F4A0F2B8A33406CB808FB",
   "largest_rule": {
     "name": "Dummy: Spawn",
     "bytes": 37065
   },
   "rule_limit_bytes": 100352,
-  "sha256": "4A7124823278B7899E055D9BF57AB9340702129FA9FD9F9F99AAD7040D51F126",
-  "bytes": 383022,
+  "sha256": "FDEF0704356788370EAD9EDE6134829F38BBE9DD6D8840A53478EF52ACDC272A",
+  "bytes": 383156,
   "unresolved": 0
 }

@@ -36,6 +36,99 @@ class BuildError(RuntimeError):
     pass
 
 
+MAX_UI_STRING_SEGMENT = 90
+SERIALIZED_UI_TABLES = {
+    "edition_names": {
+        "values": ("모듬회밥!", "카페!", "쿡제요리"),
+        "groups": ((0, 1, 2),),
+        "index": "Global.stageMode[0]",
+        "count": 3,
+    },
+    "edition_credits": {
+        "values": (
+            "Gummybear&변기클라우드\\r\\n난이도 : ★★★☆☆",
+            "Joseon&Deadlock\\r\\n난이도 : ★★☆☆☆",
+            "Joseon\\r\\n난이도 : ★★★★☆",
+        ),
+        "groups": ((0,), (1, 2)),
+        "index": "Global.stageMode[0]",
+        "count": 1,
+    },
+    "mode_names": {
+        "values": ("연습 모드", "캐주얼 다이닝", "파인 다이닝", "스타 비스트로", "마스터쿡 챌린지", "헤드셰프 챌린지"),
+        "groups": ((0, 1, 2), (3, 4, 5)),
+        "index": "Global.stageMode[1]",
+        "count": 2,
+    },
+    "mode_descriptions": {
+        "values": (
+            "자유롭게 연습할 수 있는 샌드박스 모드 입니다",
+            "5개의 메뉴가 등장하는 수습 난이도를 클리어하세요",
+            "모든 메뉴가 등장하는 숙련 난이도를 클리어하세요",
+            "까다로운 손님들이 등장하는 전문 난이도를 클리어하세요",
+            "Hell's Kitchen 클리어에 도전하세요",
+            "완벽의 영역에 도전하세요",
+        ),
+        "groups": ((0,), (1, 2), (3,), (4, 5)),
+        "index": "Global.stageMode[1]",
+        "count": 1,
+    },
+    "practice_edition_names": {
+        "values": ("모듬회밥!", "카페!", "쿡제요리"),
+        "groups": ((0, 1, 2),),
+        "index": "Global.totalScore[False]",
+        "count": 1,
+    },
+    "difficulty_names": {
+        "values": ("수습 난이도", "숙련 난이도", "전문 난이도", "Hell's Kitchen"),
+        "groups": ((0, 1, 2, 3),),
+        "index": "Global.difficulty",
+        "count": 2,
+    },
+}
+
+
+def serialized_string_array(values: tuple[str, ...], groups: tuple[tuple[int, ...], ...]) -> str:
+    if sorted(index for group in groups for index in group) != list(range(len(values))):
+        raise BuildError("serialized UI string groups do not cover each value exactly once")
+    if any("/" in value for value in values):
+        raise BuildError("serialized UI string value contains the '/' delimiter")
+    segments = ["/".join(values[index] for index in group) for group in groups]
+    rendered = f'Custom String("{segments[-1]}")'
+    for segment in reversed(segments[:-1]):
+        rendered = f'Custom String("{segment}/{{0}}", {rendered})'
+    for position, segment in enumerate(segments):
+        payload = segment + ("/{0}" if position < len(segments) - 1 else "")
+        if len(payload) > MAX_UI_STRING_SEGMENT:
+            raise BuildError(
+                f"serialized UI string segment exceeds {MAX_UI_STRING_SEGMENT} chars: {payload!r}"
+            )
+    return f'String Split({rendered}, Custom String("/"))'
+
+
+def serialized_ui_expression(key: str, values: tuple[str, ...] | None = None) -> str:
+    spec = SERIALIZED_UI_TABLES[key]
+    selected = tuple(values if values is not None else spec["values"])
+    return f'{serialized_string_array(selected, spec["groups"])}[{spec["index"]}]'
+
+
+def serialize_ui_string_arrays(text: str) -> tuple[str, dict[str, int]]:
+    report: dict[str, int] = {}
+    for key, spec in SERIALIZED_UI_TABLES.items():
+        values = tuple(spec["values"])
+        pattern = r"Array\(\s*" + r"\s*,\s*".join(
+            rf'Custom String\(\s*"{re.escape(value)}"\s*\)' for value in values
+        ) + r"\s*\)\[" + re.escape(str(spec["index"])) + r"\]"
+        replacement = serialized_ui_expression(key)
+        text, count = re.subn(pattern, lambda _: replacement, text)
+        if count != spec["count"]:
+            raise BuildError(
+                f"serialized UI table {key}: expected {spec['count']} matches, got {count}"
+            )
+        report[key] = count
+    return text, report
+
+
 def replace_once(text: str, old: str, new: str, label: str) -> str:
     count = text.count(old)
     if count != 1:
@@ -316,7 +409,7 @@ PERK_HUD_RULE = r'''rule("Global subroutine: Perk Hud")
 				Custom String("손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다"),
 				Custom String("필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요"),
 				Custom String("손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다"),
-				Custom String("그릴까지 가지 않아도\r\n재료를 구울 수 있습니다"),
+				Custom String("{0}까지 가지 않아도\r\n재료를 구울 수 있습니다", Global.stageMode[0] == 1 ? Custom String("오븐") : Custom String("그릴")),
 				Custom String("햄스터가 아르바이트를 구한다\r\n라고 함"),
 				Custom String("현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다"),
 				Custom String("제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다"))[Event Player.itemPerk]
@@ -464,7 +557,7 @@ def patch_global_setting(rule: str) -> str:
         edition_hud_old
         + '\r\n\t\tGlobal.globalText[0] = Last Text ID;\r\n'
         '\t\tCreate HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", Array(Custom String("모듬회밥!"), '
-        'Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]),\r\n'
+        'Custom String("카페!"), Custom String("쿡제요리"))[Global.stageMode[0]]),\r\n'
         '\t\t\tCustom String("제작: {0}", Array(Custom String("Gummybear&변기클라우드\\r\\n난이도 : ★★★☆☆"), '
         'Custom String("Joseon&Deadlock\\r\\n난이도 : ★★☆☆☆"), Custom String("Joseon\\r\\n난이도 : ★★★★☆"))[Global.stageMode[0]]),\r\n'
         '\t\t\tLocal Player == Global.scbRank ? Custom String("[{0}]: 테마 변경", Input Binding String(Button(Ability 2))) '
@@ -531,7 +624,7 @@ def patch_global_setting(rule: str) -> str:
         "merged selected edition data init",
     )
     deluxe_patch_notes = r'''		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260830\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
@@ -575,7 +668,7 @@ def patch_global_setting(rule: str) -> str:
     rule = replace_once(
         rule,
         'Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))',
-        'Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))',
+        'Array(Custom String("모듬회밥!"), Custom String("카페!"), Custom String("쿡제요리"))',
         "practice edition menu labels",
     )
     rule = replace_once(
@@ -699,7 +792,7 @@ def patch_spawn(rule: str) -> str:
 			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange),
 			Default Visibility);'''.replace("\n", "\r\n")
-    new = '''		Create In-World Text(Event Player, Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+    new = '''		Create In-World Text(Event Player, Array(Custom String("모듬회밥!"), Custom String("카페!"), Custom String("쿡제요리"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);'''.replace("\n", "\r\n")
     rule = replace_once(rule, old, new, "spawn edition label")
     return replace_once(
@@ -929,7 +1022,7 @@ def build_text() -> str:
         "upgrade station label",
     )
 
-    text = text.replace("v260827", "v260829").replace("v260828", "v260829")
+    text = text.replace("v260827", "v260830").replace("v260828", "v260830").replace("v260829", "v260830")
     text = text.rstrip("\r\n") + "\r\n\r\n" + generated
     legacy_drink_name = "에너지 드링크/수상한 드링크/점프 부츠"
     release_drink_name = "에너지 드링크/싼데비슷한 드링크/점프 부츠"
@@ -946,6 +1039,12 @@ def build_text() -> str:
     text = text.rstrip("\r\n") + "\r\n\r\n" + OTHER_MENU_RULE + "\r\n\r\n" + MENU_INIT_RULE + "\r\n"
     text = re.sub(r"\bGlobal\.stageMode\b(?!\[)", "Global.stageMode[1]", text)
     text = text.replace("Global.stageMode[1] = Array(0, 0);", "Global.stageMode = Array(0, 0);")
+    summary_mode_old = '''Custom String("{0}", Array(Custom String("연습 모드"),
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode[1]])'''.replace("\n", "\r\n")
+    summary_mode_new = '''Custom String("[{0}] {1}", Array(Custom String("모듬회밥!"), Custom String("카페!"), Custom String("쿡제요리"))[Global.stageMode[0]], Array(Custom String("연습 모드"),
+			Custom String("캐주얼 다이닝"), Custom String("파인 다이닝"), Custom String("스타 비스트로"), Custom String("마스터쿡 챌린지"), Custom String("헤드셰프 챌린지"))[Global.stageMode[1]])'''.replace("\n", "\r\n")
+    text = replace_once(text, summary_mode_old, summary_mode_new, "summary edition and mode label")
+    text, serialized_ui_report = serialize_ui_string_arrays(text)
     text = re.sub(r"}(?:\r\n){3,}(?=rule\()", "}\r\n\r\n", text)
     text = re.sub(r"[ \t]+(?=\r\n)", "", text)
     text = re.sub(
@@ -1184,11 +1283,9 @@ def validate_assembled(text: str) -> dict[str, object]:
         if stale:
             raise BuildError(f"stale ORG tool code in createItemData[2]: {sorted(stale)}")
 
-    if "v260827" in text or "v260828" in text or text.count("v260829") < 2:
+    if any(version in text for version in ("v260827", "v260828", "v260829")) or text.count("v260830") < 2:
         raise BuildError("project version was not updated consistently")
-    if text.count(
-        'Array(Custom String("모듬회밥!"), Custom String("카페 & 디저트"), Custom String("쿡제요리"))[Global.stageMode[0]]'
-    ) != 2:
+    if text.count(serialized_ui_expression("edition_names")) != 3:
         raise BuildError("Deluxe edition selector labels do not match ORG/CAFE/GC data")
     edition_color = (
         "Array(Color(Orange), Custom Color(100, 60, False, 255), Color(Blue))"
@@ -1358,13 +1455,17 @@ def main() -> None:
                         "group_count_each": 12,
                         "round_trip_checked": True,
                     },
+                    "serialized_ui_tables": {
+                        "tables": {key: spec["count"] for key, spec in SERIALIZED_UI_TABLES.items()},
+                        "max_segment_chars": MAX_UI_STRING_SEGMENT,
+                    },
                     "ice_result_reuse": {"ORG": "MELT_LIST", "CAFE": "ice conversion"},
                     "tutorial_routing": {"ORG": "implemented", "CAFE": "empty", "GC": "empty"},
                     "source_rule_size_check": source_rule_size_check,
                     "create_item_sites": len(site_lines) - 1,
                     "control_flow_checked": True,
                     "preserved_legacy_implicit_end_rules": ["Player: Reload button"],
-                    "version": "v260829",
+                    "version": "v260830",
                     "gc_water_ported": False,
                     "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch",
                 },

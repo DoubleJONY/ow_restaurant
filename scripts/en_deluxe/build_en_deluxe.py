@@ -34,7 +34,7 @@ BUILD_DIR = ROOT / "build" / "en_deluxe"
 MANUAL_TRANSLATIONS = Path(__file__).with_name("manual_translations.tsv")
 OUTPUT_OVERRIDES = Path(__file__).with_name("output_overrides.tsv")
 RELEASE_CODE_OVERRIDES = Path(__file__).with_name("release_code_overrides.jsonl")
-APPROVED_RELEASE_STRUCTURE_SHA256 = "788654043DC616BC134D91B6A60A6FD2ABF6C273A4E8AD16C2ED5392A9403B2C"
+APPROVED_RELEASE_STRUCTURE_SHA256 = "1D518AA450A86A8FC1FD830AC3B8676C18F93D6A80FB00629B8057BE006F729F"
 JSON_STRING_TOKEN = r'"(?:\\.|[^"\\])*"'
 
 KOREAN_ONLY_MESSAGE_EDITS = (
@@ -61,6 +61,31 @@ LOCALE_SOURCES = {
     "gc": {"kr": ROOT / "gc_kr.ow", "en": ROOT / "gc_en.ow", "old_count": 462, "new_count": 464},
 }
 
+SERIALIZED_UI_VALUES = {
+    "edition_names": ("OverwatchCooked!", "Cafe & Dessert", "World Cuisine"),
+    "edition_credits": (
+        "GummyBear&변기클라우드\\r\\nDifficulty: ★★★☆☆",
+        "Joseon&Deadlock\\r\\nDifficulty: ★★☆☆☆",
+        "Joseon\\r\\nDifficulty: ★★★★☆",
+    ),
+    "mode_names": (
+        "Practice", "Casual Dining", "Fine Dining", "Buzzy Restaurant",
+        "MasterChef Challenge", "HeadChef Challenge",
+    ),
+    "mode_descriptions": (
+        "A sandbox mode where you can freely practice your skills",
+        "Complete the Apprentice with 5 menu items",
+        "Complete the Journeyman with the all menu",
+        "Complete the Professional featuring demanding customers",
+        "Challenge the Hell's Kitchen Chef!",
+        "Challenge the perfect restaurant",
+    ),
+    "practice_edition_names": (
+        "OverwatchCooked!", "Cafe & Dessert", "World Cuisine",
+    ),
+    "difficulty_names": ("Apprentice", "Journeyman", "Professional", "Hell's Kitchen"),
+}
+
 DATA_RULE_TITLES = {
     "Global subroutine: Deluxe ORG init1",
     "Global subroutine: Deluxe ORG init2",
@@ -76,8 +101,8 @@ DATA_RULE_TITLES = {
 
 # English source files intentionally retain these exact identity/locale values.
 ALLOWED_HANGUL_LITERALS = {
-    ("Global: Setting", 73): "GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆",
-    ("Player: Spawn", 13): "한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P",
+    ("Global: Setting", 72): "GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆/{0}",
+    ("Player: Spawn", 12): "한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P",
     ("Player: Reload button", 2): "변기클라우드",
 }
 
@@ -611,6 +636,26 @@ def suppress_korean_only_messages(text: str) -> tuple[str, int]:
     return text, count
 
 
+def localize_serialized_ui_tables(text: str) -> tuple[str, dict[str, int]]:
+    report: dict[str, int] = {}
+    for key, values in SERIALIZED_UI_VALUES.items():
+        source = kr_builder.serialized_ui_expression(key)
+        target = kr_builder.serialized_ui_expression(key, values)
+        expected = kr_builder.SERIALIZED_UI_TABLES[key]["count"]
+        count = text.count(source)
+        if count != expected:
+            raise BuildError(f"serialized EN UI table {key}: expected {expected}, got {count}")
+        text = text.replace(source, target)
+        report[key] = count
+    edition = kr_builder.serialized_ui_expression("edition_names", SERIALIZED_UI_VALUES["edition_names"])
+    modes = kr_builder.serialized_ui_expression("mode_names", SERIALIZED_UI_VALUES["mode_names"])
+    summary_pair = edition + ", " + modes
+    if text.count(summary_pair) != 1:
+        raise BuildError("serialized EN summary spacing anchor changed")
+    text = text.replace(summary_pair, edition + " , " + modes, 1)
+    return text, report
+
+
 def translate_custom_strings(text: str) -> tuple[str, list[dict[str, object]], list[dict[str, object]], dict[str, int]]:
     phrase_map, _, stats = aligned_source_maps()
     target_context_map = exact_target_context_map(text)
@@ -857,6 +902,7 @@ def build_text() -> tuple[str, dict[str, object], list[dict[str, object]], list[
     text, data_report = localize_data_tables(text)
     text, total_score_report = localize_total_score(text)
     text, stage_deltas = localize_stage_code(text)
+    text, serialized_ui_report = localize_serialized_ui_tables(text)
     text, korean_only_message_count = suppress_korean_only_messages(text)
     locale_baseline = text
     text, inventory, unresolved, translation_stats = translate_custom_strings(text)
@@ -870,6 +916,7 @@ def build_text() -> tuple[str, dict[str, object], list[dict[str, object]], list[
         "localized_data": data_report,
         "total_score": total_score_report,
         "stage_code_deltas": stage_deltas,
+        "serialized_ui_tables": serialized_ui_report,
         "translation": translation_stats,
     }
     if not unresolved:

@@ -58,9 +58,34 @@ DATA_RULE_TITLES = {
     "Global subroutine: Deluxe GC init3",
     "Global subroutine: Deluxe common customer init",
 }
+
+SERIALIZED_UI_VALUES = {
+    "edition_names": ("クラシック", "カフェ&デザート", "世界の料理"),
+    "edition_credits": (
+        "Gummybear&변기클라우드\\r\\n難易度 : ★★★☆☆",
+        "Joseon&Deadlock\\r\\n難易度 : ★★☆☆☆",
+        "Joseon\\r\\n難易度 : ★★★★☆",
+    ),
+    "mode_names": (
+        "練習モード", "カジュアルダイニング", "ファインダイニング", "スター・ビストロ",
+        "マスターシェフチャレンジ", "ヘッドシェフ・チャレンジ",
+    ),
+    "mode_descriptions": (
+        "スキルを自由に磨ける練習専用モードです",
+        "5つのメニューが登場する入門レベルをクリアしましょう",
+        "すべてのメニューが登場する熟練レベルをクリアしましょう",
+        "個性の強い客が登場するプロレベルを攻略しましょう",
+        "Hell's Kitchenのシェフに挑戦しましょう",
+        "完璧なレストランに挑戦しましょう",
+    ),
+    "practice_edition_names": (
+        "クラシック", "カフェ&デザート", "世界の料理",
+    ),
+    "difficulty_names": ("入門レベル", "熟練レベル", "プロレベル", "Hell's Kitchen"),
+}
 PINNED_HANGUL_LITERALS = {
-    ("Global: Setting", 73): "Gummybear&변기클라우드\r\n難易度 : ★★★☆☆",
-    ("Player: Spawn", 13): "한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P",
+    ("Global: Setting", 72): "Gummybear&변기클라우드\r\n難易度 : ★★★☆☆/{0}",
+    ("Player: Spawn", 12): "한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P",
     ("Player: Reload button", 2): "변기클라우드",
 }
 PINNED_RUNTIME_LITERALS = {
@@ -535,6 +560,13 @@ def apply_shared_release_fixes(text: str) -> tuple[str, list[dict[str, object]]]
             "All Players(Team 1)[Global.superDrink].durability = 1000;",
             "Sandevistan durability restoration",
         ),
+        (
+            kr_builder.serialized_ui_expression("edition_names")
+            + ", " + kr_builder.serialized_ui_expression("mode_names"),
+            kr_builder.serialized_ui_expression("edition_names")
+            + " , " + kr_builder.serialized_ui_expression("mode_names"),
+            "preserve localized summary spacing",
+        ),
     )
     for base, target, label in replacements:
         if text.count(base) != 1:
@@ -627,6 +659,20 @@ def aligned_translation_maps(
         if len(values) == 1
     }
     return phrase_map, context_map, stats
+
+
+def localize_serialized_ui_tables(text: str) -> tuple[str, dict[str, int]]:
+    report: dict[str, int] = {}
+    for key, values in SERIALIZED_UI_VALUES.items():
+        source = kr_builder.serialized_ui_expression(key)
+        target = kr_builder.serialized_ui_expression(key, values)
+        expected = kr_builder.SERIALIZED_UI_TABLES[key]["count"]
+        count = text.count(source)
+        if count != expected:
+            raise BuildError(f"serialized JP UI table {key}: expected {expected}, got {count}")
+        text = text.replace(source, target)
+        report[key] = count
+    return text, report
 
 
 def exact_target_context_map(
@@ -1355,7 +1401,7 @@ def validate_output(
     if locale_paths != {"ja"}:
         raise BuildError(f"Japanese recipe URL locale paths are wrong: {sorted(locale_paths)!r}")
     versions = set(re.findall(r"\bv\d{6}\b", text))
-    if versions != {"v260829"}:
+    if versions != {"v260830"}:
         raise BuildError(f"Japanese release version set is wrong: {sorted(versions)!r}")
 
     structure_baseline, _ = apply_shared_release_fixes(kr_text)
@@ -1479,6 +1525,7 @@ def build_text() -> tuple[
     text, org_data_report = localize_org_gameplay_data(text)
     text, scoreboard_layout_report = patch_scoreboard_layout(text)
     text, shared_release_report = apply_shared_release_fixes(text)
+    text, serialized_ui_report = localize_serialized_ui_tables(text)
     text, korean_only_message_count = locale_tools.suppress_korean_only_messages(text)
     text, inventory, unresolved, translation_report = translate_custom_strings(text, kr_text)
     text, inventory, override_count = apply_output_overrides(text, inventory)
@@ -1491,6 +1538,7 @@ def build_text() -> tuple[
         "org_gameplay_deltas": org_data_report,
         "scoreboard_layout_deltas": scoreboard_layout_report,
         "shared_release_fixes": shared_release_report,
+        "serialized_ui_tables": serialized_ui_report,
     }
     report: dict[str, object] = {
         "localized_data": data_report,

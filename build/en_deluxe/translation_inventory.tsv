@@ -54,7 +54,7 @@ Global: Setting	51	unchanged
 Global: Setting	52	unchanged	{0}	{0}	{0}
 Global: Setting	53	manual-global	비어 있음	Empty
 Global: Setting	54	unchanged
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260829\r\ndiscord&recipes : ow-restaurant.com/en
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260830\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260830\r\ndiscord&recipes : ow-restaurant.com/en
 Global: Setting	56	unchanged	 ${0} 	 ${0} 	{0}
 Global: Setting	57	manual-global	Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}	{0} {2} {1}
 Global: Setting	58	unchanged	\r\nHigh Score : {0}({1})	\r\nHigh Score : {0}({1})	{0} {1}
@@ -68,76 +68,68 @@ Global: Setting	65	manual-global	{0} 팬:{1}% / 그릴:{2}%	{0} Pan:{1}% / Grill
 Global: Setting	66	manual-global	{0} 이속:{1}% / 시간:{2}초	{0} Speed:{1}% / Time:{2}s	{0} {1} {2}
 Global: Setting	67	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
 Global: Setting	68	manual-global	 〔 {0} 〕 	 [ {0} ] 	{0}
-Global: Setting	69	manual-global+output-override	모듬회밥!	OverwatchCooked!
-Global: Setting	70	manual-global	카페 & 디저트	Cafe & Dessert
-Global: Setting	71	manual-global	쿡제요리	World Cuisine
-Global: Setting	72	manual-global	제작: {0}	Created by: {0}	{0}
-Global: Setting	73	manual-global+output-override	Gummybear&변기클라우드\r\n난이도 : ★★★☆☆	GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆
-Global: Setting	74	manual-global+output-override	Joseon&Deadlock\r\n난이도 : ★★☆☆☆	Joseon&Deadlock\r\nDifficulty: ★★☆☆☆
-Global: Setting	75	manual-global	Joseon\r\n난이도 : ★★★★☆	Joseon\r\nDifficulty: ★★★★☆
-Global: Setting	76	manual-global	[{0}]: 테마 변경	[{0}]: Change Theme	{0}
-Global: Setting	77	manual-global	 방장이 테마를 결정하는 중입니다	 The host is choosing the theme
-Global: Setting	78	unchanged	\r\n	\r\n
-Global: Setting	79	manual-global	 〔 {0} 〕 	 [ {0} ] 	{0}
-Global: Setting	80	manual-context	연습 모드	Practice
-Global: Setting	81	source-phrase	캐주얼 다이닝	Casual Dining
-Global: Setting	82	source-phrase	파인 다이닝	Fine Dining
-Global: Setting	83	manual-global	스타 비스트로	Buzzy Restaurant
-Global: Setting	84	manual-global	마스터쿡 챌린지	MasterChef Challenge
-Global: Setting	85	manual-global	헤드셰프 챌린지	HeadChef Challenge
-Global: Setting	86	unchanged	{0}	{0}	{0}
-Global: Setting	87	manual-global+output-override	자유롭게 연습할 수 있는 샌드박스 모드 입니다	A sandbox mode where you can freely practice your skills
-Global: Setting	88	manual-global+output-override	5개의 메뉴가 등장하는 수습 난이도를 클리어하세요	Complete the Apprentice with 5 menu items
-Global: Setting	89	manual-global+output-override	모든 메뉴가 등장하는 숙련 난이도를 클리어하세요	Complete the Journeyman with the all menu
-Global: Setting	90	manual-global+output-override	까다로운 손님들이 등장하는 전문 난이도를 클리어하세요	Complete the Professional featuring demanding customers
-Global: Setting	91	manual-global	Hell's Kitchen 클리어에 도전하세요	Challenge the Hell's Kitchen Chef!
-Global: Setting	92	manual-global+output-override	완벽의 영역에 도전하세요	Challenge the perfect restaurant
-Global: Setting	93	manual-global	[{0}]: 모드 변경	[{0}]: Rotate Mode	{0}
-Global: Setting	94	manual-global	 방장이 모드를 결정하는 중입니다	 Please wait for the host to decide the mode
-Global: Setting	95	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
-Global: Setting	96	manual-global	로드 중...	Loading...
-Global: Setting	97	manual-global	데이터 초기화 중...	Initializing data...
-Global: Setting	98	unchanged	Practice	Practice
-Global: Setting	99	unchanged	SizzlingGunz	SizzlingGunz
-Global: Setting	100	unchanged	SizzlingGunz	SizzlingGunz
-Global: Setting	101	unchanged	Carrion	Carrion
-Global: Setting	102	unchanged	Carrion	Carrion
+Global: Setting	69	unchanged	OverwatchCooked!/Cafe & Dessert/World Cuisine	OverwatchCooked!/Cafe & Dessert/World Cuisine
+Global: Setting	70	unchanged	/	/
+Global: Setting	71	manual-global	제작: {0}	Created by: {0}	{0}
+Global: Setting	72	allowlisted	GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆/{0}	GummyBear&변기클라우드\r\nDifficulty: ★★★☆☆/{0}	{0}
+Global: Setting	73	unchanged	Joseon&Deadlock\r\nDifficulty: ★★☆☆☆/Joseon\r\nDifficulty: ★★★★☆	Joseon&Deadlock\r\nDifficulty: ★★☆☆☆/Joseon\r\nDifficulty: ★★★★☆
+Global: Setting	74	unchanged	/	/
+Global: Setting	75	manual-global	[{0}]: 테마 변경	[{0}]: Change Theme	{0}
+Global: Setting	76	manual-global	 방장이 테마를 결정하는 중입니다	 The host is choosing the theme
+Global: Setting	77	unchanged	\r\n	\r\n
+Global: Setting	78	manual-global	 〔 {0} 〕 	 [ {0} ] 	{0}
+Global: Setting	79	unchanged	Practice/Casual Dining/Fine Dining/{0}	Practice/Casual Dining/Fine Dining/{0}	{0}
+Global: Setting	80	unchanged	Buzzy Restaurant/MasterChef Challenge/HeadChef Challenge	Buzzy Restaurant/MasterChef Challenge/HeadChef Challenge
+Global: Setting	81	unchanged	/	/
+Global: Setting	82	unchanged	{0}	{0}	{0}
+Global: Setting	83	unchanged	A sandbox mode where you can freely practice your skills/{0}	A sandbox mode where you can freely practice your skills/{0}	{0}
+Global: Setting	84	unchanged	Complete the Apprentice with 5 menu items/Complete the Journeyman with the all menu/{0}	Complete the Apprentice with 5 menu items/Complete the Journeyman with the all menu/{0}	{0}
+Global: Setting	85	unchanged	Complete the Professional featuring demanding customers/{0}	Complete the Professional featuring demanding customers/{0}	{0}
+Global: Setting	86	unchanged	Challenge the Hell's Kitchen Chef!/Challenge the perfect restaurant	Challenge the Hell's Kitchen Chef!/Challenge the perfect restaurant
+Global: Setting	87	unchanged	/	/
+Global: Setting	88	manual-global	[{0}]: 모드 변경	[{0}]: Rotate Mode	{0}
+Global: Setting	89	manual-global	 방장이 모드를 결정하는 중입니다	 Please wait for the host to decide the mode
+Global: Setting	90	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Global: Setting	91	manual-global	로드 중...	Loading...
+Global: Setting	92	manual-global	데이터 초기화 중...	Initializing data...
+Global: Setting	93	unchanged	Practice	Practice
+Global: Setting	94	unchanged	SizzlingGunz	SizzlingGunz
+Global: Setting	95	unchanged	SizzlingGunz	SizzlingGunz
+Global: Setting	96	unchanged	Carrion	Carrion
+Global: Setting	97	unchanged	Carrion	Carrion
+Global: Setting	98	unchanged	None	None
+Global: Setting	99	unchanged	Practice	Practice
+Global: Setting	100	unchanged	None	None
+Global: Setting	101	unchanged	None	None
+Global: Setting	102	unchanged	None	None
 Global: Setting	103	unchanged	None	None
-Global: Setting	104	unchanged	Practice	Practice
-Global: Setting	105	unchanged	None	None
+Global: Setting	104	unchanged	None	None
+Global: Setting	105	unchanged	Practice	Practice
 Global: Setting	106	unchanged	None	None
 Global: Setting	107	unchanged	None	None
 Global: Setting	108	unchanged	None	None
 Global: Setting	109	unchanged	None	None
-Global: Setting	110	unchanged	Practice	Practice
-Global: Setting	111	unchanged	None	None
-Global: Setting	112	unchanged	None	None
-Global: Setting	113	unchanged	None	None
-Global: Setting	114	unchanged	None	None
-Global: Setting	115	unchanged	None	None
-Global: Setting	116	unchanged
-Global: Setting	117	manual-global	〔{0}〕: 영업 개시	[{0}]: OPEN	{0}
-Global: Setting	118	manual-context	연습 모드	Practice Mode
-Global: Setting	119	unchanged	{0}\r\n{1}	{0}\r\n{1}	{0} {1}
-Global: Setting	120	manual-global	〔{1}〕: 모드-{0}	[{1}]: Mode-{0}	{1} {0}
-Global: Setting	121	manual-global	다른 메뉴	Other Menus
-Global: Setting	122	manual-global	연습 종료	End Practice
-Global: Setting	123	manual-global	모든 손님	All
-Global: Setting	124	manual-global	튜토리얼	Tutorial
-Global: Setting	125	manual-global	〔{1}〕: {0}	[{1}]: {0}	{1} {0}
-Global: Setting	126	manual-global+output-override	모듬회밥!	OverwatchCooked!
-Global: Setting	127	manual-global	카페 & 디저트	Cafe & Dessert
-Global: Setting	128	manual-global	쿡제요리	World Cuisine
-Global: Setting	129	manual-global	Joseon-뉴 3호점	Joseon-K-Food(KR)
-Global: Setting	130	manual-global	Gummybear-오리지널	Gummybear-Original(KR)
-Global: Setting	131	manual-global	개시 하여 시작	Press Open to Start
-Global: Setting	132	source-phrase	퓨전	Fusion
-Global: Setting	133	manual-global+output-override	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260829\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
-Global: Setting	134	manual-global+output-override	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	 OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.
-Global: Setting	135	manual-global+output-override	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10\r\n{1}	{0} {1}
-Global: Setting	136	manual-global	  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.	  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.
-Global: Setting	137	manual-global	[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode	{0}
-Global: Setting	138	unchanged
+Global: Setting	110	unchanged	None	None
+Global: Setting	111	unchanged
+Global: Setting	112	manual-global	〔{0}〕: 영업 개시	[{0}]: OPEN	{0}
+Global: Setting	113	manual-context	연습 모드	Practice Mode
+Global: Setting	114	unchanged	{0}\r\n{1}	{0}\r\n{1}	{0} {1}
+Global: Setting	115	manual-global	〔{1}〕: 모드-{0}	[{1}]: Mode-{0}	{1} {0}
+Global: Setting	116	manual-global	다른 메뉴	Other Menus
+Global: Setting	117	manual-global	연습 종료	End Practice
+Global: Setting	118	manual-global	모든 손님	All
+Global: Setting	119	manual-global	튜토리얼	Tutorial
+Global: Setting	120	manual-global	〔{1}〕: {0}	[{1}]: {0}	{1} {0}
+Global: Setting	121	unchanged	OverwatchCooked!/Cafe & Dessert/World Cuisine	OverwatchCooked!/Cafe & Dessert/World Cuisine
+Global: Setting	122	unchanged	/	/
+Global: Setting	123	manual-global	개시 하여 시작	Press Open to Start
+Global: Setting	124	source-phrase	퓨전	Fusion
+Global: Setting	125	manual-global+output-override	{0} v260830\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260830\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
+Global: Setting	126	manual-global+output-override	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	 OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.
+Global: Setting	127	manual-global+output-override	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10\r\n{1}	{0} {1}
+Global: Setting	128	manual-global	  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.	  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.
+Global: Setting	129	manual-global	[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode	{0}
+Global: Setting	130	unchanged
 Player: Spawn	0	source-phrase	설정	Settings
 Player: Spawn	1	source-phrase	플레이어 기본 직책	Default Player Role
 Player: Spawn	2	source-phrase	요리사	Chef
@@ -148,11 +140,10 @@ Player: Spawn	6	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r
 Player: Spawn	7	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
 Player: Spawn	8	source-phrase	〔{0}〕 로 시작	[{0}] to Start	{0}
 Player: Spawn	9	source-phrase	레 스 토 랑	Restaurant
-Player: Spawn	10	manual-global+output-override	모듬회밥!	OverwatchCooked!
-Player: Spawn	11	manual-global	카페 & 디저트	Cafe & Dessert
-Player: Spawn	12	manual-global	쿡제요리	World Cuisine
-Player: Spawn	13	allowlisted	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P
-Player: Spawn	14	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Player: Spawn	10	unchanged	OverwatchCooked!/Cafe & Dessert/World Cuisine	OverwatchCooked!/Cafe & Dessert/World Cuisine
+Player: Spawn	11	unchanged	/	/
+Player: Spawn	12	allowlisted	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P
+Player: Spawn	13	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
 Player: Control item	0	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
 Player: Control item	1	manual-global+output-override	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	{0}
 Player: Control item	2	unchanged	\r\n	\r\n
@@ -283,40 +274,39 @@ Global subroutine: Start stage	3	source-phrase	영업 준비	Prepare for Service
 Global subroutine: Start stage	4	unchanged
 Global subroutine: Start stage	5	source-phrase	 {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}	 {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}	{0} {1} {2}
 Global subroutine: Start stage	6	unchanged	{0}{2}stage {1}	{0}{2}stage {1}	{0} {2} {1}
-Global subroutine: Start stage	7	manual-global	수습 난이도	Apprentice
-Global subroutine: Start stage	8	manual-global	숙련 난이도	Journeyman
-Global subroutine: Start stage	9	manual-global	전문 난이도	Professional
-Global subroutine: Start stage	10	unchanged	Hell's Kitchen	Hell's Kitchen
-Global subroutine: Start stage	11	unchanged	{0} / {1}	{0} / {1}	{0} {1}
-Global subroutine: Start stage	12	unchanged	\r\n Bonus 	\r\n Bonus
-Global subroutine: Start stage	13	unchanged	 - 	 -
-Global subroutine: Start stage	14	source-phrase	퓨전	Fusion
-Global subroutine: Start stage	15	unchanged	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n
-Global subroutine: Start stage	16	source-phrase	영업 시작!	Open for Service!
-Global subroutine: Start stage	17	source-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you!
-Global subroutine: Start stage	18	unchanged	{0}%	{0}%	{0}
-Global subroutine: Start stage	19	source-phrase	　　　　　주문서　　　　　	　　　　　Order List
-Global subroutine: Start stage	20	unchanged	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n
-Global subroutine: Start stage	21	unchanged	Stage {0}	Stage {0}	{0}
-Global subroutine: Start stage	22	source-phrase	몰려오는 손님!	More Incoming Customers!
-Global subroutine: Start stage	23	source-phrase	전직원 보너스!	Bonus For All Staff!
-Global subroutine: Start stage	24	source-phrase	영업 완료!	Good Service!
-Global subroutine: Start stage	25	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
-Global subroutine: Start stage	26	source-phrase	급여 +${0}	+${0}	{0}
-Global subroutine: Start stage	27	source-phrase	전직원 보너스!	Bonus For All Staff!
-Global subroutine: Start stage	28	source-phrase	영업 완료!	Good Service!
-Global subroutine: Start stage	29	source-phrase	몰려오는 손님!	More Incoming Customers!
-Global subroutine: Start stage	30	manual-global	성공적인 영업!	Successful Service!
-Global subroutine: Start stage	31	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
-Global subroutine: Start stage	32	source-phrase	급여 +${0}	+${0}	{0}
-Global subroutine: Start stage	33	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
-Global subroutine: Start stage	34	source-phrase	중간 점수 : {0}	Current Score: {0}	{0}
-Global subroutine: Start stage	35	source-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!
+Global subroutine: Start stage	7	unchanged	Apprentice/Journeyman/Professional/Hell's Kitchen	Apprentice/Journeyman/Professional/Hell's Kitchen
+Global subroutine: Start stage	8	unchanged	/	/
+Global subroutine: Start stage	9	unchanged	{0} / {1}	{0} / {1}	{0} {1}
+Global subroutine: Start stage	10	unchanged	\r\n Bonus 	\r\n Bonus
+Global subroutine: Start stage	11	unchanged	 - 	 -
+Global subroutine: Start stage	12	source-phrase	퓨전	Fusion
+Global subroutine: Start stage	13	unchanged	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n
+Global subroutine: Start stage	14	source-phrase	영업 시작!	Open for Service!
+Global subroutine: Start stage	15	source-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you!
+Global subroutine: Start stage	16	unchanged	{0}%	{0}%	{0}
+Global subroutine: Start stage	17	source-phrase	　　　　　주문서　　　　　	　　　　　Order List
+Global subroutine: Start stage	18	unchanged	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n
+Global subroutine: Start stage	19	unchanged	Stage {0}	Stage {0}	{0}
+Global subroutine: Start stage	20	source-phrase	몰려오는 손님!	More Incoming Customers!
+Global subroutine: Start stage	21	source-phrase	전직원 보너스!	Bonus For All Staff!
+Global subroutine: Start stage	22	source-phrase	영업 완료!	Good Service!
+Global subroutine: Start stage	23	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
+Global subroutine: Start stage	24	source-phrase	급여 +${0}	+${0}	{0}
+Global subroutine: Start stage	25	source-phrase	전직원 보너스!	Bonus For All Staff!
+Global subroutine: Start stage	26	source-phrase	영업 완료!	Good Service!
+Global subroutine: Start stage	27	source-phrase	몰려오는 손님!	More Incoming Customers!
+Global subroutine: Start stage	28	manual-global	성공적인 영업!	Successful Service!
+Global subroutine: Start stage	29	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
+Global subroutine: Start stage	30	source-phrase	급여 +${0}	+${0}	{0}
+Global subroutine: Start stage	31	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Global subroutine: Start stage	32	source-phrase	중간 점수 : {0}	Current Score: {0}	{0}
+Global subroutine: Start stage	33	source-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!
 Global subroutine: Stage Fail	0	manual-global	{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!	{0}
 Global subroutine: Stage Fail	1	manual-global	{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})	{0} {0} {1} {2}
 Global subroutine: Call customer	0	manual-global	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0} {1} {0} {0} {2} {0}
 Host Player: Set Permission	0	source-phrase	{0}{1} - {2} 직책 변경!	{0}{1} - {2}	{0} {1} {2}
 Host Player: Set Permission	1	source-phrase	 {0} 애옹 OwO 	 {0} Meow OwO 	{0}
+Host Player: Set Permission	2	manual-global	 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 	{0}
 Global subroutine: Knife Hud	0	unchanged	 {1} - {0}% 	 {1} - {0}% 	{1} {0}
 Global subroutine: Knife Hud	1	manual-global+output-override	다이소에서 파는\r\n평범한 칼입니다	A flimsy butter knife\r\nfrom a discount store
 Global subroutine: Knife Hud	2	unchanged	 \r\n	 \r\n
@@ -341,11 +331,13 @@ Global subroutine: Perk Hud	5	manual-global+output-override	잠시 모든 시간
 Global subroutine: Perk Hud	6	manual-global+output-override	손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness
 Global subroutine: Perk Hud	7	manual-global+output-override	필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요	Make unwanted ingredients disappear\r\nSay goodbye to cleanup!
 Global subroutine: Perk Hud	8	manual-global+output-override	손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다	Use while holding food\r\nto duplicate it
-Global subroutine: Perk Hud	9	manual-global+output-override	그릴까지 가지 않아도\r\n재료를 구울 수 있습니다	Shoots a jet of flame to\r\ngrill ingredients anywhere
-Global subroutine: Perk Hud	10	manual-global+output-override	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment
-Global subroutine: Perk Hud	11	manual-global+output-override	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife
-Global subroutine: Perk Hud	12	manual-global+output-override	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere
-Global subroutine: Perk Hud	13	unchanged	 \r\n	 \r\n
+Global subroutine: Perk Hud	9	manual-context	{0}까지 가지 않아도\r\n재료를 구울 수 있습니다	Shoots a jet of flame to\r\n{0} ingredients anywhere	{0}
+Global subroutine: Perk Hud	10	manual-context	오븐	bake
+Global subroutine: Perk Hud	11	manual-context	그릴	grill
+Global subroutine: Perk Hud	12	manual-global+output-override	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment
+Global subroutine: Perk Hud	13	manual-global+output-override	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife
+Global subroutine: Perk Hud	14	manual-global+output-override	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere
+Global subroutine: Perk Hud	15	unchanged	 \r\n	 \r\n
 Global subroutine: Foot Hud	0	source-phrase+output-override	〔{0}〕	 [{0}] 	{0}
 Global subroutine: Foot Hud	1	unchanged	{1}{0}	{1}{0}	{1} {0}
 Global subroutine: Foot Hud	2	unchanged	-{0}%	-{0}%	{0}
@@ -412,60 +404,57 @@ Global subroutine: Scoreboard	3	unchanged	{0} : {1}	{0} : {1}	{0} {1}
 Global subroutine: Scoreboard	4	source-phrase	{0} 〔{2}〕\r\n  {1}	{0} [{2}]\r\n  {1}	{0} {2} {1}
 Global subroutine: Scoreboard	5	manual-global	시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕	Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]	{0} {1} {2}
 Global subroutine: Scoreboard	6	manual-global	{0}시간{1}분{2}초	{0}h{1}m{2}s	{0} {1} {2}
-Global subroutine: Scoreboard	7	unchanged	{0}	{0}	{0}
-Global subroutine: Scoreboard	8	manual-context	연습 모드	Practice
-Global subroutine: Scoreboard	9	source-phrase	캐주얼 다이닝	Casual Dining
-Global subroutine: Scoreboard	10	source-phrase	파인 다이닝	Fine Dining
-Global subroutine: Scoreboard	11	manual-global	스타 비스트로	Buzzy Restaurant
-Global subroutine: Scoreboard	12	manual-global	마스터쿡 챌린지	MasterChef Challenge
-Global subroutine: Scoreboard	13	manual-global	헤드셰프 챌린지	HeadChef Challenge
-Global subroutine: Scoreboard	14	unchanged	{0} / {1}	{0} / {1}	{0} {1}
-Global subroutine: Scoreboard	15	manual-global	수습 난이도	Apprentice
-Global subroutine: Scoreboard	16	manual-global	숙련 난이도	Journeyman
-Global subroutine: Scoreboard	17	manual-global	전문 난이도	Professional
-Global subroutine: Scoreboard	18	unchanged	Hell's Kitchen	Hell's Kitchen
-Global subroutine: Scoreboard	19	manual-global	클리어!	Complete!
-Global subroutine: Scoreboard	20	manual-global+output-override	Stage {0} 에서 실패	Stage {0}	{0}
-Global subroutine: Scoreboard	21	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕	Total Personal Income: [{0}]\r\nContribution Score: [{1}]	{0} {1}
-Global subroutine: Scoreboard	22	manual-global	성공한 영업 : 〔{0}〕	Success: [{0}]	{0}
-Global subroutine: Scoreboard	23	source-phrase	요리에 기여함 : 〔{0}〕\r\n칼질한 횟수 : 〔{1}〕	Cooking Mastery: [{0}]\r\nChopped: [{1}]	{0} {1}
-Global subroutine: Scoreboard	24	manual-global	환상적인 영업 : 〔{0}〕\r\n성공적인 영업 : 〔{1}〕\r\n실패한 영업 : 〔{2}〕	A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	25	manual-global	서빙 성공 : 〔{0}〕	Serving Success: [{0}]	{0}
-Global subroutine: Scoreboard	26	manual-global	전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]	{0} {1}
-Global subroutine: Scoreboard	27	manual-global	서빙 실수 : 〔{0}〕	Serving Mistake: [{0}]	{0}
-Global subroutine: Scoreboard	28	source-phrase	환상적인 서빙 : 〔{0}〕\r\n신속한 서빙 : 〔{1}〕\r\n완성도 있는 요리 : 〔{2}〕	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	29	manual-global	평가 : 〔★★★★★★★〕	Rank: [SSS]
-Global subroutine: Scoreboard	30	manual-global	평가 : 〔★★★★★★〕	Rank: [S++]
-Global subroutine: Scoreboard	31	manual-global	평가 : 〔★★★★★〕	Rank: [S+]
-Global subroutine: Scoreboard	32	manual-global	평가 : 〔★★★★☆〕	Rank: [S]
-Global subroutine: Scoreboard	33	manual-global	평가 : 〔★★★☆☆〕	Rank: [A]
-Global subroutine: Scoreboard	34	manual-global	평가 : 〔★★☆☆☆〕	Rank: [B]
-Global subroutine: Scoreboard	35	manual-global	평가 : 〔★☆☆☆☆〕	Rank: [C]
-Global subroutine: Scoreboard	36	manual-global	평가 : 〔☆☆☆☆☆〕	Rank: [F]
-Global subroutine: Scoreboard	37	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	38	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	39	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	40	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
-Global subroutine: Scoreboard	41	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	42	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	43	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	44	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
-Global subroutine: Scoreboard	45	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	46	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	47	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	48	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
-Global subroutine: Scoreboard	49	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	50	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	51	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	52	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
-Global subroutine: Scoreboard	53	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	54	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	55	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	56	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
-Global subroutine: Scoreboard	57	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	58	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	59	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
-Global subroutine: Scoreboard	60	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
+Global subroutine: Scoreboard	7	unchanged	[{0}] {1}	[{0}] {1}	{0} {1}
+Global subroutine: Scoreboard	8	unchanged	OverwatchCooked!/Cafe & Dessert/World Cuisine	OverwatchCooked!/Cafe & Dessert/World Cuisine
+Global subroutine: Scoreboard	9	unchanged	/	/
+Global subroutine: Scoreboard	10	unchanged	Practice/Casual Dining/Fine Dining/{0}	Practice/Casual Dining/Fine Dining/{0}	{0}
+Global subroutine: Scoreboard	11	unchanged	Buzzy Restaurant/MasterChef Challenge/HeadChef Challenge	Buzzy Restaurant/MasterChef Challenge/HeadChef Challenge
+Global subroutine: Scoreboard	12	unchanged	/	/
+Global subroutine: Scoreboard	13	unchanged	{0} / {1}	{0} / {1}	{0} {1}
+Global subroutine: Scoreboard	14	unchanged	Apprentice/Journeyman/Professional/Hell's Kitchen	Apprentice/Journeyman/Professional/Hell's Kitchen
+Global subroutine: Scoreboard	15	unchanged	/	/
+Global subroutine: Scoreboard	16	manual-global	클리어!	Complete!
+Global subroutine: Scoreboard	17	manual-global+output-override	Stage {0} 에서 실패	Stage {0}	{0}
+Global subroutine: Scoreboard	18	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕	Total Personal Income: [{0}]\r\nContribution Score: [{1}]	{0} {1}
+Global subroutine: Scoreboard	19	manual-global	성공한 영업 : 〔{0}〕	Success: [{0}]	{0}
+Global subroutine: Scoreboard	20	source-phrase	요리에 기여함 : 〔{0}〕\r\n칼질한 횟수 : 〔{1}〕	Cooking Mastery: [{0}]\r\nChopped: [{1}]	{0} {1}
+Global subroutine: Scoreboard	21	manual-global	환상적인 영업 : 〔{0}〕\r\n성공적인 영업 : 〔{1}〕\r\n실패한 영업 : 〔{2}〕	A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	22	manual-global	서빙 성공 : 〔{0}〕	Serving Success: [{0}]	{0}
+Global subroutine: Scoreboard	23	manual-global	전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]	{0} {1}
+Global subroutine: Scoreboard	24	manual-global	서빙 실수 : 〔{0}〕	Serving Mistake: [{0}]	{0}
+Global subroutine: Scoreboard	25	source-phrase	환상적인 서빙 : 〔{0}〕\r\n신속한 서빙 : 〔{1}〕\r\n완성도 있는 요리 : 〔{2}〕	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	26	manual-global	평가 : 〔★★★★★★★〕	Rank: [SSS]
+Global subroutine: Scoreboard	27	manual-global	평가 : 〔★★★★★★〕	Rank: [S++]
+Global subroutine: Scoreboard	28	manual-global	평가 : 〔★★★★★〕	Rank: [S+]
+Global subroutine: Scoreboard	29	manual-global	평가 : 〔★★★★☆〕	Rank: [S]
+Global subroutine: Scoreboard	30	manual-global	평가 : 〔★★★☆☆〕	Rank: [A]
+Global subroutine: Scoreboard	31	manual-global	평가 : 〔★★☆☆☆〕	Rank: [B]
+Global subroutine: Scoreboard	32	manual-global	평가 : 〔★☆☆☆☆〕	Rank: [C]
+Global subroutine: Scoreboard	33	manual-global	평가 : 〔☆☆☆☆☆〕	Rank: [F]
+Global subroutine: Scoreboard	34	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	35	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	36	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	37	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
+Global subroutine: Scoreboard	38	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	39	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	40	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	41	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
+Global subroutine: Scoreboard	42	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	43	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	44	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	45	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
+Global subroutine: Scoreboard	46	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	47	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	48	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	49	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
+Global subroutine: Scoreboard	50	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	51	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	52	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	53	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
+Global subroutine: Scoreboard	54	unchanged	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	55	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	56	source-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	{0} {1} {2}
+Global subroutine: Scoreboard	57	source-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	{0} {1}
 Global subroutine: Deluxe ORG init1	0	unchanged	D/L/T/T/T/T/G/Z/L/Z/U/Y/T/U/U/Z/R/Z/Y/Y/B/Y/O/O/R/W/O/O/W/W/O/R/M/L/L/G/G/H/H/H/H/{0}	D/L/T/T/T/T/G/Z/L/Z/U/Y/T/U/U/Z/R/Z/Y/Y/B/Y/O/O/R/W/O/O/W/W/O/R/M/L/L/G/G/H/H/H/H/{0}	{0}
 Global subroutine: Deluxe ORG init1	1	unchanged	H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/R/R/M/M/Y/W/W/W/G/G/G/W/R/S/Y/R/S/S/C/M/F/{0}	H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/R/R/M/M/Y/W/W/W/G/G/G/W/R/S/Y/R/S/S/C/M/F/{0}	{0}
 Global subroutine: Deluxe ORG init1	2	unchanged	F/F/M/M/C/R/S/C/M/V/V/W/V/Y/S/C/R/F/F/F/Y/Y/Y/C/Y/S/Y/Y/Y/Y/W/Y/F/F/F/F/F/F/F/R/A/{0}	F/F/M/M/C/R/S/C/M/V/V/W/V/Y/S/C/R/F/F/F/Y/Y/Y/C/Y/S/Y/Y/Y/Y/W/Y/F/F/F/F/F/F/F/R/A/{0}	{0}

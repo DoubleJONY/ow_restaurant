@@ -1,6 +1,6 @@
 {
-  "sha256": "8D69EDD520D98E3221B321C05123D06B68801E912C87792593AA0188DFACEAA0",
-  "bytes": 383497,
+  "sha256": "49BF3F79FA191CB7057F104EA5092FC58DE6AE37B6109ADEA5D35AC50F2E9066",
+  "bytes": 383391,
   "rules": 57,
   "globals": 128,
   "ice_global_ids": {
@@ -71,6 +71,17 @@
     "group_count_each": 12,
     "round_trip_checked": true
   },
+  "serialized_ui_tables": {
+    "tables": {
+      "edition_names": 3,
+      "edition_credits": 1,
+      "mode_names": 2,
+      "mode_descriptions": 1,
+      "practice_edition_names": 1,
+      "difficulty_names": 2
+    },
+    "max_segment_chars": 90
+  },
   "ice_result_reuse": {
     "ORG": "MELT_LIST",
     "CAFE": "ice conversion"
@@ -94,7 +105,7 @@
   "preserved_legacy_implicit_end_rules": [
     "Player: Reload button"
   ],
-  "version": "v260829",
+  "version": "v260830",
   "gc_water_ported": false,
   "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch"
 }
