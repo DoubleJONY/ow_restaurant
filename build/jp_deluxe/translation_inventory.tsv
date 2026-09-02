@@ -54,7 +54,7 @@ Global: Setting	51	legacy-phrase
 Global: Setting	52	legacy-phrase	{0}		{0}	{0}
 Global: Setting	53	legacy-phrase	비어 있음		空	
 Global: Setting	54	legacy-phrase	 		 	
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260830\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260830\r\ndiscord&recipes : ow-restaurant.com/ja	
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260902\r\ndiscord&recipes : ow-restaurant.com/ja	
 Global: Setting	56	legacy-phrase	 ${0} 		 ${0} 	{0}
 Global: Setting	57	legacy-phrase	Score : {0}{2}\r\n내 직책 : {1}		Score : {0}{2}\r\n私の役職 : {1}	{0} {2} {1}
 Global: Setting	58	legacy-phrase	\r\nHigh Score : {0}({1})		\r\nHigh Score : {0}({1})	{0} {1}
@@ -68,68 +68,75 @@ Global: Setting	65	legacy-phrase	{0} 팬:{1}% / 그릴:{2}%		{0} フライパン
 Global: Setting	66	legacy-phrase	{0} 이속:{1}% / 시간:{2}초		{0} 移動速度:{1}% / 時間:{2}秒	{0} {1} {2}
 Global: Setting	67	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n		\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
 Global: Setting	68	legacy-phrase	 〔 {0} 〕 		 〔 {0} 〕 	{0}
-Global: Setting	69	unchanged	クラシック/カフェ&デザート/世界の料理		クラシック/カフェ&デザート/世界の料理	
-Global: Setting	70	unchanged	/		/	
-Global: Setting	71	manual-global	제작: {0}		制作: {0}	{0}
-Global: Setting	72	allowlisted	Gummybear&변기클라우드\r\n難易度 : ★★★☆☆/{0}		Gummybear&변기클라우드\r\n難易度 : ★★★☆☆/{0}	{0}
-Global: Setting	73	unchanged	Joseon&Deadlock\r\n難易度 : ★★☆☆☆/Joseon\r\n難易度 : ★★★★☆		Joseon&Deadlock\r\n難易度 : ★★☆☆☆/Joseon\r\n難易度 : ★★★★☆	
-Global: Setting	74	unchanged	/		/	
-Global: Setting	75	manual-global	[{0}]: 테마 변경		[{0}]: テーマ変更	{0}
-Global: Setting	76	manual-global	 방장이 테마를 결정하는 중입니다		 ホストがテーマを選択中です	
-Global: Setting	77	legacy-phrase	\r\n		\r\n	
-Global: Setting	78	legacy-phrase	 〔 {0} 〕 		 〔 {0} 〕 	{0}
-Global: Setting	79	unchanged	練習モード/カジュアルダイニング/ファインダイニング/{0}		練習モード/カジュアルダイニング/ファインダイニング/{0}	{0}
-Global: Setting	80	unchanged	スター・ビストロ/マスターシェフチャレンジ/ヘッドシェフ・チャレンジ		スター・ビストロ/マスターシェフチャレンジ/ヘッドシェフ・チャレンジ	
-Global: Setting	81	unchanged	/		/	
-Global: Setting	82	legacy-phrase	{0}		{0}	{0}
-Global: Setting	83	unchanged	スキルを自由に磨ける練習専用モードです/{0}		スキルを自由に磨ける練習専用モードです/{0}	{0}
-Global: Setting	84	unchanged	5つのメニューが登場する入門レベルをクリアしましょう/すべてのメニューが登場する熟練レベルをクリアしましょう/{0}		5つのメニューが登場する入門レベルをクリアしましょう/すべてのメニューが登場する熟練レベルをクリアしましょう/{0}	{0}
-Global: Setting	85	unchanged	個性の強い客が登場するプロレベルを攻略しましょう/{0}		個性の強い客が登場するプロレベルを攻略しましょう/{0}	{0}
-Global: Setting	86	unchanged	Hell's Kitchenのシェフに挑戦しましょう/完璧なレストランに挑戦しましょう		Hell's Kitchenのシェフに挑戦しましょう/完璧なレストランに挑戦しましょう	
-Global: Setting	87	unchanged	/		/	
-Global: Setting	88	legacy-phrase	[{0}]: 모드 변경		[{0}]: モード変更	{0}
-Global: Setting	89	manual-context	 방장이 모드를 결정하는 중입니다		 ホストがモードを選択中です	
-Global: Setting	90	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n		\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
-Global: Setting	91	manual-global	로드 중...		ロード中...	
-Global: Setting	92	manual-global	데이터 초기화 중...		データ初期化中...	
-Global: Setting	93	unchanged	練習モード		練習モード	
-Global: Setting	94	unchanged	Biscuits0507		Biscuits0507	
-Global: Setting	95	unchanged	None		None	
-Global: Setting	96	unchanged	None		None	
-Global: Setting	97	unchanged	None		None	
-Global: Setting	98	unchanged	None		None	
-Global: Setting	99	unchanged	練習モード		練習モード	
+Global: Setting	69	manual-global	모듬회밥!		クラシック	
+Global: Setting	70	manual-global	카페 & 디저트		カフェ&デザート	
+Global: Setting	71	manual-global	쿡제요리		世界の料理	
+Global: Setting	72	manual-global	제작: {0}		制作: {0}	{0}
+Global: Setting	73	manual-global	Gummybear&변기클라우드\r\n난이도 : ★★★☆☆		Gummybear&변기클라우드\r\n難易度 : ★★★☆☆	
+Global: Setting	74	manual-global	Joseon&Deadlock\r\n난이도 : ★★☆☆☆		Joseon&Deadlock\r\n難易度 : ★★☆☆☆	
+Global: Setting	75	manual-global	Joseon\r\n난이도 : ★★★★☆		Joseon\r\n難易度 : ★★★★☆	
+Global: Setting	76	manual-global	[{0}]: 테마 변경		[{0}]: テーマ変更	{0}
+Global: Setting	77	manual-global	 방장이 테마를 결정하는 중입니다		 ホストがテーマを選択中です	
+Global: Setting	78	legacy-phrase	\r\n		\r\n	
+Global: Setting	79	legacy-phrase	 〔 {0} 〕 		 〔 {0} 〕 	{0}
+Global: Setting	80	legacy-phrase	연습 모드		練習モード	
+Global: Setting	81	legacy-phrase	캐주얼 다이닝		カジュアルダイニング	
+Global: Setting	82	legacy-phrase	파인 다이닝		ファインダイニング	
+Global: Setting	83	legacy-phrase	스타 비스트로		スター・ビストロ	
+Global: Setting	84	legacy-phrase	마스터쿡 챌린지		マスターシェフチャレンジ	
+Global: Setting	85	legacy-phrase	헤드셰프 챌린지		ヘッドシェフ・チャレンジ	
+Global: Setting	86	legacy-phrase	{0}		{0}	{0}
+Global: Setting	87	manual-global	자유롭게 연습할 수 있는 샌드박스 모드 입니다		スキルを自由に磨ける練習専用モードです	
+Global: Setting	88	manual-global	5개의 메뉴가 등장하는 수습 난이도를 클리어하세요		5つのメニューが登場する入門レベルをクリアしましょう	
+Global: Setting	89	manual-global	모든 메뉴가 등장하는 숙련 난이도를 클리어하세요		すべてのメニューが登場する熟練レベルをクリアしましょう	
+Global: Setting	90	manual-global	까다로운 손님들이 등장하는 전문 난이도를 클리어하세요		個性の強い客が登場するプロレベルを攻略しましょう	
+Global: Setting	91	manual-global	Hell's Kitchen 클리어에 도전하세요		Hell's Kitchenのシェフに挑戦しましょう	
+Global: Setting	92	legacy-phrase	완벽의 영역에 도전하세요		完璧なレストランに挑戦しましょう	
+Global: Setting	93	legacy-phrase	[{0}]: 모드 변경		[{0}]: モード変更	{0}
+Global: Setting	94	manual-context	 방장이 모드를 결정하는 중입니다		 ホストがモードを選択中です	
+Global: Setting	95	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n		\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
+Global: Setting	96	manual-global	로드 중...		ロード中...	
+Global: Setting	97	manual-global	데이터 초기화 중...		データ初期化中...	
+Global: Setting	98	unchanged	練習モード		練習モード	
+Global: Setting	99	unchanged	Biscuits0507		Biscuits0507	
 Global: Setting	100	unchanged	None		None	
 Global: Setting	101	unchanged	None		None	
 Global: Setting	102	unchanged	None		None	
 Global: Setting	103	unchanged	None		None	
-Global: Setting	104	unchanged	None		None	
-Global: Setting	105	unchanged	練習モード		練習モード	
+Global: Setting	104	unchanged	練習モード		練習モード	
+Global: Setting	105	unchanged	None		None	
 Global: Setting	106	unchanged	None		None	
 Global: Setting	107	unchanged	None		None	
 Global: Setting	108	unchanged	None		None	
 Global: Setting	109	unchanged	None		None	
-Global: Setting	110	unchanged	None		None	
-Global: Setting	111	legacy-phrase				
-Global: Setting	112	legacy-phrase	〔{0}〕: 영업 개시		〔{0}〕: 営業開始	{0}
-Global: Setting	113	legacy-phrase	연습 모드		練習モード	
-Global: Setting	114	legacy-phrase	{0}\r\n{1}		{0}\r\n{1}	{0} {1}
-Global: Setting	115	legacy-phrase	〔{1}〕: 모드-{0}		〔{1}〕: モード-{0}	{1} {0}
-Global: Setting	116	legacy-phrase	다른 메뉴		別のモード	
-Global: Setting	117	legacy-phrase	연습 종료		練習終了	
-Global: Setting	118	legacy-phrase	모든 손님		全員	
-Global: Setting	119	legacy-phrase	튜토리얼		チュートリアル	
-Global: Setting	120	legacy-phrase	〔{1}〕: {0}		〔{1}〕: {0}	{1} {0}
-Global: Setting	121	unchanged	クラシック/カフェ&デザート/世界の料理		クラシック/カフェ&デザート/世界の料理	
-Global: Setting	122	unchanged	/		/	
-Global: Setting	123	legacy-phrase	개시 하여 시작		開始を押してスタート	
-Global: Setting	124	legacy-phrase	퓨전		フュージョン	
-Global: Setting	125	manual-global	{0} v260830\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260830\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
-Global: Setting	126	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
-Global: Setting	127	manual-global	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}		{0} バランス調整\r\n\r\n  大食い巨人のサービング成功報酬が5から10に増加しました。\r\n{1}	{0} {1}
-Global: Setting	128	manual-global	  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.		  怪しいドリンク->怪しいスタンド - 時間減速率がさらに低下し、使用時に全員のナイフ耐久度を回復するようになりました。	
-Global: Setting	129	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
-Global: Setting	130	legacy-phrase				
+Global: Setting	110	unchanged	練習モード		練習モード	
+Global: Setting	111	unchanged	None		None	
+Global: Setting	112	unchanged	None		None	
+Global: Setting	113	unchanged	None		None	
+Global: Setting	114	unchanged	None		None	
+Global: Setting	115	unchanged	None		None	
+Global: Setting	116	legacy-phrase				
+Global: Setting	117	legacy-phrase	〔{0}〕: 영업 개시		〔{0}〕: 営業開始	{0}
+Global: Setting	118	legacy-phrase	연습 모드		練習モード	
+Global: Setting	119	legacy-phrase	{0}\r\n{1}		{0}\r\n{1}	{0} {1}
+Global: Setting	120	legacy-phrase	〔{1}〕: 모드-{0}		〔{1}〕: モード-{0}	{1} {0}
+Global: Setting	121	legacy-phrase	다른 메뉴		別のモード	
+Global: Setting	122	legacy-phrase	연습 종료		練習終了	
+Global: Setting	123	legacy-phrase	모든 손님		全員	
+Global: Setting	124	legacy-phrase	튜토리얼		チュートリアル	
+Global: Setting	125	legacy-phrase	〔{1}〕: {0}		〔{1}〕: {0}	{1} {0}
+Global: Setting	126	manual-global	모듬회밥!		クラシック	
+Global: Setting	127	manual-global	카페 & 디저트		カフェ&デザート	
+Global: Setting	128	manual-global	쿡제요리		世界の料理	
+Global: Setting	129	legacy-phrase	Joseon-뉴 3호점		Joseon-K-Food(KR)	
+Global: Setting	130	legacy-phrase	Gummybear-오리지널		Gummybear-Original(KR)	
+Global: Setting	131	legacy-phrase	개시 하여 시작		開始を押してスタート	
+Global: Setting	132	legacy-phrase	퓨전		フュージョン	
+Global: Setting	133	manual-global	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260902\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
+Global: Setting	134	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
+Global: Setting	135	manual-global	{0} 버그 수정\r\n\r\n  일부 요리 번역 명칭이 수정되었습니다.		{0} 不具合修正\r\n\r\n  一部の料理名の翻訳を修正しました。	{0}
+Global: Setting	136	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
+Global: Setting	137	legacy-phrase				
 Player: Spawn	0	legacy-phrase	설정	Settings	設定	
 Player: Spawn	1	legacy-phrase	플레이어 기본 직책	Default Player Role	プレイヤー基本役職	
 Player: Spawn	2	legacy-phrase	요리사	Chef	シェフ	
@@ -140,10 +147,11 @@ Player: Spawn	6	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r
 Player: Spawn	7	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
 Player: Spawn	8	manual-context	〔{0}〕 로 시작	[{0}] to Start	〔{0}〕を押してスタート	{0}
 Player: Spawn	9	legacy-phrase	레 스 토 랑	Restaurant	レストラン	
-Player: Spawn	10	unchanged	クラシック/カフェ&デザート/世界の料理	OverwatchCooked!/Cafe & Dessert/World Cuisine	クラシック/カフェ&デザート/世界の料理	
-Player: Spawn	11	english-phrase-bridge	/	/	/	
-Player: Spawn	12	allowlisted	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	
-Player: Spawn	13	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Player: Spawn	10	manual-global	모듬회밥!	OverwatchCooked!	クラシック	
+Player: Spawn	11	manual-global	카페 & 디저트	Cafe & Dessert	カフェ&デザート	
+Player: Spawn	12	manual-global	쿡제요리	World Cuisine	世界の料理	
+Player: Spawn	13	allowlisted	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	
+Player: Spawn	14	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
 Player: Control item	0	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
 Player: Control item	1	manual-context	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	〔{0}〕:  セット  	{0}
 Player: Control item	2	legacy-phrase	\r\n	\r\n	\r\n	
@@ -274,33 +282,35 @@ Global subroutine: Start stage	3	legacy-phrase	영업 준비	Prepare for Service
 Global subroutine: Start stage	4	legacy-phrase				
 Global subroutine: Start stage	5	legacy-phrase	 {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}	 {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}	 {0} \r\n　　　　　　　　　　　　　\r\n 料理 : {1} \r\n 客 : {2}	{0} {1} {2}
 Global subroutine: Start stage	6	legacy-phrase	{0}{2}stage {1}	{0}{2}stage {1}	{0}{2}stage {1}	{0} {2} {1}
-Global subroutine: Start stage	7	unchanged	入門レベル/熟練レベル/プロレベル/Hell's Kitchen	Apprentice/Journeyman/Professional/Hell's Kitchen	入門レベル/熟練レベル/プロレベル/Hell's Kitchen	
-Global subroutine: Start stage	8	english-phrase-bridge	/	/	/	
-Global subroutine: Start stage	9	legacy-phrase	{0} / {1}	{0} / {1}	{0} / {1}	{0} {1}
-Global subroutine: Start stage	10	legacy-phrase	\r\n Bonus 	\r\n Bonus 	\r\n Bonus 	
-Global subroutine: Start stage	11	legacy-phrase	 - 	 - 	 - 	
-Global subroutine: Start stage	12	legacy-phrase	퓨전	Fusion	フュージョン	
-Global subroutine: Start stage	13	legacy-phrase	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
-Global subroutine: Start stage	14	legacy-phrase	영업 시작!	Open for Service!	営業開始!	
-Global subroutine: Start stage	15	legacy-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you! 	サービングボールがあなたをサポートします! 	
-Global subroutine: Start stage	16	legacy-phrase	{0}%	{0}%	{0}%	{0}
-Global subroutine: Start stage	17	legacy-phrase	　　　　　주문서　　　　　	　　　　　Order List　　　　　	　　　　　注文書　　　　　	
-Global subroutine: Start stage	18	legacy-phrase	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
-Global subroutine: Start stage	19	legacy-phrase	Stage {0}	Stage {0}	Stage {0}	{0}
-Global subroutine: Start stage	20	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
-Global subroutine: Start stage	21	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
-Global subroutine: Start stage	22	manual-context	영업 완료!	Good Service!	立派な営業!	
-Global subroutine: Start stage	23	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
-Global subroutine: Start stage	24	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
-Global subroutine: Start stage	25	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
-Global subroutine: Start stage	26	manual-context	영업 완료!	Good Service!	営業完了!	
-Global subroutine: Start stage	27	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
-Global subroutine: Start stage	28	legacy-phrase	성공적인 영업!	Successful Service!	成功した営業!	
-Global subroutine: Start stage	29	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
-Global subroutine: Start stage	30	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
-Global subroutine: Start stage	31	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
-Global subroutine: Start stage	32	legacy-phrase	중간 점수 : {0}	Current Score: {0}	中間スコア : {0}	{0}
-Global subroutine: Start stage	33	legacy-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!	レベル上昇！幸運を祈ります!	
+Global subroutine: Start stage	7	legacy-phrase	수습 난이도	Apprentice	入門レベル	
+Global subroutine: Start stage	8	legacy-phrase	숙련 난이도	Journeyman	熟練レベル	
+Global subroutine: Start stage	9	legacy-phrase	전문 난이도	Professional	プロレベル	
+Global subroutine: Start stage	10	legacy-phrase	Hell's Kitchen	Hell's Kitchen	Hell's Kitchen	
+Global subroutine: Start stage	11	legacy-phrase	{0} / {1}	{0} / {1}	{0} / {1}	{0} {1}
+Global subroutine: Start stage	12	legacy-phrase	\r\n Bonus 	\r\n Bonus 	\r\n Bonus 	
+Global subroutine: Start stage	13	legacy-phrase	 - 	 - 	 - 	
+Global subroutine: Start stage	14	legacy-phrase	퓨전	Fusion	フュージョン	
+Global subroutine: Start stage	15	legacy-phrase	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
+Global subroutine: Start stage	16	legacy-phrase	영업 시작!	Open for Service!	営業開始!	
+Global subroutine: Start stage	17	legacy-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you! 	サービングボールがあなたをサポートします! 	
+Global subroutine: Start stage	18	legacy-phrase	{0}%	{0}%	{0}%	{0}
+Global subroutine: Start stage	19	legacy-phrase	　　　　　주문서　　　　　	　　　　　Order List　　　　　	　　　　　注文書　　　　　	
+Global subroutine: Start stage	20	legacy-phrase	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
+Global subroutine: Start stage	21	legacy-phrase	Stage {0}	Stage {0}	Stage {0}	{0}
+Global subroutine: Start stage	22	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
+Global subroutine: Start stage	23	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
+Global subroutine: Start stage	24	manual-context	영업 완료!	Good Service!	立派な営業!	
+Global subroutine: Start stage	25	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
+Global subroutine: Start stage	26	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
+Global subroutine: Start stage	27	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
+Global subroutine: Start stage	28	manual-context	영업 완료!	Good Service!	営業完了!	
+Global subroutine: Start stage	29	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
+Global subroutine: Start stage	30	legacy-phrase	성공적인 영업!	Successful Service!	成功した営業!	
+Global subroutine: Start stage	31	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
+Global subroutine: Start stage	32	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
+Global subroutine: Start stage	33	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
+Global subroutine: Start stage	34	legacy-phrase	중간 점수 : {0}	Current Score: {0}	中間スコア : {0}	{0}
+Global subroutine: Start stage	35	legacy-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!	レベル上昇！幸運を祈ります!	
 Global subroutine: Stage Fail	0	legacy-context	{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!	{0}fgC80013FF>ボーナス営業失敗!	{0}
 Global subroutine: Stage Fail	1	legacy-context	{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})	{0} {0} {1} {2}
 Global subroutine: Call customer	0	legacy-phrase	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0}fg00E697FF>#{1}{0}FGffffffFF>テーブル[{0}fgFFFF00FF>{2}{0}FGffffffFF>]予約!	{0} {1} {0} {0} {2} {0}
@@ -331,13 +341,11 @@ Global subroutine: Perk Hud	5	manual-context	잠시 모든 시간이 느려지�
 Global subroutine: Perk Hud	6	manual-context	손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness	食材を手に持って使うと\r\n鮮度を回復する	
 Global subroutine: Perk Hud	7	manual-context	필요 없는 재료를 빨아들여\r\n설거지로 부터 해방되세요	Make unwanted ingredients disappear\r\nSay goodbye to cleanup!	不要な食材を吸い込み、\r\n片付けから解放されよう!	
 Global subroutine: Perk Hud	8	manual-context	손에 재료를 들고 사용하면\r\n음식이 복사가 됩니다	Use while holding food\r\nto duplicate it	食材を手に持って使うと\r\n料理を複製できる	
-Global subroutine: Perk Hud	9	manual-context	{0}까지 가지 않아도\r\n재료를 구울 수 있습니다	Shoots a jet of flame to\r\n{0} ingredients anywhere	{0}まで行かなくても\r\n食材を直火で焼ける	{0}
-Global subroutine: Perk Hud	10	manual-global	오븐	bake	オーブン	
-Global subroutine: Perk Hud	11	legacy-phrase	그릴	grill	グリル	
-Global subroutine: Perk Hud	12	manual-context	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment	ハムスター曰く\r\nアルバイト希望	
-Global subroutine: Perk Hud	13	manual-context	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife	現在のラウンドに役立つ食材パックを出す\r\nパックはナイフで開封できる	
-Global subroutine: Perk Hud	14	manual-context	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere	製氷機まで行かなくても\r\n食材を凍らせられる	
-Global subroutine: Perk Hud	15	unchanged	 \r\n	 \r\n	 \r\n	
+Global subroutine: Perk Hud	9	manual-context	그릴까지 가지 않아도\r\n재료를 구울 수 있습니다	Shoots a jet of flame to\r\ngrill ingredients anywhere	グリルまで行かなくても\r\n食材を直火で焼ける	
+Global subroutine: Perk Hud	10	manual-context	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment	ハムスター曰く\r\nアルバイト希望	
+Global subroutine: Perk Hud	11	manual-context	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife	現在のラウンドに役立つ食材パックを出す\r\nパックはナイフで開封できる	
+Global subroutine: Perk Hud	12	manual-context	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere	製氷機まで行かなくても\r\n食材を凍らせられる	
+Global subroutine: Perk Hud	13	unchanged	 \r\n	 \r\n	 \r\n	
 Global subroutine: Foot Hud	0	legacy-phrase	〔{0}〕	 [{0}] 	〔{0}〕	{0}
 Global subroutine: Foot Hud	1	legacy-phrase	{1}{0}	{1}{0}	{1}{0}	{1} {0}
 Global subroutine: Foot Hud	2	legacy-phrase	-{0}%	-{0}%	-{0}%	{0}
@@ -404,57 +412,60 @@ Global subroutine: Scoreboard	3	legacy-phrase	{0} : {1}	{0} : {1}	{0} : {1}	{0} 
 Global subroutine: Scoreboard	4	legacy-phrase	{0} 〔{2}〕\r\n  {1}	{0} [{2}]\r\n  {1}	{0} 〔{2}〕\r\n  {1}	{0} {2} {1}
 Global subroutine: Scoreboard	5	legacy-phrase	시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕	Time: [{0}]\r\nMode: [{1}]\r\nResult: [{2}]	タイム : 〔{0}〕\r\nモード: 〔{1}〕\r\n結果: 〔{2}〕	{0} {1} {2}
 Global subroutine: Scoreboard	6	legacy-phrase	{0}시간{1}분{2}초	{0}h{1}m{2}s	{0}時間{1}分{2}秒	{0} {1} {2}
-Global subroutine: Scoreboard	7	unchanged	[{0}] {1}	[{0}] {1}	[{0}] {1}	{0} {1}
-Global subroutine: Scoreboard	8	unchanged	クラシック/カフェ&デザート/世界の料理	OverwatchCooked!/Cafe & Dessert/World Cuisine	クラシック/カフェ&デザート/世界の料理	
-Global subroutine: Scoreboard	9	english-phrase-bridge	/	/	/	
-Global subroutine: Scoreboard	10	unchanged	練習モード/カジュアルダイニング/ファインダイニング/{0}	Practice/Casual Dining/Fine Dining/{0}	練習モード/カジュアルダイニング/ファインダイニング/{0}	{0}
-Global subroutine: Scoreboard	11	unchanged	スター・ビストロ/マスターシェフチャレンジ/ヘッドシェフ・チャレンジ	Buzzy Restaurant/MasterChef Challenge/HeadChef Challenge	スター・ビストロ/マスターシェフチャレンジ/ヘッドシェフ・チャレンジ	
-Global subroutine: Scoreboard	12	english-phrase-bridge	/	/	/	
-Global subroutine: Scoreboard	13	legacy-phrase	{0} / {1}	{0} / {1}	{0} / {1}	{0} {1}
-Global subroutine: Scoreboard	14	unchanged	入門レベル/熟練レベル/プロレベル/Hell's Kitchen	Apprentice/Journeyman/Professional/Hell's Kitchen	入門レベル/熟練レベル/プロレベル/Hell's Kitchen	
-Global subroutine: Scoreboard	15	english-phrase-bridge	/	/	/	
-Global subroutine: Scoreboard	16	legacy-phrase	클리어!	Complete!	クリア!	
-Global subroutine: Scoreboard	17	legacy-phrase	Stage {0} 에서 실패	Stage {0}	Stage {0} で失敗	{0}
-Global subroutine: Scoreboard	18	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕	Total Personal Income: [{0}]\r\nContribution Score: [{1}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	19	legacy-phrase	성공한 영업 : 〔{0}〕	Success: [{0}]	成功した営業 : 〔{0}〕	{0}
-Global subroutine: Scoreboard	20	english-phrase-bridge	요리에 기여함 : 〔{0}〕\r\n칼질한 횟수 : 〔{1}〕	Cooking Mastery: [{0}]\r\nChopped: [{1}]	料理に寄与 : 〔{0}〕\r\n包丁さばきの回数 : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	21	english-phrase-bridge	환상적인 영업 : 〔{0}〕\r\n성공적인 영업 : 〔{1}〕\r\n실패한 영업 : 〔{2}〕	A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]	ファンタスティックな営業 : 〔{0}〕\r\n立派な営業 : 〔{1}〕\r\n失敗した営業 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	22	english-phrase-bridge	서빙 성공 : 〔{0}〕	Serving Success: [{0}]	サービング成功 : 〔{0}〕	{0}
-Global subroutine: Scoreboard	23	english-phrase-bridge	전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]	全体サービング成功 : 〔{0}〕\r\n全体サービング失敗 : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	24	english-phrase-bridge	서빙 실수 : 〔{0}〕	Serving Mistake: [{0}]	サービングミス : 〔{0}〕	{0}
-Global subroutine: Scoreboard	25	english-phrase-bridge	환상적인 서빙 : 〔{0}〕\r\n신속한 서빙 : 〔{1}〕\r\n완성도 있는 요리 : 〔{2}〕	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]	ファンタスティックなサービング : 〔{0}〕\r\n迅速なサービング : 〔{1}〕\r\n完成度の高い料理 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	26	legacy-phrase	평가 : 〔★★★★★★★〕	Rank: [SSS]	ランク : 〔★★★★★★★〕	
-Global subroutine: Scoreboard	27	legacy-phrase	평가 : 〔★★★★★★〕	Rank: [S++]	ランク : 〔★★★★★★〕	
-Global subroutine: Scoreboard	28	legacy-phrase	평가 : 〔★★★★★〕	Rank: [S+]	ランク : 〔★★★★★〕	
-Global subroutine: Scoreboard	29	legacy-phrase	평가 : 〔★★★★☆〕	Rank: [S]	ランク : 〔★★★★☆〕	
-Global subroutine: Scoreboard	30	legacy-phrase	평가 : 〔★★★☆☆〕	Rank: [A]	ランク : 〔★★★☆☆〕	
-Global subroutine: Scoreboard	31	legacy-phrase	평가 : 〔★★☆☆☆〕	Rank: [B]	ランク : 〔★★☆☆☆〕	
-Global subroutine: Scoreboard	32	legacy-phrase	평가 : 〔★☆☆☆☆〕	Rank: [C]	ランク : 〔★☆☆☆☆〕	
-Global subroutine: Scoreboard	33	legacy-phrase	평가 : 〔☆☆☆☆☆〕	Rank: [F]	ランク : 〔☆☆☆☆☆〕	
-Global subroutine: Scoreboard	34	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	35	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	36	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	37	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	38	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	39	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	40	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	41	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	42	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	43	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	44	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	45	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	46	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	47	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	48	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	49	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	50	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	51	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	52	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	53	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
-Global subroutine: Scoreboard	54	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	55	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Global subroutine: Scoreboard	56	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
-Global subroutine: Scoreboard	57	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	7	legacy-phrase	{0}	{0}	{0}	{0}
+Global subroutine: Scoreboard	8	legacy-phrase	연습 모드	Practice	練習モード	
+Global subroutine: Scoreboard	9	legacy-phrase	캐주얼 다이닝	Casual Dining	カジュアルダイニング	
+Global subroutine: Scoreboard	10	legacy-phrase	파인 다이닝	Fine Dining	ファインダイニング	
+Global subroutine: Scoreboard	11	legacy-phrase	스타 비스트로	Buzzy Restaurant	スター・ビストロ	
+Global subroutine: Scoreboard	12	legacy-phrase	마스터쿡 챌린지	MasterChef Challenge	マスターシェフチャレンジ	
+Global subroutine: Scoreboard	13	legacy-phrase	헤드셰프 챌린지	HeadChef Challenge	ヘッドシェフ・チャレンジ	
+Global subroutine: Scoreboard	14	legacy-phrase	{0} / {1}	{0} / {1}	{0} / {1}	{0} {1}
+Global subroutine: Scoreboard	15	legacy-phrase	수습 난이도	Apprentice	入門レベル	
+Global subroutine: Scoreboard	16	legacy-phrase	숙련 난이도	Journeyman	熟練レベル	
+Global subroutine: Scoreboard	17	legacy-phrase	전문 난이도	Professional	プロレベル	
+Global subroutine: Scoreboard	18	legacy-phrase	Hell's Kitchen	Hell's Kitchen	Hell's Kitchen	
+Global subroutine: Scoreboard	19	legacy-phrase	클리어!	Complete!	クリア!	
+Global subroutine: Scoreboard	20	legacy-phrase	Stage {0} 에서 실패	Stage {0}	Stage {0} で失敗	{0}
+Global subroutine: Scoreboard	21	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕	Total Personal Income: [{0}]\r\nContribution Score: [{1}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	22	legacy-phrase	성공한 영업 : 〔{0}〕	Success: [{0}]	成功した営業 : 〔{0}〕	{0}
+Global subroutine: Scoreboard	23	english-phrase-bridge	요리에 기여함 : 〔{0}〕\r\n칼질한 횟수 : 〔{1}〕	Cooking Mastery: [{0}]\r\nChopped: [{1}]	料理に寄与 : 〔{0}〕\r\n包丁さばきの回数 : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	24	english-phrase-bridge	환상적인 영업 : 〔{0}〕\r\n성공적인 영업 : 〔{1}〕\r\n실패한 영업 : 〔{2}〕	A-mei-zing Service: [{0}]\r\nSuccessful Service: [{1}]\r\nFailed Service: [{2}]	ファンタスティックな営業 : 〔{0}〕\r\n立派な営業 : 〔{1}〕\r\n失敗した営業 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	25	english-phrase-bridge	서빙 성공 : 〔{0}〕	Serving Success: [{0}]	サービング成功 : 〔{0}〕	{0}
+Global subroutine: Scoreboard	26	english-phrase-bridge	전체 서빙 성공 : 〔{0}〕\r\n전체 서빙 실패 : 〔{1}〕	Total Serving Success: [{0}]\r\nTotal Serving Failure: [{1}]	全体サービング成功 : 〔{0}〕\r\n全体サービング失敗 : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	27	english-phrase-bridge	서빙 실수 : 〔{0}〕	Serving Mistake: [{0}]	サービングミス : 〔{0}〕	{0}
+Global subroutine: Scoreboard	28	english-phrase-bridge	환상적인 서빙 : 〔{0}〕\r\n신속한 서빙 : 〔{1}〕\r\n완성도 있는 요리 : 〔{2}〕	A-mei-zing Served: [{0}]\r\nSwift Served: [{1}]\r\nWell-Prepared Dish: [{2}]	ファンタスティックなサービング : 〔{0}〕\r\n迅速なサービング : 〔{1}〕\r\n完成度の高い料理 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	29	legacy-phrase	평가 : 〔★★★★★★★〕	Rank: [SSS]	ランク : 〔★★★★★★★〕	
+Global subroutine: Scoreboard	30	legacy-phrase	평가 : 〔★★★★★★〕	Rank: [S++]	ランク : 〔★★★★★★〕	
+Global subroutine: Scoreboard	31	legacy-phrase	평가 : 〔★★★★★〕	Rank: [S+]	ランク : 〔★★★★★〕	
+Global subroutine: Scoreboard	32	legacy-phrase	평가 : 〔★★★★☆〕	Rank: [S]	ランク : 〔★★★★☆〕	
+Global subroutine: Scoreboard	33	legacy-phrase	평가 : 〔★★★☆☆〕	Rank: [A]	ランク : 〔★★★☆☆〕	
+Global subroutine: Scoreboard	34	legacy-phrase	평가 : 〔★★☆☆☆〕	Rank: [B]	ランク : 〔★★☆☆☆〕	
+Global subroutine: Scoreboard	35	legacy-phrase	평가 : 〔★☆☆☆☆〕	Rank: [C]	ランク : 〔★☆☆☆☆〕	
+Global subroutine: Scoreboard	36	legacy-phrase	평가 : 〔☆☆☆☆☆〕	Rank: [F]	ランク : 〔☆☆☆☆☆〕	
+Global subroutine: Scoreboard	37	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	38	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	39	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	40	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	41	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	42	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	43	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	44	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	45	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	46	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	47	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	48	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	49	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	50	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	51	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	52	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	53	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	54	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	55	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	56	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
+Global subroutine: Scoreboard	57	legacy-phrase	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0}\r\n\r\n{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	58	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Global subroutine: Scoreboard	59	legacy-phrase	개인 총 수입 : 〔{0}〕\r\n개인 활약 점수 : 〔{1}〕\r\n요리에 기여함 : 〔{2}〕	Total Personal Income : [{0}]\r\nContribution Score : [{1}]\r\nCooking Mastery : [{2}]	個人総収入 : 〔{0}〕\r\n個人活躍スコア : 〔{1}〕\r\n料理に寄与 : 〔{2}〕	{0} {1} {2}
+Global subroutine: Scoreboard	60	legacy-phrase	서빙 성공 : 〔{0}〕\r\n서빙 실수 : 〔{1}〕	Serving Success : [{0}]\r\nServing Mistake : [{1}]	サービング成功 : 〔{0}〕\r\nサービングミス : 〔{1}〕	{0} {1}
 Global subroutine: Deluxe ORG init1	0	unchanged	D/L/T/T/T/T/G/Z/L/Z/U/Y/T/U/U/Z/R/Z/Y/Y/B/Y/O/O/R/W/O/O/W/W/O/R/M/L/L/G/G/H/H/H/H/{0}		D/L/T/T/T/T/G/Z/L/Z/U/Y/T/U/U/Z/R/Z/Y/Y/B/Y/O/O/R/W/O/O/W/W/O/R/M/L/L/G/G/H/H/H/H/{0}	{0}
 Global subroutine: Deluxe ORG init1	1	unchanged	H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/R/R/M/M/Y/W/W/W/G/G/G/W/R/S/Y/R/S/S/C/M/F/{0}		H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/H/R/R/M/M/Y/W/W/W/G/G/G/W/R/S/Y/R/S/S/C/M/F/{0}	{0}
 Global subroutine: Deluxe ORG init1	2	unchanged	F/F/M/M/C/R/S/C/M/V/V/W/V/Y/S/C/R/F/F/F/Y/Y/Y/C/Y/S/Y/Y/Y/Y/W/Y/F/F/F/F/F/F/F/R/A/{0}		F/F/M/M/C/R/S/C/M/V/V/W/V/Y/S/C/R/F/F/F/Y/Y/Y/C/Y/S/Y/Y/Y/Y/W/Y/F/F/F/F/F/F/F/R/A/{0}	{0}
@@ -880,101 +891,101 @@ Global subroutine: Deluxe CAFE init1	48	unchanged	ッグ/ゆで卵/イチゴジ�
 Global subroutine: Deluxe CAFE init1	49	unchanged	フィン＋卵＋チーズ/マフィン＋ベーコン＋卵＋チーズ/ベーコンエッグマフィン/エッグマフィン/ベーコンマフィン/スクランブルエッグ＋チーズ/チーズオムレツ/イチゴスフ{0}		フィン＋卵＋チーズ/マフィン＋ベーコン＋卵＋チーズ/ベーコンエッグマフィン/エッグマフィン/ベーコンマフィン/スクランブルエッグ＋チーズ/チーズオムレツ/イチゴスフ{0}	{0}
 Global subroutine: Deluxe CAFE init1	50	unchanged	レパンケーキ/イチゴクリームチーズベーグル/ブルーベリースフレパンケーキ/ブルーベリーベーグル生地/ブルーベリーベーグル/アイスクリーム/イチゴアイス/チョコアイス{0}		レパンケーキ/イチゴクリームチーズベーグル/ブルーベリースフレパンケーキ/ブルーベリーベーグル生地/ブルーベリーベーグル/アイスクリーム/イチゴアイス/チョコアイス{0}	{0}
 Global subroutine: Deluxe CAFE init1	51	unchanged	/抹茶アイス/バニラアイス/ミルクシェイク/イチゴシェイク/チョコシェイク/抹茶シェイク/バニラシェイク/チョコミントアイス/チョコミントシェイク/ブルーベリーパフ{0}		/抹茶アイス/バニラアイス/ミルクシェイク/イチゴシェイク/チョコシェイク/抹茶シェイク/バニラシェイク/チョコミントアイス/チョコミントシェイク/ブルーベリーパフ{0}	{0}
-Global subroutine: Deluxe CAFE init1	52	unchanged	ェ/バナナパフェ/マンゴーパフェ/メロンパフェ/氷/氷水/パイ生地/タルト生地/リンゴ/薄切りリンゴ/生クルミパイ/クルミパイ/生イチゴパイ/イチゴパイ/生リンゴパ{0}		ェ/バナナパフェ/マンゴーパフェ/メロンパフェ/氷/氷水/パイ生地/タルト生地/リンゴ/薄切りリンゴ/生クルミパイ/クルミパイ/生イチゴパイ/イチゴパイ/生リンゴパ{0}	{0}
-Global subroutine: Deluxe CAFE init1	53	unchanged	イ/リンゴパイ/生ブルーベリーパイ/ブルーベリーパイ/生クルミタルト/クルミタルト/生エッグタルト/エッグタルト/焼いたタルト台		イ/リンゴパイ/生ブルーベリーパイ/ブルーベリーパイ/生クルミタルト/クルミタルト/生エッグタルト/エッグタルト/焼いたタルト台	
+Global subroutine: Deluxe CAFE init1	52	unchanged	ェ/バナナパフェ/マンゴーパフェ/メロンパフェ/氷/氷水/パイ生地/タルト生地/リンゴ/薄切りリンゴ/クルミパイ（焼く前）/クルミパイ/イチゴパイ（焼く前）/イチゴ{0}		ェ/バナナパフェ/マンゴーパフェ/メロンパフェ/氷/氷水/パイ生地/タルト生地/リンゴ/薄切りリンゴ/クルミパイ（焼く前）/クルミパイ/イチゴパイ（焼く前）/イチゴ{0}	{0}
+Global subroutine: Deluxe CAFE init1	53	unchanged	パイ/アップルパイ（焼く前）/アップルパイ/ブルーベリーパイ（焼く前）/ブルーベリーパイ/クルミタルト（焼く前）/クルミタルト		パイ/アップルパイ（焼く前）/アップルパイ/ブルーベリーパイ（焼く前）/ブルーベリーパイ/クルミタルト（焼く前）/クルミタルト	
 Global subroutine: Deluxe CAFE init1	54	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	55	unchanged	イチゴタルト/リンゴタルト/ブルーベリータルト/ミックスベリータルト/マンゴータルト/チョコタルト/生クリームチーズタルト/クリームチーズタルト/炭酸水/レモン/薄{0}		イチゴタルト/リンゴタルト/ブルーベリータルト/ミックスベリータルト/マンゴータルト/チョコタルト/生クリームチーズタルト/クリームチーズタルト/炭酸水/レモン/薄{0}	{0}
-Global subroutine: Deluxe CAFE init1	56	unchanged	切りレモン/レモン汁/グレープフルーツ/薄切りグレープフルーツ/グレープフルーツジュース/レモン＋水/レモンティー/グレープフルーツ＋水/グレープフルーツティー/リ{0}		切りレモン/レモン汁/グレープフルーツ/薄切りグレープフルーツ/グレープフルーツジュース/レモン＋水/レモンティー/グレープフルーツ＋水/グレープフルーツティー/リ{0}	{0}
-Global subroutine: Deluxe CAFE init1	57	unchanged	ンゴ＋水/リンゴティー/リンゴジュース/アップルエイド/レモンエイド/グレープフルーツエイド/イチゴエイド/ブルーベリーエイド/マンゴーエイド/水		ンゴ＋水/リンゴティー/リンゴジュース/アップルエイド/レモンエイド/グレープフルーツエイド/イチゴエイド/ブルーベリーエイド/マンゴーエイド/水	
-Global subroutine: Deluxe CAFE init1	58	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	59	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/4/5/0/0/4/5/0/5/6/0/5/6/0/5/6/6/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/4/5/0/0/4/5/0/5/6/0/5/6/0/5/6/6/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	60	unchanged	0/0/4/0/4/5/0/0/5/4/5/0/4/5/5/0/0/0/4/0/4/0/3/0/4/0/5/0/0/0/4/0/3/0/4/0/5/6/7/6/7/{0}		0/0/4/0/4/5/0/0/5/4/5/0/4/5/5/0/0/0/4/0/4/0/3/0/4/0/5/0/0/0/4/0/3/0/4/0/5/6/7/6/7/{0}	{0}
-Global subroutine: Deluxe CAFE init1	61	unchanged	0/0/4/0/0/0/4/3/3/4/0/0/3/5/4/0/0/0/5/0/5/0/4/0/0/3/0/0/4/0/0/0/4/0/0/0/4/4/0/0/0/{0}		0/0/4/0/0/0/4/3/3/4/0/0/3/5/4/0/0/0/5/0/5/0/4/0/0/3/0/0/4/0/0/0/4/0/0/0/4/4/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	62	unchanged	5/4/5/5/0/0/6/5/6/6/0/0/7/8/0/0/0/0/0/0/0/0/0/3/4/0/0/0/0/0/0/4/0/5/7/8/9/0/5/0/0/{0}		5/4/5/5/0/0/6/5/6/6/0/0/7/8/0/0/0/0/0/0/0/0/0/3/4/0/0/0/0/0/0/4/0/5/7/8/9/0/5/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	63	unchanged	0/6/0/3/0/0/6/0/0/0/7/0/0/0/0/0/0/4/0/4/0/5/0/0/6/0/7/0/6/0/5/0/5/0/6/0/7/0/8/0/7/{0}		0/6/0/3/0/0/6/0/0/0/7/0/0/0/0/0/0/4/0/4/0/5/0/0/6/0/7/0/6/0/5/0/5/0/6/0/7/0/8/0/7/{0}	{0}
-Global subroutine: Deluxe CAFE init1	64	unchanged	5/6/5/6/0/6/0/0/0/0/0/0/0/3/3/0/4/4/0/0/6/6/0/4/4/0/4/4/0/5/5/0/5/0/7/8/7/0/0/8/0/{0}		5/6/5/6/0/6/0/0/0/0/0/0/0/3/3/0/4/4/0/0/6/6/0/4/4/0/4/4/0/5/5/0/5/0/7/8/7/0/0/8/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	65	unchanged	0/9/0/0/7/8/7/0/7/8/9/9/0/0/0/9/0/9/0/0/9/7/0/0/9/0/9/9/6/0/8/0/7/9/0/8/0/0/7/9/0/{0}		0/9/0/0/7/8/7/0/7/8/9/9/0/0/0/9/0/9/0/0/9/7/0/0/9/0/9/9/6/0/8/0/7/9/0/8/0/0/7/9/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	66	unchanged	0/8/0/9/0/0/8/0/7/7/8/0/0/8/0/0/0/0/0/8/0/9/0/3/3/4/3/4/3/6/5/0/0/0/0/0/0/0/8/7/7/{0}		0/8/0/9/0/0/8/0/7/7/8/0/0/8/0/0/0/0/0/8/0/9/0/3/3/4/3/4/3/6/5/0/0/0/0/0/0/0/8/7/7/{0}	{0}
-Global subroutine: Deluxe CAFE init1	67	unchanged	0/4/6/9/9/0/8/3/3/4/3/3/4/4/5/4/4/7/8/7/8/8/9/0/3/0/0/0/0/0/4/0/5/0/4/0/4/0/4/0/4/{0}		0/4/6/9/9/0/8/3/3/4/3/3/4/4/5/4/4/7/8/7/8/8/9/0/3/0/0/0/0/0/4/0/5/0/4/0/4/0/4/0/4/{0}	{0}
-Global subroutine: Deluxe CAFE init1	68	unchanged	0/5/5/4/6/8/8/0/9/0/0/0/0/0/0/4/0/4/0/4/0/4/4/5/4/5/4/7/8/0		0/5/5/4/6/8/8/0/9/0/0/0/0/0/0/4/0/4/0/4/0/4/4/5/4/5/4/7/8/0	
-Global subroutine: Deluxe CAFE init1	69	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	70	unchanged	0/1/2/3/4/5/6/7/8/9		0/1/2/3/4/5/6/7/8/9	
-Global subroutine: Deluxe CAFE init1	71	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	72	unchanged	0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30{0}		0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30{0}	{0}
-Global subroutine: Deluxe CAFE init1	73	unchanged	/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51/52/53/54/55/56/57/{0}		/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51/52/53/54/55/56/57/{0}	{0}
-Global subroutine: Deluxe CAFE init1	74	unchanged	58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/8{0}		58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/8{0}	{0}
-Global subroutine: Deluxe CAFE init1	75	unchanged	5/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/10{0}		5/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/10{0}	{0}
-Global subroutine: Deluxe CAFE init1	76	unchanged	9/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/{0}		9/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/{0}	{0}
-Global subroutine: Deluxe CAFE init1	77	unchanged	130/131/132/133/134/135/136/137/138/139/140/141/142/143/144/145/146/147/148/149/15{0}		130/131/132/133/134/135/136/137/138/139/140/141/142/143/144/145/146/147/148/149/15{0}	{0}
-Global subroutine: Deluxe CAFE init1	78	unchanged	0/151/152/153/154/155/156/157/158/159/160/161/162/163/164/165/166/167/168/169/170/{0}		0/151/152/153/154/155/156/157/158/159/160/161/162/163/164/165/166/167/168/169/170/{0}	{0}
-Global subroutine: Deluxe CAFE init1	79	unchanged	171/172/173/174/175/176/177/178/179/180/181/182/183/184/185/186/187/188/189/190/19{0}		171/172/173/174/175/176/177/178/179/180/181/182/183/184/185/186/187/188/189/190/19{0}	{0}
-Global subroutine: Deluxe CAFE init1	80	unchanged	1/192/193/194/195/196/197/198/199/200/201/202/203/204/205/206/207/208/209/210/211/{0}		1/192/193/194/195/196/197/198/199/200/201/202/203/204/205/206/207/208/209/210/211/{0}	{0}
-Global subroutine: Deluxe CAFE init1	81	unchanged	212/213/214/215/216/217/218/219/220/221/222/223/224/225/226/227/228/229/230/231/23{0}		212/213/214/215/216/217/218/219/220/221/222/223/224/225/226/227/228/229/230/231/23{0}	{0}
-Global subroutine: Deluxe CAFE init1	82	unchanged	2/233/234/235/236/237/238/239/240/241/242/243/244/245/246/247/248/249/250/251/252/{0}		2/233/234/235/236/237/238/239/240/241/242/243/244/245/246/247/248/249/250/251/252/{0}	{0}
-Global subroutine: Deluxe CAFE init1	83	unchanged	253/254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/27{0}		253/254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/27{0}	{0}
-Global subroutine: Deluxe CAFE init1	84	unchanged	3/274/275/276/277/278/279/280/281/282/283/284/285/286/287/288/289		3/274/275/276/277/278/279/280/281/282/283/284/285/286/287/288/289	
-Global subroutine: Deluxe CAFE init1	85	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	86	unchanged	290/291/292/293/294/295/296/297/298/299/300/301/302/303/304/305/306/307/308/309/31{0}		290/291/292/293/294/295/296/297/298/299/300/301/302/303/304/305/306/307/308/309/31{0}	{0}
-Global subroutine: Deluxe CAFE init1	87	unchanged	0/311/312/313/314/315/316/317/318/319/320/321/322/323/324/325/326/327/328/329/330/{0}		0/311/312/313/314/315/316/317/318/319/320/321/322/323/324/325/326/327/328/329/330/{0}	{0}
-Global subroutine: Deluxe CAFE init1	88	unchanged	331/332/333/334/335/336/337/338/339/340/341/342/343/344/345/346/347/348/349/350/35{0}		331/332/333/334/335/336/337/338/339/340/341/342/343/344/345/346/347/348/349/350/35{0}	{0}
-Global subroutine: Deluxe CAFE init1	89	unchanged	1/352/353/354/355/356/357/358/359/360/361/362/363/364/365/366/367/368/369/370/371/{0}		1/352/353/354/355/356/357/358/359/360/361/362/363/364/365/366/367/368/369/370/371/{0}	{0}
-Global subroutine: Deluxe CAFE init1	90	unchanged	372/373/374/375/376/377/378/379/380/381/382/383/384/385/386/387/388/389/390/391/39{0}		372/373/374/375/376/377/378/379/380/381/382/383/384/385/386/387/388/389/390/391/39{0}	{0}
-Global subroutine: Deluxe CAFE init1	91	unchanged	2/393/394/395/396/397/398		2/393/394/395/396/397/398	
-Global subroutine: Deluxe CAFE init1	92	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	93	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	94	unchanged	/99/3/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/3{0}		/99/3/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/3{0}	{0}
-Global subroutine: Deluxe CAFE init1	95	unchanged	/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/3/99/3/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/3/99/3/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	96	unchanged	99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/9{0}		99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	97	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/1/1/99/9{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/1/1/99/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	98	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/{0}	{0}
-Global subroutine: Deluxe CAFE init1	99	unchanged	99/99/4/3/99/99/3/99/99/99/99/3/99/3/99/3/99/99/3/99/3/99/3/99/3/99/3/99/3/99/3/99{0}		99/99/4/3/99/99/3/99/99/99/99/3/99/3/99/3/99/99/3/99/3/99/3/99/3/99/3/99/3/99/3/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	100	unchanged	/3/99/3/99/99/99/99/99/99/99/3/5/99/99/99/2/99/99/99/99/99/99/99/99/99/99/99/99/99{0}		/3/99/3/99/99/99/99/99/99/99/3/5/99/99/99/2/99/99/99/99/99/99/99/99/99/99/99/99/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	101	unchanged	/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	102	unchanged	99/99/99/99/99/99/99/99/99/99/99/6/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/6/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	103	unchanged	/99/99/3/99/3/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}		/99/99/3/99/3/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	104	unchanged	/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	105	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/1/99/4/3/99/99/99/99/99/99		99/99/99/99/99/99/99/99/99/99/99/99/99/1/99/4/3/99/99/99/99/99/99	
-Global subroutine: Deluxe CAFE init1	106	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	107	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/4/3/99/99/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/4/3/99/99/99/99/99/99/99/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	108	unchanged	/99/99/99/99/99/99/99		/99/99/99/99/99/99/99	
-Global subroutine: Deluxe CAFE init1	109	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	110	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/22/0/0/0/0/0/0/0/39/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/22/0/0/0/0/0/0/0/39/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	111	unchanged	41/0/0/0/0/0/0/48/167/0/0/0/0/0/0/0/57/0/0/0/0/0/0/0/0/0/0/0/69/0/0/0/0/0/0/0/0/0/{0}		41/0/0/0/0/0/0/48/167/0/0/0/0/0/0/0/57/0/0/0/0/0/0/0/0/0/0/0/69/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	112	unchanged	79/0/81/0/0/0/0/0/0/0/0/0/0/0/167/0/0/0/0/0/0/0/0/0/0/0/0/52/0/0/0/0/0/0/150/0/0/0{0}		79/0/81/0/0/0/0/0/0/0/0/0/0/0/167/0/0/0/0/0/0/0/0/0/0/0/0/52/0/0/0/0/0/0/150/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	113	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/139/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/139/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	114	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/170/0/0/172/174/0/0/176/0/0/0/0/181/0/183/0/185/0/0/188/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/170/0/0/172/174/0/0/176/0/0/0/0/181/0/183/0/185/0/0/188/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	115	unchanged	/190/0/192/0/194/0/196/0/198/0/200/0/202/0/204/0/0/0/0/0/0/0/82/213/0/0/0/217/0/0/{0}		/190/0/192/0/194/0/196/0/198/0/200/0/202/0/204/0/0/0/0/0/0/0/82/213/0/0/0/217/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	116	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	117	unchanged	0/0/0/0/0/0/0/0/269/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/288/0/290/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/269/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/288/0/290/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	118	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	119	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/356/391/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/356/391/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	120	unchanged	0/380/381/0/383/384/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0		0/380/381/0/383/384/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0	
-Global subroutine: Deluxe CAFE init1	121	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	122	unchanged	99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}		99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	123	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/4/1/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/4/1/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	124	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	125	unchanged	/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	126	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	55	unchanged	エッグタルト（焼く前）/エッグタルト/焼いたタルト台/イチゴタルト/アップルタルト/ブルーベリータルト/ミックスベリータルト/マンゴータルト/チョコタルト/クリーム{0}		エッグタルト（焼く前）/エッグタルト/焼いたタルト台/イチゴタルト/アップルタルト/ブルーベリータルト/ミックスベリータルト/マンゴータルト/チョコタルト/クリーム{0}	{0}
+Global subroutine: Deluxe CAFE init1	56	unchanged	チーズタルト（焼く前）/クリームチーズタルト/炭酸水/レモン/薄切りレモン/レモン汁/グレープフルーツ/薄切りグレープフルーツ/グレープフルーツジュース/レモン＋水{0}		チーズタルト（焼く前）/クリームチーズタルト/炭酸水/レモン/薄切りレモン/レモン汁/グレープフルーツ/薄切りグレープフルーツ/グレープフルーツジュース/レモン＋水{0}	{0}
+Global subroutine: Deluxe CAFE init1	57	unchanged	/レモンティー/グレープフルーツ＋水/グレープフルーツティー/リンゴ＋水/アップルティー/アップルジュース/アップルソーダ/レモンソーダ/グレープフルーツソーダ/イ{0}		/レモンティー/グレープフルーツ＋水/グレープフルーツティー/リンゴ＋水/アップルティー/アップルジュース/アップルソーダ/レモンソーダ/グレープフルーツソーダ/イ{0}	{0}
+Global subroutine: Deluxe CAFE init1	58	unchanged	チゴソーダ/ブルーベリーソーダ/マンゴーソーダ/水		チゴソーダ/ブルーベリーソーダ/マンゴーソーダ/水	
+Global subroutine: Deluxe CAFE init1	59	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	60	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/4/5/0/0/4/5/0/5/6/0/5/6/0/5/6/6/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/4/5/0/0/4/5/0/5/6/0/5/6/0/5/6/6/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	61	unchanged	0/0/4/0/4/5/0/0/5/4/5/0/4/5/5/0/0/0/4/0/4/0/3/0/4/0/5/0/0/0/4/0/3/0/4/0/5/6/7/6/7/{0}		0/0/4/0/4/5/0/0/5/4/5/0/4/5/5/0/0/0/4/0/4/0/3/0/4/0/5/0/0/0/4/0/3/0/4/0/5/6/7/6/7/{0}	{0}
+Global subroutine: Deluxe CAFE init1	62	unchanged	0/0/4/0/0/0/4/3/3/4/0/0/3/5/4/0/0/0/5/0/5/0/4/0/0/3/0/0/4/0/0/0/4/0/0/0/4/4/0/0/0/{0}		0/0/4/0/0/0/4/3/3/4/0/0/3/5/4/0/0/0/5/0/5/0/4/0/0/3/0/0/4/0/0/0/4/0/0/0/4/4/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	63	unchanged	5/4/5/5/0/0/6/5/6/6/0/0/7/8/0/0/0/0/0/0/0/0/0/3/4/0/0/0/0/0/0/4/0/5/7/8/9/0/5/0/0/{0}		5/4/5/5/0/0/6/5/6/6/0/0/7/8/0/0/0/0/0/0/0/0/0/3/4/0/0/0/0/0/0/4/0/5/7/8/9/0/5/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	64	unchanged	0/6/0/3/0/0/6/0/0/0/7/0/0/0/0/0/0/4/0/4/0/5/0/0/6/0/7/0/6/0/5/0/5/0/6/0/7/0/8/0/7/{0}		0/6/0/3/0/0/6/0/0/0/7/0/0/0/0/0/0/4/0/4/0/5/0/0/6/0/7/0/6/0/5/0/5/0/6/0/7/0/8/0/7/{0}	{0}
+Global subroutine: Deluxe CAFE init1	65	unchanged	5/6/5/6/0/6/0/0/0/0/0/0/0/3/3/0/4/4/0/0/6/6/0/4/4/0/4/4/0/5/5/0/5/0/7/8/7/0/0/8/0/{0}		5/6/5/6/0/6/0/0/0/0/0/0/0/3/3/0/4/4/0/0/6/6/0/4/4/0/4/4/0/5/5/0/5/0/7/8/7/0/0/8/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	66	unchanged	0/9/0/0/7/8/7/0/7/8/9/9/0/0/0/9/0/9/0/0/9/7/0/0/9/0/9/9/6/0/8/0/7/9/0/8/0/0/7/9/0/{0}		0/9/0/0/7/8/7/0/7/8/9/9/0/0/0/9/0/9/0/0/9/7/0/0/9/0/9/9/6/0/8/0/7/9/0/8/0/0/7/9/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	67	unchanged	0/8/0/9/0/0/8/0/7/7/8/0/0/8/0/0/0/0/0/8/0/9/0/3/3/4/3/4/3/6/5/0/0/0/0/0/0/0/8/7/7/{0}		0/8/0/9/0/0/8/0/7/7/8/0/0/8/0/0/0/0/0/8/0/9/0/3/3/4/3/4/3/6/5/0/0/0/0/0/0/0/8/7/7/{0}	{0}
+Global subroutine: Deluxe CAFE init1	68	unchanged	0/4/6/9/9/0/8/3/3/4/3/3/4/4/5/4/4/7/8/7/8/8/9/0/3/0/0/0/0/0/4/0/5/0/4/0/4/0/4/0/4/{0}		0/4/6/9/9/0/8/3/3/4/3/3/4/4/5/4/4/7/8/7/8/8/9/0/3/0/0/0/0/0/4/0/5/0/4/0/4/0/4/0/4/{0}	{0}
+Global subroutine: Deluxe CAFE init1	69	unchanged	0/5/5/4/6/8/8/0/9/0/0/0/0/0/0/4/0/4/0/4/0/4/4/5/4/5/4/7/8/0		0/5/5/4/6/8/8/0/9/0/0/0/0/0/0/4/0/4/0/4/0/4/4/5/4/5/4/7/8/0	
+Global subroutine: Deluxe CAFE init1	70	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	71	unchanged	0/1/2/3/4/5/6/7/8/9		0/1/2/3/4/5/6/7/8/9	
+Global subroutine: Deluxe CAFE init1	72	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	73	unchanged	0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30{0}		0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30{0}	{0}
+Global subroutine: Deluxe CAFE init1	74	unchanged	/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51/52/53/54/55/56/57/{0}		/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51/52/53/54/55/56/57/{0}	{0}
+Global subroutine: Deluxe CAFE init1	75	unchanged	58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/8{0}		58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/8{0}	{0}
+Global subroutine: Deluxe CAFE init1	76	unchanged	5/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/10{0}		5/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/10{0}	{0}
+Global subroutine: Deluxe CAFE init1	77	unchanged	9/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/{0}		9/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/{0}	{0}
+Global subroutine: Deluxe CAFE init1	78	unchanged	130/131/132/133/134/135/136/137/138/139/140/141/142/143/144/145/146/147/148/149/15{0}		130/131/132/133/134/135/136/137/138/139/140/141/142/143/144/145/146/147/148/149/15{0}	{0}
+Global subroutine: Deluxe CAFE init1	79	unchanged	0/151/152/153/154/155/156/157/158/159/160/161/162/163/164/165/166/167/168/169/170/{0}		0/151/152/153/154/155/156/157/158/159/160/161/162/163/164/165/166/167/168/169/170/{0}	{0}
+Global subroutine: Deluxe CAFE init1	80	unchanged	171/172/173/174/175/176/177/178/179/180/181/182/183/184/185/186/187/188/189/190/19{0}		171/172/173/174/175/176/177/178/179/180/181/182/183/184/185/186/187/188/189/190/19{0}	{0}
+Global subroutine: Deluxe CAFE init1	81	unchanged	1/192/193/194/195/196/197/198/199/200/201/202/203/204/205/206/207/208/209/210/211/{0}		1/192/193/194/195/196/197/198/199/200/201/202/203/204/205/206/207/208/209/210/211/{0}	{0}
+Global subroutine: Deluxe CAFE init1	82	unchanged	212/213/214/215/216/217/218/219/220/221/222/223/224/225/226/227/228/229/230/231/23{0}		212/213/214/215/216/217/218/219/220/221/222/223/224/225/226/227/228/229/230/231/23{0}	{0}
+Global subroutine: Deluxe CAFE init1	83	unchanged	2/233/234/235/236/237/238/239/240/241/242/243/244/245/246/247/248/249/250/251/252/{0}		2/233/234/235/236/237/238/239/240/241/242/243/244/245/246/247/248/249/250/251/252/{0}	{0}
+Global subroutine: Deluxe CAFE init1	84	unchanged	253/254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/27{0}		253/254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/27{0}	{0}
+Global subroutine: Deluxe CAFE init1	85	unchanged	3/274/275/276/277/278/279/280/281/282/283/284/285/286/287/288/289		3/274/275/276/277/278/279/280/281/282/283/284/285/286/287/288/289	
+Global subroutine: Deluxe CAFE init1	86	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	87	unchanged	290/291/292/293/294/295/296/297/298/299/300/301/302/303/304/305/306/307/308/309/31{0}		290/291/292/293/294/295/296/297/298/299/300/301/302/303/304/305/306/307/308/309/31{0}	{0}
+Global subroutine: Deluxe CAFE init1	88	unchanged	0/311/312/313/314/315/316/317/318/319/320/321/322/323/324/325/326/327/328/329/330/{0}		0/311/312/313/314/315/316/317/318/319/320/321/322/323/324/325/326/327/328/329/330/{0}	{0}
+Global subroutine: Deluxe CAFE init1	89	unchanged	331/332/333/334/335/336/337/338/339/340/341/342/343/344/345/346/347/348/349/350/35{0}		331/332/333/334/335/336/337/338/339/340/341/342/343/344/345/346/347/348/349/350/35{0}	{0}
+Global subroutine: Deluxe CAFE init1	90	unchanged	1/352/353/354/355/356/357/358/359/360/361/362/363/364/365/366/367/368/369/370/371/{0}		1/352/353/354/355/356/357/358/359/360/361/362/363/364/365/366/367/368/369/370/371/{0}	{0}
+Global subroutine: Deluxe CAFE init1	91	unchanged	372/373/374/375/376/377/378/379/380/381/382/383/384/385/386/387/388/389/390/391/39{0}		372/373/374/375/376/377/378/379/380/381/382/383/384/385/386/387/388/389/390/391/39{0}	{0}
+Global subroutine: Deluxe CAFE init1	92	unchanged	2/393/394/395/396/397/398		2/393/394/395/396/397/398	
+Global subroutine: Deluxe CAFE init1	93	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	94	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	95	unchanged	/99/3/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/3{0}		/99/3/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/3{0}	{0}
+Global subroutine: Deluxe CAFE init1	96	unchanged	/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/3/99/3/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/3/99/3/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	97	unchanged	99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/9{0}		99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/3/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	98	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/1/1/99/9{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/1/1/99/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	99	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/{0}	{0}
+Global subroutine: Deluxe CAFE init1	100	unchanged	99/99/4/3/99/99/3/99/99/99/99/3/99/3/99/3/99/99/3/99/3/99/3/99/3/99/3/99/3/99/3/99{0}		99/99/4/3/99/99/3/99/99/99/99/3/99/3/99/3/99/99/3/99/3/99/3/99/3/99/3/99/3/99/3/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	101	unchanged	/3/99/3/99/99/99/99/99/99/99/3/5/99/99/99/2/99/99/99/99/99/99/99/99/99/99/99/99/99{0}		/3/99/3/99/99/99/99/99/99/99/3/5/99/99/99/2/99/99/99/99/99/99/99/99/99/99/99/99/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	102	unchanged	/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	103	unchanged	99/99/99/99/99/99/99/99/99/99/99/6/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/6/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	104	unchanged	/99/99/3/99/3/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}		/99/99/3/99/3/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	105	unchanged	/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	106	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/1/99/4/3/99/99/99/99/99/99		99/99/99/99/99/99/99/99/99/99/99/99/99/1/99/4/3/99/99/99/99/99/99	
+Global subroutine: Deluxe CAFE init1	107	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	108	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/4/3/99/99/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/4/3/99/99/99/99/99/99/99/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	109	unchanged	/99/99/99/99/99/99/99		/99/99/99/99/99/99/99	
+Global subroutine: Deluxe CAFE init1	110	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	111	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/22/0/0/0/0/0/0/0/39/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/22/0/0/0/0/0/0/0/39/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	112	unchanged	41/0/0/0/0/0/0/48/167/0/0/0/0/0/0/0/57/0/0/0/0/0/0/0/0/0/0/0/69/0/0/0/0/0/0/0/0/0/{0}		41/0/0/0/0/0/0/48/167/0/0/0/0/0/0/0/57/0/0/0/0/0/0/0/0/0/0/0/69/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	113	unchanged	79/0/81/0/0/0/0/0/0/0/0/0/0/0/167/0/0/0/0/0/0/0/0/0/0/0/0/52/0/0/0/0/0/0/150/0/0/0{0}		79/0/81/0/0/0/0/0/0/0/0/0/0/0/167/0/0/0/0/0/0/0/0/0/0/0/0/52/0/0/0/0/0/0/150/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	114	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/139/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/139/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	115	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/170/0/0/172/174/0/0/176/0/0/0/0/181/0/183/0/185/0/0/188/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/170/0/0/172/174/0/0/176/0/0/0/0/181/0/183/0/185/0/0/188/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	116	unchanged	/190/0/192/0/194/0/196/0/198/0/200/0/202/0/204/0/0/0/0/0/0/0/82/213/0/0/0/217/0/0/{0}		/190/0/192/0/194/0/196/0/198/0/200/0/202/0/204/0/0/0/0/0/0/0/82/213/0/0/0/217/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	117	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	118	unchanged	0/0/0/0/0/0/0/0/269/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/288/0/290/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/269/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/288/0/290/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	119	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	120	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/356/391/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/356/391/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	121	unchanged	0/380/381/0/383/384/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0		0/380/381/0/383/384/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0	
+Global subroutine: Deluxe CAFE init1	122	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	123	unchanged	99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}		99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	124	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/4/1/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/4/1/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	125	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	126	unchanged	/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/3/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
 Global subroutine: Deluxe CAFE init1	127	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	128	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/2/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/2/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	129	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	130	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	131	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5	
-Global subroutine: Deluxe CAFE init1	132	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	133	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	134	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/58/58/0/0/0/0/63/0/65/0/67/0/0/0/0/0/73/0/75/0/77/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/58/58/0/0/0/0/63/0/65/0/67/0/0/0/0/0/73/0/75/0/77/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	135	unchanged	0/0/0/0/0/84/0/86/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/116/0/{0}		0/0/0/0/0/84/0/86/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/116/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	136	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/154/0/156/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/154/0/156/{0}	{0}
-Global subroutine: Deluxe CAFE init1	137	unchanged	0/0/0/0/0/0/0/0/165/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/165/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	138	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/218/0/0/0/0/0/0/0/0/221/0/0/0/225/0/0/228/0/0/231/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/218/0/0/0/0/0/0/0/0/221/0/0/0/225/0/0/228/0/0/231/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	139	unchanged	0/234/0/0/237/0/0/0/0/0/0/0/0/0/0/0/0/250/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/234/0/0/237/0/0/0/0/0/0/0/0/0/0/0/0/250/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	140	unchanged	0/0/0/0/0/276/0/278/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/276/0/278/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	141	unchanged	313/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/334/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		313/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/334/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	142	unchanged	0/0/0/0/0/0/369/0/0/358/0/360/0/362/0/364/0/366/0/368/0/0/0/0/0/0/0/0/377/0/0/0/0/{0}		0/0/0/0/0/0/369/0/0/358/0/360/0/362/0/364/0/366/0/368/0/0/0/0/0/0/0/0/377/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	143	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0	
-Global subroutine: Deluxe CAFE init1	144	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	145	unchanged	99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}		99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	146	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	128	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	129	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/2/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/2/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	130	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/3/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	131	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	132	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5	
+Global subroutine: Deluxe CAFE init1	133	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	134	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	135	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/58/58/0/0/0/0/63/0/65/0/67/0/0/0/0/0/73/0/75/0/77/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/58/58/0/0/0/0/63/0/65/0/67/0/0/0/0/0/73/0/75/0/77/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	136	unchanged	0/0/0/0/0/84/0/86/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/116/0/{0}		0/0/0/0/0/84/0/86/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/116/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	137	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/154/0/156/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/154/0/156/{0}	{0}
+Global subroutine: Deluxe CAFE init1	138	unchanged	0/0/0/0/0/0/0/0/165/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/165/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	139	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/218/0/0/0/0/0/0/0/0/221/0/0/0/225/0/0/228/0/0/231/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/218/0/0/0/0/0/0/0/0/221/0/0/0/225/0/0/228/0/0/231/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	140	unchanged	0/234/0/0/237/0/0/0/0/0/0/0/0/0/0/0/0/250/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/234/0/0/237/0/0/0/0/0/0/0/0/0/0/0/0/250/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	141	unchanged	0/0/0/0/0/276/0/278/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/276/0/278/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	142	unchanged	313/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/334/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		313/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/334/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	143	unchanged	0/0/0/0/0/0/369/0/0/358/0/360/0/362/0/364/0/366/0/368/0/0/0/0/0/0/0/0/377/0/0/0/0/{0}		0/0/0/0/0/0/369/0/0/358/0/360/0/362/0/364/0/366/0/368/0/0/0/0/0/0/0/0/377/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	144	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0	
+Global subroutine: Deluxe CAFE init1	145	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	146	unchanged	99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}		99/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/10/5/5/5/5/5/5/5/5/5/5{0}	{0}
 Global subroutine: Deluxe CAFE init1	147	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
 Global subroutine: Deluxe CAFE init1	148	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
 Global subroutine: Deluxe CAFE init1	149	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
@@ -982,48 +993,49 @@ Global subroutine: Deluxe CAFE init1	150	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/
 Global subroutine: Deluxe CAFE init1	151	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
 Global subroutine: Deluxe CAFE init1	152	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
 Global subroutine: Deluxe CAFE init1	153	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
-Global subroutine: Deluxe CAFE init1	154	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5	
-Global subroutine: Deluxe CAFE init1	155	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	156	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	154	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5{0}	{0}
+Global subroutine: Deluxe CAFE init1	155	unchanged	/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5		/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5/5	
+Global subroutine: Deluxe CAFE init1	156	unchanged	/		/	
 Global subroutine: Deluxe CAFE init1	157	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	158	unchanged	294/0/0/0/0/88/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		294/0/0/0/0/88/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	159	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	158	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	159	unchanged	294/0/0/0/0/88/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		294/0/0/0/0/88/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
 Global subroutine: Deluxe CAFE init1	160	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	161	unchanged	/0/0/0/0/0/0/0/89/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		/0/0/0/0/0/0/0/89/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	162	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/284/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/284/{0}	{0}
-Global subroutine: Deluxe CAFE init1	163	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/308/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/308/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	164	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
-Global subroutine: Deluxe CAFE init1	165	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0	
-Global subroutine: Deluxe CAFE init1	166	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	167	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/5/99/{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/5/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	168	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	169	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	170	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/5/99/5/99/5/99/99/99/99/99/99/99/99/{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/5/99/5/99/5/99/99/99/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	171	unchanged	99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/1/99/99/99/99/99/{0}		99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/1/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	172	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	173	unchanged	9/3/99/99/99/3/99/99/99/3/99/99/5/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		9/3/99/99/99/3/99/99/99/3/99/99/5/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	174	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	175	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/99/99/99/{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	176	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99{0}	{0}
-Global subroutine: Deluxe CAFE init1	177	unchanged	/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
-Global subroutine: Deluxe CAFE init1	178	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	179	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99	
-Global subroutine: Deluxe CAFE init1	180	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	181	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
-Global subroutine: Deluxe CAFE init1	182	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5	
-Global subroutine: Deluxe CAFE init1	183	unchanged	/		/	
-Global subroutine: Deluxe CAFE init1	184	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/271/0/0/40/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/271/0/0/40/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	185	unchanged	/0/0/0/0/0/0/0/166/166/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/166/166/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	186	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/335/0/336/0/337/0/338/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/335/0/336/0/337/0/338/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	187	unchanged	/0/0/0/0/0/351/0/0/0/0/0/0/0/0/0/0/0/0/353/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/351/0/0/0/0/0/0/0/0/0/0/0/0/353/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	188	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/169/0/0/0/173/0/0/0/177/0/0/205/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/169/0/0/0/173/0/0/0/177/0/0/205/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	189	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	190	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/339/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/286/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/339/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/286/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	191	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	161	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	162	unchanged	/0/0/0/0/0/0/0/89/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		/0/0/0/0/0/0/0/89/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	163	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/284/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/284/{0}	{0}
+Global subroutine: Deluxe CAFE init1	164	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/308/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/308/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	165	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
+Global subroutine: Deluxe CAFE init1	166	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0	
+Global subroutine: Deluxe CAFE init1	167	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	168	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/5/99/{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/5/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	169	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/3/99/99/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	170	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	171	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/5/99/5/99/5/99/99/99/99/99/99/99/99/{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/5/99/5/99/5/99/99/99/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	172	unchanged	99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/1/99/99/99/99/99/{0}		99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99/99/99/99/1/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	173	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	174	unchanged	9/3/99/99/99/3/99/99/99/3/99/99/5/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		9/3/99/99/99/3/99/99/99/3/99/99/5/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	175	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	176	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/99/99/99/{0}		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	177	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/3/99/99/99/99/99/99/99/99/99{0}	{0}
+Global subroutine: Deluxe CAFE init1	178	unchanged	/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}		/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/{0}	{0}
+Global subroutine: Deluxe CAFE init1	179	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	180	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99	
+Global subroutine: Deluxe CAFE init1	181	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	182	unchanged	99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}		99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/9{0}	{0}
+Global subroutine: Deluxe CAFE init1	183	unchanged	9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5		9/99/99/99/99/99/99/99/99/99/99/99/99/99/99/99/5	
+Global subroutine: Deluxe CAFE init1	184	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	185	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/271/0/0/40/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/271/0/0/40/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	186	unchanged	/0/0/0/0/0/0/0/166/166/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/166/166/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	187	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/335/0/336/0/337/0/338/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/335/0/336/0/337/0/338/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	188	unchanged	/0/0/0/0/0/351/0/0/0/0/0/0/0/0/0/0/0/0/353/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/351/0/0/0/0/0/0/0/0/0/0/0/0/353/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	189	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/169/0/0/0/173/0/0/0/177/0/0/205/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/169/0/0/0/173/0/0/0/177/0/0/205/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	190	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	191	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/339/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/286/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/339/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/286/0/0{0}	{0}
 Global subroutine: Deluxe CAFE init1	192	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
 Global subroutine: Deluxe CAFE init1	193	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
-Global subroutine: Deluxe CAFE init1	194	unchanged	/0/0/0/351		/0/0/0/351	
-Global subroutine: Deluxe CAFE init1	195	unchanged	/		/	
+Global subroutine: Deluxe CAFE init1	194	unchanged	/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}		/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0{0}	{0}
+Global subroutine: Deluxe CAFE init1	195	unchanged	/0/0/0/351		/0/0/0/351	
+Global subroutine: Deluxe CAFE init1	196	unchanged	/		/	
 Global subroutine: Deluxe CAFE init2	0	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/0/0/0/5/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/0/0/0/5/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/5/0/0/0/5/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
 Global subroutine: Deluxe CAFE init2	1	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/{0}	{0}
 Global subroutine: Deluxe CAFE init2	2	unchanged	0/0/0/0/0/0/0/0/0/0/0/5/0/0/0/0/0/0/0/0/0/0/0/0/5/0/0/5/0/0/0/5/0/0/0/5/0/0/0/0/0/{0}	0/0/0/0/0/0/0/0/0/0/0/5/0/0/0/0/0/0/0/0/0/0/0/0/5/0/0/5/0/0/0/5/0/0/0/5/0/0/0/0/0/{0}	0/0/0/0/0/0/0/0/0/0/0/5/0/0/0/0/0/0/0/0/0/0/0/0/5/0/0/5/0/0/0/5/0/0/0/5/0/0/0/0/0/{0}	{0}
@@ -1212,29 +1224,29 @@ Global subroutine: Deluxe GC init1	35	unchanged	ャガイモ/マッシュポテ�
 Global subroutine: Deluxe GC init1	36	unchanged	ガイモチヂミ/チョッパル＋ジャガイモ/チョッパル＋キャベツの漬物/チョッパル定食/ソーセージ＋ジャガイモ/ソーセージ＋キャベツの漬物/ソーセージ盛り合わせ/ポテトサ{0}		ガイモチヂミ/チョッパル＋ジャガイモ/チョッパル＋キャベツの漬物/チョッパル定食/ソーセージ＋ジャガイモ/ソーセージ＋キャベツの漬物/ソーセージ盛り合わせ/ポテトサ{0}	{0}
 Global subroutine: Deluxe GC init1	37	unchanged	ラダ/生カツレツ/カツレツ/生ミートボール/ミートボール/ワイン/トマトシチューベース/クリームシチューベース/ワインシチューベース/トマト＋牛肉/トマトビーフシチ{0}		ラダ/生カツレツ/カツレツ/生ミートボール/ミートボール/ワイン/トマトシチューベース/クリームシチューベース/ワインシチューベース/トマト＋牛肉/トマトビーフシチ{0}	{0}
 Global subroutine: Deluxe GC init1	38	unchanged	ュー/クリーム＋牛肉/クリームビーフシチュー/ワイン＋牛肉/ビーフシチュー/トマト＋鶏肉/トマトチキンシチュー/クリーム＋鶏肉/クリームチキンシチュー/ワイン＋鶏肉{0}		ュー/クリーム＋牛肉/クリームビーフシチュー/ワイン＋牛肉/ビーフシチュー/トマト＋鶏肉/トマトチキンシチュー/クリーム＋鶏肉/クリームチキンシチュー/ワイン＋鶏肉{0}	{0}
-Global subroutine: Deluxe GC init1	39	unchanged	/チキンシチュー/ミートソース/ステーキソース/ホットワイン/パイ生地/タルト生地/牛肉＋パイ生地/パイ生地＋牛肉＋パイ生地/生ミートパイ/ミートパイ/砂糖/リンゴ{0}		/チキンシチュー/ミートソース/ステーキソース/ホットワイン/パイ生地/タルト生地/牛肉＋パイ生地/パイ生地＋牛肉＋パイ生地/生ミートパイ/ミートパイ/砂糖/リンゴ{0}	{0}
-Global subroutine: Deluxe GC init1	40	unchanged	/薄切りリンゴ/リンゴ＋砂糖/リンゴの甘煮/リンゴジャム/ステーキ＋パイ生地/生ビーフウェリントン/ビーフウェリントン/牛肉＋卵/衣/生スコッチエッグ/スコッチエッ{0}		/薄切りリンゴ/リンゴ＋砂糖/リンゴの甘煮/リンゴジャム/ステーキ＋パイ生地/生ビーフウェリントン/ビーフウェリントン/牛肉＋卵/衣/生スコッチエッグ/スコッチエッ{0}	{0}
-Global subroutine: Deluxe GC init1	41	unchanged	グ/リンゴ＋パイ生地/パイ生地＋リンゴ＋パイ生地/生リンゴパイ/リンゴパイ/生リンゴタルト/リンゴタルト/生リンゴジャムタルト		グ/リンゴ＋パイ生地/パイ生地＋リンゴ＋パイ生地/生リンゴパイ/リンゴパイ/生リンゴタルト/リンゴタルト/生リンゴジャムタルト	
+Global subroutine: Deluxe GC init1	39	unchanged	/チキンシチュー/ミートソース/ステーキソース/ホットワイン/パイ生地/タルト生地/牛肉＋パイ生地/パイ生地＋牛肉＋パイ生地/ミートパイ（焼く前）/ミートパイ/砂糖{0}		/チキンシチュー/ミートソース/ステーキソース/ホットワイン/パイ生地/タルト生地/牛肉＋パイ生地/パイ生地＋牛肉＋パイ生地/ミートパイ（焼く前）/ミートパイ/砂糖{0}	{0}
+Global subroutine: Deluxe GC init1	40	unchanged	/リンゴ/薄切りリンゴ/リンゴ＋砂糖/リンゴの甘煮/リンゴジャム/ステーキ＋パイ生地/ビーフウェリントン（焼く前）/ビーフウェリントン/牛肉＋卵/衣/生スコッチエッ{0}		/リンゴ/薄切りリンゴ/リンゴ＋砂糖/リンゴの甘煮/リンゴジャム/ステーキ＋パイ生地/ビーフウェリントン（焼く前）/ビーフウェリントン/牛肉＋卵/衣/生スコッチエッ{0}	{0}
+Global subroutine: Deluxe GC init1	41	unchanged	グ/スコッチエッグ/リンゴ＋パイ生地/パイ生地＋リンゴ＋パイ生地/アップルパイ（焼く前）/アップルパイ/アップルタルト（焼く前）		グ/スコッチエッグ/リンゴ＋パイ生地/パイ生地＋リンゴ＋パイ生地/アップルパイ（焼く前）/アップルパイ/アップルタルト（焼く前）	
 Global subroutine: Deluxe GC init1	42	unchanged	/		/	
-Global subroutine: Deluxe GC init1	43	unchanged	リンゴジャムタルト/海苔/海苔＋ご飯/海苔＋ご飯＋プルコギ/プルコギキンパ/海苔＋ご飯＋ジェユク/ジェユクキンパ/ユッケ/料理酒/カルビだれ/牛肉＋カルビだれ/牛カ{0}		リンゴジャムタルト/海苔/海苔＋ご飯/海苔＋ご飯＋プルコギ/プルコギキンパ/海苔＋ご飯＋ジェユク/ジェユクキンパ/ユッケ/料理酒/カルビだれ/牛肉＋カルビだれ/牛カ{0}	{0}
-Global subroutine: Deluxe GC init1	44	unchanged	ルビ/ポーク＋カルビだれ/ポークカルビ/マグロ軍艦巻き/生エビ寿司/エビ寿司/おにぎり/野菜出汁/トムヤムクン/トムヤムクンフォー/牛肉フォー/鶏肉フォー/トマトシ{0}		ルビ/ポーク＋カルビだれ/ポークカルビ/マグロ軍艦巻き/生エビ寿司/エビ寿司/おにぎり/野菜出汁/トムヤムクン/トムヤムクンフォー/牛肉フォー/鶏肉フォー/トマトシ{0}	{0}
-Global subroutine: Deluxe GC init1	45	unchanged	チュー/クリームシチュー/炒めた野菜/卵白/卵黄/卵白＋砂糖/メレンゲ/メレンゲクッキー/スフレ生地/スフレパンケーキ/天ぷら粉/薄切り鶏肉＋天ぷら粉/フライドチキ{0}		チュー/クリームシチュー/炒めた野菜/卵白/卵黄/卵白＋砂糖/メレンゲ/メレンゲクッキー/スフレ生地/スフレパンケーキ/天ぷら粉/薄切り鶏肉＋天ぷら粉/フライドチキ{0}	{0}
-Global subroutine: Deluxe GC init1	46	unchanged	ン/角切り鶏肉＋天ぷら粉/から揚げ/生パティ/焼いたパティ/バンズ＋パティ/バンズ＋チーズ/バンズ＋パティ＋チーズ/バンズ＋チキン/バンズ＋チキン＋チーズ/ミートバ{0}		ン/角切り鶏肉＋天ぷら粉/から揚げ/生パティ/焼いたパティ/バンズ＋パティ/バンズ＋チーズ/バンズ＋パティ＋チーズ/バンズ＋チキン/バンズ＋チキン＋チーズ/ミートバ{0}	{0}
-Global subroutine: Deluxe GC init1	47	unchanged	ーガー/チーズミートバーガー/チキンバーガー/チキンチーズバーガー/生チーズスティック/チーズスティック/ミートソースパスタ/野菜サンドイッチ/エビサンドイッチ/ミ{0}		ーガー/チーズミートバーガー/チキンバーガー/チキンチーズバーガー/生チーズスティック/チーズスティック/ミートソースパスタ/野菜サンドイッチ/エビサンドイッチ/ミ{0}	{0}
-Global subroutine: Deluxe GC init1	48	unchanged	ートサンドイッチ/エビピラフ/ビーフピラフ/チリソース/ヴィンダルーカレー/エビカレー/貝/アサリ＋パスタ/ヴォンゴレパスタ/アサリ＋出汁＋炊いた米/ボンゴレリゾッ{0}		ートサンドイッチ/エビピラフ/ビーフピラフ/チリソース/ヴィンダルーカレー/エビカレー/貝/アサリ＋パスタ/ヴォンゴレパスタ/アサリ＋出汁＋炊いた米/ボンゴレリゾッ{0}	{0}
-Global subroutine: Deluxe GC init1	49	unchanged	ト/ワイン＋炊いた米/ワインリゾット/チョコ/溶かしたチョコ/チョコフォンデュ/カレー＋トマト/カレーソーセージ/春雨/切った春雨/春雨＋ポーク/生スンデ/スンデ/{0}		ト/ワイン＋炊いた米/ワインリゾット/チョコ/溶かしたチョコ/チョコフォンデュ/カレー＋トマト/カレーソーセージ/春雨/切った春雨/春雨＋ポーク/生スンデ/スンデ/{0}	{0}
-Global subroutine: Deluxe GC init1	50	unchanged	オクラ/薄切りオクラ/トマト＋オクラ/トマトオクラシチュー/トマト＋オクラ＋牛肉/トマトオクラビーフシチュー/トマト＋ラム肉/ラムのトマトシチュー/ワイン＋ラム肉/{0}		オクラ/薄切りオクラ/トマト＋オクラ/トマトオクラシチュー/トマト＋オクラ＋牛肉/トマトオクラビーフシチュー/トマト＋ラム肉/ラムのトマトシチュー/ワイン＋ラム肉/{0}	{0}
-Global subroutine: Deluxe GC init1	51	unchanged	ラムシチュー/イワシ/捌いたイワシ/イワシ＋パイ生地/パイ生地＋イワシ＋パイ生地/生イワシパイ/イワシパイ/クルミフィリング/生クルミパイ/クルミパイ/生クルミタル{0}		ラムシチュー/イワシ/捌いたイワシ/イワシ＋パイ生地/パイ生地＋イワシ＋パイ生地/生イワシパイ/イワシパイ/クルミフィリング/生クルミパイ/クルミパイ/生クルミタル{0}	{0}
-Global subroutine: Deluxe GC init1	52	unchanged	ト/クルミタルト/パイ・アンド・マッシュ/バンズ＋プルコギ/プルコギバーガー/バッファローウィング/ヤンニョムチキン/生エビパティ/エビパティ/バンズ＋エビ/エビバ{0}		ト/クルミタルト/パイ・アンド・マッシュ/バンズ＋プルコギ/プルコギバーガー/バッファローウィング/ヤンニョムチキン/生エビパティ/エビパティ/バンズ＋エビ/エビバ{0}	{0}
-Global subroutine: Deluxe GC init1	53	unchanged	ーガー/溶かした砂糖/丸ごとリンゴ飴/刻んだチョコ/チョコシロップ/トーストパン/パン切れ＋砂糖/パンラスク/シュガートースト/リンゴ飴/卵＋パン/卵パン/フレンチ{0}		ーガー/溶かした砂糖/丸ごとリンゴ飴/刻んだチョコ/チョコシロップ/トーストパン/パン切れ＋砂糖/パンラスク/シュガートースト/リンゴ飴/卵＋パン/卵パン/フレンチ{0}	{0}
-Global subroutine: Deluxe GC init1	54	unchanged	トースト/リンゴジャムトースト/チョコリンゴ/チョコトースト/イチゴ/マッシュイチゴ/イチゴ＋砂糖/イチゴジャム/イチゴ飴がけ串/チョコイチゴ/イチゴジャムトースト{0}		トースト/リンゴジャムトースト/チョコリンゴ/チョコトースト/イチゴ/マッシュイチゴ/イチゴ＋砂糖/イチゴジャム/イチゴ飴がけ串/チョコイチゴ/イチゴジャムトースト{0}	{0}
-Global subroutine: Deluxe GC init1	55	unchanged	/ミルク/イチゴミルク/チョコミルク/バナナ/むきバナナ/チョコバナナ/バナナチョコトースト/豆板醤/炒めた豆板醤/ラム串焼き		/ミルク/イチゴミルク/チョコミルク/バナナ/むきバナナ/チョコバナナ/バナナチョコトースト/豆板醤/炒めた豆板醤/ラム串焼き	
+Global subroutine: Deluxe GC init1	43	unchanged	アップルタルト/リンゴジャムタルト（焼く前）/リンゴジャムタルト/海苔/海苔＋ご飯/海苔＋ご飯＋プルコギ/プルコギキンパ/海苔＋ご飯＋ジェユク/ジェユクキンパ/ユッ{0}		アップルタルト/リンゴジャムタルト（焼く前）/リンゴジャムタルト/海苔/海苔＋ご飯/海苔＋ご飯＋プルコギ/プルコギキンパ/海苔＋ご飯＋ジェユク/ジェユクキンパ/ユッ{0}	{0}
+Global subroutine: Deluxe GC init1	44	unchanged	ケ/料理酒/カルビだれ/牛肉＋カルビだれ/牛カルビ/ポーク＋カルビだれ/ポークカルビ/マグロ軍艦巻き/生エビ寿司/エビ寿司/おにぎり/野菜出汁/トムヤムクン/トムヤ{0}		ケ/料理酒/カルビだれ/牛肉＋カルビだれ/牛カルビ/ポーク＋カルビだれ/ポークカルビ/マグロ軍艦巻き/生エビ寿司/エビ寿司/おにぎり/野菜出汁/トムヤムクン/トムヤ{0}	{0}
+Global subroutine: Deluxe GC init1	45	unchanged	ムクンフォー/牛肉フォー/鶏肉フォー/トマトシチュー/クリームシチュー/炒めた野菜/卵白/卵黄/卵白＋砂糖/メレンゲ/メレンゲクッキー/スフレ生地/スフレパンケーキ{0}		ムクンフォー/牛肉フォー/鶏肉フォー/トマトシチュー/クリームシチュー/炒めた野菜/卵白/卵黄/卵白＋砂糖/メレンゲ/メレンゲクッキー/スフレ生地/スフレパンケーキ{0}	{0}
+Global subroutine: Deluxe GC init1	46	unchanged	/天ぷら粉/薄切り鶏肉＋天ぷら粉/フライドチキン/角切り鶏肉＋天ぷら粉/から揚げ/生パティ/焼いたパティ/バンズ＋パティ/バンズ＋チーズ/バンズ＋パティ＋チーズ/バ{0}		/天ぷら粉/薄切り鶏肉＋天ぷら粉/フライドチキン/角切り鶏肉＋天ぷら粉/から揚げ/生パティ/焼いたパティ/バンズ＋パティ/バンズ＋チーズ/バンズ＋パティ＋チーズ/バ{0}	{0}
+Global subroutine: Deluxe GC init1	47	unchanged	ンズ＋チキン/バンズ＋チキン＋チーズ/ミートバーガー/チーズミートバーガー/チキンバーガー/チキンチーズバーガー/生チーズスティック/チーズスティック/ミートソース{0}		ンズ＋チキン/バンズ＋チキン＋チーズ/ミートバーガー/チーズミートバーガー/チキンバーガー/チキンチーズバーガー/生チーズスティック/チーズスティック/ミートソース{0}	{0}
+Global subroutine: Deluxe GC init1	48	unchanged	パスタ/野菜サンドイッチ/エビサンドイッチ/ミートサンドイッチ/エビピラフ/ビーフピラフ/チリソース/ヴィンダルーカレー/エビカレー/貝/アサリ＋パスタ/ヴォンゴレ{0}		パスタ/野菜サンドイッチ/エビサンドイッチ/ミートサンドイッチ/エビピラフ/ビーフピラフ/チリソース/ヴィンダルーカレー/エビカレー/貝/アサリ＋パスタ/ヴォンゴレ{0}	{0}
+Global subroutine: Deluxe GC init1	49	unchanged	パスタ/アサリ＋出汁＋炊いた米/ボンゴレリゾット/ワイン＋炊いた米/ワインリゾット/チョコ/溶かしたチョコ/チョコフォンデュ/カレー＋トマト/カレーソーセージ/春雨{0}		パスタ/アサリ＋出汁＋炊いた米/ボンゴレリゾット/ワイン＋炊いた米/ワインリゾット/チョコ/溶かしたチョコ/チョコフォンデュ/カレー＋トマト/カレーソーセージ/春雨{0}	{0}
+Global subroutine: Deluxe GC init1	50	unchanged	/切った春雨/春雨＋ポーク/生スンデ/スンデ/オクラ/薄切りオクラ/トマト＋オクラ/トマトオクラシチュー/トマト＋オクラ＋牛肉/トマトオクラビーフシチュー/トマト＋{0}		/切った春雨/春雨＋ポーク/生スンデ/スンデ/オクラ/薄切りオクラ/トマト＋オクラ/トマトオクラシチュー/トマト＋オクラ＋牛肉/トマトオクラビーフシチュー/トマト＋{0}	{0}
+Global subroutine: Deluxe GC init1	51	unchanged	ラム肉/ラムのトマトシチュー/ワイン＋ラム肉/ラムシチュー/イワシ/捌いたイワシ/イワシ＋パイ生地/パイ生地＋イワシ＋パイ生地/イワシパイ（焼く前）/イワシパイ/ク{0}		ラム肉/ラムのトマトシチュー/ワイン＋ラム肉/ラムシチュー/イワシ/捌いたイワシ/イワシ＋パイ生地/パイ生地＋イワシ＋パイ生地/イワシパイ（焼く前）/イワシパイ/ク{0}	{0}
+Global subroutine: Deluxe GC init1	52	unchanged	ルミフィリング/クルミパイ（焼く前）/クルミパイ/クルミタルト（焼く前）/クルミタルト/パイ・アンド・マッシュ/バンズ＋プルコギ/プルコギバーガー/バッファローウィ{0}		ルミフィリング/クルミパイ（焼く前）/クルミパイ/クルミタルト（焼く前）/クルミタルト/パイ・アンド・マッシュ/バンズ＋プルコギ/プルコギバーガー/バッファローウィ{0}	{0}
+Global subroutine: Deluxe GC init1	53	unchanged	ング/ヤンニョムチキン/生エビパティ/エビパティ/バンズ＋エビ/エビバーガー/溶かした砂糖/丸ごとリンゴ飴/刻んだチョコ/チョコシロップ/トーストパン/パン切れ＋砂{0}		ング/ヤンニョムチキン/生エビパティ/エビパティ/バンズ＋エビ/エビバーガー/溶かした砂糖/丸ごとリンゴ飴/刻んだチョコ/チョコシロップ/トーストパン/パン切れ＋砂{0}	{0}
+Global subroutine: Deluxe GC init1	54	unchanged	糖/パンラスク/シュガートースト/リンゴ飴/卵＋パン/卵パン/フレンチトースト/リンゴジャムトースト/チョコリンゴ/チョコトースト/イチゴ/マッシュイチゴ/イチゴ＋{0}		糖/パンラスク/シュガートースト/リンゴ飴/卵＋パン/卵パン/フレンチトースト/リンゴジャムトースト/チョコリンゴ/チョコトースト/イチゴ/マッシュイチゴ/イチゴ＋{0}	{0}
+Global subroutine: Deluxe GC init1	55	unchanged	砂糖/イチゴジャム/イチゴ飴がけ串/チョコイチゴ/イチゴジャムトースト/ミルク/イチゴミルク/チョコミルク/バナナ/むきバナナ		砂糖/イチゴジャム/イチゴ飴がけ串/チョコイチゴ/イチゴジャムトースト/ミルク/イチゴミルク/チョコミルク/バナナ/むきバナナ	
 Global subroutine: Deluxe GC init1	56	unchanged	/		/	
-Global subroutine: Deluxe GC init1	57	unchanged	辛口野菜だし/ラムの白湯火鍋/ラムの麻辣火鍋/ポークの白湯火鍋/ポークの麻辣火鍋/ポークの醤油煮/ポークの醤油焼き/豆板醤だれ/野菜＋豆板醤/野菜の豆板醤炒め/ラム{0}		辛口野菜だし/ラムの白湯火鍋/ラムの麻辣火鍋/ポークの白湯火鍋/ポークの麻辣火鍋/ポークの醤油煮/ポークの醤油焼き/豆板醤だれ/野菜＋豆板醤/野菜の豆板醤炒め/ラム{0}	{0}
-Global subroutine: Deluxe GC init1	58	unchanged	肉＋豆板醤/ラムの豆板醤炒め/ポーク＋豆板醤/ポークの豆板醤炒め/牛肉の白湯火鍋/牛肉の麻辣火鍋/牛肉＋豆板醤/牛肉の豆板醤炒め/エビ＋豆板醤/エビの豆板醤炒め/ト{0}		肉＋豆板醤/ラムの豆板醤炒め/ポーク＋豆板醤/ポークの豆板醤炒め/牛肉の白湯火鍋/牛肉の麻辣火鍋/牛肉＋豆板醤/牛肉の豆板醤炒め/エビ＋豆板醤/エビの豆板醤炒め/ト{0}	{0}
-Global subroutine: Deluxe GC init1	59	unchanged	ルティーヤ/トルティーヤ片/ナチョス/タコスベース/牛肉タコス/ポークタコス/ラムタコス/ゆでラム肉/薄切りしたゆでラム肉/ゆで牛肉タコス/ゆでポークタコス/ゆでラ{0}		ルティーヤ/トルティーヤ片/ナチョス/タコスベース/牛肉タコス/ポークタコス/ラムタコス/ゆでラム肉/薄切りしたゆでラム肉/ゆで牛肉タコス/ゆでポークタコス/ゆでラ{0}	{0}
-Global subroutine: Deluxe GC init1	60	unchanged	ム肉タコス/牛肉タコス＋チーズ/牛肉ケサディーヤ/ポークタコス＋チーズ/ポークケサディーヤ/ラムタコス＋チーズ/ラムケサディーヤ/チーズナチョス/ガンバスタコス/チ{0}		ム肉タコス/牛肉タコス＋チーズ/牛肉ケサディーヤ/ポークタコス＋チーズ/ポークケサディーヤ/ラムタコス＋チーズ/ラムケサディーヤ/チーズナチョス/ガンバスタコス/チ{0}	{0}
-Global subroutine: Deluxe GC init1	61	unchanged	キンタコス/チキンタコス＋チーズ/チキンケサディーヤ/米/ご飯		キンタコス/チキンタコス＋チーズ/チキンケサディーヤ/米/ご飯	
+Global subroutine: Deluxe GC init1	57	unchanged	チョコバナナ/バナナチョコトースト/豆板醤/炒めた豆板醤/ラム串焼き/辛口野菜だし/ラムの白湯火鍋/ラムの麻辣火鍋/ポークの白湯火鍋/ポークの麻辣火鍋/ポークの醤油{0}		チョコバナナ/バナナチョコトースト/豆板醤/炒めた豆板醤/ラム串焼き/辛口野菜だし/ラムの白湯火鍋/ラムの麻辣火鍋/ポークの白湯火鍋/ポークの麻辣火鍋/ポークの醤油{0}	{0}
+Global subroutine: Deluxe GC init1	58	unchanged	煮/ポークの醤油焼き/豆板醤だれ/野菜＋豆板醤/野菜の豆板醤炒め/ラム肉＋豆板醤/ラムの豆板醤炒め/ポーク＋豆板醤/ポークの豆板醤炒め/牛肉の白湯火鍋/牛肉の麻辣火{0}		煮/ポークの醤油焼き/豆板醤だれ/野菜＋豆板醤/野菜の豆板醤炒め/ラム肉＋豆板醤/ラムの豆板醤炒め/ポーク＋豆板醤/ポークの豆板醤炒め/牛肉の白湯火鍋/牛肉の麻辣火{0}	{0}
+Global subroutine: Deluxe GC init1	59	unchanged	鍋/牛肉＋豆板醤/牛肉の豆板醤炒め/エビ＋豆板醤/エビの豆板醤炒め/トルティーヤ/トルティーヤ片/ナチョス/タコスベース/牛肉タコス/ポークタコス/ラムタコス/ゆで{0}		鍋/牛肉＋豆板醤/牛肉の豆板醤炒め/エビ＋豆板醤/エビの豆板醤炒め/トルティーヤ/トルティーヤ片/ナチョス/タコスベース/牛肉タコス/ポークタコス/ラムタコス/ゆで{0}	{0}
+Global subroutine: Deluxe GC init1	60	unchanged	ラム肉/薄切りしたゆでラム肉/ゆで牛肉タコス/ゆでポークタコス/ゆでラム肉タコス/牛肉タコス＋チーズ/牛肉ケサディーヤ/ポークタコス＋チーズ/ポークケサディーヤ/ラ{0}		ラム肉/薄切りしたゆでラム肉/ゆで牛肉タコス/ゆでポークタコス/ゆでラム肉タコス/牛肉タコス＋チーズ/牛肉ケサディーヤ/ポークタコス＋チーズ/ポークケサディーヤ/ラ{0}	{0}
+Global subroutine: Deluxe GC init1	61	unchanged	ムタコス＋チーズ/ラムケサディーヤ/チーズナチョス/ガンバスタコス/チキンタコス/チキンタコス＋チーズ/チキンケサディーヤ/米/ご飯		ムタコス＋チーズ/ラムケサディーヤ/チーズナチョス/ガンバスタコス/チキンタコス/チキンタコス＋チーズ/チキンケサディーヤ/米/ご飯	
 Global subroutine: Deluxe GC init1	62	unchanged	/		/	
 Global subroutine: Deluxe GC init1	63	unchanged	0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/0/3/0/3/0/0/0/4/0/3/0/3/0/{0}		0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/3/0/3/0/3/0/0/0/4/0/3/0/3/0/{0}	{0}
 Global subroutine: Deluxe GC init1	64	unchanged	3/0/0/4/5/5/4/0/4/0/4/5/0/4/4/5/0/3/0/0/0/3/5/4/5/0/0/4/0/4/5/5/0/3/0/3/0/3/3/3/4/{0}		3/0/0/4/5/5/4/0/4/0/4/5/0/4/4/5/0/3/0/0/0/3/5/4/5/0/0/4/0/4/5/5/0/3/0/3/0/3/3/3/4/{0}	{0}

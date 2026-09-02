@@ -1,6 +1,6 @@
 # JP Deluxe ITEM_NAME baseline validation
 
-Date: 2026-08-29
+Date: 2026-09-02
 
 ## Authoritative current sources
 
@@ -26,10 +26,10 @@ The standalone `ko.ow`, `en.ow`, `cafe_*.ow`, and `gc_*.ow` arrays are legacy in
 | File | SHA-256 |
 |---|---|
 | `kr_deluxe.ow` | `8D69EDD520D98E3221B321C05123D06B68801E912C87792593AA0188DFACEAA0` |
-| `en_deluxe.ow` | `FE2644F1CAF3559B8E76295B65DE47B2E3FF92878111DF37FD4E2885D1E9FD93` |
-| `jp.ow` | `0057AB27B288DA83589E4392982105AD95491C190FEB78E082070A83CACF4413` |
+| `en_deluxe.ow` | `73996191AA905D0016C86E0B74CE64434FC3EDDD0CD4982F574BE7707CDDA113` |
+| `jp.ow` | `D5234D052ABA95BA17075DFB0EFD2DAE47BB2A8D6EB7D81F47718B59865E4AD5` |
 | `item_name_seed_translations.tsv` | `D20D80CE4D56895D0CD99190A585E43049A9BA062C47F0C23EA03D59E1DEF1F5` |
-| `item_name_translations.tsv` | `20D38A204968D9533538E2C3C6DDBC0D5BF79F606FCF01F5065198C8D1378EA1` |
+| `item_name_translations.tsv` | `353ED2570DD8A5BA72BD31B7C3F14312E9736C97B4BD7CF16665C0CA2E59177C` |
 
 The current Deluxe OW files contain manual work newer than their previously generated release snapshots. They are intentionally treated as authoritative for this table.
 
@@ -51,10 +51,10 @@ The current Deluxe OW files contain manual work newer than their previously gene
 - Proposal file: `scripts/jp_deluxe/item_name_translation_proposals.tsv`
 - Proposal rows: 574 (`ORG=1`, `CAFE=274`, `GC=299`)
 - Coverage: exactly every blank row in the authoritative table
-- Basis counts: `composed=389`, `descriptive=50`, `localized=105`, `state_term=29`, `wordplay=1`
+- Basis counts: `composed=368`, `descriptive=50`, `localized=113`, `state_term=42`, `wordplay=1`
 - Forbidden `豚` occurrences: 0
 - Untranslated ASCII fragments in Japanese suggestions: 0
-- Proposal SHA-256: `9316E8BEED5F9EB71B5D6B0478F23E7405B4D912E43596A44FB714F82733E8CA`
+- Proposal SHA-256: `1CD95DEE3BAC5336F92AD09F27FCAFD331F38E760FD0A429D43E72D260EAF8E2`
 - `python -B scripts\jp_deluxe\build_item_name_proposals.py --check`: passed
 
 All 574 proposal values are integrated into the authoritative table. `python -B scripts/jp_deluxe/build_item_name_proposals.py --check` verifies that the recorded proposal keys and Japanese values remain applied.
@@ -62,10 +62,10 @@ All 574 proposal values are integrated into the authoritative table. `python -B 
 ## JP Deluxe generated-output validation
 
 - Target: `jp_deluxe.ow`
-- SHA-256: `F61A149B20FF9F7451DCFDD8B287185817CB96555E665EB3D6556C9874E66758`
-- Bytes: `392634`
+- SHA-256: `5693C01A3C730C686D94CAC20E5CC225E5D99D00BA9FDE38182C9EE6BCCB6EAA`
+- Bytes: `392083`
 - Rules / globals / subroutines: `57 / 128 / 40`
-- Custom String calls: `1563` (`+14` versus current KR Deluxe)
+- Custom String calls: `1560` (`+11` versus current KR Deluxe)
 - Longest Custom String literal: `128` characters (`Player: Spawn`, ordinal 5)
 - Largest rule: `Dummy: Spawn`, `37545` bytes; below the 98 KiB source limit
 - Unresolved Japanese strings: `0`
@@ -73,7 +73,7 @@ All 574 proposal values are integrated into the authoritative table. `python -B 
 - color-markup mismatches: `0`
 - Unapproved Hangul: `0`
 - Forbidden `豚`: `0`
-- Structural fingerprint equals the approved KR Deluxe baseline after locale-neutral release fixes.
+- Structural fingerprint equals the approved KR Deluxe baseline after locale-neutral release fixes and the reviewed JP-only patch-note override.
 - Actual target bytes equal prospective builder output.
 
 The final-output decoder independently verified:

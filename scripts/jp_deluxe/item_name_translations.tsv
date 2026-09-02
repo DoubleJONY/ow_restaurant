@@ -832,26 +832,26 @@ CAFE	353	파이 생지	Pie Dough	パイ生地
 CAFE	354	타르트 생지	Tart Dough	タルト生地
 CAFE	355	사과	Apple	リンゴ
 CAFE	356	썬 사과	Sliced Apple	薄切りリンゴ
-CAFE	357	생 호두 파이	Raw Walnut Pie	生クルミパイ
+CAFE	357	생 호두 파이	Raw Walnut Pie	クルミパイ（焼く前）
 CAFE	358	호두 파이	Walnut Pie	クルミパイ
-CAFE	359	생 딸기 파이	Raw Strawberry Pie	生イチゴパイ
+CAFE	359	생 딸기 파이	Raw Strawberry Pie	イチゴパイ（焼く前）
 CAFE	360	딸기 파이	Strawberry Pie	イチゴパイ
-CAFE	361	생 사과 파이	Raw Apple Pie	生リンゴパイ
-CAFE	362	사과 파이	Apple Pie	リンゴパイ
-CAFE	363	생 블루베리 파이	Raw Blueberry Pie	生ブルーベリーパイ
+CAFE	361	생 사과 파이	Raw Apple Pie	アップルパイ（焼く前）
+CAFE	362	사과 파이	Apple Pie	アップルパイ
+CAFE	363	생 블루베리 파이	Raw Blueberry Pie	ブルーベリーパイ（焼く前）
 CAFE	364	블루베리 파이	Blueberry Pie	ブルーベリーパイ
-CAFE	365	생 호두 타르트	Raw Walnut Tart	生クルミタルト
+CAFE	365	생 호두 타르트	Raw Walnut Tart	クルミタルト（焼く前）
 CAFE	366	호두 타르트	Walnut Tart	クルミタルト
-CAFE	367	생 에그 타르트	Raw Egg Tart	生エッグタルト
+CAFE	367	생 에그 타르트	Raw Egg Tart	エッグタルト（焼く前）
 CAFE	368	에그 타르트	Egg Tart	エッグタルト
 CAFE	369	구운 타르트 지	Baked Tart Shell	焼いたタルト台
 CAFE	370	딸기 타르트	Strawberry Tart	イチゴタルト
-CAFE	371	사과 타르트	Apple Tart	リンゴタルト
+CAFE	371	사과 타르트	Apple Tart	アップルタルト
 CAFE	372	블루베리 타르트	Blueberry Tart	ブルーベリータルト
 CAFE	373	베리베리 타르트	Mixed Berry Tart	ミックスベリータルト
 CAFE	374	망고 타르트	Mango Tart	マンゴータルト
 CAFE	375	초코 타르트	Chocolate Tart	チョコタルト
-CAFE	376	생 크림치즈 타르트	Raw Cream Cheese Tart	生クリームチーズタルト
+CAFE	376	생 크림치즈 타르트	Raw Cream Cheese Tart	クリームチーズタルト（焼く前）
 CAFE	377	크림치즈 타르트	Cream Cheese Tart	クリームチーズタルト
 CAFE	378	탄산수	Sparkling Water	炭酸水
 CAFE	379	레몬	Lemon	レモン
@@ -865,14 +865,14 @@ CAFE	386	레몬차	Lemon Tea	レモンティー
 CAFE	387	자몽+물	Grapefruit+Water	グレープフルーツ＋水
 CAFE	388	자몽차	Grapefruit Tea	グレープフルーツティー
 CAFE	389	사과+물	Apple+Water	リンゴ＋水
-CAFE	390	사과차	Apple Tea	リンゴティー
-CAFE	391	사과 주스	Apple Juice	リンゴジュース
-CAFE	392	사과 에이드	Apple Fizz	アップルエイド
-CAFE	393	레몬 에이드	Lemon Fizz	レモンエイド
-CAFE	394	자몽 에이드	Grapefruit Fizz	グレープフルーツエイド
-CAFE	395	딸기 에이드	Strawberry Fizz	イチゴエイド
-CAFE	396	블루베리 에이드	Blueberry Fizz	ブルーベリーエイド
-CAFE	397	망고 에이드	Mango Fizz	マンゴーエイド
+CAFE	390	사과차	Apple Tea	アップルティー
+CAFE	391	사과 주스	Apple Juice	アップルジュース
+CAFE	392	사과 에이드	Apple Fizz	アップルソーダ
+CAFE	393	레몬 에이드	Lemon Fizz	レモンソーダ
+CAFE	394	자몽 에이드	Grapefruit Fizz	グレープフルーツソーダ
+CAFE	395	딸기 에이드	Strawberry Fizz	イチゴソーダ
+CAFE	396	블루베리 에이드	Blueberry Fizz	ブルーベリーソーダ
+CAFE	397	망고 에이드	Mango Fizz	マンゴーソーダ
 CAFE	398	물	Water	水
 GC	0	탄 음식	Burnt Food	焦げ物
 GC	1	양산형 칼	Butter Knife	安物のナイフ
@@ -1132,7 +1132,7 @@ GC	254	파이 생지	Pie Dough	パイ生地
 GC	255	타르트 생지	Tart Dough	タルト生地
 GC	256	소고기+파이	Beef+Pie Dough	牛肉＋パイ生地
 GC	257	파이+소고기+파이	PD+Beef+PD	パイ生地＋牛肉＋パイ生地
-GC	258	생 미트 파이	Raw Meat Pie	生ミートパイ
+GC	258	생 미트 파이	Raw Meat Pie	ミートパイ（焼く前）
 GC	259	미트 파이	Meat Pie	ミートパイ
 GC	260	설탕	Sugar	砂糖
 GC	261	사과	Apple	リンゴ
@@ -1141,7 +1141,7 @@ GC	263	사과+설탕	Apple+Sugar	リンゴ＋砂糖
 GC	264	사과조림	Stewed Apples	リンゴの甘煮
 GC	265	사과잼	Apple Jam	リンゴジャム
 GC	266	스테이크+생지	Steak+Pastry Dough	ステーキ＋パイ生地
-GC	267	생 비프 웰링턴	Raw Beef Wellington	生ビーフウェリントン
+GC	267	생 비프 웰링턴	Raw Beef Wellington	ビーフウェリントン（焼く前）
 GC	268	비프 웰링턴	Beef Wellington	ビーフウェリントン
 GC	269	소고기+달걀	Beef+Egg	牛肉＋卵
 GC	270	튀김옷	Batter	衣
@@ -1149,11 +1149,11 @@ GC	271	생 스카치 에그	Raw Scotch Egg	生スコッチエッグ
 GC	272	스카치 에그	Scotch Egg	スコッチエッグ
 GC	273	사과+파이	Apple+Pie Dough	リンゴ＋パイ生地
 GC	274	파이+사과+파이	PD+Apple+PD	パイ生地＋リンゴ＋パイ生地
-GC	275	생 사과 파이	Raw Apple Pie	生リンゴパイ
-GC	276	사과 파이	Apple Pie	リンゴパイ
-GC	277	생 사과 타르트	Raw Apple Tart	生リンゴタルト
-GC	278	사과 타르트	Apple Tart	リンゴタルト
-GC	279	생 사과잼 타르트	Raw Apple Jam Tart	生リンゴジャムタルト
+GC	275	생 사과 파이	Raw Apple Pie	アップルパイ（焼く前）
+GC	276	사과 파이	Apple Pie	アップルパイ
+GC	277	생 사과 타르트	Raw Apple Tart	アップルタルト（焼く前）
+GC	278	사과 타르트	Apple Tart	アップルタルト
+GC	279	생 사과잼 타르트	Raw Apple Jam Tart	リンゴジャムタルト（焼く前）
 GC	280	사과잼 타르트	Apple Jam Tart	リンゴジャムタルト
 GC	281	김	Seaweed	海苔
 GC	282	김+밥	Seaweed+Rice	海苔＋ご飯
@@ -1245,12 +1245,12 @@ GC	367	정어리	Sardine	イワシ
 GC	368	손질한 정어리	Sliced Sardine	捌いたイワシ
 GC	369	정어리+파이	Sardine+Pie Dough	イワシ＋パイ生地
 GC	370	파이+정어리+파이	PD+Sardine+PD	パイ生地＋イワシ＋パイ生地
-GC	371	생 정어리 파이	Raw Sardine Pie	生イワシパイ
+GC	371	생 정어리 파이	Raw Sardine Pie	イワシパイ（焼く前）
 GC	372	정어리 파이	Sardine Pie	イワシパイ
 GC	373	호두 필링	Walnut Filling	クルミフィリング
-GC	374	생 호두 파이	Raw Walnut Pie	生クルミパイ
+GC	374	생 호두 파이	Raw Walnut Pie	クルミパイ（焼く前）
 GC	375	호두 파이	Walnut Pie	クルミパイ
-GC	376	생 호두 타르트	Raw Walnut Tart	生クルミタルト
+GC	376	생 호두 타르트	Raw Walnut Tart	クルミタルト（焼く前）
 GC	377	호두 타르트	Walnut Tart	クルミタルト
 GC	378	파이 앤 매시	Pie and Mash	パイ・アンド・マッシュ
 GC	379	빵+불고기	B+Bulgogi	バンズ＋プルコギ

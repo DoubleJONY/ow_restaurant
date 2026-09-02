@@ -25,7 +25,7 @@ The proposal follows these review rules:
 - Japanese dishes use familiar local names where the recipe identity is clear, including `鉄火丼`, `うな丼`, `うな玉丼`, and `卵かけご飯`.
 - Korean and other non-Japanese dishes use either an established Japanese loanword or a clear ingredient-based description.
 - CAFE code 246 preserves the staged `オ・レ` wordplay for the cookie-and-cream intermediate.
-- State terms reuse the existing Japanese vocabulary, such as `薄切り`, `捌いた`, `潰した`, `ゆで`, `焼いた`, and `炒めた`.
+- State terms reuse the existing Japanese vocabulary, such as `薄切り`, `捌いた`, `潰した`, `ゆで`, `焼いた`, and `炒めた`; assembled pastries waiting to be baked use the clearer `～（焼く前）` form.
 - `豚` is forbidden; pork names use `ポーク` or an established dish name that does not contain the character.
 
 Check that the recorded proposals remain applied with:
@@ -45,6 +45,7 @@ The JP overlay sources are:
 - `manual_translations.tsv`: reviewed Deluxe-only and corrected context translations
 - `legacy_context_remap.tsv`: explicit old-to-new rule positions when Deluxe additions shifted ordinals
 - `output_overrides.tsv`: final JSON-literal overrides; currently empty and prohibited from touching data/control literals
+- `release_code_overrides.jsonl`: reviewed JP-only structural edits; currently removes the obsolete second balance-note argument before translating the replacement bug-fix note
 
 Safe commands:
 
@@ -62,7 +63,7 @@ python -B scripts\jp_deluxe\build_jp_deluxe.py
 python -B scripts\jp_deluxe\build_jp_deluxe.py --force-write
 ```
 
-The current generated target is `392634` bytes with SHA-256 `F61A149B20FF9F7451DCFDD8B287185817CB96555E665EB3D6556C9874E66758`. Static validation reports are stored in `build/jp_deluxe/`.
+The current generated target is `392083` bytes with SHA-256 `5693C01A3C730C686D94CAC20E5CC225E5D99D00BA9FDE38182C9EE6BCCB6EAA`. Static validation reports are stored in `build/jp_deluxe/`.
 
 Three inherited JP strings that were actual semantic or grammar errors are deliberately corrected in the manual context table:
 

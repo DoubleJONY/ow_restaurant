@@ -239,26 +239,26 @@ CAFE	350	멜론 파르페	Melon Parfait	メロンパフェ	composed
 CAFE	353	파이 생지	Pie Dough	パイ生地	composed
 CAFE	354	타르트 생지	Tart Dough	タルト生地	composed
 CAFE	356	썬 사과	Sliced Apple	薄切りリンゴ	composed
-CAFE	357	생 호두 파이	Raw Walnut Pie	生クルミパイ	composed
+CAFE	357	생 호두 파이	Raw Walnut Pie	クルミパイ（焼く前）	state_term
 CAFE	358	호두 파이	Walnut Pie	クルミパイ	composed
-CAFE	359	생 딸기 파이	Raw Strawberry Pie	生イチゴパイ	composed
+CAFE	359	생 딸기 파이	Raw Strawberry Pie	イチゴパイ（焼く前）	state_term
 CAFE	360	딸기 파이	Strawberry Pie	イチゴパイ	composed
-CAFE	361	생 사과 파이	Raw Apple Pie	生リンゴパイ	composed
-CAFE	362	사과 파이	Apple Pie	リンゴパイ	composed
-CAFE	363	생 블루베리 파이	Raw Blueberry Pie	生ブルーベリーパイ	composed
+CAFE	361	생 사과 파이	Raw Apple Pie	アップルパイ（焼く前）	state_term
+CAFE	362	사과 파이	Apple Pie	アップルパイ	localized
+CAFE	363	생 블루베리 파이	Raw Blueberry Pie	ブルーベリーパイ（焼く前）	state_term
 CAFE	364	블루베리 파이	Blueberry Pie	ブルーベリーパイ	composed
-CAFE	365	생 호두 타르트	Raw Walnut Tart	生クルミタルト	composed
+CAFE	365	생 호두 타르트	Raw Walnut Tart	クルミタルト（焼く前）	state_term
 CAFE	366	호두 타르트	Walnut Tart	クルミタルト	composed
-CAFE	367	생 에그 타르트	Raw Egg Tart	生エッグタルト	state_term
+CAFE	367	생 에그 타르트	Raw Egg Tart	エッグタルト（焼く前）	state_term
 CAFE	368	에그 타르트	Egg Tart	エッグタルト	localized
 CAFE	369	구운 타르트 지	Baked Tart Shell	焼いたタルト台	state_term
 CAFE	370	딸기 타르트	Strawberry Tart	イチゴタルト	composed
-CAFE	371	사과 타르트	Apple Tart	リンゴタルト	composed
+CAFE	371	사과 타르트	Apple Tart	アップルタルト	localized
 CAFE	372	블루베리 타르트	Blueberry Tart	ブルーベリータルト	composed
 CAFE	373	베리베리 타르트	Mixed Berry Tart	ミックスベリータルト	composed
 CAFE	374	망고 타르트	Mango Tart	マンゴータルト	composed
 CAFE	375	초코 타르트	Chocolate Tart	チョコタルト	composed
-CAFE	376	생 크림치즈 타르트	Raw Cream Cheese Tart	生クリームチーズタルト	composed
+CAFE	376	생 크림치즈 타르트	Raw Cream Cheese Tart	クリームチーズタルト（焼く前）	state_term
 CAFE	377	크림치즈 타르트	Cream Cheese Tart	クリームチーズタルト	composed
 CAFE	380	썬 레몬	Sliced Lemon	薄切りレモン	composed
 CAFE	383	썬 자몽	Sliced Grapefruit	薄切りグレープフルーツ	composed
@@ -266,14 +266,14 @@ CAFE	384	자몽 주스	Grapefruit Juice	グレープフルーツジュース	com
 CAFE	385	레몬+물	Lemon+Water	レモン＋水	composed
 CAFE	387	자몽+물	Grapefruit+Water	グレープフルーツ＋水	composed
 CAFE	389	사과+물	Apple+Water	リンゴ＋水	composed
-CAFE	390	사과차	Apple Tea	リンゴティー	composed
-CAFE	391	사과 주스	Apple Juice	リンゴジュース	composed
-CAFE	392	사과 에이드	Apple Fizz	アップルエイド	localized
-CAFE	393	레몬 에이드	Lemon Fizz	レモンエイド	localized
-CAFE	394	자몽 에이드	Grapefruit Fizz	グレープフルーツエイド	localized
-CAFE	395	딸기 에이드	Strawberry Fizz	イチゴエイド	localized
-CAFE	396	블루베리 에이드	Blueberry Fizz	ブルーベリーエイド	localized
-CAFE	397	망고 에이드	Mango Fizz	マンゴーエイド	localized
+CAFE	390	사과차	Apple Tea	アップルティー	localized
+CAFE	391	사과 주스	Apple Juice	アップルジュース	localized
+CAFE	392	사과 에이드	Apple Fizz	アップルソーダ	localized
+CAFE	393	레몬 에이드	Lemon Fizz	レモンソーダ	localized
+CAFE	394	자몽 에이드	Grapefruit Fizz	グレープフルーツソーダ	localized
+CAFE	395	딸기 에이드	Strawberry Fizz	イチゴソーダ	localized
+CAFE	396	블루베리 에이드	Blueberry Fizz	ブルーベリーソーダ	localized
+CAFE	397	망고 에이드	Mango Fizz	マンゴーソーダ	localized
 GC	20	냉각총	Freeze Gun	冷却銃	descriptive
 GC	29	구운 소고기	Grilled Beef	焼いた牛肉	state_term
 GC	31	볶은 소고기	Stir-fried Beef	炒めた牛肉	state_term
@@ -423,13 +423,13 @@ GC	254	파이 생지	Pie Dough	パイ生地	composed
 GC	255	타르트 생지	Tart Dough	タルト生地	composed
 GC	256	소고기+파이	Beef+Pie Dough	牛肉＋パイ生地	composed
 GC	257	파이+소고기+파이	PD+Beef+PD	パイ生地＋牛肉＋パイ生地	composed
-GC	258	생 미트 파이	Raw Meat Pie	生ミートパイ	composed
+GC	258	생 미트 파이	Raw Meat Pie	ミートパイ（焼く前）	state_term
 GC	259	미트 파이	Meat Pie	ミートパイ	composed
 GC	262	썬 사과	Sliced Apple	薄切りリンゴ	composed
 GC	263	사과+설탕	Apple+Sugar	リンゴ＋砂糖	composed
 GC	264	사과조림	Stewed Apples	リンゴの甘煮	descriptive
 GC	266	스테이크+생지	Steak+Pastry Dough	ステーキ＋パイ生地	composed
-GC	267	생 비프 웰링턴	Raw Beef Wellington	生ビーフウェリントン	state_term
+GC	267	생 비프 웰링턴	Raw Beef Wellington	ビーフウェリントン（焼く前）	state_term
 GC	268	비프 웰링턴	Beef Wellington	ビーフウェリントン	localized
 GC	269	소고기+달걀	Beef+Egg	牛肉＋卵	composed
 GC	270	튀김옷	Batter	衣	localized
@@ -437,11 +437,11 @@ GC	271	생 스카치 에그	Raw Scotch Egg	生スコッチエッグ	state_term
 GC	272	스카치 에그	Scotch Egg	スコッチエッグ	localized
 GC	273	사과+파이	Apple+Pie Dough	リンゴ＋パイ生地	composed
 GC	274	파이+사과+파이	PD+Apple+PD	パイ生地＋リンゴ＋パイ生地	composed
-GC	275	생 사과 파이	Raw Apple Pie	生リンゴパイ	composed
-GC	276	사과 파이	Apple Pie	リンゴパイ	composed
-GC	277	생 사과 타르트	Raw Apple Tart	生リンゴタルト	composed
-GC	278	사과 타르트	Apple Tart	リンゴタルト	composed
-GC	279	생 사과잼 타르트	Raw Apple Jam Tart	生リンゴジャムタルト	composed
+GC	275	생 사과 파이	Raw Apple Pie	アップルパイ（焼く前）	state_term
+GC	276	사과 파이	Apple Pie	アップルパイ	localized
+GC	277	생 사과 타르트	Raw Apple Tart	アップルタルト（焼く前）	state_term
+GC	278	사과 타르트	Apple Tart	アップルタルト	localized
+GC	279	생 사과잼 타르트	Raw Apple Jam Tart	リンゴジャムタルト（焼く前）	state_term
 GC	280	사과잼 타르트	Apple Jam Tart	リンゴジャムタルト	composed
 GC	282	김+밥	Seaweed+Rice	海苔＋ご飯	composed
 GC	283	김+밥+불고기	Seaweed+Rice+Bulgogi	海苔＋ご飯＋プルコギ	composed
@@ -500,12 +500,12 @@ GC	366	양고기 스튜	Lamb Stew	ラムシチュー	localized
 GC	368	손질한 정어리	Sliced Sardine	捌いたイワシ	state_term
 GC	369	정어리+파이	Sardine+Pie Dough	イワシ＋パイ生地	composed
 GC	370	파이+정어리+파이	PD+Sardine+PD	パイ生地＋イワシ＋パイ生地	composed
-GC	371	생 정어리 파이	Raw Sardine Pie	生イワシパイ	composed
+GC	371	생 정어리 파이	Raw Sardine Pie	イワシパイ（焼く前）	state_term
 GC	372	정어리 파이	Sardine Pie	イワシパイ	composed
 GC	373	호두 필링	Walnut Filling	クルミフィリング	composed
-GC	374	생 호두 파이	Raw Walnut Pie	生クルミパイ	composed
+GC	374	생 호두 파이	Raw Walnut Pie	クルミパイ（焼く前）	state_term
 GC	375	호두 파이	Walnut Pie	クルミパイ	composed
-GC	376	생 호두 타르트	Raw Walnut Tart	生クルミタルト	composed
+GC	376	생 호두 타르트	Raw Walnut Tart	クルミタルト（焼く前）	state_term
 GC	377	호두 타르트	Walnut Tart	クルミタルト	composed
 GC	378	파이 앤 매시	Pie and Mash	パイ・アンド・マッシュ	localized
 GC	379	빵+불고기	B+Bulgogi	バンズ＋プルコギ	composed

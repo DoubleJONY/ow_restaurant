@@ -40,6 +40,7 @@ LOCALIZED_TABLES = Path(__file__).with_name("localized_tables.tsv")
 MANUAL_TRANSLATIONS = Path(__file__).with_name("manual_translations.tsv")
 LEGACY_CONTEXT_REMAP = Path(__file__).with_name("legacy_context_remap.tsv")
 OUTPUT_OVERRIDES = Path(__file__).with_name("output_overrides.tsv")
+RELEASE_CODE_OVERRIDES = Path(__file__).with_name("release_code_overrides.jsonl")
 JP_SOURCE = ROOT / "jp.ow"
 EN_TARGET = ROOT / "en_deluxe.ow"
 
@@ -590,6 +591,26 @@ def apply_shared_release_fixes(text: str) -> tuple[str, list[dict[str, object]]]
     text = text[:start] + rule + text[end:]
     report.append({"label": "remove obsolete external Workshop-code branch"})
     return text, report
+
+
+def apply_release_code_overrides(text: str) -> tuple[str, int]:
+    """Apply reviewed JP-only structural edits without changing the KR baseline."""
+    newline = "\r\n" if "\r\n" in text else "\n"
+    count = 0
+    with RELEASE_CODE_OVERRIDES.open(encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, 1):
+            patch = json.loads(line)
+            base = patch["base"].replace("\n", newline)
+            target = patch["target"].replace("\n", newline)
+            occurrences = text.count(base)
+            if occurrences != 1:
+                raise BuildError(
+                    f"stale release code override at line {line_number}: "
+                    f"base occurrences={occurrences}"
+                )
+            text = text.replace(base, target, 1)
+            count += 1
+    return text, count
 
 
 def aligned_translation_maps(
@@ -1401,11 +1422,12 @@ def validate_output(
     if locale_paths != {"ja"}:
         raise BuildError(f"Japanese recipe URL locale paths are wrong: {sorted(locale_paths)!r}")
     versions = set(re.findall(r"\bv\d{6}\b", text))
-    if versions != {"v260830"}:
+    if versions != {"v260902"}:
         raise BuildError(f"Japanese release version set is wrong: {sorted(versions)!r}")
 
     structure_baseline, _ = apply_shared_release_fixes(kr_text)
     structure_baseline, _ = locale_tools.suppress_korean_only_messages(structure_baseline)
+    structure_baseline, _ = apply_release_code_overrides(structure_baseline)
     jp_structure, jp_structure_sha = structural_fingerprint(text)
     kr_structure, kr_structure_sha = structural_fingerprint(structure_baseline)
     if jp_structure != kr_structure:
@@ -1489,6 +1511,7 @@ def write_reports(
         MANUAL_TRANSLATIONS,
         LEGACY_CONTEXT_REMAP,
         OUTPUT_OVERRIDES,
+        RELEASE_CODE_OVERRIDES,
         Path(__file__),
     )
     payload["source_sha256"] = {
@@ -1527,10 +1550,12 @@ def build_text() -> tuple[
     text, shared_release_report = apply_shared_release_fixes(text)
     text, serialized_ui_report = localize_serialized_ui_tables(text)
     text, korean_only_message_count = locale_tools.suppress_korean_only_messages(text)
+    text, release_override_count = apply_release_code_overrides(text)
     text, inventory, unresolved, translation_report = translate_custom_strings(text, kr_text)
     text, inventory, override_count = apply_output_overrides(text, inventory)
     translation_report["output_overrides"] = override_count
     translation_report["korean_only_messages_removed"] = korean_only_message_count
+    translation_report["release_code_overrides"] = release_override_count
     translation_report["translated"] = sum(row["jp"] != row["kr"] for row in inventory)
     data_report = {
         "name_tables": name_report,
