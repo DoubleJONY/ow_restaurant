@@ -28,7 +28,7 @@ Global: Setting	44	legacy-phrase	비어 있음		空
 Global: Setting	47	legacy-phrase	비어 있음		空	
 Global: Setting	50	legacy-phrase	비어 있음		空	
 Global: Setting	53	legacy-phrase	비어 있음		空	
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260902\r\ndiscord&recipes : ow-restaurant.com/ja	
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260902\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260902\r\ndiscord&recipes : ow-restaurant.com/ja	
 Global: Setting	57	legacy-phrase	Score : {0}{2}\r\n내 직책 : {1}		Score : {0}{2}\r\n私の役職 : {1}	{0} {2} {1}
 Global: Setting	61	legacy-phrase	{0} 제작 중인 특수 칼:{1}개		{0} 製作中のスペシャルナイフ:{1}つ	{0} {1}
 Global: Setting	62	manual-global	{0} 솥:{1}% / 튀김&제빙:{2}%		{0} 鍋:{1}% / フライヤー&製氷機:{2}%	{0} {1} {2}
@@ -36,49 +36,28 @@ Global: Setting	63	legacy-phrase	{0} 솥:{1}% / 튀김:{2}%		{0} 鍋:{1}% / フ�
 Global: Setting	64	manual-global	{0} 팬:{1}% / 오븐:{2}%		{0} フライパン:{1}% / オーブン:{2}%	{0} {1} {2}
 Global: Setting	65	legacy-phrase	{0} 팬:{1}% / 그릴:{2}%		{0} フライパン:{1}% / グリル:{2}%	{0} {1} {2}
 Global: Setting	66	legacy-phrase	{0} 이속:{1}% / 시간:{2}초		{0} 移動速度:{1}% / 時間:{2}秒	{0} {1} {2}
-Global: Setting	69	manual-global	모듬회밥!		クラシック	
-Global: Setting	70	manual-global	카페 & 디저트		カフェ&デザート	
-Global: Setting	71	manual-global	쿡제요리		世界の料理	
-Global: Setting	72	manual-global	제작: {0}		制作: {0}	{0}
-Global: Setting	73	manual-global	Gummybear&변기클라우드\r\n난이도 : ★★★☆☆		Gummybear&변기클라우드\r\n難易度 : ★★★☆☆	
-Global: Setting	74	manual-global	Joseon&Deadlock\r\n난이도 : ★★☆☆☆		Joseon&Deadlock\r\n難易度 : ★★☆☆☆	
-Global: Setting	75	manual-global	Joseon\r\n난이도 : ★★★★☆		Joseon\r\n難易度 : ★★★★☆	
-Global: Setting	76	manual-global	[{0}]: 테마 변경		[{0}]: テーマ変更	{0}
-Global: Setting	77	manual-global	 방장이 테마를 결정하는 중입니다		 ホストがテーマを選択中です	
-Global: Setting	80	legacy-phrase	연습 모드		練習モード	
-Global: Setting	81	legacy-phrase	캐주얼 다이닝		カジュアルダイニング	
-Global: Setting	82	legacy-phrase	파인 다이닝		ファインダイニング	
-Global: Setting	83	legacy-phrase	스타 비스트로		スター・ビストロ	
-Global: Setting	84	legacy-phrase	마스터쿡 챌린지		マスターシェフチャレンジ	
-Global: Setting	85	legacy-phrase	헤드셰프 챌린지		ヘッドシェフ・チャレンジ	
-Global: Setting	87	manual-global	자유롭게 연습할 수 있는 샌드박스 모드 입니다		スキルを自由に磨ける練習専用モードです	
-Global: Setting	88	manual-global	5개의 메뉴가 등장하는 수습 난이도를 클리어하세요		5つのメニューが登場する入門レベルをクリアしましょう	
-Global: Setting	89	manual-global	모든 메뉴가 등장하는 숙련 난이도를 클리어하세요		すべてのメニューが登場する熟練レベルをクリアしましょう	
-Global: Setting	90	manual-global	까다로운 손님들이 등장하는 전문 난이도를 클리어하세요		個性の強い客が登場するプロレベルを攻略しましょう	
-Global: Setting	91	manual-global	Hell's Kitchen 클리어에 도전하세요		Hell's Kitchenのシェフに挑戦しましょう	
-Global: Setting	92	legacy-phrase	완벽의 영역에 도전하세요		完璧なレストランに挑戦しましょう	
-Global: Setting	93	legacy-phrase	[{0}]: 모드 변경		[{0}]: モード変更	{0}
-Global: Setting	94	manual-context	 방장이 모드를 결정하는 중입니다		 ホストがモードを選択中です	
-Global: Setting	96	manual-global	로드 중...		ロード中...	
-Global: Setting	97	manual-global	데이터 초기화 중...		データ初期化中...	
-Global: Setting	117	legacy-phrase	〔{0}〕: 영업 개시		〔{0}〕: 営業開始	{0}
-Global: Setting	118	legacy-phrase	연습 모드		練習モード	
-Global: Setting	120	legacy-phrase	〔{1}〕: 모드-{0}		〔{1}〕: モード-{0}	{1} {0}
-Global: Setting	121	legacy-phrase	다른 메뉴		別のモード	
-Global: Setting	122	legacy-phrase	연습 종료		練習終了	
-Global: Setting	123	legacy-phrase	모든 손님		全員	
-Global: Setting	124	legacy-phrase	튜토리얼		チュートリアル	
-Global: Setting	126	manual-global	모듬회밥!		クラシック	
-Global: Setting	127	manual-global	카페 & 디저트		カフェ&デザート	
-Global: Setting	128	manual-global	쿡제요리		世界の料理	
-Global: Setting	129	legacy-phrase	Joseon-뉴 3호점		Joseon-K-Food(KR)	
-Global: Setting	130	legacy-phrase	Gummybear-오리지널		Gummybear-Original(KR)	
-Global: Setting	131	legacy-phrase	개시 하여 시작		開始を押してスタート	
-Global: Setting	132	legacy-phrase	퓨전		フュージョン	
-Global: Setting	133	manual-global	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260902\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
-Global: Setting	134	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
-Global: Setting	135	manual-global	{0} 버그 수정\r\n\r\n  일부 요리 번역 명칭이 수정되었습니다.		{0} 不具合修正\r\n\r\n  一部の料理名の翻訳を修正しました。	{0}
-Global: Setting	136	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
+Global: Setting	71	manual-global	제작: {0}		制作: {0}	{0}
+Global: Setting	75	manual-global	[{0}]: 테마 변경		[{0}]: テーマ変更	{0}
+Global: Setting	76	manual-global	 방장이 테마를 결정하는 중입니다		 ホストがテーマを選択中です	
+Global: Setting	88	legacy-phrase	[{0}]: 모드 변경		[{0}]: モード変更	{0}
+Global: Setting	89	manual-context	 방장이 모드를 결정하는 중입니다		 ホストがモードを選択中です	
+Global: Setting	91	manual-global	로드 중...		ロード中...	
+Global: Setting	92	manual-global	데이터 초기화 중...		データ初期化中...	
+Global: Setting	112	legacy-phrase	〔{0}〕: 영업 개시		〔{0}〕: 営業開始	{0}
+Global: Setting	113	legacy-phrase	연습 모드		練習モード	
+Global: Setting	115	legacy-phrase	〔{1}〕: 모드-{0}		〔{1}〕: モード-{0}	{1} {0}
+Global: Setting	116	legacy-phrase	다른 메뉴		別のモード	
+Global: Setting	117	legacy-phrase	연습 종료		練習終了	
+Global: Setting	118	legacy-phrase	모든 손님		全員	
+Global: Setting	119	legacy-phrase	튜토리얼		チュートリアル	
+Global: Setting	123	legacy-phrase	개시 하여 시작		開始を押してスタート	
+Global: Setting	124	legacy-phrase	퓨전		フュージョン	
+Global: Setting	125	manual-global	{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260902\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
+Global: Setting	126	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
+Global: Setting	127	manual-global	{0} 버그 수정\r\n\r\n{1}		{0} 不具合修正\r\n\r\n{1}	{0} {1}
+Global: Setting	128	manual-global	  일부 요리 번역 명칭이 수정되었습니다.\r\n{0}		  一部の料理名の翻訳を修正しました。\r\n{0}	{0}
+Global: Setting	129	manual-global	  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.		  一部のモードで追加の初期アイテムがゲーム開始時に消える不具合を修正しました。	
+Global: Setting	130	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
 Player: Spawn	0	legacy-phrase	설정	Settings	設定	
 Player: Spawn	1	legacy-phrase	플레이어 기본 직책	Default Player Role	プレイヤー基本役職	
 Player: Spawn	2	legacy-phrase	요리사	Chef	シェフ	

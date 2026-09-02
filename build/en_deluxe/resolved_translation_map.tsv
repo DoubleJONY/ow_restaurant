@@ -28,7 +28,7 @@ Global: Setting	44	manual-global	비어 있음	Empty
 Global: Setting	47	manual-global	비어 있음	Empty
 Global: Setting	50	manual-global	비어 있음	Empty
 Global: Setting	53	manual-global	비어 있음	Empty
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260830\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260830\r\ndiscord&recipes : ow-restaurant.com/en
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260902\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260902\r\ndiscord&recipes : ow-restaurant.com/en
 Global: Setting	57	manual-global	Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}	{0} {2} {1}
 Global: Setting	61	manual-global	{0} 제작 중인 특수 칼:{1}개	{0} Special Knife:{1}	{0} {1}
 Global: Setting	62	manual-global	{0} 솥:{1}% / 튀김&제빙:{2}%	{0} Pot:{1}% / Fryer&Ice:{2}%	{0} {1} {2}
@@ -55,10 +55,10 @@ Global: Setting	119	manual-global	튜토리얼	Tutorial
 Global: Setting	120	manual-global	〔{1}〕: {0}	[{1}]: {0}	{1} {0}
 Global: Setting	123	manual-global	개시 하여 시작	Press Open to Start
 Global: Setting	124	source-phrase	퓨전	Fusion
-Global: Setting	125	manual-global+output-override	{0} v260830\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260830\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
+Global: Setting	125	manual-global+output-override	{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260902\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
 Global: Setting	126	manual-global+output-override	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	 OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.
-Global: Setting	127	manual-global+output-override	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10\r\n{1}	{0} {1}
-Global: Setting	128	manual-global	  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.	  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.
+Global: Setting	127	manual-global	{0} 버그 수정\r\n\r\n{1}	{0} Bug Fixes\r\n\r\n{1}	{0} {1}
+Global: Setting	128	manual-global	  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.	  Fixed an issue where additional starting items disappeared in some modes when the game began.
 Global: Setting	129	manual-global	[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode	{0}
 Player: Spawn	0	source-phrase	설정	Settings
 Player: Spawn	1	source-phrase	플레이어 기본 직책	Default Player Role

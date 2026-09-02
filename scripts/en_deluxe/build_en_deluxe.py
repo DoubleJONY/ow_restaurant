@@ -34,7 +34,7 @@ BUILD_DIR = ROOT / "build" / "en_deluxe"
 MANUAL_TRANSLATIONS = Path(__file__).with_name("manual_translations.tsv")
 OUTPUT_OVERRIDES = Path(__file__).with_name("output_overrides.tsv")
 RELEASE_CODE_OVERRIDES = Path(__file__).with_name("release_code_overrides.jsonl")
-APPROVED_RELEASE_STRUCTURE_SHA256 = "1D518AA450A86A8FC1FD830AC3B8676C18F93D6A80FB00629B8057BE006F729F"
+APPROVED_RELEASE_STRUCTURE_SHA256 = "57450BAF3D741E614C662BA40CD89F69F781CE6D3B8254339314B59CDBD2F0A2"
 JSON_STRING_TOKEN = r'"(?:\\.|[^"\\])*"'
 
 KOREAN_ONLY_MESSAGE_EDITS = (
@@ -640,7 +640,13 @@ def localize_serialized_ui_tables(text: str) -> tuple[str, dict[str, int]]:
     report: dict[str, int] = {}
     for key, values in SERIALIZED_UI_VALUES.items():
         source = kr_builder.serialized_ui_expression(key)
-        target = kr_builder.serialized_ui_expression(key, values)
+        if key == "practice_edition_names":
+            target = (
+                kr_builder.serialized_string_array(tuple(values), ((0, 1, 2),))
+                + "[Global.totalScore[False]]"
+            )
+        else:
+            target = kr_builder.serialized_ui_expression(key, values)
         expected = kr_builder.SERIALIZED_UI_TABLES[key]["count"]
         count = text.count(source)
         if count != expected:

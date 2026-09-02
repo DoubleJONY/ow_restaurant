@@ -1,12 +1,12 @@
 rule	ordinal	kr	en
 		 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 
 		{0}fgC72BD4FF>기초적인 임플란트 가동.	{0}fgC72BD4FF>Sandevistan online. Time to cook, choom
-		  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.	  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.
+		  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.	  Fixed an issue where additional starting items disappeared in some modes when the game began.
 		[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode
 		〔{0}〕:  물 내리기  	[{0}]:  Flush
 		〔{0}〕:  썰기  	[{0}]:  Chop
 		 칼이 없습니다  	No Knife Available
-		레스토랑(SPXXM) v260830\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260830\r\ndiscord&recipes : ow-restaurant.com/en
+		레스토랑(SPXXM) v260902\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260902\r\ndiscord&recipes : ow-restaurant.com/en
 		{0} 제작 중인 특수 칼:{1}개	{0} Special Knife:{1}
 		제작: {0}	Created by: {0}
 		[{0}]: 테마 변경	[{0}]: Change Theme
@@ -22,7 +22,7 @@ Global: Setting	113	연습 모드	Practice Mode
 		Joseon-뉴 3호점	Joseon-K-Food(KR)
 		Gummybear-오리지널	Gummybear-Original(KR)
 		개시 하여 시작	Press Open to Start
-		{0} v260830\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260830\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into Assorted Sashimi Rice Bowl!\r\n{2}
+		{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260902\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into Assorted Sashimi Rice Bowl!\r\n{2}
 		  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	  You can change the theme when entering the game or in Practice Mode.
 		〔{0}〕:  칼 장착  	[{0}]:  Equip Knife
 		〔{0}〕:  아이템 장착  	[{0}]:  Equip Item
@@ -99,7 +99,7 @@ Global subroutine: Perk Hud	11	그릴	grill
 		〔{1}〕: 모드-{0}	[{1}]: Mode-{0}
 		연습 종료	End Practice
 		튜토리얼	Tutorial
-		{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}	{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10.\r\n{1}
+		{0} 버그 수정\r\n\r\n{1}	{0} Bug Fixes\r\n\r\n{1}
 		캐주얼 다이닝 튜토리얼 표시	Show Casual Dining Tutorial
 		냉장고에 있는 재료로 요리하여 서빙해야 합니다!\r\n소고기를 팬이나 그릴에 구워 왼쪽 #테이블 번호에 맞는 손님에게 가져다주세요.	Cook dishes with ingredients from the Fridge.\r\nPan-fry or grill Beef, then serve it to the correct table.
 		재료는 도마에서 썰거나 다져서 다른 요리를 만들 수 있습니다.\r\n썬 소고기를 팬이나 그릴에 구워주세요.	Slice or chop ingredients on the cutting board.\r\nPan-fry or grill Sliced Beef.

@@ -272,16 +272,29 @@
         "target": "All Players(Team 1)[Global.superDrink].durability = 1000;"
       },
       {
+        "label": "preserve localized summary spacing",
+        "base": "String Split(Custom String(\"모듬회밥!/카페!/쿡제요리\"), Custom String(\"/\"))[Global.stageMode[0]], String Split(Custom String(\"연습 모드/캐주얼 다이닝/파인 다이닝/{0}\", Custom String(\"스타 비스트로/마스터쿡 챌린지/헤드셰프 챌린지\")), Custom String(\"/\"))[Global.stageMode[1]]",
+        "target": "String Split(Custom String(\"모듬회밥!/카페!/쿡제요리\"), Custom String(\"/\"))[Global.stageMode[0]] , String Split(Custom String(\"연습 모드/캐주얼 다이닝/파인 다이닝/{0}\", Custom String(\"스타 비스트로/마스터쿡 챌린지/헤드셰프 챌린지\")), Custom String(\"/\"))[Global.stageMode[1]]"
+      },
+      {
         "label": "remove obsolete external Workshop-code branch"
       }
-    ]
+    ],
+    "serialized_ui_tables": {
+      "edition_names": 3,
+      "edition_credits": 1,
+      "mode_names": 2,
+      "mode_descriptions": 1,
+      "practice_edition_names": 1,
+      "difficulty_names": 2
+    }
   },
   "translation": {
-    "inventory": 1560,
-    "translated": 316,
+    "inventory": 1550,
+    "translated": 282,
     "unresolved": 0,
-    "allowlisted": 2,
-    "manual_global_entries": 64,
+    "allowlisted": 3,
+    "manual_global_entries": 55,
     "manual_context_entries": 44,
     "direct_source": {
       "rules": 46,
@@ -302,9 +315,9 @@
   "rules": 57,
   "globals": 128,
   "subroutines": 40,
-  "custom_string_calls": 1560,
-  "kr_custom_string_calls": 1549,
-  "custom_string_call_delta": 11,
+  "custom_string_calls": 1550,
+  "kr_custom_string_calls": 1537,
+  "custom_string_call_delta": 13,
   "array_call_delta": 0,
   "remaining_unapproved_hangul": 0,
   "forbidden_japanese_occurrences": 0,
@@ -321,11 +334,11 @@
     "subroutines": 40,
     "nested_mapped_arrays": 0
   },
-  "structural_fingerprint_sha256": "634047AA0C55BFC20D691153E7E0C884A5DBF0DBAA587799C41260BB39F366EF",
-  "kr_structural_fingerprint_sha256": "634047AA0C55BFC20D691153E7E0C884A5DBF0DBAA587799C41260BB39F366EF",
+  "structural_fingerprint_sha256": "840494A5DC723F8FE4CB73BEF698D7F63B71374805AD8D6019B15FE2DD7D7253",
+  "kr_structural_fingerprint_sha256": "840494A5DC723F8FE4CB73BEF698D7F63B71374805AD8D6019B15FE2DD7D7253",
   "largest_rule": {
-    "name": "Dummy: Spawn",
-    "bytes": 37545
+    "name": "Global: Setting",
+    "bytes": 37553
   },
   "rule_limit_bytes": 100352,
   "output_data_assertions": {
@@ -357,20 +370,20 @@
     "total_score_verified": true,
     "scoreboard_layout_verified": true
   },
-  "sha256": "5693C01A3C730C686D94CAC20E5CC225E5D99D00BA9FDE38182C9EE6BCCB6EAA",
-  "bytes": 392083,
+  "sha256": "EDDB067B0424BDA9F7098E22F2F2012E223BF9D602EA7F3C8A0A183D4DA0F067",
+  "bytes": 392250,
   "unresolved": 0,
   "source_sha256": {
-    "kr_deluxe.ow": "8D69EDD520D98E3221B321C05123D06B68801E912C87792593AA0188DFACEAA0",
-    "en_deluxe.ow": "73996191AA905D0016C86E0B74CE64434FC3EDDD0CD4982F574BE7707CDDA113",
-    "jp.ow": "D5234D052ABA95BA17075DFB0EFD2DAE47BB2A8D6EB7D81F47718B59865E4AD5",
+    "kr_deluxe.ow": "0D78BDFD841BD716D6922615B6225F8FD4989FF76539E489429822F6933FD0A0",
+    "en_deluxe.ow": "B47CE34FF1A24D4CC8B2ABFD8AFCA44FE7B6908F5BA2F20517FFBC1EEA7D7640",
+    "jp.ow": "0057AB27B288DA83589E4392982105AD95491C190FEB78E082070A83CACF4413",
     "scripts/jp_deluxe/item_name_translations.tsv": "353ED2570DD8A5BA72BD31B7C3F14312E9736C97B4BD7CF16665C0CA2E59177C",
-    "scripts/jp_deluxe/item_name_translation_proposals.tsv": "1CD95DEE3BAC5336F92AD09F27FCAFD331F38E760FD0A429D43E72D260EAF8E2",
+    "scripts/jp_deluxe/item_name_translation_proposals.tsv": "74DAD654ABEFACFBF1CAE9C509FCEEEA54477A2FD0D06CACE8BA88458574049C",
     "scripts/jp_deluxe/localized_tables.tsv": "643253D6AA590A9CE4ECB3B7B5F2893A7F4865ED714C29CE7B5CF46BFD725FC0",
-    "scripts/jp_deluxe/manual_translations.tsv": "21EFC65A6C2415E275B40E59C5C28F4E360192B442BCA28F7811ED290082FEDF",
+    "scripts/jp_deluxe/manual_translations.tsv": "56C117D5DE808FBE71E0F7361FB091BE2C7E84FB826E36E39320C8A37736F261",
     "scripts/jp_deluxe/legacy_context_remap.tsv": "5B3EC438067BDB8B988403FDAAF7ED04AF65AEE0A578F7631C345EB2DA00EFF1",
     "scripts/jp_deluxe/output_overrides.tsv": "9455C10F1AE32DAA278B8171B4D0E2CD8C816C8B72FC9AAEC842F04BBF404CE4",
-    "scripts/jp_deluxe/release_code_overrides.jsonl": "F08C721367746F45129E3CC0EAEF34B51E505E6D94EF5872811D6022C540DA6B",
-    "scripts/jp_deluxe/build_jp_deluxe.py": "5C3C72F4AD96219A71AAF5166F8428C060CEE186F96E56EE014737AF4BB06F5C"
+    "scripts/jp_deluxe/release_code_overrides.jsonl": "582DD6F2072E1C4C1E6CB4919281AF394F443142398025161210A9C05C0FB150",
+    "scripts/jp_deluxe/build_jp_deluxe.py": "092421410852C6B0A813555AB64E5950309D9EF3EC519C89C84F4BF52806DC91"
   }
 }

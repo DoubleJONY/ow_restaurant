@@ -1,6 +1,6 @@
 {
-  "sha256": "49BF3F79FA191CB7057F104EA5092FC58DE6AE37B6109ADEA5D35AC50F2E9066",
-  "bytes": 383391,
+  "sha256": "0D78BDFD841BD716D6922615B6225F8FD4989FF76539E489429822F6933FD0A0",
+  "bytes": 383387,
   "rules": 57,
   "globals": 128,
   "ice_global_ids": {
@@ -93,8 +93,8 @@
   },
   "source_rule_size_check": {
     "largest_rule": {
-      "name": "Dummy: Spawn",
-      "bytes": 37248
+      "name": "Global: Setting",
+      "bytes": 37345
     },
     "limit_bytes": 100352,
     "rules_over_limit": 0,
@@ -105,7 +105,7 @@
   "preserved_legacy_implicit_end_rules": [
     "Player: Reload button"
   ],
-  "version": "v260830",
+  "version": "v260902",
   "gc_water_ported": false,
   "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch"
 }

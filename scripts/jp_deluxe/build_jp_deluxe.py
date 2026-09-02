@@ -686,7 +686,13 @@ def localize_serialized_ui_tables(text: str) -> tuple[str, dict[str, int]]:
     report: dict[str, int] = {}
     for key, values in SERIALIZED_UI_VALUES.items():
         source = kr_builder.serialized_ui_expression(key)
-        target = kr_builder.serialized_ui_expression(key, values)
+        if key == "practice_edition_names":
+            target = (
+                kr_builder.serialized_string_array(tuple(values), ((0, 1, 2),))
+                + "[Global.totalScore[False]]"
+            )
+        else:
+            target = kr_builder.serialized_ui_expression(key, values)
         expected = kr_builder.SERIALIZED_UI_TABLES[key]["count"]
         count = text.count(source)
         if count != expected:

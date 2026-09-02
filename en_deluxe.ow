@@ -773,7 +773,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v260830\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"Restaurant(HTNZ3) v260902\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\nMy Role : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -886,17 +886,24 @@ rule("Global: Setting")
 			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
 				-70)) * 0.100, Global.DELUXE_DATA[2][1][Global.stageMode[1]], 100, Null);
 			Call Subroutine(createItem);
+			If(Global.stageMode[1] == 3);
+				Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 3, 100, Null);
+				Call Subroutine(createItem);
+			Else If(Global.stageMode[1] == 5);
+				Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 7, 100, Null);
+				Call Subroutine(createItem);
+			End;
 			Start Rule(startStage, Do Nothing);
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260830\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260902\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}", Icon String(Fire), Icon String(Plus),
 		Custom String(" OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} Balance Changes\r\n\r\n  Justice Giant's serving success reward has been increased from 5 to 10\r\n{1}", Icon String(Flag),
-		Custom String("  Suspicious Drink->Sandevistan - Slows time further and restores everyone's knife durability.")),
+		Custom String("{0} Bug Fixes\r\n\r\n{1}", Icon String(Flag),
+		Custom String("  Fixed an issue where additional starting items disappeared.")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
@@ -3357,10 +3364,7 @@ rule("Host Player: Select Mode")
 		Destroy HUD Text(Global.globalText[2]);
 		Destroy HUD Text(Global.globalText[3]);
 		Destroy HUD Text(Global.globalText[4]);
-		If(Global.stageMode[1] == 3);
-			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 3, 100, Null);
-			Call Subroutine(createItem);
-		Else If(Global.stageMode[1] == 5);
+		If(Global.stageMode[1] == 5);
 			For Global Variable(scbRank, False, 6, True);
 				All Players(Team 1)[Global.scbRank].dollar = 500;
 				Wait(0.016, Ignore Condition);
@@ -3369,8 +3373,6 @@ rule("Host Player: Select Mode")
 			Global.grillingPower = 1.25;
 			Global.potPower = 1;
 			Global.panPower = 1.25;
-			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 7, 100, Null);
-			Call Subroutine(createItem);
 		End;
 		Wait(0.018, Ignore Condition);
 	}

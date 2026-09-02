@@ -74,8 +74,8 @@ SERIALIZED_UI_TABLES = {
         "count": 1,
     },
     "practice_edition_names": {
-        "values": ("모듬회밥!", "카페!", "쿡제요리"),
-        "groups": ((0, 1, 2),),
+        "values": ("모듬회밥!", "카페!", "쿡제요리", "Joseon-뉴 3호점", "Gummybear-오리지널"),
+        "groups": ((0, 1, 2, 3, 4),),
         "index": "Global.totalScore[False]",
         "count": 1,
     },
@@ -624,13 +624,13 @@ def patch_global_setting(rule: str) -> str:
         "merged selected edition data init",
     )
     deluxe_patch_notes = r'''		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260830\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}", Icon String(Flag),
-		Custom String("  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.")),
+		Custom String("{0} 버그 수정\r\n\r\n{1}", Icon String(Flag),
+		Custom String("  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
@@ -668,7 +668,7 @@ def patch_global_setting(rule: str) -> str:
     rule = replace_once(
         rule,
         'Array(Custom String("Joseon-쿡제요리"), Custom String("Joseon-카페"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))',
-        'Array(Custom String("모듬회밥!"), Custom String("카페!"), Custom String("쿡제요리"))',
+        'Array(Custom String("모듬회밥!"), Custom String("카페!"), Custom String("쿡제요리"), Custom String("Joseon-뉴 3호점"), Custom String("Gummybear-오리지널"))',
         "practice edition menu labels",
     )
     rule = replace_once(
@@ -711,6 +711,24 @@ def patch_global_setting(rule: str) -> str:
         "Global.DELUXE_DATA[2][1][Global.stageMode]",
         "second edition starter",
     )
+    second_starter = (
+        "\t\t\tGlobal.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,\r\n"
+        "\t\t\t\t-70)) * 0.100, Global.DELUXE_DATA[2][1][Global.stageMode], 100, Null);\r\n"
+        "\t\t\tCall Subroutine(createItem);"
+    )
+    delayed_mode_starters = '''			If(Global.stageMode == 3);
+				Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 63, 100, Null);
+				Call Subroutine(createItem);
+			Else If(Global.stageMode == 5);
+				Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 354, 100, Null);
+				Call Subroutine(createItem);
+			End;'''.replace("\n", "\r\n")
+    rule = replace_once(
+        rule,
+        second_starter,
+        second_starter + "\r\n" + delayed_mode_starters,
+        "delayed mode-specific starters",
+    )
     close = "\r\n\t}\r\n}"
     if not rule.endswith(close):
         raise BuildError("Global Setting close not found")
@@ -740,7 +758,7 @@ def patch_select_mode(rule: str) -> str:
 			Loop;
 		End;'''.replace("\n", "\r\n")
     rule = replace_once(rule, old, new, "merged edition/mode input")
-    return replace_once(
+    rule = replace_once(
         rule,
         "\t\tDestroy HUD Text(Global.globalText[False]);\r\n"
         "\t\tDestroy HUD Text(Global.globalText[True]);\r\n"
@@ -751,6 +769,37 @@ def patch_select_mode(rule: str) -> str:
         "\t\tDestroy HUD Text(Global.globalText[3]);\r\n"
         "\t\tDestroy HUD Text(Global.globalText[4]);",
         "selection HUD cleanup slots",
+    )
+    early_mode_starters = '''		If(Global.stageMode == 3);
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 63, 100, Null);
+			Call Subroutine(createItem);
+		Else If(Global.stageMode == 5);
+			For Global Variable(scbRank, False, 6, True);
+				All Players(Team 1)[Global.scbRank].dollar = 500;
+				Wait(0.016, Ignore Condition);
+			End;
+			Global.fryingPower = 1.25;
+			Global.grillingPower = 1.25;
+			Global.potPower = 1;
+			Global.panPower = 1.25;
+			Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50, -70)) * 0.100, 354, 100, Null);
+			Call Subroutine(createItem);
+		End;'''.replace("\n", "\r\n")
+    delayed_mode_setup = '''		If(Global.stageMode == 5);
+			For Global Variable(scbRank, False, 6, True);
+				All Players(Team 1)[Global.scbRank].dollar = 500;
+				Wait(0.016, Ignore Condition);
+			End;
+			Global.fryingPower = 1.25;
+			Global.grillingPower = 1.25;
+			Global.potPower = 1;
+			Global.panPower = 1.25;
+		End;'''.replace("\n", "\r\n")
+    return replace_once(
+        rule,
+        early_mode_starters,
+        delayed_mode_setup,
+        "remove pre-data-init mode starters",
     )
 
 
@@ -1022,7 +1071,7 @@ def build_text() -> str:
         "upgrade station label",
     )
 
-    text = text.replace("v260827", "v260830").replace("v260828", "v260830").replace("v260829", "v260830")
+    text = text.replace("v260827", "v260902").replace("v260828", "v260902").replace("v260829", "v260902")
     text = text.rstrip("\r\n") + "\r\n\r\n" + generated
     legacy_drink_name = "에너지 드링크/수상한 드링크/점프 부츠"
     release_drink_name = "에너지 드링크/싼데비슷한 드링크/점프 부츠"
@@ -1283,7 +1332,7 @@ def validate_assembled(text: str) -> dict[str, object]:
         if stale:
             raise BuildError(f"stale ORG tool code in createItemData[2]: {sorted(stale)}")
 
-    if any(version in text for version in ("v260827", "v260828", "v260829")) or text.count("v260830") < 2:
+    if any(version in text for version in ("v260827", "v260828", "v260829", "v260830")) or text.count("v260902") < 2:
         raise BuildError("project version was not updated consistently")
     if text.count(serialized_ui_expression("edition_names")) != 3:
         raise BuildError("Deluxe edition selector labels do not match ORG/CAFE/GC data")
@@ -1465,7 +1514,7 @@ def main() -> None:
                     "create_item_sites": len(site_lines) - 1,
                     "control_flow_checked": True,
                     "preserved_legacy_implicit_end_rules": ["Player: Reload button"],
-                    "version": "v260830",
+                    "version": "v260902",
                     "gc_water_ported": False,
                     "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch",
                 },
