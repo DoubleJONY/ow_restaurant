@@ -28,7 +28,7 @@ Global: Setting	44	legacy-phrase	비어 있음		空
 Global: Setting	47	legacy-phrase	비어 있음		空	
 Global: Setting	50	legacy-phrase	비어 있음		空	
 Global: Setting	53	legacy-phrase	비어 있음		空	
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260829\r\ndiscord&recipes : ow-restaurant.com/ja	
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260829\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260902\r\ndiscord&recipes : ow-restaurant.com/ja	
 Global: Setting	57	legacy-phrase	Score : {0}{2}\r\n내 직책 : {1}		Score : {0}{2}\r\n私の役職 : {1}	{0} {2} {1}
 Global: Setting	61	legacy-phrase	{0} 제작 중인 특수 칼:{1}개		{0} 製作中のスペシャルナイフ:{1}つ	{0} {1}
 Global: Setting	62	manual-global	{0} 솥:{1}% / 튀김&제빙:{2}%		{0} 鍋:{1}% / フライヤー&製氷機:{2}%	{0} {1} {2}
@@ -75,11 +75,10 @@ Global: Setting	129	legacy-phrase	Joseon-뉴 3호점		Joseon-K-Food(KR)
 Global: Setting	130	legacy-phrase	Gummybear-오리지널		Gummybear-Original(KR)	
 Global: Setting	131	legacy-phrase	개시 하여 시작		開始を押してスタート	
 Global: Setting	132	legacy-phrase	퓨전		フュージョン	
-Global: Setting	133	manual-global	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260829\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
+Global: Setting	133	manual-global	{0} v260829\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260902\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
 Global: Setting	134	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
-Global: Setting	135	manual-global	{0} 밸런스 수정\r\n\r\n  거대식가의 서빙 성공 보상이 5 -> 10 으로 증가하였습니다.\r\n{1}		{0} バランス調整\r\n\r\n  大食い巨人のサービング成功報酬が5から10に増加しました。\r\n{1}	{0} {1}
-Global: Setting	136	manual-global	  수상한 드링크->싼데비슷한 드링크 - 시간 감속 비율이 더 감소하고 이제 사용시 모두의 칼 내구도를 회복합니다.		  怪しいドリンク->怪しいスタンド - 時間減速率がさらに低下し、使用時に全員のナイフ耐久度を回復するようになりました。	
-Global: Setting	137	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
+Global: Setting	135	manual-global	{0} 버그 수정\r\n\r\n  일부 요리 번역 명칭이 수정되었습니다.		{0} 不具合修正\r\n\r\n  一部の料理名の翻訳を修正しました。	{0}
+Global: Setting	136	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
 Player: Spawn	0	legacy-phrase	설정	Settings	設定	
 Player: Spawn	1	legacy-phrase	플레이어 기본 직책	Default Player Role	プレイヤー基本役職	
 Player: Spawn	2	legacy-phrase	요리사	Chef	シェフ	

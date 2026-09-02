@@ -87,12 +87,23 @@ Cheese Omelette	チーズオムレツ	localized
 Bacon & Eggs	ベーコンエッグ	localized
 Tart Dough	タルト生地	composed
 Baked Tart Shell	焼いたタルト台	state_term
-Apple Fizz	アップルエイド	localized
-Lemon Fizz	レモンエイド	localized
-Grapefruit Fizz	グレープフルーツエイド	localized
-Strawberry Fizz	イチゴエイド	localized
-Blueberry Fizz	ブルーベリーエイド	localized
-Mango Fizz	マンゴーエイド	localized
+Raw Walnut Pie	クルミパイ（焼く前）	state_term
+Raw Strawberry Pie	イチゴパイ（焼く前）	state_term
+Raw Apple Pie	アップルパイ（焼く前）	state_term
+Apple Pie	アップルパイ	localized
+Raw Blueberry Pie	ブルーベリーパイ（焼く前）	state_term
+Raw Walnut Tart	クルミタルト（焼く前）	state_term
+Raw Egg Tart	エッグタルト（焼く前）	state_term
+Raw Cream Cheese Tart	クリームチーズタルト（焼く前）	state_term
+Apple Tart	アップルタルト	localized
+Apple Tea	アップルティー	localized
+Apple Juice	アップルジュース	localized
+Apple Fizz	アップルソーダ	localized
+Lemon Fizz	レモンソーダ	localized
+Grapefruit Fizz	グレープフルーツソーダ	localized
+Strawberry Fizz	イチゴソーダ	localized
+Blueberry Fizz	ブルーベリーソーダ	localized
+Mango Fizz	マンゴーソーダ	localized
 Grilled Beef	焼いた牛肉	state_term
 Stir-fried Beef	炒めた牛肉	state_term
 Sliced Boiled Beef	薄切りしたゆで牛肉	state_term
@@ -163,13 +174,15 @@ Cutlet	カツレツ	localized
 Raw Meatball	生ミートボール	state_term
 Mulled Wine	ホットワイン	localized
 Stewed Apples	リンゴの甘煮	descriptive
-Raw Beef Wellington	生ビーフウェリントン	state_term
+Raw Meat Pie	ミートパイ（焼く前）	state_term
+Raw Beef Wellington	ビーフウェリントン（焼く前）	state_term
 Beef Wellington	ビーフウェリントン	localized
 Batter	衣	localized
 Raw Scotch Egg	生スコッチエッグ	state_term
 Scotch Egg	スコッチエッグ	localized
-Raw Egg Tart	生エッグタルト	state_term
 Egg Tart	エッグタルト	localized
+Raw Apple Tart	アップルタルト（焼く前）	state_term
+Raw Apple Jam Tart	リンゴジャムタルト（焼く前）	state_term
 Bulgogi Kimbap	プルコギキンパ	localized
 Spicy Pork Kimbap	ジェユクキンパ	localized
 Seasoned Raw Beef	ユッケ	localized
@@ -189,6 +202,7 @@ Curried Sausage	カレーソーセージ	descriptive
 Raw Blood Sausage	生スンデ	state_term
 Blood Sausage	スンデ	localized
 Pie and Mash	パイ・アンド・マッシュ	localized
+Raw Sardine Pie	イワシパイ（焼く前）	state_term
 Raw Shrimp Patty	生エビパティ	state_term
 Shrimp Patty	エビパティ	descriptive
 Whole Apple Tanghulu	丸ごとリンゴ飴	localized
