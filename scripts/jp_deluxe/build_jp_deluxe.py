@@ -511,6 +511,42 @@ def patch_org_stage_code(text: str) -> tuple[str, list[dict[str, object]]]:
     return text, report
 
 
+def patch_gc_stage_code(text: str) -> tuple[str, list[dict[str, object]]]:
+    rule = data_builder.find_rule(text, "dataInit_gc3")
+    assignment = data_builder.find_assignment(rule, "STAGE_CODE")
+    _, mode_expressions, suffix = data_builder.unwrap_call(assignment.expression, "Array")
+    if data_builder.normalize_expr(suffix) != "[Global.stageMode[1]]":
+        raise BuildError(f"GC STAGE_CODE mode selector changed: {suffix!r}")
+
+    changes = {
+        1: {0: (0, 1), 5: (0, 1), 10: (0, 1)},
+        2: {0: (0, 1), 8: (1, 0)},
+    }
+    expression = assignment.expression
+    report: list[dict[str, object]] = []
+    for mode, stage_changes in changes.items():
+        mode_expression = mode_expressions[mode]
+        _, stage_expressions, stage_suffix = data_builder.unwrap_call(mode_expression, "Array")
+        if stage_suffix:
+            raise BuildError(f"GC STAGE_CODE mode {mode} has unexpected suffix: {stage_suffix!r}")
+        for stage, (old, new) in stage_changes.items():
+            expected = data_builder.normalize_expr(f"Array({old})")
+            actual = data_builder.normalize_expr(stage_expressions[stage])
+            if actual != expected:
+                raise BuildError(
+                    f"GC STAGE_CODE[{mode}][{stage}] anchor changed: {actual!r}"
+                )
+            stage_expressions[stage] = f"Array({new})"
+            report.append({"path": f"[{mode}][{stage}][0]", "kr": old, "jp": new})
+        rendered_mode = "Array(" + (",\r\n\t\t\t\t").join(stage_expressions) + ")"
+        if expression.count(mode_expression) != 1:
+            raise BuildError(f"GC STAGE_CODE mode {mode} expression is not uniquely anchored")
+        expression = expression.replace(mode_expression, rendered_mode, 1)
+
+    text = replace_assignment_in_subroutine(text, "dataInit_gc3", "STAGE_CODE", expression)
+    return text, report
+
+
 def localize_org_gameplay_data(text: str) -> tuple[str, dict[str, object]]:
     text, item_color_deltas = patch_org_item_colors(text)
     text, menu_deltas = patch_org_menu_tables(text)
@@ -1219,17 +1255,42 @@ def verify_final_localized_data(text: str, kr_text: str) -> dict[str, object]:
             raise BuildError(f"final {edition.upper()} RAW recipes differ from KR Deluxe")
 
     stage_paths = ((7, 0), (10, 0), (13, 0))
+    gc_stage_changes = {
+        1: {0: 1, 5: 1, 10: 1},
+        2: {0: 1, 8: 0},
+    }
     for edition in EDITIONS:
         subroutine = f"dataInit_{edition}3"
         kr_parts, kr_suffix = stage_code_parts(kr_text, subroutine)
         jp_parts, jp_suffix = stage_code_parts(text, subroutine)
         if kr_suffix != jp_suffix or len(kr_parts) != len(jp_parts):
             raise BuildError(f"final {edition.upper()} STAGE_CODE shape changed")
-        if edition != "org":
+        if edition == "cafe":
             if [data_builder.normalize_expr(part) for part in jp_parts] != [
                 data_builder.normalize_expr(part) for part in kr_parts
             ]:
                 raise BuildError(f"final {edition.upper()} STAGE_CODE differs from KR Deluxe")
+            continue
+        if edition == "gc":
+            for mode, (kr_part, jp_part) in enumerate(zip(kr_parts, jp_parts)):
+                if mode not in gc_stage_changes:
+                    if data_builder.normalize_expr(jp_part) != data_builder.normalize_expr(kr_part):
+                        raise BuildError(f"final GC STAGE_CODE mode {mode} changed unexpectedly")
+                    continue
+                _, kr_stages, kr_stage_suffix = data_builder.unwrap_call(kr_part, "Array")
+                _, jp_stages, jp_stage_suffix = data_builder.unwrap_call(jp_part, "Array")
+                if kr_stage_suffix or jp_stage_suffix or len(kr_stages) != len(jp_stages):
+                    raise BuildError(f"final GC STAGE_CODE mode {mode} shape changed")
+                for stage, (kr_stage, jp_stage) in enumerate(zip(kr_stages, jp_stages)):
+                    expected = (
+                        f"Array({gc_stage_changes[mode][stage]})"
+                        if stage in gc_stage_changes[mode]
+                        else kr_stage
+                    )
+                    if data_builder.normalize_expr(jp_stage) != data_builder.normalize_expr(expected):
+                        raise BuildError(
+                            f"final GC STAGE_CODE[{mode}][{stage}] differs from approved value"
+                        )
             continue
         for mode, (kr_part, jp_part) in enumerate(zip(kr_parts, jp_parts)):
             if mode != 1:
@@ -1268,8 +1329,15 @@ def verify_final_localized_data(text: str, kr_text: str) -> dict[str, object]:
         "org_raw_changed_rows": changed_rows,
         "raw_mapper_wrappers_unchanged": True,
         "org_stage_code_paths": ["[1][7][0]", "[1][10][0]", "[1][13][0]"],
+        "gc_stage_code_paths": [
+            "[1][0][0]",
+            "[1][5][0]",
+            "[1][10][0]",
+            "[2][0][0]",
+            "[2][8][0]",
+        ],
         "cafe_gc_raw_unchanged": True,
-        "cafe_gc_stage_code_unchanged": True,
+        "cafe_stage_code_unchanged": True,
         "total_score_rows": 18,
         "total_score_verified": True,
         "scoreboard_layout_verified": True,
@@ -1552,6 +1620,7 @@ def build_text() -> tuple[
     text, name_report = localize_name_tables(kr_text)
     text, total_score_report = localize_total_score(text)
     text, org_data_report = localize_org_gameplay_data(text)
+    text, gc_stage_report = patch_gc_stage_code(text)
     text, scoreboard_layout_report = patch_scoreboard_layout(text)
     text, shared_release_report = apply_shared_release_fixes(text)
     text, serialized_ui_report = localize_serialized_ui_tables(text)
@@ -1567,6 +1636,7 @@ def build_text() -> tuple[
         "name_tables": name_report,
         "total_score": total_score_report,
         "org_gameplay_deltas": org_data_report,
+        "gc_stage_code_deltas": gc_stage_report,
         "scoreboard_layout_deltas": scoreboard_layout_report,
         "shared_release_fixes": shared_release_report,
         "serialized_ui_tables": serialized_ui_report,

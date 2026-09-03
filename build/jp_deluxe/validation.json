@@ -238,6 +238,33 @@
         }
       ]
     },
+    "gc_stage_code_deltas": [
+      {
+        "path": "[1][0][0]",
+        "kr": 0,
+        "jp": 1
+      },
+      {
+        "path": "[1][5][0]",
+        "kr": 0,
+        "jp": 1
+      },
+      {
+        "path": "[1][10][0]",
+        "kr": 0,
+        "jp": 1
+      },
+      {
+        "path": "[2][0][0]",
+        "kr": 0,
+        "jp": 1
+      },
+      {
+        "path": "[2][8][0]",
+        "kr": 1,
+        "jp": 0
+      }
+    ],
     "scoreboard_layout_deltas": [
       {
         "label": "cooked/cut",
@@ -364,14 +391,21 @@
       "[1][10][0]",
       "[1][13][0]"
     ],
+    "gc_stage_code_paths": [
+      "[1][0][0]",
+      "[1][5][0]",
+      "[1][10][0]",
+      "[2][0][0]",
+      "[2][8][0]"
+    ],
     "cafe_gc_raw_unchanged": true,
-    "cafe_gc_stage_code_unchanged": true,
+    "cafe_stage_code_unchanged": true,
     "total_score_rows": 18,
     "total_score_verified": true,
     "scoreboard_layout_verified": true
   },
-  "sha256": "EDDB067B0424BDA9F7098E22F2F2012E223BF9D602EA7F3C8A0A183D4DA0F067",
-  "bytes": 392250,
+  "sha256": "D61351B7EE9E86DC7CA4BA8EF7753503306A72DFEC0311BDF36A1C7AC3A35750",
+  "bytes": 392354,
   "unresolved": 0,
   "source_sha256": {
     "kr_deluxe.ow": "0D78BDFD841BD716D6922615B6225F8FD4989FF76539E489429822F6933FD0A0",
@@ -384,6 +418,6 @@
     "scripts/jp_deluxe/legacy_context_remap.tsv": "5B3EC438067BDB8B988403FDAAF7ED04AF65AEE0A578F7631C345EB2DA00EFF1",
     "scripts/jp_deluxe/output_overrides.tsv": "9455C10F1AE32DAA278B8171B4D0E2CD8C816C8B72FC9AAEC842F04BBF404CE4",
     "scripts/jp_deluxe/release_code_overrides.jsonl": "582DD6F2072E1C4C1E6CB4919281AF394F443142398025161210A9C05C0FB150",
-    "scripts/jp_deluxe/build_jp_deluxe.py": "092421410852C6B0A813555AB64E5950309D9EF3EC519C89C84F4BF52806DC91"
+    "scripts/jp_deluxe/build_jp_deluxe.py": "2D9EDBF1C9670103509D1F84863C14362CCB441AFEECA99816B4D40E072B8103"
   }
 }
