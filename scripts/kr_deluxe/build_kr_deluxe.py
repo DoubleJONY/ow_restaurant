@@ -865,10 +865,10 @@ def patch_spawn(rule: str) -> str:
 \t\t\tCustom String("뭉개기"),
 \t\t\tCustom String("재료를 바닥에 강하게 던져 튕기세요{0}", Event Player.isController ? Custom String("") : Custom String("\\r\\n컨트롤러 사용 시〔{0}〕버튼을 누르세요", Input Binding String(Button(Melee)))),
 \t\t\tTop, 5,
-\t\t\tColor(Pink), Color(Pink), Color(White), Visible To String and Color, Default Visibility);
+\t\t\tColor(Rose), Color(Rose), Color(White), Visible To String and Color, Default Visibility);
 \t\tCreate HUD Text(Event Player, Custom String("〔{0}〕:  잡기  ", Input Binding String(Button(Primary Fire))),
 \t\t\tNull, Custom String("\\r\\n"), Top, 5,
-\t\t\tIs Button Held(Event Player, Button(Primary Fire)) ? Color(Pink) : Color(Gray), Null, Null, String and Color, Default Visibility);
+\t\t\tIs Button Held(Event Player, Button(Primary Fire)) ? Color(Rose) : Color(Gray), Null, Null, String and Color, Default Visibility);
 \t\tEvent Player.tableText[6] = Last Text ID;
 \t\tWait Until(Event Player.controlingIndex != -1, 9999);
 \t\tWait Until(Event Player.controlingIndex == -1, 9999);

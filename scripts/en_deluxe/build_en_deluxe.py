@@ -611,6 +611,15 @@ def apply_release_code_overrides(text: str) -> tuple[str, int]:
             occurrences = text.count(base)
             if (
                 occurrences == 0
+                and "Color(Pink), Color(Pink)" in base
+                and "Color(Rose), Color(Rose)" in text
+                and "Color(Pink), Color(Pink)" not in text
+            ):
+                # The reviewed EN HUD color was promoted to the KR builder.
+                count += 1
+                continue
+            if (
+                occurrences == 0
                 and "Suspicious Drinks" in base
                 and "Sandevistan" in target
                 and "Suspicious Drinks" in text
