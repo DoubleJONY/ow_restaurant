@@ -4,31 +4,31 @@ line	item_expression
 877	Global.DELUXE_DATA[2][1][Global.stageMode[1]]
 881	3
 884	7
-1077	Global.fridgeCode[Event Player.controlingIndex]
-1087	Global.storageData[Event Player.controlingIndex][False]
-1206	Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of( Event Player.cookingIndex)]])
-1288	Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade]
-1387	Global.KNIFE[Event Player.knifeCode]
-1400	Global.PERK_LIST[False][Event Player.itemPerk]
-1413	Global.PERK_LIST[True][Event Player.footPerk]
-1448	Last Of( Global.CUTTING_RESULT[Global.itemCode[First Of(Event Player.cookingIndex)]])
-1583	Global.PERK_LIST[False][Event Player.itemPerk]
-1591	Global.PERK_LIST[True][Event Player.footPerk]
-1599	Global.KNIFE[Event Player.knifeCode]
-1759	Global.itemCode[Event Player.controlingIndex]
-1770	Array(420, 424, 421, 422, 423, 425, 426, 427, 428, 429, 430, 431)[Random Value In Array(Global.STAGE_CODE[Global.stage])]
-1946	Random Integer(2, 5)
-1953	7
-1962	Random Value In Array(Array(Global.DELUXE_DATA[1], Global.PERK_LIST[True])[Random Integer(False, True)])
-2130	Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]][Event Player.additionalMaterialIndex]
-2135	Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]
-2505	False
-2545	(Hero Of(Event Player) == Hero(Ramattra)) ? Random Value In Array(Array(Global.DELUXE_DATA[1], Global.PERK_LIST[True])[Random Integer(False, True)]) : 18
-3234	Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder][Event Player.additionalMaterialIndex]
-3240	Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]
-3283	Global.potData[False]
-3308	Global.potData[True]
-3424	First Of(Global.upgradeList[True])
-3668	First Of(Global.upgradeList[True])
-3678	First Of(Global.upgradeList[2])
-3702	18
+1100	Global.fridgeCode[Event Player.controlingIndex]
+1110	Global.storageData[Event Player.controlingIndex][False]
+1229	Last Of(Global.CUTTING_RESULT[Global.itemCode[First Of( Event Player.cookingIndex)]])
+1311	Global.UPGRADE_CODE[Global.currentUpgrade][Event Player.selectedUpgrade]
+1410	Global.KNIFE[Event Player.knifeCode]
+1423	Global.PERK_LIST[False][Event Player.itemPerk]
+1436	Global.PERK_LIST[True][Event Player.footPerk]
+1471	Last Of( Global.CUTTING_RESULT[Global.itemCode[First Of(Event Player.cookingIndex)]])
+1606	Global.PERK_LIST[False][Event Player.itemPerk]
+1614	Global.PERK_LIST[True][Event Player.footPerk]
+1622	Global.KNIFE[Event Player.knifeCode]
+1782	Global.itemCode[Event Player.controlingIndex]
+1793	Array(420, 424, 421, 422, 423, 425, 426, 427, 428, 429, 430, 431)[Random Value In Array(Global.STAGE_CODE[Global.stage])]
+1965	Random Integer(2, 5)
+1972	7
+1981	Random Value In Array(Array(Global.DELUXE_DATA[1], Global.PERK_LIST[True])[Random Integer(False, True)])
+2149	Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]][Event Player.additionalMaterialIndex]
+2154	Global.ADDITIONAL_MATERIAL_LIST[Global.tableOrderCode[Event Player.tableIndex]]
+2524	False
+2564	(Hero Of(Event Player) == Hero(Ramattra)) ? Random Value In Array(Array(Global.DELUXE_DATA[1], Global.PERK_LIST[True])[Random Integer(False, True)]) : 18
+3252	Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder][Event Player.additionalMaterialIndex]
+3258	Global.ADDITIONAL_MATERIAL_LIST[Global.reservedOrder]
+3301	Global.potData[False]
+3326	Global.potData[True]
+3442	First Of(Global.upgradeList[True])
+3686	First Of(Global.upgradeList[True])
+3696	First Of(Global.upgradeList[2])
+3720	18

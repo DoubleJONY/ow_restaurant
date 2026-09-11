@@ -1,6 +1,6 @@
 {
-  "sha256": "0D78BDFD841BD716D6922615B6225F8FD4989FF76539E489429822F6933FD0A0",
-  "bytes": 383387,
+  "sha256": "224142E363B92FFBF9741B9DAA2E463CC622A9935151929D3761AB4C37CA39C2",
+  "bytes": 384624,
   "rules": 57,
   "globals": 128,
   "ice_global_ids": {
@@ -94,7 +94,7 @@
   "source_rule_size_check": {
     "largest_rule": {
       "name": "Global: Setting",
-      "bytes": 37345
+      "bytes": 37283
     },
     "limit_bytes": 100352,
     "rules_over_limit": 0,
@@ -105,7 +105,7 @@
   "preserved_legacy_implicit_end_rules": [
     "Player: Reload button"
   ],
-  "version": "v260902",
+  "version": "v260911",
   "gc_water_ported": false,
   "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch"
 }

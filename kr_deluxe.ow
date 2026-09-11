@@ -773,7 +773,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v260902\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"레스토랑(SPXXM) v260911\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -888,13 +888,13 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260911\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} 버그 수정\r\n\r\n{1}", Icon String(Flag),
-		Custom String("  일부 모드의 추가 시작 아이템이 사라지는 문제를 수정했습니다.")),
+		Custom String("{0} 밸런스 수정\r\n\r\n{1}", Icon String(Flag),
+		Custom String("  이제 5인 이하 캐주얼다이닝에서 서빙볼이 항상 지원합니다")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
@@ -1040,6 +1040,29 @@ rule("Player: Spawn")
 		Call Subroutine(perkHud);
 		Call Subroutine(footHud);
 		Start Rule(saveProgress, Do Nothing);
+		Wait(True, Ignore Condition);
+		Abort If(Global.stageMode[1] != 0 && Global.stageMode[1] != 1);
+		Create HUD Text(Event Player.isController || Event Player.controlingIndex != -1 && Global.IMPACT_RESULT[Global.itemCode[Event Player.controlingIndex]] ? Event Player : Null,
+			Event Player.isController ?
+			Custom String("〔{0}〕", Input Binding String(Button(Melee))) :
+				Total Time Elapsed % 2 < 1 ?
+					Custom String("〔홀드 {0}〕+ {1} ", Input Binding String(Button(Primary Fire)), Icon String(Arrow: Up)) :
+					Custom String("〔떼기 {0}〕+ {1} ", Input Binding String(Button(Primary Fire)), Icon String(Arrow: Down)),
+			Custom String("뭉개기"),
+			Custom String("재료를 바닥에 강하게 던져 튕기세요{0}", Event Player.isController ? Custom String("") : Custom String("\r\n컨트롤러 사용 시〔{0}〕버튼을 누르세요", Input Binding String(Button(Melee)))),
+			Top, 5,
+			Color(Rose), Color(Rose), Color(White), Visible To String and Color, Default Visibility);
+		Create HUD Text(Event Player, Custom String("〔{0}〕:  잡기  ", Input Binding String(Button(Primary Fire))),
+			Null, Custom String("\r\n"), Top, 5,
+			Is Button Held(Event Player, Button(Primary Fire)) ? Color(Rose) : Color(Gray), Null, Null, String and Color, Default Visibility);
+		Event Player.tableText[6] = Last Text ID;
+		Wait Until(Event Player.controlingIndex != -1, 9999);
+		Wait Until(Event Player.controlingIndex == -1, 9999);
+		Wait Until(Event Player.controlingIndex != -1, 9999);
+		Wait Until(Event Player.controlingIndex == -1, 9999);
+		Wait Until(Event Player.controlingIndex != -1, 9999);
+		Wait Until(Event Player.controlingIndex == -1, 9999);
+		Destroy HUD Text(Event Player.tableText[6]);
 	}
 }
 
@@ -1800,8 +1823,6 @@ rule("Player: Ultimate button")
 			Wait(0.016, Ignore Condition);
 			Set Move Speed(Event Player, 180);
 			Event Player.isController = True;
-			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
-                String and Color, Default Visibility);
 			Wait Until(Global.isOpen != False || !Has Spawned(Event Player), 9999);
 			Wait Until(Global.isOpen == False || !Has Spawned(Event Player), 9999);
 			Stop Forcing Player To Be Hero(Event Player);
@@ -1833,14 +1854,12 @@ rule("Player: Authorize Controller")
 
 	actions
 	{
-		Small Message(Event Player, Custom String("뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! "));
+		Small Message(Event Player, Custom String("컨트롤러 감지 중... L 스틱을 천천히 앞으로 움직여주세요"));
 		Wait Until(Z Component Of(Throttle Of(Event Player)) < 0.730 &&
 			Z Component Of(Throttle Of(Event Player)) > 0.200, 3);
 		If(Z Component Of(Throttle Of(Event Player)) < 0.730 && Z Component Of(Throttle Of(Event Player)) > 0.200);
 			Event Player.isController = True;
 			Small Message(Event Player, Custom String("이제 [{0}] 키로 재료를 뭉갤 수 있습니다! ", Input Binding String(Button(Melee))));
-			Create HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
-                String and Color, Default Visibility);
 		End;
 		Wait(3, Ignore Condition);
 	}
@@ -2669,10 +2688,6 @@ rule("Global subroutine: Start stage")
 		Wait Until(Global.skipSetup, Global.setUpTime);
 		Global.isVipAngry = False;
 		Big Message(All Players(All Teams), Custom String("영업 시작!"));
-		If(Count Of(All Players(Team 1)) == 1);
-			Create Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
-			Small Message(All Players(All Teams), Custom String("서빙볼이 당신을 지원합니다! "));
-		End;
 		Destroy Progress Bar HUD Text(Global.globalText[False]);
 		Destroy HUD Text(Global.globalText[True]);
 		Destroy HUD Text(Global.globalText[2]);
@@ -2935,7 +2950,6 @@ rule("Global subroutine: Item physics")
 					Global.normal = Ray Cast Hit Normal(Global.itemPosition[Global.checkingIndex],
 						Global.itemPosition[Global.checkingIndex] + Global.itemVelocity[Global.checkingIndex], Null, Null, False);
 					If(Global.itemControled[Global.checkingIndex]);
-
 						Global.itemPosition[Global.checkingIndex] = Ray Cast Hit Position(
 							Global.itemPosition[Global.checkingIndex] + Global.normal * 0.200,
 							Global.itemPosition[Global.checkingIndex] + Global.itemVelocity[Global.checkingIndex] * 3.250 + 2 * Global.normal * Dot Product(
@@ -3172,6 +3186,10 @@ rule("Global subroutine: Call customer")
 
 	actions
 	{
+		If(Global.stageMode[1] <= 1 ? Count Of(All Players(Team 1)) <= 5 : Count Of(All Players(Team 1)) == 1);
+			Create Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
+			Small Message(Global.stageMode[1] == 0 ? Null : All Players(All Teams), Count Of(All Players(Team 1)) == 1 ? Custom String("서빙볼이 당신을 지원합니다! ") : Custom String("서빙볼이 여러분을 지원합니다! "));
+		End;
 		Global.loadNext = 0;
 		Global.customerPosition = Empty Array;
 		Global.customerIndex = Empty Array;

@@ -54,7 +54,7 @@ Global: Setting	51	legacy-phrase
 Global: Setting	52	legacy-phrase	{0}		{0}	{0}
 Global: Setting	53	legacy-phrase	비어 있음		空	
 Global: Setting	54	legacy-phrase	 		 	
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260902\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260902\r\ndiscord&recipes : ow-restaurant.com/ja	
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260911\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260911\r\ndiscord&recipes : ow-restaurant.com/ja	
 Global: Setting	56	legacy-phrase	 ${0} 		 ${0} 	{0}
 Global: Setting	57	legacy-phrase	Score : {0}{2}\r\n내 직책 : {1}		Score : {0}{2}\r\n私の役職 : {1}	{0} {2} {1}
 Global: Setting	58	legacy-phrase	\r\nHigh Score : {0}({1})		\r\nHigh Score : {0}({1})	{0} {1}
@@ -124,13 +124,12 @@ Global: Setting	121	unchanged	クラシック/カフェ&デザート/世界の�
 Global: Setting	122	unchanged	/		/	
 Global: Setting	123	legacy-phrase	개시 하여 시작		開始を押してスタート	
 Global: Setting	124	legacy-phrase	퓨전		フュージョン	
-Global: Setting	125	manual-global	{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260902\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
+Global: Setting	125	manual-global	{0} v260911\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260911\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
 Global: Setting	126	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
-Global: Setting	127	manual-global	{0} 버그 수정\r\n\r\n{1}		{0} 不具合修正\r\n\r\n{1}	{0} {1}
-Global: Setting	128	manual-global	  일부 요리 번역 명칭이 수정되었습니다.\r\n{0}		  一部の料理名の翻訳を修正しました。\r\n{0}	{0}
-Global: Setting	129	manual-global	  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.		  一部のモードで追加の初期アイテムがゲーム開始時に消える不具合を修正しました。	
-Global: Setting	130	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
-Global: Setting	131	legacy-phrase				
+Global: Setting	127	manual-global	{0} 밸런스 수정\r\n\r\n{1}		{0} バランス調整\r\n\r\n{1}	{0} {1}
+Global: Setting	128	manual-global	  이제 5인 이하 캐주얼다이닝에서 서빙볼이 항상 지원합니다		  5人以下のカジュアルダイニングでは、サービングボールが常にサポートします。	
+Global: Setting	129	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
+Global: Setting	130	legacy-phrase				
 Player: Spawn	0	legacy-phrase	설정	Settings	設定	
 Player: Spawn	1	legacy-phrase	플레이어 기본 직책	Default Player Role	プレイヤー基本役職	
 Player: Spawn	2	legacy-phrase	요리사	Chef	シェフ	
@@ -145,6 +144,15 @@ Player: Spawn	10	unchanged	クラシック/カフェ&デザート/世界の料�
 Player: Spawn	11	english-phrase-bridge	/	/	/	
 Player: Spawn	12	allowlisted	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	
 Player: Spawn	13	legacy-phrase	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
+Player: Spawn	14	manual-global	〔{0}〕	[{0}]	〔{0}〕	{0}
+Player: Spawn	15	manual-global	〔홀드 {0}〕+ {1} 	[Hold    {0}] + {1} 	〔長押し {0}〕+ {1} 	{0} {1}
+Player: Spawn	16	manual-global	〔떼기 {0}〕+ {1} 	[Release {0}] + {1} 	〔離す   {0}〕+ {1} 	{0} {1}
+Player: Spawn	17	manual-global	뭉개기	Mash	材料つぶし	
+Player: Spawn	18	manual-global	재료를 바닥에 강하게 던져 튕기세요{0}	Throw the ingredient hard against the floor to make it bounce{0}	材料を床に強く投げつけて跳ね返らせてください{0}	{0}
+Player: Spawn	19	legacy-phrase				
+Player: Spawn	20	manual-global	\r\n컨트롤러 사용 시〔{0}〕버튼을 누르세요	\r\nIf you're using a controller, press [{0}]	\r\nコントローラー使用時は〔{0}〕を押してください	{0}
+Player: Spawn	21	manual-global	〔{0}〕:  잡기  	[{0}]:  Grab  	〔{0}〕:  つかむ  	{0}
+Player: Spawn	22	legacy-phrase	\r\n	\r\n	\r\n	
 Player: Control item	0	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
 Player: Control item	1	manual-context	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	〔{0}〕:  セット  	{0}
 Player: Control item	2	legacy-phrase	\r\n	\r\n	\r\n	
@@ -180,12 +188,8 @@ Player: Reload button	5	legacy-phrase	버그 수정 및 추가 업데이트를 �
 Player: Ultimate button	0	legacy-phrase	100초간 속도 증가!	Increase Speed for 100 seconds! 	100秒間、速度アップ!	
 Player: Ultimate button	1	legacy-phrase	{1}{0}이(가) 서빙볼을 소환했습니다! 	{1}{0} has summoned a ServingBall! 	{1}{0}がサービングボールを召喚しました！	{1} {0}
 Player: Ultimate button	2	legacy-phrase	{1}{0}이(가) 제트팩을 장착했습니다! 	{1}{0} has equipped a jetpack! 	{1}{0}がジェットパックを装着しました！	{1} {0}
-Player: Ultimate button	3	manual-context	재료 뭉개기	Smash Material	材料つぶし	
-Player: Ultimate button	4	legacy-phrase	〔{0}〕	[{0}]	〔{0}〕	{0}
-Player: Authorize Controller	0	manual-context	뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! 	To substitute the smash action with a button, please slowly push the controller stick forward! 	材料を潰す動作をボタンに置き換えるには、コントローラーのスティックをゆっくり前に倒してください！	
-Player: Authorize Controller	1	legacy-context	이제 [{0}] 키로 재료를 뭉갤 수 있습니다! 	Now you can smash the ingredients using the [{0}] key! 	これで[{0}]キーで材料を潰すことができます！ 	{0}
-Player: Authorize Controller	2	legacy-context	재료 뭉개기	Smash Material	材料潰し	
-Player: Authorize Controller	3	legacy-context	〔{0}〕	[{0}]	〔{0}〕	{0}
+Player: Authorize Controller	0	manual-global	컨트롤러 감지 중... L 스틱을 천천히 앞으로 움직여주세요	Detecting controller... please slowly push the L stick	コントローラーを検出中... Lスティックをゆっくり前に倒してください	
+Player: Authorize Controller	1	legacy-phrase	이제 [{0}] 키로 재료를 뭉갤 수 있습니다! 	Now you can smash the ingredients using the [{0}] key! 	これで[{0}]キーで材料を潰すことができます！ 	{0}
 Player: Left match	0	legacy-context	당신이 이제 헤드셰프 입니다!	You are Now Head Chef!	あなたが今、ヘッドシェフです！	
 Dummy: Spawn	0	legacy-remap	부엌칼 상인/아이템 상인/업그레이드/업그레이드	Knife Merchant/Item Merchant/Upgrade/Upgrade	キッチンナイフトレーダー/アイテム商人/アップグレード/アップグレード	
 Dummy: Spawn	1	english-phrase-bridge	/	/	/	
@@ -283,28 +287,29 @@ Global subroutine: Start stage	11	legacy-phrase	 - 	 - 	 -
 Global subroutine: Start stage	12	legacy-phrase	퓨전	Fusion	フュージョン	
 Global subroutine: Start stage	13	legacy-phrase	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n\r\n\r\n\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
 Global subroutine: Start stage	14	legacy-phrase	영업 시작!	Open for Service!	営業開始!	
-Global subroutine: Start stage	15	legacy-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you! 	サービングボールがあなたをサポートします! 	
-Global subroutine: Start stage	16	legacy-phrase	{0}%	{0}%	{0}%	{0}
-Global subroutine: Start stage	17	legacy-phrase	　　　　　주문서　　　　　	　　　　　Order List　　　　　	　　　　　注文書　　　　　	
-Global subroutine: Start stage	18	legacy-phrase	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
-Global subroutine: Start stage	19	legacy-phrase	Stage {0}	Stage {0}	Stage {0}	{0}
-Global subroutine: Start stage	20	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
-Global subroutine: Start stage	21	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
-Global subroutine: Start stage	22	manual-context	영업 완료!	Good Service!	立派な営業!	
-Global subroutine: Start stage	23	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
-Global subroutine: Start stage	24	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
-Global subroutine: Start stage	25	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
-Global subroutine: Start stage	26	manual-context	영업 완료!	Good Service!	営業完了!	
-Global subroutine: Start stage	27	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
-Global subroutine: Start stage	28	legacy-phrase	성공적인 영업!	Successful Service!	成功した営業!	
-Global subroutine: Start stage	29	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
-Global subroutine: Start stage	30	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
-Global subroutine: Start stage	31	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
-Global subroutine: Start stage	32	legacy-phrase	중간 점수 : {0}	Current Score: {0}	中間スコア : {0}	{0}
-Global subroutine: Start stage	33	legacy-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!	レベル上昇！幸運を祈ります!	
+Global subroutine: Start stage	15	legacy-phrase	{0}%	{0}%	{0}%	{0}
+Global subroutine: Start stage	16	legacy-phrase	　　　　　주문서　　　　　	　　　　　Order List　　　　　	　　　　　注文書　　　　　	
+Global subroutine: Start stage	17	legacy-phrase	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	\r\n　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　	
+Global subroutine: Start stage	18	legacy-phrase	Stage {0}	Stage {0}	Stage {0}	{0}
+Global subroutine: Start stage	19	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
+Global subroutine: Start stage	20	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
+Global subroutine: Start stage	21	manual-context	영업 완료!	Good Service!	立派な営業!	
+Global subroutine: Start stage	22	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
+Global subroutine: Start stage	23	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
+Global subroutine: Start stage	24	legacy-phrase	전직원 보너스!	Bonus For All Staff!	全従業員ボーナス!	
+Global subroutine: Start stage	25	manual-context	영업 완료!	Good Service!	営業完了!	
+Global subroutine: Start stage	26	legacy-phrase	몰려오는 손님!	More Incoming Customers!	押し寄せる客!	
+Global subroutine: Start stage	27	legacy-phrase	성공적인 영업!	Successful Service!	成功した営業!	
+Global subroutine: Start stage	28	legacy-phrase	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}fgFF3291FF>ファンタスティックな営業!	{0}
+Global subroutine: Start stage	29	legacy-phrase	급여 +${0}	+${0}	給料 +${0}	{0}
+Global subroutine: Start stage	30	legacy-phrase	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	
+Global subroutine: Start stage	31	legacy-phrase	중간 점수 : {0}	Current Score: {0}	中間スコア : {0}	{0}
+Global subroutine: Start stage	32	legacy-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!	レベル上昇！幸運を祈ります!	
 Global subroutine: Stage Fail	0	legacy-context	{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!	{0}fgC80013FF>ボーナス営業失敗!	{0}
 Global subroutine: Stage Fail	1	legacy-context	{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})	{0} {0} {1} {2}
-Global subroutine: Call customer	0	legacy-phrase	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0}fg00E697FF>#{1}{0}FGffffffFF>テーブル[{0}fgFFFF00FF>{2}{0}FGffffffFF>]予約!	{0} {1} {0} {0} {2} {0}
+Global subroutine: Call customer	0	legacy-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you! 	サービングボールがあなたをサポートします! 	
+Global subroutine: Call customer	1	manual-global	서빙볼이 여러분을 지원합니다! 	ServingBall is supporting all of you! 	サービングボールが皆さんをサポートします! 	
+Global subroutine: Call customer	2	legacy-phrase	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0}fg00E697FF>#{1}{0}FGffffffFF>テーブル[{0}fgFFFF00FF>{2}{0}FGffffffFF>]予約!	{0} {1} {0} {0} {2} {0}
 Host Player: Set Permission	0	manual-global	{0}{1} - {2} 직책 변경!	{0}{1} - {2}	{0}{1} - {2} 役職変更!	{0} {1} {2}
 Host Player: Set Permission	1	manual-global	 {0} 애옹 OwO 	 {0} Meow OwO 	 {0} にゃー (=^・ω・^=)  	{0}
 Host Player: Set Permission	2	manual-global	 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 	 {0} マウガの精神！ 	{0}
@@ -323,7 +328,7 @@ Global subroutine: Knife Hud	11	manual-context	재료를 손에 들고 썰 수 �
 Global subroutine: Knife Hud	12	manual-context	내구도와 성능이 압도적인\r\n희귀한 칼입니다	Cuts ingredients\r\ntwice as fast	食材を\r\n2倍の速さで切れる	
 Global subroutine: Knife Hud	13	manual-context	도마에서 아주 빠른 속도로\r\n연격할 수 있습니다	Lets you unleash rapid strikes\r\non a cutting board	まな板で\r\n高速連撃ができる	
 Global subroutine: Knife Hud	14	unchanged	 \r\n	 \r\n	 \r\n	
-Global subroutine: Perk Hud	0	legacy-phrase	〔{0}〕	 [{0}] 	〔{0}〕	{0}
+Global subroutine: Perk Hud	0	manual-global	〔{0}〕	 [{0}] 	〔{0}〕	{0}
 Global subroutine: Perk Hud	1	legacy-phrase	{1}{0}	{1}{0}	{1}{0}	{1} {0}
 Global subroutine: Perk Hud	2	legacy-phrase				
 Global subroutine: Perk Hud	3	legacy-phrase	-{0}%	-{0}%	-{0}%	{0}
@@ -339,7 +344,7 @@ Global subroutine: Perk Hud	12	manual-context	햄스터가 아르바이트를 �
 Global subroutine: Perk Hud	13	manual-context	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife	現在のラウンドに役立つ食材パックを出す\r\nパックはナイフで開封できる	
 Global subroutine: Perk Hud	14	manual-context	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere	製氷機まで行かなくても\r\n食材を凍らせられる	
 Global subroutine: Perk Hud	15	unchanged	 \r\n	 \r\n	 \r\n	
-Global subroutine: Foot Hud	0	legacy-phrase	〔{0}〕	 [{0}] 	〔{0}〕	{0}
+Global subroutine: Foot Hud	0	manual-global	〔{0}〕	 [{0}] 	〔{0}〕	{0}
 Global subroutine: Foot Hud	1	legacy-phrase	{1}{0}	{1}{0}	{1}{0}	{1} {0}
 Global subroutine: Foot Hud	2	legacy-phrase	-{0}%	-{0}%	-{0}%	{0}
 Global subroutine: Foot Hud	3	manual-context	공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다	Jump high into the air\r\nto reach higher floors	空中へ高く跳び\r\n高い階へ移動できる	

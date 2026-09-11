@@ -16,7 +16,7 @@ import build_deluxe_data as data_builder
 
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = ROOT / "ko.ow"
+BASE = ROOT / "deprecated" / "ko.ow"
 TARGET = ROOT / "kr_deluxe.ow"
 BUILD_DIR = ROOT / "build" / "kr_deluxe"
 
@@ -624,13 +624,13 @@ def patch_global_setting(rule: str) -> str:
         "merged selected edition data init",
     )
     deluxe_patch_notes = r'''		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260904\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} 버그 수정\r\n\r\n{1}", Icon String(Flag),
-		Custom String("  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.")),
+		Custom String("{0} 밸런스 수정\r\n\r\n{1}", Icon String(Flag),
+		Custom String("  이제 5인 이하 캐주얼다이닝에서 서빙볼이 항상 지원합니다")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
@@ -828,6 +828,10 @@ def patch_ultimate(rule: str) -> str:
         "Else If(Event Player.itemPerk == 7 && Count Of(All Players(Team 1))",
         "Else If(Event Player.itemPerk == 6 && Count Of(All Players(Team 1))",
     )
+    smash_hud = '''\t\t\tCreate HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
+                String and Color, Default Visibility);
+'''.replace("\n", "\r\n")
+    rule = replace_once(rule, smash_hud, "", "remove persistent smash HUD from ultimate")
     return rule
 
 
@@ -844,12 +848,54 @@ def patch_spawn(rule: str) -> str:
     new = '''		Create In-World Text(Event Player, Array(Custom String("모듬회밥!"), Custom String("카페!"), Custom String("쿡제요리"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);'''.replace("\n", "\r\n")
     rule = replace_once(rule, old, new, "spawn edition label")
-    return replace_once(
+    rule = replace_once(
         rule,
         'Custom String("GummyBear#11798\\r\\nMod : 변기클라우드#3523\\r\\nEnglish Version : HTNZ3")',
         'Custom String("한국어 : SPXXM\\r\\nEnglish : HTNZ3\\r\\n日本語 : 4ND1P")',
         "spawn language codes",
     )
+    tutorial = '''\t\tWait(True, Ignore Condition);
+\t\tAbort If(Global.stageMode[1] != 0 && Global.stageMode[1] != 1);
+\t\tCreate HUD Text(Event Player.isController || Event Player.controlingIndex != -1 && Global.IMPACT_RESULT[Global.itemCode[Event Player.controlingIndex]] ? Event Player : Null,
+\t\t\tEvent Player.isController ?
+\t\t\tCustom String("〔{0}〕", Input Binding String(Button(Melee))) :
+\t\t\t\tTotal Time Elapsed % 2 < 1 ?
+\t\t\t\t\tCustom String("〔홀드 {0}〕+ {1} ", Input Binding String(Button(Primary Fire)), Icon String(Arrow: Up)) :
+\t\t\t\t\tCustom String("〔떼기 {0}〕+ {1} ", Input Binding String(Button(Primary Fire)), Icon String(Arrow: Down)),
+\t\t\tCustom String("뭉개기"),
+\t\t\tCustom String("재료를 바닥에 강하게 던져 튕기세요{0}", Event Player.isController ? Custom String("") : Custom String("\\r\\n컨트롤러 사용 시〔{0}〕버튼을 누르세요", Input Binding String(Button(Melee)))),
+\t\t\tTop, 5,
+\t\t\tColor(Pink), Color(Pink), Color(White), Visible To String and Color, Default Visibility);
+\t\tCreate HUD Text(Event Player, Custom String("〔{0}〕:  잡기  ", Input Binding String(Button(Primary Fire))),
+\t\t\tNull, Custom String("\\r\\n"), Top, 5,
+\t\t\tIs Button Held(Event Player, Button(Primary Fire)) ? Color(Pink) : Color(Gray), Null, Null, String and Color, Default Visibility);
+\t\tEvent Player.tableText[6] = Last Text ID;
+\t\tWait Until(Event Player.controlingIndex != -1, 9999);
+\t\tWait Until(Event Player.controlingIndex == -1, 9999);
+\t\tWait Until(Event Player.controlingIndex != -1, 9999);
+\t\tWait Until(Event Player.controlingIndex == -1, 9999);
+\t\tWait Until(Event Player.controlingIndex != -1, 9999);
+\t\tWait Until(Event Player.controlingIndex == -1, 9999);
+\t\tDestroy HUD Text(Event Player.tableText[6]);'''.replace("\n", "\r\n")
+    return replace_once(
+        rule,
+        "\t\tStart Rule(saveProgress, Do Nothing);",
+        "\t\tStart Rule(saveProgress, Do Nothing);\r\n" + tutorial,
+        "spawn mash tutorial HUD",
+    )
+
+
+def patch_authorize_controller(rule: str) -> str:
+    rule = replace_once(
+        rule,
+        'Small Message(Event Player, Custom String("뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! "));',
+        'Small Message(Event Player, Custom String("컨트롤러 감지 중... L 스틱을 천천히 앞으로 움직여주세요"));',
+        "controller detection message",
+    )
+    smash_hud = '''\t\t\tCreate HUD Text(Event Player, Ability Icon String(Hero(Doomfist), Button(Primary Fire)), Custom String("재료 뭉개기"), Custom String("〔{0}〕", Input Binding String(Button(Melee))), Right, 4, Color(Gray), Color(Gray), Color(White),
+                String and Color, Default Visibility);
+'''.replace("\n", "\r\n")
+    return replace_once(rule, smash_hud, "", "remove persistent smash HUD from controller authorization")
 
 
 def patch_control_item_hud(rule: str) -> str:
@@ -1034,7 +1080,7 @@ def build_text() -> str:
     text = replace_once(text, "\t\t105: itemNormal", "\t\t105: ICE_RESULT", "ICE_RESULT global slot")
     text = replace_once(
         text,
-        "Global.itemPrevPosition[Global.checkingIndex] = Global.itemPosition[Global.checkingIndex];",
+        "\t\t\t\t\t\tGlobal.itemPrevPosition[Global.checkingIndex] = Global.itemPosition[Global.checkingIndex];\r\n",
         "",
         "remove unused itemPrevPosition write",
     )
@@ -1048,10 +1094,31 @@ def build_text() -> str:
     text = modify_rule(text, "Player: Secondary fire button", patch_secondary)
     text = modify_rule(text, "Player: Ultimate button", patch_ultimate)
     text = modify_rule(text, "Player: Spawn", patch_spawn)
+    text = modify_rule(text, "Player: Authorize Controller", patch_authorize_controller)
     text = modify_rule(text, "Player: Control item", patch_control_item_hud)
     text = modify_rule(text, "Player: Interact", patch_interact)
     text = modify_rule(text, "Player: Reload button", patch_reload)
     text = modify_rule(text, "Global subroutine: Item cooking", patch_item_cooking)
+    serving_ball_support = '''\t\tIf(Count Of(All Players(Team 1)) == 1);
+\t\t\tCreate Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
+\t\t\tSmall Message(All Players(All Teams), Custom String("서빙볼이 당신을 지원합니다! "));
+\t\tEnd;'''.replace("\n", "\r\n")
+    text = replace_once(text, serving_ball_support + "\r\n", "", "remove start-stage serving-ball support")
+    serving_ball_support = '''\t\tIf(Global.stageMode[1] <= 1 ? Count Of(All Players(Team 1)) <= 5 : Count Of(All Players(Team 1)) == 1);
+\t\t\tCreate Dummy Bot(Hero(Wrecking Ball), Team 1, 6, Vector(220.86, 10.40, 166.95), Null);
+\t\t\tSmall Message(Global.stageMode[1] == 0 ? Null : All Players(All Teams), Count Of(All Players(Team 1)) == 1 ? Custom String("서빙볼이 당신을 지원합니다! ") : Custom String("서빙볼이 여러분을 지원합니다! "));
+\t\tEnd;
+'''.replace("\n", "\r\n")
+    text = modify_rule(
+        text,
+        "Global subroutine: Call customer",
+        lambda rule: replace_once(
+            rule,
+            "\t\tGlobal.loadNext = 0;",
+            serving_ball_support + "\t\tGlobal.loadNext = 0;",
+            "prepend serving-ball support to call-customer",
+        ),
+    )
     text = modify_rule(text, "Global subroutine: Start stage", patch_start_stage)
     text = modify_rule(text, "Global subroutine: Set Hint Text", patch_set_hint)
     text = modify_rule(text, "Host Player: Select Mode", patch_select_mode)
@@ -1071,7 +1138,8 @@ def build_text() -> str:
         "upgrade station label",
     )
 
-    text = text.replace("v260827", "v260902").replace("v260828", "v260902").replace("v260829", "v260902")
+    text = text.replace("v260827", "v260911").replace("v260828", "v260911").replace("v260829", "v260911")
+    text = text.replace("v260904", "v260911")
     text = text.rstrip("\r\n") + "\r\n\r\n" + generated
     legacy_drink_name = "에너지 드링크/수상한 드링크/점프 부츠"
     release_drink_name = "에너지 드링크/싼데비슷한 드링크/점프 부츠"
@@ -1332,7 +1400,7 @@ def validate_assembled(text: str) -> dict[str, object]:
         if stale:
             raise BuildError(f"stale ORG tool code in createItemData[2]: {sorted(stale)}")
 
-    if any(version in text for version in ("v260827", "v260828", "v260829", "v260830")) or text.count("v260902") < 2:
+    if any(version in text for version in ("v260827", "v260828", "v260829", "v260830", "v260902", "v260904")) or text.count("v260911") < 2:
         raise BuildError("project version was not updated consistently")
     if text.count(serialized_ui_expression("edition_names")) != 3:
         raise BuildError("Deluxe edition selector labels do not match ORG/CAFE/GC data")
@@ -1514,7 +1582,7 @@ def main() -> None:
                     "create_item_sites": len(site_lines) - 1,
                     "control_flow_checked": True,
                     "preserved_legacy_implicit_end_rules": ["Player: Reload button"],
-                    "version": "v260902",
+                    "version": "v260911",
                     "gc_water_ported": False,
                     "gc_water_blocker": "gc_kr.ow has no water item record or Primary Fire source branch",
                 },

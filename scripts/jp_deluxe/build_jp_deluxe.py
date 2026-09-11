@@ -41,7 +41,7 @@ MANUAL_TRANSLATIONS = Path(__file__).with_name("manual_translations.tsv")
 LEGACY_CONTEXT_REMAP = Path(__file__).with_name("legacy_context_remap.tsv")
 OUTPUT_OVERRIDES = Path(__file__).with_name("output_overrides.tsv")
 RELEASE_CODE_OVERRIDES = Path(__file__).with_name("release_code_overrides.jsonl")
-JP_SOURCE = ROOT / "jp.ow"
+JP_SOURCE = ROOT / "deprecated" / "jp.ow"
 EN_TARGET = ROOT / "en_deluxe.ow"
 
 EDITIONS = ("org", "cafe", "gc")
@@ -820,7 +820,7 @@ def load_legacy_context_remap(
 ) -> dict[tuple[str, int], str]:
     """Reuse shifted legacy JP literals only when the old Korean anchor is exact."""
     target_rules = locale_tools.rules_by_title(target_text)
-    legacy_kr_rules = locale_tools.rules_by_title(read_ow(ROOT / "ko.ow"))
+    legacy_kr_rules = locale_tools.rules_by_title(read_ow(ROOT / "deprecated" / "ko.ow"))
     legacy_jp_rules = locale_tools.rules_by_title(read_ow(JP_SOURCE))
     result: dict[tuple[str, int], str] = {}
     with LEGACY_CONTEXT_REMAP.open("r", encoding="utf-8", newline="") as handle:
@@ -882,12 +882,12 @@ def translate_custom_strings(
     text: str, kr_text: str
 ) -> tuple[str, list[dict[str, object]], list[dict[str, object]], dict[str, object]]:
     direct_phrase, _direct_context, direct_stats = aligned_translation_maps(
-        ROOT / "ko.ow", JP_SOURCE
+        ROOT / "deprecated" / "ko.ow", JP_SOURCE
     )
     en_phrase, _en_context, en_stats = aligned_translation_maps(
-        ROOT / "en.ow", JP_SOURCE
+        ROOT / "deprecated" / "en.ow", JP_SOURCE
     )
-    exact_context = exact_target_context_map(kr_text, ROOT / "ko.ow", JP_SOURCE)
+    exact_context = exact_target_context_map(kr_text, ROOT / "deprecated" / "ko.ow", JP_SOURCE)
     remapped_context = load_legacy_context_remap(text)
     current_en = current_english_context_map(kr_text)
     manual_global, manual_context = load_manual_translations()
@@ -1496,7 +1496,7 @@ def validate_output(
     if locale_paths != {"ja"}:
         raise BuildError(f"Japanese recipe URL locale paths are wrong: {sorted(locale_paths)!r}")
     versions = set(re.findall(r"\bv\d{6}\b", text))
-    if versions != {"v260902"}:
+    if versions != {"v260911"}:
         raise BuildError(f"Japanese release version set is wrong: {sorted(versions)!r}")
 
     structure_baseline, _ = apply_shared_release_fixes(kr_text)

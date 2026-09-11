@@ -28,7 +28,7 @@ Global: Setting	44	manual-global	비어 있음	Empty
 Global: Setting	47	manual-global	비어 있음	Empty
 Global: Setting	50	manual-global	비어 있음	Empty
 Global: Setting	53	manual-global	비어 있음	Empty
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260902\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260902\r\ndiscord&recipes : ow-restaurant.com/en
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260911\r\ndiscord&recipes : ow-restaurant.com/ko	Restaurant(HTNZ3) v260911\r\ndiscord&recipes : ow-restaurant.com/en
 Global: Setting	57	manual-global	Score : {0}{2}\r\n내 직책 : {1}	Score : {0}{2}\r\nMy Role : {1}	{0} {2} {1}
 Global: Setting	61	manual-global	{0} 제작 중인 특수 칼:{1}개	{0} Special Knife:{1}	{0} {1}
 Global: Setting	62	manual-global	{0} 솥:{1}% / 튀김&제빙:{2}%	{0} Pot:{1}% / Fryer&Ice:{2}%	{0} {1} {2}
@@ -55,10 +55,10 @@ Global: Setting	119	manual-global	튜토리얼	Tutorial
 Global: Setting	120	manual-global	〔{1}〕: {0}	[{1}]: {0}	{1} {0}
 Global: Setting	123	manual-global	개시 하여 시작	Press Open to Start
 Global: Setting	124	source-phrase	퓨전	Fusion
-Global: Setting	125	manual-global+output-override	{0} v260902\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260902\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
+Global: Setting	125	manual-global+output-override	{0} v260911\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}	{0} v260911\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}	{0} {1} {2}
 Global: Setting	126	manual-global+output-override	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다	 OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.
-Global: Setting	127	manual-global	{0} 버그 수정\r\n\r\n{1}	{0} Bug Fixes\r\n\r\n{1}	{0} {1}
-Global: Setting	128	manual-global	  게임 시작 시 일부 모드의 추가 시작 아이템이 데이터 초기화 전에 생성되어 사라지는 문제를 수정했습니다.	  Fixed an issue where additional starting items disappeared in some modes when the game began.
+Global: Setting	127	manual-global	{0} 밸런스 수정\r\n\r\n{1}	{0} Balance Changes\r\n\r\n{1}	{0} {1}
+Global: Setting	128	manual-global	  이제 5인 이하 캐주얼다이닝에서 서빙볼이 항상 지원합니다	  ServingBall now always assists in Casual Dining with 5 or fewer players.
 Global: Setting	129	manual-global	[{0}] - 연습모드용 아이템 생성	[{0}] - Create Item for Practice Mode	{0}
 Player: Spawn	0	source-phrase	설정	Settings
 Player: Spawn	1	source-phrase	플레이어 기본 직책	Default Player Role
@@ -67,6 +67,13 @@ Player: Spawn	3	source-phrase	홀 서버	Waiting Staff
 Player: Spawn	4	source-phrase	수습생	Apprentice
 Player: Spawn	8	source-phrase	〔{0}〕 로 시작	[{0}] to Start	{0}
 Player: Spawn	9	source-phrase	레 스 토 랑	Restaurant
+Player: Spawn	14	manual-global	〔{0}〕	[{0}]	{0}
+Player: Spawn	15	manual-global	〔홀드 {0}〕+ {1} 	[Hold    {0}] + {1} 	{0} {1}
+Player: Spawn	16	manual-global	〔떼기 {0}〕+ {1} 	[Release {0}] + {1} 	{0} {1}
+Player: Spawn	17	manual-global	뭉개기	Mash
+Player: Spawn	18	manual-global	재료를 바닥에 강하게 던져 튕기세요{0}	Throw the ingredient hard against the floor to make it bounce{0}	{0}
+Player: Spawn	20	manual-global	\r\n컨트롤러 사용 시〔{0}〕버튼을 누르세요	\r\nIf you're using a controller, press [{0}]	{0}
+Player: Spawn	21	manual-global	〔{0}〕:  잡기  	[{0}]:  Grab  	{0}
 Player: Control item	1	manual-global+output-override	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	{0}
 Player: Control item	3	manual-global+output-override	〔{0}〕:  아이템 장착  	 [{0}]:  Equip Item  	{0}
 Player: Control item	5	manual-global+output-override	〔{0}〕:  줍기  	 [{0}]:  Pick Up  	{0}
@@ -92,12 +99,8 @@ Player: Reload button	5	manual-global+output-override	버그 수정 및 추가 �
 Player: Ultimate button	0	source-phrase	100초간 속도 증가!	Increase Speed for 100 seconds!
 Player: Ultimate button	1	source-phrase	{1}{0}이(가) 서빙볼을 소환했습니다! 	{1}{0} has summoned a ServingBall! 	{1} {0}
 Player: Ultimate button	2	source-phrase	{1}{0}이(가) 제트팩을 장착했습니다! 	{1}{0} has equipped a jetpack! 	{1} {0}
-Player: Ultimate button	3	source-phrase	재료 뭉개기	Smash Material
-Player: Ultimate button	4	source-phrase	〔{0}〕	[{0}]	{0}
-Player: Authorize Controller	0	source-context	뭉개기 동작을 버튼으로 대체하려면 컨트롤러 스틱을 앞으로 천천히 움직여주세요! 	To substitute the smash action with a button, please slowly push the controller stick forward!
-Player: Authorize Controller	1	source-context	이제 [{0}] 키로 재료를 뭉갤 수 있습니다! 	Now you can smash the ingredients using the [{0}] key! 	{0}
-Player: Authorize Controller	2	source-context	재료 뭉개기	Smash Material
-Player: Authorize Controller	3	source-context	〔{0}〕	[{0}]	{0}
+Player: Authorize Controller	0	manual-global	컨트롤러 감지 중... L 스틱을 천천히 앞으로 움직여주세요	Detecting controller... please slowly push the L stick
+Player: Authorize Controller	1	source-phrase	이제 [{0}] 키로 재료를 뭉갤 수 있습니다! 	Now you can smash the ingredients using the [{0}] key! 	{0}
 Player: Left match	0	source-context	당신이 이제 헤드셰프 입니다!	You are Now Head Chef!
 Dummy: Spawn	0	source-phrase	부엌칼 상인/아이템 상인/업그레이드/업그레이드	Knife Merchant/Item Merchant/Upgrade/Upgrade
 Dummy: Spawn	2	source-phrase	{0} : 주문한 칼 가지고 왔다네!	{0} : I've brought the ordered knife!	{0}
@@ -166,24 +169,25 @@ Global subroutine: Start stage	3	source-phrase	영업 준비	Prepare for Service
 Global subroutine: Start stage	5	source-phrase	 {0} \r\n　　　　　　　　　　　　　\r\n 요리 : {1} \r\n 손님 : {2}	 {0} \r\n　　　　　　　　　　　　　\r\n Foods: {1} \r\n Customer: {2}	{0} {1} {2}
 Global subroutine: Start stage	12	source-phrase	퓨전	Fusion
 Global subroutine: Start stage	14	source-phrase	영업 시작!	Open for Service!
-Global subroutine: Start stage	15	source-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you!
-Global subroutine: Start stage	17	source-phrase	　　　　　주문서　　　　　	　　　　　Order List
-Global subroutine: Start stage	20	source-phrase	몰려오는 손님!	More Incoming Customers!
-Global subroutine: Start stage	21	source-phrase	전직원 보너스!	Bonus For All Staff!
-Global subroutine: Start stage	22	source-phrase	영업 완료!	Good Service!
-Global subroutine: Start stage	23	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
-Global subroutine: Start stage	24	source-phrase	급여 +${0}	+${0}	{0}
-Global subroutine: Start stage	25	source-phrase	전직원 보너스!	Bonus For All Staff!
-Global subroutine: Start stage	26	source-phrase	영업 완료!	Good Service!
-Global subroutine: Start stage	27	source-phrase	몰려오는 손님!	More Incoming Customers!
-Global subroutine: Start stage	28	manual-global	성공적인 영업!	Successful Service!
-Global subroutine: Start stage	29	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
-Global subroutine: Start stage	30	source-phrase	급여 +${0}	+${0}	{0}
-Global subroutine: Start stage	32	source-phrase	중간 점수 : {0}	Current Score: {0}	{0}
-Global subroutine: Start stage	33	source-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!
+Global subroutine: Start stage	16	source-phrase	　　　　　주문서　　　　　	　　　　　Order List
+Global subroutine: Start stage	19	source-phrase	몰려오는 손님!	More Incoming Customers!
+Global subroutine: Start stage	20	source-phrase	전직원 보너스!	Bonus For All Staff!
+Global subroutine: Start stage	21	source-phrase	영업 완료!	Good Service!
+Global subroutine: Start stage	22	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
+Global subroutine: Start stage	23	source-phrase	급여 +${0}	+${0}	{0}
+Global subroutine: Start stage	24	source-phrase	전직원 보너스!	Bonus For All Staff!
+Global subroutine: Start stage	25	source-phrase	영업 완료!	Good Service!
+Global subroutine: Start stage	26	source-phrase	몰려오는 손님!	More Incoming Customers!
+Global subroutine: Start stage	27	manual-global	성공적인 영업!	Successful Service!
+Global subroutine: Start stage	28	manual-global	{0}fgFF3291FF>환상적인 영업!	{0}fgFF3291FF>A-mei-zing Service!	{0}
+Global subroutine: Start stage	29	source-phrase	급여 +${0}	+${0}	{0}
+Global subroutine: Start stage	31	source-phrase	중간 점수 : {0}	Current Score: {0}	{0}
+Global subroutine: Start stage	32	source-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!
 Global subroutine: Stage Fail	0	manual-global	{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!	{0}
 Global subroutine: Stage Fail	1	manual-global	{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})	{0} {0} {1} {2}
-Global subroutine: Call customer	0	manual-global	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0} {1} {0} {0} {2} {0}
+Global subroutine: Call customer	0	source-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you!
+Global subroutine: Call customer	1	manual-global	서빙볼이 여러분을 지원합니다! 	ServingBall is supporting all of you!
+Global subroutine: Call customer	2	manual-global	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0} {1} {0} {0} {2} {0}
 Host Player: Set Permission	0	source-phrase	{0}{1} - {2} 직책 변경!	{0}{1} - {2}	{0} {1} {2}
 Host Player: Set Permission	1	source-phrase	 {0} 애옹 OwO 	 {0} Meow OwO 	{0}
 Host Player: Set Permission	2	manual-global	 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 	{0}
@@ -194,7 +198,7 @@ Global subroutine: Knife Hud	10	manual-global+output-override	내구도와 성�
 Global subroutine: Knife Hud	11	manual-global+output-override	재료를 손에 들고 썰 수 있는\r\n희귀한 칼입니다	Lets you chop ingredients\r\nwhile holding them
 Global subroutine: Knife Hud	12	manual-global+output-override	내구도와 성능이 압도적인\r\n희귀한 칼입니다	Cuts ingredients\r\ntwice as fast
 Global subroutine: Knife Hud	13	manual-global+output-override	도마에서 아주 빠른 속도로\r\n연격할 수 있습니다	Lets you unleash rapid strikes\r\non a cutting board
-Global subroutine: Perk Hud	0	source-phrase+output-override	〔{0}〕	 [{0}] 	{0}
+Global subroutine: Perk Hud	0	manual-global+output-override	〔{0}〕	 [{0}] 	{0}
 Global subroutine: Perk Hud	4	manual-global+output-override	100초간 도마에서 써는 속도와\r\n이동속도가 증가합니다	Increases chopping and movement speed\r\nfor 100 seconds
 Global subroutine: Perk Hud	5	manual-global+output-override	잠시 모든 시간이 느려지며\r\n칼+이속+조리기구 속도가 폭주합니다	Briefly activates Bullet Time\r\nand overboosting all action speeds
 Global subroutine: Perk Hud	6	manual-global+output-override	손에 재료를 들고 사용하면\r\n재료의 신선도 회복합니다	Use while holding an ingredient\r\nto restore its freshness
@@ -206,7 +210,7 @@ Global subroutine: Perk Hud	11	manual-context	그릴	grill
 Global subroutine: Perk Hud	12	manual-global+output-override	햄스터가 아르바이트를 구한다\r\n라고 함	The hamster says\r\nhe is seeking part-time employment
 Global subroutine: Perk Hud	13	manual-global+output-override	현재 라운드에 도움이 되는 재료 팩을 꺼냅니다\r\n팩은 칼로 뜯을 수 있습니다	Dispenses an ingredient pack for the current round\r\nOpen the pack with a knife
 Global subroutine: Perk Hud	14	manual-global+output-override	제빙기까지 가지 않아도\r\n재료를 얼릴 수 있습니다	Shoots a freezing blast to\r\nfreeze ingredients anywhere
-Global subroutine: Foot Hud	0	source-phrase+output-override	〔{0}〕	 [{0}] 	{0}
+Global subroutine: Foot Hud	0	manual-global+output-override	〔{0}〕	 [{0}] 	{0}
 Global subroutine: Foot Hud	3	manual-global+output-override	공중에서 높게 점프하여\r\n높은 곳에 올라갈 수 있습니다	Jump high into the air\r\nto reach higher floors
 Global subroutine: Foot Hud	4	manual-global+output-override	앞으로 빠르게 대시하는\r\n다재다능한 신발입니다	Versatile boots that let you\r\ndash quickly forward
 Global subroutine: Foot Hud	5	manual-global+output-override	주문서에 있는 음식을 들고 사용하면\r\n테이블 앞으로 순간이동합니다	Use while holding an ordered dish\r\nto teleport to its table

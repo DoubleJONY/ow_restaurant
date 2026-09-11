@@ -125,9 +125,9 @@ def build_rows() -> tuple[list[dict[str, str]], list[str]]:
             )
         current[edition] = (kr_names, en_names)
 
-    legacy_kr = read_item_names("ko.ow")
-    legacy_en = read_item_names("en.ow")
-    legacy_jp = read_item_names("jp.ow")
+    legacy_kr = read_item_names("deprecated/ko.ow")
+    legacy_en = read_item_names("deprecated/en.ow")
+    legacy_jp = read_item_names("deprecated/jp.ow")
     if len({len(legacy_kr), len(legacy_en), len(legacy_jp)}) != 1:
         raise RuntimeError("legacy ORG KR/EN/JP ITEM_NAME lengths differ")
     legacy_rows = list(zip(legacy_kr, legacy_en, legacy_jp))

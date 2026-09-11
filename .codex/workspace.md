@@ -3,9 +3,6 @@
 If you are reading this file, it is user-authored workspace-wide agent behavior
 settings. Find and comply with any items or references described here.
 
-## Workflow Reference
-- Use `~/.codex/workflow/taskPlanner.md` for this workspace.
-
 ## Additional Context
 - In this workspace, `.codex/` is intentionally tracked by git for workspace memory and artifacts. Do not re-add `.codex/` to `.gitignore` unless explicitly requested.
 - Workspace-local artifacts and history should be stored under `.codex/artifact/`.

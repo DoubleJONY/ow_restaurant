@@ -21,9 +21,9 @@
       "gc": 15
     },
     "item_name_max_literal_chars": {
-      "org": 85,
-      "cafe": 85,
-      "gc": 85
+      "org": 93,
+      "cafe": 93,
+      "gc": 93
     }
   },
   "total_score": {
@@ -169,35 +169,35 @@
     "exact_rules": 97,
     "sequence_rules": 26,
     "aligned_literals": 452,
-    "inventory": 1694,
-    "translated": 294,
+    "inventory": 1670,
+    "translated": 298,
     "unresolved": 0,
     "allowlisted": 3,
-    "manual_global_entries": 137,
+    "manual_global_entries": 146,
     "manual_context_entries": 5,
     "output_overrides": 46,
     "korean_only_messages_removed": 2,
-    "release_code_overrides": 15
+    "release_code_overrides": 17
   },
   "rules": 57,
   "globals": 128,
   "subroutines": 40,
-  "custom_string_calls": 1689,
-  "kr_custom_string_calls": 1537,
-  "custom_string_call_delta": 152,
-  "array_call_delta": 10,
+  "custom_string_calls": 1664,
+  "kr_custom_string_calls": 1543,
+  "custom_string_call_delta": 121,
+  "array_call_delta": 6,
   "remaining_unapproved_hangul": 0,
   "placeholder_mismatches": 0,
   "color_markup_mismatches": 0,
-  "locale_assignment_manifest_sha256": "D874A1F04B8D46B843594D499A158559B44377ABB5B6A6725D6C31815FC6E6E2",
-  "structural_fingerprint_sha256": "57450BAF3D741E614C662BA40CD89F69F781CE6D3B8254339314B59CDBD2F0A2",
-  "kr_structural_fingerprint_sha256": "2D07A42347F2C89144C33028D7CFF4EA3EDCB12217893B574559C143AD4BF2D8",
+  "locale_assignment_manifest_sha256": "57955CD1D6DDD192785648C1F64018A0AF7ECD3CA6CFAEB8F8503046E9088858",
+  "structural_fingerprint_sha256": "33425366159695ED3FCD9EAC299BCE8724C68BFF9F6D7000747ADA650DD92D3B",
+  "kr_structural_fingerprint_sha256": "68EB734122F352A358640B3DDB4C202CD87F043E468F30FDC7E719D9BA5C566E",
   "largest_rule": {
     "name": "Dummy: Spawn",
     "bytes": 37065
   },
   "rule_limit_bytes": 100352,
-  "sha256": "B47CE34FF1A24D4CC8B2ABFD8AFCA44FE7B6908F5BA2F20517FFBC1EEA7D7640",
-  "bytes": 383121,
+  "sha256": "10057784BFAA662BE12922F8E869BD6919CF5981DD14001509978EEA609B6D3D",
+  "bytes": 383368,
   "unresolved": 0
 }

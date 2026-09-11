@@ -19,9 +19,9 @@ ROOT = Path(__file__).resolve().parents[2]
 BUILD_DIR = ROOT / "build" / "kr_deluxe"
 
 EDITION_SPECS = {
-    "org": {"path": ROOT / "ko.ow", "old_count": 475, "new_count": 476},
-    "cafe": {"path": ROOT / "cafe_kr.ow", "old_count": 398, "new_count": 399},
-    "gc": {"path": ROOT / "gc_kr.ow", "old_count": 462, "new_count": 464},
+    "org": {"path": ROOT / "deprecated" / "ko.ow", "old_count": 475, "new_count": 476},
+    "cafe": {"path": ROOT / "deprecated" / "cafe_kr.ow", "old_count": 398, "new_count": 399},
+    "gc": {"path": ROOT / "deprecated" / "gc_kr.ow", "old_count": 462, "new_count": 464},
 }
 
 OUTER_ONLY = {
@@ -614,15 +614,21 @@ def partition_entries(entries: list[str], max_payload: int = 1050) -> list[list[
     return groups
 
 
-def make_split_expression(entries: list[str], indent: str = "\t\t\t") -> str:
+def make_split_expression(
+    entries: list[str],
+    indent: str = "\t\t\t",
+    *,
+    max_payload: int = 1050,
+    chunk_size: int = 82,
+) -> str:
     for entry in entries:
         if "/" in entry:
             raise ParseError(f"table entry contains delimiter: {entry!r}")
-    groups = partition_entries(entries)
+    groups = partition_entries(entries, max_payload)
     split_expressions = []
     for group in groups:
         payload = "/".join(group)
-        chain = make_custom_chain(payload, indent + "\t")
+        chain = make_custom_chain(payload, indent + "\t", chunk_size)
         split_expressions.append(f"String Split({chain}, Custom String(\"/\"))")
     expression = split_expressions[-1]
     for item in reversed(split_expressions[:-1]):
