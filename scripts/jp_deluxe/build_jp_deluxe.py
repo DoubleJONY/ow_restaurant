@@ -629,15 +629,39 @@ def apply_shared_release_fixes(text: str) -> tuple[str, list[dict[str, object]]]
     return text, report
 
 
-def remove_jp_dumpling_tutorial(text: str) -> str:
-    """Keep the fish menu selected by JP casual stage 7 instead of dumpling orders."""
+JP_FISH_TUTORIAL = (
+    (203, "魚 > グリルで焼く"),
+    (211, "米 > 鍋で炊く > 切る > 叩く"),
+    (209, "捌いた魚 + おにぎり"),
+    (202, "魚 > 2回切る > 鍋で蒸す"),
+    (223, "魚のミンチ + 天ぷら粉 > フライヤー"),
+    (220, "捌いた魚 + 天ぷら粉 > フライヤー"),
+    (196, "薄切りポーク + 天ぷら粉 > フライヤー"),
+    (214, "とんかつ + ご飯"),
+    (215, "とんかつ + ご飯 + 殻剥き卵"),
+    (226, "角切り鶏肉 + 天ぷら粉 > フライヤー\r\nから揚げ + ご飯 + 殻剥き卵"),
+    (219, "薄切り鶏肉 > 鍋でゆでる\r\n薄切りしたゆで鶏肉 + ご飯 + 殻剥き卵"),
+)
+
+
+def patch_jp_fish_tutorial(text: str) -> str:
+    """Replace only the inherited stage-7 dumpling tutorial, preserving menu refill."""
     rule = data_builder.find_rule(text, "setHint")
     start = rule.index("\t\t\tElse If(Global.stage == 7);")
     end = rule.index("\t\t\tElse If(Global.stage == 9);", start)
     removed = rule[start:end]
     if "Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);" not in removed:
         raise BuildError("JP stage-7 dumpling tutorial anchor changed")
-    return text.replace(rule, rule[:start] + rule[end:], 1)
+    newline = "\r\n"
+    replacement = newline.join([
+        "\t\t\tElse If(Global.stage == 7);",
+        "\t\t\t\tGlobal.loadingMenu = Array(" + ", ".join(str(code) for code, _ in JP_FISH_TUTORIAL) + ");",
+        "\t\t\t\tGlobal.hintText = Array(",
+        ",\r\n".join("\t\t\t\t\tCustom String(" + json_string(hint) + ")" for _, hint in JP_FISH_TUTORIAL),
+        "\t\t\t\t);",
+        "",
+    ])
+    return text.replace(rule, rule[:start] + replacement + rule[end:], 1)
 
 
 def apply_release_code_overrides(text: str) -> tuple[str, int]:
@@ -1513,7 +1537,7 @@ def validate_output(
     structure_baseline, _ = apply_shared_release_fixes(kr_text)
     structure_baseline, _ = locale_tools.suppress_korean_only_messages(structure_baseline)
     structure_baseline, _ = apply_release_code_overrides(structure_baseline)
-    structure_baseline = remove_jp_dumpling_tutorial(structure_baseline)
+    structure_baseline = patch_jp_fish_tutorial(structure_baseline)
     jp_structure, jp_structure_sha = structural_fingerprint(text)
     kr_structure, kr_structure_sha = structural_fingerprint(structure_baseline)
     if jp_structure != kr_structure:
@@ -1640,16 +1664,22 @@ def build_text() -> tuple[
     text, release_override_count = apply_release_code_overrides(text)
     text, inventory, unresolved, translation_report = translate_custom_strings(text, kr_text)
     text, inventory, override_count = apply_output_overrides(text, inventory)
-    text = remove_jp_dumpling_tutorial(text)
+    text = patch_jp_fish_tutorial(text)
     text = re.sub(r"\bv\d{6}\b", "v260919", text)
     kept_inventory = []
     for row in inventory:
         if row["rule"] == "Global subroutine: Set Hint Text":
             ordinal = int(row["ordinal"])
             if 27 <= ordinal <= 31:
+                if ordinal == 27:
+                    kept_inventory.extend({
+                        "rule": row["rule"], "ordinal": 27 + index,
+                        "source": "jp_fish_tutorial", "kr": "", "en": "",
+                        "jp": hint, "placeholders": "",
+                    } for index, (_, hint) in enumerate(JP_FISH_TUTORIAL))
                 continue
             if ordinal > 31:
-                row["ordinal"] = ordinal - 5
+                row["ordinal"] = ordinal + len(JP_FISH_TUTORIAL) - 5
         row["jp"] = re.sub(r"\bv\d{6}\b", "v260919", str(row["jp"]))
         kept_inventory.append(row)
     inventory = kept_inventory

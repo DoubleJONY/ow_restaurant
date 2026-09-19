@@ -28,7 +28,7 @@ Global: Setting	44	legacy-phrase	비어 있음		空
 Global: Setting	47	legacy-phrase	비어 있음		空	
 Global: Setting	50	legacy-phrase	비어 있음		空	
 Global: Setting	53	legacy-phrase	비어 있음		空	
-Global: Setting	55	manual-global	레스토랑(SPXXM) v260911\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260911\r\ndiscord&recipes : ow-restaurant.com/ja	
+Global: Setting	55	manual-global	레스토랑(SPXXM) v260911\r\ndiscord&recipes : ow-restaurant.com/ko		レストラン(4ND1P) v260919\r\ndiscord&recipes : ow-restaurant.com/ja	
 Global: Setting	57	legacy-phrase	Score : {0}{2}\r\n내 직책 : {1}		Score : {0}{2}\r\n私の役職 : {1}	{0} {2} {1}
 Global: Setting	61	legacy-phrase	{0} 제작 중인 특수 칼:{1}개		{0} 製作中のスペシャルナイフ:{1}つ	{0} {1}
 Global: Setting	62	manual-global	{0} 솥:{1}% / 튀김&제빙:{2}%		{0} 鍋:{1}% / フライヤー&製氷機:{2}%	{0} {1} {2}
@@ -52,10 +52,10 @@ Global: Setting	118	legacy-phrase	모든 손님		全員
 Global: Setting	119	legacy-phrase	튜토리얼		チュートリアル	
 Global: Setting	123	legacy-phrase	개시 하여 시작		開始を押してスタート	
 Global: Setting	124	legacy-phrase	퓨전		フュージョン	
-Global: Setting	125	manual-global	{0} v260911\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260911\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
+Global: Setting	125	manual-global	{0} v260911\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}		{0} v260919\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}	{0} {1} {2}
 Global: Setting	126	manual-global	  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다		  テーマはゲーム開始時と練習モードで変更できます	
-Global: Setting	127	manual-global	{0} 밸런스 수정\r\n\r\n{1}		{0} バランス調整\r\n\r\n{1}	{0} {1}
-Global: Setting	128	manual-global	  이제 5인 이하 캐주얼다이닝에서 서빙볼이 항상 지원합니다		  5人以下のカジュアルダイニングでは、サービングボールが常にサポートします。	
+Global: Setting	127	manual-global	{0} 밸런스 수정\r\n\r\n{1}		{0} 不具合修正\r\n\r\n{1}	{0} {1}
+Global: Setting	128	manual-global	  이제 5인 이하 캐주얼다이닝에서 서빙볼이 항상 지원합니다		  カジュアルダイニングのステージ8で進行不能になる不具合を修正しました。	
 Global: Setting	129	manual-global	[{0}] - 연습모드용 아이템 생성		[{0}] - 練習モード用アイテム生成	{0}
 Player: Spawn	0	legacy-phrase	설정	Settings	設定	
 Player: Spawn	1	legacy-phrase	플레이어 기본 직책	Default Player Role	プレイヤー基本役職	
@@ -64,12 +64,12 @@ Player: Spawn	3	legacy-phrase	홀 서버	Waiting Staff	ホール·スタッフ
 Player: Spawn	4	legacy-phrase	수습생	Apprentice	見習い生	
 Player: Spawn	8	manual-context	〔{0}〕 로 시작	[{0}] to Start	〔{0}〕を押してスタート	{0}
 Player: Spawn	9	legacy-phrase	레 스 토 랑	Restaurant	レストラン	
-Player: Spawn	15	manual-global	〔홀드 {0}〕+ {1} 	[Hold    {0}] + {1} 	〔長押し {0}〕+ {1} 	{0} {1}
-Player: Spawn	16	manual-global	〔떼기 {0}〕+ {1} 	[Release {0}] + {1} 	〔離す   {0}〕+ {1} 	{0} {1}
+Player: Spawn	15	manual-global	〔홀드 {0}〕+ {1} 	 [Hold {0}] + {1} 	〔長押し {0}〕+ {1} 	{0} {1}
+Player: Spawn	16	manual-global	〔떼기 {0}〕+ {1} 	 [Release {0}] + {1} 	〔離す {0}〕+ {1} 	{0} {1}
 Player: Spawn	17	manual-global	뭉개기	Mash	材料つぶし	
 Player: Spawn	18	manual-global	재료를 바닥에 강하게 던져 튕기세요{0}	Throw the ingredient hard against the floor to make it bounce{0}	材料を床に強く投げつけて跳ね返らせてください{0}	{0}
 Player: Spawn	20	manual-global	\r\n컨트롤러 사용 시〔{0}〕버튼을 누르세요	\r\nIf you're using a controller, press [{0}]	\r\nコントローラー使用時は〔{0}〕を押してください	{0}
-Player: Spawn	21	manual-global	〔{0}〕:  잡기  	[{0}]:  Grab  	〔{0}〕:  つかむ  	{0}
+Player: Spawn	21	manual-global	〔{0}〕:  잡기  	 [{0}]:  Grab  	〔{0}〕:  つかむ  	{0}
 Player: Control item	1	manual-context	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	〔{0}〕:  セット  	{0}
 Player: Control item	3	manual-context	〔{0}〕:  아이템 장착  	 [{0}]:  Equip Item  	〔{0}〕:  セット  	{0}
 Player: Control item	5	manual-context	〔{0}〕:  줍기  	 [{0}]:  Pick Up  	〔{0}〕:  GET  	{0}
@@ -179,9 +179,9 @@ Global subroutine: Start stage	31	legacy-phrase	중간 점수 : {0}	Current Scor
 Global subroutine: Start stage	32	legacy-phrase	난이도 상승! 행운을 빌어요!	Now getting harder! Good Luck!	レベル上昇！幸運を祈ります!	
 Global subroutine: Stage Fail	0	legacy-context	{0}fgC80013FF>보너스 영업 실패!	{0}fgC80013FF>Bonus Service Failed!	{0}fgC80013FF>ボーナス営業失敗!	{0}
 Global subroutine: Stage Fail	1	legacy-context	{0}fgC80013FF>영업 실패!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>Service Failed!{0}fgFFFFFFFF> ({1} / {2})	{0}fgC80013FF>営業失敗!{0}fgFFFFFFFF> ({1} / {2})	{0} {0} {1} {2}
-Global subroutine: Call customer	0	legacy-phrase	서빙볼이 당신을 지원합니다! 	ServingBall is supporting you! 	サービングボールがあなたをサポートします! 	
-Global subroutine: Call customer	1	manual-global	서빙볼이 여러분을 지원합니다! 	ServingBall is supporting all of you! 	サービングボールが皆さんをサポートします! 	
-Global subroutine: Call customer	2	legacy-phrase	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!	Reserve [ {0}fgFFFF00FF>{2}{0}FGffffffFF> ] for Table {0}fg00E697FF>#{1}{0}FGffffffFF>!	{0}fg00E697FF>#{1}{0}FGffffffFF>テーブル[{0}fgFFFF00FF>{2}{0}FGffffffFF>]予約!	{0} {1} {0} {0} {2} {0}
+Global subroutine: Call customer	0	manual-global	서빙볼이 당신을 지원합니다! 		サービングボールがあなたをサポートします!	
+Global subroutine: Call customer	1	manual-global	서빙볼이 여러분을 지원합니다! 		サービングボールが皆さんをサポートします!	
+Global subroutine: Call customer	2	legacy-phrase	{0}fg00E697FF>#{1}{0}FGffffffFF> 테이블에 {0}fgFFFF00FF>{2}{0}FGffffffFF> 예약!		{0}fg00E697FF>#{1}{0}FGffffffFF>テーブル[{0}fgFFFF00FF>{2}{0}FGffffffFF>]予約!	{0} {1} {0} {0} {2} {0}
 Host Player: Set Permission	0	manual-global	{0}{1} - {2} 직책 변경!	{0}{1} - {2}	{0}{1} - {2} 役職変更!	{0} {1} {2}
 Host Player: Set Permission	1	manual-global	 {0} 애옹 OwO 	 {0} Meow OwO 	 {0} にゃー (=^・ω・^=)  	{0}
 Host Player: Set Permission	2	manual-global	 {0} 오빠 달린다~ 헤이! 	 {0} MAUGA MAINS, RISE UP! 	 {0} マウガの精神！ 	{0}
@@ -235,18 +235,24 @@ Global subroutine: Set Hint Text	22	legacy-remap	이런 손님들은 주문서 �
 Global subroutine: Set Hint Text	23	legacy-remap	음식 평론가에게 좋은 평가를 받으면 많은 손님을 불러옵니다.	A positive review from the Food Critic attracts more customers	フード評論家から高評価を得ると、多くのお客様を呼び寄せます。	
 Global subroutine: Set Hint Text	24	legacy-remap	푸드 파이터는 3개의 음식을 서빙해야 합니다.	A Competitive Eater must be served three dishes	フードファイターには料理を3回提供する必要があります。	
 Global subroutine: Set Hint Text	26	manual-global	예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!	A Reserved Customer orders before entering.\r\nRemember the reservation message briefly shown at the center of the screen	予約客は入場前に注文します。\r\n画面中央に短時間表示される予約メッセージを覚えてください。	
-Global subroutine: Set Hint Text	27	manual-global	밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다.	Cut Flour Dough, then smash it again to make Dumpling Wrapper	小麦粉生地を切り、もう一度叩くと餃子の皮を作れます。	
-Global subroutine: Set Hint Text	28	manual-global	다진 파 + 으깬 두부 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot	刻みネギ + 潰した豆腐 + 餃子の皮 > 鍋で蒸す	
-Global subroutine: Set Hint Text	29	manual-global	다진 파 + 으깬 두부 + 만두피 > 팬에 굽기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry	刻みネギ + 潰した豆腐 + 餃子の皮 > フライパンで焼く	
-Global subroutine: Set Hint Text	30	manual-global	다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot	刻みネギ + 潰した豆腐 + 切った春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す	
-Global subroutine: Set Hint Text	31	manual-context	다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot	刻みネギ + 刻みキムチ + 切った春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す	
-Global subroutine: Set Hint Text	32	legacy-remap	다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun	牛ひき肉を叩いて生パティを作り、グリルで焼いてください。\r\n下バンズ + 焼いたパティ + 上バンズ	
-Global subroutine: Set Hint Text	33	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun	下バンズ + 焼いたパティ + 薄切りチーズ + 上バンズ	
-Global subroutine: Set Hint Text	34	manual-global	아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun	下バンズ + 薄切りレタス + 薄切りトマト + 上バンズ	
-Global subroutine: Set Hint Text	35	manual-global	아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun	下バンズ + 薄切りトマト + 薄切りレタス + 薄切りチーズ + 上バンズ	
-Global subroutine: Set Hint Text	36	manual-global	아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun	下バンズ + 焼いたパティ + 薄切りレタス + 薄切りトマト + 上バンズ	
-Global subroutine: Set Hint Text	37	legacy-remap	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun	下バンズ + 焼いたパティ + 薄切りチーズ + 薄切りレタス + 薄切りトマト + 上バンズ	
-Global subroutine: Set Hint Text	39	manual-global	https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.	View this theme's recipes at\r\nhttps://ow-restaurant.com/en	https://ow-restaurant.com/ja で\r\nこのテーマのレシピを確認できます。	
+Global subroutine: Set Hint Text	27	jp_fish_tutorial			魚 > グリルで焼く	
+Global subroutine: Set Hint Text	28	jp_fish_tutorial			米 > 鍋で炊く > 切る > 叩く	
+Global subroutine: Set Hint Text	29	jp_fish_tutorial			捌いた魚 + おにぎり	
+Global subroutine: Set Hint Text	30	jp_fish_tutorial			魚 > 2回切る > 鍋で蒸す	
+Global subroutine: Set Hint Text	31	jp_fish_tutorial			魚のミンチ + 天ぷら粉 > フライヤー	
+Global subroutine: Set Hint Text	32	jp_fish_tutorial			捌いた魚 + 天ぷら粉 > フライヤー	
+Global subroutine: Set Hint Text	33	jp_fish_tutorial			薄切りポーク + 天ぷら粉 > フライヤー	
+Global subroutine: Set Hint Text	34	jp_fish_tutorial			とんかつ + ご飯	
+Global subroutine: Set Hint Text	35	jp_fish_tutorial			とんかつ + ご飯 + 殻剥き卵	
+Global subroutine: Set Hint Text	36	jp_fish_tutorial			角切り鶏肉 + 天ぷら粉 > フライヤー\r\nから揚げ + ご飯 + 殻剥き卵	
+Global subroutine: Set Hint Text	37	jp_fish_tutorial			薄切り鶏肉 > 鍋でゆでる\r\n薄切りしたゆで鶏肉 + ご飯 + 殻剥き卵	
+Global subroutine: Set Hint Text	38	legacy-remap	다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun	牛ひき肉を叩いて生パティを作り、グリルで焼いてください。\r\n下バンズ + 焼いたパティ + 上バンズ	
+Global subroutine: Set Hint Text	39	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun	下バンズ + 焼いたパティ + 薄切りチーズ + 上バンズ	
+Global subroutine: Set Hint Text	40	manual-global	아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun	下バンズ + 薄切りレタス + 薄切りトマト + 上バンズ	
+Global subroutine: Set Hint Text	41	manual-global	아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun	下バンズ + 薄切りトマト + 薄切りレタス + 薄切りチーズ + 上バンズ	
+Global subroutine: Set Hint Text	42	manual-global	아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun	下バンズ + 焼いたパティ + 薄切りレタス + 薄切りトマト + 上バンズ	
+Global subroutine: Set Hint Text	43	legacy-remap	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun	下バンズ + 焼いたパティ + 薄切りチーズ + 薄切りレタス + 薄切りトマト + 上バンズ	
+Global subroutine: Set Hint Text	45	manual-global	https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.	View this theme's recipes at\r\nhttps://ow-restaurant.com/en	https://ow-restaurant.com/ja で\r\nこのテーマのレシピを確認できます。	
 Global subroutine: Scoreboard	0	legacy-phrase	최종 점수 : 〔{0}〕	Final Score: [{0}]	最終スコア : 〔{0}〕	{0}
 Global subroutine: Scoreboard	1	legacy-phrase	최고 기록 갱신!! 이 화면을 캡처하여 https://ow-restaurant.com 로 보내주세요	New Record!! Capture this screen and submit to https://ow-restaurant.com/en	ハイスコア更新!! この画面をキャプチャーしてhttps://ow-restaurant.com/jaに送ってください	
 Global subroutine: Scoreboard	2	legacy-phrase	최고 기록 : 〔{0}〕	High Score: [{0}]	ハイスコア : 〔{0}〕	{0}

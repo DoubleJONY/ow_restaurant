@@ -318,10 +318,10 @@
   },
   "translation": {
     "inventory": 1555,
-    "translated": 286,
+    "translated": 292,
     "unresolved": 0,
     "allowlisted": 3,
-    "manual_global_entries": 63,
+    "manual_global_entries": 64,
     "manual_context_entries": 42,
     "direct_source": {
       "rules": 46,
@@ -342,9 +342,9 @@
   "rules": 57,
   "globals": 128,
   "subroutines": 40,
-  "custom_string_calls": 1555,
+  "custom_string_calls": 1561,
   "kr_custom_string_calls": 1543,
-  "custom_string_call_delta": 12,
+  "custom_string_call_delta": 18,
   "array_call_delta": 0,
   "remaining_unapproved_hangul": 0,
   "forbidden_japanese_occurrences": 0,
@@ -361,8 +361,8 @@
     "subroutines": 40,
     "nested_mapped_arrays": 0
   },
-  "structural_fingerprint_sha256": "B75A53601AA6626AC2D513D5DF87828CCFB130FEAAB1FD19F4DA6E33AFAE0603",
-  "kr_structural_fingerprint_sha256": "B75A53601AA6626AC2D513D5DF87828CCFB130FEAAB1FD19F4DA6E33AFAE0603",
+  "structural_fingerprint_sha256": "91A55A7AADAF32BFC60CDD2C0E0BD107699508CE0A30C01E936018EC71211060",
+  "kr_structural_fingerprint_sha256": "91A55A7AADAF32BFC60CDD2C0E0BD107699508CE0A30C01E936018EC71211060",
   "largest_rule": {
     "name": "Dummy: Spawn",
     "bytes": 37545
@@ -404,20 +404,20 @@
     "total_score_verified": true,
     "scoreboard_layout_verified": true
   },
-  "sha256": "B4143CACDC4049A4574021CF1733CEF2168B59451EC241F2A81AD93037B5FD76",
-  "bytes": 393619,
+  "sha256": "FBB48595DF91F592A0FD63078865AD0EF3786536098D465DAF8996C889E52972",
+  "bytes": 393857,
   "unresolved": 0,
   "source_sha256": {
-    "kr_deluxe.ow": "427840B4945E47D1E42FB8A1FB87149DBB8D0AC6F11A2A082FCFE3C27EA62117",
-    "en_deluxe.ow": "3A10707199B6DEE4F5FADC6C21C6950F4E4408E4FD96C5A85904564C467A441C",
+    "kr_deluxe.ow": "E9624D007A35CCAE0BEA0D3E48DCCF752D7C34E7E0BD5B022C4C15445B5EF729",
+    "en_deluxe.ow": "20C0481EB874759E7B7FF6B07E4BB8E89A2D74D6FB36903FEEF56909D2F93084",
     "deprecated/jp.ow": "0057AB27B288DA83589E4392982105AD95491C190FEB78E082070A83CACF4413",
     "scripts/jp_deluxe/item_name_translations.tsv": "353ED2570DD8A5BA72BD31B7C3F14312E9736C97B4BD7CF16665C0CA2E59177C",
     "scripts/jp_deluxe/item_name_translation_proposals.tsv": "74DAD654ABEFACFBF1CAE9C509FCEEEA54477A2FD0D06CACE8BA88458574049C",
     "scripts/jp_deluxe/localized_tables.tsv": "643253D6AA590A9CE4ECB3B7B5F2893A7F4865ED714C29CE7B5CF46BFD725FC0",
-    "scripts/jp_deluxe/manual_translations.tsv": "1C61802624473EEF7CF01BC6D8E6D980BCD9C84DA698911D35224F9BBC36AFAB",
+    "scripts/jp_deluxe/manual_translations.tsv": "D03EEA9615F1B8E70C27F97FAB492F9702609C684A7AD0969E534928618AFED3",
     "scripts/jp_deluxe/legacy_context_remap.tsv": "5B3EC438067BDB8B988403FDAAF7ED04AF65AEE0A578F7631C345EB2DA00EFF1",
     "scripts/jp_deluxe/output_overrides.tsv": "9455C10F1AE32DAA278B8171B4D0E2CD8C816C8B72FC9AAEC842F04BBF404CE4",
     "scripts/jp_deluxe/release_code_overrides.jsonl": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-    "scripts/jp_deluxe/build_jp_deluxe.py": "27CC65B2CDB6CE22A396C8BC30244EDA87978A4EA5EBE75BB2B759905E2D512F"
+    "scripts/jp_deluxe/build_jp_deluxe.py": "2E6F0D03FDA9936AC0F47EA2CE9F219645FB090C3AA74679921546F9D8033E67"
   }
 }
