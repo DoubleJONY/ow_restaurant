@@ -773,7 +773,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"レストラン(4ND1P) v260911\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"レストラン(4ND1P) v260919\r\ndiscord&recipes : ow-restaurant.com/ja"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n私の役職 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -897,13 +897,13 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260911\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260919\r\n\r\n{1}レストランテーマ統合\r\n  レストランにカフェ&デザートと世界の料理が統合されました\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  テーマはゲーム開始時と練習モードで変更できます")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} バランス調整\r\n\r\n{1}", Icon String(Flag),
-		Custom String("  5人以下のカジュアルダイニングでは、サービングボールが常にサポートします。")),
+		Custom String("{0} 不具合修正\r\n\r\n{1}", Icon String(Flag),
+		Custom String("  カジュアルダイニングのステージ8で進行不能になる不具合を修正しました。")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
@@ -4073,15 +4073,6 @@ rule("Global subroutine: Set Hint Text")
 				Global.hintText = Array(
 					Custom String(""),
 					Custom String("予約客は入場前に注文します。\r\n画面中央に短時間表示される予約メッセージを覚えてください。")
-				);
-			Else If(Global.stage == 7);
-				Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
-				Global.hintText = Array(
-					Custom String("小麦粉生地を切り、もう一度叩くと餃子の皮を作れます。"),
-					Custom String("刻みネギ + 潰した豆腐 + 餃子の皮 > 鍋で蒸す"),
-					Custom String("刻みネギ + 潰した豆腐 + 餃子の皮 > フライパンで焼く"),
-					Custom String("刻みネギ + 潰した豆腐 + 切った春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す"),
-					Custom String("刻みネギ + 刻みキムチ + 切った春雨 + ポークミンチ + 餃子の皮 > 鍋で蒸す")
 				);
 			Else If(Global.stage == 9);
 				Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 354, 23);

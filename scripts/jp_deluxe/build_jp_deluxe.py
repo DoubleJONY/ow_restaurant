@@ -629,6 +629,17 @@ def apply_shared_release_fixes(text: str) -> tuple[str, list[dict[str, object]]]
     return text, report
 
 
+def remove_jp_dumpling_tutorial(text: str) -> str:
+    """Keep the fish menu selected by JP casual stage 7 instead of dumpling orders."""
+    rule = data_builder.find_rule(text, "setHint")
+    start = rule.index("\t\t\tElse If(Global.stage == 7);")
+    end = rule.index("\t\t\tElse If(Global.stage == 9);", start)
+    removed = rule[start:end]
+    if "Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);" not in removed:
+        raise BuildError("JP stage-7 dumpling tutorial anchor changed")
+    return text.replace(rule, rule[:start] + rule[end:], 1)
+
+
 def apply_release_code_overrides(text: str) -> tuple[str, int]:
     """Apply reviewed JP-only structural edits without changing the KR baseline."""
     newline = "\r\n" if "\r\n" in text else "\n"
@@ -1496,12 +1507,13 @@ def validate_output(
     if locale_paths != {"ja"}:
         raise BuildError(f"Japanese recipe URL locale paths are wrong: {sorted(locale_paths)!r}")
     versions = set(re.findall(r"\bv\d{6}\b", text))
-    if versions != {"v260911"}:
+    if versions != {"v260919"}:
         raise BuildError(f"Japanese release version set is wrong: {sorted(versions)!r}")
 
     structure_baseline, _ = apply_shared_release_fixes(kr_text)
     structure_baseline, _ = locale_tools.suppress_korean_only_messages(structure_baseline)
     structure_baseline, _ = apply_release_code_overrides(structure_baseline)
+    structure_baseline = remove_jp_dumpling_tutorial(structure_baseline)
     jp_structure, jp_structure_sha = structural_fingerprint(text)
     kr_structure, kr_structure_sha = structural_fingerprint(structure_baseline)
     if jp_structure != kr_structure:
@@ -1628,6 +1640,19 @@ def build_text() -> tuple[
     text, release_override_count = apply_release_code_overrides(text)
     text, inventory, unresolved, translation_report = translate_custom_strings(text, kr_text)
     text, inventory, override_count = apply_output_overrides(text, inventory)
+    text = remove_jp_dumpling_tutorial(text)
+    text = re.sub(r"\bv\d{6}\b", "v260919", text)
+    kept_inventory = []
+    for row in inventory:
+        if row["rule"] == "Global subroutine: Set Hint Text":
+            ordinal = int(row["ordinal"])
+            if 27 <= ordinal <= 31:
+                continue
+            if ordinal > 31:
+                row["ordinal"] = ordinal - 5
+        row["jp"] = re.sub(r"\bv\d{6}\b", "v260919", str(row["jp"]))
+        kept_inventory.append(row)
+    inventory = kept_inventory
     translation_report["output_overrides"] = override_count
     translation_report["korean_only_messages_removed"] = korean_only_message_count
     translation_report["release_code_overrides"] = release_override_count
