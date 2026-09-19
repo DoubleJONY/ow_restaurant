@@ -773,7 +773,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"Restaurant(HTNZ3) v260911\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"Restaurant(HTNZ3) v260919\r\ndiscord&recipes : ow-restaurant.com/en"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\nMy Role : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -897,13 +897,13 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260911\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v260919\r\n\r\n{1}Restaurant Theme Integration\r\n  Cafe & Dessert and World Cuisine have been integrated into{2}", Icon String(Fire), Icon String(Plus),
 		Custom String(" OverwatchCooked.\r\n  You can change the theme when entering the game or in Practice Mode.")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} Balance Changes\r\n\r\n{1}", Icon String(Flag),
-		Custom String("  ServingBall now always assists in Casual Dining with 5 or fewer players.")),
+		Custom String("{0} Bug Fixes\r\n\r\n{1}", Icon String(Flag),
+		Custom String("  Fixed a bug preventing progress in Casual Dining stages 8 and 10 during the tutorial.")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element == Host Player),
@@ -4075,15 +4075,6 @@ rule("Global subroutine: Set Hint Text")
 					Custom String("A Reserved Customer orders before entering.\r\nRemember the reservation message briefly shown at the center of the screen")
 				);
 			Else If(Global.stage == 7);
-				Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
-				Global.hintText = Array(
-					Custom String("Cut Flour Dough, then smash it again to make Dumpling Wrapper"),
-					Custom String("Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot"),
-					Custom String("Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry"),
-					Custom String("Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot"),
-					Custom String("Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot")
-				);
-			Else If(Global.stage == 9);
 				Global.loadingMenu = Array(55, 56, 57, 58, 59, 60, 354, 23);
 				Global.hintText = Array(
 					Custom String("Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun"),
@@ -4092,6 +4083,15 @@ rule("Global subroutine: Set Hint Text")
 					Custom String("Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun"),
 					Custom String("Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun"),
 					Custom String("Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun")
+				);
+			Else If(Global.stage == 9);
+				Global.loadingMenu = Array(118, 191, 188, 193, 192, 190, 189);
+				Global.hintText = Array(
+					Custom String("Cut Flour Dough, then smash it again to make Dumpling Wrapper"),
+					Custom String("Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot"),
+					Custom String("Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry"),
+					Custom String("Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot"),
+					Custom String("Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot")
 				);
 			Else;
 				Global.hintText = Array(Custom String(""));

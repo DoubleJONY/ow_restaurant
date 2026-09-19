@@ -144,14 +144,14 @@ Player: Spawn	10	unchanged	OverwatchCooked!/Cafe & Dessert/World Cuisine	Overwat
 Player: Spawn	11	unchanged	/	/
 Player: Spawn	12	allowlisted	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P	한국어 : SPXXM\r\nEnglish : HTNZ3\r\n日本語 : 4ND1P
 Player: Spawn	13	unchanged	{0}{1}\r\n{2}	{0}{1}\r\n{2}	{0} {1} {2}
-Player: Spawn	14	manual-global	〔{0}〕	[{0}]	{0}
-Player: Spawn	15	manual-global	〔홀드 {0}〕+ {1} 	[Hold    {0}] + {1} 	{0} {1}
-Player: Spawn	16	manual-global	〔떼기 {0}〕+ {1} 	[Release {0}] + {1} 	{0} {1}
+Player: Spawn	14	manual-global+output-override	〔{0}〕	 [{0}] 	{0}
+Player: Spawn	15	manual-global+output-override	〔홀드 {0}〕+ {1} 	 [Hold {0}] + {1} 	{0} {1}
+Player: Spawn	16	manual-global+output-override	〔떼기 {0}〕+ {1} 	 [Release {0}] + {1} 	{0} {1}
 Player: Spawn	17	manual-global	뭉개기	Mash
 Player: Spawn	18	manual-global	재료를 바닥에 강하게 던져 튕기세요{0}	Throw the ingredient hard against the floor to make it bounce{0}	{0}
 Player: Spawn	19	unchanged
 Player: Spawn	20	manual-global	\r\n컨트롤러 사용 시〔{0}〕버튼을 누르세요	\r\nIf you're using a controller, press [{0}]	{0}
-Player: Spawn	21	manual-global	〔{0}〕:  잡기  	[{0}]:  Grab  	{0}
+Player: Spawn	21	manual-global+output-override	〔{0}〕:  잡기  	 [{0}]:  Grab  	{0}
 Player: Spawn	22	unchanged	\r\n	\r\n
 Player: Control item	0	unchanged	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n	\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
 Player: Control item	1	manual-global+output-override	〔{0}〕:  칼 장착  	 [{0}]:  Equip Knife  	{0}
@@ -390,17 +390,17 @@ Global subroutine: Set Hint Text	23	manual-global+output-override	음식 평론�
 Global subroutine: Set Hint Text	24	manual-global+output-override	푸드 파이터는 3개의 음식을 서빙해야 합니다.	A Competitive Eater must be served three dishes
 Global subroutine: Set Hint Text	25	unchanged
 Global subroutine: Set Hint Text	26	manual-global+output-override	예약 손님은 입장 전에 미리 주문을 합니다.\r\n가운데 잠깐 표시되는 예약 메시지를 주의 깊게 보고 기억하세요!	A Reserved Customer orders before entering.\r\nRemember the reservation message briefly shown at the center of the screen
-Global subroutine: Set Hint Text	27	manual-global+output-override	밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다.	Cut Flour Dough, then smash it again to make Dumpling Wrapper
-Global subroutine: Set Hint Text	28	manual-global	다진 파 + 으깬 두부 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot
-Global subroutine: Set Hint Text	29	manual-global	다진 파 + 으깬 두부 + 만두피 > 팬에 굽기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry
-Global subroutine: Set Hint Text	30	manual-global	다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
-Global subroutine: Set Hint Text	31	manual-global	다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
-Global subroutine: Set Hint Text	32	manual-global	다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun
-Global subroutine: Set Hint Text	33	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun
-Global subroutine: Set Hint Text	34	manual-global	아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun
-Global subroutine: Set Hint Text	35	manual-global	아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun
-Global subroutine: Set Hint Text	36	manual-global	아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun
-Global subroutine: Set Hint Text	37	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	27	manual-global	다진 소고기를 내려쳐 패티를 만들고 구워주세요.\r\n아래 빵 + 익힌 패티 + 윗 빵	Smash Minced Beef to make Raw Patty, then grill it.\r\nBottom Bun + Cooked Patty + Top Bun
+Global subroutine: Set Hint Text	28	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Top Bun
+Global subroutine: Set Hint Text	29	manual-global	아래 빵 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	30	manual-global	아래 빵 + 썬 토마토 + 썬 양상추 + 슬라이스 치즈 + 윗 빵	Bottom Bun + Sliced Tomato + Sliced Lettuce + Sliced Cheese + Top Bun
+Global subroutine: Set Hint Text	31	manual-global	아래 빵 + 익힌 패티 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	32	manual-global	아래 빵 + 익힌 패티 + 슬라이스 치즈 + 썬 양상추 + 썬 토마토 + 윗 빵	Bottom Bun + Cooked Patty + Sliced Cheese + Sliced Lettuce + Sliced Tomato + Top Bun
+Global subroutine: Set Hint Text	33	manual-global+output-override	밀가루 반죽 을 자르고 다시 내려쳐 만두피를 만들 수 있습니다.	Cut Flour Dough, then smash it again to make Dumpling Wrapper
+Global subroutine: Set Hint Text	34	manual-global	다진 파 + 으깬 두부 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Steam in Pot
+Global subroutine: Set Hint Text	35	manual-global	다진 파 + 으깬 두부 + 만두피 > 팬에 굽기	Minced Green Onion + Mashed Tofu + Dumpling Wrapper > Pan Fry
+Global subroutine: Set Hint Text	36	manual-global	다진 파 + 으깬 두부 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Mashed Tofu + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
+Global subroutine: Set Hint Text	37	manual-global	다진 파 + 다진 김치 + 썬 당면 + 다진 돼지고기 + 만두피 > 솥에 찌기	Minced Green Onion + Minced Kimchi + Sliced Glass Noodles + Minced Pork + Dumpling Wrapper > Steam in Pot
 Global subroutine: Set Hint Text	38	unchanged
 Global subroutine: Set Hint Text	39	manual-global+output-override	https://ow-restaurant.com/ko 에서\r\n이 테마의 레시피를 확인하실 수 있습니다.	View this theme's recipes at\r\nhttps://ow-restaurant.com/en
 Global subroutine: Scoreboard	0	manual-global	최종 점수 : 〔{0}〕	Final Score: [{0}]	{0}

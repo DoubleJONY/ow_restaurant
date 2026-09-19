@@ -34,7 +34,7 @@ BUILD_DIR = ROOT / "build" / "en_deluxe"
 MANUAL_TRANSLATIONS = Path(__file__).with_name("manual_translations.tsv")
 OUTPUT_OVERRIDES = Path(__file__).with_name("output_overrides.tsv")
 RELEASE_CODE_OVERRIDES = Path(__file__).with_name("release_code_overrides.jsonl")
-APPROVED_RELEASE_STRUCTURE_SHA256 = "33425366159695ED3FCD9EAC299BCE8724C68BFF9F6D7000747ADA650DD92D3B"
+APPROVED_RELEASE_STRUCTURE_SHA256 = "644E7E8902584F76F9ED7464D9E2680740FDE9960983CEE1E7B5620227E0BA71"
 JSON_STRING_TOKEN = r'"(?:\\.|[^"\\])*"'
 
 KOREAN_ONLY_MESSAGE_EDITS = (
@@ -942,6 +942,17 @@ def build_text() -> tuple[str, dict[str, object], list[dict[str, object]], list[
     translation_stats["korean_only_messages_removed"] = korean_only_message_count
     translation_stats["translated"] = sum(row["en"] != row["kr"] for row in inventory)
     text, release_override_count = apply_release_code_overrides(text)
+    # The EN release swaps the complete burger/dumpling tutorial blocks.
+    # Keep translation-report ordinals aligned with their final locations.
+    for row in inventory:
+        if row["rule"] == "Global subroutine: Set Hint Text":
+            ordinal = int(row["ordinal"])
+            if 27 <= ordinal <= 31:
+                row["ordinal"] = ordinal + 6
+            elif 32 <= ordinal <= 37:
+                row["ordinal"] = ordinal - 5
+    rule_order = {rule.title: index for index, rule in enumerate(rule_blocks(text))}
+    inventory.sort(key=lambda row: (rule_order[str(row["rule"])], int(row["ordinal"])))
     translation_stats["release_code_overrides"] = release_override_count
     preliminary = {
         "localized_data": data_report,

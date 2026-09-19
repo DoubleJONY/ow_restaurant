@@ -175,9 +175,9 @@
     "allowlisted": 3,
     "manual_global_entries": 146,
     "manual_context_entries": 5,
-    "output_overrides": 46,
+    "output_overrides": 50,
     "korean_only_messages_removed": 2,
-    "release_code_overrides": 17
+    "release_code_overrides": 22
   },
   "rules": 57,
   "globals": 128,
@@ -190,14 +190,14 @@
   "placeholder_mismatches": 0,
   "color_markup_mismatches": 0,
   "locale_assignment_manifest_sha256": "57955CD1D6DDD192785648C1F64018A0AF7ECD3CA6CFAEB8F8503046E9088858",
-  "structural_fingerprint_sha256": "33425366159695ED3FCD9EAC299BCE8724C68BFF9F6D7000747ADA650DD92D3B",
-  "kr_structural_fingerprint_sha256": "68EB734122F352A358640B3DDB4C202CD87F043E468F30FDC7E719D9BA5C566E",
+  "structural_fingerprint_sha256": "644E7E8902584F76F9ED7464D9E2680740FDE9960983CEE1E7B5620227E0BA71",
+  "kr_structural_fingerprint_sha256": "8328339EBAD1430C75FD7EF0ABB8A307DBCD5592E30E27A8BF0FF8F05BEE1177",
   "largest_rule": {
     "name": "Dummy: Spawn",
     "bytes": 37065
   },
   "rule_limit_bytes": 100352,
-  "sha256": "10057784BFAA662BE12922F8E869BD6919CF5981DD14001509978EEA609B6D3D",
-  "bytes": 383368,
+  "sha256": "A483DEF6E9261E9405FC043BD544BDAD5E4B7F8583E13ECA030539E5911D282F",
+  "bytes": 383377,
   "unresolved": 0
 }
