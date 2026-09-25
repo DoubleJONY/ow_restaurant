@@ -1,0 +1,32 @@
+name: OW syntax
+
+on:
+  push:
+    paths: ['**/*.ow', 'scripts/check_ow_syntax.py', 'tests/**', '.github/workflows/ow-syntax.yml']
+  pull_request:
+    paths: ['**/*.ow', 'scripts/check_ow_syntax.py', 'tests/**', '.github/workflows/ow-syntax.yml']
+  workflow_dispatch:
+    inputs:
+      path:
+        description: 'Repository-relative file, directory, or glob'
+        required: true
+        default: '*.ow'
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test checker
+        run: python -m unittest discover -s tests -v
+      - name: Check Workshop files without building
+        env:
+          OW_PATH: ${{ inputs.path || '*.ow' }}
+        run: python scripts/check_ow_syntax.py "$OW_PATH"
