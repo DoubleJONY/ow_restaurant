@@ -34,6 +34,15 @@
 - [x] Apply original-style compression to 14 active table assignments: scalar strings plus sparse nested overrides, component-wise RAW_MIX reconstruction and row-string menu/fridge decoding. Verify all decoded tables, order, waits and score units; record estimated versus unmeasured Workshop elements separately.
 - [ ] External verification: Workshop import, actual element count and in-game smoke tests.
 
+## Workshop code and menu link (2026-11-01)
+
+- [x] Record user-saved code PG261 and edition name 레스토랑 - 헬JOSEON.
+- [x] Restore restaurant(code) branding, resolve the placeholder and align the update warning.
+- [x] Add KR Other Menu label 헬JOSEON immediately after GC; retain existing external links and align the six-entry cycle/code indexes.
+- [x] Pass 29 unit tests, root syntax checks, port audit and diff checks; preserve recipes, scores, waits and tutorial menu lock.
+- [ ] In-game verification of the new KR external-code entry. No commit/push requested for this amendment.
+- [x] Subsequent user request on 2026-11-01 authorizes committing/pushing this amendment only; unrelated work remains excluded.
+
 Implementation and static validation are complete on 2026-10-17. In-game tests
 are not claimed. See validation_report.md for scope and limitations.
 Unrelated working-tree changes belong to their existing owners. The initial

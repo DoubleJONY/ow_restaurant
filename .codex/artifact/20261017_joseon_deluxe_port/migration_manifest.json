@@ -1089,7 +1089,10 @@
   },
   "baseline_commit": "7cea33b52bff2768373adb7c2e89f5e70544291c",
   "target": "Joseon_deluxe.ow",
-  "target_sha256": "98e5925c6f98dbf661fdbf9e0e1169f46627b3cb0cda7a79ff5b15634479686f",
+  "target_sha256": "a253bd3704d7492b5a357154da605f3b061e84c76dbb253f179dfdd15a4ba2e7",
+  "workshop_code": "PG261",
+  "edition_name": "레스토랑 - 헬JOSEON",
+  "kr_other_menu_label": "헬JOSEON",
   "table_compression": {
     "baseline_commit": "271601042d50af5a151029a61fbf74c44a070143",
     "format": "original_split_lookup_sparse_overrides",

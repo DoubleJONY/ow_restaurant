@@ -208,3 +208,20 @@
   commit. This is not a Workshop import, actual element count or load test.
 - The user subsequently requested committing and pushing the completed
   compression change on 2026-11-01; unrelated site/analysis/temp work is excluded.
+
+## Workshop publication code and KR menu link (2026-11-01, Asia/Seoul)
+
+- User reported saving the Workshop as PG261. Record the edition name as
+  레스토랑 - 헬JOSEON, but use only 헬JOSEON for the KR Other Menu label/message,
+  following the user's later clarification.
+- Restore Joseon game branding to 레스토랑(PG261), replace the unresolved code,
+  and restore the original update-warning pattern with PG261.
+- Insert the new external entry after GC (index 3). Retain SSZ1Z1/8MAAN at
+  indexes 4/5, cycle modulo 6 and preserve internal dispatch threshold 2.
+- KR edit-date labels are v261101. No recipes, score data, initialization waits,
+  edition dispatch, tutorial text or practice tutorial menu-0 lock are changed.
+- This amendment has no commit/push request; prior publication approvals apply
+  only to the previously completed changes.
+- The user subsequently requested pushing this amendment on 2026-11-01.
+  Commit/push its two runtime files, focused regression test and four artifact
+  records only; exclude unrelated site/audit work and temporary files.

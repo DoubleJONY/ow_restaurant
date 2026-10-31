@@ -5,6 +5,20 @@ Runtime: root Joseon_deluxe.ow, v261101.
 Baseline: 7cea33b52bff2768373adb7c2e89f5e70544291c.
 Status: implementation and static verification complete. In-game checks remain pending; the user authorized commit/push of the compression follow-up on 2026-11-01.
 
+## Workshop branding and KR external link (2026-11-01)
+
+- User-supplied Workshop code is PG261. Joseon HUD/world title uses
+  레스토랑(PG261); the unresolved code and update warning now use PG261.
+- Edition name is 레스토랑 - 헬JOSEON; KR Other Menu displays only 헬JOSEON
+  after GC. Its external target is PG261; existing SSZ1Z1/8MAAN are preserved.
+  Selection cycles six entries, while internal edition dispatch stays 0..2.
+- All 29 unit tests, six root syntax checks, full port audit and diff checks
+  pass. Recipes, scores, waits and tutorial/menu-0 behavior are unchanged.
+- Target SHA-256: a253bd3704d7492b5a357154da605f3b061e84c76dbb253f179dfdd15a4ba2e7.
+  In-game link verification is pending; no new commit or push was requested.
+- Subsequent user request on 2026-11-01 authorizes publishing this amendment;
+  unrelated site/audit work and temporary files are excluded.
+
 ## Current table compression (2026-11-01)
 
 - Only N3/Cafe init1/2 data expressions changed. CUTTING_RESULT and
