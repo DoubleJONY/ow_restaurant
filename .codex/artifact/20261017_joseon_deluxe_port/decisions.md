@@ -132,3 +132,13 @@
   line 232 in all four Deluxe files. Converted the space-indented declarations
   at lines 17, 130 and 171..173 to two tabs, preserving IDs/names and all logic.
   Added a regression check and refreshed the Joseon runtime hash.
+
+## Korean Cafe display name (2026-10-31, Asia/Seoul)
+
+- The user requested the Korean edition-1 display name "카페&디저트" instead
+  of "뉴 카페" in Joseon_deluxe.ow. Updated five display strings: selection,
+  practice Other Menu, integration notice, player entry and scoreboard.
+- The original New Cafe source identity, edition index 1, recipes, logic and
+  the other Deluxe runtimes remain unchanged. Updated the display regression
+  check and current runtime hashes. The user subsequently requested committing
+  and pushing this follow-up on 2026-10-31; unrelated local work is excluded.

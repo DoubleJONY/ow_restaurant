@@ -73,7 +73,7 @@ class JoseonEditionTests(unittest.TestCase):
         self.assertIn('Global.stage = 0;', switch)
 
     def test_display_lists_match_active_editions(self):
-        expected = '\ub274 3\ud638\uc810/\ub274 \uce74\ud398'
+        expected = '\ub274 3\ud638\uc810/\uce74\ud398&\ub514\uc800\ud2b8'
         labels = re.findall(r'String Split\(Custom String\("([^"]+)"\), Custom String\("/"\)\)\[Global.stageMode\[0\]\]', SOURCE)
         self.assertEqual(labels.count(expected), 3)
         self.assertEqual(len(labels), 4)
@@ -81,6 +81,7 @@ class JoseonEditionTests(unittest.TestCase):
         self.assertEqual(len(credits), 2)
         self.assertTrue(all(credit.startswith('Joseon') for credit in credits))
         self.assertNotIn('\ucfe1\uc81c\uc694\ub9ac', SOURCE)
+        self.assertNotIn('\ub274 \uce74\ud398', SOURCE)
         setup = rule('Global: Setting')
         self.assertIn('Array(Color(Orange), Custom Color(100, 60, False, 255))[Global.stageMode[0]]', setup)
 

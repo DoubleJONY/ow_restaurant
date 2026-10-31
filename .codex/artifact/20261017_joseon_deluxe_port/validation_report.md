@@ -36,7 +36,7 @@ Status: implementation and static verification complete; user authorized commit/
   with 500 deterministic seeds each. The historical audit_result.json remains
   the original 18-combination snapshot, not the current active-selection report.
 - Root syntax check: six files passed. git diff --check passed.
-- Runtime SHA-256 after the declaration-indent follow-up: 6ebacfca942e06af73aae1107ef002d5aabd92ff3150081abdc40a5f2bcabd54.
+- Current runtime SHA-256 after the Korean Cafe display-name follow-up: c7a9f063f3afde863563e381571442d15a0366903a83a6dd750e26831f32b3ab.
 - Workshop import, actual element budget and in-game smoke tests remain pending.
   No staging, commit or push was performed.
 

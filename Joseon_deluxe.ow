@@ -793,7 +793,7 @@ rule("Global: Setting")
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, -999, Null, Null, Null, Visible To,
 			Default Visibility);
 		Global.globalText[0] = Last Text ID;
-		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", String Split(Custom String("뉴 3호점/뉴 카페"), Custom String("/"))[Global.stageMode[0]]),
+		Create HUD Text(All Players(Team 1), Custom String(" 〔 {0} 〕 ", String Split(Custom String("뉴 3호점/카페&디저트"), Custom String("/"))[Global.stageMode[0]]),
 			Custom String("제작: {0}", String Split(Custom String("Joseon\r\n난이도 : ★★★☆☆/Joseon\r\n난이도 : ★★☆☆☆"), Custom String("/"))[Global.stageMode[0]]),
 			Local Player.permission == 3 ? Custom String("[{0}]: 테마 변경", Input Binding String(Button(Ability 2))) : Custom String(" 헤드셰프가 테마를 결정하는 중입니다"), Top, -998, Array(Color(Orange), Custom Color(100, 60, False, 255))[Global.stageMode[0]], Color(Yellow), Color(White), String and Color,
 			Default Visibility);
@@ -836,7 +836,7 @@ rule("Global: Setting")
 			Create In-World Text(Players Within Radius(Vector(232.413, 2, 170.333), 10, Team 1, Off), Custom String("{0}\r\n{1}", Custom String("〔{1}〕: 모드-{0}",
 				Global.stage == 5 ? Custom String("다른 메뉴") : Global.stage == 4 ? Custom String("연습 종료") : Global.stage == 3 ? Custom String("모든 손님") : Global.stage == 0 ? Custom String("튜토리얼") : Hero Icon String(Global.CUSTOMER_LIST[Global.stage][False]),
 				Input Binding String(Button(Interact))), Custom String("〔{1}〕: {0}",
-				Global.stage == 5 ? String Split(Custom String("뉴 3호점/뉴 카페/변기클라우드-모듬회밥/Gummybear-오리지널"), Custom String("/"))[Global.totalScore[False]] :
+				Global.stage == 5 ? String Split(Custom String("뉴 3호점/카페&디저트/변기클라우드-모듬회밥/Gummybear-오리지널"), Custom String("/"))[Global.totalScore[False]] :
 				Global.stage == 4 ? Custom String("개시 하여 시작")
 				 : Count Of(Global.STAGE_CODE[Global.stage]) > 1 ? Custom String("퓨전")
 			: Global.STAGE_NAME[Global.totalScore[False]], Input Binding String(Button(Reload)))), Vector(232.608, 2.750, 170.455), 2, Do Not Clip, Visible To and String, Color(Sky Blue),
@@ -884,7 +884,7 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v261031\r\n\r\n{1}레스토랑 테마 통합\r\n  뉴 3호점과 뉴 카페의 레시피를 선택할 수 있습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v261031\r\n\r\n{1}레스토랑 테마 통합\r\n  뉴 3호점과 카페&디저트의 레시피를 선택할 수 있습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
@@ -1003,7 +1003,7 @@ rule("Player: Spawn")
 			Custom Color(Array(140, 110, 255, 255, 255, 60)[Global.difficulty], Array(255, 180, 225, 120, 50, 255)[Global.difficulty],
 			Array(180, 255, 120, 120, 145, 255)[Global.difficulty], 255), Default Visibility);
 		Event Player.tableText[4] = Last Text ID;
-		Create In-World Text(Event Player, String Split(Custom String("뉴 3호점/뉴 카페"), Custom String("/"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
+		Create In-World Text(Event Player, String Split(Custom String("뉴 3호점/카페&디저트"), Custom String("/"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
 		Create In-World Text(Event Player, Custom String("Joseon Deluxe\r\n워크샵 코드: 미정"), Vector(
@@ -4047,7 +4047,7 @@ rule("Global subroutine: Scoreboard")
 			Visible To Position String and Color, Global.permissionText[True][Local Player.permission], Default Visibility);
 		Create In-World Text(Global.skipSetup ? Null : All Players(Team 1), Custom String("시간 : 〔{0}〕\r\n모드: 〔{1}〕\r\n결과: 〔{2}〕",
 			Evaluate Once(Custom String("{0}시간{1}분{2}초", Round To Integer(Total Time Elapsed / 3600, Down), Round To Integer(
-			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("[{0}] {1}", String Split(Custom String("뉴 3호점/뉴 카페"), Custom String("/"))[Global.stageMode[0]], String Split(Custom String("연습 모드/캐주얼 다이닝/파인 다이닝/{0}", Custom String("스타 비스트로/마스터쿡 챌린지/헤드셰프 챌린지")), Custom String("/"))[Global.stageMode[1]]), Custom String("{0} / {1}", String Split(Custom String("수습 난이도/숙련 난이도/전문 난이도/Hell's Kitchen"), Custom String("/"))[Global.difficulty],
+			Total Time Elapsed / 60 % 60, Down), Round To Integer(Total Time Elapsed % 60, Down))), Custom String("[{0}] {1}", String Split(Custom String("뉴 3호점/카페&디저트"), Custom String("/"))[Global.stageMode[0]], String Split(Custom String("연습 모드/캐주얼 다이닝/파인 다이닝/{0}", Custom String("스타 비스트로/마스터쿡 챌린지/헤드셰프 챌린지")), Custom String("/"))[Global.stageMode[1]]), Custom String("{0} / {1}", String Split(Custom String("수습 난이도/숙련 난이도/전문 난이도/Hell's Kitchen"), Custom String("/"))[Global.difficulty],
 			Global.isVictory ? Custom String("클리어!") : Custom String("Stage {0} 에서 실패", Global.stage + 1))), Vector(214.140,
 			Sine From Degrees(Min(Total Time Elapsed - Evaluate Once(Total Time Elapsed), 5) * 8) * 7.750, 183.430), 2, Do Not Clip,
 			Visible To Position String and Color, Custom Color(Array(140, 110, 255, 255, 255)[Global.difficulty], Array(255, 180, 225, 120,
