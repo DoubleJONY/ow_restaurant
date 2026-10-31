@@ -1087,20 +1087,11 @@
       }
     }
   },
-  "placeholder": {
-    "item_count": 465,
-    "water_code": 21,
-    "relocated_item": {
-      "old": 21,
-      "new": 464,
-      "name": "고추장"
-    }
-  },
   "baseline_commit": "7cea33b52bff2768373adb7c2e89f5e70544291c",
   "target": "Joseon_deluxe.ow",
-  "target_sha256": "fac05e4ccffc6a06e82f96fd41d585891764dab04250198b0195980fb9bf69b2",
+  "target_sha256": "18302ada9ab94154a7c2952ee524fbce246bc5f563b618028f698deb0bc9eebf",
   "active_editions": [0, 1],
-  "deferred_editions": [2],
+  "removed_editions": [2],
   "score_initialization": "raw_0_to_9_times_5",
   "score_correction_unit": "raw_0_to_9",
   "corrected_legacy_sha256": "c4bad8aa86c49b42c4a48982e5a9d0da550944a9b2625637f1e051de6f268523",
@@ -1112,8 +1103,8 @@
     "New Cafe FRYING_RESULT source indexes 374 and 482: malformed tab-prefixed zero tokens normalized to zero in runtime and corrected legacy; immutable input snapshot is preserved.",
     "Author-confirmed Cafe score 191: raw typo ㅊ corrected to 4 in legacy/workbook, runtime ITEM_SCORE is 20; original source hashes still identify immutable snapshots.",
     "New Cafe common equipment ICE_RESULT indexes 0..20 are neutral; every food freezing result is preserved.",
-    "Water ITEM_NAME, ITEM_COLOR and ITEM_SCORE are shared across all three edition slots.",
-    "As of 2026-10-31, edition 2 is deferred: selection and dispatcher calls are removed; all three GC init rules and their data remain unchanged, with recipe outputs cleared.",
+    "Water ITEM_NAME, ITEM_COLOR and ITEM_SCORE are shared across the two active editions.",
+    "As of 2026-11-01, edition 2 is removed from the runtime: its three GC init rules, all contained arrays and unused subroutine declarations are deleted. Historical snapshots are not runtime inputs.",
     "New Cafe practice has six menu slots; master-challenge random single-theme waves are flat, not nested stage arrays."
   ]
 }

@@ -14,7 +14,7 @@ for source, filename in zip(sources, ('n3_kr.ow', 'nc_kr.ow')):
     for field, corrections in manifest['source_corrections'].get(filename, {}).items():
         for index, value in corrections.items():
             source[field][int(index)] = value * 5 if field == 'ITEM_SCORE' else value
-for label in ['N3','CAFE','GC']:
+for label in ['N3','CAFE']:
     t=load_tables(rule(text,'Global subroutine: Deluxe '+label+' init1')+rule(text,'Global subroutine: Deluxe '+label+' init2'))
     for k in MENU_FIELDS:
         if t[k] and isinstance(t[k][0],str):t[k]=[[int(i) for i in row.split(',')] for row in t[k]]
@@ -50,13 +50,12 @@ for edition in [0,1]:
 assert all(t['ITEM_NAME'][21]=='물' for t in tables)
 assert all(t['ITEM_COLOR'][21]==tables[0]['ITEM_COLOR'][21] for t in tables)
 assert all(t['ITEM_SCORE'][21]==tables[0]['ITEM_SCORE'][21] for t in tables)
-for k in RESULT_FIELDS-{'ADDITIONAL_MATERIAL_LIST'}:
-    assert not any(nested_codes(tables[2].get(k,[]))),k
-assert tables[2]['RAW_MIX']==tables[2]['RAW_RESULT']==[]
-print('PLACEHOLDER PASS',len(tables[2]['ITEM_NAME']),'items; recipes empty')
+assert 'dataInit_gc' not in text
+assert 'Global subroutine: Deluxe GC init' not in text
+print('EDITION REMOVAL PASS: no third-edition declarations, rules or data blocks')
 
 # Check the actual tool pools rather than merely trusting edition branches.
-for edition,label in enumerate(['N3','CAFE','GC']):
+for edition,label in enumerate(['N3','CAFE']):
     block=rule(text,'Global subroutine: Deluxe '+label+' init3')
     active=parse_value(re.search(r'Global.DELUXE_DATA\[1\]\s*=\s*([^;]*);',block)[1],{})
     stock=parse_value(re.search(r'Global.DELUXE_DATA\[2\]\s*=\s*([^;]*);',block)[1],{})
@@ -76,7 +75,7 @@ hint=rule(text,'Global subroutine: Set Hint Text')
 assert not any(s in hint for s in ['Global.loadingMenu =','Global.currentMenu =','Global.currentCustomer ='])
 assert 'https://ow-restaurant.com/ko' in hint
 assert manifest['active_editions'] == [0, 1]
-assert manifest['deferred_editions'] == [2]
+assert manifest['removed_editions'] == [2]
 assert 'Global.stageMode[False] + Is Button Held' in text and '% 2;' in rule(text,'Head Chefs: Select Mode')
 assert not re.search(r'Call Subroutine\(dataInit_gc[123]\)', text)
 assert tables[1]['ICE_RESULT'][:21]==[0]*21
@@ -97,7 +96,7 @@ def closure(t,seed):
 
 
 unreachable=[];theme_report=[]
-for edition,t in enumerate(tables[:2]):
+for edition,t in enumerate(tables):
     for theme,fridge in enumerate(t['FRIDGE_LIST']):
         base=set(fridge)|{21,0}
         reach=closure(t,base)
@@ -116,7 +115,7 @@ print('REACHABILITY',json.dumps(unreachable,ensure_ascii=False))
 
 stage_report=[]
 for edition in manifest['active_editions']:
-    label = ['N3','CAFE','GC'][edition]
+    label = ['N3','CAFE'][edition]
     expr=assignment(rule(text,'Global subroutine: Deluxe '+label+' init3'),'STAGE_CODE')
     for mode in range(6):
         stage_groups=None

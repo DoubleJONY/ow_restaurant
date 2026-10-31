@@ -5,6 +5,11 @@ Status: initial port implemented on 2026-10-17; two-edition amendment implemente
 
 ## Current amendment (2026-10-31)
 
+2026-11-01 superseding request: remove the deferred third edition's arrays and
+all three GC init rules from the runtime, along with unused subroutine declarations.
+Do not renumber retained identifiers or remove shared data. Historical snapshots
+remain archival only. References below to retaining GC data are historical.
+
 Only editions 0 (New Branch 3) and 1 (New Cafe) are selectable. This supersedes
 the original requirement below to keep edition 2 selectable. Retain all three
 GC init rules/data for later work, but remove their dispatcher/difficulty-up

@@ -48,9 +48,8 @@ class JoseonEditionTests(unittest.TestCase):
         stage = rule('Global subroutine: Start stage')
         for edition in ('n3', 'cafe'):
             self.assertIn(f'Call Subroutine(dataInit_{edition}3);', stage)
-        self.assertNotRegex(SOURCE, r'Call Subroutine\(dataInit_gc[123]\)')
-        for part in range(1, 4):
-            self.assertIn(f'dataInit_gc{part};', rule(f'Global subroutine: Deluxe GC init{part}'))
+        self.assertNotIn('dataInit_gc', SOURCE)
+        self.assertNotIn('Global subroutine: Deluxe GC init', SOURCE)
 
     def test_practice_cycle_matches_internal_and_external_targets(self):
         reload = rule('Player: Reload button')

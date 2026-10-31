@@ -164,3 +164,19 @@
   that the separately reported original-Deluxe startup fault is fixed.
 - Added original-wait parity and readiness tests; game import, multi-player timing
   and actual server-load validation remain external checks.
+
+## Remove third-edition data (2026-11-01, Asia/Seoul)
+
+- The user requested removing the deferred third edition's arrays as well.
+  Removed Deluxe GC init1/2/3, including all metadata, cooking, recipe, menu,
+  ingredient, stock and stage arrays inside those rules. Removed unused
+  subroutine declarations 34..36 without renumbering any retained identifier.
+- This supersedes the earlier requirement to retain dormant GC rules/data.
+  Historical immutable inputs, mapping snapshots and audit results remain
+  archival records; they are not included in the authoritative runtime.
+- N3/Cafe init rules, common runtime and data, shared water, all six modes,
+  original-compatible waits and practice tutorial menu-0 lock are unchanged.
+  KR/EN/JP Deluxe and legacy files are not modified.
+- Updated removal regression tests, read-only audit, manifest and workspace
+  guidance. Runtime version is v261101. The user subsequently authorized
+  committing and pushing this removal on 2026-11-01; unrelated work is excluded.

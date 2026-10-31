@@ -1,9 +1,27 @@
 # Joseon Deluxe validation
 
-Date: 2026-10-31 (Asia/Seoul)
-Runtime: root Joseon_deluxe.ow, v261031.
+Date: 2026-11-01 (Asia/Seoul)
+Runtime: root Joseon_deluxe.ow, v261101.
 Baseline: 7cea33b52bff2768373adb7c2e89f5e70544291c.
-Status: implementation and static verification complete; user authorized commit/push on 2026-10-31 after validation. In-game checks remain pending.
+Status: implementation and static verification complete. In-game checks remain pending; the user authorized commit/push of third-edition data removal on 2026-11-01.
+
+## Current third-edition removal (2026-11-01)
+
+- Deleted GC init1/2/3 and their arrays from the authoritative runtime; removed
+  unused subroutine declarations 34..36 without renumbering retained IDs.
+- Both active edition data sets and common rules are unchanged. This supersedes
+  all historical retained-placeholder statements below. The original GC init
+  rules in kr_deluxe.ow remain valid references for N3's wait/stock-loop tests;
+  they are not Joseon runtime data.
+- Historical input/mapping/audit snapshots are intentionally retained as archive
+  artifacts, not as runtime or generation inputs.
+- Verified all six active init rules byte-for-byte against the previous commit;
+  all decoded active tables are identical. Runtime diff permits only the three
+  GC rules/declarations and edit-date labels; the source shrank by 41,300 bytes.
+- Unit suite: 24 tests passed. Removal audit, all 26 active themes' ingredient
+  reachability, 12 edition/mode combinations with 500 seeds each, six root syntax
+  checks and git diff --check passed. Original Deluxe and legacy bytes match HEAD.
+  Workshop import/actual element counts/in-game behavior remain unverified.
 
 ## Current initialization yields (2026-10-31)
 
@@ -52,7 +70,7 @@ Status: implementation and static verification complete; user authorized commit/
   with 500 deterministic seeds each. The historical audit_result.json remains
   the original 18-combination snapshot, not the current active-selection report.
 - Root syntax check: six files passed. git diff --check passed.
-- Current runtime SHA-256 after the original-compatible wait follow-up: fac05e4ccffc6a06e82f96fd41d585891764dab04250198b0195980fb9bf69b2.
+- Current runtime SHA-256 after third-edition removal: 18302ada9ab94154a7c2952ee524fbce246bc5f563b618028f698deb0bc9eebf.
 - Workshop import, actual element budget and in-game smoke tests remain pending.
   No staging, commit or push was performed.
 
