@@ -142,3 +142,25 @@
   the other Deluxe runtimes remain unchanged. Updated the display regression
   check and current runtime hashes. The user subsequently requested committing
   and pushing this follow-up on 2026-10-31; unrelated local work is excluded.
+
+## Initialization yields (2026-10-31, Asia/Seoul)
+
+- Following a temporary hold, the user explicitly requested adding initialization
+  waits to the port and pushing. Scope is Joseon only; KR/EN/JP are inspection-only.
+- The user then requested original-compatible loop timing. Removed the proposed
+  mixing batches, extra stock/customer loop waits and dedicated counter before
+  any commit. Original checkingIndex and all repeated-loop behavior are retained.
+- Restored 30 Wait(0.100, Ignore Condition) statements only in the four active
+  table init rules: N3 follows original GC (8/6); Cafe follows original CAFE
+  (10/6). No extra wait follows the repeated part-2 lookup setup.
+- The numeric lookup already precedes metadata in the port. The original two
+  score/lookup boundary waits therefore sit consecutively after ITEM_SCORE,
+  before CUTTING_NEEDED, matching the retained GC port's existing convention.
+  Table data and assignment order are not moved to copy the original layout.
+- Dispatcher, stock/customer loops, declarations and retained GC init rules
+  are byte-identical to the pre-change runtime.
+- Data, score representation, recipes, stage tables, site-only hints, readiness
+  gate and the practice tutorial's menu-0 lock are unchanged. No claim is made
+  that the separately reported original-Deluxe startup fault is fixed.
+- Added original-wait parity and readiness tests; game import, multi-player timing
+  and actual server-load validation remain external checks.

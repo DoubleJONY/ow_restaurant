@@ -5,7 +5,23 @@ Runtime: root Joseon_deluxe.ow, v261031.
 Baseline: 7cea33b52bff2768373adb7c2e89f5e70544291c.
 Status: implementation and static verification complete; user authorized commit/push on 2026-10-31 after validation. In-game checks remain pending.
 
-## Current two-edition amendment (2026-10-31)
+## Current initialization yields (2026-10-31)
+
+- Restored 30 table-level 0.100-second waits: N3 follows original GC (8/6 in
+  init1/2); Cafe follows original CAFE (10/6). The relocated lookup's original
+  wait is adjacent to the score wait, as in the retained GC port. No table
+  assignments were moved. Repeated-loop timing and counters match the original:
+  no mixing batches, extra stock/customer waits or new variables remain.
+- All decoded data and ordering, retained GC rules, tutorials, six-mode stage
+  tables and practice menu-0 lock remain unchanged. stageTime is still assigned
+  only after full initialization; no early readiness signal was introduced.
+- Static unit suite: 24 tests passed. Full port audit: no unreachable orders
+  across 26 active themes; 12 edition/mode combinations at 500 seeds each pass.
+  Root syntax checks passed six files. In-game load/timing is not verified.
+- The earlier sections below describe completed historical amendments; current
+  initialization scheduling supersedes their unchanged-init-rule statements.
+
+## Two-edition amendment (2026-10-31)
 
 - Active editions are 0 (New Branch 3) and 1 (New Cafe). Edition 2 is deferred,
   not deleted. This supersedes historical statements below that it is selectable.
@@ -36,7 +52,7 @@ Status: implementation and static verification complete; user authorized commit/
   with 500 deterministic seeds each. The historical audit_result.json remains
   the original 18-combination snapshot, not the current active-selection report.
 - Root syntax check: six files passed. git diff --check passed.
-- Current runtime SHA-256 after the Korean Cafe display-name follow-up: c7a9f063f3afde863563e381571442d15a0366903a83a6dd750e26831f32b3ab.
+- Current runtime SHA-256 after the original-compatible wait follow-up: fac05e4ccffc6a06e82f96fd41d585891764dab04250198b0195980fb9bf69b2.
 - Workshop import, actual element budget and in-game smoke tests remain pending.
   No staging, commit or push was performed.
 

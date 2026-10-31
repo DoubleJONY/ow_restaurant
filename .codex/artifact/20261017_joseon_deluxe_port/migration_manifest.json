@@ -1098,7 +1098,7 @@
   },
   "baseline_commit": "7cea33b52bff2768373adb7c2e89f5e70544291c",
   "target": "Joseon_deluxe.ow",
-  "target_sha256": "c7a9f063f3afde863563e381571442d15a0366903a83a6dd750e26831f32b3ab",
+  "target_sha256": "fac05e4ccffc6a06e82f96fd41d585891764dab04250198b0195980fb9bf69b2",
   "active_editions": [0, 1],
   "deferred_editions": [2],
   "score_initialization": "raw_0_to_9_times_5",

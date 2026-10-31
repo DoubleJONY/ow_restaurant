@@ -29,6 +29,7 @@
 - [x] Defer edition 2 on 2026-10-31: limit startup selection to N3/Cafe and remove GC dispatcher/difficulty-up calls; preserve GC init rules/data.
 - [x] Compact practice Other Menu to two internal editions and two external links; align cycle, dispatch threshold, labels and link indexes.
 - [x] Align edition labels, credits/difficulty and colors; add static edition-selection regression tests and recheck active data/stages.
+- [x] After the temporary hold, restore original-compatible table waits only (N3 follows GC, Cafe follows CAFE); preserve original mixing/stock/customer loop behavior, counters, data and tutorial menu lock. The user explicitly requested commit/push.
 - [ ] External verification: Workshop import, actual element count and in-game smoke tests.
 
 Implementation and static validation are complete on 2026-10-17. In-game tests
