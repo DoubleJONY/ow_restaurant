@@ -180,3 +180,31 @@
 - Updated removal regression tests, read-only audit, manifest and workspace
   guidance. Runtime version is v261101. The user subsequently authorized
   committing and pushing this removal on 2026-11-01; unrelated work is excluded.
+
+## Original-style table compression (2026-11-01, Asia/Seoul)
+
+- The user reported 33,715 Workshop elements and requested the original Deluxe
+  compression pattern. Read current Joseon data only; did not regenerate the
+  runtime from a historical builder or edit KR/EN/JP or immutable inputs.
+- Changed 14 table expressions across the four active init1/2 rules. Scalar
+  CUTTING_RESULT/ADDITIONAL_MATERIAL_LIST values use slash-separated Custom String
+  chains, String Split and Index Of Array Value(Global.MIXING_RECIPE, ...).
+  Nested outputs/material groups are restored with per-index Array assignments.
+  Base False entries decode to numeric zero, following original Deluxe encoding.
+- RAW_MIX first/second item codes are independently compressed and reconstructed
+  using first * 1000 + second before the final RAW_RESULT assignment. Recipe
+  orientation, order and duplicates are preserved. No oversized mixed-code lookup
+  was introduced; every component fits the existing 0..699 lookup.
+- MENU_LIST/HAZARD_MENU_LIST/FRIDGE_LIST/WEAVER_MENU_LIST use slash-separated rows
+  and comma-separated codes, decoded with the original checkingIndex loop pattern.
+  No new variables, Wait actions or batching were added. ITEM_SCORE retains raw
+  0..9 times 5; active editions, water and tutorial menu-0 lock remain unchanged.
+- Every decoded table matches its pre-compression value. Static regression suite
+  has 27 passing tests, including compression structure/nested overrides and
+  90-character string limits. Full data/reachability/stage audit passes.
+- Read-only estimate_compression_elements.py compares the changed rules against
+  commit 2716010 using the published element-cost model. Estimated saving is
+  4,360; projected total is 29,355 only if the user's 33,715 baseline matches that
+  commit. This is not a Workshop import, actual element count or load test.
+- The user subsequently requested committing and pushing the completed
+  compression change on 2026-11-01; unrelated site/analysis/temp work is excluded.

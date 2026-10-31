@@ -1089,7 +1089,16 @@
   },
   "baseline_commit": "7cea33b52bff2768373adb7c2e89f5e70544291c",
   "target": "Joseon_deluxe.ow",
-  "target_sha256": "18302ada9ab94154a7c2952ee524fbce246bc5f563b618028f698deb0bc9eebf",
+  "target_sha256": "98e5925c6f98dbf661fdbf9e0e1169f46627b3cb0cda7a79ff5b15634479686f",
+  "table_compression": {
+    "baseline_commit": "271601042d50af5a151029a61fbf74c44a070143",
+    "format": "original_split_lookup_sparse_overrides",
+    "fields": ["CUTTING_RESULT", "ADDITIONAL_MATERIAL_LIST", "RAW_MIX", "MENU_LIST", "HAZARD_MENU_LIST", "FRIDGE_LIST", "WEAVER_MENU_LIST"],
+    "user_reported_baseline_elements": 33715,
+    "estimated_saved_elements": 4360,
+    "projected_elements": 29355,
+    "workshop_remeasured": false
+  },
   "active_editions": [0, 1],
   "removed_editions": [2],
   "score_initialization": "raw_0_to_9_times_5",

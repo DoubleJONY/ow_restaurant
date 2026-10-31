@@ -3,7 +3,36 @@
 Date: 2026-11-01 (Asia/Seoul)
 Runtime: root Joseon_deluxe.ow, v261101.
 Baseline: 7cea33b52bff2768373adb7c2e89f5e70544291c.
-Status: implementation and static verification complete. In-game checks remain pending; the user authorized commit/push of third-edition data removal on 2026-11-01.
+Status: implementation and static verification complete. In-game checks remain pending; the user authorized commit/push of the compression follow-up on 2026-11-01.
+
+## Current table compression (2026-11-01)
+
+- Only N3/Cafe init1/2 data expressions changed. CUTTING_RESULT and
+  ADDITIONAL_MATERIAL_LIST use split/lookup scalar tables plus explicit nested
+  overrides, as in original Deluxe. False base placeholders become numeric zero
+  under that original representation. RAW_MIX components are compressed separately
+  and combined before final results. Four menu/fridge tables use row-string decoding.
+- Compared hashes of every decoded table before/after: all match, including
+  nested outputs/materials, all 614 recipe pairs/results, menu/fridge row order,
+  duplicates, score values and color/name metadata. All menu values decode to
+  numeric item codes using the existing lookup; no new variables or waits.
+- Unit suite: 27 tests pass. Full port audit passes source mappings, all 26 themes'
+  ingredient reachability and 12 edition/mode combinations at 500 seeds each.
+  Syntax checks pass all six root .ow files; string segments are at most 90 characters.
+- Static element-cost estimate for changed rules (not a game measurement):
+
+| Rule | Before | After | Estimated Saving |
+| --- | ---: | ---: | ---: |
+| N3 init1 | 1657 | 1169 | 488 |
+| N3 init2 | 2490 | 945 | 1545 |
+| Cafe init1 | 1701 | 1198 | 503 |
+| Cafe init2 | 2816 | 992 | 1824 |
+| Total | 8664 | 4304 | 4360 |
+
+The read-only estimator compares commit 2716010 using the published model at
+https://github.com/Zezombye/overpy/wiki/Element-saving-techniques. Applied to the
+user-reported 33,715 baseline, the projection is 29,355, not a verified import
+result. Workshop remeasurement, import and runtime load tests remain pending.
 
 ## Current third-edition removal (2026-11-01)
 
@@ -70,7 +99,7 @@ Status: implementation and static verification complete. In-game checks remain p
   with 500 deterministic seeds each. The historical audit_result.json remains
   the original 18-combination snapshot, not the current active-selection report.
 - Root syntax check: six files passed. git diff --check passed.
-- Current runtime SHA-256 after third-edition removal: 18302ada9ab94154a7c2952ee524fbce246bc5f563b618028f698deb0bc9eebf.
+- Current runtime SHA-256 after table compression: 98e5925c6f98dbf661fdbf9e0e1169f46627b3cb0cda7a79ff5b15634479686f.
 - Workshop import, actual element budget and in-game smoke tests remain pending.
   No staging, commit or push was performed.
 

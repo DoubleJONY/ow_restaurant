@@ -31,6 +31,7 @@
 - [x] Align edition labels, credits/difficulty and colors; add static edition-selection regression tests and recheck active data/stages.
 - [x] After the temporary hold, restore original-compatible table waits only (N3 follows GC, Cafe follows CAFE); preserve original mixing/stock/customer loop behavior, counters, data and tutorial menu lock. The user explicitly requested commit/push.
 - [x] On 2026-11-01, remove all third-edition GC init rules/arrays and unused declarations from Joseon; keep the two active data sets and common runtime unchanged, and replace retained-placeholder audit assumptions with removal checks.
+- [x] Apply original-style compression to 14 active table assignments: scalar strings plus sparse nested overrides, component-wise RAW_MIX reconstruction and row-string menu/fridge decoding. Verify all decoded tables, order, waits and score units; record estimated versus unmeasured Workshop elements separately.
 - [ ] External verification: Workshop import, actual element count and in-game smoke tests.
 
 Implementation and static validation are complete on 2026-10-17. In-game tests
