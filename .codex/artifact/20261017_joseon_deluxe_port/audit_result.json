@@ -1,0 +1,4610 @@
+{
+  "theme_checks": [
+    {
+      "edition": 0,
+      "theme": 0,
+      "name": "국밥",
+      "orders": 9,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 1,
+      "name": "티타임",
+      "orders": 15,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 2,
+      "name": "밥&밥",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 3,
+      "name": "국수",
+      "orders": 10,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 4,
+      "name": "분식",
+      "orders": 13,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 5,
+      "name": "주스&에이드",
+      "orders": 13,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 6,
+      "name": "만두&전",
+      "orders": 12,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 7,
+      "name": "피자&파스타",
+      "orders": 12,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 8,
+      "name": "헬스치킨",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 9,
+      "name": "케이크",
+      "orders": 18,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 10,
+      "name": "길거리 음식",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 0,
+      "theme": 11,
+      "name": "쌈밥",
+      "orders": 15,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 0,
+      "name": "커피",
+      "orders": 15,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 1,
+      "name": "밀크티",
+      "orders": 16,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 2,
+      "name": "아이스크림",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 3,
+      "name": "에이드&슬러시",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 4,
+      "name": "스무디",
+      "orders": 16,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 5,
+      "name": "빙수",
+      "orders": 10,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 6,
+      "name": "쿠키",
+      "orders": 16,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 7,
+      "name": "초코초코",
+      "orders": 16,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 8,
+      "name": "도넛",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 9,
+      "name": "마카롱",
+      "orders": 11,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 10,
+      "name": "브런치",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 11,
+      "name": "타르트",
+      "orders": 14,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 12,
+      "name": "케이크",
+      "orders": 16,
+      "missing": {}
+    },
+    {
+      "edition": 1,
+      "theme": 13,
+      "name": "젤리",
+      "orders": 16,
+      "missing": {}
+    }
+  ],
+  "stage_checks": [
+    {
+      "edition": 0,
+      "mode": 0,
+      "stage_count": 6,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 0,
+      "mode": 1,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 0,
+      "mode": 2,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 0,
+      "mode": 3,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              5
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              5
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              5
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              5
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              5
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              5
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              0,
+              2,
+              11
+            ],
+            [
+              0,
+              4,
+              11
+            ],
+            [
+              1,
+              5,
+              10
+            ],
+            [
+              2,
+              4,
+              11
+            ],
+            [
+              2,
+              6,
+              7
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              3,
+              4,
+              11
+            ],
+            [
+              3,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              10
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 0,
+      "mode": 4,
+      "stage_count": 13,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              8
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              5
+            ],
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              4
+            ],
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0,
+              2,
+              11
+            ],
+            [
+              0,
+              4,
+              11
+            ],
+            [
+              1,
+              5,
+              10
+            ],
+            [
+              2,
+              4,
+              11
+            ],
+            [
+              2,
+              6,
+              7
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              3,
+              4,
+              11
+            ],
+            [
+              3,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              10
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 0,
+      "mode": 5,
+      "stage_count": 20,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 16,
+          "index": 15,
+          "possible_themes": [
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 17,
+          "index": 16,
+          "possible_themes": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 18,
+          "index": 17,
+          "possible_themes": [
+            [
+              0,
+              2,
+              11
+            ],
+            [
+              0,
+              4,
+              11
+            ],
+            [
+              1,
+              5,
+              10
+            ],
+            [
+              2,
+              4,
+              11
+            ],
+            [
+              2,
+              6,
+              7
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              3,
+              4,
+              11
+            ],
+            [
+              3,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 19,
+          "index": 18,
+          "possible_themes": [
+            [
+              0,
+              2,
+              11
+            ],
+            [
+              0,
+              4,
+              11
+            ],
+            [
+              1,
+              5,
+              10
+            ],
+            [
+              2,
+              4,
+              11
+            ],
+            [
+              2,
+              6,
+              7
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              3,
+              4,
+              11
+            ],
+            [
+              3,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 20,
+          "index": 19,
+          "possible_themes": [
+            [
+              0,
+              2,
+              11
+            ],
+            [
+              0,
+              4,
+              11
+            ],
+            [
+              1,
+              5,
+              10
+            ],
+            [
+              2,
+              4,
+              11
+            ],
+            [
+              2,
+              6,
+              7
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              3,
+              4,
+              11
+            ],
+            [
+              3,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              10
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 1,
+      "mode": 0,
+      "stage_count": 6,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 1,
+      "mode": 1,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 1,
+      "mode": 2,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              12
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 1,
+      "mode": 3,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              6,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              2,
+              6,
+              8
+            ],
+            [
+              3,
+              11,
+              13
+            ],
+            [
+              4,
+              5,
+              11
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 1,
+      "mode": 4,
+      "stage_count": 13,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              5
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              4
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              9
+            ],
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              12
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              12
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              6,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              6,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0,
+              1,
+              10
+            ],
+            [
+              2,
+              6,
+              8
+            ],
+            [
+              2,
+              8,
+              12
+            ],
+            [
+              3,
+              11,
+              13
+            ],
+            [
+              4,
+              5,
+              11
+            ],
+            [
+              6,
+              8,
+              11
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 1,
+      "mode": 5,
+      "stage_count": 20,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              3,
+              13
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              6,
+              11
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              2,
+              12
+            ]
+          ]
+        },
+        {
+          "display": 16,
+          "index": 15,
+          "possible_themes": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "display": 17,
+          "index": 16,
+          "possible_themes": [
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 18,
+          "index": 17,
+          "possible_themes": [
+            [
+              4,
+              5,
+              11
+            ]
+          ]
+        },
+        {
+          "display": 19,
+          "index": 18,
+          "possible_themes": [
+            [
+              2,
+              8,
+              12
+            ]
+          ]
+        },
+        {
+          "display": 20,
+          "index": 19,
+          "possible_themes": [
+            [
+              0,
+              1,
+              10
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 2,
+      "mode": 0,
+      "stage_count": 6,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 2,
+      "mode": 1,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 2,
+      "mode": 2,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              10,
+              11
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 2,
+      "mode": 3,
+      "stage_count": 15,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              4
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              0,
+              1,
+              10
+            ],
+            [
+              0,
+              2,
+              10
+            ],
+            [
+              0,
+              10,
+              11
+            ],
+            [
+              2,
+              10,
+              11
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              5,
+              7,
+              8
+            ],
+            [
+              5,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              8
+            ],
+            [
+              7,
+              8,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 2,
+      "mode": 4,
+      "stage_count": 13,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              1
+            ],
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              5
+            ],
+            [
+              9
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              3
+            ],
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              2
+            ],
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ],
+            [
+              9
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              0,
+              1,
+              10
+            ],
+            [
+              0,
+              2,
+              10
+            ],
+            [
+              0,
+              10,
+              11
+            ],
+            [
+              2,
+              10,
+              11
+            ],
+            [
+              3,
+              4,
+              6
+            ],
+            [
+              5,
+              7,
+              8
+            ],
+            [
+              5,
+              8,
+              11
+            ],
+            [
+              6,
+              7,
+              8
+            ],
+            [
+              7,
+              8,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edition": 2,
+      "mode": 5,
+      "stage_count": 20,
+      "stages": [
+        {
+          "display": 1,
+          "index": 0,
+          "possible_themes": [
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "display": 2,
+          "index": 1,
+          "possible_themes": [
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "display": 3,
+          "index": 2,
+          "possible_themes": [
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "display": 4,
+          "index": 3,
+          "possible_themes": [
+            [
+              5
+            ]
+          ]
+        },
+        {
+          "display": 5,
+          "index": 4,
+          "possible_themes": [
+            [
+              6
+            ]
+          ]
+        },
+        {
+          "display": 6,
+          "index": 5,
+          "possible_themes": [
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "display": 7,
+          "index": 6,
+          "possible_themes": [
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "display": 8,
+          "index": 7,
+          "possible_themes": [
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "display": 9,
+          "index": 8,
+          "possible_themes": [
+            [
+              8
+            ]
+          ]
+        },
+        {
+          "display": 10,
+          "index": 9,
+          "possible_themes": [
+            [
+              10
+            ]
+          ]
+        },
+        {
+          "display": 11,
+          "index": 10,
+          "possible_themes": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "display": 12,
+          "index": 11,
+          "possible_themes": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "display": 13,
+          "index": 12,
+          "possible_themes": [
+            [
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "display": 14,
+          "index": 13,
+          "possible_themes": [
+            [
+              4,
+              7
+            ]
+          ]
+        },
+        {
+          "display": 15,
+          "index": 14,
+          "possible_themes": [
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "display": 16,
+          "index": 15,
+          "possible_themes": [
+            [
+              3,
+              7
+            ]
+          ]
+        },
+        {
+          "display": 17,
+          "index": 16,
+          "possible_themes": [
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        {
+          "display": 18,
+          "index": 17,
+          "possible_themes": [
+            [
+              2,
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "display": 19,
+          "index": 18,
+          "possible_themes": [
+            [
+              3,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "display": 20,
+          "index": 19,
+          "possible_themes": [
+            [
+              7,
+              8,
+              10
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "unreachable": []
+}

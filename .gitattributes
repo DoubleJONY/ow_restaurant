@@ -1,1 +1,4 @@
 build/jp_deluxe/*.tsv whitespace=-blank-at-eol
+# Preserve archived Workshop bytes and their recorded SHA-256 values.
+.codex/artifact/20261017_joseon_deluxe_port/inputs/*.ow -text whitespace=cr-at-eol
+deprecated/nc_kr.ow -text whitespace=cr-at-eol

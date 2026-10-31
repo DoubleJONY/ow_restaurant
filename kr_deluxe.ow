@@ -14,7 +14,7 @@ variables
 		10: itemCooker
 		11: checkingIndex
 		12: normal
-        13: storageData
+		13: storageData
 		14: createItemData
 		15: creatingItemIndex
 		16: cookingIndex
@@ -127,7 +127,7 @@ variables
 		124: scbRank
 		125: scbSurved
 		126: DELUXE_DATA
-        127: storageIndex
+		127: storageIndex
 
 	player:
 		0: controlingIndex
@@ -168,9 +168,9 @@ variables
 		36: scbDollar
 		37: itemPerk
 		38: itemPerkDurability
-        39: itemPerkText
-        40: playerEffectStatus
-        41: perkIndex
+		39: itemPerkText
+		40: playerEffectStatus
+		41: perkIndex
 		42: progressIndex
 		43: additionalMaterialIndex
 		44: isController
@@ -773,7 +773,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v260925\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"레스토랑(SPXXM) v261031\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -886,7 +886,7 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v260925\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v261031\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
@@ -1120,7 +1120,7 @@ rule("Player: Control item")
 		End;
 		Global.itemControled[Event Player.controlingIndex] = True;
 		Global.itemLastControl[Event Player.controlingIndex] = Event Player;
-		Create HUD Text(All Players(All Teams), Null, Null, Custom String(
+		Create HUD Text(Event Player, Null, Null, Custom String(
 			"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"), Top, 5, Null, Null, Null, None,
 			Default Visibility);
 		Event Player.tableText[True] = Last Text ID;
@@ -3690,7 +3690,10 @@ rule("Global subroutine: Purchase Upgrade")
             Abort If(Global.itemCount == 32);
 			Modify Global Variable At Index(upgradeList, 1, Remove From Array By Index, 0);
 			If(!Count Of(Global.upgradeList[True]));
-				Global.upgradeList[True] = Randomized Array(Global.DELUXE_DATA[2][3]);
+				Global.upgradeList[True] = Randomized Array(
+					Global.stageMode[1] == 1
+						? Filtered Array(Global.DELUXE_DATA[2][3], Current Array Element != 17)
+						: Global.DELUXE_DATA[2][3]);
 			End;
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
                 -70)) * 0.100, First Of(Global.upgradeList[True]), 100, Null);
@@ -3700,7 +3703,10 @@ rule("Global subroutine: Purchase Upgrade")
 			Abort If(Global.itemCount == 32);
 			Modify Global Variable At Index(upgradeList, 2, Remove From Array By Index, 0);
 			If(!Count Of(Global.upgradeList[2]));
-				Global.upgradeList[2] = Randomized Array(Array(10, 10, 10, 10, 10, 13, 13, 13, 14));
+				Global.upgradeList[2] = Randomized Array(
+					Global.stageMode[1] == 1
+						? Array(13, 13, 13, 14)
+						: Array(10, 10, 10, 10, 10, 13, 13, 13, 14));
 			End;
             Global.createItemData = Array(Vector(217.370, 2, 172.520), Direction From Angles(Random Integer(False, 360), Random Integer(-50,
                 -70)) * 0.100, First Of(Global.upgradeList[2]), 100, Null);
