@@ -1003,7 +1003,7 @@ rule("Player: Spawn")
 		Create In-World Text(Event Player, String Split(Custom String("뉴 3호점/카페&디저트"), Custom String("/"))[Global.stageMode[0]], Vector(222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed)
 			- Total Time Elapsed) * 5 + 200, 33.500), 1.500, Do Not Clip, Visible To Position String and Color, Color(Orange), Default Visibility);
 		Event Player.tableText[5] = Last Text ID;
-		Create In-World Text(Event Player, Custom String("레스토랑(WM3MW)\r\nJoseon#31496"), Vector(
+		Create In-World Text(Event Player, Custom String("레스토랑 - 헬스토랑(WM3MW)\r\nJoseon#31496"), Vector(
 			222.559, 5.100, 164.417) + Direction From Angles((Evaluate Once(Total Time Elapsed) - Total Time Elapsed) * 5 + 200, 38.500),
 			1, Do Not Clip, Visible To Position String and Color, Color(White), Default Visibility);
 		Event Player.tableText[6] = Last Text ID;
