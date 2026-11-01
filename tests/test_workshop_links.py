@@ -20,7 +20,7 @@ class WorkshopLinkTests(unittest.TestCase):
         self.assertNotIn('Joseon Deluxe', source)
         self.assertNotIn('\ubbf8\uc815', source)
         self.assertIn('\ub808\uc2a4\ud1a0\ub791(WM3MW) v', source)
-        self.assertIn('\ub808\uc2a4\ud1a0\ub791(WM3MW)\\r\\nJoseon#31496', source)
+        self.assertIn('\ub808\uc2a4\ud1a0\ub791 - \ud5ec\uc2a4\ud1a0\ub791(WM3MW)\\r\\nJoseon#31496', source)
         self.assertIn('\uc5c5\ub370\uc774\ud2b8 \ud544\uc694! - \ucf54\ub4dc : WM3MW', source)
 
     def test_kr_external_menu_cycle_and_code_alignment(self):
