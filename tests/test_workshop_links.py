@@ -32,7 +32,7 @@ class WorkshopLinkTests(unittest.TestCase):
         ])
         reload = rule(source, 'Player: Reload button')
         count = int(re.search(r'Global.totalScore\[False\] = .* % (\d+);', reload)[1])
-        self.assertEqual(count, 6)
+        self.assertEqual(count, 5)
         self.assertEqual(len(labels), count)
         switch = rule(source, 'Global subroutine: Other Menu')
         self.assertIn('If(Global.totalScore[False] <= 2);', switch)
@@ -40,7 +40,7 @@ class WorkshopLinkTests(unittest.TestCase):
         self.assertEqual(len(arrays), 2)
         targets = [re.findall(r'Custom String\("([^"]+)"\)', array) for array in arrays]
         self.assertEqual(targets[0], labels[3:])
-        self.assertEqual(targets[1], ['PG261', 'SSZ1Z1', '8MAAN'])
+        self.assertEqual(targets[1], ['PG261', '8MAAN'])
 
 
 if __name__ == '__main__':
