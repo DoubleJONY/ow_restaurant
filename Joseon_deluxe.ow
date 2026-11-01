@@ -3834,7 +3834,7 @@ rule("Global routine: Super Drink!")
 				Clear Status(All Players(Team 1)[Global.superDrink], Burning);
 				Set Move Speed(All Players(Team 1)[Global.superDrink], Array Contains(Array(Hero(Genji), Hero(Tracer), Hero(Anran)), Hero Of(All Players(Team 1)[Global.superDrink]))
 					? All Players(Team 1)[Global.superDrink].playerSpeed * 0.916 : All Players(Team 1)[Global.superDrink].playerSpeed);
-				All Players(Team 1)[Global.superDrink].durability = All Players(Team 1)[Global.superDrink].durability / 10;
+				All Players(Team 1)[Global.superDrink].durability = 100;
 				Wait(0.016, Ignore Condition);
 			End;
 		Else If(Global.superDrink == -2);
