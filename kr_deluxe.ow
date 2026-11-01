@@ -2536,6 +2536,7 @@ rule("serveFail") {
 			End;
 			Wait(10, Ignore Condition);
 		Else If(Hero Of(Event Player) == Hero(Junker Queen));
+			Small Message(All Players(All Teams), Custom String("{0} ! 감 ! 히 ! 이 ! 딴 ! 요 ! 리 ! 를 ! 대 ! 접 ! 하 ! 겠 ! 다 ! 고 ! ? ! ? ", Hero Icon String(Hero Of(Event Player))));
 			For Player Variable(Event Player, durability, False, 12, True);
 				If(Has Spawned(All Players(Team 1)[Event Player.durability]) && Distance Between(Position Of(All Players(Team 1)[Event Player.durability]), Position Of(Event Player)) < 10);
 					Clear Status(All Players(Team 1)[Event Player.durability], Phased Out);
