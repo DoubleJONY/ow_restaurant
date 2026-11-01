@@ -28,7 +28,7 @@ class WorkshopLinkTests(unittest.TestCase):
         setup = rule(source, 'Global: Setting')
         labels = re.search(r'Global.stage == 5 \? String Split\(Custom String\("([^"]+)"\)', setup)[1].split('/')
         self.assertEqual(labels[:4], [
-            '\ubaa8\ub4ec\ud68c\ubc25!', '\uce74\ud398!', '\ucfe1\uc81c\uc694\ub9ac', '\ud5ec\uc2a4\ud1a0\ub791!',
+            '\ubaa8\ub4ec\ud68c\ubc25!', '\uce74\ud398!', '\ucfe1\uc81c\uc694\ub9ac', 'Joseon-\ud5ec\uc2a4\ud1a0\ub791!',
         ])
         reload = rule(source, 'Player: Reload button')
         count = int(re.search(r'Global.totalScore\[False\] = .* % (\d+);', reload)[1])
