@@ -4959,7 +4959,7 @@ rule("Global subroutine: Deluxe CAFE init1")
 					Custom String("ream Donut/Taro Powder/Taro Milk Tea/Taro Bubble Tea/Chocolate Milk Tea/Chocolate Bubble T{0}",
 					Custom String("ea/Blueberry+Sugar/Blueberry Jam/Blueberry Filling/Blueberry Macaron/Strawberry Filling/St{0}",
 					Custom String("rawberry Macaron/Cream Cheese/Cream Cheese Filling/Cream Cheese Macaron/Caramel Pudding/Me{0}",
-					Custom String("lon/Sliced Melon/Melon Shaved Ice/Coffee Cubes/Coffee Cube Latte/Iced Tea (Extra Shot)/Mar{0}",
+					Custom String("lon/Sliced Melon/Melon Shaved Ice/Coffee Cubes/Coffee Cube Latte/Iced Tea+Espresso/Mar{0}",
 					Custom String("shmallow/Marshmallow+Choco Cookie Dough/Marshmallow Choco Cookie/Marshmallow+Cookie Dough/{0}",
 					Custom String("Marshmallow Cookie/Blueberry Jam Donut/Yogurt Cream/Yogurt Cream Donut/Glutinous Rice Flou{0}",
 					Custom String("r/Glutinous Rice Dough/Glutinous Rice Donut/Chocolate Yogurt Ice Cream/Frozen Melon/Melon+{0}",
