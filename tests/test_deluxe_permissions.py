@@ -118,10 +118,19 @@ class HeadChefControlsTests(unittest.TestCase):
             with self.subTest(lang=lang):
                 uses = [line.strip() for line in source.splitlines() if 'Host Player' in line]
                 self.assertEqual(len(uses), 5)
-                self.assertTrue(all(line.startswith(('Create Dummy Bot(', 'Event Player.permission =', 'If(Slot Of(Host Player)', 'Host Player.permission =')) for line in uses))
+                self.assertTrue(all(line.startswith(('Create Dummy Bot(', 'Event Player.permission =', 'If(Slot Of(Host Player)', 'If(!Is Dummy Bot(Event Player) && Slot Of(Host Player)', 'Host Player.permission =')) for line in uses))
                 setup = rule(source, 'Global: Setting')
                 self.assertIn('Local Player.permission == 3 && Local Player.selectPlayer != Null ? Local Player : Null', setup)
                 self.assertEqual(setup.count('Local Player.permission == 3 ?'), 2)
+
+
+    def test_serving_bot_starts_as_server_without_head_chef_fallback(self):
+        for lang in ('kr', 'en', 'jp', 'Joseon'):
+            source = (Path(__file__).resolve().parents[1] / f'{lang}_deluxe.ow').read_text(encoding='utf-8')
+            spawn = rule(source, 'Player: Spawn')
+            with self.subTest(lang=lang):
+                self.assertIn('Event Player == Host Player ? 3 : (Is Dummy Bot(Event Player) && Hero Of(Event Player) == Hero(Wrecking Ball)) ? 1 : Workshop Setting Combo(', spawn)
+                self.assertIn('If(!Is Dummy Bot(Event Player) && Slot Of(Host Player)', spawn)
 
 
 if __name__ == '__main__':

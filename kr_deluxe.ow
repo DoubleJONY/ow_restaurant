@@ -773,7 +773,7 @@ rule("Global: Setting")
 			Default Visibility);
 		Create Effect(All Players(All Teams), Light Shaft, Color(Rose), Vector(214.447, True, 155.251), True, Visible To);
 		Create HUD Text(First Of(True), Null, Custom String(
-			"레스토랑(SPXXM) v261101\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
+			"레스토랑(SPXXM) v261106\r\ndiscord&recipes : ow-restaurant.com/ko"), Null, Right, -2, Null, Custom Color(Array(255, 140, 110, 255, 255, 38)[Global.stageMode[1]], Array(50, 255, 180, 225, 120, 38)[Global.stageMode[1]], Array(145, 180, 255, 120, 120, 65)[Global.stageMode[1]], 255), Null, String and Color, Default Visibility);
 		Create HUD Text(Global.difficulty != 4 ? First Of(True) : Null, Custom String(" ${0} ", Local Player.dollar), Custom String(
 			"Score : {0}{2}\r\n내 직책 : {1}", Global.totalScore[False],
 			Global.permissionText[False][Local Player.permission], Custom String("\r\nHigh Score : {0}({1})", Global.totalScore[Global.stageMode[1]][True], Global.totalScore[Global.stageMode[1]][False])), Custom String("{0}\r\n{1}\r\n{2}", Custom String("{0}\r\n{1}",
@@ -886,15 +886,13 @@ rule("Global: Setting")
 		End;
 		Start Rule(rotatingFridge, Do Nothing);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} v261101\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
+		Custom String("{0} v261106\r\n\r\n{1}레스토랑 테마 통합\r\n  레스토랑 모듬회밥에 카페&디저트 와 쿡제요리가 통합되었습니다\r\n{2}", Icon String(Fire), Icon String(Plus),
 		Custom String("  테마는 게임 진입시와 연습모드에서 변경할 수 있습니다")),
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} 기능 수정\r\n\r\n{1}{2}", Icon String(Flag),
-			Custom String("헤드셰프는 다른 플레이어를 바라보고 {0}을 눌러 직책을 변경할 수 있습니다.\r\n{1}", Input Binding String(Button(Ability 2)),
-				Custom String("홀 서버: 냉장고, 도마, 보관함을 사용할 수 없습니다.\r\n{0}", Custom String("수습생: 물건을 집을 수 없습니다.\r\n\r\n"))),
-			Custom String("연습 모드에서는 플레이어를 바라보지 않고 {0}을 눌러 연습용 아이템을 소환할 수 있습니다.", Input Binding String(Button(Ability 2)))),
+		Custom String("{0} 버그 수정\r\n\r\n{1}", Icon String(Flag),
+			Custom String("서빙볼이 기본 직책 설정에 의해 서빙하지 못하는 오류 수정")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element.permission == 3),
@@ -971,9 +969,9 @@ rule("Player: Spawn")
 		Event Player.isController = False;
 		Wait Until(Has Spawned(Event Player), 9999);
 		Disable Nameplates(All Players(Team 1), All Players(Team 1));
-		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("설정"), Custom String(
+		Event Player.permission = Event Player == Host Player ? 3 : (Is Dummy Bot(Event Player) && Hero Of(Event Player) == Hero(Wrecking Ball)) ? 1 : Workshop Setting Combo(Custom String("설정"), Custom String(
 			"플레이어 기본 직책"), 0, Array(Custom String("요리사"), Custom String("홀 서버"), Custom String("수습생")), 4);
-		If(Slot Of(Host Player) == -1 && !Is True For Any(All Players(Team 1), Current Array Element.permission == 3));
+		If(!Is Dummy Bot(Event Player) && Slot Of(Host Player) == -1 && !Is True For Any(All Players(Team 1), Current Array Element.permission == 3));
 			Event Player.permission = 3;
 		End;
 		Set Status(Event Player, Null, Phased Out, 9999);

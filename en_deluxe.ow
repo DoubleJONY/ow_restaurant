@@ -900,10 +900,8 @@ rule("Global: Setting")
 		Vector(213.2373, 3, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(Red), Default Visibility);
 		Create In-World Text(Players Within Radius(Vector(206.991, 1, 188.239), 14, All Teams, Off),
-		Custom String("{0} Feature Updates\r\n\r\n{1}{2}", Icon String(Flag),
-			Custom String("Head chefs can look at another player and press {0} to change their role.\r\n{1}", Input Binding String(Button(Ability 2)),
-				Custom String("Waiting staff cannot use fridges, cutting boards, or storage.\r\n{0}", Custom String("Apprentices cannot pick up items.\r\n\r\n"))),
-			Custom String("In Practice Mode, press {0} while not looking at a player to spawn practice items.", Input Binding String(Button(Ability 2)))),
+		Custom String("{0} Bug Fixes\r\n\r\n{1}", Icon String(Flag),
+			Custom String("Fixed default role settings preventing Serving Ball from serving.")),
 		Vector(213.2373, 2, 178.7080), 1, Do Not Clip, Visible To Position String and Color,
 			Color(White), Default Visibility);
 		Create In-World Text(Filtered Array(Players Within Radius(Vector(217.370, 2.5, 172.520), 10, All Teams, Off), Current Array Element.permission == 3),
@@ -980,9 +978,9 @@ rule("Player: Spawn")
 		Event Player.isController = False;
 		Wait Until(Has Spawned(Event Player), 9999);
 		Disable Nameplates(All Players(Team 1), All Players(Team 1));
-		Event Player.permission = Event Player == Host Player ? 3 : Workshop Setting Combo(Custom String("Settings"), Custom String(
+		Event Player.permission = Event Player == Host Player ? 3 : (Is Dummy Bot(Event Player) && Hero Of(Event Player) == Hero(Wrecking Ball)) ? 1 : Workshop Setting Combo(Custom String("Settings"), Custom String(
 			"Default Player Role"), 0, Array(Custom String("Chef"), Custom String("Waiting Staff"), Custom String("Apprentice")), 4);
-		If(Slot Of(Host Player) == -1 && !Is True For Any(All Players(Team 1), Current Array Element.permission == 3));
+		If(!Is Dummy Bot(Event Player) && Slot Of(Host Player) == -1 && !Is True For Any(All Players(Team 1), Current Array Element.permission == 3));
 			Event Player.permission = 3;
 		End;
 		Set Status(Event Player, Null, Phased Out, 9999);
